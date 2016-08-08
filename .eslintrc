@@ -199,7 +199,7 @@
     "no-trailing-spaces": ["error", { "skipBlankLines": false }],
     "no-undef": ["error", { "typeof": true }],
     "no-undef-init": "error",
-    "no-undefined": "error",
+    "no-undefined": "warn",
     "no-underscore-dangle": "error",
     "no-unexpected-multiline": "error",
     "no-unmodified-loop-condition": "warn",
