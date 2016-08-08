@@ -1,0 +1,37 @@
+{
+  "name": "danielhieber.com",
+  "version": "1.0.0",
+  "description": "The academic homepage of Daniel W. Hieber, graduate student in linguistics at the University of California, Santa Barbara.",
+  "author": {
+    "name": "Daniel W. Hieber",
+    "email": "dhieber@umail.ucsb.edu",
+    "url": "http://danielhieber.com"
+  },
+  "homepage": "https://github.com/dwhieb/danielhieber.com#readme",
+  "keywords": [
+    "linguistics",
+    "typology",
+    "Chitimacha",
+    "Kisii",
+    "Ekegusii",
+    "Mixtec",
+    "Swahili",
+    "UCSB",
+    "University of California, Santa Barbara",
+    "language documentation",
+    "language revitalization"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwhieb/danielhieber.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwhieb/danielhieber.com.git"
+  },
+  "main": "index.js",
+  "scripts": {},
+  "engines": {
+    "node": ">=6.0"
+  }
+}
