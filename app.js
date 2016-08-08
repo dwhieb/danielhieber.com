@@ -3,6 +3,7 @@ const config = require('./lib/config');
 const express = require('express');
 const Handlebars = require('express-handlebars');
 const http = require('http');
+const IO = require('socket.io');
 const path = require('path');
 const middleware = require('./lib/middleware');
 const router = require('./lib/router');
@@ -22,7 +23,7 @@ app.set('view engine', '.hbs'); // use Handlebars for templating
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(middleware.logger);
 
-// routing
+// URL routing
 router(app);
 
 // generic error handlers
@@ -41,3 +42,9 @@ server.listen(config.port, () => {
   Node:     ${process.version}
   Env:      ${config.env}`);
 });
+
+// create web socket
+const io = IO(server, config.socketOpts);
+
+// socket routing
+socket(io);
