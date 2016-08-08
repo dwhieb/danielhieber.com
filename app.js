@@ -2,6 +2,7 @@
 const config = require('./lib/config');
 const express = require('express');
 const Handlebars = require('express-handlebars');
+const helmet = require('helmet');
 const http = require('http');
 const IO = require('socket.io');
 const path = require('path');
@@ -14,15 +15,15 @@ const app = express();
 const handlebars = Handlebars.create(config.hbsOptions);
 
 // app settings
-app.disable('x-powered-by'); // hide server information in the response
 app.enable('trust proxy'); // trust the Azure proxy server
 app.engine('.hbs', handlebars.engine); // declare Handlebars engine
 app.set('port', config.port); // set port for the app (3000 on localhost)
 app.set('view engine', '.hbs'); // use Handlebars for templating
 
 // middleware
-app.use(express.static(path.join(__dirname, '/public')));
-app.use(middleware.logUrl);
+app.use(helmet()); // basic security features
+app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
+app.use(middleware.logUrl); // URL logging for debugging
 
 // URL routing
 router(app);
@@ -45,7 +46,7 @@ server.listen(config.port, () => {
 });
 
 // create web socket
-const io = IO(server, config.socketOpts);
+const io = IO(server, config.socketOpts); // eslint-disable-line new-cap
 
 // socket routing
 socket(io);
