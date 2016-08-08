@@ -21,7 +21,7 @@ app.set('view engine', '.hbs'); // use Handlebars for templating
 
 // middleware
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(middleware.logger);
+app.use(middleware.logUrl);
 
 // URL routing
 router(app);
