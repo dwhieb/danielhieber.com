@@ -7,6 +7,7 @@ const IO = require('socket.io');
 const path = require('path');
 const middleware = require('./lib/middleware');
 const router = require('./lib/router');
+const socket = require('./lib/socket');
 
 // initialize Express & Handlebars
 const app = express();
