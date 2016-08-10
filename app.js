@@ -4,6 +4,7 @@ const Handlebars = require('express-handlebars');
 const helmet = require('helmet');
 const http = require('http');
 const IO = require('socket.io');
+const meta = require('./package.json');
 const path = require('path');
 const middleware = require('./lib/middleware');
 const router = require('./lib/router');
@@ -18,6 +19,7 @@ app.enable('trust proxy'); // trust the Azure proxy server
 app.engine('.hbs', handlebars.engine); // declare Handlebars engine
 app.set('port', config.port); // set port for the app (3000 on localhost)
 app.set('view engine', '.hbs'); // use Handlebars for templating
+app.locals.meta = meta; // makes package.json data available for templating
 
 // middleware
 app.use(helmet()); // basic security features
@@ -27,10 +29,6 @@ app.use(middleware.injectVariables); // inject template variables
 
 // URL routing
 router(app);
-
-// generic error handlers
-app.use(middleware.error404);
-app.use(middleware.error500);
 
 // create server
 const server = http.createServer(app);
