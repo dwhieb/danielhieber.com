@@ -24,8 +24,7 @@ app.locals.meta = meta; // makes package.json data available for templating
 // middleware
 app.use(helmet()); // basic security features
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
-app.use(middleware.logUrl); // URL logging for debugging
-app.use(middleware.injectVariables); // inject template variables
+app.use(middleware); // custom middleware (logs URL, injects variables, etc.)
 
 // URL routing
 router(app);
