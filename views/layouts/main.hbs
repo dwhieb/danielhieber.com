@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+
+  <meta charset=utf-8>
+  <title>Daniel W. Hieber | {{pageTitle}}</title>
+  <meta name=author content='{{meta.author.name}}'>
+  <meta name=description content='{{meta.description}}'>
+  <meta name=keywords content='{{meta.keywordsString}}'>
+  <meta name=viewport content='width=device-width'>
+
+  {{{sections.style}}}
+  {{{sections.partialStyle}}}
+
+</head>
+
+<body>
+
+  {{!-- body content should always be wrapped in a <main id=pageName></main> tag --}}
+  {{{body}}}
+
+  {{{sections.script}}}
+
+</body>
+
+</html>

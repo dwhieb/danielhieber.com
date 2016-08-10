@@ -23,6 +23,7 @@ app.set('view engine', '.hbs'); // use Handlebars for templating
 app.use(helmet()); // basic security features
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
 app.use(middleware.logUrl); // URL logging for debugging
+app.use(middleware.injectVariables); // inject template variables
 
 // URL routing
 router(app);
