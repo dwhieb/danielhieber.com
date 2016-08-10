@@ -30,7 +30,9 @@
     "url": "git+https://github.com/dwhieb/danielhieber.com.git"
   },
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=test/jasmine.json"
+  },
   "engines": {
     "node": ">=6.0"
   },
@@ -39,5 +41,10 @@
     "express-handlebars": "^3.0.0",
     "helmet": "^2.1.2",
     "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "supertest": "^2.0.0",
+    "supertest-as-promised": "^3.2.0"
   }
 }

@@ -1,4 +1,3 @@
-// node modules
 const config = require('./lib/config');
 const express = require('express');
 const Handlebars = require('express-handlebars');
@@ -50,3 +49,6 @@ const io = IO(server, config.socketOpts); // eslint-disable-line new-cap
 
 // socket routing
 socket(io);
+
+// export app for route testing
+module.exports = app;
