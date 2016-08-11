@@ -1,0 +1,20 @@
+{
+
+  "env": {
+    "NODE_ENV": "localhost"
+  },
+
+  "events": {
+    "restart": "node build/less.js"
+  },
+
+  "ext": "hbs js json less",
+
+  "ignore": [
+    "public/css/*.css",
+    "public/js/*.js",
+    "node_modules/**/node_modules",
+    ".git"
+  ]
+
+}

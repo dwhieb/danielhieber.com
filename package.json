@@ -1,0 +1,51 @@
+{
+  "name": "danielhieber.com",
+  "version": "1.0.0",
+  "description": "The academic homepage of Daniel W. Hieber, graduate student in linguistics at the University of California, Santa Barbara.",
+  "author": {
+    "name": "Daniel W. Hieber",
+    "email": "dhieber@umail.ucsb.edu",
+    "url": "http://danielhieber.com"
+  },
+  "homepage": "https://github.com/dwhieb/danielhieber.com#readme",
+  "keywords": [
+    "linguistics",
+    "typology",
+    "Chitimacha",
+    "Kisii",
+    "Ekegusii",
+    "Mixtec",
+    "Swahili",
+    "UCSB",
+    "University of California Santa Barbara",
+    "language documentation",
+    "language revitalization"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwhieb/danielhieber.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwhieb/danielhieber.com.git"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=test/jasmine.json"
+  },
+  "engines": {
+    "node": ">=6.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "helmet": "^2.1.2",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "less": "^2.7.1",
+    "supertest": "^2.0.0",
+    "supertest-as-promised": "^3.2.0"
+  }
+}
