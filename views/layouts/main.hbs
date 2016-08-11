@@ -10,7 +10,7 @@
   <meta name=keywords content='{{meta.keywordsString}}'>
   <meta name=viewport content='width=device-width'>
 
-  <link rel=stylesheet href={{cdn}}/css/reset.css type=text/css charset=utf-8>
+  <link rel=stylesheet href=/css/reset.css type=text/css charset=utf-8>
 
   {{{sections.style}}}
   {{{sections.partialStyle}}}
@@ -18,6 +18,39 @@
 </head>
 
 <body>
+
+  <a href=/>
+    <header id=header>
+
+        <h1 class=rollover>
+          <span lang=eng>Daniel W. Hieber</span>
+          <span lang=ipa>dænjəl hibə˞</span>
+        </h1>
+
+        <h2>Graduate student in linguistics at the University of California, Santa Barbara</h2>
+
+        <!-- inline styles needed for gallery scripts to work -->
+        <img id=gallery src='' style='opacity: 0.2;'>
+
+    </header>
+  </a>
+
+  <nav id=nav>
+
+    <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+
+    <ul>
+      {{#each nav}}
+      <li>
+        <a href={{path}}>
+          <span lang=eng>{{eng}}</span>
+          <span lang=ipa>{{ipa}}</span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+
+  </nav>
 
   {{!-- body content should always be wrapped in a <main id=pageName></main> tag --}}
   {{{body}}}
