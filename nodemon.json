@@ -1,0 +1,16 @@
+{
+
+  "env": {
+    "NODE_ENV": "localhost"
+  },
+
+  "ext": "hbs js json less",
+
+  "ignore": [
+    "public/css/*.css",
+    "public/js/*.js",
+    "node_modules/**/node_modules",
+    ".git"
+  ]
+
+}
