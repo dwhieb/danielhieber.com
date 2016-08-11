@@ -91,7 +91,6 @@ describe('routes', function routes() {
   it('GET /home', function home(done) {
     req.get('/home')
     .expect(200)
-    .expect('Location', '/')
     .end((err, res) => {
       if (err) fail(err);
       // TODO: check for page title
@@ -143,7 +142,6 @@ describe('routes', function routes() {
   it('GET /publications', function pubs(done) {
     req.get('/publications')
     .expect(200)
-    .expect('Location', '/cv')
     .end((err, res) => {
       if (err) fail(err);
       // TODO: check for page title
@@ -151,7 +149,7 @@ describe('routes', function routes() {
     });
   });
 
-  it('GET /publications/1', function pub(done) {
+  xit('GET /publications/1', function pub(done) {
     req.get('/publications/1')
     .expect(200)
     .end((err, res) => {
@@ -161,7 +159,7 @@ describe('routes', function routes() {
     });
   });
 
-  it('GET /publications/1/pdf', function pdf(done) {
+  xit('GET /publications/1/pdf', function pdf(done) {
     req.get('/publications/1/pdf')
     .expect(200)
     .expect('Content-Type', 'application/pdf')
@@ -172,7 +170,7 @@ describe('routes', function routes() {
   });
 
   // test for slides written in PowerPoint
-  it('GET /publications/1/slides', function pptSlides(done) {
+  xit('GET /publications/1/slides', function pptSlides(done) {
     const pptx = 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
 
     req.get('/publications/1/slides')
@@ -216,20 +214,9 @@ describe('routes', function routes() {
     });
   });
 
-  it('GET /test', function test(done) {
-    req.get('/test')
-    .expect(200)
-    .end((err, res) => {
-      if (err) fail(err);
-      // TODO: check for page title
-      done();
-    });
-  });
-
   it('GET /vitae', function vitae(done) {
     req.get('/vitae')
     .expect(200)
-    .expect('Location', '/cv')
     .end((err, res) => {
       if (err) fail(err);
       // TODO: check for page title
