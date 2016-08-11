@@ -26,3 +26,17 @@
   font-variant: normal;
   font-weight: bold;
 }
+@font-face {
+  font-family: 'Gentium Plus';
+  src: url('/fonts/GentiumPlus-R.woff') format('woff'), url('/fonts/GentiumPlus-R.ttf') format('ttf');
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Gentium Plus';
+  src: url('/fonts/GentiumPlus-I.woff') format('woff'), url('/fonts/GentiumPlus-I.ttf') format('ttf');
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+}
