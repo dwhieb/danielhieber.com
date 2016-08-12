@@ -1,5 +1,75 @@
+.boldBlue {
+  color: #3180E1;
+  font-weight: bold;
+}
+.boldPink {
+  color: #E13180;
+  font-weight: bold;
+}
+.bulleted {
+  list-style: disc outside none;
+  margin-left: 2rem;
+}
+.bulleted li {
+  display: list-item;
+  padding-bottom: 0.25rem;
+}
+dfn {
+  font-style: italic;
+}
+.doc {
+  display: block;
+}
+.doc p > a:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.doc p > a:visited {
+  color: #3180E1;
+  font-weight: bold;
+}
+.doc p > a:hover {
+  border-bottom: 2px solid #3180E1;
+}
+.doc p > a:active {
+  color: #3180E1;
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+.hanging {
+  text-indent: -1rem;
+  margin-left: 1rem;
+}
+.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+i {
+  font-style: italic;
+}
 [lang=ipa] {
   font-family: 'Gentium Plus';
+  line-height: 150%;
+  vertical-align: top;
+}
+.link:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.link:visited {
+  color: #3180E1;
+  font-weight: bold;
+}
+.link:hover {
+  border-bottom: 2px solid #3180E1;
+}
+.link:active {
+  color: #3180E1;
+  font-weight: bold;
 }
 .rollover > span[lang=ipa] {
   display: none;
@@ -9,4 +79,68 @@
 }
 .rollover:hover > span[lang=eng] {
   display: none;
+}
+strong {
+  color: #3180E1;
+  font-weight: bold;
+}
+#header {
+  height: 15rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+#header > a {
+  align-items: center;
+  display: flex;
+}
+#header h1 {
+  font-size: 3rem;
+  text-align: center;
+  z-index: 1;
+}
+#header h2 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+#header #gallery {
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  transform: translateY(-25%);
+  transition: opacity 0.5s;
+}
+#nav {
+  background-color: black;
+  color: white;
+}
+#nav #menuButton {
+  cursor: pointer;
+  height: 2rem;
+}
+#nav li {
+  align-items: center;
+}
+#nav li > a {
+  border-bottom: 1px solid black;
+  font-size: 1.25rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+#nav li > a > span {
+  white-space: nowrap;
+}
+.desktop main {
+  margin-right: 0.75rem;
+}
+.desktop #menuButton {
+  display: none;
+}
+.desktop #nav > ul {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
