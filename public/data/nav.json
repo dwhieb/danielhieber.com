@@ -1,0 +1,38 @@
+[
+  {
+    "eng": "Home",
+    "ipa": "/ hoʊm /",
+    "pageTitle": "Home",
+    "path": "/"
+  },
+  {
+    "eng": "Blog",
+    "ipa": "/ blɑg /",
+    "pageTitle": "Blog",
+    "path": "/blog"
+  },
+  {
+    "eng": "Research",
+    "ipa": "/ ɹisɜ˞tʃ /",
+    "pageTitle": "Research",
+    "path": "/research"
+  },
+  {
+    "eng": "Curriculum Vitae",
+    "ipa": "/ kə˞ɪkjələm vitaᶦ /",
+    "pageTitle": "CV",
+    "path": "/cv"
+  },
+  {
+    "eng": "Languages",
+    "ipa": "/ leᶦŋgwɪdʒɪz /",
+    "pageTitle": "Languages",
+    "path": "/languages"
+  },
+  {
+    "eng": "Teaching",
+    "ipa": "/ titʃɪŋ /",
+    "pageTitle": "Teaching",
+    "path": "/teaching"
+  }
+]

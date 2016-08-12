@@ -10,7 +10,9 @@
   <meta name=keywords content='{{meta.keywordsString}}'>
   <meta name=viewport content='width=device-width'>
 
-  <link rel=stylesheet href={{cdn}}/css/reset.css type=text/css charset=utf-8>
+  <link rel=stylesheet href=/css/fonts.css type=text/css charset=utf-8>
+  <link rel=stylesheet href=/css/reset.css type=text/css charset=utf-8>
+  <link rel=stylesheet href=/css/main.css type=text/css charset=utf-8>
 
   {{{sections.style}}}
   {{{sections.partialStyle}}}
@@ -18,6 +20,38 @@
 </head>
 
 <body>
+
+  <header id=header>
+    <a href=/>
+
+      <h1 class=rollover>
+        <span lang=eng>Daniel W. Hieber</span>
+        <span lang=ipa>/dænjəl hibə˞/</span>
+      </h1>
+
+      <h2>Graduate student in linguistics at the University of California, Santa Barbara</h2>
+
+      <img id=gallery src='/img/gallery/cypress_trees.jpg'>
+
+    </a>
+  </header>
+
+  <nav id=nav>
+
+    <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+
+    <ul>
+      {{#each nav}}
+      <li>
+        <a class=rollover href={{path}}>
+          <span lang=eng>{{eng}}</span>
+          <span lang=ipa>{{ipa}}</span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+
+  </nav>
 
   {{!-- body content should always be wrapped in a <main id=pageName></main> tag --}}
   {{{body}}}

@@ -1,0 +1,153 @@
+// CLASSES
+@blue: #3180E1;
+@pink: #E13180;
+
+.boldBlue {
+  color: @blue;
+  font-weight: bold;
+}
+
+.boldPink {
+  color: @pink;
+  font-weight: bold;
+}
+
+.bulleted {
+  list-style: disc outside none;
+  margin-left: 2rem;
+  li {
+    display: list-item;
+    padding-bottom: 0.25rem;
+  }
+}
+
+dfn { font-style: italic; }
+
+.doc {
+  display: block;
+  p > a { .link; }
+}
+
+em { font-style: italic; }
+
+.hanging {
+  text-indent: -1rem;
+  margin-left: 1rem;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+// inline citation form of data
+i {
+  font-style: italic;
+}
+
+[lang=ipa] {
+  font-family: 'Gentium Plus';
+  line-height: 150%; // makes height proportional to Fira
+  vertical-align: top; // prevents line from expanding
+}
+
+.link {
+  &:link { .boldBlue; border-bottom: 2px solid white; }
+  &:visited { .boldBlue; }
+  &:hover { border-bottom: 2px solid @blue; }
+  &:active { .boldBlue; }
+}
+
+.rollover {
+  > span[lang=ipa] {
+    display: none;
+  }
+
+  &:hover {
+    > span[lang=ipa] { display: flex; }
+    > span[lang=eng] { display: none; }
+  }
+}
+
+strong { .boldBlue; }
+
+
+// ELEMENTS
+#header {
+  height: 15rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+
+  > a {
+    align-items: center;
+    display: flex;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    z-index: 1;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  #gallery {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    transform: translateY(-25%);
+    transition: opacity 0.5s;
+  }
+}
+
+#nav {
+  background-color: black;
+  color: white;
+
+  #menuButton {
+    cursor: pointer;
+    height: 2rem;
+  }
+
+  li {
+    align-items: center;
+
+    > a {
+      border-bottom: 1px solid black;
+      font-size: 1.25rem;
+      margin: 0.5rem;
+      text-align: center;
+
+      > span {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// mobile styling
+.mobile {}
+
+// desktop styling
+.desktop {
+
+  main {
+    margin-right: 0.75rem;
+  }
+
+  #menuButton { display: none; }
+
+  #nav > ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+}
