@@ -2,6 +2,11 @@
   font-family: 'Gentium Plus';
 }
 
-.rollover > span:[lang=ipa] {
+.rollover > span[lang=ipa] {
   display: none;
+}
+
+.rollover:hover {
+  > span[lang=ipa] { display: flex; }
+  > span[lang=eng] { display: none; }
 }

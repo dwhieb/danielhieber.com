@@ -4,3 +4,9 @@
 .rollover > span[lang=ipa] {
   display: none;
 }
+.rollover:hover > span[lang=ipa] {
+  display: flex;
+}
+.rollover:hover > span[lang=eng] {
+  display: none;
+}
