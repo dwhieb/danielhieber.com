@@ -37,12 +37,14 @@
     "node": ">=6.0"
   },
   "dependencies": {
+    "applicationinsights": "^0.15.18",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "helmet": "^2.1.2",
     "socket.io": "^1.4.8"
   },
   "devDependencies": {
+    "documentdb": "^1.9.0",
     "jasmine": "^2.4.1",
     "less": "^2.7.1",
     "supertest": "^2.0.0",
