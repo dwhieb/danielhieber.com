@@ -1,4 +1,5 @@
 const config = require('./lib/config');
+const appInsights = require('applicationinsights');
 const express = require('express');
 const Handlebars = require('express-handlebars');
 const helmet = require('helmet');
@@ -13,6 +14,9 @@ const socket = require('./lib/socket');
 // initialize Express & Handlebars
 const app = express();
 const handlebars = Handlebars.create(config.hbsOptions);
+
+// Azure application insights
+appInsights.setup().start();
 
 // app settings
 app.enable('trust proxy'); // trust the Azure proxy server
