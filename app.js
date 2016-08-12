@@ -16,7 +16,7 @@ const app = express();
 const handlebars = Handlebars.create(config.hbsOptions);
 
 // Azure application insights
-appInsights.setup().start();
+if (config.env === 'production') appInsights.setup().start();
 
 // app settings
 app.enable('trust proxy'); // trust the Azure proxy server
