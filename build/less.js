@@ -4,8 +4,8 @@ const path = require('path');
 const runGenerator = require('../lib/utilities').runGenerator;
 
 // converts a string of LESS data to CSS
-const convertLess = lessData => new Promise(resolve => {
-  less.render(lessData).then(output => resolve(output.css));
+const convertLess = lessData => new Promise((resolve, reject) => {
+  less.render(lessData).then(output => resolve(output.css)).catch(reject);
 });
 
 // read the LESS data from the file
@@ -29,10 +29,15 @@ const saveCss = (cssFilename, cssData) => new Promise((resolve, reject) => {
 // completely converts a single file and saves the new .css file to /public/css
 const convertFile = filename => new Promise((resolve, reject) => {
   runGenerator(function* convert(filename) {
-    const lessData = yield readFile(filename);
-    const cssFilename = filename.replace('.less', '.css');
-    const cssData = yield convertLess(lessData);
-    yield saveCss(cssFilename, cssData);
+    try {
+      const lessData = yield readFile(filename);
+      const cssFilename = filename.replace('.less', '.css');
+      const cssData = yield convertLess(lessData);
+      yield saveCss(cssFilename, cssData);
+    } catch (err) {
+      console.error(err, err.stack);
+      throw new Error('Problem running generator function.');
+    }
     resolve();
   }, [filename]).catch(reject);
 });

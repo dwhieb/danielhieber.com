@@ -1,3 +1,6 @@
 [lang=ipa] {
   font-family: 'Gentium Plus';
 }
+.rollover > span[lang=ipa] {
+  display: none;
+}
