@@ -151,7 +151,7 @@ main {
 
   #menuButton {
     cursor: pointer;
-    height: 2rem;
+    height: 3rem;
   }
 
   ul {
@@ -177,12 +177,12 @@ main {
 
   #gallery { transform: none; }
 
-  #menuToggle:checked ~ #nav ul { width: 10.5rem; }
+  #menuToggle:checked ~ #nav ul { width: 15rem; }
 
   #menuToggle:checked ~ #header,
   #menuToggle:checked ~ #nav,
   #menuToggle:checked ~ main
-  { transform: translateX(10.5rem); }
+  { transform: translateX(15rem); }
 
   #nav {
     align-items: flex-start;
@@ -190,9 +190,9 @@ main {
 
     ul {
       background-color: black;
-      height: 100vh;
-      left: -10.5rem;
-      padding-top: 1.5rem;
+      height: 500vh;
+      left: -15rem;
+      padding-top: 3rem;
       position: fixed;
       top: 0;
       transform: none;
@@ -203,6 +203,7 @@ main {
       align-items: flex-end;
 
       > span {
+        font-size: 1.5em;
         left: auto;
         right: 0;
         transform: none;
