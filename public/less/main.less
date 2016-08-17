@@ -25,7 +25,17 @@ dfn { font-style: italic; }
 
 .doc {
   display: block;
-  p > a { .link; }
+
+  img {
+    display: block;
+  }
+
+  p {
+    display: block;
+    padding-bottom: 1rem;
+
+    a { .link; }
+  }
 }
 
 em { font-style: italic; }
@@ -87,6 +97,10 @@ strong { .boldBlue; }
   transition: transform 0.5s;
 }
 
+main {
+  padding: 1.5rem;
+}
+
 #header {
   height: 15rem;
   justify-content: center;
@@ -112,16 +126,16 @@ strong { .boldBlue; }
 
 }
 
-  #gallery {
-    left: 0;
-    min-height: 100%;
-    min-width: 100%;
-    opacity: 0.2;
-    position: absolute;
-    top: 0;
-    transform: translateY(-25%);
-    transition: opacity 0.5s;
-  }
+#gallery {
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  transform: translateY(-25%);
+  transition: opacity 0.5s;
+}
 
 #menuToggle { display: none; }
 

@@ -1,0 +1,29 @@
+#home {
+  align-items: center;
+}
+#home p {
+  font-size: 150%;
+}
+#singing {
+  padding: 0.5rem 0rem 1.5rem 0rem;
+}
+@media screen and (max-width: 699px) {
+  #gradSlam {
+    height: 15rem;
+    margin: 0.5rem auto 1.5rem auto;
+  }
+}
+@media screen and (min-width: 700px) {
+  #intro {
+    width: 70%;
+  }
+  #gradSlam {
+    float: left;
+    margin: 0.5rem 1.5rem 1.5rem 0rem;
+    width: 50%;
+  }
+  #singing {
+    margin: auto;
+    width: 75%;
+  }
+}

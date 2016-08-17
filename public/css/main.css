@@ -20,19 +20,26 @@ dfn {
 .doc {
   display: block;
 }
-.doc p > a:link {
+.doc img {
+  display: block;
+}
+.doc p {
+  display: block;
+  padding-bottom: 1rem;
+}
+.doc p a:link {
   color: #3180E1;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-.doc p > a:visited {
+.doc p a:visited {
   color: #3180E1;
   font-weight: bold;
 }
-.doc p > a:hover {
+.doc p a:hover {
   border-bottom: 2px solid #3180E1;
 }
-.doc p > a:active {
+.doc p a:active {
   color: #3180E1;
   font-weight: bold;
 }
@@ -99,6 +106,9 @@ strong {
 #nav,
 main {
   transition: transform 0.5s;
+}
+main {
+  padding: 1.5rem;
 }
 #header {
   height: 15rem;
