@@ -79,8 +79,8 @@ i {
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  transform: translateX(-50%);
   visibility: hidden;
 }
 .rollover:hover > span[lang=ipa] {
@@ -92,6 +92,11 @@ i {
 strong {
   color: #3180E1;
   font-weight: bold;
+}
+#header,
+#nav,
+main {
+  transition: transform 0.5s;
 }
 #header {
   height: 15rem;
@@ -123,6 +128,9 @@ strong {
   transform: translateY(-25%);
   transition: opacity 0.5s;
 }
+#menuToggle {
+  display: none;
+}
 #nav {
   background-color: black;
   color: white;
@@ -131,21 +139,57 @@ strong {
   cursor: pointer;
   height: 2rem;
 }
-#nav li {
-  align-items: center;
+#nav ul {
+  transition: width 0.5s;
 }
 #nav li > a {
   border-bottom: 1px solid black;
+  display: flex;
   font-size: 1.25rem;
   margin: 0.5rem;
-  text-align: center;
 }
 #nav li > a > span {
   white-space: nowrap;
 }
 @media screen and (max-width: 699px) {
+  #header {
+    order: 2;
+  }
   #gallery {
     transform: none;
+  }
+  #menuToggle:checked ~ #nav ul {
+    width: 10.5rem;
+  }
+  #menuToggle:checked ~ #header,
+  #menuToggle:checked ~ #nav,
+  #menuToggle:checked ~ main {
+    transform: translateX(10.5rem);
+  }
+  #nav {
+    align-items: flex-start;
+    order: 1;
+  }
+  #nav ul {
+    background-color: black;
+    height: 100vh;
+    left: -10.5rem;
+    padding-top: 1.5rem;
+    position: fixed;
+    top: 0;
+    transform: none;
+    width: 0;
+  }
+  #nav .rollover {
+    align-items: flex-end;
+  }
+  #nav .rollover > span {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+  main {
+    order: 3;
   }
 }
 @media screen and (min-width: 700px) {

@@ -33,6 +33,8 @@
 
 <body>
 
+  <input id=menuToggle type=checkbox name=menuButton>
+
   <header id=header>
     <a href=/>
 
@@ -50,7 +52,9 @@
 
   <nav id=nav>
 
-    <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+    <label for=menuToggle>
+      <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+    </label>
 
     <ul>
       {{#each nav}}
