@@ -48,6 +48,7 @@ i {
 [lang=ipa] {
   font-family: 'Gentium Plus';
   vertical-align: top; // prevents line from expanding
+  white-space: nowrap;
 }
 
 .link {
@@ -58,13 +59,21 @@ i {
 }
 
 .rollover {
+  position: relative;
+
   > span[lang=ipa] {
-    display: none;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
   }
 
   &:hover {
-    > span[lang=ipa] { display: flex; }
-    > span[lang=eng] { display: none; }
+    > span[lang=ipa] { visibility: visible; }
+    > span[lang=eng] { visibility: hidden; }
   }
 }
 
@@ -91,8 +100,11 @@ strong { .boldBlue; }
 
   h2 {
     font-size: 1.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
   }
+
+}
 
   #gallery {
     left: 0;
@@ -104,7 +116,6 @@ strong { .boldBlue; }
     transform: translateY(-25%);
     transition: opacity 0.5s;
   }
-}
 
 #nav {
   background-color: black;
@@ -132,10 +143,12 @@ strong { .boldBlue; }
 }
 
 // mobile styling
-.mobile {}
+@media screen and (max-width: 699px) {
+  #gallery { transform: none; }
+}
 
 // desktop styling
-.desktop {
+@media screen and (min-width: 700px) {
 
   main {
     margin-right: 0.75rem;

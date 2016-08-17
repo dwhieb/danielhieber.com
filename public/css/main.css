@@ -53,6 +53,7 @@ i {
 [lang=ipa] {
   font-family: 'Gentium Plus';
   vertical-align: top;
+  white-space: nowrap;
 }
 .link:link {
   color: #3180E1;
@@ -70,14 +71,23 @@ i {
   color: #3180E1;
   font-weight: bold;
 }
+.rollover {
+  position: relative;
+}
 .rollover > span[lang=ipa] {
-  display: none;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
 }
 .rollover:hover > span[lang=ipa] {
-  display: flex;
+  visibility: visible;
 }
 .rollover:hover > span[lang=eng] {
-  display: none;
+  visibility: hidden;
 }
 strong {
   color: #3180E1;
@@ -100,9 +110,10 @@ strong {
 }
 #header h2 {
   font-size: 1.5rem;
+  padding: 1rem 1.5rem;
   text-align: center;
 }
-#header #gallery {
+#gallery {
   left: 0;
   min-height: 100%;
   min-width: 100%;
@@ -132,14 +143,21 @@ strong {
 #nav li > a > span {
   white-space: nowrap;
 }
-.desktop main {
-  margin-right: 0.75rem;
+@media screen and (max-width: 699px) {
+  #gallery {
+    transform: none;
+  }
 }
-.desktop #menuButton {
-  display: none;
-}
-.desktop #nav > ul {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+@media screen and (min-width: 700px) {
+  main {
+    margin-right: 0.75rem;
+  }
+  #menuButton {
+    display: none;
+  }
+  #nav > ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
