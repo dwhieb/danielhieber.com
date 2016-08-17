@@ -1,6 +1,7 @@
 // CLASSES
 @blue: #3180E1;
 @pink: #E13180;
+@purple: #4E3CE4;
 
 .boldBlue {
   color: @blue;
@@ -9,6 +10,11 @@
 
 .boldPink {
   color: @pink;
+  font-weight: bold;
+}
+
+.boldPurple {
+  color: @purple;
   font-weight: bold;
 }
 
@@ -63,7 +69,7 @@ i {
 
 .link {
   &:link { .boldBlue; border-bottom: 2px solid white; }
-  &:visited { .boldBlue; }
+  &:visited { .boldBlue; border-bottom: 2px solid white; }
   &:hover { border-bottom: 2px solid @blue; }
   &:active { .boldBlue; }
 }

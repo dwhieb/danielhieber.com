@@ -1,8 +1,59 @@
+.link:link {
+  color: #E13180;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.link:visited {
+  color: #E13180;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.link:hover {
+  border-bottom: 2px solid #E13180;
+}
+.link:active {
+  color: #E13180;
+  font-weight: bold;
+}
 #home {
   align-items: center;
 }
 #home p {
   font-size: 150%;
+}
+#home a:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#home a:visited {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#home a:hover {
+  border-bottom: 2px solid #3180E1;
+}
+#home a:active {
+  color: #3180E1;
+  font-weight: bold;
+}
+#home a:link {
+  color: #E13180;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#home a:visited {
+  color: #E13180;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#home a:hover {
+  border-bottom: 2px solid #E13180;
+}
+#home a:active {
+  color: #E13180;
+  font-weight: bold;
 }
 #singing {
   padding: 0.5rem 0rem 1.5rem 0rem;
