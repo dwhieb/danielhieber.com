@@ -47,8 +47,8 @@ i {
 
 [lang=ipa] {
   font-family: 'Gentium Plus';
-  line-height: 150%; // makes height proportional to Fira
   vertical-align: top; // prevents line from expanding
+  white-space: nowrap;
 }
 
 .link {
@@ -59,20 +59,34 @@ i {
 }
 
 .rollover {
+  position: relative;
+
   > span[lang=ipa] {
-    display: none;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    visibility: hidden;
   }
 
-  &:hover {
-    > span[lang=ipa] { display: flex; }
-    > span[lang=eng] { display: none; }
-  }
+}
+
+.rollover:hover,
+#nav > ul > li.selected > .rollover {
+  > span[lang=ipa] { visibility: visible; }
+  > span[lang=eng] { visibility: hidden; }
 }
 
 strong { .boldBlue; }
 
 
 // ELEMENTS
+#header, #nav, main {
+  transition: transform 0.5s;
+}
+
 #header {
   height: 15rem;
   justify-content: center;
@@ -92,8 +106,11 @@ strong { .boldBlue; }
 
   h2 {
     font-size: 1.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
   }
+
+}
 
   #gallery {
     left: 0;
@@ -105,7 +122,8 @@ strong { .boldBlue; }
     transform: translateY(-25%);
     transition: opacity 0.5s;
   }
-}
+
+#menuToggle { display: none; }
 
 #nav {
   background-color: black;
@@ -116,27 +134,69 @@ strong { .boldBlue; }
     height: 2rem;
   }
 
-  li {
-    align-items: center;
+  ul {
+    transition: width 0.5s;
+  }
 
-    > a {
-      border-bottom: 1px solid black;
-      font-size: 1.25rem;
-      margin: 0.5rem;
-      text-align: center;
+  li > a {
+    border-bottom: 1px solid black;
+    display: flex;
+    font-size: 1.25rem;
+    margin: 0.5rem;
 
-      > span {
-        white-space: nowrap;
-      }
+    > span {
+      white-space: nowrap;
     }
   }
 }
 
 // mobile styling
-.mobile {}
+@media screen and (max-width: 699px) {
+
+  #header { order: 2; }
+
+  #gallery { transform: none; }
+
+  #menuToggle:checked ~ #nav ul { width: 10.5rem; }
+
+  #menuToggle:checked ~ #header,
+  #menuToggle:checked ~ #nav,
+  #menuToggle:checked ~ main
+  { transform: translateX(10.5rem); }
+
+  #nav {
+    align-items: flex-start;
+    order: 1;
+
+    ul {
+      background-color: black;
+      height: 100vh;
+      left: -10.5rem;
+      padding-top: 1.5rem;
+      position: fixed;
+      top: 0;
+      transform: none;
+      width: 0;
+    }
+
+    .rollover {
+      align-items: flex-end;
+
+      > span {
+        left: auto;
+        right: 0;
+        transform: none;
+      }
+    }
+
+  }
+
+  main { order: 3; }
+
+}
 
 // desktop styling
-.desktop {
+@media screen and (min-width: 700px) {
 
   main {
     margin-right: 0.75rem;

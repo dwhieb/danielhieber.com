@@ -52,8 +52,8 @@ i {
 }
 [lang=ipa] {
   font-family: 'Gentium Plus';
-  line-height: 150%;
   vertical-align: top;
+  white-space: nowrap;
 }
 .link:link {
   color: #3180E1;
@@ -71,18 +71,34 @@ i {
   color: #3180E1;
   font-weight: bold;
 }
+.rollover {
+  position: relative;
+}
 .rollover > span[lang=ipa] {
-  display: none;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  visibility: hidden;
 }
-.rollover:hover > span[lang=ipa] {
-  display: flex;
+.rollover:hover > span[lang=ipa],
+#nav > ul > li.selected > .rollover > span[lang=ipa] {
+  visibility: visible;
 }
-.rollover:hover > span[lang=eng] {
-  display: none;
+.rollover:hover > span[lang=eng],
+#nav > ul > li.selected > .rollover > span[lang=eng] {
+  visibility: hidden;
 }
 strong {
   color: #3180E1;
   font-weight: bold;
+}
+#header,
+#nav,
+main {
+  transition: transform 0.5s;
 }
 #header {
   height: 15rem;
@@ -101,9 +117,10 @@ strong {
 }
 #header h2 {
   font-size: 1.5rem;
+  padding: 1rem 1.5rem;
   text-align: center;
 }
-#header #gallery {
+#gallery {
   left: 0;
   min-height: 100%;
   min-width: 100%;
@@ -113,6 +130,9 @@ strong {
   transform: translateY(-25%);
   transition: opacity 0.5s;
 }
+#menuToggle {
+  display: none;
+}
 #nav {
   background-color: black;
   color: white;
@@ -121,26 +141,69 @@ strong {
   cursor: pointer;
   height: 2rem;
 }
-#nav li {
-  align-items: center;
+#nav ul {
+  transition: width 0.5s;
 }
 #nav li > a {
   border-bottom: 1px solid black;
+  display: flex;
   font-size: 1.25rem;
   margin: 0.5rem;
-  text-align: center;
 }
 #nav li > a > span {
   white-space: nowrap;
 }
-.desktop main {
-  margin-right: 0.75rem;
+@media screen and (max-width: 699px) {
+  #header {
+    order: 2;
+  }
+  #gallery {
+    transform: none;
+  }
+  #menuToggle:checked ~ #nav ul {
+    width: 10.5rem;
+  }
+  #menuToggle:checked ~ #header,
+  #menuToggle:checked ~ #nav,
+  #menuToggle:checked ~ main {
+    transform: translateX(10.5rem);
+  }
+  #nav {
+    align-items: flex-start;
+    order: 1;
+  }
+  #nav ul {
+    background-color: black;
+    height: 100vh;
+    left: -10.5rem;
+    padding-top: 1.5rem;
+    position: fixed;
+    top: 0;
+    transform: none;
+    width: 0;
+  }
+  #nav .rollover {
+    align-items: flex-end;
+  }
+  #nav .rollover > span {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+  main {
+    order: 3;
+  }
 }
-.desktop #menuButton {
-  display: none;
-}
-.desktop #nav > ul {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+@media screen and (min-width: 700px) {
+  main {
+    margin-right: 0.75rem;
+  }
+  #menuButton {
+    display: none;
+  }
+  #nav > ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }

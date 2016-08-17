@@ -169,6 +169,12 @@ q:after {
   content: '';
   content: none;
 }
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
 input[type=date],
 input[type=datetime-local],
 input[type=month],

@@ -204,6 +204,16 @@ describe('routes', function routes() {
     });
   });
 
+  it('GET /research', function research(done) {
+    req.get('/research')
+    .expect(200)
+    .end((err, res) => {
+      if (err) fail(err);
+      // TODO: check for page title
+      done();
+    });
+  });
+
   it('GET /teaching', function teaching(done) {
     req.get('/teaching')
     .expect(200)

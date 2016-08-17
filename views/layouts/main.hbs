@@ -33,6 +33,8 @@
 
 <body>
 
+  <input id=menuToggle type=checkbox name=menuButton>
+
   <header id=header>
     <a href=/>
 
@@ -50,11 +52,13 @@
 
   <nav id=nav>
 
-    <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+    <label for=menuToggle>
+      <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+    </label>
 
     <ul>
       {{#each nav}}
-      <li>
+      <li {{#if selected}} class=selected {{/if}}>
         <a class=rollover href={{path}}>
           <span lang=eng>{{eng}}</span>
           <span lang=ipa>{{ipa}}</span>
