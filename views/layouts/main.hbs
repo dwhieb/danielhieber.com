@@ -58,7 +58,7 @@
 
     <ul>
       {{#each nav}}
-      <li>
+      <li {{#if selected}} class=selected {{/if}}>
         <a class=rollover href={{path}}>
           <span lang=eng>{{eng}}</span>
           <span lang=ipa>{{ipa}}</span>
