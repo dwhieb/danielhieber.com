@@ -1,0 +1,46 @@
+@import (reference) 'public/less/main.less';
+
+.link {
+  &:link { .boldPink; border-bottom: 2px solid white; }
+  &:visited { .boldPink; border-bottom: 2px solid white; }
+  &:hover { border-bottom: 2px solid @pink; }
+  &:active { .boldPink; }
+}
+
+#home {
+  align-items: center;
+
+  p { font-size: 150%; }
+
+  a { .link; }
+}
+
+#singing {
+  padding: 0.5rem 0rem 1.5rem 0rem;
+}
+
+// mobile styling
+@media screen and (max-width: 699px) {
+  #gradSlam {
+    height: 15rem;
+    margin: 0.5rem auto 1.5rem auto;
+  }
+}
+
+// desktop styling
+@media screen and (min-width: 700px) {
+  #intro {
+    width: 70%;
+  }
+
+  #gradSlam {
+    float: left;
+    margin: 0.5rem 1.5rem 1.5rem 0rem;
+    width: 50%;
+  }
+
+  #singing {
+    margin: auto;
+    width: 75%;
+  }
+}

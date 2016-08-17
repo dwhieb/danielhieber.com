@@ -214,16 +214,6 @@ describe('routes', function routes() {
     });
   });
 
-  it('GET /teaching', function teaching(done) {
-    req.get('/teaching')
-    .expect(200)
-    .end((err, res) => {
-      if (err) fail(err);
-      // TODO: check for page title
-      done();
-    });
-  });
-
   it('GET /vitae', function vitae(done) {
     req.get('/vitae')
     .expect(200)
