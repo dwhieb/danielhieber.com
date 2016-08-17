@@ -71,10 +71,12 @@ i {
     visibility: hidden;
   }
 
-  &:hover {
-    > span[lang=ipa] { visibility: visible; }
-    > span[lang=eng] { visibility: hidden; }
-  }
+}
+
+.rollover:hover,
+#nav > ul > li.selected > .rollover {
+  > span[lang=ipa] { visibility: visible; }
+  > span[lang=eng] { visibility: hidden; }
 }
 
 strong { .boldBlue; }

@@ -83,10 +83,12 @@ i {
   transform: translateX(-50%);
   visibility: hidden;
 }
-.rollover:hover > span[lang=ipa] {
+.rollover:hover > span[lang=ipa],
+#nav > ul > li.selected > .rollover > span[lang=ipa] {
   visibility: visible;
 }
-.rollover:hover > span[lang=eng] {
+.rollover:hover > span[lang=eng],
+#nav > ul > li.selected > .rollover > span[lang=eng] {
   visibility: hidden;
 }
 strong {
