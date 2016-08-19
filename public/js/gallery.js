@@ -1,1 +1,1 @@
-socket.on('news', data => console.log(data));
+socket.on('gallery', data => console.log(data));
