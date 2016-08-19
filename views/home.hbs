@@ -23,9 +23,24 @@
     </p>
 
     <p>
-      Subscribe to my blog, follow me on <a href=https://www.facebook.com/dwhieb target=_blank>Facebook</a>, <a href=https://twitter.com/dwhieb target=_blank>Twitter</a>, and <a href=https://www.linkedin.com/in/dwhieb target=_blank>LinkedIn</a>, or <a href=mailto:dwhieb@gmail.com target=_blank>drop me an email</a>ǃ
+      <a href=https://blog.danielhieber.com/subscribe/ target=_blank>Subscribe to my blog</a>, follow me on <a href=https://www.facebook.com/dwhieb target=_blank>Facebook</a>, <a href=https://twitter.com/dwhieb target=_blank>Twitter</a>, and <a href=https://www.linkedin.com/in/dwhieb target=_blank>LinkedIn</a>, or <a href=mailto:dwhieb@gmail.com target=_blank>drop me an email</a>ǃ
     </p>
 
   </section>
 
+  <section id=posts>
+    <h1>Recent Posts</h1>
+    <ol></ol>
+  </section>
+
 </main>
+
+{{#section 'script'}}
+
+  {{!-- Include the Ghost API --}}
+  <script src=https://blog.danielhieber.com/shared/ghost-url.js charset=utf-8></script>
+
+  {{!-- Load the most recent blog posts --}}
+  <script src=/js/posts.js charset=utf-8></script>
+
+{{/section}}

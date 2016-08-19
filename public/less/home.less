@@ -7,7 +7,7 @@
   &:active { .boldPink; }
 }
 
-#home {
+#intro {
   align-items: center;
 
   p { font-size: 150%; }
@@ -19,22 +19,74 @@
   padding: 0.5rem 0rem 1.5rem 0rem;
 }
 
+#posts {
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  li {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0rem;
+    padding: 1rem;
+
+    > a {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  div { padding-top: 0.5rem; }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  time {
+    font-style: italic;
+    padding-bottom: 0.5rem;
+  }
+
+  span, .error-fallback {
+    .boldBlue;
+    &:hover { border-bottom: 2px solid @blue; }
+  }
+
+}
+
 // mobile styling
 @media screen and (max-width: 699px) {
   #gradSlam {
     height: 15rem;
     margin: 0.5rem auto 1.5rem auto;
   }
-  
+
   #singing {
     width: 100%;
   }
+
+  #posts {
+    h1 { font-size: 2rem; }
+  }
+
 }
 
 // desktop styling
 @media screen and (min-width: 700px) {
+  #home {
+    flex-direction: row;
+  }
+
   #intro {
+    padding: 1rem;
     width: 70%;
+  }
+
+  #posts {
+    padding: 1rem;
+    width: 30%;
   }
 
   #gradSlam {

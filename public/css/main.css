@@ -113,6 +113,26 @@ strong {
 main {
   transition: transform 0.5s;
 }
+#subscribe {
+  background-color: #3180E1;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 3px 0px #ccc;
+  color: white;
+  cursor: pointer;
+  font-size: 1.25rem;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+#subscribe:hover,
+#subscribe:focus {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+#subscribe:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset, 3px 3px 3px 0px #ccc;
+}
 main {
   padding: 1.5rem;
 }
@@ -181,7 +201,8 @@ main {
   }
   #menuToggle:checked ~ #header,
   #menuToggle:checked ~ #nav,
-  #menuToggle:checked ~ main {
+  #menuToggle:checked ~ main,
+  #menuToggle:checked ~ #subscribe {
     transform: translateX(15rem);
   }
   #nav {
