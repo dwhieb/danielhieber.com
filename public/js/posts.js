@@ -70,5 +70,4 @@
     renderErrorFallback();
   }
 
-
 }());
