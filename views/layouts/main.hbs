@@ -20,10 +20,13 @@
 
 <body>
 
+  {{!-- Checkbox hack for sliding menu on mobile --}}
   <input id=menuToggle type=checkbox name=menuButton>
 
+  {{!-- Subscribe to blog button --}}
   <button id=subscribe type=button name=subscribe onclick="window.location = 'https://blog.danielhieber.com/subscribe/';">Subscribe to my blog!</button>
 
+  {{!-- Site header, with rotating gallery images --}}
   <header id=header>
     <a href=/>
 
@@ -39,6 +42,7 @@
     </a>
   </header>
 
+  {{!-- Main site navigation --}}
   <nav id=nav>
 
     <label for=menuToggle>
@@ -58,12 +62,28 @@
 
   </nav>
 
+
   {{!-- body content should always be wrapped in a <main id=pageName></main> tag --}}
   {{{body}}}
+
 
   {{!-- Azure application insights --}}
   <script src=/js/appInsights.js charset=utf-8></script>
 
+  {{!-- Exposes Socket.IO API --}}
+  <script src=/socket.io/socket.io.js charset=utf-8></script>
+
+  {{!-- Loads a Socket for use on every page --}}
+  <script type=text/javascript>
+    const socket = io({
+      transports: ['websocket', 'xhr-polling']
+    });
+  </script>
+
+  {{!-- Runs the gallery transitions --}}
+  <script src=/js/gallery.js charset=utf-8></script>
+
+  {{!-- Scripts from individual views get loaded here --}}
   {{{sections.script}}}
 
 </body>
