@@ -12,7 +12,6 @@ describe('routes', function routes() {
     .expect(404)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -22,7 +21,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -32,7 +30,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -42,7 +39,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -72,7 +68,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -83,7 +78,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -93,7 +87,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -103,7 +96,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -113,7 +105,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -124,7 +115,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -134,7 +124,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -144,7 +133,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -154,7 +142,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title (title of publication?)
       done();
     });
   });
@@ -209,7 +196,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });
@@ -219,7 +205,6 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
-      // TODO: check for page title
       done();
     });
   });

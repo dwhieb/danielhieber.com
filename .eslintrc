@@ -79,7 +79,7 @@
     "max-len": ["warn", { "code": 100, "ignoreUrls": true }],
     "max-lines": "off",
     "max-nested-callbacks": ["warn", 2],
-    "max-params": ["warn", 3],
+    "max-params": ["warn", 4],
     "max-statements": ["warn", 10],
     "max-statements-per-line": ["warn", { "max": 2 }],
     "multiline-ternary": "off",
