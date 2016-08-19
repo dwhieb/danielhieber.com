@@ -15,7 +15,7 @@
     if (posts.length === 0) {
 
       wrapper.innerHTML = `
-        <p><a href=http://blog.danielhieber.com/>Check out my blog for recent posts!</a></p>.
+        <p><a class=error-fallback href=http://blog.danielhieber.com/>Check out my blog for recent posts!</a></p>
       `;
 
     } else {

@@ -82,11 +82,13 @@
   font-style: italic;
   padding-bottom: 0.5rem;
 }
-#posts span {
+#posts span,
+#posts .error-fallback {
   color: #3180E1;
   font-weight: bold;
 }
-#posts span:hover {
+#posts span:hover,
+#posts .error-fallback:hover {
   border-bottom: 2px solid #3180E1;
 }
 @media screen and (max-width: 699px) {
