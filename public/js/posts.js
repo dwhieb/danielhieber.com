@@ -8,15 +8,19 @@
     fields: 'title,slug,image,updated_at,html',
   };
 
-  const renderPosts = posts => {
+  const wrapper = document.querySelector('#posts ol');
 
-    const wrapper = document.querySelector('#posts ol');
+  const renderErrorFallback = () => {
+    wrapper.innerHTML = `
+    <p><a class=error-fallback href=http://blog.danielhieber.com/>Check out my blog for recent posts!</a></p>
+    `;
+  };
+
+  const renderPosts = posts => {
 
     if (posts.length === 0) {
 
-      wrapper.innerHTML = `
-        <p><a class=error-fallback href=http://blog.danielhieber.com/>Check out my blog for recent posts!</a></p>
-      `;
+      renderErrorFallback();
 
     } else {
 
@@ -51,13 +55,20 @@
     }
   };
 
-  ghost.init({
-    clientId: 'ghost-frontend',
-    clientSecret: 'c7441a524886',
-  });
+  if (ghost) {
 
-  fetch(ghost.url.api('posts', ghostOptions))
-  .then(res => res.json().then(data => renderPosts(data.posts)))
-  .catch(() => renderPosts([]));
+    ghost.init({
+      clientId: 'ghost-frontend',
+      clientSecret: 'c7441a524886',
+    });
+
+    fetch(ghost.url.api('posts', ghostOptions))
+    .then(res => res.json().then(data => renderPosts(data.posts)))
+    .catch(() => renderPosts([]));
+
+  } else {
+    renderErrorFallback();
+  }
+
 
 }());

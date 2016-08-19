@@ -1,1 +1,9 @@
-socket.on('gallery', data => console.log(data));
+(function runGallery() {
+
+  const gallery = document.getElementById('gallery');
+
+  console.log(gallery);
+
+  socket.on('gallery', images => {});
+
+}());
