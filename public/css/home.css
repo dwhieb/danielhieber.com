@@ -15,48 +15,79 @@
   color: #E13180;
   font-weight: bold;
 }
-#home {
+#intro {
   align-items: center;
 }
-#home p {
+#intro p {
   font-size: 150%;
 }
-#home a:link {
+#intro a:link {
   color: #3180E1;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#home a:visited {
+#intro a:visited {
   color: #3180E1;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#home a:hover {
+#intro a:hover {
   border-bottom: 2px solid #3180E1;
 }
-#home a:active {
+#intro a:active {
   color: #3180E1;
   font-weight: bold;
 }
-#home a:link {
+#intro a:link {
   color: #E13180;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#home a:visited {
+#intro a:visited {
   color: #E13180;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#home a:hover {
+#intro a:hover {
   border-bottom: 2px solid #E13180;
 }
-#home a:active {
+#intro a:active {
   color: #E13180;
   font-weight: bold;
 }
 #singing {
   padding: 0.5rem 0rem 1.5rem 0rem;
+}
+#posts h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+#posts li {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0rem;
+  padding: 1rem;
+}
+#posts li > a {
+  align-items: center;
+  display: flex;
+}
+#posts div {
+  padding-top: 0.5rem;
+}
+#posts h2 {
+  font-weight: bold;
+}
+#posts time {
+  font-style: italic;
+  padding-bottom: 0.5rem;
+}
+#posts span {
+  color: #3180E1;
+  font-weight: bold;
+}
+#posts span:hover {
+  border-bottom: 2px solid #3180E1;
 }
 @media screen and (max-width: 699px) {
   #gradSlam {
@@ -66,10 +97,21 @@
   #singing {
     width: 100%;
   }
+  #posts h1 {
+    font-size: 2rem;
+  }
 }
 @media screen and (min-width: 700px) {
+  #home {
+    flex-direction: row;
+  }
   #intro {
+    padding: 1rem;
     width: 70%;
+  }
+  #posts {
+    padding: 1rem;
+    width: 30%;
   }
   #gradSlam {
     float: left;

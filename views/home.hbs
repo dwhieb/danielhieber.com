@@ -3,7 +3,7 @@
 {{/section}}
 
 <main id=home>
-  
+
   <section id=intro class=doc>
 
     <img id=gradSlam src=/img/grad_slam.jpg alt='me giving my Grad Slam talk'>
@@ -28,4 +28,19 @@
 
   </section>
 
+  <section id=posts>
+    <h1>Recent Posts</h1>
+    <ol></ol>
+  </section>
+
 </main>
+
+{{#section 'script'}}
+
+  {{!-- Include the Ghost API --}}
+  <script src=https://blog.danielhieber.com/shared/ghost-url.js charset=utf-8></script>
+
+  {{!-- Load the most recent blog posts --}}
+  <script src=/js/posts.js charset=utf-8></script>
+
+{{/section}}
