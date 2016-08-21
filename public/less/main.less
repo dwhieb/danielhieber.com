@@ -51,11 +51,6 @@ em { font-style: italic; }
   margin-left: 1rem;
 }
 
-.header {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 // inline citation form of data
 i {
   font-style: italic;
@@ -72,6 +67,12 @@ i {
   &:visited { .boldBlue; border-bottom: 2px solid white; }
   &:hover { border-bottom: 2px solid @blue; }
   &:active { .boldBlue; }
+}
+
+.pageHeader {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .rollover {
@@ -127,6 +128,7 @@ strong { .boldBlue; }
 
 main {
   padding: 1.5rem;
+  > h1 { .pageHeader; }
 }
 
 #header {

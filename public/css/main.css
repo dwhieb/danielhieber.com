@@ -55,10 +55,6 @@ em {
   text-indent: -1rem;
   margin-left: 1rem;
 }
-.header {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 i {
   font-style: italic;
 }
@@ -82,6 +78,11 @@ i {
 }
 .link:active {
   color: #3180E1;
+  font-weight: bold;
+}
+.pageHeader {
+  align-self: center;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .rollover {
@@ -135,6 +136,11 @@ main {
 }
 main {
   padding: 1.5rem;
+}
+main > h1 {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 #header {
   height: 15rem;

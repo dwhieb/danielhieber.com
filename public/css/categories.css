@@ -1,0 +1,6 @@
+#categories-admin {
+  flex-wrap: wrap;
+}
+#categories-admin > * {
+  min-width: 40%;
+}
