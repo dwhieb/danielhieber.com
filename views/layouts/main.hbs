@@ -27,9 +27,10 @@
   <button id=subscribe type=button name=subscribe onclick="window.location = 'https://blog.danielhieber.com/subscribe/';">Subscribe to my blog!</button>
 
   {{!-- Site header, with rotating gallery images --}}
+  {{#if header}}
   <header id=header>
     <a href=/>
-
+      
       <h1 class=rollover>
         <span lang=eng>Daniel W. Hieber</span>
         <span lang=ipa>/dænjəl hibə˞/</span>
@@ -41,6 +42,7 @@
 
     </a>
   </header>
+  {{/if}}
 
   {{!-- Main site navigation --}}
   <nav id=nav>
