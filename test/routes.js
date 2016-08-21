@@ -53,6 +53,15 @@ describe('routes', function routes() {
     });
   });
 
+  it('GET /admin/categories', function categoriesAdmin(done) {
+    req.get('/admin/categories')
+    .expect(200)
+    .end((err, res) => {
+      if (err) fail(err);
+      done();
+    });
+  });
+
   it('GET /blog', function blog(done) {
     req.get('/blog')
     .expect(302)
