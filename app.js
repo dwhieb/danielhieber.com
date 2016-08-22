@@ -54,3 +54,5 @@ socket(io);
 
 // export app for route testing
 module.exports = app;
+
+console.log(process.env);
