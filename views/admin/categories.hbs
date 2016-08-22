@@ -2,22 +2,28 @@
   <link rel=stylesheet href=/css/categories.css charset=utf-8>
 {{/section}}
 
-<main id=categories-admin>
+<main id=categoriesAdmin>
 
   <h1>Categories Admin</h1>
 
-  <label for=addCategory>
-    <input id=addCategory type=text name=addCategory>
-    <button id=addCategoryButton type=button name=addCategoryButton></button>
-  </label>
+  <section id=categoryManagement>
 
-  <ol id=categoryList></ol>
+    <label id=addCategory for=addCategoryField>
+      <input id=addCategoryField type=text name=addCategory>
+      <button id=addCategoryButton type=button name=addCategoryButton>+</button>
+    </label>
+
+    <ol id=categoryList></ol>
+
+  </section>
 
   <section id=details>
     <h2 id=categoryName></h2>
     <p id=description></p>
-    <button type=button name=saveButton>Save</button>
-    <button type=button name=deleteButton>Delete</button>
+    <div id=buttons>
+      <button id=saveButton type=button name=saveButton>Save</button>
+      <button id=deleteButton type=button name=deleteButton>Delete</button>
+    </div>
   </section>
 
 </main>
