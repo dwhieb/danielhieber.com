@@ -29,6 +29,6 @@ Endpoint                                                | Description
 `/.auth/logout?post_logout_redirect_uri={redirect_uri}` | The logout endpoint
 `/.auth/login/{provider}`                               | The login endpoint
 `/.auth/me`                                             | User details (include access token)
-`/.auth/login/{provider}/callback`                | Redirect URI
+`/.auth/login/{provider}/callback`                      | Redirect URI
 
 `{provider}`: `aad` | `facebook` | `google` | `microsoft(account)` | `twitter`
