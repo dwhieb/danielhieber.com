@@ -37,7 +37,7 @@
     "comma-style": ["error", "last"],
     "complexity": "off",
     "computed-property-spacing": ["error", "never"],
-    "consistent-return": "error",
+    "consistent-return": "warn",
     "consistent-this": "off",
     "constructor-super": "error",
     "curly": ["error", "multi-line", "consistent"],
@@ -76,7 +76,11 @@
       "allowArrayEnd": false
     }],
     "max-depth": "warn",
-    "max-len": ["warn", { "code": 100, "ignoreUrls": true }],
+    "max-len": ["warn", {
+      "code": 100,
+      "ignoreUrls": true,
+      "ignoreComments": true
+    }],
     "max-lines": "off",
     "max-nested-callbacks": ["warn", 2],
     "max-params": ["warn", 4],
