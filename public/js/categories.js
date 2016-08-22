@@ -4,11 +4,6 @@
   socket.emit('getCategories');
 }());
 
-socket.emit('addCategory', {
-  id: 'revitalization',
-  name: 'Revitalization & Documentation',
-  description: 'Some stuff about revitalization.'
-}, (err, res) => {
-  e = err;
+socket.emit('deleteCategory', 'revitalization', (err, res) => {
   console.log(err || res);
 });
