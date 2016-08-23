@@ -7,13 +7,17 @@ const http = require('http');
 const IO = require('socket.io');
 const meta = require('./package.json');
 const path = require('path');
+const passport = require('passport');
 const middleware = require('./lib/middleware');
 const router = require('./lib/router');
 const socket = require('./lib/socket');
+const WindowsLiveStrategy = require('passport-windowslive');
 
-// initialize Express & Handlebars
+// initialize Express, Handlebars, & Passport
 const app = express();
 const handlebars = Handlebars.create(config.hbsOptions);
+
+passport.use(new WindowsLiveStrategy(config.passportOptions, config.verifyPassport));
 
 // Azure application insights
 if (config.env === 'production') appInsights.setup().start();
@@ -47,7 +51,7 @@ server.listen(config.port, () => {
 });
 
 // create web socket
-const io = IO(server, config.socketOpts); // eslint-disable-line new-cap
+const io = IO(server, config.socketOptions); // eslint-disable-line new-cap
 
 // socket routing
 socket(io);
