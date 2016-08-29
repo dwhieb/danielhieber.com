@@ -35,12 +35,12 @@ function update(newDoc) { // eslint-disable-line func-style, no-unused-vars
   const docLink = __.getAltLink() + '/docs/' + newDoc.id; // eslint-disable-line prefer-template
 
   const ok = __.readDocument(docLink, function readDocument(err, doc) {
-    if (err) throw new Error(err.message);
+    if (err) throw err;
 
     Object.assign(doc, newDoc);
 
     const ok = __.upsertDocument(__.getSelfLink(), doc, function upsertDocument(err, res) {
-      if (err) throw new Error(err.message);
+      if (err) throw err;
       response.setBody(res);
     });
 
