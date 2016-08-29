@@ -3,6 +3,7 @@ const config = require('./lib/config');
 const auth = require('./lib/auth');
 const appInsights = require('applicationinsights');
 const express = require('express');
+const DocumentDBStore = require('documentdb-session');
 const Handlebars = require('express-handlebars');
 const helmet = require('helmet');
 const http = require('http');
