@@ -39,7 +39,7 @@
   "dependencies": {
     "applicationinsights": "^0.15.18",
     "documentdb": "^1.9.0",
-    "documentdb-session": "^1.0.0-alpha.2",
+    "documentdb-session": "^1.0.0-alpha.4",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
