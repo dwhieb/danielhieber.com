@@ -1,0 +1,54 @@
+@import (reference) 'public/less/main.less';
+
+#categoriesAdmin {
+  flex-direction: row;
+  flex-wrap: wrap;
+  h1 { width: 100%; }
+}
+
+#addCategory {
+  align-items: center;
+  flex-direction: row;
+
+  input {
+    .field;
+    flex-grow: 1;
+    padding: 0.25rem 0.5rem;
+  }
+
+  button {
+    .button;
+    height: 2rem;
+    margin-left: 0.5rem;
+    padding: 0rem;
+    width: 2rem;
+  }
+}
+
+#details {
+  align-items: stretch;
+  flex-grow: 1;
+
+  #buttons {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem;
+    button {
+      .button;
+      margin: 0rem 0.5rem;
+    }
+    #deleteButton {
+      background-color: @red;
+    }
+  }
+}
+
+// mobile styling
+@media screen and (max-width: 699px) {
+  #categoryManagement { width: 100%; }
+}
+
+// desktop styling
+@media screen and (min-width: 700px) {
+  #categoryManagement { width: 40%; }
+}

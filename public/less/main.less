@@ -1,7 +1,11 @@
 // CLASSES
 @blue: #3180E1;
-@pink: #E13180;
-@purple: #4E3CE4;
+@green: #81E232;
+@orange: #E29232;
+@pink: #E23281;
+@purple: #9232E2;
+@red: #E23B32;
+@yellow: #D9E232;
 
 .boldBlue {
   color: @blue;
@@ -27,6 +31,25 @@
   }
 }
 
+.button {
+  align-items: center;
+  background-color: @blue;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+
+  &:hover, &:focus {
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset, 0 0 6px rgba(0,0,0,0.20) inset;
+  }
+
+}
+
 dfn { font-style: italic; }
 
 .doc {
@@ -46,14 +69,25 @@ dfn { font-style: italic; }
 
 em { font-style: italic; }
 
+.field {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px #ddd;
+  &:focus {
+    border-color: @blue;
+    &:invalid { border-color: #e9322d; color: #b94a48; }
+  }
+  &[disabled] {
+    background-color: #eaeded;
+    color: #cad2d3;
+    cursor: not-allowed;
+  }
+}
+
 .hanging {
   text-indent: -1rem;
   margin-left: 1rem;
-}
-
-.header {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 // inline citation form of data
@@ -72,6 +106,13 @@ i {
   &:visited { .boldBlue; border-bottom: 2px solid white; }
   &:hover { border-bottom: 2px solid @blue; }
   &:active { .boldBlue; }
+}
+
+.pageHeader {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .rollover {
@@ -104,22 +145,12 @@ strong { .boldBlue; }
 }
 
 #subscribe {
-  background-color: @blue;
-  border-radius: 0.5rem;
+  .button;
   box-shadow: 3px 3px 3px 0px #ccc;
-  color: white;
-  cursor: pointer;
-  font-size: 1.25rem;
   margin: 0.5rem;
-  padding: 0.5rem 1rem;
   position: absolute;
   right: 0;
   z-index: 2;
-
-  &:hover, &:focus {
-    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
-  }
-
   &:active {
     box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset, 0 0 6px rgba(0,0,0,0.20) inset, 3px 3px 3px 0px #ccc;
   }
@@ -127,6 +158,7 @@ strong { .boldBlue; }
 
 main {
   padding: 1.5rem;
+  > h1 { .pageHeader; }
 }
 
 #header {

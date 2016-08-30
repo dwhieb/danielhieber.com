@@ -1,0 +1,90 @@
+#categoriesAdmin {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#categoriesAdmin h1 {
+  width: 100%;
+}
+#addCategory {
+  align-items: center;
+  flex-direction: row;
+}
+#addCategory input {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px #ddd;
+  flex-grow: 1;
+  padding: 0.25rem 0.5rem;
+}
+#addCategory input:focus {
+  border-color: #3180E1;
+}
+#addCategory input:focus:invalid {
+  border-color: #e9322d;
+  color: #b94a48;
+}
+#addCategory input[disabled] {
+  background-color: #eaeded;
+  color: #cad2d3;
+  cursor: not-allowed;
+}
+#addCategory button {
+  align-items: center;
+  background-color: #3180E1;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  height: 2rem;
+  margin-left: 0.5rem;
+  padding: 0rem;
+  width: 2rem;
+}
+#addCategory button:hover,
+#addCategory button:focus {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+#addCategory button:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+#details {
+  align-items: stretch;
+  flex-grow: 1;
+}
+#details #buttons {
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+#details #buttons button {
+  align-items: center;
+  background-color: #3180E1;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  margin: 0rem 0.5rem;
+}
+#details #buttons button:hover,
+#details #buttons button:focus {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+#details #buttons button:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+#details #buttons #deleteButton {
+  background-color: #E23B32;
+}
+@media screen and (max-width: 699px) {
+  #categoryManagement {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 700px) {
+  #categoryManagement {
+    width: 40%;
+  }
+}

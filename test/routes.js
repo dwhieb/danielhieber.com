@@ -12,6 +12,7 @@ describe('routes', function routes() {
     .expect(404)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Error')).toBe(true);
       done();
     });
   });
@@ -21,24 +22,27 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Home')).toBe(true);
       done();
     });
   });
 
   it('GET /admin', function admin(done) {
     req.get('/admin')
-    .expect(200)
+    .expect(302)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
   });
 
   it('GET /admin/CV', function cvAdmin(done) {
     req.get('/admin/CV')
-    .expect(200)
+    .expect(302)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
   });
@@ -46,9 +50,19 @@ describe('routes', function routes() {
   it('GET /admin/blog', function blogAdmin(done) {
     req.get('/admin/blog')
     .expect(302)
-    .expect('Location', 'https://blog.danielhieber.com/ghost')
-    .end(err => {
+    .end((err, res) => {
       if (err) fail(err);
+      expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
+      done();
+    });
+  });
+
+  it('GET /admin/categories', function categoriesAdmin(done) {
+    req.get('/admin/categories')
+    .expect(302)
+    .end((err, res) => {
+      if (err) fail(err);
+      expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
   });
@@ -68,6 +82,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| CV')).toBe(true);
       done();
     });
   });
@@ -78,6 +93,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| CV')).toBe(true);
       done();
     });
   });
@@ -87,6 +103,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Home')).toBe(true);
       done();
     });
   });
@@ -96,6 +113,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Languages')).toBe(true);
       done();
     });
   });
@@ -105,6 +123,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
   });
@@ -115,6 +134,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
   });
@@ -124,6 +144,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
   });
@@ -133,6 +154,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| CV')).toBe(true);
       done();
     });
   });
@@ -142,6 +164,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
   });
@@ -152,6 +175,7 @@ describe('routes', function routes() {
     .expect('Content-Type', 'application/pdf')
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
   });
@@ -165,6 +189,7 @@ describe('routes', function routes() {
     .expect('Content-Type', pptx)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
   });
@@ -176,6 +201,7 @@ describe('routes', function routes() {
     .expect('Content-Type', 'text/html')
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
   });
@@ -187,6 +213,7 @@ describe('routes', function routes() {
     .expect('Content-Type', 'text/html')
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
   });
@@ -196,6 +223,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| Research')).toBe(true);
       done();
     });
   });
@@ -205,6 +233,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(err);
+      expect(res.text.includes('| CV')).toBe(true);
       done();
     });
   });

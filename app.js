@@ -1,17 +1,20 @@
 const config = require('./lib/config');
+
 const appInsights = require('applicationinsights');
 const express = require('express');
 const Handlebars = require('express-handlebars');
 const helmet = require('helmet');
 const http = require('http');
-const IO = require('socket.io');
+const socketIO = require('socket.io');
 const meta = require('./package.json');
+const passport = require('./lib/auth').passport;
 const path = require('path');
 const middleware = require('./lib/middleware');
 const router = require('./lib/router');
+const session = require('express-session');
 const socket = require('./lib/socket');
 
-// initialize Express & Handlebars
+// initialize Express, Handlebars, & Passport
 const app = express();
 const handlebars = Handlebars.create(config.hbsOptions);
 
@@ -28,6 +31,9 @@ app.locals.meta = meta; // makes package.json data available for templating
 // middleware
 app.use(helmet()); // basic security features
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
+app.use(session(config.sessionOptions)); // use sessions
+app.use(passport.initialize()); // initialize Passport
+app.use(passport.session()); // persist user in session with Passport
 app.use(middleware); // custom middleware (logs URL, injects variables, etc.)
 
 // URL routing
@@ -47,7 +53,7 @@ server.listen(config.port, () => {
 });
 
 // create web socket
-const io = IO(server, config.socketOpts); // eslint-disable-line new-cap
+const io = socketIO(server, config.socketOptions);
 
 // socket routing
 socket(io);

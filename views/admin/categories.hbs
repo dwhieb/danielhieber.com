@@ -1,0 +1,33 @@
+{{#section 'style'}}
+  <link rel=stylesheet href=/css/categories.css charset=utf-8>
+{{/section}}
+
+<main id=categoriesAdmin>
+
+  <h1>Categories Admin</h1>
+
+  <section id=categoryManagement>
+
+    <label id=addCategory for=addCategoryField>
+      <input id=addCategoryField type=text name=addCategory>
+      <button id=addCategoryButton type=button name=addCategoryButton>+</button>
+    </label>
+
+    <ol id=categoryList></ol>
+
+  </section>
+
+  <section id=details>
+    <h2 id=categoryName></h2>
+    <p id=description></p>
+    <div id=buttons>
+      <button id=saveButton type=button name=saveButton>Save</button>
+      <button id=deleteButton type=button name=deleteButton>Delete</button>
+    </div>
+  </section>
+
+</main>
+
+{{#section 'script'}}
+  <script src=/js/categories.js charset=utf-8></script>
+{{/section}}

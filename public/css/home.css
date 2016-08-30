@@ -1,18 +1,18 @@
 .link:link {
-  color: #E13180;
+  color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
 .link:visited {
-  color: #E13180;
+  color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
 .link:hover {
-  border-bottom: 2px solid #E13180;
+  border-bottom: 2px solid #E23281;
 }
 .link:active {
-  color: #E13180;
+  color: #E23281;
   font-weight: bold;
 }
 #intro {
@@ -39,20 +39,20 @@
   font-weight: bold;
 }
 #intro a:link {
-  color: #E13180;
+  color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
 #intro a:visited {
-  color: #E13180;
+  color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
 #intro a:hover {
-  border-bottom: 2px solid #E13180;
+  border-bottom: 2px solid #E23281;
 }
 #intro a:active {
-  color: #E13180;
+  color: #E23281;
   font-weight: bold;
 }
 #singing {
