@@ -12,7 +12,7 @@ describe('assets', function assets() {
     .expect(200)
     .expect('Content-Type', 'image/jpeg')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       done();
     });
   });
@@ -22,7 +22,7 @@ describe('assets', function assets() {
     .expect(200)
     .expect('Content-Type', 'text/css; charset=UTF-8')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       done();
     });
   });
@@ -32,7 +32,7 @@ describe('assets', function assets() {
     .expect(200)
     .expect('Content-Type', 'application/javascript')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       done();
     });
   });
@@ -42,7 +42,7 @@ describe('assets', function assets() {
     .expect(200)
     .expect('Content-Type', 'application/font-woff2')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       done();
     });
   });
