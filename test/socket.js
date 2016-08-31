@@ -1,8 +1,12 @@
 /* eslint-disable max-nested-callbacks */
 require('../app');
+const documentdb = require('documentdb');
 const io = require('socket.io-client');
 
-// TODO: create a DocumentDB client for setup and teardown for each test
+const dbUrl = process.env.DOCUMENTDB_URL;
+const dbKey = process.env.DOCUMENTDB_KEY;
+
+const db = new documentdb.DocumentClient(dbUrl, { masterKey: dbKey });
 
 const options = {
   transports: ['websocket', 'xhr-polling'],
