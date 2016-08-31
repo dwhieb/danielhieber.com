@@ -225,7 +225,10 @@
     "no-warning-comments": "warn",
     "no-whitespace-before-property": "error",
     "no-with": "warn",
-    "object-curly-newline": ["warn", { "multiline": true }],
+    "object-curly-newline": ["warn", {
+      "multiline": true,
+      "minProperties": 1,
+    }],
     "object-curly-spacing": ["error", "always", {
       "objectsInObjects": true,
       "arraysInObjects": true
