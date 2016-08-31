@@ -20,19 +20,26 @@ class Category extends Document {
 const handler = {
   construct(Target, args) {
 
-    const { id, name, description } = args[0];
+    const { id, name, description, ttl } = args[0];
+
     const data = {
       id,
       name,
       description,
+      ttl,
     };
+
+    if (typeof ttl !== 'number') throw new Error(`'ttl' attribute must be an integer.`);
 
     for (const attr in data) {
       if (!data[attr]) throw new Error(`'${attr}' attribute required.`);
-      if (typeof attr !== 'string') throw new Error(`'${attr}' must be a string.`);
+      if (attr !== 'ttl' && typeof attr !== 'string') {
+        throw new Error(`'${attr}' must be a string.`);
+      }
     }
 
     const validId = str => /^[a-z]+$/.test(str);
+
     if (!validId(id)) throw new Error('Invalid format for `id` attribute.');
 
     return new Target(data);
