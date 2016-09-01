@@ -9,6 +9,11 @@ Tested on:
 * Google Chrome
 * Mozilla Firefox
 
+# Git Workflow
+* `master` - Only contains stable, tested code. Automatically pushed to http://danielhieber.com. Pull requests to `master` must pass all required Travis-CI checks, and use a merge commit.
+* `dev` - Contains in-progress but stable code. Automatically pushed to http://dev.danielhieber.com for live testing. Pull requests to `dev` should pass all tests, if possible, and use a squash commit.
+* `{feature}` - Contains in-progress, unstable code for a particular feature.
+
 # Azure App Settings & Headers
 
 Setting                    | Example
