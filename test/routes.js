@@ -11,7 +11,7 @@ describe('routes', function routes() {
     req.get('/notfound')
     .expect(404)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Error')).toBe(true);
       done();
     });
@@ -21,7 +21,7 @@ describe('routes', function routes() {
     req.get('/')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Home')).toBe(true);
       done();
     });
@@ -31,7 +31,7 @@ describe('routes', function routes() {
     req.get('/admin')
     .expect(302)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
@@ -41,7 +41,7 @@ describe('routes', function routes() {
     req.get('/admin/CV')
     .expect(302)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
@@ -51,7 +51,7 @@ describe('routes', function routes() {
     req.get('/admin/blog')
     .expect(302)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
@@ -61,7 +61,7 @@ describe('routes', function routes() {
     req.get('/admin/categories')
     .expect(302)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
@@ -72,7 +72,7 @@ describe('routes', function routes() {
     .expect(302)
     .expect('Location', 'http://blog.danielhieber.com')
     .end(err => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       done();
     });
   });
@@ -81,7 +81,7 @@ describe('routes', function routes() {
     req.get('/cv')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| CV')).toBe(true);
       done();
     });
@@ -92,7 +92,7 @@ describe('routes', function routes() {
     req.get('/CV')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| CV')).toBe(true);
       done();
     });
@@ -102,7 +102,7 @@ describe('routes', function routes() {
     req.get('/home')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Home')).toBe(true);
       done();
     });
@@ -112,7 +112,7 @@ describe('routes', function routes() {
     req.get('/languages')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Languages')).toBe(true);
       done();
     });
@@ -122,7 +122,7 @@ describe('routes', function routes() {
     req.get('/languages/chitimacha')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
@@ -133,7 +133,7 @@ describe('routes', function routes() {
     req.get('/languages/Chitimacha')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
@@ -143,7 +143,7 @@ describe('routes', function routes() {
     req.get('/languages/Chitimacha/bibliography')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
@@ -153,7 +153,7 @@ describe('routes', function routes() {
     req.get('/publications')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| CV')).toBe(true);
       done();
     });
@@ -163,7 +163,7 @@ describe('routes', function routes() {
     req.get('/publications/1')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
@@ -174,7 +174,7 @@ describe('routes', function routes() {
     .expect(200)
     .expect('Content-Type', 'application/pdf')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
@@ -188,7 +188,7 @@ describe('routes', function routes() {
     .expect(200)
     .expect('Content-Type', pptx)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
@@ -200,7 +200,7 @@ describe('routes', function routes() {
     .expect(200)
     .expect('Content-Type', 'text/html')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
@@ -212,7 +212,7 @@ describe('routes', function routes() {
     .expect(200)
     .expect('Content-Type', 'text/html')
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
       done();
     });
@@ -222,7 +222,7 @@ describe('routes', function routes() {
     req.get('/research')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| Research')).toBe(true);
       done();
     });
@@ -232,7 +232,7 @@ describe('routes', function routes() {
     req.get('/vitae')
     .expect(200)
     .end((err, res) => {
-      if (err) fail(err);
+      if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| CV')).toBe(true);
       done();
     });
