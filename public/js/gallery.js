@@ -5,7 +5,7 @@
   const gallery = document.getElementById('gallery'); // the gallery element
 
   if (gallery) {
-    let currentImage; // the currently active image
+    var currentImage; // the currently active image
     const fallbackImage = 'cypress_trees.jpg'; // image to use if socket fails
     const images = []; // list of images from the /gallery folder
     const opacityTransition = 500; // transition timing from main.less
