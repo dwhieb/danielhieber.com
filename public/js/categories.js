@@ -1,9 +1,10 @@
+'use strict';
+
 /* global socket */
 
 (function categories() {
 
-  socket.emit('getCategories', (err, res) => {
+  socket.emit('getCategories', function (err, res) {
     console.log(err || res);
   });
-
 })();
