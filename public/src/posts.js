@@ -6,7 +6,7 @@
   // parameters to send to the Ghost API
   const ghostOptions = {
     limit: 5,
-    fields: 'title,slug,image,updated_at,html'
+    fields: 'title,slug,image,updated_at,html',
   };
 
   // The wrapper element where the recent posts will be displayed
@@ -24,11 +24,11 @@
   };
 
   // Displays the 5 most recent posts from the Ghost API
-  /**
-   * Displays the 5 most recent posts from the Ghost API
-   * @param  {Array} posts An array of posts to display
-   * @return {undefined} No return
-   */
+/**
+ * Displays the 5 most recent posts from the Ghost API
+ * @param  {Array} posts An array of posts to display
+ * @return {undefined} No return
+ */
   const renderPosts = posts => {
 
     // If there are no recent posts, it's probably an error - render the fallback
@@ -36,16 +36,16 @@
 
       renderErrorFallback();
 
-      // Otherwise render each post
+    // Otherwise render each post
     } else {
 
       posts.forEach(post => {
 
         // template variables
-        const postLink = `http://blog.danielhieber.com/${ post.slug }`;
+        const postLink = `http://blog.danielhieber.com/${post.slug}`;
         const d = new Date(post.updated_at);
-        const dateString = `${ d.getFullYear() }-${ d.getMonth() + 1 }-${ d.getDate() }`;
-        const img = post.image ? `<img src=${ post.image }>` : '';
+        const dateString = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+        const img = post.image ? `<img src=${post.image}>` : '';
 
         // get a preview of the post's text content
         const p = document.createElement('p');
@@ -55,18 +55,19 @@
         // the template for each item in the recent posts list
         const html = `
           <li>
-            <a href=${ postLink }>
-              ${ img }
+            <a href=${postLink}>
+              ${img}
               <div>
-                <h2>${ post.title }</h2>
-                <time datetime=${ post.updated_at }>${ dateString }</time>
-                <p>${ preview } ... <span>(read more)<span></p>
+                <h2>${post.title}</h2>
+                <time datetime=${post.updated_at}>${dateString}</time>
+                <p>${preview} ... <span>(read more)<span></p>
               </div>
             </a>
           </li>
         `;
 
         wrapper.insertAdjacentHTML('beforeend', html);
+
       });
     }
   };
@@ -76,16 +77,20 @@
     // initialize the Ghost SDK
     ghost.init({
       clientId: 'ghost-frontend',
-      clientSecret: 'c7441a524886'
+      clientSecret: 'c7441a524886',
     });
 
     // construct the URL to fetch recent posts
     const recentPostsUrl = ghost.url.api('posts', ghostOptions);
 
     // call the Ghost API, convert and render the result
-    fetch(recentPostsUrl).then(res => res.json().then(data => renderPosts(data.posts))).catch(() => renderPosts([]));
+    fetch(recentPostsUrl)
+    .then(res => res.json().then(data => renderPosts(data.posts)))
+    .catch(() => renderPosts([]));
+
   } else {
     // display the error fallback if the Ghost API is unavailable
     renderErrorFallback();
   }
-})();
+
+}());
