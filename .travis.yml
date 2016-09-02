@@ -1,7 +1,7 @@
 language: node_js
 node_js: node
 before_script:
-  - npm i --save less
+  - npm i --save less jasmine@2.4.1 socket.io-client supertest supertest-as-promised
   - node build/less.js
 notifications:
   email: false
