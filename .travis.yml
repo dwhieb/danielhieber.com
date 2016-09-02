@@ -3,5 +3,6 @@ node_js: node
 before_script:
   - npm i --save babel-cli less jasmine@2.4.1 socket.io-client supertest supertest-as-promised
   - node build/less.js
+  - babel public/src -d public/js
 notifications:
   email: false

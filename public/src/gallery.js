@@ -17,7 +17,7 @@
      * @return {undefined} No return
      */
     const changeImage = img => {
-      gallery.src = `/img/gallery/${ img }`;
+      gallery.src = `/img/gallery/${img}`;
       currentImage = img;
     };
 
@@ -35,6 +35,7 @@
       }
 
       return randomImage;
+
     };
 
     /**
@@ -56,6 +57,7 @@
       toggleOpacity();
       setTimeout(changeImage, opacityTransition / 2, img);
       setTimeout(toggleOpacity, opacityTransition);
+
     };
 
     if (socket) {
@@ -67,5 +69,7 @@
     } else {
       changeImage(fallbackImage);
     }
+
   }
-})();
+
+}());
