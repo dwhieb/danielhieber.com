@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "applicationinsights": "^0.15.18",
+    "cors": "^2.8.0",
     "documentdb": "^1.9.0",
     "documentdb-session": "^1.0.0-alpha.4",
     "express": "^4.14.0",

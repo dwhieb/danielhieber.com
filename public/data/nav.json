@@ -28,5 +28,11 @@
     "ipa": "/ leᶦŋgwɪdʒɪz /",
     "pageTitle": "Languages",
     "path": "/languages"
+  },
+  "admin": {
+    "eng": "Admin",
+    "ipa": "/ ædmɪn /",
+    "pageTitle": "Admin",
+    "path": "/admin"
   }
 }
