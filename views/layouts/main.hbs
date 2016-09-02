@@ -70,11 +70,6 @@
   {{!-- body content should always be wrapped in a <main id=pageName></main> tag --}}
   {{{body}}}
 
-  {{!-- if debug is set to true, enable weinre --}}
-  {{#if debug}}
-    <script src=http://localhost:8080/target/target-script-min.js></script>
-  {{/if}}
-
   {{!-- Azure application insights --}}
   <script src=/js/appInsights.js charset=utf-8></script>
 
