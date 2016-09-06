@@ -9,8 +9,8 @@
   <section id=categoryManagement>
 
     <label id=addCategory for=addCategoryField>
-      <input id=addCategoryField type=text name=addCategory>
-      <button id=addCategoryButton type=button name=addCategoryButton>+</button>
+      <input type=text name=addCategory>
+      <button type=button name=addCategoryButton>+</button>
     </label>
 
     <ol id=categoryList></ol>
@@ -18,9 +18,9 @@
   </section>
 
   <section id=details>
-    <h2 id=categoryName></h2>
-    <p id=description></p>
-    <div id=buttons>
+    <h2></h2>
+    <p></p>
+    <div>
       <button id=saveButton type=button name=saveButton>Save</button>
       <button id=deleteButton type=button name=deleteButton>Delete</button>
     </div>
@@ -29,5 +29,6 @@
 </main>
 
 {{#section 'script'}}
+  <script src=/js/view.js charset=utf-8></script>
   <script src=/js/categories.js charset=utf-8></script>
 {{/section}}

@@ -53,12 +53,12 @@
   align-items: stretch;
   flex-grow: 1;
 }
-#details #buttons {
+#details > div {
   flex-direction: row;
   justify-content: space-around;
   padding: 0.5rem;
 }
-#details #buttons button {
+#details > div button {
   align-items: center;
   background-color: #3180E1;
   border-radius: 0.5rem;
@@ -68,14 +68,14 @@
   padding: 0.5rem 1rem;
   margin: 0rem 0.5rem;
 }
-#details #buttons button:hover,
-#details #buttons button:focus {
+#details > div button:hover,
+#details > div button:focus {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
-#details #buttons button:active {
+#details > div button:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
-#details #buttons #deleteButton {
+#details > div #deleteButton {
   background-color: #E23B32;
 }
 @media screen and (max-width: 699px) {
