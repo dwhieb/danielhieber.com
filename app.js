@@ -11,10 +11,10 @@ const passport = require('./lib/auth').passport;
 const path = require('path');
 const middleware = require('./lib/middleware');
 const router = require('./lib/router');
-const session = require('express-session');
+const session = require('./lib/session');
 const socket = require('./lib/socket');
 
-// initialize Express, Handlebars, & Passport
+// initialize Express, Handlebars
 const app = express();
 const handlebars = Handlebars.create(config.hbsOptions);
 
@@ -31,7 +31,7 @@ app.locals.meta = meta; // makes package.json data available for templating
 // middleware
 app.use(helmet()); // basic security features
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
-app.use(session(config.sessionOptions)); // use sessions
+app.use(session(session.sessionOptions)); // use sessions
 app.use(passport.initialize()); // initialize Passport
 app.use(passport.session()); // persist user in session with Passport
 app.use(middleware); // custom middleware (logs URL, injects variables, etc.)
