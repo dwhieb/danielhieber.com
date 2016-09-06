@@ -5,7 +5,6 @@ const express = require('express');
 const Handlebars = require('express-handlebars');
 const helmet = require('helmet');
 const http = require('http');
-const socketIO = require('socket.io');
 const meta = require('./package.json');
 const passport = require('./lib/auth').passport;
 const path = require('path');
@@ -52,11 +51,8 @@ server.listen(config.port, () => {
   Env:      ${config.env}`);
 });
 
-// create web socket
-const io = socketIO(server, config.socketOptions);
-
 // socket routing
-socket(io);
+socket(server);
 
 // export app for route testing
 module.exports = app;
