@@ -9,9 +9,9 @@ const meta = require('./package.json');
 const passport = require('./lib/auth').passport;
 const path = require('path');
 const middleware = require('./lib/middleware');
-const router = require('./lib/router');
+const router = require('./lib/routes/router');
 const session = require('./lib/session');
-const socket = require('./lib/socket');
+const socket = require('./lib/routes/socket');
 
 // initialize Express, Handlebars
 const app = express();
