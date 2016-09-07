@@ -8,18 +8,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* global socket */
-
-(function categories() {
+(function () {
 
   var View = modules.View;
-
-  var app = {
-    nodes: {
-      categories: document.getElementById('categoryManagement'),
-      details: document.getElementById('details')
-    }
-  };
 
   var CategoryView = function (_View) {
     _inherits(CategoryView, _View);
@@ -57,66 +48,5 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     return CategoryView;
   }(View);
 
-  var CategoriesView = function (_View2) {
-    _inherits(CategoriesView, _View2);
-
-    function CategoriesView(data) {
-      _classCallCheck(this, CategoriesView);
-
-      data = data || app.categories;
-
-      var categories = data.sort(function (a, b) {
-        return a.name > b.name;
-      });
-
-      var _this2 = _possibleConstructorReturn(this, (CategoriesView.__proto__ || Object.getPrototypeOf(CategoriesView)).call(this, app.nodes.categories, categories));
-
-      _this2.nodes = {
-        list: _this2.databind(document.getElementById('categoryList'))
-      };
-
-      if (app.categoryView) app.categoryView.remove();
-
-      return _this2;
-    }
-
-    _createClass(CategoriesView, [{
-      key: 'render',
-      value: function render() {
-        var _this3 = this;
-
-        this.collection.forEach(function (coll) {
-
-          var li = document.createElement('li');
-
-          var html = '\n          <p>' + coll.name + '</p>\n          <img src=/img/delete.svg alt=\'delete this category\'>\n        ';
-
-          li.innerHTML = html;
-          _this3.nodes.list.appendChild(li);
-        });
-      }
-    }]);
-
-    return CategoriesView;
-  }(View);
-
-  socket.emit('getCategories', function (err, categories) {
-
-    if (err) {
-
-      app.currentCategory = {
-        name: 'Error',
-        description: '\n          Unable to retrieve categories:\n          <br>\n          ' + JSON.stringify(err, null, 2) + '\n        '
-      };
-
-      app.categoryView = new CategoryView(app.currentCategory);
-      app.categoryView.render();
-      app.categoryView.display();
-    } else {
-
-      app.categories = categories;
-      app.categoriesView = new CategoriesView(app.categories);
-      app.categoriesView.render();
-    }
-  });
+  modules.CategoryView = CategoryView;
 })();

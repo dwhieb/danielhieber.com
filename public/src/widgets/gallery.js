@@ -1,6 +1,4 @@
-/* eslint-env browser */
-/* global socket */
-(function runGallery() {
+(() => {
 
   const gallery = document.getElementById('gallery'); // the gallery element
 
@@ -72,4 +70,4 @@
 
   }
 
-}());
+})();

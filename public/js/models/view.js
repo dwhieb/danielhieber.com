@@ -2,11 +2,9 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-(function view() {
+(function () {
   var View = function () {
     function View(el, data) {
       _classCallCheck(this, View);
@@ -22,6 +20,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     _createClass(View, [{
       key: 'databind',
       value: function databind(el) {
+
+        // TODO: if this never needs to refer to `this`, decouple it from View
 
         el.addEventListener = new Proxy(el.addEventListener, {
           apply: function apply(target, context, args) {
@@ -55,23 +55,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'remove',
       value: function remove() {
-        this.removeListeners();
+        this.stopListening();
         this.el.remove();
       }
     }, {
-      key: 'removeListeners',
-      value: function removeListeners() {
+      key: 'stopListening',
+      value: function stopListening() {
 
-        var remove = function remove(el) {
+        var removeListeners = function removeListeners(el) {
           el.listeners.forEach(function (listener) {
             el.removeEventListener(listener.type, listener.handler, listener.opts);
           });
         };
 
-        remove(this.el);
+        removeListeners(this.el);
 
         for (var el in this.nodes) {
-          remove(this.nodes[el]);
+          removeListeners(this.nodes[el]);
         }
       }
     }]);
@@ -83,7 +83,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
   modules.View = new Proxy(View, {
-    construct: function construct(Target, args) {
+    construct: function construct(target, args) {
 
       if (!(args[0] instanceof Node)) {
         throw new Error('The `el` argument must be an instance of a Node.');
@@ -93,7 +93,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         throw new Error('The `model` argument must be an Object.');
       }
 
-      return new (Function.prototype.bind.apply(Target, [null].concat(_toConsumableArray(args))))();
+      return Reflect.construct(target, args);
     }
   });
 })();

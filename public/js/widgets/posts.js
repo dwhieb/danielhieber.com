@@ -1,9 +1,8 @@
 'use strict';
 
-/* eslint-env browser */
 /* global ghost */
 
-(function displayPosts() {
+(function () {
 
   // parameters to send to the Ghost API
   var ghostOptions = {

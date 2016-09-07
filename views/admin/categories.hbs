@@ -6,15 +6,9 @@
 
   <h1>Categories Admin</h1>
 
-  <section id=categoryManagement>
-
-    <label id=addCategory for=addCategoryField>
-      <input type=text name=addCategory>
-      <button type=button name=addCategoryButton>+</button>
-    </label>
-
-    <ol id=categoryList></ol>
-
+  <section id=categoryList>
+    <ol></ol>
+    <button type=button name=addCategory>Add Category</button>
   </section>
 
   <section id=details>
@@ -22,7 +16,7 @@
     <p></p>
     <p></p>
     <div>
-      <button id=saveButton type=button name=saveButton>Save</button>
+      <button id=saveButton   type=button name=saveButton  >Save</button>
       <button id=deleteButton type=button name=deleteButton>Delete</button>
     </div>
   </section>
@@ -30,6 +24,9 @@
 </main>
 
 {{#section 'script'}}
-  <script src=/js/view.js charset=utf-8></script>
-  <script src=/js/categories.js charset=utf-8></script>
+  <script src=/js/models/collection.js     charset=utf-8></script>
+  <script src=/js/models/view.js           charset=utf-8></script>
+  <script src=/js/views/category-view.js   charset=utf-8></script>
+  <script src=/js/views/categories-view.js charset=utf-8></script>
+  <script src=/js/pages/categories.js      charset=utf-8></script>
 {{/section}}

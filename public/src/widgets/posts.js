@@ -1,7 +1,6 @@
-/* eslint-env browser */
 /* global ghost */
 
-(function displayPosts() {
+(() => {
 
   // parameters to send to the Ghost API
   const ghostOptions = {
@@ -93,4 +92,4 @@
     renderErrorFallback();
   }
 
-}());
+})();

@@ -28,7 +28,7 @@ describe('assets', function assets() {
   });
 
   it('can retrieve JS files', function getJSFiles(done) {
-    req.get('/js/posts.js')
+    req.get('/js/widgets/posts.js')
     .expect(200)
     .expect('Content-Type', 'application/javascript')
     .end((err, res) => {

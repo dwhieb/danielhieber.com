@@ -12,7 +12,9 @@
   },
 
   "globals": {
-    "modules": true
+    "app": true,
+    "modules": true,
+    "socket": true
   },
 
   "rules": {
@@ -159,7 +161,9 @@
     "no-lone-blocks": "error",
     "no-lonely-if": "warn",
     "no-loop-func": "error",
-    "no-magic-numbers": "warn",
+    "no-magic-numbers": ["warn", {
+      "ignoreArrayIndexes": true
+    }],
     "no-mixed-operators": ["warn", { "allowSamePrecedence": true }],
     "no-mixed-requires": ["error", { "allowCall": true }],
     "no-mixed-spaces-and-tabs": "error",

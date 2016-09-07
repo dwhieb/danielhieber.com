@@ -1,4 +1,4 @@
-(function view() {
+(() => {
 
   class View {
     constructor(el, data) {
@@ -14,6 +14,8 @@
     }
 
     databind(el) {
+
+      // TODO: if this never needs to refer to `this`, decouple it from View
 
       el.addEventListener = new Proxy(el.addEventListener, {
         apply(target, context, args) {
@@ -46,22 +48,22 @@
     }
 
     remove() {
-      this.removeListeners();
+      this.stopListening();
       this.el.remove();
     }
 
-    removeListeners() {
+    stopListening() {
 
-      const remove = el => {
+      const removeListeners = el => {
         el.listeners.forEach(listener => {
           el.removeEventListener(listener.type, listener.handler, listener.opts);
         });
       };
 
-      remove(this.el);
+      removeListeners(this.el);
 
       for (const el in this.nodes) {
-        remove(this.nodes[el]);
+        removeListeners(this.nodes[el]);
       }
 
     }
@@ -70,7 +72,7 @@
 
   // export a Proxy for validating arguments when the View constructor is called
   modules.View = new Proxy(View, {
-    construct(Target, args) {
+    construct(target, args) {
 
       if (!(args[0] instanceof Node)) {
         throw new Error('The `el` argument must be an instance of a Node.');
@@ -80,9 +82,9 @@
         throw new Error('The `model` argument must be an Object.');
       }
 
-      return new Target(...args);
+      return Reflect.construct(target, args);
 
     },
   });
 
-}());
+})();
