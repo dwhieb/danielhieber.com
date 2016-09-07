@@ -11,9 +11,13 @@
       // TODO: return a Proxy that prevents overwriting certain properties, hides others, etc.
     }
 
-    display() {}
+    display(displayStyle) {
+      this.el.style.display = displayStyle || 'flex';
+    }
 
-    hide() {}
+    hide() {
+      this.el.style.display = 'none';
+    }
 
   }
 

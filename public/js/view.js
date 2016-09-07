@@ -20,10 +20,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     _createClass(View, [{
       key: 'display',
-      value: function display() {}
+      value: function display(displayStyle) {
+        this.el.style.display = displayStyle || 'flex';
+      }
     }, {
       key: 'hide',
-      value: function hide() {}
+      value: function hide() {
+        this.el.style.display = 'none';
+      }
     }]);
 
     return View;

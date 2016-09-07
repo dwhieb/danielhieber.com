@@ -5,6 +5,9 @@
 #categoriesAdmin h1 {
   width: 100%;
 }
+#categoryManagement {
+  padding: 0.5rem;
+}
 #addCategory {
   align-items: center;
   flex-direction: row;
@@ -70,12 +73,18 @@
 }
 #details {
   align-items: stretch;
+  display: none;
   flex-grow: 1;
+  padding: 0rem 1rem;
+}
+#details h2 {
+  font-size: 2rem;
+  font-weight: bold;
 }
 #details > div {
   flex-direction: row;
   justify-content: space-around;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 #details > div button {
   align-items: center;

@@ -65,6 +65,11 @@
 
   socket.emit('getCategories', (err, categories) => {
 
+    err = {
+      status: 500,
+      details: 'bad stuff',
+    };
+
     if (err) {
 
       app.currentCategory = {
@@ -78,6 +83,7 @@
 
       app.categoryView = new CategoryView(app.currentCategory);
       app.categoryView.render();
+      app.categoryView.display();
 
     } else {
 

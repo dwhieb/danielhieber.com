@@ -84,7 +84,7 @@
     const recentPostsUrl = ghost.url.api('posts', ghostOptions);
 
     // call the Ghost API, convert and render the result
-    fetch(recentPostsUrl)
+    fetch(recentPostsUrl, { mode: 'no-cors' })
     .then(res => res.json().then(data => renderPosts(data.posts)))
     .catch(() => renderPosts([]));
 

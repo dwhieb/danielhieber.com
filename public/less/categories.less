@@ -6,6 +6,10 @@
   h1 { width: 100%; }
 }
 
+#categoryManagement {
+  padding: 0.5rem;
+}
+
 #addCategory {
   align-items: center;
   flex-direction: row;
@@ -51,17 +55,26 @@
 
 #details {
   align-items: stretch;
+  display: none;
   flex-grow: 1;
+  padding: 0rem 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 
   // buttons
   > div {
     flex-direction: row;
     justify-content: space-around;
-    padding: 0.5rem;
+    padding: 1rem;
+
     button {
       .button;
       margin: 0rem 0.5rem;
     }
+
     #deleteButton {
       background-color: @red;
     }

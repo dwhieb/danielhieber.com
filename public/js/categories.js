@@ -89,6 +89,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
   socket.emit('getCategories', function (err, categories) {
 
+    err = {
+      status: 500,
+      details: 'bad stuff'
+    };
+
     if (err) {
 
       app.currentCategory = {
@@ -98,6 +103,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
       app.categoryView = new CategoryView(app.currentCategory);
       app.categoryView.render();
+      app.categoryView.display();
     } else {
 
       app.categories = categories;
