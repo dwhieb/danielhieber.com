@@ -30,18 +30,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       var _this = _possibleConstructorReturn(this, (CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).call(this, app.nodes.details, model));
 
       _this.nodes = {
-        name: _this.el.querySelector('h2'),
-        description: _this.el.querySelector('p')
+        description: _this.databind(_this.el.querySelector('p:nth-child(2)')),
+        id: _this.databind(_this.el.querySelector('p:first-child')),
+        name: _this.databind(_this.el.querySelector('h2'))
       };
 
       return _this;
     }
 
     _createClass(CategoryView, [{
+      key: 'remove',
+      value: function remove() {
+        this.removeListeners();
+        this.hide();
+      }
+    }, {
       key: 'render',
       value: function render() {
-        this.nodes.name.innerHTML = this.model.name;
         this.nodes.description.innerHTML = this.model.description;
+        this.nodes.id.innerHTML = this.model.id;
+        this.nodes.name.innerHTML = this.model.name;
+        this.display();
       }
     }]);
 
@@ -54,6 +63,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     function CategoriesView(data) {
       _classCallCheck(this, CategoriesView);
 
+      data = data || app.categories;
+
       var categories = data.sort(function (a, b) {
         return a.name > b.name;
       });
@@ -61,8 +72,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       var _this2 = _possibleConstructorReturn(this, (CategoriesView.__proto__ || Object.getPrototypeOf(CategoriesView)).call(this, app.nodes.categories, categories));
 
       _this2.nodes = {
-        list: document.getElementById('categoryList')
+        list: _this2.databind(document.getElementById('categoryList'))
       };
+
+      if (app.categoryView) app.categoryView.remove();
 
       return _this2;
     }
@@ -88,11 +101,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
   }(View);
 
   socket.emit('getCategories', function (err, categories) {
-
-    err = {
-      status: 500,
-      details: 'bad stuff'
-    };
 
     if (err) {
 

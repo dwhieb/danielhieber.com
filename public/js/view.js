@@ -11,7 +11,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function View(el, data) {
       _classCallCheck(this, View);
 
-      this.el = el;
+      this.el = this.databind(el);
+      this.nodes = {};
 
       if (Array.isArray(data)) this.collection = data;else this.model = data;
 
@@ -19,6 +20,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     _createClass(View, [{
+      key: 'databind',
+      value: function databind(el) {
+
+        el.addEventListener = new Proxy(el.addEventListener, {
+          apply: function apply(target, context, args) {
+
+            var handler = args[1];
+
+            el.listeners = el.listeners || [];
+
+            el.listeners.push({
+              type: args[0],
+              handler: args[1],
+              opts: args[2]
+            });
+
+            return Reflect.apply(target, context, args);
+          }
+        });
+
+        return el;
+      }
+    }, {
       key: 'display',
       value: function display(displayStyle) {
         this.el.style.display = displayStyle || 'flex';
@@ -27,6 +51,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       key: 'hide',
       value: function hide() {
         this.el.style.display = 'none';
+      }
+    }, {
+      key: 'remove',
+      value: function remove() {
+        this.removeListeners();
+        this.el.remove();
+      }
+    }, {
+      key: 'removeListeners',
+      value: function removeListeners() {
+
+        var remove = function remove(el) {
+          el.listeners.forEach(function (listener) {
+            el.removeEventListener(listener.type, listener.handler, listener.opts);
+          });
+        };
+
+        remove(this.el);
+
+        for (var el in this.nodes) {
+          remove(this.nodes[el]);
+        }
       }
     }]);
 

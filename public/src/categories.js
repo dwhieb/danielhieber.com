@@ -17,21 +17,31 @@
       super(app.nodes.details, model);
 
       this.nodes = {
-        name:         this.el.querySelector('h2'),
-        description:  this.el.querySelector('p'),
+        description:  this.databind(this.el.querySelector('p:nth-child(2)')),
+        id:           this.databind(this.el.querySelector('p:first-child')),
+        name:         this.databind(this.el.querySelector('h2')),
       };
 
     }
 
+    remove() {
+      this.removeListeners();
+      this.hide();
+    }
+
     render() {
-      this.nodes.name.innerHTML        = this.model.name;
       this.nodes.description.innerHTML = this.model.description;
+      this.nodes.id.innerHTML          = this.model.id;
+      this.nodes.name.innerHTML        = this.model.name;
+      this.display();
     }
 
   };
 
   const CategoriesView = class CategoriesView extends View {
     constructor(data) {
+
+      data = data || app.categories;
 
       const categories = data.sort((a, b) => {
         return a.name > b.name;
@@ -40,8 +50,10 @@
       super(app.nodes.categories, categories);
 
       this.nodes = {
-        list: document.getElementById('categoryList'),
+        list: this.databind(document.getElementById('categoryList')),
       };
+
+      if (app.categoryView) app.categoryView.remove();
 
     }
 
@@ -64,11 +76,6 @@
   };
 
   socket.emit('getCategories', (err, categories) => {
-
-    err = {
-      status: 500,
-      details: 'bad stuff',
-    };
 
     if (err) {
 
