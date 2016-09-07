@@ -25,6 +25,30 @@
   }
 }
 
+#categoryList {
+  padding: 0.5rem;
+
+  li {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.25rem 0rem;
+
+    p { cursor: pointer; }
+
+    img {
+      cursor: pointer;
+      height: 1.5rem;
+      visibility: hidden;
+    }
+
+    &:hover img {
+      visibility: visible;
+    }
+
+  }
+
+}
+
 #details {
   align-items: stretch;
   flex-grow: 1;

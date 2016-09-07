@@ -1,9 +1,13 @@
 (function view() {
 
   class View {
-    constructor(el, model) {
+    constructor(el, data) {
+
       this.el = el;
-      this.model = model;
+
+      if (Array.isArray(data)) this.collection = data;
+      else this.model = data;
+
       // TODO: return a Proxy that prevents overwriting certain properties, hides others, etc.
     }
 

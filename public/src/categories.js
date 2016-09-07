@@ -13,16 +13,52 @@
 
   const CategoryView = class CategoryView extends View {
     constructor(model) {
+
       super(app.nodes.details, model);
+
       this.nodes = {
         name:         this.el.querySelector('h2'),
         description:  this.el.querySelector('p'),
       };
+
     }
 
     render() {
       this.nodes.name.innerHTML        = this.model.name;
       this.nodes.description.innerHTML = this.model.description;
+    }
+
+  };
+
+  const CategoriesView = class CategoriesView extends View {
+    constructor(data) {
+
+      const categories = data.sort((a, b) => {
+        return a.name > b.name;
+      });
+
+      super(app.nodes.categories, categories);
+
+      this.nodes = {
+        list: document.getElementById('categoryList'),
+      };
+
+    }
+
+    render() {
+      this.collection.forEach(coll => {
+
+        const li = document.createElement('li');
+
+        const html = `
+          <p>${coll.name}</p>
+          <img src=/img/delete.svg alt='delete this category'>
+        `;
+
+        li.innerHTML = html;
+        this.nodes.list.appendChild(li);
+
+      });
     }
 
   };
@@ -46,7 +82,8 @@
     } else {
 
       app.categories     = categories;
-      app.categoriesView = new View(app.nodes.categories, app.categories);
+      app.categoriesView = new CategoriesView(app.categories);
+      app.categoriesView.render();
 
     }
 

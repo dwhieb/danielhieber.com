@@ -33,6 +33,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         name: _this.el.querySelector('h2'),
         description: _this.el.querySelector('p')
       };
+
       return _this;
     }
 
@@ -45,6 +46,45 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }]);
 
     return CategoryView;
+  }(View);
+
+  var CategoriesView = function (_View2) {
+    _inherits(CategoriesView, _View2);
+
+    function CategoriesView(data) {
+      _classCallCheck(this, CategoriesView);
+
+      var categories = data.sort(function (a, b) {
+        return a.name > b.name;
+      });
+
+      var _this2 = _possibleConstructorReturn(this, (CategoriesView.__proto__ || Object.getPrototypeOf(CategoriesView)).call(this, app.nodes.categories, categories));
+
+      _this2.nodes = {
+        list: document.getElementById('categoryList')
+      };
+
+      return _this2;
+    }
+
+    _createClass(CategoriesView, [{
+      key: 'render',
+      value: function render() {
+        var _this3 = this;
+
+        this.collection.forEach(function (coll) {
+
+          var li = document.createElement('li');
+
+          var html = '\n          <p>' + coll.name + '</p>\n          <img src=/img/delete.svg alt=\'delete this category\'>\n        ';
+
+          li.innerHTML = html;
+          _this3.nodes.list.appendChild(li);
+        });
+      }
+    }]);
+
+    return CategoriesView;
   }(View);
 
   socket.emit('getCategories', function (err, categories) {
@@ -61,7 +101,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     } else {
 
       app.categories = categories;
-      app.categoriesView = new View(app.nodes.categories, app.categories);
+      app.categoriesView = new CategoriesView(app.categories);
+      app.categoriesView.render();
     }
   });
 })();

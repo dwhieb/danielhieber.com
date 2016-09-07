@@ -8,11 +8,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (function view() {
   var View = function () {
-    function View(el, model) {
+    function View(el, data) {
       _classCallCheck(this, View);
 
       this.el = el;
-      this.model = model;
+
+      if (Array.isArray(data)) this.collection = data;else this.model = data;
+
       // TODO: return a Proxy that prevents overwriting certain properties, hides others, etc.
     }
 

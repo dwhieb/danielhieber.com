@@ -163,7 +163,12 @@
     "no-mixed-operators": ["warn", { "allowSamePrecedence": true }],
     "no-mixed-requires": ["error", { "allowCall": true }],
     "no-mixed-spaces-and-tabs": "error",
-    "no-multi-spaces": "warn",
+    "no-multi-spaces": ["error", {
+      "exceptions": {
+        "AssignmentExpression": true,
+        "VariableDeclarator": true
+      }
+    }],
     "no-multi-str": "error",
     "no-multiple-empty-lines": ["warn", { "max": 2 }],
     "no-native-reassign": "error",
