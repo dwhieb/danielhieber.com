@@ -13,7 +13,6 @@
 
   "globals": {
     "app": true,
-    "modules": true,
     "socket": true
   },
 
@@ -162,7 +161,8 @@
     "no-lonely-if": "warn",
     "no-loop-func": "error",
     "no-magic-numbers": ["warn", {
-      "ignoreArrayIndexes": true
+      "ignoreArrayIndexes": true,
+      "ignore": [0, 1, 2]
     }],
     "no-mixed-operators": ["warn", { "allowSamePrecedence": true }],
     "no-mixed-requires": ["error", { "allowCall": true }],

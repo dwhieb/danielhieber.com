@@ -1,41 +1,61 @@
-window.app = {
+/* global
+  CategoryView,
+  CategoriesView,
+  Collection
+*/
+
+window.app = new Proxy({
+
   nodes: {
-    categories:  document.getElementById('categoryManagement'),
+    categoryList:  document.getElementById('categoryList'),
     details:     document.getElementById('details'),
   },
-};
 
+  category: null,
+  categories: [],
+  categoryView: new CategoryView(this.nodes.details, this.category),
+  categoriesView: new CategoriesView(this.nodes.categoryList, this.categories),
 
-(() => {
+}, {
 
-  const CategoryView   = modules.CategoryView;
-  const CategoriesView = modules.CategoriesView;
-  const Collection     = modules.Collection;
+  set(target, prop, val) {
 
-  socket.emit('getCategories', (err, categories) => {
+    Reflect.set(target, prop, val);
 
-    if (err) {
-
-      app.currentCategory = {
-        name: 'Error',
-        description: `
-          Unable to retrieve categories:
-          <br>
-          ${JSON.stringify(err, null, 2)}
-        `,
-      };
-
-      app.categoryView = new CategoryView(app.currentCategory);
-      app.categoryView.render();
-
-    } else {
-
-      app.categories     = new Collection(categories);
-      app.categoriesView = new CategoriesView();
-      app.categoriesView.render();
-
+    if (prop === 'category') {
+      this.categoryView.remove();
+      this.categoryView = new CategoryView(this.nodes.details, this.category);
+      this.categoryView.render();
     }
 
-  });
+    if (prop === 'categories') {
+      this.categoriesView.remove();
+      this.categoriesView = new CategoriesView(this.nodes.categoryList, this.categories);
+      this.categoriesView.render();
+    }
 
-})();
+  },
+
+});
+
+socket.emit('getCategories', (err, categories) => {
+
+  if (err) {
+
+    app.category = {
+      name: 'Error',
+      id: 'error',
+      description: `
+        Unable to retrieve categories:
+        <br>
+        ${JSON.stringify(err, null, 2)}
+      `,
+    };
+
+  } else {
+
+    app.categories = new Collection(categories);
+
+  }
+
+});

@@ -1,34 +1,53 @@
 'use strict';
 
-window.app = {
+/* global
+  CategoryView,
+  CategoriesView,
+  Collection
+*/
+
+window.app = new Proxy({
+
   nodes: {
-    categories: document.getElementById('categoryManagement'),
+    categoryList: document.getElementById('categoryList'),
     details: document.getElementById('details')
-  }
-};
+  },
 
-(function () {
+  category: null,
+  categories: [],
+  categoryView: new CategoryView(undefined.nodes.details, undefined.category),
+  categoriesView: new CategoriesView(undefined.nodes.categoryList, undefined.categories)
 
-  var CategoryView = modules.CategoryView;
-  var CategoriesView = modules.CategoriesView;
-  var Collection = modules.Collection;
+}, {
+  set: function set(target, prop, val) {
 
-  socket.emit('getCategories', function (err, categories) {
+    Reflect.set(target, prop, val);
 
-    if (err) {
-
-      app.currentCategory = {
-        name: 'Error',
-        description: '\n          Unable to retrieve categories:\n          <br>\n          ' + JSON.stringify(err, null, 2) + '\n        '
-      };
-
-      app.categoryView = new CategoryView(app.currentCategory);
-      app.categoryView.render();
-    } else {
-
-      app.categories = new Collection(categories);
-      app.categoriesView = new CategoriesView();
-      app.categoriesView.render();
+    if (prop === 'category') {
+      this.categoryView.remove();
+      this.categoryView = new CategoryView(this.nodes.details, this.category);
+      this.categoryView.render();
     }
-  });
-})();
+
+    if (prop === 'categories') {
+      this.categoriesView.remove();
+      this.categoriesView = new CategoriesView(this.nodes.categoryList, this.categories);
+      this.categoriesView.render();
+    }
+  }
+});
+
+socket.emit('getCategories', function (err, categories) {
+
+  if (err) {
+
+    app.category = {
+      name: 'Error',
+      id: 'error',
+      description: '\n        Unable to retrieve categories:\n        <br>\n        ' + JSON.stringify(err, null, 2) + '\n      '
+    };
+  } else {
+
+    app.categories = new Collection(categories);
+  }
+});
