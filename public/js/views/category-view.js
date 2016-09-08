@@ -8,45 +8,38 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-(function () {
+var CategoryView = function (_View) {
+  _inherits(CategoryView, _View);
 
-  var View = modules.View;
+  function CategoryView(el, model) {
+    _classCallCheck(this, CategoryView);
 
-  var CategoryView = function (_View) {
-    _inherits(CategoryView, _View);
+    var _this = _possibleConstructorReturn(this, (CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).call(this, el, model));
 
-    function CategoryView(model) {
-      _classCallCheck(this, CategoryView);
+    _this.nodes = {
+      description: _this.databind(_this.el.querySelector('p:nth-child(2)')),
+      id: _this.databind(_this.el.querySelector('p:first-child')),
+      name: _this.databind(_this.el.querySelector('h2'))
+    };
 
-      var _this = _possibleConstructorReturn(this, (CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).call(this, app.nodes.details, model));
+    return _this;
+  }
 
-      _this.nodes = {
-        description: _this.databind(_this.el.querySelector('p:nth-child(2)')),
-        id: _this.databind(_this.el.querySelector('p:first-child')),
-        name: _this.databind(_this.el.querySelector('h2'))
-      };
-
-      return _this;
+  _createClass(CategoryView, [{
+    key: 'remove',
+    value: function remove() {
+      this.removeListeners();
+      this.hide();
     }
+  }, {
+    key: 'render',
+    value: function render() {
+      this.nodes.description.innerHTML = this.model.description;
+      this.nodes.id.innerHTML = this.model.id;
+      this.nodes.name.innerHTML = this.model.name;
+      this.display();
+    }
+  }]);
 
-    _createClass(CategoryView, [{
-      key: 'remove',
-      value: function remove() {
-        this.removeListeners();
-        this.hide();
-      }
-    }, {
-      key: 'render',
-      value: function render() {
-        this.nodes.description.innerHTML = this.model.description;
-        this.nodes.id.innerHTML = this.model.id;
-        this.nodes.name.innerHTML = this.model.name;
-        this.display();
-      }
-    }]);
-
-    return CategoryView;
-  }(View);
-
-  modules.CategoryView = CategoryView;
-})();
+  return CategoryView;
+}(View);

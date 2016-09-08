@@ -54,7 +54,7 @@ var Emitter = function () {
       if (typeof listener !== 'function') throw new Error('`listener` must be a function.');
 
       var i = this.listeners[eventName].findIndex(function (el) {
-        return listener === el;
+        return Object.is(listener, el);
       });
 
       if (i) {
@@ -73,6 +73,22 @@ var Emitter = function () {
       } else {
         this.listeners = {};
       }
+    }
+  }], [{
+    key: 'extend',
+    value: function extend(obj) {
+
+      var target = obj.prototype || obj;
+      var source = this.prototype;
+
+      Object.getOwnPropertyNames(source).forEach(function (prop) {
+        if (prop !== 'constructor') {
+          var propertyDescriptor = Object.getOwnPropertyDescriptor(source, prop);
+          Object.defineProperty(target, prop, propertyDescriptor);
+        }
+      });
+
+      return target;
     }
   }]);
 

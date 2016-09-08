@@ -1,34 +1,26 @@
-(() => {
+const CategoryView = class CategoryView extends View {
+  constructor(el, model) {
 
-  const View = modules.View;
+    super(el, model);
 
-  const CategoryView = class CategoryView extends View {
-    constructor(model) {
+    this.nodes = {
+      description:  this.databind(this.el.querySelector('p:nth-child(2)')),
+      id:           this.databind(this.el.querySelector('p:first-child')),
+      name:         this.databind(this.el.querySelector('h2')),
+    };
 
-      super(app.nodes.details, model);
+  }
 
-      this.nodes = {
-        description:  this.databind(this.el.querySelector('p:nth-child(2)')),
-        id:           this.databind(this.el.querySelector('p:first-child')),
-        name:         this.databind(this.el.querySelector('h2')),
-      };
+  remove() {
+    this.removeListeners();
+    this.hide();
+  }
 
-    }
+  render() {
+    this.nodes.description.innerHTML = this.model.description;
+    this.nodes.id.innerHTML          = this.model.id;
+    this.nodes.name.innerHTML        = this.model.name;
+    this.display();
+  }
 
-    remove() {
-      this.removeListeners();
-      this.hide();
-    }
-
-    render() {
-      this.nodes.description.innerHTML = this.model.description;
-      this.nodes.id.innerHTML          = this.model.id;
-      this.nodes.name.innerHTML        = this.model.name;
-      this.display();
-    }
-
-  };
-
-  modules.CategoryView = CategoryView;
-
-})();
+};

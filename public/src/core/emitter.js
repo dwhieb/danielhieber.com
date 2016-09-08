@@ -1,4 +1,4 @@
-class Emitter {
+const Emitter = class Emitter {
   constructor() {
     this.listeners = {};
   }
@@ -33,7 +33,7 @@ class Emitter {
     if (!(eventName in this.listeners)) throw new Error(`No listener for "${eventName}" exists.`);
     if (typeof listener !== 'function') throw new Error('`listener` must be a function.');
 
-    const i = this.listeners[eventName].findIndex(el => listener === el);
+    const i = this.listeners[eventName].findIndex(el => Object.is(listener, el));
 
     if (i) {
       this.listeners[eventName].splice(i, 1);
@@ -53,4 +53,20 @@ class Emitter {
     }
   }
 
-}
+  static extend(obj) {
+
+    const target = obj.prototype || obj;
+    const source = this.prototype;
+
+    Object.getOwnPropertyNames(source).forEach(prop => {
+      if (prop !== 'constructor') {
+        const propertyDescriptor = Object.getOwnPropertyDescriptor(source, prop);
+        Object.defineProperty(target, prop, propertyDescriptor);
+      }
+    });
+
+    return target;
+
+  }
+
+};

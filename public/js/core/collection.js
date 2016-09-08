@@ -8,42 +8,41 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-(function () {
+/* global Emitter */
 
-  var Collection = function (_Array) {
+var Collection = function (_Array) {
     _inherits(Collection, _Array);
 
     function Collection(data) {
-      var _ref;
+        var _ref;
 
-      _classCallCheck(this, Collection);
+        var _ret;
 
-      // NB: extending native classes is not supported by Babel
-      // these methods have to be added in the constructor
+        _classCallCheck(this, Collection);
 
-      var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(data))));
+        if (!Array.isArray(data)) throw new Error('Collection must be an array.');
 
-      _this.add = function (model) {
-        _this.push(model);
-      };
+        // NB: extending native classes is not supported by Babel
+        // these methods have to be added in the constructor
 
-      _this.remove = function (model) {
-        var i = _this.findIndex(function (el) {
-          return model === el;
-        });
-        _this.splice(i, 1);
-      };
+        var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(data))));
 
-      return _this;
+        _this.add = function (model) {
+            _this.push(model);
+        };
+
+        _this.remove = function (model) {
+            var i = _this.findIndex(function (el) {
+                return Object.is(model, el);
+            });
+            _this.splice(i, 1);
+        };
+
+        return _ret = Reflect.construct(Array, [data], Collection), _possibleConstructorReturn(_this, _ret);
     }
 
     return Collection;
-  }(Array);
+}(Array);
 
-  modules.Collection = new Proxy(Collection, {
-    construct: function construct(target, args) {
-      if (!Array.isArray(args[0])) throw new Error('Collection must be an array.');
-      return Reflect.construct(target, args);
-    }
-  });
-})();
+Reflect.setPrototypeOf(Collection, Array);
+Reflect.setPrototypeOf(Collection.prototype, Array.prototype);

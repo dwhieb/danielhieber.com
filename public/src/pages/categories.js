@@ -8,31 +8,31 @@ window.app = new Proxy({
 
   nodes: {
     categoryList:  document.getElementById('categoryList'),
-    details:     document.getElementById('details'),
+    details:       document.getElementById('details'),
   },
 
-  category: null,
-  categories: [],
-  categoryView: new CategoryView(this.nodes.details, this.category),
-  categoriesView: new CategoriesView(this.nodes.categoryList, this.categories),
+  category:       null,
+  categories:     new Collection([]),
+  categoryView:   null,
+  categoriesView: null,
 
 }, {
 
-  set(target, prop, val) {
-
-    Reflect.set(target, prop, val);
+  set(app, prop, val) {
 
     if (prop === 'category') {
-      this.categoryView.remove();
-      this.categoryView = new CategoryView(this.nodes.details, this.category);
-      this.categoryView.render();
+      if (app.categoryView) app.categoryView.remove();
+      app.categoryView = new CategoryView(app.nodes.details, val);
+      app.categoryView.render();
     }
 
     if (prop === 'categories') {
-      this.categoriesView.remove();
-      this.categoriesView = new CategoriesView(this.nodes.categoryList, this.categories);
-      this.categoriesView.render();
+      if (app.categoriesView) app.categoriesView.remove();
+      app.categoriesView = new CategoriesView(app.nodes.categoryList, val);
+      app.categoriesView.render();
     }
+
+    return Reflect.set(app, prop, val);
 
   },
 
