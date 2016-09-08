@@ -58,6 +58,8 @@ const Emitter = class Emitter {
     const target = obj.prototype || obj;
     const source = this.prototype;
 
+    Object.assign(target, new Emitter());
+
     Object.getOwnPropertyNames(source).forEach(prop => {
       if (prop !== 'constructor') {
         const propertyDescriptor = Object.getOwnPropertyDescriptor(source, prop);

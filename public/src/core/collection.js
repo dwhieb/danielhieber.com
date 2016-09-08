@@ -1,5 +1,3 @@
-/* global Emitter */
-
 const Collection = class Collection extends Array {
   constructor(data) {
     if (!Array.isArray(data)) throw new Error('Collection must be an array.');

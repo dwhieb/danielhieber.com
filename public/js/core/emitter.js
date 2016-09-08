@@ -81,6 +81,8 @@ var Emitter = function () {
       var target = obj.prototype || obj;
       var source = this.prototype;
 
+      Object.assign(target, new Emitter());
+
       Object.getOwnPropertyNames(source).forEach(function (prop) {
         if (prop !== 'constructor') {
           var propertyDescriptor = Object.getOwnPropertyDescriptor(source, prop);
