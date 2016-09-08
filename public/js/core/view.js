@@ -8,40 +8,13 @@ var View = new Proxy(function () {
   function View(el, data) {
     _classCallCheck(this, View);
 
-    this.el = this.databind(el);
+    this.el = View.bind(el);
     this.nodes = {};
 
     if (Array.isArray(data)) this.collection = data;else this.model = data;
-
-    // TODO: return a Proxy that prevents overwriting certain properties, hides others, etc.
   }
 
   _createClass(View, [{
-    key: 'databind',
-    value: function databind(el) {
-
-      // TODO: if this never needs to refer to `this`, decouple it from View
-
-      el.addEventListener = new Proxy(el.addEventListener, {
-        apply: function apply(target, context, args) {
-
-          var handler = args[1];
-
-          el.listeners = el.listeners || [];
-
-          el.listeners.push({
-            type: args[0],
-            handler: args[1],
-            opts: args[2]
-          });
-
-          return Reflect.apply(target, context, args);
-        }
-      });
-
-      return el;
-    }
-  }, {
     key: 'display',
     value: function display(displayStyle) {
       this.el.style.display = displayStyle || 'flex';
@@ -65,7 +38,11 @@ var View = new Proxy(function () {
 
         var removeListeners = function removeListeners(el) {
           el.listeners.forEach(function (listener) {
-            el.removeEventListener(listener.type, listener.handler, listener.opts);
+            var type = listener.type;
+            var handler = listener.handler;
+            var opts = listener.opts;
+
+            el.removeEventListener(type, handler, opts);
           });
         };
 
@@ -77,6 +54,40 @@ var View = new Proxy(function () {
       } else {
         return;
       }
+    }
+  }], [{
+    key: 'bind',
+    value: function bind(el) {
+
+      el.listeners = el.listeners || [];
+
+      var registerListener = function registerListener() {
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        var type = args[0];
+        var eventHandler = args[1];
+        var opts = args[2];
+
+
+        el.listeners.push({
+          type: type,
+          eventHandler: eventHandler,
+          opts: opts
+        });
+
+        return el.addEventListener.apply(el, args);
+      };
+
+      var proxyHandler = {
+        get: function get(target, prop, receiver) {
+          if (prop === 'addEventListener') return registerListener;
+          return Reflect.get(target, prop, receiver);
+        }
+      };
+
+      return new Proxy(el, proxyHandler);
     }
   }]);
 

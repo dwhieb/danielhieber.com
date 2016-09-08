@@ -1,39 +1,11 @@
 const View = new Proxy(class View {
   constructor(el, data) {
 
-    this.el = this.databind(el);
+    this.el = View.bind(el);
     this.nodes = {};
 
     if (Array.isArray(data)) this.collection = data;
     else this.model = data;
-
-    // TODO: return a Proxy that prevents overwriting certain properties, hides others, etc.
-
-  }
-
-  databind(el) {
-
-    // TODO: if this never needs to refer to `this`, decouple it from View
-
-    el.addEventListener = new Proxy(el.addEventListener, {
-      apply(target, context, args) {
-
-        const handler = args[1];
-
-        el.listeners = el.listeners || [];
-
-        el.listeners.push({
-          type: args[0],
-          handler: args[1],
-          opts: args[2],
-        });
-
-        return Reflect.apply(target, context, args);
-
-      },
-    });
-
-    return el;
 
   }
 
@@ -56,7 +28,8 @@ const View = new Proxy(class View {
 
       const removeListeners = el => {
         el.listeners.forEach(listener => {
-          el.removeEventListener(listener.type, listener.handler, listener.opts);
+          const { type, handler, opts } = listener;
+          el.removeEventListener(type, handler, opts);
         });
       };
 
@@ -69,6 +42,34 @@ const View = new Proxy(class View {
     } else {
       return;
     }
+
+  }
+
+  static bind(el) {
+
+    el.listeners = el.listeners || [];
+
+    const registerListener = (...args) => {
+      const [type, eventHandler, opts] = args;
+
+      el.listeners.push({
+        type,
+        eventHandler,
+        opts,
+      });
+
+      return el.addEventListener(...args);
+
+    };
+
+    const proxyHandler = {
+      get(target, prop, receiver) {
+        if (prop === 'addEventListener') return registerListener;
+        return Reflect.get(target, prop, receiver);
+      },
+    };
+
+    return new Proxy(el, proxyHandler);
 
   }
 
