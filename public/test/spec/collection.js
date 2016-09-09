@@ -17,14 +17,14 @@ describe('Collection', function CollectionSpec() {
     expect(Array.isArray(coll)).toBe(true);
   });
 
-  it('must be passed an array', function () {
+  it('must be passed an array if given an argument', function () {
     const passArray = () => new Collection([]);
-    const passObj = () => new Collection({});
     const passNothing = () => new Collection();
+    const passObj = () => new Collection({});
 
     expect(passArray).not.toThrow();
+    expect(passNothing).not.toThrow();
     expect(passObj).toThrow();
-    expect(passNothing).toThrow();
   });
 
   it('.add()', function () {
@@ -33,6 +33,14 @@ describe('Collection', function CollectionSpec() {
     const len = coll.length;
     coll.add({ hello: 'world' });
     expect(coll.length).toBe(len + 1);
+  });
+
+  it('.remove()', function () {
+    const model = { hello: 'world' };
+    const coll = new Collection([model]);
+    expect(coll.remove).toBeDefined();
+    coll.remove(model);
+    expect(coll.length).toBe(0);
   });
 
   it('.length', function () {
@@ -44,14 +52,6 @@ describe('Collection', function CollectionSpec() {
     const coll = new Collection(models);
     expect(coll.length).toBe(models.length);
 
-  });
-
-  it('.remove()', function () {
-    const model = { hello: 'world' };
-    const coll = new Collection([model]);
-    expect(coll.remove).toBeDefined();
-    coll.remove(model);
-    expect(coll.length).toBe(0);
   });
 
 });

@@ -35,37 +35,63 @@ function _extendableBuiltin(cls) {
   return ExtendableBuiltin;
 }
 
+/**
+ * Class representing a collection
+ * @type {Array}
+ */
 var Collection = function (_extendableBuiltin2) {
   _inherits(Collection, _extendableBuiltin2);
 
-  function Collection(data) {
+  /**
+   * Create a collection
+   * @class
+   * @param {Array} [models]      The array of models for the collection
+   */
+  function Collection(models) {
     _classCallCheck(this, Collection);
 
-    if (Number.isInteger(data)) {
-      var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this, data));
-    } else if (!Array.isArray(data)) {
-      throw new Error('Collection data must be an array.');
-    } else {
+    if (Number.isInteger(models)) {
+      var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this, models));
+    } else if (models && !Array.isArray(models)) {
+      throw new Error('Collection constructor must be passed an array.');
+    } else if (models) {
       var _ref;
 
-      var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(data))));
+      var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(models))));
+    } else {
+      var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
 
     return _possibleConstructorReturn(_this);
   }
 
+  /**
+   * Add a model to the collection
+   * @method
+   * @param {Object} model        The model to add to the collection
+   * @return {Number} length      Returns the new length of the collection array
+   */
+
+
   _createClass(Collection, [{
     key: 'add',
     value: function add(model) {
-      this.push(model);
+      return this.push(model);
     }
+
+    /**
+     * Remove a model from the collection
+     * @param {Object} model                The model to remove from the collection
+     * @return {Array} deletedItems         Returns an array of the deleted items
+     */
+
   }, {
     key: 'remove',
     value: function remove(model) {
       var i = this.findIndex(function (el) {
         return Object.is(model, el);
       });
-      this.splice(i, 1);
+      return this.splice(i, 1);
     }
   }]);
 
