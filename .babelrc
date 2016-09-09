@@ -1,3 +1,8 @@
 {
-  "presets": ["latest"]
+  "presets": ["latest"],
+  "plugins": [
+    ["babel-plugin-transform-builtin-extend", {
+      "globals": ["Array"]
+    }]
+  ]
 }

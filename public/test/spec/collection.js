@@ -35,6 +35,17 @@ describe('Collection', function CollectionSpec() {
     expect(coll.length).toBe(len + 1);
   });
 
+  it('.length', function () {
+    const models = [
+      { hello: 'world' },
+      { hello: 'again' },
+    ];
+
+    const coll = new Collection(models);
+    expect(coll.length).toBe(models.length);
+
+  });
+
   it('.remove()', function () {
     const model = { hello: 'world' };
     const coll = new Collection([model]);
