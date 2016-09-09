@@ -4,6 +4,6 @@ before_script:
   - npm i --save jasmine@2.4.1
   - node build/less.js
   - babel public/src -d public/js
-  - phantomjs public/test/run-jasmine.js
+  - phantomjs public/test/run-jasmine.js /test
 notifications:
   email: false
