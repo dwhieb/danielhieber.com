@@ -6,37 +6,52 @@
   h1 { width: 100%; }
 }
 
-#addCategory {
-  align-items: center;
-  flex-direction: row;
+#categoryList {
+  button { .button; }
 
-  input {
-    .field;
-    flex-grow: 1;
-    padding: 0.25rem 0.5rem;
+  li {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.25rem 0rem;
+
+    p { cursor: pointer; }
+
+    img {
+      cursor: pointer;
+      height: 1.5rem;
+      visibility: hidden;
+    }
+
+    &:hover img {
+      visibility: visible;
+    }
+
   }
 
-  button {
-    .button;
-    height: 2rem;
-    margin-left: 0.5rem;
-    padding: 0rem;
-    width: 2rem;
-  }
 }
 
 #details {
   align-items: stretch;
+  display: none;
   flex-grow: 1;
+  padding: 0rem 1rem;
 
-  #buttons {
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  // buttons
+  > div {
     flex-direction: row;
     justify-content: space-around;
-    padding: 0.5rem;
+    padding: 1rem;
+
     button {
       .button;
       margin: 0rem 0.5rem;
     }
+
     #deleteButton {
       background-color: @red;
     }

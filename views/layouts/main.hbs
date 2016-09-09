@@ -71,20 +71,25 @@
   {{{body}}}
 
   {{!-- Azure application insights --}}
-  <script src=/js/appInsights.js charset=utf-8></script>
+  <script src=/js/widgets/app-insights.js charset=utf-8></script>
 
   {{!-- Exposes Socket.IO API --}}
   <script src=/socket.io/socket.io.js charset=utf-8></script>
 
-  {{!-- Loads a Socket for use on every page --}}
   <script type=text/javascript>
+
+    // Defines a global .modules object for storing a reference to modules
+    window.modules = {};
+
+    // Loads a Socket for use on every page
     const socket = io({
       transports: ['websocket', 'xhr-polling']
     });
+
   </script>
 
   {{!-- Runs the gallery transitions --}}
-  <script src=/js/gallery.js charset=utf-8></script>
+  <script src=/js/widgets/gallery.js charset=utf-8></script>
 
   {{!-- Scripts from individual views get loaded here --}}
   {{{sections.script}}}
