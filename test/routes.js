@@ -233,7 +233,7 @@ describe('routes', function routes() {
     .expect(200)
     .end((err, res) => {
       if (err) fail(JSON.stringify(err, null, 2));
-      expect(res.text.includes('| Test')).toBe(true);
+      expect(res.text.includes('Jasmine')).toBe(true);
       done();
     });
   });
