@@ -18,7 +18,9 @@ var Emitter = function () {
         args[_key - 1] = arguments[_key];
       }
 
-      if (!(eventName in this.listeners)) throw new Error('"' + eventName + '" event does not exist.');
+      if (!(eventName in this.listeners)) {
+        throw new Error('"' + eventName + '" event does not exist.');
+      }
 
       this.listeners[eventName].forEach(function (cb) {
         return cb.apply(undefined, args);
@@ -40,24 +42,29 @@ var Emitter = function () {
 
       if (typeof cb !== 'function') throw new Error('Callback must be a function.');
 
-      var proxy = function proxy() {
+      var proxyHandler = function proxyHandler() {
+        _this.removeListener(eventName, proxyHandler);
         cb.apply(undefined, arguments); // eslint-disable-line callback-return
-        _this.removeListener(eventName, proxy);
       };
 
-      this.on(eventName, proxy);
+      this.on(eventName, proxyHandler);
     }
   }, {
     key: 'removeListener',
     value: function removeListener(eventName, listener) {
-      if (!(eventName in this.listeners)) throw new Error('No listener for "' + eventName + '" exists.');
-      if (typeof listener !== 'function') throw new Error('`listener` must be a function.');
+      if (!(eventName in this.listeners)) {
+        throw new Error('No listeners for "' + eventName + '" exist.');
+      }
 
-      var i = this.listeners[eventName].findIndex(function (el) {
-        return Object.is(listener, el);
+      if (typeof listener !== 'function') {
+        throw new Error('`listener` must be a function.');
+      }
+
+      var i = this.listeners[eventName].findIndex(function (cb) {
+        return Object.is(listener, cb);
       });
 
-      if (i) {
+      if (i >= 0) {
         this.listeners[eventName].splice(i, 1);
         if (this.listeners[eventName].length === 0) delete this.listeners[eventName];
       } else {

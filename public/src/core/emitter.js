@@ -4,7 +4,9 @@ const Emitter = class Emitter {
   }
 
   emit(eventName, ...args) {
-    if (!(eventName in this.listeners)) throw new Error(`"${eventName}" event does not exist.`);
+    if (!(eventName in this.listeners)) {
+      throw new Error(`"${eventName}" event does not exist.`);
+    }
 
     this.listeners[eventName].forEach(cb => cb(...args));
   }
@@ -21,8 +23,8 @@ const Emitter = class Emitter {
     if (typeof cb !== 'function') throw new Error('Callback must be a function.');
 
     const proxyHandler = (...args) => {
-      cb(...args); // eslint-disable-line callback-return
       this.removeListener(eventName, proxyHandler);
+      cb(...args); // eslint-disable-line callback-return
     };
 
     this.on(eventName, proxyHandler);
@@ -30,12 +32,17 @@ const Emitter = class Emitter {
   }
 
   removeListener(eventName, listener) {
-    if (!(eventName in this.listeners)) throw new Error(`No listener for "${eventName}" exists.`);
-    if (typeof listener !== 'function') throw new Error('`listener` must be a function.');
+    if (!(eventName in this.listeners)) {
+      throw new Error(`No listeners for "${eventName}" exist.`);
+    }
 
-    const i = this.listeners[eventName].findIndex(el => Object.is(listener, el));
+    if (typeof listener !== 'function') {
+      throw new Error('`listener` must be a function.');
+    }
 
-    if (i) {
+    const i = this.listeners[eventName].findIndex(cb => Object.is(listener, cb));
+
+    if (i >= 0) {
       this.listeners[eventName].splice(i, 1);
       if (this.listeners[eventName].length === 0) delete this.listeners[eventName];
     } else {

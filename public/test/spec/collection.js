@@ -1,4 +1,4 @@
-/* global Collection */
+/* global Collection, coll */
 
 /* eslint-disable
   func-names,
@@ -8,16 +8,9 @@
 
 describe('Collection', function CollectionSpec() {
 
-  it('adds Collection to the global scope', function exists() {
+  it('new Collection()', function () {
     expect(Collection).toBeDefined();
-  });
 
-  it('is an instance of an Array', function isArray() {
-    const coll = new Collection([]);
-    expect(Array.isArray(coll)).toBe(true);
-  });
-
-  it('must be passed an array if given an argument', function () {
     const passArray = () => new Collection([]);
     const passNothing = () => new Collection();
     const passObj = () => new Collection({});
@@ -25,9 +18,13 @@ describe('Collection', function CollectionSpec() {
     expect(passArray).not.toThrow();
     expect(passNothing).not.toThrow();
     expect(passObj).toThrow();
+
+    const coll = new Collection([]);
+    expect(Array.isArray(coll)).toBe(true);
+    expect(coll instanceof Collection).toBe(true);
   });
 
-  it('.add()', function () {
+  it('Collection.prototype.add()', function () {
     const coll = new Collection([]);
     expect(coll.add).toBeDefined();
     const len = coll.length;
@@ -35,7 +32,7 @@ describe('Collection', function CollectionSpec() {
     expect(coll.length).toBe(len + 1);
   });
 
-  it('.remove()', function () {
+  it('Collection.prototype.remove()', function () {
     const model = { hello: 'world' };
     const coll = new Collection([model]);
     expect(coll.remove).toBeDefined();
@@ -43,7 +40,7 @@ describe('Collection', function CollectionSpec() {
     expect(coll.length).toBe(0);
   });
 
-  it('.length', function () {
+  it('Collection.prototype.length', function () {
     const models = [
       { hello: 'world' },
       { hello: 'again' },
