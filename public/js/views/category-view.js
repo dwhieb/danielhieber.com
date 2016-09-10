@@ -8,19 +8,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// NB: listeners should be removed BEFORE the new CategoryView is instantiated
+
 var CategoryView = function (_View) {
   _inherits(CategoryView, _View);
 
-  function CategoryView(el, model) {
+  function CategoryView(model) {
     _classCallCheck(this, CategoryView);
+
+    var el = document.getElementById('details');
 
     var _this = _possibleConstructorReturn(this, (CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).call(this, el, model));
 
-    _this.nodes = {
-      description: _this.databind(_this.el.querySelector('p:nth-child(2)')),
-      id: _this.databind(_this.el.querySelector('p:first-child')),
-      name: _this.databind(_this.el.querySelector('h2'))
-    };
+    _this.nodes = {};
 
     return _this;
   }

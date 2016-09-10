@@ -1,13 +1,13 @@
+// NB: listeners should be removed BEFORE the new CategoryView is instantiated
+
 const CategoryView = class CategoryView extends View {
-  constructor(el, model) {
+  constructor(model) {
+
+    const el = document.getElementById('details');
 
     super(el, model);
 
-    this.nodes = {
-      description:  this.databind(this.el.querySelector('p:nth-child(2)')),
-      id:           this.databind(this.el.querySelector('p:first-child')),
-      name:         this.databind(this.el.querySelector('h2')),
-    };
+    this.nodes = {};
 
   }
 
