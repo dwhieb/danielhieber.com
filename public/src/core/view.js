@@ -1,4 +1,18 @@
+/**
+ * A Class representing a View
+ * @type {Proxy}
+ * @class
+ */
 const View = new Proxy(class View {
+  /**
+   * Create a new View
+   * @param {Object} el            An HTML Node to bind the view to
+   * @param {Object|Array} data    An object or array to serve as the model for the view
+   * @prop  {Object} el            The HTML node that has been bound to the view
+   * @prop  {Object} nodes         An object containing references to any other nodes that are relevant to this view. It is recommended that this object be populated by using View.bind(), e.g. `"container": View.bind(containerEl)`.
+   * @prop  {Object} model         If an object was passed as the model, this property will be present and contain a reference to the model.
+   * @prop  {Array} collection     If an array was passed as the model/collection, this property will be present and contain a reference to that collection.
+   */
   constructor(el, data) {
 
     this.el = View.bind(el);
@@ -9,19 +23,36 @@ const View = new Proxy(class View {
 
   }
 
+  /**
+   * Displays the view, if hidden. Takes an optional `displayStyle` argument specifying what to set the `display` attribute of the element to (defaults to 'flex').
+   * @method
+   * @param {String} [displayStyle]       A string to set the `display` attribute to
+   */
   display(displayStyle) {
     this.el.style.display = displayStyle || 'flex';
   }
 
+  /**
+   * Hides the view, if displayed.
+   * @method
+   */
   hide() {
     this.el.style.display = 'none';
   }
 
+  /**
+  * Removes all event listeners from the view's primary HTML node as well as any nodes in the `.nodes` object, and then removes the primary node from the DOM.
+   * @method
+   */
   remove() {
     this.stopListening();
     this.el.remove();
   }
 
+  /**
+   * Removes all event listeners from the view's primary HTML node, as well as any nodes in the `.nodes` object.
+   * @method
+   */
   stopListening() {
 
     if (this.el.listeners) {
@@ -49,6 +80,12 @@ const View = new Proxy(class View {
 
   }
 
+  /**
+   * Extends an HTML Node with a `.listeners` array, and adds/removes listener objects to/from that array whenever `.addEventListener` and `.removeEventListener` are called.
+   * @static
+   * @param {Object} element        The HTML element to bind
+   * @return {Object} element       Returns the HTML element
+   */
   static bind(element) {
 
     const el = element;

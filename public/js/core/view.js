@@ -6,7 +6,21 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * A Class representing a View
+ * @type {Proxy}
+ * @class
+ */
 var View = new Proxy(function () {
+  /**
+   * Create a new View
+   * @param {Object} el            An HTML Node to bind the view to
+   * @param {Object|Array} data    An object or array to serve as the model for the view
+   * @prop  {Object} el            The HTML node that has been bound to the view
+   * @prop  {Object} nodes         An object containing references to any other nodes that are relevant to this view. It is recommended that this object be populated by using View.bind(), e.g. `"container": View.bind(containerEl)`.
+   * @prop  {Object} model         If an object was passed as the model, this property will be present and contain a reference to the model.
+   * @prop  {Array} collection     If an array was passed as the model/collection, this property will be present and contain a reference to that collection.
+   */
   function View(el, data) {
     _classCallCheck(this, View);
 
@@ -16,22 +30,47 @@ var View = new Proxy(function () {
     if (Array.isArray(data)) this.collection = data;else this.model = data;
   }
 
+  /**
+   * Displays the view, if hidden. Takes an optional `displayStyle` argument specifying what to set the `display` attribute of the element to (defaults to 'flex').
+   * @method
+   * @param {String} [displayStyle]       A string to set the `display` attribute to
+   */
+
+
   _createClass(View, [{
     key: 'display',
     value: function display(displayStyle) {
       this.el.style.display = displayStyle || 'flex';
     }
+
+    /**
+     * Hides the view, if displayed.
+     * @method
+     */
+
   }, {
     key: 'hide',
     value: function hide() {
       this.el.style.display = 'none';
     }
+
+    /**
+    * Removes all event listeners from the view's primary HTML node as well as any nodes in the `.nodes` object, and then removes the primary node from the DOM.
+     * @method
+     */
+
   }, {
     key: 'remove',
     value: function remove() {
       this.stopListening();
       this.el.remove();
     }
+
+    /**
+     * Removes all event listeners from the view's primary HTML node, as well as any nodes in the `.nodes` object.
+     * @method
+     */
+
   }, {
     key: 'stopListening',
     value: function stopListening() {
@@ -60,6 +99,14 @@ var View = new Proxy(function () {
         return;
       }
     }
+
+    /**
+     * Extends an HTML Node with a `.listeners` array, and adds/removes listener objects to/from that array whenever `.addEventListener` and `.removeEventListener` are called.
+     * @static
+     * @param {Object} element        The HTML element to bind
+     * @return {Object} element       Returns the HTML element
+     */
+
   }], [{
     key: 'bind',
     value: function bind(element) {
