@@ -76,17 +76,8 @@
   {{!-- Exposes Socket.IO API --}}
   <script src=/socket.io/socket.io.js charset=utf-8></script>
 
-  <script type=text/javascript>
-
-    // Defines a global .modules object for storing a reference to modules
-    window.modules = {};
-
-    // Loads a Socket for use on every page
-    const socket = io({
-      transports: ['websocket', 'xhr-polling']
-    });
-
-  </script>
+  {{!-- Script for the main layout --}}
+  <script src=/js/pages/main.js charset="utf-8"></script>
 
   {{!-- Runs the gallery transitions --}}
   <script src=/js/widgets/gallery.js charset=utf-8></script>

@@ -228,6 +228,26 @@ describe('routes', function routes() {
     });
   });
 
+  it('GET /test', function test(done) {
+    req.get('/test')
+    .expect(301)
+    .end((err, res) => {
+      if (err) fail(JSON.stringify(err, null, 2));
+      expect(res.text.includes('Redirecting')).toBe(true);
+      done();
+    });
+  });
+
+  it('GET /test/', function testWithSlash(done) {
+    req.get('/test/')
+    .expect(200)
+    .end((err, res) => {
+      if (err) fail(JSON.stringify(err, null, 2));
+      expect(res.text.includes('Jasmine')).toBe(true);
+      done();
+    });
+  });
+
   it('GET /vitae', function vitae(done) {
     req.get('/vitae')
     .expect(200)
