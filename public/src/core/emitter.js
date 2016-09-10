@@ -20,12 +20,12 @@ const Emitter = class Emitter {
   once(eventName, cb) {
     if (typeof cb !== 'function') throw new Error('Callback must be a function.');
 
-    const proxy = (...args) => {
+    const proxyHandler = (...args) => {
       cb(...args); // eslint-disable-line callback-return
-      this.removeListener(eventName, proxy);
+      this.removeListener(eventName, proxyHandler);
     };
 
-    this.on(eventName, proxy);
+    this.on(eventName, proxyHandler);
 
   }
 
