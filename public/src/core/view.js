@@ -27,10 +27,14 @@ const View = new Proxy(class View {
     if (this.el.listeners) {
 
       const removeListeners = el => {
+
         el.listeners.forEach(listener => {
-          const { type, handler, opts } = listener;
-          el.removeEventListener(type, handler, opts);
+          const { type, eventHandler, opts } = listener;
+          el.removeEventListener(type, eventHandler, opts);
         });
+
+        el.listeners.splice(0); // empty the array without redeclaring it
+
       };
 
       removeListeners(this.el);
@@ -45,31 +49,57 @@ const View = new Proxy(class View {
 
   }
 
-  static bind(el) {
+  static bind(element) {
+
+    const el = element;
 
     el.listeners = el.listeners || [];
 
-    const registerListener = (...args) => {
-      const [type, eventHandler, opts] = args;
+    const proxyAdd = {
+      apply(target, context, args) {
 
-      el.listeners.push({
-        type,
-        eventHandler,
-        opts,
-      });
+        const [type, eventHandler, opts, capture] = args;
 
-      return el.addEventListener(...args);
+        el.listeners.push({
+          type,
+          eventHandler,
+          opts,
+          capture,
+        });
 
-    };
+        return Reflect.apply(target, context, args);
 
-    const proxyHandler = {
-      get(target, prop, receiver) {
-        if (prop === 'addEventListener') return registerListener;
-        return Reflect.get(target, prop, receiver);
       },
     };
 
-    return new Proxy(el, proxyHandler);
+    const proxyRemove = {
+      apply(target, context, args) {
+
+        const [type, eventHandler, opts, capture] = args;
+
+        const i = el.listeners.findIndex(listener => {
+          return listener.type === type
+              && listener.eventHandler === eventHandler
+              && listener.opts === opts
+              && listener.capture === capture;
+        });
+
+        if (i >= 0) {
+          el.listeners.splice(i, 1);
+        } else {
+          throw new Error('Listener not found.');
+        }
+
+
+        return Reflect.apply(target, context, args);
+
+      },
+    };
+
+    el.addEventListener = new Proxy(el.addEventListener, proxyAdd);
+    el.removeEventListener = new Proxy(el.removeEventListener, proxyRemove);
+
+    return el;
 
   }
 

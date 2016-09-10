@@ -1,5 +1,7 @@
 'use strict';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37,13 +39,16 @@ var View = new Proxy(function () {
       if (this.el.listeners) {
 
         var removeListeners = function removeListeners(el) {
+
           el.listeners.forEach(function (listener) {
             var type = listener.type;
-            var handler = listener.handler;
+            var eventHandler = listener.eventHandler;
             var opts = listener.opts;
 
-            el.removeEventListener(type, handler, opts);
+            el.removeEventListener(type, eventHandler, opts);
           });
+
+          el.listeners.splice(0); // empty the array without redeclaring it
         };
 
         removeListeners(this.el);
@@ -57,37 +62,61 @@ var View = new Proxy(function () {
     }
   }], [{
     key: 'bind',
-    value: function bind(el) {
+    value: function bind(element) {
+
+      var el = element;
 
       el.listeners = el.listeners || [];
 
-      var registerListener = function registerListener() {
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
+      var proxyAdd = {
+        apply: function apply(target, context, args) {
+          var _args = _slicedToArray(args, 4);
 
-        var type = args[0];
-        var eventHandler = args[1];
-        var opts = args[2];
+          var type = _args[0];
+          var eventHandler = _args[1];
+          var opts = _args[2];
+          var capture = _args[3];
 
 
-        el.listeners.push({
-          type: type,
-          eventHandler: eventHandler,
-          opts: opts
-        });
+          el.listeners.push({
+            type: type,
+            eventHandler: eventHandler,
+            opts: opts,
+            capture: capture
+          });
 
-        return el.addEventListener.apply(el, args);
-      };
-
-      var proxyHandler = {
-        get: function get(target, prop, receiver) {
-          if (prop === 'addEventListener') return registerListener;
-          return Reflect.get(target, prop, receiver);
+          return Reflect.apply(target, context, args);
         }
       };
 
-      return new Proxy(el, proxyHandler);
+      var proxyRemove = {
+        apply: function apply(target, context, args) {
+          var _args2 = _slicedToArray(args, 4);
+
+          var type = _args2[0];
+          var eventHandler = _args2[1];
+          var opts = _args2[2];
+          var capture = _args2[3];
+
+
+          var i = el.listeners.findIndex(function (listener) {
+            return listener.type === type && listener.eventHandler === eventHandler && listener.opts === opts && listener.capture === capture;
+          });
+
+          if (i >= 0) {
+            el.listeners.splice(i, 1);
+          } else {
+            throw new Error('Listener not found.');
+          }
+
+          return Reflect.apply(target, context, args);
+        }
+      };
+
+      el.addEventListener = new Proxy(el.addEventListener, proxyAdd);
+      el.removeEventListener = new Proxy(el.removeEventListener, proxyRemove);
+
+      return el;
     }
   }]);
 
