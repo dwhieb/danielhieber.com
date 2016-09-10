@@ -1,5 +1,6 @@
 /**
  * Class representing a collection
+ * @extends Array
  * @type {Array}
  */
 const Collection = class Collection extends Array {

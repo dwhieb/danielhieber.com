@@ -26,6 +26,8 @@ describe('Emitter', function () {
     expect(Emitter.extend).toBeDefined();
     const obj = { hello: 'world' };
     const emitter = Emitter.extend(obj);
+    const passNothing = () => Emitter.extend();
+    expect(passNothing).toThrow();
     expect(emitter.hello).toBe('world');
     expect(Object.is(emitter, obj)).toBe(true);
     expect(emitter.extend).toBeUndefined();

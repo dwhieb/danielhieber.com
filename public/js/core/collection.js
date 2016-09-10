@@ -37,6 +37,7 @@ function _extendableBuiltin(cls) {
 
 /**
  * Class representing a collection
+ * @extends Array
  * @type {Array}
  */
 var Collection = function (_extendableBuiltin2) {
