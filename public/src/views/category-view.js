@@ -15,7 +15,9 @@ const CategoryView = class CategoryView extends View {
 
     // event listeners
     this.el.addEventListener('change', ev => {
-      console.log(ev.target);
+      if (ev.target.id in this.nodes) {
+        this.model.update({ [ev.target.id]: ev.target.value });
+      }
     });
 
     this.nodes.saveButton.addEventListener('click', this.model.save);
