@@ -59,3 +59,5 @@ var CategoryView = function (_View) {
 
   return CategoryView;
 }(View);
+
+var view = new CategoryView({}).render();

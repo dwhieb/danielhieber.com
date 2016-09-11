@@ -40,3 +40,5 @@ const CategoryView = class CategoryView extends View {
   }
 
 };
+
+const view = new CategoryView({}).render();
