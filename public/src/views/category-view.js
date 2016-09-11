@@ -1,5 +1,3 @@
-// NB: listeners should be removed BEFORE the new CategoryView is instantiated
-
 const CategoryView = class CategoryView extends View {
   constructor(model) {
 
@@ -7,12 +5,30 @@ const CategoryView = class CategoryView extends View {
 
     super(el, model);
 
-    this.nodes = {};
+    this.nodes = {
+      description:  document.getElementById('description'),
+      id:           document.getElementById('id'),
+      name:         document.getElementById('name'),
+      saveButton:   document.getElementById('saveButton'),
+      deleteButton: document.getElementById('deleteButton'),
+    };
+
+    // event listeners
+    this.el.addEventListener('change', ev => {
+      console.log(ev.target);
+    });
+
+    this.nodes.saveButton.addEventListener('click', this.model.save);
+
+    this.nodes.deleteButton.addEventListener('click', () => {
+      this.model.delete();
+      this.remove();
+    });
 
   }
 
   remove() {
-    this.removeListeners();
+    this.stopListening();
     this.hide();
   }
 

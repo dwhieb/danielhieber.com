@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// NB: listeners should be removed BEFORE the new CategoryView is instantiated
-
 var CategoryView = function (_View) {
   _inherits(CategoryView, _View);
 
@@ -20,7 +18,25 @@ var CategoryView = function (_View) {
 
     var _this = _possibleConstructorReturn(this, (CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).call(this, el, model));
 
-    _this.nodes = {};
+    _this.nodes = {
+      description: document.getElementById('description'),
+      id: document.getElementById('id'),
+      name: document.getElementById('name'),
+      saveButton: document.getElementById('saveButton'),
+      deleteButton: document.getElementById('deleteButton')
+    };
+
+    // event listeners
+    _this.el.addEventListener('change', function (ev) {
+      console.log(ev.target);
+    });
+
+    _this.nodes.saveButton.addEventListener('click', _this.model.save);
+
+    _this.nodes.deleteButton.addEventListener('click', function () {
+      _this.model.delete();
+      _this.remove();
+    });
 
     return _this;
   }
@@ -28,7 +44,7 @@ var CategoryView = function (_View) {
   _createClass(CategoryView, [{
     key: 'remove',
     value: function remove() {
-      this.removeListeners();
+      this.stopListening();
       this.hide();
     }
   }, {

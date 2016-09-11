@@ -5,7 +5,7 @@
 #categoriesAdmin h1 {
   width: 100%;
 }
-#categoryList button {
+#overview button {
   align-items: center;
   background-color: #3180E1;
   border-radius: 0.5rem;
@@ -14,27 +14,27 @@
   justify-content: center;
   padding: 0.5rem 1rem;
 }
-#categoryList button:hover,
-#categoryList button:focus {
+#overview button:hover,
+#overview button:focus {
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
 }
-#categoryList button:active {
+#overview button:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
-#categoryList li {
+#overview li {
   flex-direction: row;
   justify-content: space-between;
   margin: 0.25rem 0rem;
 }
-#categoryList li p {
+#overview li p {
   cursor: pointer;
 }
-#categoryList li img {
+#overview li img {
   cursor: pointer;
   height: 1.5rem;
   visibility: hidden;
 }
-#categoryList li:hover img {
+#overview li:hover img {
   visibility: visible;
 }
 #details {
@@ -73,12 +73,12 @@
   background-color: #E23B32;
 }
 @media screen and (max-width: 699px) {
-  #categoryManagement {
+  #overview {
     width: 100%;
   }
 }
 @media screen and (min-width: 700px) {
-  #categoryManagement {
+  #overview {
     width: 40%;
   }
 }
