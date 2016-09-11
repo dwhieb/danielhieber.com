@@ -69,11 +69,17 @@ dfn { font-style: italic; }
 
 em { font-style: italic; }
 
+.editable {
+  &:focus {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px #ddd;
+  }
+}
+
 .field {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: inset 0 1px 3px #ddd;
+  .editable;
   &:focus {
     border-color: @blue;
     &:invalid { border-color: #e9322d; color: #b94a48; }

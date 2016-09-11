@@ -3,7 +3,10 @@
 #categoriesAdmin {
   flex-direction: row;
   flex-wrap: wrap;
-  h1 { width: 100%; }
+  h1 {
+    padding: 1rem;
+    width: 100%;
+  }
 }
 
 #overview {
@@ -35,6 +38,11 @@
   display: none;
   flex-grow: 1;
   padding: 0rem 1rem;
+
+  h2, p {
+    .editable;
+    padding: 0.25rem 0.5rem;
+  }
 
   h2 {
     font-size: 2rem;

@@ -3,6 +3,7 @@
   flex-wrap: wrap;
 }
 #categoriesAdmin h1 {
+  padding: 1rem;
   width: 100%;
 }
 #overview button {
@@ -42,6 +43,17 @@
   display: none;
   flex-grow: 1;
   padding: 0rem 1rem;
+}
+#details h2,
+#details p {
+  padding: 0.25rem 0.5rem;
+}
+#details h2:focus,
+#details p:focus {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px #ddd;
 }
 #details h2 {
   font-size: 2rem;
