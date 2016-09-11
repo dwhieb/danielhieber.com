@@ -6,9 +6,9 @@ const CategoryView = class CategoryView extends View {
     super(el, model);
 
     this.nodes = {
-      description:  document.getElementById('description'),
-      id:           document.getElementById('id'),
       name:         document.getElementById('name'),
+      id:           document.getElementById('id'),
+      description:  document.getElementById('description'),
       saveButton:   document.getElementById('saveButton'),
       deleteButton: document.getElementById('deleteButton'),
     };
@@ -33,10 +33,11 @@ const CategoryView = class CategoryView extends View {
   }
 
   render() {
-    this.nodes.description.innerHTML = this.model.description;
-    this.nodes.id.innerHTML          = this.model.id;
-    this.nodes.name.innerHTML        = this.model.name;
+    this.nodes.description.value = this.model.description;
+    this.nodes.id.value          = this.model.id;
+    this.nodes.name.value        = this.model.name;
     this.display();
+    return this;
   }
 
 };

@@ -39,14 +39,25 @@
   flex-grow: 1;
   padding: 0rem 1rem;
 
-  h2, p {
-    .editable;
+  #name, #id, #description {
+    .field;
     padding: 0.25rem 0.5rem;
   }
 
-  h2 {
+  #name {
     font-size: 2rem;
     font-weight: bold;
+  }
+
+  label > p {
+    font-weight: bold;
+  }
+
+  label[for=id] {
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem 0rem 0.5rem 0rem;
+    input { margin-left: 0.5rem; }
   }
 
   // buttons

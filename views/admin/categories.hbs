@@ -11,15 +11,21 @@
     <button id=addCategoryButton type=button name=addCategory>Add Category</button>
   </section>
 
-  <section id=details>
-    <h2 id=name        contenteditable></h2>
-    <p  id=id          contenteditable></p>
-    <p  id=description contenteditable></p>
+  <form id=details>
+    <input id=name        type=text name=name>
+    <label for=id>
+      <p>ID</p>
+      <input id=id          type=text name=id>
+    </label>
+    <label for=description>
+      <p>Description</p>
+      <textarea id=description name=description rows=8></textarea>
+    </label>
     <div>
       <button id=saveButton   type=button name=saveButton  >Save</button>
       <button id=deleteButton type=button name=deleteButton>Delete</button>
     </div>
-  </section>
+  </form>
 
 </main>
 
