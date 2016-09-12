@@ -9,8 +9,8 @@ const Model = class Model {
    * @prop {Object} data          A reference to the original data object passed to the model
    */
   constructor(data) {
-    Object.assign(this, data);
-    this.data = data;
+    if (data) Object.assign(this, data);
+    this.data = data || {};
   }
 
   /**
