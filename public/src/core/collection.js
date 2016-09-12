@@ -21,6 +21,9 @@ const Collection = class Collection extends Array {
       super();
     }
 
+    // store a reference to the original data
+    this.data = models;
+
   }
 
   /**

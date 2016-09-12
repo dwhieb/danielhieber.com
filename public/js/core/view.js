@@ -6,6 +6,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/* global Collection, Model */
+
 /**
  * A Class representing a View
  * @type {Object}
@@ -28,14 +30,26 @@ var View = function () {
       throw new Error('The `el` argument must be an instance of a Node.');
     }
 
-    if (data && !(data instanceof Object)) {
-      throw new Error('If the `data` argument is provided, it must be an Object.');
+    if (data) {
+
+      if (data instanceof Model) {
+        this.model = data;
+      } else if (data instanceof Collection) {
+        this.collection = data;
+      } else if (Array.isArray(data)) {
+        this.collection = new Collection(data);
+      } else if (data instanceof Object) {
+        this.model = new Model(data);
+      } else {
+        throw new Error('The `data` argument must be an object or an array.');
+      }
+    } else {
+
+      this.model = new Model({});
     }
 
     this.el = View.bind(el);
     this.nodes = {};
-
-    if (Array.isArray(data)) this.collection = data || [];else this.model = data || {};
   }
 
   /**
@@ -118,6 +132,10 @@ var View = function () {
   }], [{
     key: 'bind',
     value: function bind(element) {
+
+      if (!element) {
+        throw new Error('Must pass a Node element to View.bind.');
+      }
 
       var el = element;
 

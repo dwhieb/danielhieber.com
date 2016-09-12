@@ -1,4 +1,4 @@
-/* global View */
+/* global Collection, Model, View */
 
 /* eslint-disable
   func-names,
@@ -17,14 +17,22 @@ describe('View', function () {
     expect(passNothing).toThrow();
     expect(passNoObj).not.toThrow();
     expect(passNonObj).toThrow();
-    const model = { id: 'test' };
-    const coll = [];
+    const model = new Model({ id: 'test' });
+    const coll = new Collection([]);
     const modelView = new View(p, model);
     const collView = new View(p, coll);
     expect(modelView.model).toBe(model);
     expect(modelView.collection).toBeUndefined();
     expect(collView.model).toBeUndefined();
     expect(collView.collection).toBe(coll);
+    const pojoModel = { id: 'test' };
+    const pojoColl = [pojoModel];
+    const pojoModelView = new View(p, pojoModel);
+    const pojoCollView = new View(p, pojoColl);
+    expect(pojoModelView.model).not.toBe(pojoModel);
+    expect(pojoModelView.model.data).toBe(pojoModel);
+    expect(pojoCollView.model).not.toBe(pojoColl);
+    expect(pojoCollView.collection.data).toBe(pojoColl);
   });
 
   it('View.bind()', function () {

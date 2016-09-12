@@ -26,11 +26,11 @@ const CategoryView = class CategoryView extends View {
      * @type {Object}
      */
     this.nodes = {
-      name:         document.getElementById('name'),
-      id:           document.getElementById('id'),
-      description:  document.getElementById('description'),
-      saveButton:   document.getElementById('saveButton'),
-      deleteButton: document.getElementById('deleteButton'),
+      name:         View.bind(document.getElementById('name')),
+      id:           View.bind(document.getElementById('id')),
+      description:  View.bind(document.getElementById('description')),
+      saveButton:   View.bind(document.getElementById('saveButton')),
+      deleteButton: View.bind(document.getElementById('deleteButton')),
     };
 
     // EVENT LISTENERS

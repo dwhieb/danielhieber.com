@@ -63,6 +63,9 @@ var Collection = function (_extendableBuiltin2) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
 
+    // store a reference to the original data
+    _this.data = models;
+
     return _possibleConstructorReturn(_this);
   }
 

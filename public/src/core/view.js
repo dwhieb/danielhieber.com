@@ -1,3 +1,5 @@
+/* global Collection, Model */
+
 /**
  * A Class representing a View
  * @type {Object}
@@ -19,15 +21,28 @@ const View = class View {
       throw new Error('The `el` argument must be an instance of a Node.');
     }
 
-    if (data && !(data instanceof Object)) {
-      throw new Error('If the `data` argument is provided, it must be an Object.');
+    if (data) {
+
+      if (data instanceof Model) {
+        this.model = data;
+      } else if (data instanceof Collection) {
+        this.collection = data;
+      } else if (Array.isArray(data)) {
+        this.collection = new Collection(data);
+      } else if (data instanceof Object) {
+        this.model = new Model(data);
+      } else {
+        throw new Error('The `data` argument must be an object or an array.');
+      }
+
+    } else {
+
+      this.model = new Model({});
+
     }
 
     this.el = View.bind(el);
     this.nodes = {};
-
-    if (Array.isArray(data)) this.collection = data || [];
-    else this.model = data || {};
 
   }
 
@@ -95,6 +110,10 @@ const View = class View {
    * @return {Object} element       Returns the HTML element
    */
   static bind(element) {
+
+    if (!element) {
+      throw new Error('Must pass a Node element to View.bind.');
+    }
 
     const el = element;
 
