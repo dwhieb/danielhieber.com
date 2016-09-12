@@ -1,6 +1,16 @@
+/**
+ * A class representing a Model
+ * @type {Object} Model
+ */
 const Model = class Model {
+  /**
+   * Create a new Model
+   * @param {Object} data         A plain-old JavaScript Object (POJO) with the data for the model
+   * @prop {Object} data          A reference to the original data object passed to the model
+   */
   constructor(data) {
     Object.assign(this, data);
+    this.data = data;
   }
 
   /**
