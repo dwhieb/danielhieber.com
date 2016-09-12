@@ -12,8 +12,10 @@ describe('View', function () {
     expect(View).toBeDefined();
     const p = document.createElement('p');
     const passNothing = () => new View();
+    const passNoObj = () => new View(p);
     const passNonObj = () => new View(p, true);
     expect(passNothing).toThrow();
+    expect(passNoObj).not.toThrow();
     expect(passNonObj).toThrow();
     const model = { id: 'test' };
     const coll = [];

@@ -8,10 +8,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /**
  * A Class representing a View
- * @type {Proxy}
+ * @type {Object}
  * @class
  */
-var View = new Proxy(function () {
+var View = function () {
   /**
    * Create a new View
    * @param {Object} el            An HTML Node to bind the view to
@@ -24,10 +24,18 @@ var View = new Proxy(function () {
   function View(el, data) {
     _classCallCheck(this, View);
 
+    if (!(el instanceof Node)) {
+      throw new Error('The `el` argument must be an instance of a Node.');
+    }
+
+    if (data && !(data instanceof Object)) {
+      throw new Error('If the `data` argument is provided, it must be an Object.');
+    }
+
     this.el = View.bind(el);
     this.nodes = {};
 
-    if (Array.isArray(data)) this.collection = data;else this.model = data;
+    if (Array.isArray(data)) this.collection = data || [];else this.model = data || {};
   }
 
   /**
@@ -168,17 +176,4 @@ var View = new Proxy(function () {
   }]);
 
   return View;
-}(), {
-  construct: function construct(target, args) {
-
-    if (!(args[0] instanceof Node)) {
-      throw new Error('The `el` argument must be an instance of a Node.');
-    }
-
-    if (!(args[1] instanceof Object)) {
-      throw new Error('The `model` argument must be an Object.');
-    }
-
-    return Reflect.construct(target, args);
-  }
-});
+}();
