@@ -35,6 +35,8 @@ function _extendableBuiltin(cls) {
   return ExtendableBuiltin;
 }
 
+/* global Emitter */
+
 /**
  * Class representing a collection
  * @extends Array
@@ -63,8 +65,7 @@ var Collection = function (_extendableBuiltin2) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
 
-    // store a reference to the original data
-    _this.data = models;
+    Emitter.extend(_this);
 
     return _possibleConstructorReturn(_this);
   }
@@ -80,7 +81,9 @@ var Collection = function (_extendableBuiltin2) {
   _createClass(Collection, [{
     key: 'add',
     value: function add(model) {
-      return this.push(model);
+      this.push(model);
+      this.emit('add', model);
+      return this;
     }
 
     /**
@@ -95,7 +98,9 @@ var Collection = function (_extendableBuiltin2) {
       var i = this.findIndex(function (el) {
         return Object.is(model, el);
       });
-      return this.splice(i, 1);
+      this.splice(i, 1);
+      this.emit('remove', model);
+      return this;
     }
   }]);
 

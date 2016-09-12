@@ -55,11 +55,16 @@ var CategoryView = function (_View) {
     _this.el.addEventListener('change', function (ev) {
       if (ev.target.id in _this.nodes) {
         _this.model.update(_defineProperty({}, ev.target.id, ev.target.value));
+        _this.emit('update', _this.model);
       }
     });
 
     // save the model to the database when the Save button is clicked
-    _this.nodes.saveButton.addEventListener('click', _this.model.save);
+    _this.nodes.saveButton.addEventListener('click', function () {
+      _this.model.save().then(function () {
+        return _this.emit('save', _this.model);
+      });
+    });
 
     // delete the model from the database when the delete button is clicked
     _this.nodes.deleteButton.addEventListener('click', function () {
@@ -67,8 +72,10 @@ var CategoryView = function (_View) {
       var accepted = confirm('Are you sure you want to delete this category?');
 
       if (accepted) {
-        _this.model.delete();
         _this.remove();
+        _this.model.delete().then(function () {
+          return _this.emit('delete', _this.model);
+        });
       }
     });
 
@@ -78,14 +85,17 @@ var CategoryView = function (_View) {
   /**
    * Remove all event listeners from elements in this view, and hide (not delete) the view
    * @method
+   * @return {Object} CategoryView      Returns the category view
    */
 
 
   _createClass(CategoryView, [{
     key: 'remove',
     value: function remove() {
-      this.stopListening();
+      this.removeListeners();
       this.hide();
+      this.emit('remove');
+      return this;
     }
 
     /**
@@ -101,6 +111,7 @@ var CategoryView = function (_View) {
       this.nodes.id.value = this.model.id;
       this.nodes.name.value = this.model.name;
       this.display();
+      this.emit('render');
       return this;
     }
   }]);

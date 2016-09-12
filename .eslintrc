@@ -102,7 +102,7 @@
     "newline-after-var": ["warn", "always"],
     "newline-before-return": "off",
     "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 2 }],
-    "no-alert": "error",
+    "no-alert": "warn",
     "no-array-constructor": "warn",
     "no-bitwise": "warn",
     "no-caller": "error",

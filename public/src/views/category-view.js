@@ -39,11 +39,14 @@ const CategoryView = class CategoryView extends View {
     this.el.addEventListener('change', ev => {
       if (ev.target.id in this.nodes) {
         this.model.update({ [ev.target.id]: ev.target.value });
+        this.emit('update', this.model);
       }
     });
 
     // save the model to the database when the Save button is clicked
-    this.nodes.saveButton.addEventListener('click', this.model.save);
+    this.nodes.saveButton.addEventListener('click', () => {
+      this.model.save().then(() => this.emit('save', this.model));
+    });
 
     // delete the model from the database when the delete button is clicked
     this.nodes.deleteButton.addEventListener('click', () => {
@@ -51,8 +54,8 @@ const CategoryView = class CategoryView extends View {
       const accepted = confirm('Are you sure you want to delete this category?');
 
       if (accepted) {
-        this.model.delete();
         this.remove();
+        this.model.delete().then(() => this.emit('delete', this.model));
       }
 
     });
@@ -62,10 +65,13 @@ const CategoryView = class CategoryView extends View {
   /**
    * Remove all event listeners from elements in this view, and hide (not delete) the view
    * @method
+   * @return {Object} CategoryView      Returns the category view
    */
   remove() {
-    this.stopListening();
+    this.removeListeners();
     this.hide();
+    this.emit('remove');
+    return this;
   }
 
   /**
@@ -78,6 +84,7 @@ const CategoryView = class CategoryView extends View {
     this.nodes.id.value          = this.model.id;
     this.nodes.name.value        = this.model.name;
     this.display();
+    this.emit('render');
     return this;
   }
 

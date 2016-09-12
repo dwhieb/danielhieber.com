@@ -6,7 +6,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/* global Collection, Model */
+/* global Collection, Emitter, Model */
 
 /**
  * A Class representing a View
@@ -50,6 +50,8 @@ var View = function () {
 
     this.el = View.bind(el);
     this.nodes = {};
+
+    Emitter.extend(this);
   }
 
   /**
@@ -63,6 +65,7 @@ var View = function () {
     key: 'display',
     value: function display(displayStyle) {
       this.el.style.display = displayStyle || 'flex';
+      this.emit('display');
     }
 
     /**
@@ -74,6 +77,7 @@ var View = function () {
     key: 'hide',
     value: function hide() {
       this.el.style.display = 'none';
+      this.emit('hide');
     }
 
     /**
@@ -84,8 +88,9 @@ var View = function () {
   }, {
     key: 'remove',
     value: function remove() {
-      this.stopListening();
+      this.removeListeners();
       this.el.remove();
+      this.emit('remove');
     }
 
     /**
@@ -94,12 +99,13 @@ var View = function () {
      */
 
   }, {
-    key: 'stopListening',
-    value: function stopListening() {
+    key: 'removeListeners',
+    value: function removeListeners() {
+      var _this = this;
 
-      if (this.el.listeners) {
+      var removeListeners = function removeListeners(el) {
 
-        var removeListeners = function removeListeners(el) {
+        if (_this.el.listeners) {
 
           el.listeners.forEach(function (listener) {
             var type = listener.type;
@@ -110,16 +116,16 @@ var View = function () {
           });
 
           el.listeners.splice(0); // empty the array without redeclaring it
-        };
-
-        removeListeners(this.el);
-
-        for (var el in this.nodes) {
-          removeListeners(this.nodes[el]);
         }
-      } else {
-        return;
+      };
+
+      removeListeners(this.el);
+
+      for (var el in this.nodes) {
+        removeListeners(this.nodes[el]);
       }
+
+      this.emit('removeListeners');
     }
 
     /**

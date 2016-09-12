@@ -1,3 +1,5 @@
+/* global Emitter */
+
 /**
  * A class representing a Model
  * @type {Object} Model
@@ -11,6 +13,7 @@ const Model = class Model {
   constructor(data) {
     if (data) Object.assign(this, data);
     this.data = data || {};
+    Emitter.extend(this);
   }
 
   /**
@@ -37,6 +40,7 @@ const Model = class Model {
    */
   update(data) {
     Object.assign(this, data);
+    this.emit('update', this);
     return this;
   }
 

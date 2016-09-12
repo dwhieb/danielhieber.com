@@ -4,6 +4,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/* global Emitter */
+
 /**
  * A class representing a Model
  * @type {Object} Model
@@ -19,6 +21,7 @@ var Model = function () {
 
     if (data) Object.assign(this, data);
     this.data = data || {};
+    Emitter.extend(this);
   }
 
   /**
@@ -55,6 +58,7 @@ var Model = function () {
     key: 'update',
     value: function update(data) {
       Object.assign(this, data);
+      this.emit('update', this);
       return this;
     }
   }]);

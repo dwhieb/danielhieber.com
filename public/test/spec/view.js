@@ -67,12 +67,12 @@ describe('View', function () {
     expect(Array.from(document.body.children).includes(p)).toBe(false);
   });
 
-  it('View.prototype.stopListening()', function () {
+  it('View.prototype.removeListeners()', function () {
     const p = document.createElement('p');
     const view = new View(p, {});
     view.el.addEventListener('click', () => {});
     view.el.addEventListener('change', () => {});
-    view.stopListening();
+    view.removeListeners();
     expect(view.el.listeners.length).toBe(0);
   });
 

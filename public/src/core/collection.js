@@ -1,3 +1,5 @@
+/* global Emitter */
+
 /**
  * Class representing a collection
  * @extends Array
@@ -21,8 +23,7 @@ const Collection = class Collection extends Array {
       super();
     }
 
-    // store a reference to the original data
-    this.data = models;
+    Emitter.extend(this);
 
   }
 
@@ -33,7 +34,9 @@ const Collection = class Collection extends Array {
    * @return {Number} length      Returns the new length of the collection array
    */
   add(model) {
-    return this.push(model);
+    this.push(model);
+    this.emit('add', model);
+    return this;
   }
 
   /**
@@ -43,7 +46,9 @@ const Collection = class Collection extends Array {
    */
   remove(model) {
     const i = this.findIndex(el => Object.is(model, el));
-    return this.splice(i, 1);
+    this.splice(i, 1);
+    this.emit('remove', model);
+    return this;
   }
 
 };

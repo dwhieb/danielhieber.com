@@ -1,4 +1,4 @@
-/* global Collection, Model */
+/* global Collection, Emitter, Model */
 
 /**
  * A Class representing a View
@@ -44,6 +44,8 @@ const View = class View {
     this.el = View.bind(el);
     this.nodes = {};
 
+    Emitter.extend(this);
+
   }
 
   /**
@@ -53,6 +55,7 @@ const View = class View {
    */
   display(displayStyle) {
     this.el.style.display = displayStyle || 'flex';
+    this.emit('display');
   }
 
   /**
@@ -61,6 +64,7 @@ const View = class View {
    */
   hide() {
     this.el.style.display = 'none';
+    this.emit('hide');
   }
 
   /**
@@ -68,19 +72,20 @@ const View = class View {
    * @method
    */
   remove() {
-    this.stopListening();
+    this.removeListeners();
     this.el.remove();
+    this.emit('remove');
   }
 
   /**
    * Removes all event listeners from the view's primary HTML node, as well as any nodes in the `.nodes` object.
    * @method
    */
-  stopListening() {
+  removeListeners() {
 
-    if (this.el.listeners) {
+    const removeListeners = el => {
 
-      const removeListeners = el => {
+      if (this.el.listeners) {
 
         el.listeners.forEach(listener => {
           const { type, eventHandler, opts } = listener;
@@ -89,17 +94,17 @@ const View = class View {
 
         el.listeners.splice(0); // empty the array without redeclaring it
 
-      };
-
-      removeListeners(this.el);
-
-      for (const el in this.nodes) {
-        removeListeners(this.nodes[el]);
       }
 
-    } else {
-      return;
+    };
+
+    removeListeners(this.el);
+
+    for (const el in this.nodes) {
+      removeListeners(this.nodes[el]);
     }
+
+    this.emit('removeListeners');
 
   }
 
