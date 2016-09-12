@@ -3,6 +3,6 @@ node_js: node
 before_script:
   - npm i --save jasmine@2.4.1 babel-plugin-proxy
   - node build/less.js
-  - babel --plugins=babel-plugin-proxy --ignore=app-insights.js public/src -d public/js
+  - babel public/src -d public/js
 notifications:
   email: false
