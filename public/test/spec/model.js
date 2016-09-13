@@ -11,8 +11,12 @@ describe('Model', function () {
     const passNothing = () => new Model();
     const data = { id: 'test' };
     const model = new Model(data);
+    const passModel = () => new Model(model);
     expect(passNothing).not.toThrow();
     expect(model.id).toBe(data.id);
+    expect(passModel).not.toThrow();
+    const doubleModel = new Model(model);
+    expect(doubleModel).toBe(model);
   });
 
   it('Model.prototype.delete()', function () {
@@ -26,12 +30,8 @@ describe('Model', function () {
   });
 
   it('Model.prototype.update()', function () {
-    const originalData = { id: 'test1', type: 'model' };
-    const updatedData = { id: 'test2' };
-    const model = new Model(originalData);
-    model.update(updatedData);
-    expect(model.id).toBe(updatedData.id);
-    expect(model.type).toBe(originalData.type);
+    const model = new Model();
+    expect(model.update).toThrow();
   });
 
   it('Model.prototype.data', function () {

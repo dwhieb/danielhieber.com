@@ -32,13 +32,11 @@ var Emitter = function () {
         args[_key - 1] = arguments[_key];
       }
 
-      if (!(eventName in this.listeners)) {
-        throw new Error('"' + eventName + '" event does not exist.');
+      if (eventName in this.listeners) {
+        this.listeners[eventName].forEach(function (cb) {
+          return cb.apply(undefined, args);
+        });
       }
-
-      this.listeners[eventName].forEach(function (cb) {
-        return cb.apply(undefined, args);
-      });
     }
 
     /**

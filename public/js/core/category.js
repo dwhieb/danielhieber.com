@@ -11,26 +11,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * @type {Object} Model
  */
 var Model = function () {
-
   /**
    * Create a new Model
    * @param {Object} data         A plain-old JavaScript Object (POJO) with the data for the model
    * @prop {Object} data          A reference to the original data object passed to the model
    */
-
   function Model(data) {
     _classCallCheck(this, Model);
 
-    // return the data if it's already a model
-    if (data instanceof Model) {
-
-      return data;
-    } else if (data) {
-
-      Object.assign(this, data);
-      this.data = data || {};
-      Emitter.extend(this);
-    }
+    if (data) Object.assign(this, data);
+    this.data = data || {};
+    Emitter.extend(this);
   }
 
   /**

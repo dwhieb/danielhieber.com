@@ -1,4 +1,4 @@
-/* global Collection, coll */
+/* global Collection */
 
 /* eslint-disable
   func-names,

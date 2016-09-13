@@ -86,7 +86,9 @@ var CategoriesView = function (_View) {
   _createClass(CategoriesView, [{
     key: 'add',
     value: function add(category) {
-      // TODO: category should be an instance of a Model
+
+      if (!(category instanceof Model)) throw new Error('Category must be an instance of Model.');
+
       this.collection.add(category);
       this.emit('add', category);
       return this.collection;

@@ -32,7 +32,7 @@ describe('View', function () {
     expect(pojoModelView.model).not.toBe(pojoModel);
     expect(pojoModelView.model.data).toBe(pojoModel);
     expect(pojoCollView.model).not.toBe(pojoColl);
-    expect(pojoCollView.collection.data).toBe(pojoColl);
+    expect(pojoCollView.collection[0].id).toBe(pojoModel.id);
   });
 
   it('View.bind()', function () {

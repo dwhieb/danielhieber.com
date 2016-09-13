@@ -35,7 +35,7 @@ function _extendableBuiltin(cls) {
   return ExtendableBuiltin;
 }
 
-/* global Emitter */
+/* global Emitter, Model */
 
 /**
  * Class representing a collection
@@ -53,10 +53,11 @@ var Collection = function (_extendableBuiltin2) {
   function Collection(models) {
     _classCallCheck(this, Collection);
 
+    // instantiate the array
     if (Number.isInteger(models)) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this, models));
     } else if (models && !Array.isArray(models)) {
-      throw new Error('Collection constructor must be passed an array.');
+      throw new Error('Collection constructor should be passed an array.');
     } else if (models) {
       var _ref;
 
@@ -65,7 +66,13 @@ var Collection = function (_extendableBuiltin2) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
 
+    // make the collection an emitter
     Emitter.extend(_this);
+
+    // make sure each item in the collection is a model
+    _this.forEach(function (data) {
+      return new Model(data);
+    });
 
     return _possibleConstructorReturn(_this);
   }
@@ -80,7 +87,8 @@ var Collection = function (_extendableBuiltin2) {
 
   _createClass(Collection, [{
     key: 'add',
-    value: function add(model) {
+    value: function add(data) {
+      var model = new Model(data);
       this.push(model);
       this.emit('add', model);
       return this;

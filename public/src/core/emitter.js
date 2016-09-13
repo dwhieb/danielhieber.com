@@ -16,11 +16,9 @@ const Emitter = class Emitter {
    * @param {Any}    [args]       The remaining arguments to pass to the event callback
    */
   emit(eventName, ...args) {
-    if (!(eventName in this.listeners)) {
-      throw new Error(`"${eventName}" event does not exist.`);
+    if (eventName in this.listeners) {
+      this.listeners[eventName].forEach(cb => cb(...args));
     }
-
-    this.listeners[eventName].forEach(cb => cb(...args));
   }
 
   /**

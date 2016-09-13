@@ -1,4 +1,4 @@
-/* global Emitter */
+/* global Emitter, Model */
 
 /**
  * Class representing a collection
@@ -13,17 +13,22 @@ const Collection = class Collection extends Array {
    */
   constructor(models) {
 
+    // instantiate the array
     if (Number.isInteger(models)) {
       super(models);
     } else if (models && !Array.isArray(models)) {
-      throw new Error('Collection constructor must be passed an array.');
+      throw new Error('Collection constructor should be passed an array.');
     } else if (models) {
       super(...models);
     } else {
       super();
     }
 
+    // make the collection an emitter
     Emitter.extend(this);
+
+    // make sure each item in the collection is a model
+    this.forEach(data => new Model(data));
 
   }
 
@@ -33,7 +38,8 @@ const Collection = class Collection extends Array {
    * @param {Object} model        The model to add to the collection
    * @return {Number} length      Returns the new length of the collection array
    */
-  add(model) {
+  add(data) {
+    const model = new Model(data);
     this.push(model);
     this.emit('add', model);
     return this;

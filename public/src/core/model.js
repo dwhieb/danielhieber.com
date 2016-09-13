@@ -5,15 +5,27 @@
  * @type {Object} Model
  */
 const Model = class Model {
+
   /**
    * Create a new Model
    * @param {Object} data         A plain-old JavaScript Object (POJO) with the data for the model
    * @prop {Object} data          A reference to the original data object passed to the model
    */
+
   constructor(data) {
-    if (data) Object.assign(this, data);
-    this.data = data || {};
-    Emitter.extend(this);
+
+    // return the data if it's already a model
+    if (data instanceof Model) {
+
+      return data;
+
+    } else if (data) {
+
+      Object.assign(this, data);
+      this.data = data || {};
+      Emitter.extend(this);
+    }
+
   }
 
   /**

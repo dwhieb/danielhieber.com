@@ -41,7 +41,7 @@ describe('Emitter', function () {
   it('Emitter.prototype.emit()', function () {
     const emitter = new Emitter();
     const emitUnregisteredEvent = () => emitter.emit('unregisteredEvent');
-    expect(emitUnregisteredEvent).toThrow();
+    expect(emitUnregisteredEvent).not.toThrow();
     this.cb = () => {};
     spyOn(this, 'cb');
     emitter.on('emitTest', this.cb);
