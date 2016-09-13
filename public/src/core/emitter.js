@@ -22,6 +22,33 @@ const Emitter = class Emitter {
   }
 
   /**
+   * Removes all the listeners on the object, or all the listeners for a particular event if the `eventName` argument is passed.
+   * @method
+   * @param {String} [eventName]        (optional) The event name to remove any listeners from. If this argument is provided, listeners will only be removed from the given event name, not others. Otherwise, all listeners on the object are removed.
+   * @param {Function} [listener]       (optional) The event listener to remove.
+   */
+  off(eventName, listener) {
+
+    if (!(eventName in this.listeners)) {
+      throw new Error(`No listeners for "${eventName}" exist.`);
+    }
+
+    if (typeof listener !== 'function') {
+      throw new Error('`listener` must be a function.');
+    }
+
+    const i = this.listeners[eventName].findIndex(cb => Object.is(listener, cb));
+
+    if (i >= 0) {
+      this.listeners[eventName].splice(i, 1);
+      if (this.listeners[eventName].length === 0) delete this.listeners[eventName];
+    } else {
+      throw new Error('Listener not found.');
+    }
+
+  }
+
+  /**
    * Attaches a listener for the given event name
    * @method
    * @param {String} eventName      The name of the event to attach the listener to
@@ -50,32 +77,6 @@ const Emitter = class Emitter {
     };
 
     this.on(eventName, proxyHandler);
-
-  }
-
-  /**
-   * Removes a specific listener for a specific event
-   * @method
-   * @param {String} eventName          The name of the even to remove the listener from
-   * @param {Function} listener         The listener to remove from the event
-   */
-  removeListener(eventName, listener) {
-    if (!(eventName in this.listeners)) {
-      throw new Error(`No listeners for "${eventName}" exist.`);
-    }
-
-    if (typeof listener !== 'function') {
-      throw new Error('`listener` must be a function.');
-    }
-
-    const i = this.listeners[eventName].findIndex(cb => Object.is(listener, cb));
-
-    if (i >= 0) {
-      this.listeners[eventName].splice(i, 1);
-      if (this.listeners[eventName].length === 0) delete this.listeners[eventName];
-    } else {
-      throw new Error('Listener not found.');
-    }
 
   }
 
