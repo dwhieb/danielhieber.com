@@ -44,7 +44,8 @@ const Emitter = class Emitter {
 
       const i = this.listeners[evName].findIndex(func => Object.is(func, listenerFunc));
 
-      if (i) {
+      // this requires explicit comparison b/c the index may sometimes be zero
+      if (i >= 0) {
         this.listeners[evName].splice(i, 1);
         if (this.listeners[evName].length === 0) delete this.listeners[evName];
         return true;
