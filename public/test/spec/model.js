@@ -13,6 +13,7 @@ describe('Model', function () {
     const model = new Model(data);
     const passModel = () => new Model(model);
     expect(passNothing).not.toThrow();
+    expect(model instanceof Model).toBe(true);
     expect(model.id).toBe(data.id);
     expect(passModel).not.toThrow();
     const doubleModel = new Model(model);

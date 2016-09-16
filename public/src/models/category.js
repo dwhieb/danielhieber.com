@@ -18,7 +18,9 @@ const Category = class Category extends Model {
    * @param {Object} [data]     The JSON data to create the category from
    */
   constructor(data = defaults) {
-    super(data);
+    const temp = Object.assign({}, defaults);
+    Object.assign(temp, data);
+    super(temp);
   }
 
   /**
@@ -26,7 +28,7 @@ const Category = class Category extends Model {
    * @method
    * @return {Promise} Resolves to a JSON object when the category is deleted
    */
-  delete() {
+  destroy() {
     return new Promise((resolve, reject) => {
       socket.emit('deleteCategory', this, (err, res) => {
         if (err) reject(err);

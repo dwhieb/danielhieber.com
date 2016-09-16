@@ -34,7 +34,9 @@ var Category = function (_Model) {
 
     _classCallCheck(this, Category);
 
-    return _possibleConstructorReturn(this, (Category.__proto__ || Object.getPrototypeOf(Category)).call(this, data));
+    var temp = Object.assign({}, defaults);
+    Object.assign(temp, data);
+    return _possibleConstructorReturn(this, (Category.__proto__ || Object.getPrototypeOf(Category)).call(this, temp));
   }
 
   /**
@@ -45,8 +47,8 @@ var Category = function (_Model) {
 
 
   _createClass(Category, [{
-    key: 'delete',
-    value: function _delete() {
+    key: 'destroy',
+    value: function destroy() {
       var _this2 = this;
 
       return new Promise(function (resolve, reject) {

@@ -21,6 +21,7 @@ describe('View', function () {
     const coll = new Collection([]);
     const modelView = new View(p, model);
     const collView = new View(p, coll);
+    expect(modelView instanceof View).toBe(true);
     expect(modelView.model).toBe(model);
     expect(modelView.collection).toBeUndefined();
     expect(collView.model).toBeUndefined();
