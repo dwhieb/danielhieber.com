@@ -22,28 +22,48 @@ const Emitter = class Emitter {
   }
 
   /**
-   * Removes all the listeners on the object, or all the listeners for a particular event if the `eventName` argument is passed.
+   * Removes listeners from the object. If no arguments are provided, all listeners are removed. If only an eventName is provided, all listeners are removed for that event name. If only a listener is provided, that listener is removed from all events. If both an event name and listener are provided, only that particular listener for that particular event is removed.
    * @method
-   * @param {String} [eventName]        (optional) The event name to remove any listeners from. If this argument is provided, listeners will only be removed from the given event name, not others. Otherwise, all listeners on the object are removed.
-   * @param {Function} [listener]       (optional) The event listener to remove.
+   * @param {String} [eventName]       The event to remove listeners for.
+   * @param {Function} [listener]      The listener to remove.
    */
   off(eventName, listener) {
 
-    if (!(eventName in this.listeners)) {
+    if (eventName && (typeof eventName !== 'string' && typeof eventName !== 'function')) {
+      throw new Error(`The .off() method should be passed an event name (String), listener (Function), both, or neither.`);
+    }
+
+    const event = typeof eventName === 'string' ? eventName : undefined;
+    const cb = typeof eventName === 'function' ? eventName : listener;
+
+    if (event && !(event in this.listeners)) {
       throw new Error(`No listeners for "${eventName}" exist.`);
     }
 
-    if (typeof listener !== 'function') {
-      throw new Error('`listener` must be a function.');
-    }
+    const removeListener = (evName, listenerFunc) => {
 
-    const i = this.listeners[eventName].findIndex(cb => Object.is(listener, cb));
+      const i = this.listeners[evName].findIndex(func => Object.is(func, listenerFunc));
 
-    if (i >= 0) {
-      this.listeners[eventName].splice(i, 1);
-      if (this.listeners[eventName].length === 0) delete this.listeners[eventName];
+      if (i) {
+        this.listeners[evName].splice(i, 1);
+        if (this.listeners[evName].length === 0) delete this.listeners[evName];
+        return true;
+      }
+
+      return false;
+
+    };
+
+    if (event && cb) {
+      removeListener(event, cb);
+    } else if (cb) {
+      for (const evName in this.listeners) {
+        removeListener(evName, cb);
+      }
+    } else if (event) {
+      delete this.listeners[event];
     } else {
-      throw new Error('Listener not found.');
+      this.listeners = {};
     }
 
   }
@@ -72,26 +92,12 @@ const Emitter = class Emitter {
     if (typeof cb !== 'function') throw new Error('Callback must be a function.');
 
     const proxyHandler = (...args) => {
-      this.removeListener(eventName, proxyHandler);
-      cb(...args); // eslint-disable-line callback-return
+      this.off(eventName, proxyHandler);
+      cb(...args);
     };
 
     this.on(eventName, proxyHandler);
 
-  }
-
-  /**
-   * Removes all the listeners on the object, or all the listeners for a particular event if the `eventName` argument is passed.
-   * @method
-   * @param {String} [eventName]        (optional) The event name to remove any listeners from. If this argument is provided, listeners will only be removed from the given event name, not others. Otherwise, all listeners on the object are removed.
-   */
-  removeListeners(eventName) {
-    if (eventName) {
-      if (typeof eventName !== 'string') throw new Error('Event name must be a string.');
-      delete this.listeners[eventName];
-    } else {
-      this.listeners = {};
-    }
   }
 
   /**
