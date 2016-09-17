@@ -1,6 +1,15 @@
 /* global Model, View */
 
+/**
+ * A class representing the Categories View
+ * @type {Object} CategoriesView
+ */
 const CategoriesView = class CategoriesView extends View {
+  /**
+   * Create a new CategoriesView
+   * @class
+   * @param {Array} categories        The array of Category models for the view. Can be an Array or a Collection.
+   */
   constructor(categories) {
 
     const el = document.getElementById('overview');
@@ -13,6 +22,7 @@ const CategoriesView = class CategoriesView extends View {
       addCategory: View.bind(document.getElementById('addCategoryButton')),
     };
 
+    // Add a new blank category to the collection, and render the category view for it
     const addCategory = () => {
 
       const category = new Model({
@@ -27,6 +37,7 @@ const CategoriesView = class CategoriesView extends View {
 
     };
 
+    // Delete the given category from the collection, and rerender view
     const deleteCategory = category => {
 
       const accepted = confirm('Are you sure you want to delete this category?');
@@ -38,6 +49,7 @@ const CategoriesView = class CategoriesView extends View {
 
     };
 
+    // Given a click event, lookup the associated category
     const getCategory = ev => {
 
       var target = ev.target;
@@ -61,20 +73,27 @@ const CategoriesView = class CategoriesView extends View {
     this.el.addEventListener('click', ev => {
       if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
 
+        // if the Add Category button is clicked, add a category
         if (ev.target === this.nodes.addCategory) {
           addCategory();
+
+        // otherwise lookup the category associated with the click event
         } else {
 
           const category = getCategory(ev);
 
+          // category was found
           if (category) {
 
             if (ev.tagName === 'IMG') {
+              // if Delete button was clicked, delete the category
               deleteCategory(category);
             } else {
+              // otherwise emit a 'select' event
               this.emit('select', category);
             }
 
+          // rerender if category was not found
           } else {
 
             console.error('Category could not be found.');
