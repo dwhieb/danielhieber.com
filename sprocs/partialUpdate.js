@@ -1,5 +1,12 @@
 /* global __ */
 
+/* eslint-disable
+  max-statements,
+  no-param-reassign,
+  prefer-rest-params,
+  prefer-template
+*/
+
 /**
  * Runs a partial update on a document
  * @param  {Object} newDoc         The document to update
@@ -9,8 +16,8 @@
 function update(newDoc) { // eslint-disable-line func-style, no-unused-vars
 
   // polyfill for Object.assign()
-  if (typeof Object.assign != 'function') {
-    Object.assign = function(target) {
+  if (typeof Object.assign !== 'function') {
+    Object.assign = function assign(target) {
       'use strict';
       if (target == null) {
         throw new TypeError('Cannot convert undefined or null to object');
@@ -32,21 +39,22 @@ function update(newDoc) { // eslint-disable-line func-style, no-unused-vars
   }
 
   const response = __.response;
-  const docLink = __.getAltLink() + '/docs/' + newDoc.id; // eslint-disable-line prefer-template
+  const docLink = __.getAltLink() + '/docs/' + newDoc.id;
 
-  const ok = __.readDocument(docLink, function readDocument(err, doc) {
+  const accepted = __.readDocument(docLink, function readDocument(err, doc) {
     if (err) throw err;
 
     Object.assign(doc, newDoc);
 
-    const ok = __.upsertDocument(__.getSelfLink(), doc, function upsertDocument(err, res) {
+    const accepted = __.upsertDocument(__.getSelfLink(), doc, function upsertDocument(err, res) {
       if (err) throw err;
       response.setBody(res);
     });
 
-    if (!ok) throw new Error('Timeout upserting document.');
+    if (!accepted) throw new Error('Timeout upserting document.');
 
   });
 
-  if (!ok) throw new Error('Timeout reading document.');
+  if (!accepted) throw new Error('Timeout reading document.');
+
 }
