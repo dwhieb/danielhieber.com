@@ -29,52 +29,70 @@ var CategoriesView = function (_View) {
       addCategory: View.bind(document.getElementById('addCategoryButton'))
     };
 
-    // delegated event listener
+    var addCategory = function addCategory() {
+
+      var category = new Model({
+        name: '{Category Name}',
+        id: '{ID}',
+        description: '{Category Description}'
+      });
+
+      _this.add(category);
+      _this.sort();
+      _this.render();
+    };
+
+    var deleteCategory = function deleteCategory(category) {
+
+      var accepted = confirm('Are you sure you want to delete this category?');
+
+      if (accepted) {
+        _this.remove(category);
+        _this.render();
+      }
+    };
+
+    var getCategory = function getCategory(ev) {
+
+      var target = ev.target;
+
+      while (target.tagName !== 'LI') {
+        target = target.parentNode;
+      }
+
+      var category = _this.collection.find(function (category) {
+        var symbols = Object.getOwnPropertySymbols(category);
+        var match = symbols.some(function (symbol) {
+          return category[symbol] === target;
+        });
+        if (match) return true;
+        return false;
+      });
+
+      return category;
+    };
+
+    // add a single listener for event delegation
     _this.el.addEventListener('click', function (ev) {
       if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
 
         if (ev.target === _this.nodes.addCategory) {
-
-          var category = new Model({
-            name: '{Category Name}',
-            id: '{ID}',
-            description: '{Category Description}'
-          });
-
-          _this.add(category);
-          _this.sort();
-          _this.render();
+          addCategory();
         } else {
 
-          var target = ev.target;
+          var category = getCategory(ev);
 
-          while (target.tagName !== 'LI') {
-            target = target.parentNode;
-          }
-
-          var _category = _this.collection.find(function (category) {
-            var symbols = Object.getOwnPropertySymbols(category);
-            var match = symbols.some(function (symbol) {
-              return category[symbol] === target;
-            });
-            if (match) return true;
-            return false;
-          });
-
-          if (_category) {
+          if (category) {
 
             if (ev.tagName === 'IMG') {
-              var accepted = confirm('Are you sure you want to delete this category?');
-              if (accepted) {
-                _this.remove(_category);
-                _this.render();
-              }
+              deleteCategory(category);
             } else {
-              _this.emit('select', _category);
+              _this.emit('select', category);
             }
           } else {
 
-            throw new Error('Category could not be found.');
+            console.error('Category could not be found.');
+            _this.render();
           }
         }
       }

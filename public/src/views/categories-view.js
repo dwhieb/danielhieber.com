@@ -13,52 +13,72 @@ const CategoriesView = class CategoriesView extends View {
       addCategory: View.bind(document.getElementById('addCategoryButton')),
     };
 
-    // delegated event listener
+    const addCategory = () => {
+
+      const category = new Model({
+        name:        '{Category Name}',
+        id:          '{ID}',
+        description: '{Category Description}',
+      });
+
+      this.add(category);
+      this.sort();
+      this.render();
+
+    };
+
+    const deleteCategory = category => {
+
+      const accepted = confirm('Are you sure you want to delete this category?');
+
+      if (accepted) {
+        this.remove(category);
+        this.render();
+      }
+
+    };
+
+    const getCategory = ev => {
+
+      var target = ev.target;
+
+      while (target.tagName !== 'LI') {
+        target = target.parentNode;
+      }
+
+      const category = this.collection.find(category => {
+        const symbols = Object.getOwnPropertySymbols(category);
+        const match = symbols.some(symbol => category[symbol] === target);
+        if (match) return true;
+        return false;
+      });
+
+      return category;
+
+    };
+
+    // add a single listener for event delegation
     this.el.addEventListener('click', ev => {
       if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
 
         if (ev.target === this.nodes.addCategory) {
-
-          const category = new Model({
-            name:        '{Category Name}',
-            id:          '{ID}',
-            description: '{Category Description}',
-          });
-
-          this.add(category);
-          this.sort();
-          this.render();
-
+          addCategory();
         } else {
 
-          var target = ev.target;
-
-          while (target.tagName !== 'LI') {
-            target = target.parentNode;
-          }
-
-          const category = this.collection.find(category => {
-            const symbols = Object.getOwnPropertySymbols(category);
-            const match = symbols.some(symbol => category[symbol] === target);
-            if (match) return true;
-            return false;
-          });
+          const category = getCategory(ev);
 
           if (category) {
 
             if (ev.tagName === 'IMG') {
-              const accepted = confirm('Are you sure you want to delete this category?');
-              if (accepted) {
-                this.remove(category);
-                this.render();
-              }
+              deleteCategory(category);
             } else {
               this.emit('select', category);
             }
 
           } else {
 
-            throw new Error('Category could not be found.');
+            console.error('Category could not be found.');
+            this.render();
 
           }
 
