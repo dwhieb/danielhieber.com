@@ -1,8 +1,10 @@
 /* global
+  CategoryView,
+  CategoriesView,
   Collection
 */
 
-socket.emit('getCategories', (err, categories) => {
+socket.emit('getCategories', (err, res) => {
 
   if (err) {
 
@@ -18,8 +20,7 @@ socket.emit('getCategories', (err, categories) => {
 
   } else {
 
-    new Collection(categories);
-
+    
   }
 
 });

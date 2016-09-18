@@ -10,8 +10,10 @@ const Collection = class Collection extends Array {
    * Create a collection
    * @class
    * @param {Array} [models]      The array of models for the collection
+   * @param {Object} [model]      The default model to use for items in the collection
    */
-  constructor(models) {
+  constructor(models, model = Model) {
+
 
     // instantiate the array
     if (Number.isInteger(models)) {
@@ -23,6 +25,9 @@ const Collection = class Collection extends Array {
     } else {
       super();
     }
+
+    // set the default model for items in the collection
+    this.model = model;
 
     // make the collection an emitter
     Emitter.extend(this);

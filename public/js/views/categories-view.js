@@ -163,6 +163,8 @@ var CategoriesView = function (_View) {
 
             this.nodes.list.innerHTML = '';
 
+            this.sort();
+
             this.collection.forEach(function (category) {
 
                 var li = document.createElement('li');

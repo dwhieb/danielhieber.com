@@ -49,8 +49,11 @@ var Collection = function (_extendableBuiltin2) {
    * Create a collection
    * @class
    * @param {Array} [models]      The array of models for the collection
+   * @param {Object} [model]      The default model to use for items in the collection
    */
   function Collection(models) {
+    var model = arguments.length <= 1 || arguments[1] === undefined ? Model : arguments[1];
+
     _classCallCheck(this, Collection);
 
     // instantiate the array
@@ -65,6 +68,9 @@ var Collection = function (_extendableBuiltin2) {
     } else {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
+
+    // set the default model for items in the collection
+    _this.model = model;
 
     // make the collection an emitter
     Emitter.extend(_this);

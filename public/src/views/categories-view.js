@@ -137,6 +137,8 @@ const CategoriesView = class CategoriesView extends View {
 
     this.nodes.list.innerHTML = '';
 
+    this.sort();
+
     this.collection.forEach(category => {
 
       const li = document.createElement('li');
