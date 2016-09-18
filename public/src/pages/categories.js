@@ -1,4 +1,5 @@
 /* global
+  Category,
   CategoryView,
   CategoriesView,
   Collection
@@ -20,7 +21,8 @@ socket.emit('getCategories', (err, res) => {
 
   } else {
 
-    
+    const categories = new Collection(res, Category);
+
   }
 
 });

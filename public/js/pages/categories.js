@@ -1,6 +1,7 @@
 'use strict';
 
 /* global
+  Category,
   CategoryView,
   CategoriesView,
   Collection
@@ -15,5 +16,8 @@ socket.emit('getCategories', function (err, res) {
       id: 'error',
       description: '\n        Unable to retrieve categories:\n        <br>\n        ' + JSON.stringify(err, null, 2) + '\n      '
     };
-  } else {}
+  } else {
+
+    var categories = new Collection(res, Category);
+  }
 });

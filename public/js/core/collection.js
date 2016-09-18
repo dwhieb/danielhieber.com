@@ -70,14 +70,14 @@ var Collection = function (_extendableBuiltin2) {
     }
 
     // set the default model for items in the collection
-    _this.model = model;
+    _this.Model = model;
 
     // make the collection an emitter
     Emitter.extend(_this);
 
     // make sure each item in the collection is a model
     _this.forEach(function (data) {
-      return new Model(data);
+      return new _this.Model(data);
     });
 
     return _possibleConstructorReturn(_this);
@@ -86,7 +86,7 @@ var Collection = function (_extendableBuiltin2) {
   /**
    * Add a model to the collection
    * @method
-   * @param {Object} model        The model to add to the collection
+   * @param {Object} data         The model to add to the collection
    * @return {Number} length      Returns the new length of the collection array
    */
 
@@ -94,7 +94,7 @@ var Collection = function (_extendableBuiltin2) {
   _createClass(Collection, [{
     key: 'add',
     value: function add(data) {
-      var model = new Model(data);
+      var model = new this.Model(data);
       this.push(model);
       this.emit('add', model);
       return this;

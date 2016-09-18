@@ -27,24 +27,24 @@ const Collection = class Collection extends Array {
     }
 
     // set the default model for items in the collection
-    this.model = model;
+    this.Model = model;
 
     // make the collection an emitter
     Emitter.extend(this);
 
     // make sure each item in the collection is a model
-    this.forEach(data => new Model(data));
+    this.forEach(data => new this.Model(data));
 
   }
 
   /**
    * Add a model to the collection
    * @method
-   * @param {Object} model        The model to add to the collection
+   * @param {Object} data         The model to add to the collection
    * @return {Number} length      Returns the new length of the collection array
    */
   add(data) {
-    const model = new Model(data);
+    const model = new this.Model(data);
     this.push(model);
     this.emit('add', model);
     return this;
