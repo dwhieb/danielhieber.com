@@ -49,6 +49,12 @@ var CategoryView = function (_View) {
       deleteButton: View.bind(document.getElementById('deleteButton'))
     };
 
+    // tests for a valid ID string (a-z only)
+    var validId = function validId(str) {
+      return (/^[a-z]+$/.test(str)
+      );
+    };
+
     // EVENT LISTENERS
 
     // update the model when the view changes

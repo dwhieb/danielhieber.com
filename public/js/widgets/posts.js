@@ -4,12 +4,6 @@
 
 (function () {
 
-  // parameters to send to the Ghost API
-  var ghostOptions = {
-    limit: 5,
-    fields: 'title,slug,image,updated_at,html'
-  };
-
   // The wrapper element where the recent posts will be displayed
   var wrapper = document.querySelector('#posts ol');
 
@@ -48,8 +42,10 @@
 
         // get a preview of the post's text content
         var p = document.createElement('p');
+        var previewLength = 240;
+
         p.innerHTML = post.html;
-        var preview = p.textContent.substring(0, 240);
+        var preview = p.textContent.substring(0, previewLength);
 
         // the template for each item in the recent posts list
         var html = '\n          <li>\n            <a href=' + postLink + '>\n              ' + img + '\n              <div>\n                <h2>' + post.title + '</h2>\n                <time datetime=' + post.updated_at + '>' + dateString + '</time>\n                <p>' + preview + ' ... <span>(read more)<span></p>\n              </div>\n            </a>\n          </li>\n        ';
@@ -67,6 +63,12 @@
       clientSecret: 'c7441a524886'
     });
 
+    // parameters to send to the Ghost API
+    var ghostOptions = {
+      limit: 5,
+      fields: 'title,slug,image,updated_at,html'
+    };
+
     // construct the URL to fetch recent posts
     var recentPostsUrl = ghost.url.api('posts', ghostOptions);
 
@@ -75,9 +77,7 @@
       return res.json().then(function (data) {
         return renderPosts(data.posts);
       });
-    }).catch(function () {
-      return renderPosts([]);
-    });
+    }).catch(renderErrorFallback);
   } else {
     // display the error fallback if the Ghost API is unavailable
     renderErrorFallback();
