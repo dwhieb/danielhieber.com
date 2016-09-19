@@ -96,7 +96,7 @@ describe('socket', function test() {
   it('getCategories', function getCategories(done) {
     this.socket.emit('getCategories', (err, res) => {
       if (err) {
-        fail(JSON.stringify(err, null, 2));
+        fail(`Could not get categories. Make sure that there are categories in your database. Full error: ${JSON.stringify(err, null, 2)}`);
         done();
       } else {
         expect(Array.isArray(res)).toBe(true);
