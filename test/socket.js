@@ -62,19 +62,32 @@ describe('socket', function test() {
       ttl: 300,
     };
 
-    db.createDocument(coll, cat, err => {
-      if (err) fail(err.body);
+    db.upsertDocument(coll, cat, err => {
 
-      this.socket.emit('deleteCategory', cat.id, (err, res) => {
-        if (err) fail(JSON.stringify(err, null, 2));
-        expect(res.status).toBe(201);
+      if (err) {
+        fail(err.body);
+        done();
+      } else {
 
-        db.deleteDocument(`${coll}/docs/${cat.id}`, err => {
-          if (err && err.code != 404) fail(err.body);
-          done();
+        this.socket.emit('deleteCategory', cat.id, (err, res) => {
+
+          if (err) {
+            fail(JSON.stringify(err, null, 2));
+            done();
+          } else {
+
+            expect(res.status).toBe(201);
+
+            db.deleteDocument(`${coll}/docs/${cat.id}`, err => {
+              if (err && err.code != 404) fail(err.body);
+              done();
+            });
+
+          }
+
         });
 
-      });
+      }
 
     });
 
@@ -82,10 +95,14 @@ describe('socket', function test() {
 
   it('getCategories', function getCategories(done) {
     this.socket.emit('getCategories', (err, res) => {
-      if (err) fail(JSON.stringify(err, null, 2));
-      expect(Array.isArray(res)).toBe(true);
-      expect(res.length > 0).toBe(true);
-      done();
+      if (err) {
+        fail(`Could not get categories. Make sure that there are categories in your database. Full error: ${JSON.stringify(err, null, 2)}`);
+        done();
+      } else {
+        expect(Array.isArray(res)).toBe(true);
+        expect(res.length > 0).toBe(true);
+        done();
+      }
     });
   });
 
