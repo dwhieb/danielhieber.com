@@ -50,7 +50,7 @@ blockquote:not(.ex) p .citation {
   content: "(" attr(data-src) ")";
 }
 .focus {
-  color: #047FCE;
+  color: #3180E1;
   font-weight: bold;
 }
 .gl {
