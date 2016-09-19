@@ -19,5 +19,9 @@ socket.emit('getCategories', function (err, res) {
   } else {
 
     var categories = new Collection(res, Category);
+    console.log(categories);
+    var categoriesView = new CategoriesView(categories);
+    console.log(categoriesView);
+    categoriesView.render();
   }
 });
