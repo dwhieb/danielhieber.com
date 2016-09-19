@@ -40,12 +40,12 @@ var Emitter = function () {
 
       if (typeof cb !== 'function') throw new Error('Callback must be a function.');
 
-      var proxy = function proxy() {
+      var proxyHandler = function proxyHandler() {
         cb.apply(undefined, arguments); // eslint-disable-line callback-return
-        _this.removeListener(eventName, proxy);
+        _this.removeListener(eventName, proxyHandler);
       };
 
-      this.on(eventName, proxy);
+      this.on(eventName, proxyHandler);
     }
   }, {
     key: 'removeListener',
