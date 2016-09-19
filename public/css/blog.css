@@ -21,7 +21,7 @@ blockquote:not(.ex) p .citation {
   position: relative;
 }
 .ex:before {
-  content: counter(example-counter ")");
+  content: counter(example-counter) ')';
   left: 0;
   margin-right: 1em;
   position: absolute;
@@ -47,7 +47,7 @@ blockquote:not(.ex) p .citation {
 }
 .ex:after {
   align-self: flex-end;
-  content: "(" attr(data-src) ")";
+  content: '(' attr(data-src) ')';
 }
 .focus {
   color: #3180E1;
@@ -61,10 +61,10 @@ blockquote:not(.ex) p .citation {
   text-indent: -2em;
 }
 .tln:before {
-  content: "‘";
+  content: '‘';
 }
 .tln:after {
-  content: "’";
+  content: '’';
 }
 .txn {
   font-family: 'Charis SIL';
