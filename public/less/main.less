@@ -69,13 +69,18 @@ dfn { font-style: italic; }
 
 em { font-style: italic; }
 
-.field {
+.editable {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: inset 0 1px 3px #ddd;
+}
+
+.field {
+  .editable;
   &:focus {
     border-color: @blue;
+    box-shadow: inset 0 1px 3px rgba(49, 128, 225, 0.5);
     &:invalid { border-color: #e9322d; color: #b94a48; }
   }
   &[disabled] {
@@ -135,6 +140,8 @@ i {
   > span[lang=ipa] { visibility: visible; }
   > span[lang=eng] { visibility: hidden; }
 }
+
+small { font-size: 0.8em; }
 
 strong { .boldBlue; }
 

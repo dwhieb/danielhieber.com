@@ -1,48 +1,15 @@
 /* global
+  Category,
   CategoryView,
   CategoriesView,
   Collection
 */
 
-window.app = new Proxy({
-
-  nodes: {
-    categoryList:  document.getElementById('categoryList'),
-    details:       document.getElementById('details'),
-  },
-
-  category:       null,
-  categories:     new Collection([]),
-  categoryView:   null,
-  categoriesView: null,
-
-}, {
-
-  set(app, prop, val) {
-
-    if (prop === 'category') {
-      if (app.categoryView) app.categoryView.remove();
-      app.categoryView = new CategoryView(app.nodes.details, val);
-      app.categoryView.render();
-    }
-
-    if (prop === 'categories') {
-      if (app.categoriesView) app.categoriesView.remove();
-      app.categoriesView = new CategoriesView(app.nodes.categoryList, val);
-      app.categoriesView.render();
-    }
-
-    return Reflect.set(app, prop, val);
-
-  },
-
-});
-
-socket.emit('getCategories', (err, categories) => {
+socket.emit('getCategories', (err, res) => {
 
   if (err) {
 
-    app.category = {
+    const category = {
       name: 'Error',
       id: 'error',
       description: `
@@ -54,7 +21,11 @@ socket.emit('getCategories', (err, categories) => {
 
   } else {
 
-    app.categories = new Collection(categories);
+    const categories = new Collection(res, Category);
+    console.log(categories);
+    const categoriesView = new CategoriesView(categories);
+    console.log(categoriesView);
+    categoriesView.render();
 
   }
 

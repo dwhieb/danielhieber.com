@@ -1,7 +1,7 @@
 language: node_js
 node_js: node
 before_script:
-  - npm i --save jasmine@2.4.1
+  - npm i --save jasmine@2.4.1 babel-plugin-proxy
   - node build/less.js
   - babel public/src -d public/js
 notifications:

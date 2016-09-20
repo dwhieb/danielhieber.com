@@ -35,8 +35,11 @@ function _extendableBuiltin(cls) {
   return ExtendableBuiltin;
 }
 
+/* global Emitter, Model */
+
 /**
  * Class representing a collection
+ * @extends Array
  * @type {Array}
  */
 var Collection = function (_extendableBuiltin2) {
@@ -46,15 +49,17 @@ var Collection = function (_extendableBuiltin2) {
    * Create a collection
    * @class
    * @param {Array} [models]      The array of models for the collection
+   * @param {Object} [model]      The default model to use for items in the collection
    */
   function Collection(models) {
+    var model = arguments.length <= 1 || arguments[1] === undefined ? Model : arguments[1];
+
     _classCallCheck(this, Collection);
 
+    // instantiate the array
     if (Number.isInteger(models)) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this, models));
-    } else if (models && !Array.isArray(models)) {
-      throw new Error('Collection constructor must be passed an array.');
-    } else if (models) {
+    } else if (Array.isArray(models)) {
       var _ref;
 
       var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(models))));
@@ -62,21 +67,39 @@ var Collection = function (_extendableBuiltin2) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
 
+    // set the default model for items in the collection
+    if (typeof models === 'function') {
+      _this.Model = models;
+    } else {
+      _this.Model = model;
+    }
+
+    // make the collection an emitter
+    Emitter.extend(_this);
+
+    // make sure each item in the collection is a model
+    _this.forEach(function (data) {
+      return new _this.Model(data);
+    });
+
     return _possibleConstructorReturn(_this);
   }
 
   /**
    * Add a model to the collection
    * @method
-   * @param {Object} model        The model to add to the collection
+   * @param {Object} data         The model to add to the collection
    * @return {Number} length      Returns the new length of the collection array
    */
 
 
   _createClass(Collection, [{
     key: 'add',
-    value: function add(model) {
-      return this.push(model);
+    value: function add(data) {
+      var model = new this.Model(data);
+      this.push(model);
+      this.emit('add', model);
+      return this;
     }
 
     /**
@@ -91,7 +114,9 @@ var Collection = function (_extendableBuiltin2) {
       var i = this.findIndex(function (el) {
         return Object.is(model, el);
       });
-      return this.splice(i, 1);
+      this.splice(i, 1);
+      this.emit('remove', model);
+      return this;
     }
   }]);
 

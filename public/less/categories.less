@@ -3,10 +3,13 @@
 #categoriesAdmin {
   flex-direction: row;
   flex-wrap: wrap;
-  h1 { width: 100%; }
+  h1 {
+    padding: 1rem;
+    width: 100%;
+  }
 }
 
-#categoryList {
+#overview {
   button { .button; }
 
   li {
@@ -36,9 +39,25 @@
   flex-grow: 1;
   padding: 0rem 1rem;
 
-  h2 {
+  #name, #id, #description {
+    .field;
+    padding: 0.25rem 0.5rem;
+  }
+
+  #name {
     font-size: 2rem;
     font-weight: bold;
+  }
+
+  label > p {
+    font-weight: bold;
+  }
+
+  label[for=id] {
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem 0rem 0.5rem 0rem;
+    input { margin-left: 0.5rem; }
   }
 
   // buttons
@@ -60,10 +79,10 @@
 
 // mobile styling
 @media screen and (max-width: 699px) {
-  #categoryManagement { width: 100%; }
+  #overview { width: 100%; }
 }
 
 // desktop styling
 @media screen and (min-width: 700px) {
-  #categoryManagement { width: 40%; }
+  #overview { width: 40%; }
 }

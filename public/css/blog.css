@@ -42,6 +42,9 @@ blockquote:not(.ex) p .citation {
 .ex p {
   margin: 0;
 }
+.ex .tln {
+  font-style: normal;
+}
 .ex .txn {
   font-style: italic;
 }
