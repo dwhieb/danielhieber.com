@@ -14,20 +14,21 @@ const Collection = class Collection extends Array {
    */
   constructor(models, model = Model) {
 
-
     // instantiate the array
     if (Number.isInteger(models)) {
       super(models);
-    } else if (models && !Array.isArray(models)) {
-      throw new Error('Collection constructor should be passed an array.');
-    } else if (models) {
+    } else if (Array.isArray(models)) {
       super(...models);
     } else {
       super();
     }
 
     // set the default model for items in the collection
-    this.Model = model;
+    if (typeof models === 'function') {
+      this.Model = models;
+    } else {
+      this.Model = model;
+    }
 
     // make the collection an emitter
     Emitter.extend(this);

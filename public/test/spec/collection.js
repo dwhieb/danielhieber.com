@@ -1,4 +1,4 @@
-/* global Collection */
+/* global Category, Collection, Model */
 
 /* eslint-disable
   func-names,
@@ -12,12 +12,14 @@ describe('Collection', function CollectionSpec() {
     expect(Collection).toBeDefined();
 
     const passArray = () => new Collection([]);
+    const passModel = () => new Collection(Category);
     const passNothing = () => new Collection();
     const passObj = () => new Collection({});
 
     expect(passArray).not.toThrow();
+    expect(passModel).not.toThrow();
     expect(passNothing).not.toThrow();
-    expect(passObj).toThrow();
+    expect(passObj).not.toThrow();
 
     const coll = new Collection([]);
     expect(Array.isArray(coll)).toBe(true);
@@ -38,6 +40,16 @@ describe('Collection', function CollectionSpec() {
     expect(coll.remove).toBeDefined();
     coll.remove(model);
     expect(coll.length).toBe(0);
+  });
+
+  it('Collection.prototype.Model', function () {
+    console.log('Model test');
+    const defaultColl = new Collection();
+    const categoryColl1 = new Collection(Category);
+    const categoryColl2 = new Collection([], Category);
+    expect(defaultColl.Model).toBe(Model);
+    expect(categoryColl1.Model).toBe(Category);
+    expect(categoryColl2.Model).toBe(Category);
   });
 
   it('Collection.prototype.length', function () {

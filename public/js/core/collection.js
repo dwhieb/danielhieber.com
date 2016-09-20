@@ -59,9 +59,7 @@ var Collection = function (_extendableBuiltin2) {
     // instantiate the array
     if (Number.isInteger(models)) {
       var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this, models));
-    } else if (models && !Array.isArray(models)) {
-      throw new Error('Collection constructor should be passed an array.');
-    } else if (models) {
+    } else if (Array.isArray(models)) {
       var _ref;
 
       var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(models))));
@@ -70,7 +68,11 @@ var Collection = function (_extendableBuiltin2) {
     }
 
     // set the default model for items in the collection
-    _this.Model = model;
+    if (typeof models === 'function') {
+      _this.Model = models;
+    } else {
+      _this.Model = model;
+    }
 
     // make the collection an emitter
     Emitter.extend(_this);
