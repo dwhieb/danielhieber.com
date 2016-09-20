@@ -43,7 +43,6 @@ describe('Collection', function CollectionSpec() {
   });
 
   it('Collection.prototype.Model', function () {
-    console.log('Model test');
     const defaultColl = new Collection();
     const categoryColl1 = new Collection(Category);
     const categoryColl2 = new Collection([], Category);
