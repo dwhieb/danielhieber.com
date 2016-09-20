@@ -19,18 +19,49 @@ const Model = class Model {
 
   constructor(data) {
 
-    // return the data if it's already a model
     if (data instanceof Model) {
-
-      return data;
-
+      Object.assign(this, data.json());
     } else if (data) {
-
       Object.assign(this, data);
-      this.data = data || {};
-      Emitter.extend(this);
     }
 
+    Emitter.extend(this);
+
+    // adjust property descriptors as needed
+    Object.defineProperties(this, {
+
+      data: {
+        get: this.data,
+      },
+
+      destroy: {
+        value: this.destroy,
+        writable: true,
+      },
+
+      json: {
+        value: this.json,
+      },
+
+      save: {
+        value: this.save,
+        writable: true,
+      },
+
+      update: {
+        value: this.update,
+      },
+
+    });
+
+  }
+
+  /**
+   * Returns a Plain-Old JavaScript Object (POJO) representation of the model
+   * @return {Object}         Returns a POJO version of the model
+   */
+  data() {
+    return JSON.parse(this.json());
   }
 
   /**
@@ -39,6 +70,15 @@ const Model = class Model {
    */
   destroy() {
     throw new Error('No destroy method specified.');
+  }
+
+  /**
+   * Retruns a JSON string representation of the model
+   * @method
+   * @return {String}     A JSON string representing the model
+   */
+  json() {
+    return JSON.stringify(this, null, 2);
   }
 
   /**

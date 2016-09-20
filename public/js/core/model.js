@@ -26,28 +26,75 @@ var Model = function () {
   function Model(data) {
     _classCallCheck(this, Model);
 
-    // return the data if it's already a model
     if (data instanceof Model) {
-
-      return data;
+      Object.assign(this, data.json());
     } else if (data) {
-
       Object.assign(this, data);
-      this.data = data || {};
-      Emitter.extend(this);
     }
+
+    Emitter.extend(this);
+
+    // adjust property descriptors as needed
+    Object.defineProperties(this, {
+
+      data: {
+        get: this.data
+      },
+
+      destroy: {
+        value: this.destroy,
+        writable: true
+      },
+
+      json: {
+        value: this.json
+      },
+
+      save: {
+        value: this.save,
+        writable: true
+      },
+
+      update: {
+        value: this.update
+      }
+
+    });
   }
 
   /**
-   * Delete this model from the database. This method should be overridden by the subclass.
-   * @method
+   * Returns a Plain-Old JavaScript Object (POJO) representation of the model
+   * @return {Object}         Returns a POJO version of the model
    */
 
 
   _createClass(Model, [{
+    key: 'data',
+    value: function data() {
+      return JSON.parse(this.json());
+    }
+
+    /**
+     * Delete this model from the database. This method should be overridden by the subclass.
+     * @method
+     */
+
+  }, {
     key: 'destroy',
     value: function destroy() {
       throw new Error('No destroy method specified.');
+    }
+
+    /**
+     * Retruns a JSON string representation of the model
+     * @method
+     * @return {String}     A JSON string representing the model
+     */
+
+  }, {
+    key: 'json',
+    value: function json() {
+      return JSON.stringify(this, null, 2);
     }
 
     /**

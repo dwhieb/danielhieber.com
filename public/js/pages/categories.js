@@ -38,6 +38,7 @@ socket.emit('getCategories', function (err, res) {
 
   function saveCategory(category) {
     category.save().then(updateCategoryView).catch(function (err) {
+      console.log(err);
       console.error('Unable to save Category with ID ' + category.id);
       console.error(err.message, err.stack);
       resetCategoryView();
