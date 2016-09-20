@@ -16,12 +16,19 @@ socket.emit('getCategories', function (err, res) {
       id: 'error',
       description: '\n        Unable to retrieve categories:\n        <br>\n        ' + JSON.stringify(err, null, 2) + '\n      '
     };
+
+    var categoryView = new CategoryView(category);
+    categoryView.render();
   } else {
 
     var categories = new Collection(res, Category);
-    console.log(categories);
     var categoriesView = new CategoriesView(categories);
-    console.log(categoriesView);
+
+    categoriesView.on('select', function (data) {
+      var categoryView = new CategoryView(data);
+      categoryView.render();
+    });
+
     categoriesView.render();
   }
 });

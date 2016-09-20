@@ -33,9 +33,6 @@ const CategoryView = class CategoryView extends View {
       deleteButton: View.bind(document.getElementById('deleteButton')),
     };
 
-    // tests for a valid ID string (a-z only)
-    const validId = str => /^[a-z]+$/.test(str);
-
     // EVENT LISTENERS
 
     // update the model when the view changes

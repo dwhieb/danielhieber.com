@@ -13,6 +13,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* global Model, View */
 
 /**
+ * Events emitted by CategoriesView
+ * @event CategoriesView#add
+ * @event CategoriesView#remove
+ * @event CategoriesView#render
+ * @event CategoriesView#select
+ * @event CategoriesView#sort
+ */
+
+/**
  * A class representing the Categories View
  * @type {Object} CategoriesView
  */
@@ -50,6 +59,9 @@ var CategoriesView = function (_View) {
             _this.add(category);
             _this.sort();
             _this.render();
+
+            var categoryView = new CategoryView(category);
+            categoryView.render();
         };
 
         // Delete the given category from the collection, and rerender view
@@ -184,7 +196,7 @@ var CategoriesView = function (_View) {
         key: 'sort',
         value: function sort() {
             this.collection.sort(function (a, b) {
-                return a.name > b.name;
+                return a.name < b.name;
             });
             this.emit('sort', this.collection);
             return this;

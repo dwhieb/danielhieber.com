@@ -19,12 +19,19 @@ socket.emit('getCategories', (err, res) => {
       `,
     };
 
+    const categoryView = new CategoryView(category);
+    categoryView.render();
+
   } else {
 
     const categories = new Collection(res, Category);
-    console.log(categories);
     const categoriesView = new CategoriesView(categories);
-    console.log(categoriesView);
+
+    categoriesView.on('select', data => {
+      const categoryView = new CategoryView(data);
+      categoryView.render();
+    });
+
     categoriesView.render();
 
   }

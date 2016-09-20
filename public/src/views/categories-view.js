@@ -1,6 +1,15 @@
 /* global Model, View */
 
 /**
+ * Events emitted by CategoriesView
+ * @event CategoriesView#add
+ * @event CategoriesView#remove
+ * @event CategoriesView#render
+ * @event CategoriesView#select
+ * @event CategoriesView#sort
+ */
+
+/**
  * A class representing the Categories View
  * @type {Object} CategoriesView
  */
@@ -34,6 +43,9 @@ const CategoriesView = class CategoriesView extends View {
       this.add(category);
       this.sort();
       this.render();
+
+      const categoryView = new CategoryView(category);
+      categoryView.render();
 
     };
 
@@ -161,7 +173,7 @@ const CategoriesView = class CategoriesView extends View {
   }
 
   sort() {
-    this.collection.sort((a, b) => a.name > b.name);
+    this.collection.sort((a, b) => a.name < b.name);
     this.emit('sort', this.collection);
     return this;
   }
