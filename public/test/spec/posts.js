@@ -14,7 +14,7 @@ describe('Recent Posts', function () {
 
     ghost.init({
       clientId: 'ghost-frontend',
-      clientSecret: 'c7441a524886',
+      clientSecret: '5abb38b97759',
     });
 
     const ghostOptions = {
@@ -24,13 +24,13 @@ describe('Recent Posts', function () {
 
     const url = ghost.url.api('posts', ghostOptions);
 
-    fetch(url, { mode: 'no-cors' })
+    fetch(url)
     .then(res => {
       if (res.ok) {
         res.json().then(data => {
-          expect(Array.isArray(data)).toBe(true);
+          expect(Array.isArray(data.posts)).toBe(true);
           expect(0 < data.length <= 5).toBe(true);
-          const post = data[0];
+          const post = data.posts[0];
           expect('title' in post).toBe(true);
           expect('slug' in post).toBe(true);
           expect('image' in post).toBe(true);

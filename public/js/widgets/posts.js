@@ -2,6 +2,10 @@
 
 /* global ghost */
 
+/* eslint-disable
+  max-statements
+*/
+
 (function () {
 
   // The wrapper element where the recent posts will be displayed
@@ -38,11 +42,17 @@
         var postLink = 'http://blog.danielhieber.com/' + post.slug;
         var d = new Date(post.updated_at);
         var dateString = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-        var img = post.image ? '<img src=' + post.image + '>' : '';
+
+        var imgLink = '';
+
+        if (post.image) {
+          imgLink = post.image.includes('//') ? post.image : '//blog.danielhieber.com' + post.image;
+        }
 
         // get a preview of the post's text content
         var p = document.createElement('p');
         var previewLength = 240;
+        var img = imgLink ? '<img src=' + imgLink + '>' : '';
 
         p.innerHTML = post.html;
         var preview = p.textContent.substring(0, previewLength);
@@ -60,7 +70,7 @@
     // initialize the Ghost SDK
     ghost.init({
       clientId: 'ghost-frontend',
-      clientSecret: 'c7441a524886'
+      clientSecret: '5abb38b97759'
     });
 
     // parameters to send to the Ghost API
@@ -73,10 +83,14 @@
     var recentPostsUrl = ghost.url.api('posts', ghostOptions);
 
     // call the Ghost API, convert and render the result
-    fetch(recentPostsUrl, { mode: 'no-cors' }).then(function (res) {
-      return res.json().then(function (data) {
-        return renderPosts(data.posts);
-      });
+    fetch(recentPostsUrl).then(function (res) {
+      if (res.ok) {
+        res.json().then(function (data) {
+          return renderPosts(data.posts);
+        });
+      } else {
+        renderErrorFallback();
+      }
     }).catch(renderErrorFallback);
   } else {
     // display the error fallback if the Ghost API is unavailable
