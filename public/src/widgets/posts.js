@@ -1,5 +1,9 @@
 /* global ghost */
 
+/* eslint-disable
+  max-statements
+*/
+
 (() => {
 
   // The wrapper element where the recent posts will be displayed
@@ -38,11 +42,18 @@
         const postLink = `http://blog.danielhieber.com/${post.slug}`;
         const d = new Date(post.updated_at);
         const dateString = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-        const img = post.image ? `<img src=${post.image}>` : '';
+
+        let imgLink = '';
+
+        if (post.image) {
+          imgLink = post.image.includes('//') ?
+                    post.image : `//blog.danielhieber.com${post.image}`;
+        }
 
         // get a preview of the post's text content
         const p = document.createElement('p');
         const previewLength = 240;
+        const img = imgLink ? `<img src=${imgLink}>` : '';
 
         p.innerHTML = post.html;
         const preview = p.textContent.substring(0, previewLength);
@@ -72,7 +83,7 @@
     // initialize the Ghost SDK
     ghost.init({
       clientId: 'ghost-frontend',
-      clientSecret: 'c7441a524886',
+      clientSecret: '5abb38b97759',
     });
 
     // parameters to send to the Ghost API
@@ -85,8 +96,14 @@
     const recentPostsUrl = ghost.url.api('posts', ghostOptions);
 
     // call the Ghost API, convert and render the result
-    fetch(recentPostsUrl, { mode: 'no-cors' })
-    .then(res => res.json().then(data => renderPosts(data.posts)))
+    fetch(recentPostsUrl)
+    .then(res => {
+      if (res.ok) {
+        res.json().then(data => renderPosts(data.posts));
+      } else {
+        renderErrorFallback();
+      }
+    })
     .catch(renderErrorFallback);
 
   } else {
