@@ -74,7 +74,7 @@ const CategoriesView = class CategoriesView extends View {
         return false;
       });
 
-      return category;
+      return category || undefined;
 
     };
 
@@ -131,31 +131,8 @@ const CategoriesView = class CategoriesView extends View {
   }
 
   remove(category) {
-
-    const i = this.collection.findIndex(item => Object.is(item, category) || item.id === category);
-
-    if (i >= 0) {
-
-      const category = this.collection.splice(i, 1)[0];
-
-      category.destroy()
-      .then(() => this.emit('remove', category))
-      .catch(err => {
-        if (err && err.status == 404) {
-          console.warn(`Category with ID ${category.id} could not be found for deletion.`);
-        } else {
-          console.error(`Category with ID ${category.id} could not be deleted.}`);
-        }
-        this.render();
-      });
-
-      return this.collection;
-
-    }
-
-    this.render();
-    throw new Error('Could not find category.');
-
+    this.collection.remove(category);
+    this.emit('remove', category);
   }
 
   render() {

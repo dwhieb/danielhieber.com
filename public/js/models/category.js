@@ -10,6 +10,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 /* global Model */
 
+/**
+ * Events emitted by Category
+ * @event Category#destroy
+ * @event Category@save
+ */
+
 // the default Category data to use if none is provided
 var defaults = {
   id: '',
@@ -54,6 +60,7 @@ var Category = function (_Model) {
       return new Promise(function (resolve, reject) {
         socket.emit('deleteCategory', _this2, function (err, res) {
           if (err) reject(err);
+          _this2.emit('destroy');
           resolve(res);
         });
       });
@@ -73,6 +80,8 @@ var Category = function (_Model) {
       return new Promise(function (resolve, reject) {
         socket.emit('updateCategory', _this3, function (err, res) {
           if (err) reject(err);
+          _this3.update(res);
+          _this3.emit('save');
           resolve(res);
         });
       });

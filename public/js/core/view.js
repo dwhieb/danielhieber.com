@@ -9,6 +9,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* global Collection, Emitter, Model */
 
 /**
+ * Events emitted by View
+ * @event View#destroy
+ * @event View#display
+ * @event View#hide
+ * @event View#removeListeners
+ */
+
+/**
  * A Class representing a View
  * @type {Object}
  * @class
@@ -86,11 +94,11 @@ var View = function () {
      */
 
   }, {
-    key: 'remove',
-    value: function remove() {
+    key: 'destroy',
+    value: function destroy() {
       this.removeListeners();
       this.el.remove();
-      this.emit('remove');
+      this.emit('destroy');
     }
 
     /**

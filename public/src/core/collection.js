@@ -1,6 +1,12 @@
 /* global Emitter, Model */
 
 /**
+ * Events emitted by Collection
+ * @event Collection#add
+ * @event Collection#remove
+ */
+
+/**
  * Class representing a collection
  * @extends Array
  * @type {Array}
@@ -59,10 +65,17 @@ const Collection = class Collection extends Array {
    * @return {Array} deletedItems         Returns an array of the deleted items
    */
   remove(model) {
+
     const i = this.findIndex(el => Object.is(model, el));
-    this.splice(i, 1);
-    this.emit('remove', model);
-    return this;
+
+    if (i >= 0) {
+      this.splice(i, 1);
+      this.emit('remove', model);
+      return this;
+    }
+
+    return false;
+
   }
 
 };

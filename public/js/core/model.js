@@ -7,6 +7,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* global Emitter */
 
 /**
+ * Events emitted by Model
+ * @event Model#update
+ */
+
+/**
  * A class representing a Model
  * @type {Object} Model
  */

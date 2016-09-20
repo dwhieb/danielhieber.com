@@ -18,9 +18,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 /**
  * Events emitted by CategoryView
+ * @event CategoryView#delete
  * @event CategoryView#destroy
- * @event CategoryView#error:{method}
- * @event CategoryView#remove
  * @event CategoryView#render
  * @event CategoryView#save
  * @event CategoryView#update
@@ -71,11 +70,7 @@ var CategoryView = function (_View) {
 
     // save the model to the database when the Save button is clicked
     _this.nodes.saveButton.addEventListener('click', function () {
-      _this.model.save().then(function () {
-        return _this.emit('save', _this.model);
-      }).catch(function (err) {
-        return _this.emit('error:save', err);
-      });
+      return _this.emit('save', _this.model);
     });
 
     // delete the model from the database when the delete button is clicked
@@ -84,16 +79,7 @@ var CategoryView = function (_View) {
       var accepted = confirm('Are you sure you want to delete this category?');
 
       if (accepted) {
-        _this.remove();
-        _this.model.destroy().then(function () {
-          return _this.emit('destroy', _this.model);
-        }).catch(function (err) {
-          if (err && err.status == 404) {
-            _this.emit('destroy', _this.model);
-          } else {
-            _this.emit('error:destroy', err);
-          }
-        });
+        _this.emit('delete', _this.model);
       }
     });
 
@@ -101,18 +87,18 @@ var CategoryView = function (_View) {
   }
 
   /**
-   * Remove all event listeners from elements in this view, and hide (not delete) the view
+   * Remove all event listeners from elements in this view, and hide (not actually destroy) the view
    * @method
    * @return {Object} CategoryView      Returns the category view
    */
 
 
   _createClass(CategoryView, [{
-    key: 'remove',
-    value: function remove() {
+    key: 'destroy',
+    value: function destroy() {
       this.removeListeners();
       this.hide();
-      this.emit('remove');
+      this.emit('destroy');
       return this;
     }
 

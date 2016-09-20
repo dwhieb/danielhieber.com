@@ -38,6 +38,12 @@ function _extendableBuiltin(cls) {
 /* global Emitter, Model */
 
 /**
+ * Events emitted by Collection
+ * @event Collection#add
+ * @event Collection#remove
+ */
+
+/**
  * Class representing a collection
  * @extends Array
  * @type {Array}
@@ -111,12 +117,18 @@ var Collection = function (_extendableBuiltin2) {
   }, {
     key: 'remove',
     value: function remove(model) {
+
       var i = this.findIndex(function (el) {
         return Object.is(model, el);
       });
-      this.splice(i, 1);
-      this.emit('remove', model);
-      return this;
+
+      if (i >= 0) {
+        this.splice(i, 1);
+        this.emit('remove', model);
+        return this;
+      }
+
+      return false;
     }
   }]);
 

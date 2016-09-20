@@ -1,6 +1,14 @@
 /* global Collection, Emitter, Model */
 
 /**
+ * Events emitted by View
+ * @event View#destroy
+ * @event View#display
+ * @event View#hide
+ * @event View#removeListeners
+ */
+
+/**
  * A Class representing a View
  * @type {Object}
  * @class
@@ -71,10 +79,10 @@ const View = class View {
   * Removes all event listeners from the view's primary HTML node as well as any nodes in the `.nodes` object, and then removes the primary node from the DOM.
    * @method
    */
-  remove() {
+  destroy() {
     this.removeListeners();
     this.el.remove();
-    this.emit('remove');
+    this.emit('destroy');
   }
 
   /**

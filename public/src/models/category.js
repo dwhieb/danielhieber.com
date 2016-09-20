@@ -1,5 +1,11 @@
 /* global Model */
 
+/**
+ * Events emitted by Category
+ * @event Category#destroy
+ * @event Category@save
+ */
+
 // the default Category data to use if none is provided
 const defaults = {
   id:          '',
@@ -32,6 +38,7 @@ const Category = class Category extends Model {
     return new Promise((resolve, reject) => {
       socket.emit('deleteCategory', this, (err, res) => {
         if (err) reject(err);
+        this.emit('destroy');
         resolve(res);
       });
     });
@@ -46,6 +53,8 @@ const Category = class Category extends Model {
     return new Promise((resolve, reject) => {
       socket.emit('updateCategory', this, (err, res) => {
         if (err) reject(err);
+        this.update(res);
+        this.emit('save');
         resolve(res);
       });
     });

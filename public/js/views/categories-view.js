@@ -1,7 +1,5 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -90,7 +88,7 @@ var CategoriesView = function (_View) {
         return false;
       });
 
-      return category;
+      return category || undefined;
     };
 
     // add a single listener for event delegation
@@ -145,43 +143,13 @@ var CategoriesView = function (_View) {
   }, {
     key: 'remove',
     value: function remove(category) {
-      var _this2 = this;
-
-      var i = this.collection.findIndex(function (item) {
-        return Object.is(item, category) || item.id === category;
-      });
-
-      if (i >= 0) {
-        var _ret = function () {
-
-          var category = _this2.collection.splice(i, 1)[0];
-
-          category.destroy().then(function () {
-            return _this2.emit('remove', category);
-          }).catch(function (err) {
-            if (err && err.status == 404) {
-              console.warn('Category with ID ' + category.id + ' could not be found for deletion.');
-            } else {
-              console.error('Category with ID ' + category.id + ' could not be deleted.}');
-            }
-            _this2.render();
-          });
-
-          return {
-            v: _this2.collection
-          };
-        }();
-
-        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
-      }
-
-      this.render();
-      throw new Error('Could not find category.');
+      this.collection.remove(category);
+      this.emit('remove', category);
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.nodes.list.innerHTML = '';
 
@@ -194,7 +162,7 @@ var CategoriesView = function (_View) {
         var html = '\n        <p>' + category.name + '</p>\n        <img src=/img/delete.svg alt=\'delete this category\'>\n      ';
 
         li.innerHTML = html;
-        _this3.nodes.list.appendChild(li);
+        _this2.nodes.list.appendChild(li);
         category[Symbol('element')] = li; // eslint-disable-line no-param-reassign
       });
 
