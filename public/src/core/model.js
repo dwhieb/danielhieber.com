@@ -19,11 +19,7 @@ const Model = class Model {
 
   constructor(data) {
 
-    if (data instanceof Model) {
-      Object.assign(this, data.json());
-    } else if (data) {
-      Object.assign(this, data);
-    }
+    Object.assign(this, data);
 
     Emitter.extend(this);
 

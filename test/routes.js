@@ -35,7 +35,7 @@ describe('routes', function routes() {
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   it('GET /admin/CV', function cvAdmin(done) {
     req.get('/admin/CV')
@@ -45,7 +45,7 @@ describe('routes', function routes() {
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   it('GET /admin/blog', function blogAdmin(done) {
     req.get('/admin/blog')
@@ -55,7 +55,7 @@ describe('routes', function routes() {
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   it('GET /admin/categories', function categoriesAdmin(done) {
     req.get('/admin/categories')
@@ -65,7 +65,7 @@ describe('routes', function routes() {
       expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   it('GET /blog', function blog(done) {
     req.get('/blog')

@@ -15,7 +15,7 @@ const Emitter = class Emitter {
 
       set: val => {
 
-        if (typeof val === 'object') {
+        if (val instanceof Object) {
           listeners = val;
           return listeners;
         }

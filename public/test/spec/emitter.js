@@ -115,7 +115,11 @@ describe('Emitter', function () {
   });
 
   it('Emitter.prototype.listeners', function () {
-    expect(new Emitter().listeners instanceof Object).toBe(true);
+    const emitter = new Emitter();
+    const setBadListener = () => { emitter.listeners = null; };
+    expect(emitter.listeners instanceof Object).toBe(true);
+    expect(Object.getOwnPropertyDescriptor(emitter, 'listeners').enumerable).toBe(false);
+    expect(setBadListener).toThrow();
   });
 
 });

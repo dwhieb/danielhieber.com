@@ -26,11 +26,7 @@ var Model = function () {
   function Model(data) {
     _classCallCheck(this, Model);
 
-    if (data instanceof Model) {
-      Object.assign(this, data.json());
-    } else if (data) {
-      Object.assign(this, data);
-    }
+    Object.assign(this, data);
 
     Emitter.extend(this);
 
