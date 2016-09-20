@@ -17,6 +17,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 */
 
 /**
+ * Events emitted by CategoryView
+ * @event CategoryView#destroy
+ * @event CategoryView#error:{method}
+ * @event CategoryView#remove
+ * @event CategoryView#render
+ * @event CategoryView#save
+ * @event CategoryView#update
+ */
+
+/**
  * A class representing a Category View
  * @type {Object} CategoryView
  */
@@ -63,6 +73,8 @@ var CategoryView = function (_View) {
     _this.nodes.saveButton.addEventListener('click', function () {
       _this.model.save().then(function () {
         return _this.emit('save', _this.model);
+      }).catch(function (err) {
+        return _this.emit('error:save', err);
       });
     });
 
@@ -73,8 +85,14 @@ var CategoryView = function (_View) {
 
       if (accepted) {
         _this.remove();
-        _this.model.delete().then(function () {
-          return _this.emit('delete', _this.model);
+        _this.model.destroy().then(function () {
+          return _this.emit('destroy', _this.model);
+        }).catch(function (err) {
+          if (err && err.status == 404) {
+            _this.emit('destroy', _this.model);
+          } else {
+            _this.emit('error:destroy', err);
+          }
         });
       }
     });

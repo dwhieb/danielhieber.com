@@ -1,4 +1,4 @@
-/* global Model, View */
+/* global Category, View */
 
 /**
  * Events emitted by CategoriesView
@@ -34,7 +34,7 @@ const CategoriesView = class CategoriesView extends View {
     // Add a new blank category to the collection, and render the category view for it
     const addCategory = () => {
 
-      const category = new Model({
+      const category = new Category({
         name:        '{Category Name}',
         id:          '{ID}',
         description: '{Category Description}',
@@ -43,9 +43,6 @@ const CategoriesView = class CategoriesView extends View {
       this.add(category);
       this.sort();
       this.render();
-
-      const categoryView = new CategoryView(category);
-      categoryView.render();
 
     };
 
@@ -97,7 +94,7 @@ const CategoriesView = class CategoriesView extends View {
           // category was found
           if (category) {
 
-            if (ev.tagName === 'IMG') {
+            if (ev.target.tagName === 'IMG') {
               // if Delete button was clicked, delete the category
               deleteCategory(category);
             } else {
@@ -123,7 +120,9 @@ const CategoriesView = class CategoriesView extends View {
 
   add(category) {
 
-    if (!(category instanceof Model)) throw new Error('Category must be an instance of Model.');
+    if (!(category instanceof Category)) {
+      throw new Error('Category must be an instance of Category.');
+    }
 
     this.collection.add(category);
     this.emit('add', category);
@@ -135,12 +134,26 @@ const CategoriesView = class CategoriesView extends View {
 
     const i = this.collection.findIndex(item => Object.is(item, category) || item.id === category);
 
-    if (i) {
-      const category = this.collection.splice(i, 1);
-      category.delete().then(() => this.emit('remove', category));
+    if (i >= 0) {
+
+      const category = this.collection.splice(i, 1)[0];
+
+      category.destroy()
+      .then(() => this.emit('remove', category))
+      .catch(err => {
+        if (err && err.status == 404) {
+          console.warn(`Category with ID ${category.id} could not be found for deletion.`);
+        } else {
+          console.error(`Category with ID ${category.id} could not be deleted.}`);
+        }
+        this.render();
+      });
+
       return this.collection;
+
     }
 
+    this.render();
     throw new Error('Could not find category.');
 
   }

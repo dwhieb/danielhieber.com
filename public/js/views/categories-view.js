@@ -10,7 +10,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* global Model, View */
+/* global Category, View */
 
 /**
  * Events emitted by CategoriesView
@@ -26,182 +26,192 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @type {Object} CategoriesView
  */
 var CategoriesView = function (_View) {
-    _inherits(CategoriesView, _View);
+  _inherits(CategoriesView, _View);
 
-    /**
-     * Create a new CategoriesView
-     * @class
-     * @param {Array} categories        The array of Category models for the view. Can be an Array or a Collection.
-     */
-    function CategoriesView(categories) {
-        _classCallCheck(this, CategoriesView);
+  /**
+   * Create a new CategoriesView
+   * @class
+   * @param {Array} categories        The array of Category models for the view. Can be an Array or a Collection.
+   */
+  function CategoriesView(categories) {
+    _classCallCheck(this, CategoriesView);
 
-        var el = document.getElementById('overview');
+    var el = document.getElementById('overview');
 
-        var _this = _possibleConstructorReturn(this, (CategoriesView.__proto__ || Object.getPrototypeOf(CategoriesView)).call(this, el, categories));
+    var _this = _possibleConstructorReturn(this, (CategoriesView.__proto__ || Object.getPrototypeOf(CategoriesView)).call(this, el, categories));
 
-        _this.sort();
+    _this.sort();
 
-        _this.nodes = {
-            list: View.bind(document.getElementById('categoriesList')),
-            addCategory: View.bind(document.getElementById('addCategoryButton'))
-        };
+    _this.nodes = {
+      list: View.bind(document.getElementById('categoriesList')),
+      addCategory: View.bind(document.getElementById('addCategoryButton'))
+    };
 
-        // Add a new blank category to the collection, and render the category view for it
-        var addCategory = function addCategory() {
+    // Add a new blank category to the collection, and render the category view for it
+    var addCategory = function addCategory() {
 
-            var category = new Model({
-                name: '{Category Name}',
-                id: '{ID}',
-                description: '{Category Description}'
-            });
+      var category = new Category({
+        name: '{Category Name}',
+        id: '{ID}',
+        description: '{Category Description}'
+      });
 
-            _this.add(category);
-            _this.sort();
-            _this.render();
+      _this.add(category);
+      _this.sort();
+      _this.render();
+    };
 
-            var categoryView = new CategoryView(category);
-            categoryView.render();
-        };
+    // Delete the given category from the collection, and rerender view
+    var deleteCategory = function deleteCategory(category) {
 
-        // Delete the given category from the collection, and rerender view
-        var deleteCategory = function deleteCategory(category) {
+      var accepted = confirm('Are you sure you want to delete this category?');
 
-            var accepted = confirm('Are you sure you want to delete this category?');
+      if (accepted) {
+        _this.remove(category);
+        _this.render();
+      }
+    };
 
-            if (accepted) {
-                _this.remove(category);
-                _this.render();
-            }
-        };
+    // Given a click event, lookup the associated category
+    var getCategory = function getCategory(ev) {
 
-        // Given a click event, lookup the associated category
-        var getCategory = function getCategory(ev) {
+      var target = ev.target;
 
-            var target = ev.target;
+      while (target.tagName !== 'LI') {
+        target = target.parentNode;
+      }
 
-            while (target.tagName !== 'LI') {
-                target = target.parentNode;
-            }
-
-            var category = _this.collection.find(function (category) {
-                var symbols = Object.getOwnPropertySymbols(category);
-                var match = symbols.some(function (symbol) {
-                    return category[symbol] === target;
-                });
-                if (match) return true;
-                return false;
-            });
-
-            return category;
-        };
-
-        // add a single listener for event delegation
-        _this.el.addEventListener('click', function (ev) {
-            if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
-
-                // if the Add Category button is clicked, add a category
-                if (ev.target === _this.nodes.addCategory) {
-                    addCategory();
-
-                    // otherwise lookup the category associated with the click event
-                } else {
-
-                    var category = getCategory(ev);
-
-                    // category was found
-                    if (category) {
-
-                        if (ev.tagName === 'IMG') {
-                            // if Delete button was clicked, delete the category
-                            deleteCategory(category);
-                        } else {
-                            // otherwise emit a 'select' event
-                            _this.emit('select', category);
-                        }
-
-                        // rerender if category was not found
-                    } else {
-
-                        console.error('Category could not be found.');
-                        _this.render();
-                    }
-                }
-            }
+      var category = _this.collection.find(function (category) {
+        var symbols = Object.getOwnPropertySymbols(category);
+        var match = symbols.some(function (symbol) {
+          return category[symbol] === target;
         });
+        if (match) return true;
+        return false;
+      });
 
-        return _this;
-    }
+      return category;
+    };
 
-    _createClass(CategoriesView, [{
-        key: 'add',
-        value: function add(category) {
+    // add a single listener for event delegation
+    _this.el.addEventListener('click', function (ev) {
+      if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
 
-            if (!(category instanceof Model)) throw new Error('Category must be an instance of Model.');
+        // if the Add Category button is clicked, add a category
+        if (ev.target === _this.nodes.addCategory) {
+          addCategory();
 
-            this.collection.add(category);
-            this.emit('add', category);
-            return this.collection;
-        }
-    }, {
-        key: 'remove',
-        value: function remove(category) {
-            var _this2 = this;
+          // otherwise lookup the category associated with the click event
+        } else {
 
-            var i = this.collection.findIndex(function (item) {
-                return Object.is(item, category) || item.id === category;
-            });
+          var category = getCategory(ev);
 
-            if (i) {
-                var _ret = function () {
-                    var category = _this2.collection.splice(i, 1);
-                    category.delete().then(function () {
-                        return _this2.emit('remove', category);
-                    });
-                    return {
-                        v: _this2.collection
-                    };
-                }();
+          // category was found
+          if (category) {
 
-                if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+            if (ev.target.tagName === 'IMG') {
+              // if Delete button was clicked, delete the category
+              deleteCategory(category);
+            } else {
+              // otherwise emit a 'select' event
+              _this.emit('select', category);
             }
 
-            throw new Error('Could not find category.');
+            // rerender if category was not found
+          } else {
+
+            console.error('Category could not be found.');
+            _this.render();
+          }
         }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
+      }
+    });
 
-            this.nodes.list.innerHTML = '';
+    return _this;
+  }
 
-            this.sort();
+  _createClass(CategoriesView, [{
+    key: 'add',
+    value: function add(category) {
 
-            this.collection.forEach(function (category) {
+      if (!(category instanceof Category)) {
+        throw new Error('Category must be an instance of Category.');
+      }
 
-                var li = document.createElement('li');
+      this.collection.add(category);
+      this.emit('add', category);
+      return this.collection;
+    }
+  }, {
+    key: 'remove',
+    value: function remove(category) {
+      var _this2 = this;
 
-                var html = '\n        <p>' + category.name + '</p>\n        <img src=/img/delete.svg alt=\'delete this category\'>\n      ';
+      var i = this.collection.findIndex(function (item) {
+        return Object.is(item, category) || item.id === category;
+      });
 
-                li.innerHTML = html;
-                _this3.nodes.list.appendChild(li);
-                category[Symbol('element')] = li; // eslint-disable-line no-param-reassign
-            });
+      if (i >= 0) {
+        var _ret = function () {
 
-            this.emit('render');
+          var category = _this2.collection.splice(i, 1)[0];
 
-            return this;
-        }
-    }, {
-        key: 'sort',
-        value: function sort() {
-            this.collection.sort(function (a, b) {
-                return a.name < b.name;
-            });
-            this.emit('sort', this.collection);
-            return this;
-        }
-    }]);
+          category.destroy().then(function () {
+            return _this2.emit('remove', category);
+          }).catch(function (err) {
+            if (err && err.status == 404) {
+              console.warn('Category with ID ' + category.id + ' could not be found for deletion.');
+            } else {
+              console.error('Category with ID ' + category.id + ' could not be deleted.}');
+            }
+            _this2.render();
+          });
 
-    return CategoriesView;
+          return {
+            v: _this2.collection
+          };
+        }();
+
+        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+      }
+
+      this.render();
+      throw new Error('Could not find category.');
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      this.nodes.list.innerHTML = '';
+
+      this.sort();
+
+      this.collection.forEach(function (category) {
+
+        var li = document.createElement('li');
+
+        var html = '\n        <p>' + category.name + '</p>\n        <img src=/img/delete.svg alt=\'delete this category\'>\n      ';
+
+        li.innerHTML = html;
+        _this3.nodes.list.appendChild(li);
+        category[Symbol('element')] = li; // eslint-disable-line no-param-reassign
+      });
+
+      this.emit('render');
+
+      return this;
+    }
+  }, {
+    key: 'sort',
+    value: function sort() {
+      this.collection.sort(function (a, b) {
+        return a.name < b.name;
+      });
+      this.emit('sort', this.collection);
+      return this;
+    }
+  }]);
+
+  return CategoriesView;
 }(View);

@@ -7,6 +7,8 @@
 
 socket.emit('getCategories', (err, res) => {
 
+  const app = {};
+
   if (err) {
 
     const category = {
@@ -20,6 +22,7 @@ socket.emit('getCategories', (err, res) => {
     };
 
     const categoryView = new CategoryView(category);
+    app.categoryView = categoryView;
     categoryView.render();
 
   } else {
@@ -27,11 +30,19 @@ socket.emit('getCategories', (err, res) => {
     const categories = new Collection(res, Category);
     const categoriesView = new CategoriesView(categories);
 
-    categoriesView.on('select', data => {
-      const categoryView = new CategoryView(data);
-      categoryView.render();
-    });
+    const updateCategoryView = category => {
+      if (category) {
+        const categoryView = new CategoryView(category);
+        categoryView.render();
+      } else if (app.categoryView) {
+        app.categoryView.remove();
+        app.categoryView = null;
+      }
+    };
 
+    categoriesView.on('add', updateCategoryView);
+    categoriesView.on('render', updateCategoryView);
+    categoriesView.on('select', updateCategoryView);
     categoriesView.render();
 
   }

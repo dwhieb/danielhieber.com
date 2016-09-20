@@ -32,8 +32,8 @@ const Model = class Model {
    * Delete this model from the database. This method should be overridden by the subclass.
    * @method
    */
-  delete() {
-    throw new Error('No delete method specified.');
+  destroy() {
+    throw new Error('No destroy method specified.');
   }
 
   /**

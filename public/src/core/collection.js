@@ -34,7 +34,9 @@ const Collection = class Collection extends Array {
     Emitter.extend(this);
 
     // make sure each item in the collection is a model
-    this.forEach(data => new this.Model(data));
+    this.forEach((data, i) => {
+      this[i] = new this.Model(data);
+    });
 
   }
 

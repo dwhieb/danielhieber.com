@@ -40,9 +40,9 @@ var Model = function () {
 
 
   _createClass(Model, [{
-    key: 'delete',
-    value: function _delete() {
-      throw new Error('No delete method specified.');
+    key: 'destroy',
+    value: function destroy() {
+      throw new Error('No destroy method specified.');
     }
 
     /**

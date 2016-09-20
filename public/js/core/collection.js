@@ -78,8 +78,8 @@ var Collection = function (_extendableBuiltin2) {
     Emitter.extend(_this);
 
     // make sure each item in the collection is a model
-    _this.forEach(function (data) {
-      return new _this.Model(data);
+    _this.forEach(function (data, i) {
+      _this[i] = new _this.Model(data);
     });
 
     return _possibleConstructorReturn(_this);

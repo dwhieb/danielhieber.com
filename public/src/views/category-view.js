@@ -5,6 +5,16 @@
 */
 
 /**
+ * Events emitted by CategoryView
+ * @event CategoryView#destroy
+ * @event CategoryView#error:{method}
+ * @event CategoryView#remove
+ * @event CategoryView#render
+ * @event CategoryView#save
+ * @event CategoryView#update
+ */
+
+/**
  * A class representing a Category View
  * @type {Object} CategoryView
  */
@@ -45,7 +55,9 @@ const CategoryView = class CategoryView extends View {
 
     // save the model to the database when the Save button is clicked
     this.nodes.saveButton.addEventListener('click', () => {
-      this.model.save().then(() => this.emit('save', this.model));
+      this.model.save()
+      .then(() => this.emit('save', this.model))
+      .catch(err => this.emit('error:save', err));
     });
 
     // delete the model from the database when the delete button is clicked
@@ -55,7 +67,15 @@ const CategoryView = class CategoryView extends View {
 
       if (accepted) {
         this.remove();
-        this.model.delete().then(() => this.emit('delete', this.model));
+        this.model.destroy()
+        .then(() => this.emit('destroy', this.model))
+        .catch(err => {
+          if (err && err.status == 404) {
+            this.emit('destroy', this.model);
+          } else {
+            this.emit('error:destroy', err);
+          }
+        });
       }
 
     });
