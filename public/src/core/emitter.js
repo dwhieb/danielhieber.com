@@ -6,7 +6,26 @@ const Emitter = class Emitter {
    * @prop {Object} listeners         An object containing all the listeners for each event type
    */
   constructor() {
-    this.listeners = {};
+
+    let listeners = {};
+
+    Object.defineProperty(this, 'listeners', {
+
+      get: () => listeners,
+
+      set: val => {
+
+        if (typeof val === 'object') {
+          listeners = val;
+          return listeners;
+        }
+
+        throw new Error(`The 'listeners' property must be an object.`);
+
+      },
+
+    });
+
   }
 
   /**

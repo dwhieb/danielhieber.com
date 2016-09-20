@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -14,7 +16,25 @@ var Emitter = function () {
   function Emitter() {
     _classCallCheck(this, Emitter);
 
-    this.listeners = {};
+    var listeners = {};
+
+    Object.defineProperty(this, 'listeners', {
+
+      get: function get() {
+        return listeners;
+      },
+
+      set: function set(val) {
+
+        if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
+          listeners = val;
+          return listeners;
+        }
+
+        throw new Error('The \'listeners\' property must be an object.');
+      }
+
+    });
   }
 
   /**
