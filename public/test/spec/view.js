@@ -31,7 +31,6 @@ describe('View', function () {
     const pojoModelView = new View(p, pojoModel);
     const pojoCollView = new View(p, pojoColl);
     expect(pojoModelView.model).not.toBe(pojoModel);
-    expect(pojoModelView.model.data).toBe(pojoModel);
     expect(pojoCollView.model).not.toBe(pojoColl);
     expect(pojoCollView.collection[0].id).toBe(pojoModel.id);
   });
@@ -41,6 +40,17 @@ describe('View', function () {
     const el = View.bind(p);
     expect(el instanceof HTMLParagraphElement).toBe(true);
     expect(Array.isArray(el.listeners)).toBe(true);
+  });
+
+  it('View.prototype.destroy()', function () {
+    const p = document.createElement('p');
+    p.textContent = 'Hello world!';
+    document.body.appendChild(p);
+    const view = new View(p, {});
+    view.el.addEventListener('click', () => {});
+    view.destroy();
+    expect(view.el.listeners.length).toBe(0);
+    expect(Array.from(document.body.children).includes(p)).toBe(false);
   });
 
   it('View.prototype.display()', function () {
@@ -55,17 +65,6 @@ describe('View', function () {
     const view = new View(p, {});
     view.hide();
     expect(p.style.display).toBe('none');
-  });
-
-  it('View.prototype.remove()', function () {
-    const p = document.createElement('p');
-    p.textContent = 'Hello world!';
-    document.body.appendChild(p);
-    const view = new View(p, {});
-    view.el.addEventListener('click', () => {});
-    view.remove();
-    expect(view.el.listeners.length).toBe(0);
-    expect(Array.from(document.body.children).includes(p)).toBe(false);
   });
 
   it('View.prototype.removeListeners()', function () {
