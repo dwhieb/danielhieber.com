@@ -1,5 +1,3 @@
-'use strict';
-
 /* global
   Category,
   CategoryView,
@@ -7,11 +5,11 @@
   Collection
 */
 
-socket.emit('getCategories', function (err, res) {
+socket.emit('getCategories', (err, res) => {
 
-  var app = {};
+  const app = {};
 
-  var resetCategoryView = function resetCategoryView() {
+  const resetCategoryView = () => {
     if (app.categoryView) {
       app.categoryView.remove();
     }
@@ -27,9 +25,9 @@ socket.emit('getCategories', function (err, res) {
       app.categoriesView.remove(category);
     } else {
 
-      category.destroy().then(app.categoriesView.render).catch(function (err) {
+      category.destroy().then(app.categoriesView.render).catch(err => {
         if (!(err && err.status == 404)) {
-          console.error('Category with ID ' + category.id + ' could not be deleted.');
+          console.error(`Category with ID ${ category.id } could not be deleted.`);
         }
         app.categoriesView.render();
       });
@@ -37,9 +35,9 @@ socket.emit('getCategories', function (err, res) {
   }
 
   function saveCategory(category) {
-    category.save().then(updateCategoryView).catch(function (err) {
+    category.save().then(updateCategoryView).catch(err => {
       console.log(err);
-      console.error('Unable to save Category with ID ' + category.id);
+      console.error(`Unable to save Category with ID ${ category.id }`);
       console.error(err.message, err.stack);
       resetCategoryView();
     });
@@ -51,7 +49,7 @@ socket.emit('getCategories', function (err, res) {
 
     if (category) {
 
-      var categoryView = new CategoryView(category);
+      const categoryView = new CategoryView(category);
 
       categoryView.on('delete', destroyCategory);
       categoryView.on('save', saveCategory);
@@ -64,17 +62,23 @@ socket.emit('getCategories', function (err, res) {
 
   if (err) {
 
-    var category = {
+    const category = {
       name: 'Error',
       id: 'error',
-      description: '\n        Unable to retrieve categories.\n        <br>\n        Try reloading the page.\n        <br>\n        ' + JSON.stringify(err, null, 2) + '\n      '
+      description: `
+        Unable to retrieve categories.
+        <br>
+        Try reloading the page.
+        <br>
+        ${ JSON.stringify(err, null, 2) }
+      `
     };
 
     updateCategoryView(category);
   } else {
 
-    var categories = new Collection(res, Category);
-    var categoriesView = new CategoriesView(categories);
+    const categories = new Collection(res, Category);
+    const categoriesView = new CategoriesView(categories);
 
     categoriesView.on('add', saveCategory);
     categoriesView.on('remove', destroyCategory);
