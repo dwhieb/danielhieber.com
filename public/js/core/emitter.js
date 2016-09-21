@@ -14,24 +14,8 @@ var Emitter = function () {
   function Emitter() {
     _classCallCheck(this, Emitter);
 
-    var listeners = {};
-
     Object.defineProperty(this, 'listeners', {
-
-      get: function get() {
-        return listeners;
-      },
-
-      set: function set(val) {
-
-        if (val instanceof Object) {
-          listeners = val;
-          return listeners;
-        }
-
-        throw new Error('The \'listeners\' property must be an object.');
-      }
-
+      value: {}
     });
   }
 
@@ -97,15 +81,21 @@ var Emitter = function () {
       };
 
       if (event && cb) {
+
         removeListener(event, cb);
       } else if (cb) {
+
         for (var evName in this.listeners) {
           removeListener(evName, cb);
         }
       } else if (event) {
+
         delete this.listeners[event];
       } else {
-        this.listeners = {};
+
+        for (var prop in this.listeners) {
+          delete this.listeners[prop];
+        }
       }
     }
 
@@ -158,23 +148,24 @@ var Emitter = function () {
 
   }], [{
     key: 'extend',
-    value: function extend(obj) {
+    value: function extend() {
+      var obj = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-      if (!obj) {
-        throw new Error('This method must be passed an object to extend.');
-      }
 
       var target = obj.prototype || obj;
       var source = this.prototype;
 
-      Object.assign(target, new Emitter());
+      var assign = function assign(tgt, src) {
+        return Object.getOwnPropertyNames(src).forEach(function (prop) {
+          if (prop !== 'constructor') {
+            var propertyDescriptor = Object.getOwnPropertyDescriptor(src, prop);
+            Object.defineProperty(tgt, prop, propertyDescriptor);
+          }
+        });
+      };
 
-      Object.getOwnPropertyNames(source).forEach(function (prop) {
-        if (prop !== 'constructor') {
-          var propertyDescriptor = Object.getOwnPropertyDescriptor(source, prop);
-          Object.defineProperty(target, prop, propertyDescriptor);
-        }
-      });
+      assign(target, source);
+      assign(target, new Emitter());
 
       return target;
     }

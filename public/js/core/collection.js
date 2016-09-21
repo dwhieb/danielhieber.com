@@ -85,7 +85,9 @@ var Collection = function (_extendableBuiltin2) {
 
     // make sure each item in the collection is a model
     _this.forEach(function (data, i) {
-      _this[i] = new _this.Model(data);
+      if (!(data instanceof _this.Model)) {
+        _this[i] = new _this.Model(data);
+      }
     });
 
     return _possibleConstructorReturn(_this);
@@ -117,6 +119,8 @@ var Collection = function (_extendableBuiltin2) {
   }, {
     key: 'remove',
     value: function remove(model) {
+
+      console.log(model);
 
       var i = this.findIndex(function (el) {
         return Object.is(model, el);

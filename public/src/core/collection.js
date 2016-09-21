@@ -41,7 +41,9 @@ const Collection = class Collection extends Array {
 
     // make sure each item in the collection is a model
     this.forEach((data, i) => {
-      this[i] = new this.Model(data);
+      if (!(data instanceof this.Model)) {
+        this[i] = new this.Model(data);
+      }
     });
 
   }
@@ -65,6 +67,8 @@ const Collection = class Collection extends Array {
    * @return {Array} deletedItems         Returns an array of the deleted items
    */
   remove(model) {
+
+    console.log(model);
 
     const i = this.findIndex(el => Object.is(model, el));
 
