@@ -3,6 +3,7 @@
 /**
  * Events emitted by CategoriesView
  * @event CategoriesView#add
+ * @event CategoriesView#new
  * @event CategoriesView#remove
  * @event CategoriesView#render
  * @event CategoriesView#select
@@ -29,21 +30,6 @@ const CategoriesView = class CategoriesView extends View {
     this.nodes = {
       list:        View.bind(document.getElementById('categoriesList')),
       addCategory: View.bind(document.getElementById('addCategoryButton')),
-    };
-
-    // Add a new blank category to the collection, and render the category view for it
-    const addCategory = () => {
-
-      const category = new Category({
-        name:        '{Category Name}',
-        id:          '{ID}',
-        description: '{Category Description}',
-      });
-
-      this.add(category);
-      this.sort();
-      this.render();
-
     };
 
     // Delete the given category from the collection, and rerender view
@@ -84,7 +70,7 @@ const CategoriesView = class CategoriesView extends View {
 
         // if the Add Category button is clicked, add a category
         if (ev.target === this.nodes.addCategory) {
-          addCategory();
+          this.emit('new');
 
         // otherwise lookup the category associated with the click event
         } else {

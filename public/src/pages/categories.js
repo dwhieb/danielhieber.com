@@ -43,9 +43,8 @@ socket.emit('getCategories', (err, res) => {
     category.save()
     .then(updateCategoryView)
     .catch(err => {
-      console.log(err);
       console.error(`Unable to save Category with ID ${category.id}`);
-      console.error(err.message, err.stack);
+      console.log(err);
       resetCategoryView();
     });
   }
@@ -91,6 +90,7 @@ socket.emit('getCategories', (err, res) => {
     const categoriesView = new CategoriesView(categories);
 
     categoriesView.on('add', saveCategory);
+    categoriesView.on('new', () => updateCategoryView(new Category()));
     categoriesView.on('remove', destroyCategory);
     categoriesView.on('select', updateCategoryView);
 

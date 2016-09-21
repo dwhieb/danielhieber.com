@@ -12,14 +12,14 @@
   </section>
 
   <form id=details>
-    <input id=name type=text name=name>
+    <input id=name type=text name=name placeholder="Category Name">
     <label for=id pattern="^[a-z]+$">
       <p>ID</p>
-      <input id=id type=text name=id>
+      <input id=id type=text name=id placeholder=categoryid>
     </label>
     <label for=description>
       <p>Description</p>
-      <textarea id=description name=description rows=8></textarea>
+      <textarea id=description name=description rows=8 placeholder="A description of the category, written in Markdown (including HTML)."></textarea>
     </label>
     <div>
       <button id=saveButton   type=button name=saveButton  >Save</button>

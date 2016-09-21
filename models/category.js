@@ -45,12 +45,18 @@ const handler = {
     }
 
     // 'ttl' must be an integer
-    if (!Number.isInteger(ttl)) throw new Error(`'ttl' attribute must be an integer.`);
+    if (ttl && !Number.isInteger(ttl)) throw new Error(`The 'ttl' attribute must be an integer.`);
 
     for (const attr in data) {
 
       // must have required attributes
-      if (attr !== 'type' && !data[attr]) throw new Error(`'${attr}' attribute required.`);
+      if (
+        attr !== 'type'
+        && attr !== 'ttl'
+        && !data[attr]
+      ) {
+        throw new Error(`'${attr}' attribute required.`);
+      }
 
       // string properties must be strings
       if (attr !== 'ttl' && typeof attr !== 'string') {
