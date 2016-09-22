@@ -1,4 +1,14 @@
-/* global Model, View */
+/* global Category, View */
+
+/**
+ * Events emitted by CategoriesView
+ * @event CategoriesView#add
+ * @event CategoriesView#new
+ * @event CategoriesView#remove
+ * @event CategoriesView#render
+ * @event CategoriesView#select
+ * @event CategoriesView#sort
+ */
 
 /**
  * A class representing the Categories View
@@ -22,31 +32,10 @@ const CategoriesView = class CategoriesView extends View {
       addCategory: View.bind(document.getElementById('addCategoryButton')),
     };
 
-    // Add a new blank category to the collection, and render the category view for it
-    const addCategory = () => {
-
-      const category = new Model({
-        name:        '{Category Name}',
-        id:          '{ID}',
-        description: '{Category Description}',
-      });
-
-      this.add(category);
-      this.sort();
-      this.render();
-
-    };
-
     // Delete the given category from the collection, and rerender view
     const deleteCategory = category => {
-
       const accepted = confirm('Are you sure you want to delete this category?');
-
-      if (accepted) {
-        this.remove(category);
-        this.render();
-      }
-
+      if (accepted) this.remove(category);
     };
 
     // Given a click event, lookup the associated category
@@ -65,7 +54,7 @@ const CategoriesView = class CategoriesView extends View {
         return false;
       });
 
-      return category;
+      return category || undefined;
 
     };
 
@@ -75,7 +64,7 @@ const CategoriesView = class CategoriesView extends View {
 
         // if the Add Category button is clicked, add a category
         if (ev.target === this.nodes.addCategory) {
-          addCategory();
+          this.emit('new');
 
         // otherwise lookup the category associated with the click event
         } else {
@@ -85,7 +74,7 @@ const CategoriesView = class CategoriesView extends View {
           // category was found
           if (category) {
 
-            if (ev.tagName === 'IMG') {
+            if (ev.target.tagName === 'IMG') {
               // if Delete button was clicked, delete the category
               deleteCategory(category);
             } else {
@@ -111,7 +100,9 @@ const CategoriesView = class CategoriesView extends View {
 
   add(category) {
 
-    if (!(category instanceof Model)) throw new Error('Category must be an instance of Model.');
+    if (!(category instanceof Category)) {
+      throw new Error('Category must be an instance of Category.');
+    }
 
     this.collection.add(category);
     this.emit('add', category);
@@ -120,17 +111,8 @@ const CategoriesView = class CategoriesView extends View {
   }
 
   remove(category) {
-
-    const i = this.collection.findIndex(item => Object.is(item, category) || item.id === category);
-
-    if (i) {
-      const category = this.collection.splice(i, 1);
-      category.delete().then(() => this.emit('remove', category));
-      return this.collection;
-    }
-
-    throw new Error('Could not find category.');
-
+    this.collection.remove(category);
+    this.emit('remove', category);
   }
 
   render() {
@@ -161,7 +143,7 @@ const CategoriesView = class CategoriesView extends View {
   }
 
   sort() {
-    this.collection.sort((a, b) => a.name > b.name);
+    this.collection.sort((a, b) => a.name < b.name);
     this.emit('sort', this.collection);
     return this;
   }

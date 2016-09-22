@@ -6,7 +6,9 @@ const Emitter = class Emitter {
    * @prop {Object} listeners         An object containing all the listeners for each event type
    */
   constructor() {
-    this.listeners = {};
+    Object.defineProperty(this, 'listeners', {
+      value: {},
+    });
   }
 
   /**
@@ -56,15 +58,25 @@ const Emitter = class Emitter {
     };
 
     if (event && cb) {
+
       removeListener(event, cb);
+
     } else if (cb) {
+
       for (const evName in this.listeners) {
         removeListener(evName, cb);
       }
+
     } else if (event) {
+
       delete this.listeners[event];
+
     } else {
-      this.listeners = {};
+
+      for (const prop in this.listeners) {
+        delete this.listeners[prop];
+      }
+
     }
 
   }
@@ -108,23 +120,20 @@ const Emitter = class Emitter {
    * @param {Object} obj        The object to extend the Event Emitter methods to
    * @return {Object} obj       Returns the original object, with the Event Emitter methods attached
    */
-  static extend(obj) {
-
-    if (!obj) {
-      throw new Error('This method must be passed an object to extend.');
-    }
+  static extend(obj = {}) {
 
     const target = obj.prototype || obj;
     const source = this.prototype;
 
-    Object.assign(target, new Emitter());
-
-    Object.getOwnPropertyNames(source).forEach(prop => {
+    const assign = (tgt, src) => Object.getOwnPropertyNames(src).forEach(prop => {
       if (prop !== 'constructor') {
-        const propertyDescriptor = Object.getOwnPropertyDescriptor(source, prop);
-        Object.defineProperty(target, prop, propertyDescriptor);
+        const propertyDescriptor = Object.getOwnPropertyDescriptor(src, prop);
+        Object.defineProperty(tgt, prop, propertyDescriptor);
       }
     });
+
+    assign(target, source);
+    assign(target, new Emitter());
 
     return target;
 

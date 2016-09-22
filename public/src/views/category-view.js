@@ -5,6 +5,15 @@
 */
 
 /**
+ * Events emitted by CategoryView
+ * @event CategoryView#delete
+ * @event CategoryView#destroy
+ * @event CategoryView#render
+ * @event CategoryView#save
+ * @event CategoryView#update
+ */
+
+/**
  * A class representing a Category View
  * @type {Object} CategoryView
  */
@@ -33,9 +42,6 @@ const CategoryView = class CategoryView extends View {
       deleteButton: View.bind(document.getElementById('deleteButton')),
     };
 
-    // tests for a valid ID string (a-z only)
-    const validId = str => /^[a-z]+$/.test(str);
-
     // EVENT LISTENERS
 
     // update the model when the view changes
@@ -46,9 +52,9 @@ const CategoryView = class CategoryView extends View {
       }
     });
 
-    // save the model to the database when the Save button is clicked
-    this.nodes.saveButton.addEventListener('click', () => {
-      this.model.save().then(() => this.emit('save', this.model));
+    this.el.addEventListener('submit', ev => {
+      ev.preventDefault();
+      this.emit('save', this.model);
     });
 
     // delete the model from the database when the delete button is clicked
@@ -57,8 +63,7 @@ const CategoryView = class CategoryView extends View {
       const accepted = confirm('Are you sure you want to delete this category?');
 
       if (accepted) {
-        this.remove();
-        this.model.delete().then(() => this.emit('delete', this.model));
+        this.emit('delete', this.model);
       }
 
     });
@@ -66,14 +71,14 @@ const CategoryView = class CategoryView extends View {
   }
 
   /**
-   * Remove all event listeners from elements in this view, and hide (not delete) the view
+   * Remove all event listeners from elements in this view, and hide (not actually destroy) the view
    * @method
    * @return {Object} CategoryView      Returns the category view
    */
-  remove() {
+  destroy() {
     this.removeListeners();
     this.hide();
-    this.emit('remove');
+    this.emit('destroy');
     return this;
   }
 

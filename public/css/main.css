@@ -84,8 +84,9 @@ em {
   box-shadow: inset 0 1px 3px rgba(49, 128, 225, 0.5);
 }
 .field:focus:invalid {
-  border-color: #e9322d;
-  color: #b94a48;
+  border-color: #E23B32;
+  box-shadow: inset 0 1px 3px rgba(226, 59, 50, 0.5);
+  color: #e23b32;
 }
 .field[disabled] {
   background-color: #eaeded;

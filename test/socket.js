@@ -40,12 +40,17 @@ describe('socket', function test() {
     db.deleteDocument(`${coll}/docs/${cat.id}`, err => {
       if (err && err.code != 404) {
         fail(err.body);
+        done();
       } else {
 
         this.socket.emit('addCategory', cat, (err, res) => {
-          if (err) fail(JSON.stringify(err, null, 2));
-          expect(res.id).toBe(cat.id);
-          done();
+          if (err) {
+            fail(JSON.stringify(err, null, 2));
+            done();
+          } else {
+            expect(res.id).toBe(cat.id);
+            done();
+          }
         });
 
       }
@@ -121,14 +126,28 @@ describe('socket', function test() {
       cat.name = 'Updated Category';
 
       this.socket.emit('updateCategory', cat, (err, res) => {
-        if (err) fail(JSON.stringify(err, null, 2));
-        expect(res.name).toBe(cat.name);
 
-        db.readDocument(`${coll}/docs/${cat.id}`, (err, res) => {
-          if (err) fail(err.body);
-          expect(res.name).toBe(cat.name);
+        if (err) {
+
+          fail(JSON.stringify(err, null, 2));
           done();
-        });
+
+        } else {
+
+          expect(res.name).toBe(cat.name);
+
+          db.readDocument(`${coll}/docs/${cat.id}`, (err, res) => {
+            if (err) {
+              fail(err.body);
+              done();
+            } else {
+              expect(res.name).toBe(cat.name);
+              done();
+            }
+          });
+
+        }
+
       });
 
     });
@@ -140,41 +159,57 @@ describe('socket', function test() {
     const cat1 = {
       id: 'extraproperty',
       name: 'Extra Property',
-      description: 'Test for the `updateCategory` event.',
-      ttl: 300,
+      description: 'Test for bad Category data.',
+      ttl: 1,
       extraProperty: true,
     };
 
     const cat2 = {
       id: 'wrongtype',
       name: 'Wrong Type',
-      description: 'Test for the `updateCategory` event.',
-      ttl: 300,
+      description: 'Test for bad Category data.',
+      ttl: 1,
       type: 'not-category',
     };
 
     const cat3 = {
       id: 'badID',
       name: 'Bad ID',
-      description: 'Test for the `updateCategory` event.',
-      ttl: 300,
+      description: 'Test for bad Category data.',
+      ttl: 1,
     };
 
-    this.socket.emit('addCategory', cat1, (err, res) => {
-      if (res) fail(JSON.stringify(res, null, 2));
-      expect(err.status).toBe(400);
+    this.socket.emit('updateCategory', cat1, (err, res) => {
+      if (err) {
 
-      this.socket.emit('addCategory', cat2, (err, res) => {
-        if (res) fail(JSON.stringify(res, null, 2));
-        expect(err.status).toBe(400);
+        fail(JSON.stringify(err, null, 2));
+        done();
 
-        this.socket.emit('addCategory', cat3, (err, res) => {
-          if (res) fail(JSON.stringify(res, null, 2));
-          expect(err.status).toBe(400);
-          done();
+      } else {
+
+        expect(res.extraProperty).toBeUndefined();
+
+        this.socket.emit('updateCategory', cat2, (err, res) => {
+          if (err) {
+
+            fail(JSON.stringify(err, null, 2));
+            done();
+
+          } else {
+
+            expect(res.type).toBe('category');
+
+            this.socket.emit('updateCategory', cat3, (err, res) => {
+              if (res) fail(JSON.stringify(res, null, 2));
+              expect(err.status).toBe(400);
+              done();
+            });
+
+          }
+
         });
 
-      });
+      }
 
     });
 

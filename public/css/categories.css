@@ -23,12 +23,10 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
 #overview li {
+  cursor: pointer;
   flex-direction: row;
   justify-content: space-between;
   margin: 0.25rem 0rem;
-}
-#overview li p {
-  cursor: pointer;
 }
 #overview li img {
   cursor: pointer;
@@ -62,8 +60,9 @@
 #details #name:focus:invalid,
 #details #id:focus:invalid,
 #details #description:focus:invalid {
-  border-color: #e9322d;
-  color: #b94a48;
+  border-color: #E23B32;
+  box-shadow: inset 0 1px 3px rgba(226, 59, 50, 0.5);
+  color: #e23b32;
 }
 #details #name[disabled],
 #details #id[disabled],

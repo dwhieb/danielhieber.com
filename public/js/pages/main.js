@@ -1,6 +1,4 @@
-'use strict';
-
 // Loads a Socket for use on every page
-var socket = io({
+const socket = io({
   transports: ['websocket', 'xhr-polling']
 });

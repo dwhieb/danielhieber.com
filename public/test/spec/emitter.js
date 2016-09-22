@@ -28,8 +28,8 @@ describe('Emitter', function () {
     expect(Emitter.extend).toBeDefined();
     const obj = { hello: 'world' };
     const emitter = Emitter.extend(obj);
-    const passNothing = () => Emitter.extend();
-    expect(passNothing).toThrow();
+    const blankEmitter = Emitter.extend();
+    expect(blankEmitter.emit).toBeDefined();
     expect(emitter.hello).toBe('world');
     expect(Object.is(emitter, obj)).toBe(true);
     expect(emitter.extend).toBeUndefined();
@@ -115,7 +115,11 @@ describe('Emitter', function () {
   });
 
   it('Emitter.prototype.listeners', function () {
-    expect(new Emitter().listeners instanceof Object).toBe(true);
+    const emitter = new Emitter();
+    expect(emitter.listeners instanceof Object).toBe(true);
+    expect(Object.getOwnPropertyDescriptor(emitter, 'listeners').enumerable).toBe(false);
+    emitter.listeners = null;
+    expect(emitter.listeners).toBeDefined();
   });
 
 });

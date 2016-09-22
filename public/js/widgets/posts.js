@@ -1,23 +1,23 @@
-'use strict';
-
 /* global ghost */
 
 /* eslint-disable
   max-statements
 */
 
-(function () {
+(() => {
 
   // The wrapper element where the recent posts will be displayed
-  var wrapper = document.querySelector('#posts ol');
+  const wrapper = document.querySelector('#posts ol');
 
   /**
    * Renders a generic message instead of recent posts
    * Used when the Ghost API fails or throws an error
    * @return {undefined} No return
    */
-  var renderErrorFallback = function renderErrorFallback() {
-    wrapper.innerHTML = '\n    <p><a class=error-fallback href=http://blog.danielhieber.com/>Check out my blog for recent posts!</a></p>\n    ';
+  const renderErrorFallback = () => {
+    wrapper.innerHTML = `
+    <p><a class=error-fallback href=http://blog.danielhieber.com/>Check out my blog for recent posts!</a></p>
+    `;
   };
 
   // Displays the 5 most recent posts from the Ghost API
@@ -26,7 +26,7 @@
    * @param  {Array} posts An array of posts to display
    * @return {undefined} No return
    */
-  var renderPosts = function renderPosts(posts) {
+  const renderPosts = posts => {
 
     // If there are no recent posts, it's probably an error - render the fallback
     if (posts.length === 0) {
@@ -36,29 +36,40 @@
       // Otherwise render each post
     } else {
 
-      posts.forEach(function (post) {
+      posts.forEach(post => {
 
         // template variables
-        var postLink = 'http://blog.danielhieber.com/' + post.slug;
-        var d = new Date(post.updated_at);
-        var dateString = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+        const postLink = `http://blog.danielhieber.com/${ post.slug }`;
+        const d = new Date(post.updated_at);
+        const dateString = `${ d.getFullYear() }-${ d.getMonth() + 1 }-${ d.getDate() }`;
 
-        var imgLink = '';
+        let imgLink = '';
 
         if (post.image) {
-          imgLink = post.image.includes('//') ? post.image : '//blog.danielhieber.com' + post.image;
+          imgLink = post.image.includes('//') ? post.image : `//blog.danielhieber.com${ post.image }`;
         }
 
         // get a preview of the post's text content
-        var p = document.createElement('p');
-        var previewLength = 240;
-        var img = imgLink ? '<img src=' + imgLink + '>' : '';
+        const p = document.createElement('p');
+        const previewLength = 240;
+        const img = imgLink ? `<img src=${ imgLink }>` : '';
 
         p.innerHTML = post.html;
-        var preview = p.textContent.substring(0, previewLength);
+        const preview = p.textContent.substring(0, previewLength);
 
         // the template for each item in the recent posts list
-        var html = '\n          <li>\n            <a href=' + postLink + '>\n              ' + img + '\n              <div>\n                <h2>' + post.title + '</h2>\n                <time datetime=' + post.updated_at + '>' + dateString + '</time>\n                <p>' + preview + ' ... <span>(read more)<span></p>\n              </div>\n            </a>\n          </li>\n        ';
+        const html = `
+          <li>
+            <a href=${ postLink }>
+              ${ img }
+              <div>
+                <h2>${ post.title }</h2>
+                <time datetime=${ post.updated_at }>${ dateString }</time>
+                <p>${ preview } ... <span>(read more)<span></p>
+              </div>
+            </a>
+          </li>
+        `;
 
         wrapper.insertAdjacentHTML('beforeend', html);
       });
@@ -74,20 +85,18 @@
     });
 
     // parameters to send to the Ghost API
-    var ghostOptions = {
+    const ghostOptions = {
       limit: 5,
       fields: 'title,slug,image,updated_at,html'
     };
 
     // construct the URL to fetch recent posts
-    var recentPostsUrl = ghost.url.api('posts', ghostOptions);
+    const recentPostsUrl = ghost.url.api('posts', ghostOptions);
 
     // call the Ghost API, convert and render the result
-    fetch(recentPostsUrl).then(function (res) {
+    fetch(recentPostsUrl).then(res => {
       if (res.ok) {
-        res.json().then(function (data) {
-          return renderPosts(data.posts);
-        });
+        res.json().then(data => renderPosts(data.posts));
       } else {
         renderErrorFallback();
       }

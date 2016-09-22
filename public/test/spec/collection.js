@@ -14,16 +14,20 @@ describe('Collection', function CollectionSpec() {
     const passArray = () => new Collection([]);
     const passModel = () => new Collection(Category);
     const passNothing = () => new Collection();
+    const passNumber = () => new Collection(5);
     const passObj = () => new Collection({});
 
     expect(passArray).not.toThrow();
     expect(passModel).not.toThrow();
     expect(passNothing).not.toThrow();
+    expect(passNumber).not.toThrow();
     expect(passObj).not.toThrow();
 
-    const coll = new Collection([]);
+    const coll = new Collection([{}, {}, {}]);
+    const allModels = coll.every(model => model instanceof Model);
     expect(Array.isArray(coll)).toBe(true);
     expect(coll instanceof Collection).toBe(true);
+    expect(allModels).toBe(true);
   });
 
   it('Collection.prototype.add()', function () {
@@ -35,7 +39,7 @@ describe('Collection', function CollectionSpec() {
   });
 
   it('Collection.prototype.remove()', function () {
-    const model = { hello: 'world' };
+    const model = new Model({ hello: 'world' });
     const coll = new Collection([model]);
     expect(coll.remove).toBeDefined();
     coll.remove(model);
