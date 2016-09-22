@@ -34,13 +34,8 @@ const CategoriesView = class CategoriesView extends View {
 
     // Delete the given category from the collection, and rerender view
     const deleteCategory = category => {
-
       const accepted = confirm('Are you sure you want to delete this category?');
-
-      if (accepted) {
-        this.remove(category);
-        this.render();
-      }
+      if (accepted) this.remove(category);
     };
 
     // Given a click event, lookup the associated category

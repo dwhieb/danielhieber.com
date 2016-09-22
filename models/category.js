@@ -22,54 +22,53 @@ const handler = {
 
     const categoryData = args[0];
 
-    const { id, name, description, ttl, type } = categoryData;
+    const whitelist = [
+      'id',
+      'name',
+      'description',
+      'ttl',
+      '_attachments',
+      '_etag',
+      '_rid',
+      '_self',
+      '_ts',
+    ];
 
-    const data = {
-      id,
-      name,
-      description,
-      ttl,
-      type,
-    };
+    const required = [
+      'id',
+      'name',
+      'description',
+    ];
 
-    // no extra properties
-    for (const attr in categoryData) {
-      if (!Object.keys(data).includes(attr)) {
-        throw new Error(`Unexpected attribute '${attr}' in category data. Cannot save category.`);
+    const data = { type: 'category' };
+
+    // copy only whitelisted properties
+    whitelist.forEach(attr => { data[attr] = categoryData[attr]; });
+
+    // check for required properties
+    required.forEach(attr => {
+      if (!data[attr]) {
+        throw new Error(`Category must have a value for the '${attr}' attribute.`);
       }
-    }
+    });
 
-    // 'type' must be 'category' (if present)
-    if (type && type !== 'category') {
-      throw new Error(`If a 'type' attribute is included, it must be set to 'category'.`);
-    }
-
-    // 'ttl' must be an integer
-    if (ttl && !Number.isInteger(ttl)) throw new Error(`The 'ttl' attribute must be an integer.`);
-
+    // string properties must be strings
     for (const attr in data) {
-
-      // must have required attributes
-      if (
-        attr !== 'type'
-        && attr !== 'ttl'
-        && !data[attr]
-      ) {
-        throw new Error(`'${attr}' attribute required.`);
+      if (typeof data[attr] !== 'string' && attr !== 'ttl' && attr !== '_ts') {
+        throw new Error(`The '${attr}' attribute must be a string.`);
       }
-
-      // string properties must be strings
-      if (attr !== 'ttl' && typeof attr !== 'string') {
-        throw new Error(`'${attr}' must be a string.`);
-      }
-
     }
 
     // tests for a valid ID string (a-z only)
-    const validId = str => /^[a-z]+$/.test(str);
+    const validId = str => /^[a-z]{1,255}$/.test(str);
 
     // must have a valid ID string
-    if (!validId(id)) throw new Error('Invalid format for `id` attribute.');
+    if (!validId(data.id)) throw new Error('Invalid format for `id` attribute.');
+
+    // 'ttl' must be an integer
+    if (data.ttl && !Number.isInteger(data.ttl)) {
+      throw new Error(`The 'ttl' attribute must be an integer.`);
+    }
 
     return new Target(data);
 

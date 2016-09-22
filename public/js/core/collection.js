@@ -92,8 +92,6 @@ const Collection = class Collection extends _extendableBuiltin(Array) {
    */
   remove(model) {
 
-    console.log(model);
-
     const i = this.findIndex(el => Object.is(model, el));
 
     if (i >= 0) {

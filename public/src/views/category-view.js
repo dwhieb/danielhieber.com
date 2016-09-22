@@ -52,8 +52,10 @@ const CategoryView = class CategoryView extends View {
       }
     });
 
-    // save the model to the database when the Save button is clicked
-    this.nodes.saveButton.addEventListener('click', () => this.emit('save', this.model));
+    this.el.addEventListener('submit', ev => {
+      ev.preventDefault();
+      this.emit('save', this.model);
+    });
 
     // delete the model from the database when the delete button is clicked
     this.nodes.deleteButton.addEventListener('click', () => {

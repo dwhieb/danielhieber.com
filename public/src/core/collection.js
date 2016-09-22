@@ -68,8 +68,6 @@ const Collection = class Collection extends Array {
    */
   remove(model) {
 
-    console.log(model);
-
     const i = this.findIndex(el => Object.is(model, el));
 
     if (i >= 0) {

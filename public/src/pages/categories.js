@@ -5,13 +5,20 @@
   Collection
 */
 
+/* eslint-disable
+  func-style
+*/
+
 socket.emit('getCategories', (err, res) => {
 
-  const app = {};
+  const app = {
+    categoryView: null,
+    categoriesView: null,
+  };
 
   const resetCategoryView = () => {
     if (app.categoryView) {
-      app.categoryView.remove();
+      app.categoryView.destroy();
     }
     app.categoryView = null;
   };
@@ -27,12 +34,12 @@ socket.emit('getCategories', (err, res) => {
     } else {
 
       category.destroy()
-      .then(app.categoriesView.render)
+      // must call .render() inside function to preserve categoriesView context
+      .then(() => app.categoriesView.render())
       .catch(err => {
-        if (!(err && err.status == 404)) {
-          console.error(`Category with ID ${category.id} could not be deleted.`);
-        }
         app.categoriesView.render();
+        console.error(`Category with ID ${category.id} could not be deleted.`);
+        console.error(err);
       });
 
     }
@@ -41,7 +48,7 @@ socket.emit('getCategories', (err, res) => {
 
   function saveCategory(category) {
     category.save()
-    .then(updateCategoryView)
+    .then(() => updateCategoryView())
     .catch(err => {
       console.error(`Unable to save Category with ID ${category.id}`);
       console.log(err);
@@ -59,7 +66,6 @@ socket.emit('getCategories', (err, res) => {
 
       categoryView.on('delete', destroyCategory);
       categoryView.on('save', saveCategory);
-      categoryView.on('update', saveCategory);
 
       app.categoryView = categoryView;
       app.categoryView.render();

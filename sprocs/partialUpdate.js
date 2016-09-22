@@ -41,17 +41,42 @@ function update(newDoc) { // eslint-disable-line func-style, no-unused-vars
   const response = __.response;
   const docLink = __.getAltLink() + '/docs/' + newDoc.id;
 
-  const accepted = __.readDocument(docLink, function readDocument(err, doc) {
-    if (err) throw err;
+  const upsertDocument = function upsertDocument(doc, cb) {
 
-    Object.assign(doc, newDoc);
-
-    const accepted = __.upsertDocument(__.getSelfLink(), doc, function upsertDocument(err, res) {
-      if (err) throw err;
-      response.setBody(res);
+    const accepted = __.upsertDocument(__.getSelfLink(), doc, function upsertHandler(err, res) {
+      if (err) throw new Error(err.message);
+      cb(res);
     });
 
     if (!accepted) throw new Error('Timeout upserting document.');
+
+  };
+
+  const accepted = __.readDocument(docLink, function readDocument(err, doc) {
+
+    if (err) {
+
+      const errors = JSON.parse(err.message).Errors;
+
+      const includes404 = errors.indexOf('Resource Not Found') >= 0;
+
+      if (includes404) {
+        upsertDocument(newDoc, function cb(res) {
+          response.setBody(res);
+        });
+      } else {
+        throw new Error(err.message);
+      }
+
+    } else {
+
+      Object.assign(doc, newDoc);
+
+      upsertDocument(doc, function cb(res) {
+        response.setBody(res);
+      });
+
+    }
 
   });
 
