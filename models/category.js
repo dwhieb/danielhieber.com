@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 const Document = require('./document').Document;
 
 /**
@@ -43,7 +45,11 @@ const handler = {
     const data = { type: 'category' };
 
     // copy only whitelisted properties
-    whitelist.forEach(attr => { data[attr] = categoryData[attr]; });
+    whitelist.forEach(attr => {
+      if (attr in categoryData) {
+        data[attr] = categoryData[attr];
+      }
+    });
 
     // check for required properties
     required.forEach(attr => {
@@ -68,6 +74,11 @@ const handler = {
     // 'ttl' must be an integer
     if (data.ttl && !Number.isInteger(data.ttl)) {
       throw new Error(`The 'ttl' attribute must be an integer.`);
+    }
+
+    // _ts must be an integer
+    if (data._ts && !Number.isInteger(data._ts)) {
+      throw new Error(`The '_ts' attribute must be an integer.`);
     }
 
     return new Target(data);
