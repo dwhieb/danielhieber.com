@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 
-const Document = require('./document').Document;
+const Document = require('./document');
 
 /**
  * Class representing a research Category
@@ -58,28 +58,11 @@ const handler = {
       }
     });
 
-    // string properties must be strings
-    for (const attr in data) {
-      if (typeof data[attr] !== 'string' && attr !== 'ttl' && attr !== '_ts') {
-        throw new Error(`The '${attr}' attribute must be a string.`);
-      }
-    }
-
     // tests for a valid ID string (a-z only)
     const validId = str => /^[a-z]{1,255}$/.test(str);
 
     // must have a valid ID string
     if (!validId(data.id)) throw new Error('Invalid format for `id` attribute.');
-
-    // 'ttl' must be an integer
-    if (data.ttl && !Number.isInteger(data.ttl)) {
-      throw new Error(`The 'ttl' attribute must be an integer.`);
-    }
-
-    // _ts must be an integer
-    if (data._ts && !Number.isInteger(data._ts)) {
-      throw new Error(`The '_ts' attribute must be an integer.`);
-    }
 
     return new Target(data);
 

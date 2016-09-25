@@ -2,5 +2,5 @@
 
 module.exports = {
   Category: require('./category'),
-  Document: require('./document').Document,
+  Document: require('./document'),
 };
