@@ -1,7 +1,26 @@
 /* eslint-disable no-underscore-dangle */
 
+/**
+ * A class representing a DocumentDB document
+ * @class Document
+ */
 const Document = class Document {
+  /**
+   * Create a new Document
+   * @param {Object} data           The document data
+   * @param {String} [id]           The document ID
+   * @param {String} type           The document type
+   * @param {String} [_attachments] The attachments URL
+   * @param {String} [_etag]        The document ETag
+   * @param {String} [_rid]         The unique resource identifier of the document
+   * @param {String} [_self]        The self-link for the document
+   * @param {Integer} [_ts]         The timestampe for the document
+   * @param {Integer} [ttl]         The time-to-live for the document
+   */
   constructor(data = {}) {
+
+    // document data must be an object
+    if (typeof data !== 'object') throw new Error(`The "data" argument must be an Object.`);
 
     // string properties must be strings
     for (const attr in data) {
@@ -26,20 +45,9 @@ const Document = class Document {
     // copy over properties
     Object.assign(this, data);
 
-    const attrs = [
-      'id',
-      'type',
-      '_attachments',
-      '_etag',
-      '_rid',
-      '_self',
-      '_ts',
-      // 'ttl',
-    ];
-
     // make system properties read-only
-    attrs.forEach(attr => {
-      if (data[attr]) {
+    Document.whitelist.forEach(attr => {
+      if (data[attr] && attr !== 'ttl') {
         Reflect.defineProperty(this, attr, {
           enumerable: true,
           value: data[attr],
@@ -48,9 +56,26 @@ const Document = class Document {
     });
 
     // make the "ttl" attribute writable but not configurable
-    Reflect.defineProperty(this, 'ttl', {});
+    Reflect.defineProperty(this, 'ttl', {
+      enumerable: true,
+      writable: true,
+    });
 
   }
+
+  static get whitelist() {
+    return [
+      'id',
+      'type',
+      '_attachments',
+      '_etag',
+      '_rid',
+      '_self',
+      '_ts',
+      'ttl',
+    ];
+  }
+
 };
 
 module.exports = Document;
