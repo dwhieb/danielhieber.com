@@ -118,6 +118,8 @@ const Document = class Document {
             }
           };
 
+          if (data.categories) data.categories.forEach(this.addCategory);
+
           break;
 
         }
@@ -158,6 +160,8 @@ const Document = class Document {
 
           });
 
+          if (data.description) this.description = data.description;
+
           break;
 
         }
@@ -191,17 +195,38 @@ const Document = class Document {
 
           this.removeLink = linkName => Reflect.deleteProperty(links, linkName);
 
+          if (data.links && typeof data.links === 'object') {
+            for (const linkName in data.links) {
+              this.addLink(linkName, data.links[linkName]);
+            }
+          }
+
           break;
 
         }
 
-        case 'title':
+        case 'title': {
+
+          let title = '';
+
           Object.defineProperty(this, 'title', {
             configurable: false,
             enumerable: true,
-            writable: true,
+            get() { return title; },
+            set(val) {
+              if (typeof val === 'string') {
+                title = val;
+                return title;
+              }
+              throw new Error('The "title" attribute must be a string.');
+            },
           });
+
+          if (data.title) this.title = data.title;
+
           break;
+
+        }
 
         default:
           return;
