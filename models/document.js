@@ -41,15 +41,24 @@ const Document = class Document {
     // all documents must have a "type" attribute
     if (!data.type) throw new Error(`The "type" attribute is required.`);
 
-    // 'ttl' must be an integer
-    if (data.ttl && !Number.isInteger(data.ttl)) {
-      throw new Error(`The "ttl" attribute must be an integer.`);
-    }
-
     // _ts must be an integer
     if (data._ts && !Number.isInteger(data._ts)) {
       throw new Error(`The "_ts" attribute must be an integer.`);
     }
+
+    // variable for storing the TTL attribute
+    let ttl = data.ttl;
+
+    // define getter and setter for "ttl" attribute
+    Object.defineProperty(this, 'ttl', {
+      configurable: false,
+      enumerable: true,
+      get: () => ttl,
+      set: val => {
+        if (!Number.isInteger(val)) throw new Error(`"ttl" attribute must be an integer.`);
+        ttl = val;
+      },
+    });
 
     // copy over properties
     Object.assign(this, data);
@@ -66,15 +75,7 @@ const Document = class Document {
       }
     });
 
-    // make the "ttl" attribute writable but not configurable
-    Object.defineProperty(this, 'ttl', {
-      value: data.ttl || -1,
-      configurable: false,
-      enumerable: true,
-      writable: true,
-    });
-
-    // define properties on the subclass that have been specified in the "attrs" argument
+    // define properties on the subclass that have been specified in the "properties" argument
     props.forEach(property => {
 
       const prop = Array.isArray(property) ? property[0] : property;
@@ -94,6 +95,21 @@ const Document = class Document {
             writable: true,
           });
           break;
+
+        case 'whitelist': {
+
+          const whitelist = args[0];
+
+          Object.defineProperty(this.constructor, 'whitelist', {
+            value: Document.whitelist.concat(whitelist),
+            configurable: false,
+            enumerable: false,
+            writable: false,
+          });
+
+          break;
+
+        }
 
         default:
           return;

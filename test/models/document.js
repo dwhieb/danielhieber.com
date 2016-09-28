@@ -40,7 +40,7 @@ describe('Document', function DocumentTest() {
     expect(doc.testProperty).toBe(data.testProperty);
     expect(configureID).toThrow();
     expect(configureTTL).toThrow();
-    expect(doc.ttl).toBe(-1);
+    expect(doc.ttl).toBeUndefined();
 
     doc.id = 'newid';
     doc.ttl = 1;

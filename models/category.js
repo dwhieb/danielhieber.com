@@ -36,8 +36,16 @@ const Category = class Category extends Document {
       }
     });
 
+    const whitelist = [
+      'abbr',
+      'description',
+      'html',
+      'markdown',
+      'title',
+    ];
+
     // copy only whitelisted properties
-    Category.whitelist.forEach(attr => {
+    whitelist.forEach(attr => {
       if (attr in data && attr !== 'description') {
         category[attr] = data[attr];
       }
@@ -60,7 +68,7 @@ const Category = class Category extends Document {
     category.type = 'category';
 
     // construct a new Document
-    super(category, ['title']);
+    super(category, ['title', ['whitelist', whitelist]]);
 
     // set initial attribute values and adjust property descriptors
     Object.defineProperties(this, {
@@ -115,15 +123,15 @@ const Category = class Category extends Document {
    * @method whitelist
    * @return {Array}  Returns the array of allowable properties.
    */
-  static get whitelist() {
-    return Document.whitelist.concat([
-      'abbr',
-      'description',
-      'html',
-      'markdown',
-      'title',
-    ]);
-  }
+  // static get whitelist() {
+  //   return Document.whitelist.concat([
+  //     'abbr',
+  //     'description',
+  //     'html',
+  //     'markdown',
+  //     'title',
+  //   ]);
+  // }
 
 };
 

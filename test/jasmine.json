@@ -3,7 +3,7 @@
   "spec_files": [
     "*/*.jsTEMP",
     "*.jsTEMP",
-    "models/*.js"
+    "models/category.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": true,
