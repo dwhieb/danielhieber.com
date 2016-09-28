@@ -31,7 +31,9 @@ const Category = class Category extends Document {
 
     // check for required properties
     required.forEach(attr => {
-      if (!data[attr]) throw new Error(`Category must have a value for the "${attr}" attribute.`);
+      if (typeof data[attr] !== 'string') {
+        throw new Error(`The "${attr}" attribute must be present, and must be set to a string.`);
+      }
     });
 
     // copy only whitelisted properties
@@ -64,22 +66,27 @@ const Category = class Category extends Document {
     Object.defineProperties(this, {
 
       abbr: {
+        configurable: false,
         enumerable: true,
         writable: true,
       },
 
       html: {
-        value: this.html || '',
+        value: this.html || md.toHTML(data.description),
+        configurable: false,
         enumerable: true,
         writable: true,
       },
 
       markdown: {
-        value: this.markdown || md.toHTML(data.description),
+        value: this.markdown || data.description,
+        configurable: false,
         enumerable: true,
+        writable: true,
       },
 
       name: {
+        configurable: false,
         enumerable: true,
         writable: true,
       },

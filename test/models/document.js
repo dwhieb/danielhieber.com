@@ -35,6 +35,22 @@ describe('Document', function DocumentTest() {
       Object.defineProperty(doc, 'ttl', { configurable: true });
     };
 
+    expect(doc instanceof Document).toBe(true);
+    expect(doc.type).toBe(data.type);
+    expect(doc.testProperty).toBe(data.testProperty);
+    expect(configureID).toThrow();
+    expect(configureTTL).toThrow();
+    expect(doc.ttl).toBe(-1);
+
+    doc.id = 'newid';
+    doc.ttl = 1;
+    expect(doc.ttl).toBe(1);
+    expect(doc.id).toBe(data.id);
+
+  });
+
+  it('Document.whitelist', function whitelist() {
+
     const whitelist = [
       'id',
       'type',
@@ -45,16 +61,6 @@ describe('Document', function DocumentTest() {
       '_ts',
       'ttl',
     ];
-
-    expect(doc.testProperty).toBe(data.testProperty);
-    expect(configureID).toThrow();
-    expect(configureTTL).toThrow();
-    expect(doc.ttl).toBe(-1);
-
-    doc.id = 'newid';
-    doc.ttl = 1;
-    expect(doc.ttl).toBe(1);
-    expect(doc.id).toBe(data.id);
 
     whitelist.forEach(attr => {
       expect(Document.whitelist.includes(attr)).toBe(true);
