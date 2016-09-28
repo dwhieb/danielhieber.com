@@ -48,7 +48,8 @@
     "markdown": "^0.5.0",
     "passport": "^0.3.2",
     "passport-windowslive": "^1.0.2",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

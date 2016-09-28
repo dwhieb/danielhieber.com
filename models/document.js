@@ -1,5 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 
+const md = require('markdown').markdown;
+const validUrl = require('valid-url');
+
 /**
  * A class representing a DocumentDB document
  * @class Document
@@ -34,7 +37,7 @@ const Document = class Document {
         && attr !== '_ts'
         && typeof data[attr] !== 'string'
       ) {
-        throw new Error(`The '${attr}' attribute must be a string.`);
+        throw new Error(`The "${attr}" attribute must be a string.`);
       }
     });
 
@@ -46,7 +49,7 @@ const Document = class Document {
       throw new Error(`The "_ts" attribute must be an integer.`);
     }
 
-    // variable for storing the TTL attribute
+    // variable for storing TTL attribute
     let ttl = data.ttl;
 
     // define getter and setter for "ttl" attribute
@@ -81,12 +84,116 @@ const Document = class Document {
       const prop = Array.isArray(property) ? property[0] : property;
       const args = Array.isArray(property) ? property.slice(1) : [];
 
-      // property name must be a string or symbol
+      // property name must be a string
       if (typeof prop !== 'string') {
         throw new Error(`Property names in the "properties" argument must be strings.`);
       }
 
       switch (prop) {
+
+        case 'categories': {
+
+          const categories = [];
+
+          Object.defineProperty(this, 'categories', {
+            configurable: false,
+            enumerable: true,
+            get() { return Array.from(categories); },
+          });
+
+          this.addCategory = category => {
+            if (typeof category === 'string') {
+              categories.push(category);
+            }
+            throw new Error('The name of the category must be a string.');
+          };
+
+          this.hasCategory = category => categories.includes(category);
+
+          this.removeCategory = category => {
+            const index = categories.findIndex(item => item === category);
+            if (index >= 0) {
+              categories.splice(index, 1);
+              return Array.from(categories);
+            }
+          };
+
+          break;
+
+        }
+
+        case 'description': {
+
+          let html = '';
+          let markdown = '';
+
+          Object.defineProperties(this, {
+
+            description: {
+              configurable: false,
+              enumerable: false,
+              get() { return markdown; },
+              set(val) {
+                if (typeof val !== 'string') {
+                  throw new Error(`The "description" attribute must be a string.`);
+                }
+                markdown = val;
+                html = md.toHTML(markdown);
+              },
+            },
+
+            html: {
+              configurable: false,
+              enumerable: true,
+              get() { return html; },
+            },
+
+            markdown: {
+              configurable: false,
+              enumerable: true,
+              get() {
+                return markdown;
+              },
+            },
+
+          });
+
+          break;
+
+        }
+
+        case 'links': {
+
+          const links = {};
+
+          Object.defineProperty(this, 'links', {
+            configurable: false,
+            enumerable: true,
+            get() { return Object.assign({}, links); },
+          });
+
+          this.addLink = (linkName, url) => {
+
+            if (typeof linkName !== 'string') {
+              throw new Error(`The "linkName" argument must be a string.`);
+            }
+
+            if (validUrl.isUri(url)) {
+              links[linkName] = url;
+              return Object.assign({}, links);
+            }
+
+            throw new Error(`The provided URL "${url}" is not a valid URL string.`);
+
+          };
+
+          this.getLink = linkName => links[linkName];
+
+          this.removeLink = linkName => Reflect.deleteProperty(links, linkName);
+
+          break;
+
+        }
 
         case 'title':
           Object.defineProperty(this, 'title', {

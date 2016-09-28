@@ -5,20 +5,26 @@ const Award = class Award extends Document {
 
     const award = {};
 
+    Award.whitelist.forEach(attr => {
+      if (attr in data) award[attr] = data[attr];
+    });
+
+    award.type = 'award';
+
     super(award);
 
   }
 
   static get whitelist() {
     return Document.whitelist.concat([
-      'title',
-      'description',
       'categories',
+      'description',
       'links',
+      'title',
       'year',
     ]);
   }
 
-}
+};
 
 module.exports = Award;
