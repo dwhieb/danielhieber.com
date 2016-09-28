@@ -12,7 +12,7 @@ const Category = class Category extends Document {
   /**
    * Create a new category
    * @param {Object} data               The new category data.
-   * @param {String} data.name          A human-readable name for this category. HTML special characters should be escaped.
+   * @param {String} data.title          A human-readable title for this category. HTML special characters should be escaped.
    * @param {String} data.abbr          A human-readable abbreviation for this category, as a string (no spaces, letters only)
    * @param {String} data.description   A description of this category. May contain Markdown. Accessing this property returns the markdown data, and setting it sets the "markdown" attribute.
    * @param {String} data.html          An HTML representation of the description.
@@ -22,7 +22,7 @@ const Category = class Category extends Document {
 
     // required attributes
     const required = [
-      'name',
+      'title',
       'description',
     ];
 
@@ -45,7 +45,7 @@ const Category = class Category extends Document {
 
     // set abbreviation if none exists
     category.abbr = category.abbr
-      || category.name
+      || category.title
          .toLowerCase()
          .trim()
          .replace(/\s/g, '');
@@ -85,7 +85,7 @@ const Category = class Category extends Document {
         writable: true,
       },
 
-      name: {
+      title: {
         configurable: false,
         enumerable: true,
         writable: true,
@@ -123,11 +123,11 @@ const Category = class Category extends Document {
    */
   static get whitelist() {
     return Document.whitelist.concat([
-      'name',
       'abbr',
+      'description',
       'html',
       'markdown',
-      'description',
+      'title',
     ]);
   }
 

@@ -1,11 +1,11 @@
 const Document = require('./document');
 
-class Award extends Document {
+const Award = class Award extends Document {
   constructor(data = {}) {
 
-    const doc = {};
+    const award = {};
 
-    super(doc);
+    super(award);
 
   }
 
@@ -18,6 +18,7 @@ class Award extends Document {
       'year',
     ]);
   }
+
 }
 
 module.exports = Award;

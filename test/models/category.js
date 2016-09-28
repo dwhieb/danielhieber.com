@@ -9,7 +9,7 @@ describe('Category', function CategoryTest() {
   it('new Category()', function newCategory() {
 
     const data = {
-      name: 'Test Category',
+      title: 'Test Category',
       description: 'This is a test category.',
       extraProperty: 'extra property',
       type: 'test',
@@ -17,16 +17,16 @@ describe('Category', function CategoryTest() {
 
     const badAbbr = () => new Category(Object.assign(data, { abbr: 'badABBR' }));
     const noData = () => new Category();
-    const noDescription = () => new Category({ name: 'No Description' });
-    const noName = () => new Category({ description: 'description' });
-    const nonString = () => new Category({ name: true, description: 'description' });
+    const noDescription = () => new Category({ title: 'No Description' });
+    const noTitle = () => new Category({ description: 'description' });
+    const nonString = () => new Category({ title: true, description: 'description' });
 
     const category = new Category(data);
 
     expect(badAbbr).toThrow();
     expect(noData).toThrow();
     expect(noDescription).toThrow();
-    expect(noName).toThrow();
+    expect(noTitle).toThrow();
     expect(nonString).toThrow();
     expect(category instanceof Document).toBe(true);
     expect(category instanceof Category).toBe(true);
@@ -38,7 +38,7 @@ describe('Category', function CategoryTest() {
   it('Category.prototype.abbr', function abbreviationTest() {
 
     const data = {
-      name: 'Abbreviation Test',
+      title: 'Abbreviation Test',
       description: 'This is a test for the abbreviation property.',
       type: 'test',
     };
@@ -49,7 +49,7 @@ describe('Category', function CategoryTest() {
     expect(Object.getOwnPropertyDescriptor(category, 'abbr').configurable).toBe(false);
 
     const moreData = {
-      name: 'Another Abbreviation Test',
+      title: 'Another Abbreviation Test',
       description: 'This is a test for the abbreviation property (again).',
       type: 'test',
       abbr: 'anotherabbrtest',
@@ -64,7 +64,7 @@ describe('Category', function CategoryTest() {
   it('Category.prototype.description', function descriptionTest() {
 
     const data = {
-      name: 'Description Test',
+      title: 'Description Test',
       description: 'This is a **test** for the "description" [attribute](#link).',
     };
 
@@ -83,7 +83,7 @@ describe('Category', function CategoryTest() {
   it('Category.prototype.html', function htmlTest() {
 
     const data = {
-      name: 'HTML Test',
+      title: 'HTML Test',
       description: 'This is a test for the "html" attribute.',
       type: 'test',
     };
@@ -103,7 +103,7 @@ describe('Category', function CategoryTest() {
   it('Category.prototype.markdown', function markdownTest() {
 
     const data = {
-      name: 'Markdown Test',
+      title: 'Markdown Test',
       description: 'This is a **test** for the "markdown" [attribute](#link).',
       type: 'test',
     };
@@ -120,17 +120,17 @@ describe('Category', function CategoryTest() {
 
   });
 
-  it('Category.prototype.name', function nameTest() {
+  it('Category.prototype.title', function titleTest() {
 
     const data = {
-      name: 'Name Test',
-      description: 'This is a test for the "name" attribute.',
+      title: 'Title Test',
+      description: 'This is a test for the "title" attribute.',
       type: 'test',
     };
 
     const category = new Category(data);
 
-    expect(Object.getOwnPropertyDescriptor(category, 'name').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(category, 'title').configurable).toBe(false);
   });
 
   it('Category.whitelist', function whitelistTest() {
@@ -144,11 +144,11 @@ describe('Category', function CategoryTest() {
       '_self',
       '_ts',
       'ttl',
-      'name',
       'abbr',
+      'description',
       'html',
       'markdown',
-      'description',
+      'title',
     ];
 
     whitelist.forEach(attr => {
