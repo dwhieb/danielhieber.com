@@ -7,15 +7,15 @@
 const Document = class Document {
   /**
    * Create a new Document
-   * @param {Object} data           The document data
-   * @param {String} [id]           The document ID
-   * @param {String} type           The document type
-   * @param {String} [_attachments] The attachments URL
-   * @param {String} [_etag]        The document ETag
-   * @param {String} [_rid]         The unique resource identifier of the document
-   * @param {String} [_self]        The self-link for the document
-   * @param {Integer} [_ts]         The timestampe for the document
-   * @param {Integer} [ttl]         The time-to-live for the document
+   * @param {Object} data                The document data
+   * @param {String} [data.id]           The document ID
+   * @param {String} data.type           The document type
+   * @param {String} [data._attachments] The attachments URL
+   * @param {String} [data._etag]        The document ETag
+   * @param {String} [data._rid]         The unique resource identifier of the document
+   * @param {String} [data._self]        The self-link for the document
+   * @param {Integer} [data._ts]         The timestampe for the document
+   * @param {Integer} [data.ttl]         The time-to-live for the document
    */
   constructor(data = {}) {
 
@@ -68,6 +68,11 @@ const Document = class Document {
 
   }
 
+  /**
+   * Document.whitelist
+   * @method whitelist
+   * @return {Array}            Returns an array of allowable properties
+   */
   static get whitelist() {
     return [
       'id',

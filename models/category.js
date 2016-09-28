@@ -14,24 +14,24 @@ const Category = class Category extends Document {
    * @param {Object} data               The new category data.
    * @param {String} data.name          A human-readable name for this category. HTML special characters should be escaped.
    * @param {String} data.abbr          A human-readable abbreviation for this category, as a string (no spaces, letters only)
-   * @param {String} data.description   A description of this category. May contain Markdown.
+   * @param {String} data.description   A description of this category. May contain Markdown. Accessing this property returns the markdown data, and setting it sets the "markdown" attribute.
    * @param {String} data.html          An HTML representation of the description.
-   * @param {String} data.markdown      The original markdown content for the description.
+   * @param {String} data.markdown      The original markdown content for the description. Setting this property also sets the value for the "description" attribute.
   */
   constructor(data = {}) {
 
+    // required attributes
     const required = [
       'name',
       'description',
     ];
 
+    // template for Category data
     const doc = { type: 'category' };
 
     // check for required properties
     required.forEach(attr => {
-      if (!data[attr]) {
-        throw new Error(`Category must have a value for the "${attr}" attribute.`);
-      }
+      if (!data[attr]) throw new Error(`Category must have a value for the "${attr}" attribute.`);
     });
 
     // copy only whitelisted properties
@@ -57,7 +57,7 @@ const Category = class Category extends Document {
     // construct a new document
     super(doc);
 
-    // adjust property descriptors and set initial values
+    // set initial attribute values and adjust property descriptors
     Object.defineProperties(this, {
 
       abbr: {
@@ -85,18 +85,32 @@ const Category = class Category extends Document {
 
   }
 
+  /**
+   * Getter for the "description" attribute. Returns the value from the "markdown" property.
+   * @method description
+   * @return {String}    Returns the markdown data.
+   */
   get description() {
     return this.markdown || '';
   }
 
+  /**
+   * Setter for the "description" attribute.
+   * @method description
+   * @param  {String} val     The value to set the "description" attribute to.
+   * @return {String} description     Returns the "description" string just passed.
+   */
   set description(val) {
-    if (typeof val !== 'string') {
-      throw new Error(`The "description" attribute must be a string.`);
-    }
-    this.markdown = val;
+    this.markdown = String(val);
     this.html = md.toHTML(this.markdown);
+    return this.markdown;
   }
 
+  /**
+   * Getter for whitelisted properties.
+   * @method whitelist
+   * @return {Array}  Returns the array of allowable properties.
+   */
   static get whitelist() {
     return Document.whitelist.concat([
       'name',
