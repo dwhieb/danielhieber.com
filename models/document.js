@@ -96,21 +96,6 @@ const Document = class Document {
           });
           break;
 
-        case 'whitelist': {
-
-          const whitelist = args[0];
-
-          Object.defineProperty(this.constructor, 'whitelist', {
-            value: Document.whitelist.concat(whitelist),
-            configurable: false,
-            enumerable: false,
-            writable: false,
-          });
-
-          break;
-
-        }
-
         default:
           return;
 
