@@ -173,8 +173,8 @@ describe('socket', function test() {
     };
 
     const cat3 = {
-      id: 'badID',
-      name: 'Bad ID',
+      abbr: 'badAbbr',
+      name: 'Bad Abbreviation',
       description: 'Test for bad Category data.',
       ttl: 1,
     };
@@ -200,9 +200,13 @@ describe('socket', function test() {
             expect(res.type).toBe('category');
 
             this.socket.emit('updateCategory', cat3, (err, res) => {
-              if (res) fail(JSON.stringify(res, null, 2));
-              expect(err.status).toBe(400);
-              done();
+              if (res) {
+                fail(JSON.stringify(res, null, 2));
+                done();
+              } else {
+                expect(err.status).toBe(400);
+                done();
+              }
             });
 
           }

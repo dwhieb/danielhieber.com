@@ -161,7 +161,7 @@
     "no-loop-func": "error",
     "no-magic-numbers": ["warn", {
       "ignoreArrayIndexes": true,
-      "ignore": [0, 1, 2, 404, 500]
+      "ignore": [0, 1, 2, 400, 404, 500]
     }],
     "no-mixed-operators": ["warn", { "allowSamePrecedence": true }],
     "no-mixed-requires": ["error", { "allowCall": true }],

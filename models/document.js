@@ -39,12 +39,12 @@ const Document = class Document {
 
     // 'ttl' must be an integer
     if (data.ttl && !Number.isInteger(data.ttl)) {
-      throw new Error(`The 'ttl' attribute must be an integer.`);
+      throw new Error(`The "ttl" attribute must be an integer.`);
     }
 
     // _ts must be an integer
     if (data._ts && !Number.isInteger(data._ts)) {
-      throw new Error(`The '_ts' attribute must be an integer.`);
+      throw new Error(`The "_ts" attribute must be an integer.`);
     }
 
     // copy over properties
@@ -53,15 +53,19 @@ const Document = class Document {
     // make system properties read-only
     Document.whitelist.forEach(attr => {
       if (data[attr] && attr !== 'ttl') {
-        Reflect.defineProperty(this, attr, {
-          enumerable: true,
+        Object.defineProperty(this, attr, {
           value: data[attr],
+          configurable: false,
+          enumerable: true,
+          writable: false,
         });
       }
     });
 
     // make the "ttl" attribute writable but not configurable
-    Reflect.defineProperty(this, 'ttl', {
+    Object.defineProperty(this, 'ttl', {
+      value: data.ttl || -1,
+      configurable: false,
       enumerable: true,
       writable: true,
     });

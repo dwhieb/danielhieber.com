@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 
 const Document = require('./document');
-const md = require('markdown');
+const md = require('markdown').markdown;
 
 /**
  * Class representing a research Category
@@ -26,8 +26,8 @@ const Category = class Category extends Document {
       'description',
     ];
 
-    // template for Category data
-    const doc = { type: 'category' };
+    // create an empty category object for copying data to
+    const category = {};
 
     // check for required properties
     required.forEach(attr => {
@@ -37,13 +37,13 @@ const Category = class Category extends Document {
     // copy only whitelisted properties
     Category.whitelist.forEach(attr => {
       if (attr in data && attr !== 'description') {
-        doc[attr] = data[attr];
+        category[attr] = data[attr];
       }
     });
 
     // set abbreviation if none exists
-    doc.abbr = doc.abbr
-      || doc.name
+    category.abbr = category.abbr
+      || category.name
          .toLowerCase()
          .trim()
          .replace(/\s/g, '');
@@ -52,10 +52,13 @@ const Category = class Category extends Document {
     const validAbbr = str => /^[a-z]{1,255}$/.test(str);
 
     // must have a valid abbreviation string
-    if (!validAbbr(doc.abbr)) throw new Error(`Invalid format for the "abbr" attribute.`);
+    if (!validAbbr(category.abbr)) throw new Error(`Invalid format for the "abbr" attribute.`);
 
-    // construct a new document
-    super(doc);
+    // set the "type" attribute to "category"
+    category.type = 'category';
+
+    // construct a new Document
+    super(category);
 
     // set initial attribute values and adjust property descriptors
     Object.defineProperties(this, {
