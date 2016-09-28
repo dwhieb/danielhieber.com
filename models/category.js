@@ -60,7 +60,7 @@ const Category = class Category extends Document {
     category.type = 'category';
 
     // construct a new Document
-    super(category);
+    super(category, ['title']);
 
     // set initial attribute values and adjust property descriptors
     Object.defineProperties(this, {
@@ -80,12 +80,6 @@ const Category = class Category extends Document {
 
       markdown: {
         value: this.markdown || data.description,
-        configurable: false,
-        enumerable: true,
-        writable: true,
-      },
-
-      title: {
         configurable: false,
         enumerable: true,
         writable: true,

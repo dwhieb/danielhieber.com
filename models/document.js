@@ -16,11 +16,15 @@ const Document = class Document {
    * @param {String} [data._self]        The self-link for the document
    * @param {Integer} [data._ts]         The timestampe for the document
    * @param {Integer} [data.ttl]         The time-to-live for the document
+   * @param {Array} [properties]         An array of the properties to add to the subclass.
    */
-  constructor(data = {}) {
+  constructor(data = {}, properties = []) {
 
     // document data must be an object
     if (typeof data !== 'object') throw new Error(`The "data" argument must be an Object.`);
+
+    // convert "properties" argument to an array if needed
+    const props = Array.isArray(properties) ? properties : [properties];
 
     // string properties must be strings
     Document.whitelist.forEach(attr => {
@@ -68,6 +72,34 @@ const Document = class Document {
       configurable: false,
       enumerable: true,
       writable: true,
+    });
+
+    // define properties on the subclass that have been specified in the "attrs" argument
+    props.forEach(property => {
+
+      const prop = Array.isArray(property) ? property[0] : property;
+      const args = Array.isArray(property) ? property.slice(1) : [];
+
+      // property name must be a string or symbol
+      if (typeof prop !== 'string') {
+        throw new Error(`Property names in the "properties" argument must be strings.`);
+      }
+
+      switch (prop) {
+
+        case 'title':
+          Object.defineProperty(this, 'title', {
+            configurable: false,
+            enumerable: true,
+            writable: true,
+          });
+          break;
+
+        default:
+          return;
+
+      }
+
     });
 
   }
