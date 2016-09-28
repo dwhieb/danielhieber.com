@@ -23,11 +23,16 @@ const Document = class Document {
     if (typeof data !== 'object') throw new Error(`The "data" argument must be an Object.`);
 
     // string properties must be strings
-    for (const attr in data) {
-      if (typeof data[attr] !== 'string' && attr !== 'ttl' && attr !== '_ts') {
+    Document.whitelist.forEach(attr => {
+      if (
+        attr in data
+        && attr !== 'ttl'
+        && attr !== '_ts'
+        && typeof data[attr] !== 'string'
+      ) {
         throw new Error(`The '${attr}' attribute must be a string.`);
       }
-    }
+    });
 
     // all documents must have a "type" attribute
     if (!data.type) throw new Error(`The "type" attribute is required.`);
