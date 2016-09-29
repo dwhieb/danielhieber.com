@@ -2,6 +2,18 @@
 
 const Document = require('../../models/document');
 
+const makeSubclass = props => {
+
+  class Subclass extends Document {
+    constructor(properties) {
+      super({ type: 'test' }, properties);
+    }
+  }
+
+  return new Subclass(props);
+
+};
+
 describe('Document', function DocumentTest() {
 
   it('new Document()', function newDocument() {
@@ -20,9 +32,22 @@ describe('Document', function DocumentTest() {
     expect(noType).toThrow();
 
     const data = {
-      id: 'newdoctest',
       type: 'test',
       testProperty: 'test value',
+    };
+
+    const doc = new Document(data);
+
+    expect(doc instanceof Document).toBe(true);
+    expect(doc.testProperty).toBe(data.testProperty);
+
+  });
+
+  it('Document.prototype.id', function idAttr() {
+
+    const data = {
+      id: 'testid',
+      type: 'test',
     };
 
     const doc = new Document(data);
@@ -31,25 +56,46 @@ describe('Document', function DocumentTest() {
       Object.defineProperty(doc, 'id', { writable: true });
     };
 
+    doc.id = 'newid';
+
+    expect(doc.id).toBe(data.id);
+    expect(configureID).toThrow();
+
+  });
+
+  it('Document.prototype.ttl', function ttlAttr() {
+
+    const data = { type: 'test' };
+    const doc = new Document(data);
+
     const configureTTL = () => {
       Object.defineProperty(doc, 'ttl', { configurable: true });
     };
 
-    expect(doc instanceof Document).toBe(true);
-    expect(doc.type).toBe(data.type);
-    expect(doc.testProperty).toBe(data.testProperty);
-    expect(configureID).toThrow();
     expect(configureTTL).toThrow();
-    expect(doc.ttl).toBeUndefined();
-
-    doc.id = 'newid';
-    doc.ttl = 1;
-    expect(doc.ttl).toBe(1);
-    expect(doc.id).toBe(data.id);
 
   });
 
-  it('Document.whitelist', function whitelist() {
+  it('Document.prototype.type', function typeAttr() {
+
+    const data = { type: 'test' };
+
+    const doc = new Document(data);
+
+    const configureType = () => {
+      Object.defineProperty(doc, 'type', { value: 'newtype' });
+    };
+
+    expect(doc.ttl).toBeUndefined();
+    expect(doc.type).toBe(data.type);
+    expect(configureType).toThrow();
+
+    doc.ttl = 1;
+    expect(doc.ttl).toBe(1);
+
+  });
+
+  it('Document.whitelist', function whitelistAttr() {
 
     const whitelist = [
       'id',
@@ -65,6 +111,12 @@ describe('Document', function DocumentTest() {
     whitelist.forEach(attr => {
       expect(Document.whitelist.includes(attr)).toBe(true);
     });
+
+  });
+
+  it('Subclass.categories', function categoriesAttr() {
+
+    const subclass = makeSubclass();
 
   });
 
