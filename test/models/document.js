@@ -127,6 +127,24 @@ describe('Document', function DocumentTest() {
 
     const subclass = makeSubclass(data, 'categories');
 
+    const badCategories1 = () => {
+      const data = { type: 'test', categories: 'test' };
+      const subclass = makeSubclass(data, 'categories');
+      expect(subclass.categories.length).toBe(0);
+    };
+
+    const badCategories2 = () => {
+      const data = { type: 'test', categories: [true, 'test'] };
+      makeSubclass(data, 'categories');
+    };
+
+    const noCategories = () => {
+      const data = { type: 'test' };
+      const subclass = makeSubclass(data, 'categories');
+      expect(Array.isArray(subclass.categories)).toBe(true);
+      expect(subclass.categories.length).toBe(0);
+    };
+
     const nullCategories = () => {
       const data = { type: 'test', categories: null };
       makeSubclass(data, 'categories');
@@ -137,13 +155,24 @@ describe('Document', function DocumentTest() {
       makeSubclass(data, 'categories');
     };
 
-    expect(subclass.categories).toBeDefined();
+    const setBadCategory = () => {
+      subclass.addCategory(true);
+    };
+
+    expect(Array.isArray(subclass.categories)).toBe(true);
     expect(subclass.addCategory).toBeDefined();
     expect(subclass.hasCategory).toBeDefined();
     expect(subclass.removeCategory).toBeDefined();
     expect(subclass.categories.includes('test')).toBe(true);
+    expect(badCategories1).not.toThrow();
+    expect(badCategories2).toThrow();
     expect(emptyCategories).not.toThrow();
+    expect(noCategories).not.toThrow();
     expect(nullCategories).not.toThrow();
+    expect(setBadCategory).toThrow();
+
+    subclass.categories.push('addCategory');
+    expect(subclass.categories.includes('addCategory')).toBe(false);
 
     subclass.addCategory('addCategory');
     subclass.removeCategory('test');
@@ -168,7 +197,26 @@ describe('Document', function DocumentTest() {
 
     const newDescription = 'This is the new description.';
 
-    const setNullDescription = () => { subclass.description = null; };
+    const badDescription = () => {
+      const subclass = makeSubclass({ type: 'test', description: 2 }, 'description');
+      expect(subclass.description).toBe('2');
+    };
+    const noDescription = () => {
+      const subclass = makeSubclass({ type: 'test' }, 'description');
+      expect(subclass.description).toBe('');
+    };
+    const setNumericDescription = () => {
+      subclass.description = 2;
+      expect(subclass.description).toBe('2');
+    };
+    const setNullDescription = () => {
+      subclass.description = null;
+      expect(subclass.description).toBe('null');
+    };
+    const setUndefinedDescription = () => {
+      subclass.description = undefined;
+      expect(subclass.description).toBe('undefined');
+    };
 
     subclass.description = newDescription;
 
@@ -181,7 +229,11 @@ describe('Document', function DocumentTest() {
     expect(subclass.description).toBe(newDescription);
     expect(subclass.markdown).toBe(newDescription);
     expect(subclass.html).toBe(md.toHTML(newDescription));
+    expect(badDescription).not.toThrow();
+    expect(noDescription).not.toThrow();
+    expect(setNumericDescription).not.toThrow();
     expect(setNullDescription).not.toThrow();
+    expect(setUndefinedDescription).not.toThrow();
 
   });
 
@@ -216,9 +268,23 @@ describe('Document', function DocumentTest() {
     subclass.removeLink('newLink');
     expect(subclass.links.newLink).toBeUndefined();
 
+    const badLink = () => {
+      const subclass = makeSubclass({ type: 'test', links: { site: 2 } }, 'links');
+    };
+    const badLinks = () => {
+      const subclass = makeSubclass({ type: 'test', links: 'link' }, 'links');
+      expect(Object.keys(subclass.links).length).toBe(0);
+    };
+    const noLinks = () => {
+      const subclass = makeSubclass({ type: 'test' }, 'links');
+      expect(Object.keys(subclass.links).length).toBe(0);
+    };
     const setBadLinkName = () => { subclass.addLink(2, newLink); };
     const setBadUrl = () => { subclass.addLink('badUrl', 'badlink.com'); };
 
+    expect(badLink).toThrow();
+    expect(badLinks).not.toThrow();
+    expect(noLinks).not.toThrow();
     expect(setBadLinkName).toThrow();
     expect(setBadUrl).toThrow();
 
@@ -233,11 +299,13 @@ describe('Document', function DocumentTest() {
 
     const subclass = makeSubclass(data, 'title');
 
+    const badTitle = () => makeSubclass({ type: 'test', title: 2 }, 'title');
     const setBadTitle = () => { subclass.title = 2; };
 
     expect(subclass.title).toBe(data.title);
     expect(Object.getOwnPropertyDescriptor(subclass, 'title').configurable).toBe(false);
     expect(Object.getOwnPropertyDescriptor(subclass, 'title').enumerable).toBe(true);
+    expect(badTitle).toThrow();
     expect(setBadTitle).toThrow();
 
   });
