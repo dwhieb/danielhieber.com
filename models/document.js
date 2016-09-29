@@ -91,34 +91,40 @@ const Document = class Document {
 
       switch (prop) {
 
+        // define the "categories" attribute and its associated methods
         case 'categories': {
 
+          // array for getter and setter to use in storing categories
           const categories = [];
 
           Object.defineProperty(this, 'categories', {
             configurable: false,
             enumerable: true,
-            get() { return Array.from(categories); },
+            get() { return Array.from(categories); }, // don't return the actual categories array
           });
 
+          // define the ".addCategory()" method
           this.addCategory = category => {
             if (typeof category === 'string') {
               categories.push(category);
-              return Array.from(categories);
+              return Array.from(categories); // don't return the actual categories array
             }
             throw new Error('The name of the category must be a string.');
           };
 
+          // define the ".hasCategory()" method
           this.hasCategory = category => categories.includes(category);
 
+          // define the ".removeCategory()" method
           this.removeCategory = category => {
             const index = categories.findIndex(item => item === category);
             if (index >= 0) {
               categories.splice(index, 1);
-              return Array.from(categories);
+              return Array.from(categories); // don't return the actual categories array
             }
           };
 
+          // set the initial value of the "categories" attribute
           if (data.categories && Array.isArray(data.categories)) {
             data.categories.forEach(this.addCategory);
           }
@@ -127,30 +133,36 @@ const Document = class Document {
 
         }
 
+        // define the "description" attribute and its associated "html" and "markdown" attributes
         case 'description': {
 
+          // variables for getters and setters to store HTML and Markdown data
           let html = '';
           let markdown = '';
 
           Object.defineProperties(this, {
 
+            // define the "description" attribute
             description: {
               configurable: false,
               enumerable: false,
               get() { return markdown; },
               set(val) {
+                // set the "markdown" and "html" attributes whenever the "description" attribute is set
                 markdown = String(val);
                 html = md.toHTML(markdown);
                 return markdown;
               },
             },
 
+            // define the "html" attribute
             html: {
               configurable: false,
               enumerable: true,
               get() { return html; },
             },
 
+            // define the "markdown" attribute
             markdown: {
               configurable: false,
               enumerable: true,
@@ -161,6 +173,7 @@ const Document = class Document {
 
           });
 
+          // set the initial values for the "description", "html", and "markdown" attributes
           if (data.description || data.markdown) {
             this.description = data.description || data.markdown;
           }
@@ -169,35 +182,44 @@ const Document = class Document {
 
         }
 
+        // define the "links" attribute and its associated methods
         case 'links': {
 
+          // a hash for the getters and setters to store links in
           const links = {};
 
+          // define the "links" attribute
           Object.defineProperty(this, 'links', {
             configurable: false,
             enumerable: true,
-            get() { return Object.assign({}, links); },
+            get() { return Object.assign({}, links); }, // don't return the actual links object
           });
 
+          // define the ".addLink()" method
           this.addLink = (linkName, url) => {
 
+            // linkName must be a string
             if (typeof linkName !== 'string') {
               throw new Error(`The "linkName" argument must be a string.`);
             }
 
+            // URL must be a valid URI string
             if (validUrl.isUri(url)) {
               links[linkName] = url;
-              return Object.assign({}, links);
+              return Object.assign({}, links); // don't return the actual links object
             }
 
             throw new Error(`The provided URL "${url}" is not a valid URL string.`);
 
           };
 
+          // define the ".getLink()" method
           this.getLink = linkName => links[linkName];
 
+          // define the ".removeLink()" method
           this.removeLink = linkName => Reflect.deleteProperty(links, linkName);
 
+          // set the initial value of the "links" attribute
           if (data.links && typeof data.links === 'object') {
             for (const linkName in data.links) {
               this.addLink(linkName, data.links[linkName]);
@@ -208,10 +230,13 @@ const Document = class Document {
 
         }
 
+        // define the "title" attribute
         case 'title': {
 
+          // a variable for getters and setters to store the "title" data in
           let title = '';
 
+          // define the "title" attribute
           Object.defineProperty(this, 'title', {
             configurable: false,
             enumerable: true,
@@ -225,6 +250,7 @@ const Document = class Document {
             },
           });
 
+          // set the initial value of the "title" attribute
           if (data.title) this.title = data.title;
 
           break;
