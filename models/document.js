@@ -257,6 +257,32 @@ const Document = class Document {
 
         }
 
+        case 'year': {
+
+          let year;
+
+          Object.defineProperty(this, 'year', {
+            configurable: false,
+            enumerable: true,
+            get() { return year; },
+            set(val) {
+              const minYear = 1986;
+              const maxYear = 2100;
+
+              if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
+                year = val;
+                return val;
+              }
+              throw new Error('The "year" attribute must be an integer from 1985 to 2100.');
+            },
+          });
+
+          if (data.year) this.year = data.year;
+
+          break;
+
+        }
+
         default:
           return;
 

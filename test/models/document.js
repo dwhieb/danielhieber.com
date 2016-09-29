@@ -310,4 +310,36 @@ describe('Document', function DocumentTest() {
 
   });
 
+  it('Subclass.year', function yearAttr() {
+
+    const data = {
+      type: 'test',
+      year: 2016,
+    };
+
+    const subclass = makeSubclass(data, 'year');
+
+    const badYear = () => {
+      makeSubclass({ type: 'test', year: true }, 'year');
+    };
+    const noYear = () => {
+      const subclass = makeSubclass({ type: 'test' }, 'year');
+      expect(subclass.year).toBeUndefined();
+    };
+    const setBadYear1 = () => { subclass.year = 1985; };
+    const setBadYear2 = () => { subclass.year = undefined; };
+
+    expect(subclass.year).toBe(data.year);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'year').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'year').enumerable).toBe(true);
+    expect(badYear).toThrow();
+    expect(noYear).not.toThrow();
+    expect(setBadYear1).toThrow();
+    expect(setBadYear2).toThrow();
+
+    subclass.year = 1986;
+    expect(subclass.year).toBe(1986);
+
+  });
+
 });
