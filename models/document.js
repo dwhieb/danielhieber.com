@@ -104,6 +104,7 @@ const Document = class Document {
           this.addCategory = category => {
             if (typeof category === 'string') {
               categories.push(category);
+              return Array.from(categories);
             }
             throw new Error('The name of the category must be a string.');
           };
@@ -118,7 +119,9 @@ const Document = class Document {
             }
           };
 
-          if (data.categories) data.categories.forEach(this.addCategory);
+          if (data.categories && Array.isArray(data.categories)) {
+            data.categories.forEach(this.addCategory);
+          }
 
           break;
 

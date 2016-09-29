@@ -1,16 +1,20 @@
-/* eslint-disable object-property-newline */
+/* eslint-disable
+  object-property-newline,
+  no-useless-constructor,
+*/
 
 const Document = require('../../models/document');
+const md = require('markdown').markdown;
 
-const makeSubclass = props => {
+const makeSubclass = (data, props) => {
 
   class Subclass extends Document {
-    constructor(properties) {
-      super({ type: 'test' }, properties);
+    constructor(data, properties) {
+      super(data, properties);
     }
   }
 
-  return new Subclass(props);
+  return new Subclass(data, props);
 
 };
 
@@ -116,7 +120,124 @@ describe('Document', function DocumentTest() {
 
   it('Subclass.categories', function categoriesAttr() {
 
-    const subclass = makeSubclass();
+    const data = {
+      type: 'test',
+      categories: ['test'],
+    };
+
+    const subclass = makeSubclass(data, 'categories');
+
+    const nullCategories = () => {
+      const data = { type: 'test', categories: null };
+      makeSubclass(data, 'categories');
+    };
+
+    const emptyCategories = () => {
+      const data = { type: 'test', categories: [] };
+      makeSubclass(data, 'categories');
+    };
+
+    expect(subclass.categories).toBeDefined();
+    expect(subclass.addCategory).toBeDefined();
+    expect(subclass.hasCategory).toBeDefined();
+    expect(subclass.removeCategory).toBeDefined();
+    expect(subclass.categories.includes('test')).toBe(true);
+    expect(emptyCategories).not.toThrow();
+    expect(nullCategories).not.toThrow();
+
+    subclass.addCategory('addCategory');
+    subclass.removeCategory('test');
+    expect(subclass.categories.includes('test')).toBe(false);
+    expect(subclass.categories.includes('addCategory')).toBe(true);
+    expect(subclass.hasCategory('test')).toBe(false);
+    expect(subclass.hasCategory('addCategory')).toBe(true);
+
+  });
+
+  it('Subclass.description', function descriptionAttr() {
+
+    const data = {
+      type: 'test',
+      description: 'This is a description.',
+    };
+
+    const subclass = makeSubclass(data, 'description');
+    expect(Object.getOwnPropertyDescriptor(subclass, 'description').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'description').enumerable).toBe(false);
+    expect(subclass.description).toBe(data.description);
+
+    const newDescription = 'This is the new description.';
+
+    const setBadDescription = () => { subclass.description = null; };
+
+    subclass.description = newDescription;
+    expect(subclass.description).toBe(newDescription);
+    expect(subclass.markdown).toBe(newDescription);
+    expect(subclass.html).toBe(md.toHTML(newDescription));
+    expect(setBadDescription).toThrow();
+
+    subclass.html = '<p></p>';
+    expect(subclass.html).toBe(md.toHTML(newDescription));
+
+    subclass.markdown = 'This is *emphatic*.';
+    expect(subclass.markdown).toBe(newDescription);
+
+  });
+
+  it('Subclass.links', function linksAttr() {
+
+    const data = {
+      type: 'test',
+      links: { webpage: 'http://danielhieber.com' },
+    };
+
+    const subclass = makeSubclass(data, 'links');
+
+    expect(subclass.links).toBeDefined();
+    expect(subclass.addLink).toBeDefined();
+    expect(subclass.getLink).toBeDefined();
+    expect(subclass.removeLink).toBeDefined();
+    expect(Object.getOwnPropertyDescriptor(subclass, 'links').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'links').enumerable).toBe(true);
+    expect(subclass.getLink('webpage')).toBe(data.links.webpage);
+
+    const newLink = 'http://new.com';
+
+    subclass.links.newLink = newLink;
+    expect(subclass.links.newLink).toBeUndefined();
+
+    subclass.links = {};
+    expect(subclass.links.webpage).toBeDefined();
+
+    subclass.addLink('newLink', newLink);
+    expect(subclass.links.newLink).toBe(newLink);
+
+    subclass.removeLink('newLink');
+    expect(subclass.links.newLink).toBeUndefined();
+
+    const setBadLinkName = () => { subclass.addLink(2, newLink); };
+    const setBadUrl = () => { subclass.addLink('badUrl', 'badlink.com'); };
+
+    expect(setBadLinkName).toThrow();
+    expect(setBadUrl).toThrow();
+
+  });
+
+  it('Subclass.title', function titleAttr() {
+
+    const data = {
+      type: 'test',
+      title: 'Title',
+    };
+
+    const subclass = makeSubclass(data, 'title');
+
+    const setBadTitle = () => { subclass.title = 2; };
+
+    expect(subclass.title).toBe(data.title);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'title').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'title').enumerable).toBe(true);
+    expect(setBadTitle).toThrow();
 
   });
 
