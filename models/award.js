@@ -1,5 +1,9 @@
 const Document = require('./document');
 
+/**
+ * A class representing an Award
+ * @type {Object}
+ */
 const Award = class Award extends Document {
   constructor(data = {}) {
 
@@ -20,7 +24,15 @@ const Award = class Award extends Document {
 
     award.type = 'award';
 
-    super(award);
+    const props = [
+      'categories',
+      'description',
+      'links',
+      'title',
+      'year',
+    ];
+
+    super(award, props);
 
   }
 
