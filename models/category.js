@@ -1,7 +1,4 @@
-/* eslint-disable no-underscore-dangle */
-
 const Document = require('./document');
-const md = require('markdown').markdown;
 
 /**
  * Class representing a research Category
@@ -32,15 +29,13 @@ const Category = class Category extends Document {
     // check for required properties
     required.forEach(attr => {
       if (typeof data[attr] !== 'string') {
-        throw new Error(`The "${attr}" attribute must be present, and must be set to a string.`);
+        throw new Error(`The "${attr}" attribute must be present and set to a string.`);
       }
     });
 
     // copy only whitelisted properties
     Category.whitelist.forEach(attr => {
-      if (attr in data && attr !== 'description') {
-        category[attr] = data[attr];
-      }
+      if (attr in data) category[attr] = data[attr];
     });
 
     // set abbreviation if none exists
@@ -60,54 +55,15 @@ const Category = class Category extends Document {
     category.type = 'category';
 
     // construct a new Document
-    super(category, ['title']);
+    super(category, ['title', 'description']);
 
-    // set initial attribute values and adjust property descriptors
-    Object.defineProperties(this, {
-
-      abbr: {
-        configurable: false,
-        enumerable: true,
-        writable: true,
-      },
-
-      html: {
-        value: this.html || md.toHTML(data.description),
-        configurable: false,
-        enumerable: true,
-        writable: true,
-      },
-
-      markdown: {
-        value: this.markdown || data.description,
-        configurable: false,
-        enumerable: true,
-        writable: true,
-      },
-
+    // adjust property descriptors for "abbr" attribute
+    Object.defineProperty(this, 'abbr', {
+      configurable: false,
+      enumerable: true,
+      writable: true,
     });
 
-  }
-
-  /**
-   * Getter for the "description" attribute. Returns the value from the "markdown" property.
-   * @method description
-   * @return {String}    Returns the markdown data.
-   */
-  get description() {
-    return this.markdown || '';
-  }
-
-  /**
-   * Setter for the "description" attribute.
-   * @method description
-   * @param  {String} val     The value to set the "description" attribute to.
-   * @return {String} description     Returns the "description" string just passed.
-   */
-  set description(val) {
-    this.markdown = String(val);
-    this.html = md.toHTML(this.markdown);
-    return this.markdown;
   }
 
   /**

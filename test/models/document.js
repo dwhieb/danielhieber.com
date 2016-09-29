@@ -168,19 +168,20 @@ describe('Document', function DocumentTest() {
 
     const newDescription = 'This is the new description.';
 
-    const setBadDescription = () => { subclass.description = null; };
+    const setNullDescription = () => { subclass.description = null; };
 
     subclass.description = newDescription;
-    expect(subclass.description).toBe(newDescription);
-    expect(subclass.markdown).toBe(newDescription);
-    expect(subclass.html).toBe(md.toHTML(newDescription));
-    expect(setBadDescription).toThrow();
 
     subclass.html = '<p></p>';
     expect(subclass.html).toBe(md.toHTML(newDescription));
 
     subclass.markdown = 'This is *emphatic*.';
     expect(subclass.markdown).toBe(newDescription);
+
+    expect(subclass.description).toBe(newDescription);
+    expect(subclass.markdown).toBe(newDescription);
+    expect(subclass.html).toBe(md.toHTML(newDescription));
+    expect(setNullDescription).not.toThrow();
 
   });
 

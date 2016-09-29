@@ -1,8 +1,5 @@
-/* eslint-disable object-property-newline */
-
 const Category = require('../../models/category');
 const Document = require('../../models/document');
-const md = require('markdown').markdown;
 
 describe('Category', function CategoryTest() {
 
@@ -19,7 +16,6 @@ describe('Category', function CategoryTest() {
     const noData = () => new Category();
     const noDescription = () => new Category({ title: 'No Description' });
     const noTitle = () => new Category({ description: 'description' });
-    const nonString = () => new Category({ title: true, description: 'description' });
 
     const category = new Category(data);
 
@@ -27,7 +23,6 @@ describe('Category', function CategoryTest() {
     expect(noData).toThrow();
     expect(noDescription).toThrow();
     expect(noTitle).toThrow();
-    expect(nonString).toThrow();
     expect(category instanceof Document).toBe(true);
     expect(category instanceof Category).toBe(true);
     expect(category.extraProperty).toBeUndefined();
@@ -59,78 +54,6 @@ describe('Category', function CategoryTest() {
 
     expect(anotherCategory.abbr).toBe(moreData.abbr);
 
-  });
-
-  it('Category.prototype.description', function descriptionTest() {
-
-    const data = {
-      title: 'Description Test',
-      description: 'This is a **test** for the "description" [attribute](#link).',
-    };
-
-    const category = new Category(data);
-    const newText = '*New* text!';
-    category.markdown = newText;
-
-    expect(category.description).toBe(newText);
-
-    category.description = newText;
-
-    expect(category.html).toBe(md.toHTML(category.markdown));
-
-  });
-
-  it('Category.prototype.html', function htmlTest() {
-
-    const data = {
-      title: 'HTML Test',
-      description: 'This is a test for the "html" attribute.',
-      type: 'test',
-    };
-
-    const category = new Category(data);
-
-    expect(category.html).toBe(md.toHTML(data.description));
-
-    const description = 'This is a new *description*.';
-
-    category.description = description;
-
-    expect(category.html).toBe(md.toHTML(description));
-
-  });
-
-  it('Category.prototype.markdown', function markdownTest() {
-
-    const data = {
-      title: 'Markdown Test',
-      description: 'This is a **test** for the "markdown" [attribute](#link).',
-      type: 'test',
-    };
-
-    const category = new Category(data);
-
-    const setmd = () => {
-      const markdown = 'This is some *new* markdown.';
-      category.markdown = markdown;
-    };
-
-    expect(category.markdown).toBe(data.description);
-    expect(setmd).not.toThrow();
-
-  });
-
-  it('Category.prototype.title', function titleTest() {
-
-    const data = {
-      title: 'Title Test',
-      description: 'This is a test for the "title" attribute.',
-      type: 'test',
-    };
-
-    const category = new Category(data);
-
-    expect(Object.getOwnPropertyDescriptor(category, 'title').configurable).toBe(false);
   });
 
   it('Category.whitelist', function whitelistTest() {

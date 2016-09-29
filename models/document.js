@@ -139,11 +139,9 @@ const Document = class Document {
               enumerable: false,
               get() { return markdown; },
               set(val) {
-                if (typeof val !== 'string') {
-                  throw new Error(`The "description" attribute must be a string.`);
-                }
-                markdown = val;
+                markdown = String(val);
                 html = md.toHTML(markdown);
+                return markdown;
               },
             },
 
@@ -163,7 +161,9 @@ const Document = class Document {
 
           });
 
-          if (data.description) this.description = data.description;
+          if (data.description || data.markdown) {
+            this.description = data.description || data.markdown;
+          }
 
           break;
 
