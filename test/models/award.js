@@ -19,7 +19,7 @@ describe('Award', function AwardSpec() {
       const testData = Object.assign({}, data);
       delete testData.description;
       const award = new Award(testData);
-      expect(award.description).toBe('');
+      expect(award.description).toBeFalsy();
     };
 
     const noTitle = () => {
