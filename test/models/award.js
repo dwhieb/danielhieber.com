@@ -13,18 +13,6 @@ describe('Award', function AwardSpec() {
 
     const badData = () => new Award(true);
 
-    const badYear1 = () => {
-      const testData = Object.assign({}, data);
-      testData.year = true;
-      new Award(testData);
-    };
-
-    const badYear2 = () => {
-      const testData = Object.assign({}, data);
-      testData.year = 2;
-      new Award(testData);
-    };
-
     const noData = () => new Award();
 
     const noDescription = () => {
@@ -49,8 +37,6 @@ describe('Award', function AwardSpec() {
     const award = new Award(data);
 
     expect(badData).toThrow();
-    expect(badYear1).toThrow();
-    expect(badYear2).toThrow();
     expect(noData).toThrow();
     expect(noDescription).not.toThrow();
     expect(noTitle).toThrow();
@@ -69,24 +55,6 @@ describe('Award', function AwardSpec() {
     const award = new Award(data);
 
     expect(award.type).toBe('award');
-
-  });
-
-  it('Award.prototype.year', function yearAttr() {
-
-    const data = {
-      title: 'Year Test',
-      year: 2016,
-    };
-
-    const award = new Award(data);
-
-    const setBadYear = () => {
-      award.year = '2016';
-    };
-
-    expect(award.year).toBe(data.year);
-    expect(setBadYear).toThrow();
 
   });
 
