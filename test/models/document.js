@@ -237,6 +237,31 @@ describe('Document', function DocumentTest() {
 
   });
 
+  it('Subclass.endYear', function endYearAttr() {
+
+    const data = {
+      type: 'test',
+      endYear: 2016,
+    };
+
+    const subclass = makeSubclass(data, 'endYear');
+
+    const setBadInteger = () => { subclass.endYear = 2; };
+    const setBadString = () => { subclass.endYear = 'now'; };
+    const setEmptyString = () => { subclass.endYear = ''; };
+    const setUndefined = () => { subclass.endYear = undefined; };
+
+    expect(subclass.endYear).toBe(data.endYear);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'endYear').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'endYear').enumerable).toBe(true);
+    expect(setBadInteger).toThrow();
+    expect(setBadString).toThrow();
+    expect(setEmptyString).toThrow();
+    expect(setUndefined).toThrow();
+
+
+  });
+
   it('Subclass.links', function linksAttr() {
 
     const data = {

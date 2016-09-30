@@ -183,6 +183,36 @@ const Document = class Document {
 
         }
 
+        case 'endYear': {
+
+          let endYear;
+
+          Object.defineProperty(this, 'endYear', {
+            configurable: false,
+            enumerable: true,
+            get() { return endYear; },
+            set(val) {
+
+              if (
+                (Number.isInteger(val) && minYear <= val && val <= maxYear)
+                || (typeof val === 'string' && val === 'present')
+                || val === null
+              ) {
+                endYear = val;
+                return endYear;
+              }
+
+              throw new Error('The "endYear" attribute is incorrectly formatted.');
+
+            },
+          });
+
+          if (data.endYear) this.endYear = data.endYear;
+
+          break;
+
+        }
+
         // define the "links" attribute and its associated methods
         case 'links': {
 
@@ -235,7 +265,7 @@ const Document = class Document {
         case 'location': {
 
           // a variable for the getters and setters to store the "location" data in
-          let loc = '';
+          let loc;
 
           // set the property descriptor
           Object.defineProperty(this, 'location', {
