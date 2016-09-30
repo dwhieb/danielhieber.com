@@ -46,7 +46,7 @@ const Fieldwork = class Fieldwork extends Document {
     fw.type = 'fieldwork';
 
     // instantiate a document
-    super(data, props);
+    super(fw, props);
 
   }
 
@@ -56,7 +56,15 @@ const Fieldwork = class Fieldwork extends Document {
    * @return {Array} whitelist      Returns the allowed properties for a Fieldwork item
    */
   static get whitelist() {
-    return Document.whitelist.concat(props);
+    return Document.whitelist.concat(props).concat([
+      'categories',
+      'description',
+      'endYear',
+      'html',
+      'location',
+      'markdown',
+      'startYear',
+    ]);
   }
 
 };

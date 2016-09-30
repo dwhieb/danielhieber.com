@@ -98,35 +98,50 @@ const Document = class Document {
         case 'categories': {
 
           // array for getter and setter to use in storing categories
-          const categories = [];
+          const categories = new Set();
 
-          Object.defineProperty(this, 'categories', {
-            configurable: false,
-            enumerable: true,
-            get() { return Array.from(categories); }, // don't return the actual categories array
+          Object.defineProperties(this, {
+
+            // define the "categories" attribute
+            categories: {
+              configurable: false,
+              enumerable: true,
+              get() { return Array.from(categories); },
+            },
+
+            // define the ".addCategory()" method
+            addCategory: {
+              value: category => {
+                if (typeof category === 'string') {
+                  return Array.from(categories.add(category));
+                }
+                throw new Error('The name of the category must be a string.');
+              },
+              configurable: false,
+              enumerable: false,
+              writable: false,
+            },
+
+            // define the ".hasCategory()" method
+            hasCategory: {
+              value: category => categories.has(category),
+              configurable: false,
+              enumerable: false,
+              writable: false,
+            },
+
+            // define the ".removeCategory()" method
+            removeCategory: {
+              value: category => categories.delete(category),
+              configurable: false,
+              enumerable: false,
+              writable: false,
+            },
+
           });
 
-          // define the ".addCategory()" method
-          this.addCategory = category => {
-            if (typeof category === 'string') {
-              return categories.push(category);
-            }
-            throw new Error('The name of the category must be a string.');
-          };
-
-          // define the ".hasCategory()" method
-          this.hasCategory = category => categories.includes(category);
-
-          // define the ".removeCategory()" method
-          this.removeCategory = category => {
-            const index = categories.findIndex(item => item === category);
-            if (index >= 0) {
-              return categories.splice(index, 1);
-            }
-          };
-
           // set the initial value of the "categories" attribute
-          if (data.categories && Array.isArray(data.categories)) {
+          if (Array.isArray(data.categories) || data.categories instanceof Set) {
             data.categories.forEach(this.addCategory);
           }
 
@@ -219,36 +234,55 @@ const Document = class Document {
           // a hash for the getters and setters to store links in
           const links = {};
 
-          // define the "links" attribute
-          Object.defineProperty(this, 'links', {
-            configurable: false,
-            enumerable: true,
-            get() { return Object.assign({}, links); }, // don't return the actual links object
+          Object.defineProperties(this, {
+
+            // define the "links" attribute
+            links: {
+              configurable: false,
+              enumerable: true,
+              get() { return Object.assign({}, links); }, // don't return the actual links object
+            },
+
+            // define the ".addLink()" method
+            addLink: {
+              value: (linkName, url) => {
+
+                // linkName must be a string
+                if (typeof linkName !== 'string') {
+                  throw new Error(`The "linkName" argument must be a string.`);
+                }
+
+                // URL must be a valid URI string
+                if (validUrl.isUri(url)) {
+                  links[linkName] = url;
+                  return Object.assign({}, links); // don't return the actual links object
+                }
+
+                throw new Error(`The provided URL "${url}" is not a valid URL string.`);
+
+              },
+              configurable: false,
+              enumerable: false,
+              writable: false,
+            },
+
+            // define the ".getLink()" method
+            getLink: {
+              value: linkName => links[linkName],
+              configurable: false,
+              enumerable: false,
+              writable: false,
+            },
+
+            // define the ".removeLink()" method
+            removeLink: {
+              value: linkName => Reflect.deleteProperty(links, linkName),
+              configurable: false,
+              enumerable: false,
+              writable: false,
+            },
+
           });
-
-          // define the ".addLink()" method
-          this.addLink = (linkName, url) => {
-
-            // linkName must be a string
-            if (typeof linkName !== 'string') {
-              throw new Error(`The "linkName" argument must be a string.`);
-            }
-
-            // URL must be a valid URI string
-            if (validUrl.isUri(url)) {
-              links[linkName] = url;
-              return Object.assign({}, links); // don't return the actual links object
-            }
-
-            throw new Error(`The provided URL "${url}" is not a valid URL string.`);
-
-          };
-
-          // define the ".getLink()" method
-          this.getLink = linkName => links[linkName];
-
-          // define the ".removeLink()" method
-          this.removeLink = linkName => Reflect.deleteProperty(links, linkName);
 
           // set the initial value of the "links" attribute
           if (data.links && typeof data.links === 'object') {
