@@ -44,7 +44,7 @@ describe('Education', function EducationSpec() {
     };
 
     expect(ed.extraProperty).toBeUndefined();
-    expect(ed.program).toBe('');
+    expect(ed.program).toBeUndefined();
     expect(ed.type).toBe('education');
     expect(ed.links).toBeDefined();
     expect(noEndYear).toThrow();

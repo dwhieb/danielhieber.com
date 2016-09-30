@@ -44,10 +44,10 @@ const Education = class Education extends Document {
 
     // private variables for getters/setters
     const achievements = [];
-    let endYear = 0;
-    let org = '';
-    let program = '';
-    let startYear = 0;
+    let endYear;
+    let org;
+    let program;
+    let startYear;
 
     // Define the non-configurable properties
     Object.defineProperties(this, {

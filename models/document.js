@@ -78,6 +78,9 @@ const Document = class Document {
       }
     });
 
+    const minYear = 1986; // minimum year allowed for "year", "startYear", and "endYear" properties
+    const maxYear = 2100; // maximum year allowed for "year", "startYear", and "endYear" properties
+
     // define properties on the subclass that have been specified in the "properties" argument
     props.forEach(property => {
 
@@ -276,6 +279,29 @@ const Document = class Document {
 
         }
 
+        case 'startYear': {
+
+          let startYear;
+
+          Object.defineProperty(this, 'startYear', {
+            configurable: false,
+            enumerable: true,
+            get() { return startYear; },
+            set(val) {
+              if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
+                startYear = val;
+                return startYear;
+              }
+              throw new Error('The "startYear" attribute must be an integer from `1986` to `2100`.');
+            },
+          });
+
+          if (data.startYear) this.startYear = data.startYear;
+
+          break;
+
+        }
+
         case 'year': {
 
           let year;
@@ -285,9 +311,6 @@ const Document = class Document {
             enumerable: true,
             get() { return year; },
             set(val) {
-              const minYear = 1986;
-              const maxYear = 2100;
-
               if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
                 year = val;
                 return val;
