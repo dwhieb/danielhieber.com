@@ -1,15 +1,16 @@
 const Award = require('../../models/award');
+const Document = require('../../models/document');
 
 describe('Award', function AwardSpec() {
 
-  it('new Award()', function newAward() {
+  const data = {
+    title: 'Test Award',
+    year: 2016,
+    description: 'This is a description.',
+    extraProperty: 'This is an extra property.',
+  };
 
-    const data = {
-      title: 'Test Award',
-      year: 2016,
-      description: 'This is a description.',
-      extraProperty: 'This is an extra property.',
-    };
+  it('new Award()', function newAward() {
 
     const badData = () => new Award(true);
 
@@ -60,17 +61,26 @@ describe('Award', function AwardSpec() {
 
   it('Award.whitelist', function whitelistAttr() {
 
-    const whitelist = [
+    const whitelist = Document.whitelist.concat([
+      'categories',
+      'description',
+      'html',
+      'links',
+      'markdown',
       'title',
       'year',
-      'description',
-      'categories',
-      'links',
-    ];
+    ]);
 
     whitelist.forEach(attr => {
       expect(Award.whitelist.includes(attr)).toBe(true);
     });
+
+    const award = new Award(data);
+
+    for (const attr in award) {
+      if (!whitelist.includes(attr)) fail(`The "${attr}" attribute is not whitelisted.`);
+    }
+
 
   });
 

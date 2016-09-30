@@ -3,16 +3,21 @@ const Document = require('../../models/document');
 
 describe('Category', function CategoryTest() {
 
+  const data = {
+    title: 'Test Category',
+    description: 'This is a test category.',
+    extraProperty: 'extra property',
+    type: 'test',
+  };
+
+
   it('new Category()', function newCategory() {
 
-    const data = {
-      title: 'Test Category',
-      description: 'This is a test category.',
-      extraProperty: 'extra property',
-      type: 'test',
+    const badAbbr = () => {
+      const testData = Object.assign({}, data);
+      testData.abbr = 'badABBR';
+      new Category(testData);
     };
-
-    const badAbbr = () => new Category(Object.assign(data, { abbr: 'badABBR' }));
     const noData = () => new Category();
     const noDescription = () => new Category({ title: 'No Description' });
     const noTitle = () => new Category({ description: 'description' });
@@ -58,25 +63,23 @@ describe('Category', function CategoryTest() {
 
   it('Category.whitelist', function whitelistTest() {
 
-    const whitelist = [
-      'id',
-      'type',
-      '_attachments',
-      '_etag',
-      '_rid',
-      '_self',
-      '_ts',
-      'ttl',
+    const whitelist = Document.whitelist.concat([
       'abbr',
       'description',
       'html',
       'markdown',
       'title',
-    ];
+    ]);
 
     whitelist.forEach(attr => {
       expect(Category.whitelist.includes(attr)).toBe(true);
     });
+
+    const category = new Category(data);
+
+    for (const attr in category) {
+      if (!whitelist.includes(attr)) fail(`The "${attr}" attribute is not whitelisted.`);
+    }
 
   });
 

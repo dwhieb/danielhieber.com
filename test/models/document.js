@@ -116,6 +116,12 @@ describe('Document', function DocumentTest() {
       expect(Document.whitelist.includes(attr)).toBe(true);
     });
 
+    const doc = new Document({ type: 'test' });
+
+    for (const attr in doc) {
+      if (!whitelist.includes(attr)) fail(`The "${attr}" attribute is not whitelisted.`);
+    }
+
   });
 
   it('Subclass.categories', function categoriesAttr() {

@@ -129,21 +129,27 @@ describe('Education', function EducationSpec() {
   });
 
   it('Education.whitelist', function whitelistAttr() {
-    Education.whitelist.forEach(attr => {
 
-      const whitelist = Document.whitelist.concat([
-        'achievements',
-        'endYear',
-        'links',
-        'location',
-        'organization',
-        'program',
-        'startYear',
-      ]);
+    const whitelist = Document.whitelist.concat([
+      'achievements',
+      'endYear',
+      'links',
+      'location',
+      'organization',
+      'program',
+      'startYear',
+    ]);
 
-      expect(whitelist.includes(attr)).toBe(true);
-
+    whitelist.forEach(attr => {
+      expect(Education.whitelist.includes(attr)).toBe(true);
     });
+
+    const ed = new Education(data);
+
+    for (const attr in ed) {
+      if (!whitelist.includes(attr)) fail(`The "${attr}" attribute is not whitelisted.`);
+    }
+
   });
 
 });

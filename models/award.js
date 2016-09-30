@@ -48,7 +48,9 @@ const Award = class Award extends Document {
     return Document.whitelist.concat([
       'categories',
       'description',
+      'html',
       'links',
+      'markdown',
       'title',
       'year',
     ]);
