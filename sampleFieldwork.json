@@ -1,0 +1,12 @@
+{
+  "location": "Kisii, Kenya (change Education's 'city' attribute to 'location' too)",
+  "description": "Markdown...",
+  "startYear": 2013,
+  "endYear": null,
+  "categories": ["documentation"],
+  "_rid": "9XUnAOPvcgAVAAAAAAAAAA==",
+  "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAVAAAAAAAAAA==/",
+  "_etag": "\"00009900-0000-0000-0000-568dac8b0000\"",
+  "_ts": 1452125323,
+  "_attachments": "attachments/"
+}
