@@ -37,7 +37,7 @@ const Education = class Education extends Document {
     ed.type = 'education';
 
     // instantiate a document
-    super(ed, ['links', 'location']);
+    super(ed, ['links', 'location', 'startYear']);
 
     const minYear = 1986; // earliest year possible for "startYear" and "endYear"
     const maxYear = 2100; // latest year possible for "startYear" and "endYear"
@@ -47,7 +47,6 @@ const Education = class Education extends Document {
     let endYear;
     let org;
     let program;
-    let startYear;
 
     // Define the non-configurable properties
     Object.defineProperties(this, {
@@ -122,27 +121,12 @@ const Education = class Education extends Document {
         writable: false,
       },
 
-      // define the "startYear" attribute
-      startYear: {
-        configurable: false,
-        enumerable: true,
-        get() { return startYear; },
-        set(val) {
-          if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
-            startYear = val;
-            return startYear;
-          }
-          throw new Error('The "startYear" attribute must be an integer from `1986` to `2100`.');
-        },
-      },
-
     });
 
     // initialize the values of each of the above properties
     this.endYear = data.endYear;
     this.location = data.location;
     this.organization = data.organization;
-    this.startYear = data.startYear;
 
     if ('program' in data) this.program = data.program;
 

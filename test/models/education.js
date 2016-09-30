@@ -112,15 +112,6 @@ describe('Education', function EducationSpec() {
 
   });
 
-  it('Education.prototype.location', function locAttr() {
-
-    const ed = new Education(data);
-
-    expect(ed.location).toBe(data.location);
-    expect(Object.getOwnPropertyDescriptor(ed, 'location').configurable).toBe(false);
-    expect(Object.getOwnPropertyDescriptor(ed, 'location').enumerable).toBe(true);
-  });
-
   it('Education.prototype.organization', function orgAttr() {
 
     const ed = new Education(data);
@@ -152,20 +143,6 @@ describe('Education', function EducationSpec() {
 
     ed.program = 2;
     expect(ed.program).toBe(String(2));
-
-  });
-
-  it('Education.prototype.startYear', function startYearAtt() {
-
-    const ed = new Education(data);
-    const setBadInteger = () => { ed.startYear = 2; };
-    const setNonInteger = () => { ed.startYear = null; };
-
-    expect(ed.startYear).toBe(data.startYear);
-    expect(Object.getOwnPropertyDescriptor(ed, 'startYear').configurable).toBe(false);
-    expect(Object.getOwnPropertyDescriptor(ed, 'startYear').enumerable).toBe(true);
-    expect(setBadInteger).toThrow();
-    expect(setNonInteger).toThrow();
 
   });
 
