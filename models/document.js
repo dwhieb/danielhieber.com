@@ -106,8 +106,7 @@ const Document = class Document {
           // define the ".addCategory()" method
           this.addCategory = category => {
             if (typeof category === 'string') {
-              categories.push(category);
-              return Array.from(categories); // don't return the actual categories array
+              return categories.push(category);
             }
             throw new Error('The name of the category must be a string.');
           };
@@ -119,8 +118,7 @@ const Document = class Document {
           this.removeCategory = category => {
             const index = categories.findIndex(item => item === category);
             if (index >= 0) {
-              categories.splice(index, 1);
-              return Array.from(categories); // don't return the actual categories array
+              return categories.splice(index, 1);
             }
           };
 

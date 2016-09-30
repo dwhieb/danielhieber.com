@@ -1,0 +1,22 @@
+{
+  "type": "education",
+  "organization": "UCSB",
+  "program": "M.A., Linguistics || NULL",
+  "city": "Santa Barbara, CA",
+  "startYear": 2013,
+  "endYear": 2018,
+  "endYear": "present (empty string should NOT be allowed for endYear)",
+  "endYear": null,
+  "achievements": [
+    "Chancellor's Fellowship Recipient",
+    "*magna cum laude*"
+  ],
+  "links": {
+    "org": "http://www.linguistics.ucsb.edu"
+  },
+  "_rid": "9XUnAOPvcgAQAAAAAAAAAA==",
+  "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAQAAAAAAAAAA==/",
+  "_etag": "\"00009e00-0000-0000-0000-568daccd0000\"",
+  "_ts": 1452125389,
+  "_attachments": "attachments/"
+}
