@@ -94,24 +94,6 @@ describe('Education', function EducationSpec() {
 
   });
 
-  it('Education.prototype.endYear', function endYearAttr() {
-
-    const ed = new Education(data);
-    const setBadInteger = () => { ed.endYear = 2; };
-    const setBadString = () => { ed.endYear = 'now'; };
-    const setEmptyString = () => { ed.endYear = ''; };
-    const setUndefined = () => { ed.endYear = undefined; };
-
-    expect(ed.endYear).toBe(data.endYear);
-    expect(Object.getOwnPropertyDescriptor(ed, 'endYear').configurable).toBe(false);
-    expect(Object.getOwnPropertyDescriptor(ed, 'endYear').enumerable).toBe(true);
-    expect(setBadInteger).toThrow();
-    expect(setBadString).toThrow();
-    expect(setEmptyString).toThrow();
-    expect(setUndefined).toThrow();
-
-  });
-
   it('Education.prototype.organization', function orgAttr() {
 
     const ed = new Education(data);

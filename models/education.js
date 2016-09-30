@@ -37,14 +37,10 @@ const Education = class Education extends Document {
     ed.type = 'education';
 
     // instantiate a document
-    super(ed, ['links', 'location', 'startYear']);
-
-    const minYear = 1986; // earliest year possible for "startYear" and "endYear"
-    const maxYear = 2100; // latest year possible for "startYear" and "endYear"
+    super(ed, ['endYear', 'links', 'location', 'startYear']);
 
     // private variables for getters/setters
     const achievements = [];
-    let endYear;
     let org;
     let program;
 
@@ -64,27 +60,6 @@ const Education = class Education extends Document {
         configurable: false,
         enumerable: false,
         writable: false,
-      },
-
-      // define the "endYear" attribute (may be an integer, string, or null)
-      endYear: {
-        configurable: false,
-        enumerable: true,
-        get() { return endYear; },
-        set(val) {
-
-          if (
-            (Number.isInteger(val) && minYear <= val && val <= maxYear)
-            || (typeof val === 'string' && val === 'present')
-            || val === null
-          ) {
-            endYear = val;
-            return endYear;
-          }
-
-          throw new Error('The "endYear" attribute is incorrectly formatted.');
-
-        },
       },
 
       // define the "organization" attribute
@@ -124,8 +99,6 @@ const Education = class Education extends Document {
     });
 
     // initialize the values of each of the above properties
-    this.endYear = data.endYear;
-    this.location = data.location;
     this.organization = data.organization;
 
     if ('program' in data) this.program = data.program;
