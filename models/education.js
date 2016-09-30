@@ -1,10 +1,21 @@
 const Document = require('./document');
 
+/**
+ * A class representing an Education item
+ * @type {Object}
+ * @class
+ */
 const Education = class Education extends Document {
+  /**
+   * Create a new instance of an Education item
+   * @param {Object} data         The data to populate the Education item with
+   */
   constructor(data) {
 
+    // create an empty education object to copy data into
     const ed = {};
 
+    // required attributes
     const required = [
       'city',
       'endYear',
@@ -12,36 +23,44 @@ const Education = class Education extends Document {
       'startYear',
     ];
 
+    // check for required attributes
     required.forEach(attr => {
       if (!(attr in data)) throw new Error(`The "${attr}" attribute is required.`);
     });
 
+    // copy whitelisted attributes
     Education.whitelist.forEach(attr => {
       if (attr in data) ed[attr] = data[attr];
     });
 
+    // set document type to "education"
     ed.type = 'education';
 
+    // instantiate a document
     super(data, 'links');
 
-    const minYear = 1986;
-    const maxYear = 2100;
+    const minYear = 1986; // earliest year possible for "startYear" and "endYear"
+    const maxYear = 2100; // latest year possible for "startYear" and "endYear"
 
+    // private variables for getters/setters
     const achievements = [];
-    let city;
-    let endYear;
-    let org;
-    let program;
-    let startYear;
+    let city = '';
+    let endYear = 0;
+    let org = '';
+    let program = '';
+    let startYear = 0;
 
+    // Define the non-configurable properties
     Object.defineProperties(this, {
 
+      // getter for the "achievements" attribute
       achievements: {
         configurable: false,
         writable: false,
         get() { return Array.from(achievements); }, // don't return the actual achievements array
       },
 
+      // adds an achievement to the "achievements" array
       addAchievement: {
         value: ach => achievements.push(String(ach)),
         configurable: false,
@@ -49,6 +68,7 @@ const Education = class Education extends Document {
         writable: false,
       },
 
+      // define the "city" attribute
       city: {
         configurable: false,
         writable: true,
@@ -59,6 +79,7 @@ const Education = class Education extends Document {
         },
       },
 
+      // define the "endYear" attribute (may be an integer, string, or null)
       endYear: {
         configurable: false,
         writable: true,
@@ -79,6 +100,7 @@ const Education = class Education extends Document {
         },
       },
 
+      // define the "organization" attribute
       organization: {
         configurable: false,
         writable: true,
@@ -89,6 +111,7 @@ const Education = class Education extends Document {
         },
       },
 
+      // define the "program" attribute
       program: {
         configurable: false,
         writable: true,
@@ -99,6 +122,7 @@ const Education = class Education extends Document {
         },
       },
 
+      // removes an achivement from the "achivements" array
       removeAchievement: {
         value: val => {
           const i = achievements.indexOf(val);
@@ -110,6 +134,7 @@ const Education = class Education extends Document {
         writable: false,
       },
 
+      // define the "startYear" attribute
       startYear: {
         configurable: false,
         writable: true,
@@ -125,6 +150,7 @@ const Education = class Education extends Document {
 
     });
 
+    // initialize the values of each of the above properties
     this.city = data.city;
     this.endYear = data.endYear;
     this.organization = data.organization;
@@ -138,6 +164,11 @@ const Education = class Education extends Document {
 
   }
 
+  /**
+   * Gets the array of allowable properties for the Education class
+   * @method whitelist
+   * @return {Array} whitelist        Returns the array of allowable properties
+   */
   static get whitelist() {
     return Document.whitelist.concat([
       'achievements',
