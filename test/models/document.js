@@ -290,6 +290,32 @@ describe('Document', function DocumentTest() {
 
   });
 
+  it('Subclass.location', function titleAttr() {
+
+    const data = {
+      type: 'test',
+      location: 'Santa Barbara, CA',
+    };
+
+    const subclass = makeSubclass(data, 'location');
+
+    const nonStringLoc = () => {
+      const subclass = makeSubclass({ type: 'test', location: 2 }, 'location');
+      expect(subclass.location).toBe(String(2));
+    };
+    const setNonStringLoc = () => {
+      subclass.location = 2;
+      expect(subclass.location).toBe(String(2));
+    };
+
+    expect(subclass.location).toBe(data.location);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'location').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'location').enumerable).toBe(true);
+    expect(nonStringLoc).not.toThrow();
+    expect(setNonStringLoc).not.toThrow();
+
+  });
+
   it('Subclass.title', function titleAttr() {
 
     const data = {
@@ -299,14 +325,20 @@ describe('Document', function DocumentTest() {
 
     const subclass = makeSubclass(data, 'title');
 
-    const badTitle = () => makeSubclass({ type: 'test', title: 2 }, 'title');
-    const setBadTitle = () => { subclass.title = 2; };
+    const nonStringTitle = () => {
+      const subclass = makeSubclass({ type: 'test', title: 2 }, 'title');
+      expect(subclass.title).toBe(String(2));
+    };
+    const setNonStringTitle = () => {
+      subclass.title = 2;
+      expect(subclass.title).toBe(String(2));
+    };
 
     expect(subclass.title).toBe(data.title);
     expect(Object.getOwnPropertyDescriptor(subclass, 'title').configurable).toBe(false);
     expect(Object.getOwnPropertyDescriptor(subclass, 'title').enumerable).toBe(true);
-    expect(badTitle).toThrow();
-    expect(setBadTitle).toThrow();
+    expect(nonStringTitle).not.toThrow();
+    expect(setNonStringTitle).not.toThrow();
 
   });
 

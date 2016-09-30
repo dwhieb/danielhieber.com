@@ -228,6 +228,30 @@ const Document = class Document {
 
         }
 
+        // define the "location" attribute
+        case 'location': {
+
+          // a variable for the getters and setters to store the "location" data in
+          let loc = '';
+
+          // set the property descriptor
+          Object.defineProperty(this, 'location', {
+            configurable: false,
+            enumerable: true,
+            get() { return loc; },
+            set(val) {
+              loc = String(val);
+              return loc;
+            },
+          });
+
+          // set the initial value of the "location" attribute
+          if (data.location) this.location = data.location;
+
+          break;
+
+        }
+
         // define the "title" attribute
         case 'title': {
 
@@ -240,11 +264,8 @@ const Document = class Document {
             enumerable: true,
             get() { return title; },
             set(val) {
-              if (typeof val === 'string') {
-                title = val;
-                return title;
-              }
-              throw new Error('The "title" attribute must be a string.');
+              title = String(val);
+              return title;
             },
           });
 
