@@ -134,6 +134,7 @@ describe('Education', function EducationSpec() {
       const whitelist = Document.whitelist.concat([
         'achievements',
         'endYear',
+        'links',
         'location',
         'organization',
         'program',

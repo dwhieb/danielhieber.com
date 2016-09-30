@@ -118,6 +118,7 @@ const Education = class Education extends Document {
     return Document.whitelist.concat([
       'achievements',
       'endYear',
+      'links',
       'location',
       'organization',
       'program',
