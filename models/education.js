@@ -18,6 +18,7 @@ const Education = class Education extends Document {
     // required attributes
     const required = [
       'endYear',
+      'location',
       'organization',
       'startYear',
     ];
@@ -36,7 +37,7 @@ const Education = class Education extends Document {
     ed.type = 'education';
 
     // instantiate a document
-    super(ed, 'links');
+    super(ed, ['links', 'location']);
 
     const minYear = 1986; // earliest year possible for "startYear" and "endYear"
     const maxYear = 2100; // latest year possible for "startYear" and "endYear"
@@ -139,6 +140,7 @@ const Education = class Education extends Document {
 
     // initialize the values of each of the above properties
     this.endYear = data.endYear;
+    this.location = data.location;
     this.organization = data.organization;
     this.startYear = data.startYear;
 
@@ -159,6 +161,7 @@ const Education = class Education extends Document {
     return Document.whitelist.concat([
       'achievements',
       'endYear',
+      'location',
       'organization',
       'program',
       'startYear',

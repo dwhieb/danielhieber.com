@@ -5,6 +5,7 @@ describe('Education', function EducationSpec() {
 
   const data = {
     endYear: 2016,
+    location: 'Santa Barbara, CA',
     organization: 'University of California, Santa Barbara',
     startYear: 2013,
     extraProperty: 'This is an extra property.',
@@ -21,6 +22,12 @@ describe('Education', function EducationSpec() {
     const noEndYear = () => {
       const testData = Object.assign({}, data);
       delete testData.endYear;
+      new Education(testData);
+    };
+
+    const noLoc = () => {
+      const testData = Object.assign({}, data);
+      delete testData.location;
       new Education(testData);
     };
 
@@ -41,6 +48,7 @@ describe('Education', function EducationSpec() {
     expect(ed.type).toBe('education');
     expect(ed.links).toBeDefined();
     expect(noEndYear).toThrow();
+    expect(noLoc).toThrow();
     expect(noOrg).toThrow();
     expect(noStartYear).toThrow();
 
@@ -78,6 +86,7 @@ describe('Education', function EducationSpec() {
 
     expect(Array.isArray(ed.achievements)).toBe(true);
     expect(Object.getOwnPropertyDescriptor(ed, 'achievements').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(ed, 'achievements').enumerable).toBe(true);
     expect(ed.achievements.length).toBe(0);
 
     ed.achievements = arr;
@@ -95,11 +104,21 @@ describe('Education', function EducationSpec() {
 
     expect(ed.endYear).toBe(data.endYear);
     expect(Object.getOwnPropertyDescriptor(ed, 'endYear').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(ed, 'endYear').enumerable).toBe(true);
     expect(setBadInteger).toThrow();
     expect(setBadString).toThrow();
     expect(setEmptyString).toThrow();
     expect(setUndefined).toThrow();
 
+  });
+
+  it('Education.prototype.location', function locAttr() {
+
+    const ed = new Education(data);
+
+    expect(ed.location).toBe(data.location);
+    expect(Object.getOwnPropertyDescriptor(ed, 'location').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(ed, 'location').enumerable).toBe(true);
   });
 
   it('Education.prototype.organization', function orgAttr() {
@@ -108,6 +127,7 @@ describe('Education', function EducationSpec() {
 
     expect(ed.organization).toBe(data.organization);
     expect(Object.getOwnPropertyDescriptor(ed, 'organization').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(ed, 'organization').enumerable).toBe(true);
 
     ed.organization = undefined;
     expect(ed.organization).toBe(String(undefined));
@@ -125,6 +145,7 @@ describe('Education', function EducationSpec() {
 
     expect(ed.program).toBe(testData.program);
     expect(Object.getOwnPropertyDescriptor(ed, 'program').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(ed, 'program').enumerable).toBe(true);
 
     ed.program = undefined;
     expect(ed.program).toBe(String(undefined));
@@ -142,6 +163,7 @@ describe('Education', function EducationSpec() {
 
     expect(ed.startYear).toBe(data.startYear);
     expect(Object.getOwnPropertyDescriptor(ed, 'startYear').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(ed, 'startYear').enumerable).toBe(true);
     expect(setBadInteger).toThrow();
     expect(setNonInteger).toThrow();
 
@@ -153,6 +175,7 @@ describe('Education', function EducationSpec() {
       const whitelist = Document.whitelist.concat([
         'achievements',
         'endYear',
+        'location',
         'organization',
         'program',
         'startYear',
