@@ -17,7 +17,6 @@ const Education = class Education extends Document {
 
     // required attributes
     const required = [
-      'city',
       'endYear',
       'organization',
       'startYear',
@@ -44,7 +43,6 @@ const Education = class Education extends Document {
 
     // private variables for getters/setters
     const achievements = [];
-    let city = '';
     let endYear = 0;
     let org = '';
     let program = '';
@@ -66,17 +64,6 @@ const Education = class Education extends Document {
         configurable: false,
         enumerable: false,
         writable: false,
-      },
-
-      // define the "city" attribute
-      city: {
-        configurable: false,
-        enumerable: true,
-        get() { return city; },
-        set(val) {
-          city = String(val);
-          return city;
-        },
       },
 
       // define the "endYear" attribute (may be an integer, string, or null)
@@ -151,7 +138,6 @@ const Education = class Education extends Document {
     });
 
     // initialize the values of each of the above properties
-    this.city = data.city;
     this.endYear = data.endYear;
     this.organization = data.organization;
     this.startYear = data.startYear;
@@ -172,7 +158,6 @@ const Education = class Education extends Document {
   static get whitelist() {
     return Document.whitelist.concat([
       'achievements',
-      'city',
       'endYear',
       'organization',
       'program',

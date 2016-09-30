@@ -4,7 +4,6 @@ const Education = require('../../models/education');
 describe('Education', function EducationSpec() {
 
   const data = {
-    city: 'Santa Barbara, CA',
     endYear: 2016,
     organization: 'University of California, Santa Barbara',
     startYear: 2013,
@@ -18,12 +17,6 @@ describe('Education', function EducationSpec() {
     } catch (err) {
       fail(err);
     }
-
-    const noCity = () => {
-      const testData = Object.assign({}, data);
-      delete testData.city;
-      new Education(testData);
-    };
 
     const noEndYear = () => {
       const testData = Object.assign({}, data);
@@ -47,7 +40,6 @@ describe('Education', function EducationSpec() {
     expect(ed.program).toBe('');
     expect(ed.type).toBe('education');
     expect(ed.links).toBeDefined();
-    expect(noCity).toThrow();
     expect(noEndYear).toThrow();
     expect(noOrg).toThrow();
     expect(noStartYear).toThrow();
@@ -90,23 +82,6 @@ describe('Education', function EducationSpec() {
 
     ed.achievements = arr;
     expect(ed.achievements).not.toBe(arr);
-
-  });
-
-  it('Education.prototype.city', function cityAttr() {
-
-    const ed = new Education(data);
-    const newCity = 'New City';
-    const setBadCity = () => {
-      ed.city = null;
-      expect(ed.city).toBe('null');
-    };
-
-    expect(ed.city).toBe(data.city);
-    expect(setBadCity).not.toThrow();
-
-    ed.city = newCity;
-    expect(ed.city).toBe(newCity);
 
   });
 
@@ -177,7 +152,6 @@ describe('Education', function EducationSpec() {
 
       const whitelist = Document.whitelist.concat([
         'achievements',
-        'city',
         'endYear',
         'organization',
         'program',
