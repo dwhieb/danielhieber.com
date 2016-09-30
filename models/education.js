@@ -37,7 +37,7 @@ const Education = class Education extends Document {
     ed.type = 'education';
 
     // instantiate a document
-    super(data, 'links');
+    super(ed, 'links');
 
     const minYear = 1986; // earliest year possible for "startYear" and "endYear"
     const maxYear = 2100; // latest year possible for "startYear" and "endYear"
@@ -56,7 +56,7 @@ const Education = class Education extends Document {
       // getter for the "achievements" attribute
       achievements: {
         configurable: false,
-        writable: false,
+        enumerable: true,
         get() { return Array.from(achievements); }, // don't return the actual achievements array
       },
 
@@ -71,7 +71,7 @@ const Education = class Education extends Document {
       // define the "city" attribute
       city: {
         configurable: false,
-        writable: true,
+        enumerable: true,
         get() { return city; },
         set(val) {
           city = String(val);
@@ -82,7 +82,7 @@ const Education = class Education extends Document {
       // define the "endYear" attribute (may be an integer, string, or null)
       endYear: {
         configurable: false,
-        writable: true,
+        enumerable: true,
         get() { return endYear; },
         set(val) {
 
@@ -103,7 +103,7 @@ const Education = class Education extends Document {
       // define the "organization" attribute
       organization: {
         configurable: false,
-        writable: true,
+        enumerable: true,
         get() { return org; },
         set(val) {
           org = String(val);
@@ -114,7 +114,7 @@ const Education = class Education extends Document {
       // define the "program" attribute
       program: {
         configurable: false,
-        writable: true,
+        enumerable: true,
         get() { return program; },
         set(val) {
           program = String(val);
@@ -137,7 +137,7 @@ const Education = class Education extends Document {
       // define the "startYear" attribute
       startYear: {
         configurable: false,
-        writable: true,
+        enumerable: true,
         get() { return startYear; },
         set(val) {
           if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
