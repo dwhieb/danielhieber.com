@@ -50,8 +50,9 @@ const Language = class Language extends Document {
         enumerable: true,
         get() { return competency; },
         set(val) {
-          if (competencyWhitelist.includes(val)) {
-            competency = val;
+          const comp = val.toLowerCase();
+          if (competencyWhitelist.includes(comp)) {
+            competency = comp;
             return competency;
           }
           throw new Error(`Invalid value for the "competency" attribute.`);
@@ -59,6 +60,9 @@ const Language = class Language extends Document {
       },
 
     });
+
+    this.autonym = lang.autonym;
+    this.competency = lang.competency;
 
   }
 
