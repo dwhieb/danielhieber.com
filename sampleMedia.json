@@ -1,0 +1,12 @@
+{
+  "type": "media",
+  "title": "The three-minute challenge: Graduate student in linguistics goes on to compete in the first UC-wide competition on May 4",
+  "author": "Julie Cohen",
+  "date": "Date.toJSON()",
+  "publication": "UC Santa Barbara Current",
+  "links": {
+    "mendeley": "https://api.mendeley.com/documents/bf3b0848-0fa3-4b6f-a470-2523bb1e40ed",
+    "publication": "http://www.news.ucsb.edu/2015/015330/three-minute-challenge"
+  },
+  "categories": ["documentation"]
+}

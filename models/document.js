@@ -81,6 +81,9 @@ const Document = class Document {
     const minYear = 1986; // minimum year allowed for "year", "startYear", and "endYear" properties
     const maxYear = 2100; // maximum year allowed for "year", "startYear", and "endYear" properties
 
+    // a hash of private variables (allows string attributes to be defined dynamically)
+    const _private = {};
+
     // define properties on the subclass that have been specified in the "properties" argument
     props.forEach(property => {
 
@@ -92,305 +95,286 @@ const Document = class Document {
         throw new Error(`Property names in the "properties" argument must be strings.`);
       }
 
-      switch (prop) {
+      const stringProps = [
+        'author',
+        'location',
+        'title',
+        'publication',
+      ];
 
-        // define the "categories" attribute and its associated methods
-        case 'categories': {
+      // if the property to add is a simple string property, use the generic string definition
+      if (stringProps.includes(prop)) {
 
-          // array for getter and setter to use in storing categories
-          const categories = new Set();
+        // set the property descriptor
+        Object.defineProperty(this, prop, {
+          configurable: false,
+          enumerable: true,
+          get() { return _private[prop]; },
+          set(val) {
+            _private[prop] = String(val);
+            return _private[prop];
+          },
+        });
 
-          Object.defineProperties(this, {
+        // initialize the value of the string property
+        if (data[prop]) _private[prop] = data[prop];
 
-            // define the "categories" attribute
-            categories: {
-              configurable: false,
-              enumerable: true,
-              get() { return Array.from(categories); },
-            },
+      // otherwise, use the specific property definitions
+      } else {
 
-            // define the ".addCategory()" method
-            addCategory: {
-              value: category => {
-                if (typeof category === 'string') {
-                  return Array.from(categories.add(category));
-                }
-                throw new Error('The name of the category must be a string.');
+        switch (prop) {
+
+          // define the "categories" attribute and its associated methods
+          case 'categories': {
+
+            // array for getter and setter to use in storing categories
+            const categories = new Set();
+
+            Object.defineProperties(this, {
+
+              // define the "categories" attribute
+              categories: {
+                configurable: false,
+                enumerable: true,
+                get() { return Array.from(categories); },
               },
-              configurable: false,
-              enumerable: false,
-              writable: false,
-            },
 
-            // define the ".hasCategory()" method
-            hasCategory: {
-              value: category => categories.has(category),
-              configurable: false,
-              enumerable: false,
-              writable: false,
-            },
-
-            // define the ".removeCategory()" method
-            removeCategory: {
-              value: category => categories.delete(category),
-              configurable: false,
-              enumerable: false,
-              writable: false,
-            },
-
-          });
-
-          // set the initial value of the "categories" attribute
-          if (Array.isArray(data.categories) || data.categories instanceof Set) {
-            data.categories.forEach(this.addCategory);
-          }
-
-          break;
-
-        }
-
-        // define the "description" attribute and its associated "html" and "markdown" attributes
-        case 'description': {
-
-          // variables for getters and setters to store HTML and Markdown data
-          let html = '';
-          let markdown = '';
-
-          Object.defineProperties(this, {
-
-            // define the "description" attribute
-            description: {
-              configurable: false,
-              enumerable: false,
-              get() { return markdown; },
-              set(val) {
-                // set the "markdown" and "html" attributes whenever the "description" attribute is set
-                markdown = String(val);
-                html = md.toHTML(markdown);
-                return markdown;
+              // define the ".addCategory()" method
+              addCategory: {
+                value: category => {
+                  if (typeof category === 'string') {
+                    return Array.from(categories.add(category));
+                  }
+                  throw new Error('The name of the category must be a string.');
+                },
+                configurable: false,
+                enumerable: false,
+                writable: false,
               },
-            },
 
-            // define the "html" attribute
-            html: {
-              configurable: false,
-              enumerable: true,
-              get() { return html; },
-            },
-
-            // define the "markdown" attribute
-            markdown: {
-              configurable: false,
-              enumerable: true,
-              get() {
-                return markdown;
+              // define the ".hasCategory()" method
+              hasCategory: {
+                value: category => categories.has(category),
+                configurable: false,
+                enumerable: false,
+                writable: false,
               },
-            },
 
-          });
-
-          // set the initial values for the "description", "html", and "markdown" attributes
-          if (data.description || data.markdown) {
-            this.description = data.description || data.markdown;
-          }
-
-          break;
-
-        }
-
-        case 'endYear': {
-
-          let endYear;
-
-          Object.defineProperty(this, 'endYear', {
-            configurable: false,
-            enumerable: true,
-            get() { return endYear; },
-            set(val) {
-
-              if (
-                (Number.isInteger(val) && minYear <= val && val <= maxYear)
-                || (typeof val === 'string' && val === 'present')
-                || val === null
-              ) {
-                endYear = val;
-                return endYear;
-              }
-
-              throw new Error('The "endYear" attribute is incorrectly formatted.');
-
-            },
-          });
-
-          if (data.endYear) this.endYear = data.endYear;
-
-          break;
-
-        }
-
-        // define the "links" attribute and its associated methods
-        case 'links': {
-
-          // a hash for the getters and setters to store links in
-          const links = {};
-
-          Object.defineProperties(this, {
-
-            // define the "links" attribute
-            links: {
-              configurable: false,
-              enumerable: true,
-              get() { return Object.assign({}, links); }, // don't return the actual links object
-            },
-
-            // define the ".addLink()" method
-            addLink: {
-              value: (linkName, url) => {
-
-                // linkName must be a string
-                if (typeof linkName !== 'string') {
-                  throw new Error(`The "linkName" argument must be a string.`);
-                }
-
-                // URL must be a valid URI string
-                if (validUrl.isUri(url)) {
-                  links[linkName] = url;
-                  return Object.assign({}, links); // don't return the actual links object
-                }
-
-                throw new Error(`The provided URL "${url}" is not a valid URL string.`);
-
+              // define the ".removeCategory()" method
+              removeCategory: {
+                value: category => categories.delete(category),
+                configurable: false,
+                enumerable: false,
+                writable: false,
               },
-              configurable: false,
-              enumerable: false,
-              writable: false,
-            },
 
-            // define the ".getLink()" method
-            getLink: {
-              value: linkName => links[linkName],
-              configurable: false,
-              enumerable: false,
-              writable: false,
-            },
+            });
 
-            // define the ".removeLink()" method
-            removeLink: {
-              value: linkName => Reflect.deleteProperty(links, linkName),
-              configurable: false,
-              enumerable: false,
-              writable: false,
-            },
-
-          });
-
-          // set the initial value of the "links" attribute
-          if (data.links && typeof data.links === 'object') {
-            for (const linkName in data.links) {
-              this.addLink(linkName, data.links[linkName]);
+            // set the initial value of the "categories" attribute
+            if (Array.isArray(data.categories) || data.categories instanceof Set) {
+              data.categories.forEach(this.addCategory);
             }
+
+            break;
+
           }
 
-          break;
+          // define the "description" attribute and its associated "html" and "markdown" attributes
+          case 'description': {
 
-        }
+            // variables for getters and setters to store HTML and Markdown data
+            let html = '';
+            let markdown = '';
 
-        // define the "location" attribute
-        case 'location': {
+            Object.defineProperties(this, {
 
-          // a variable for the getters and setters to store the "location" data in
-          let loc;
+              // define the "description" attribute
+              description: {
+                configurable: false,
+                enumerable: false,
+                get() { return markdown; },
+                set(val) {
+                  // set the "markdown" and "html" attributes whenever the "description" attribute is set
+                  markdown = String(val);
+                  html = md.toHTML(markdown);
+                  return markdown;
+                },
+              },
 
-          // set the property descriptor
-          Object.defineProperty(this, 'location', {
-            configurable: false,
-            enumerable: true,
-            get() { return loc; },
-            set(val) {
-              loc = String(val);
-              return loc;
-            },
-          });
+              // define the "html" attribute
+              html: {
+                configurable: false,
+                enumerable: true,
+                get() { return html; },
+              },
 
-          // set the initial value of the "location" attribute
-          if (data.location) this.location = data.location;
+              // define the "markdown" attribute
+              markdown: {
+                configurable: false,
+                enumerable: true,
+                get() {
+                  return markdown;
+                },
+              },
 
-          break;
+            });
 
-        }
+            // set the initial values for the "description", "html", and "markdown" attributes
+            if (data.description || data.markdown) {
+              this.description = data.description || data.markdown;
+            }
 
-        // define the "title" attribute
-        case 'title': {
+            break;
 
-          // a variable for getters and setters to store the "title" data in
-          let title = '';
+          }
 
-          // define the "title" attribute
-          Object.defineProperty(this, 'title', {
-            configurable: false,
-            enumerable: true,
-            get() { return title; },
-            set(val) {
-              title = String(val);
-              return title;
-            },
-          });
+          case 'endYear': {
 
-          // set the initial value of the "title" attribute
-          if (data.title) this.title = data.title;
+            let endYear;
 
-          break;
+            Object.defineProperty(this, 'endYear', {
+              configurable: false,
+              enumerable: true,
+              get() { return endYear; },
+              set(val) {
 
-        }
+                if (
+                  (Number.isInteger(val) && minYear <= val && val <= maxYear)
+                  || (typeof val === 'string' && val === 'present')
+                  || val === null
+                ) {
+                  endYear = val;
+                  return endYear;
+                }
 
-        case 'startYear': {
+                throw new Error('The "endYear" attribute is incorrectly formatted.');
 
-          let startYear;
+              },
+            });
 
-          Object.defineProperty(this, 'startYear', {
-            configurable: false,
-            enumerable: true,
-            get() { return startYear; },
-            set(val) {
-              if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
-                startYear = val;
-                return startYear;
+            if (data.endYear) this.endYear = data.endYear;
+
+            break;
+
+          }
+
+          // define the "links" attribute and its associated methods
+          case 'links': {
+
+            // a hash for the getters and setters to store links in
+            const links = {};
+
+            Object.defineProperties(this, {
+
+              // define the "links" attribute
+              links: {
+                configurable: false,
+                enumerable: true,
+                get() { return Object.assign({}, links); }, // don't return the actual links object
+              },
+
+              // define the ".addLink()" method
+              addLink: {
+                value: (linkName, url) => {
+
+                  // linkName must be a string
+                  if (typeof linkName !== 'string') {
+                    throw new Error(`The "linkName" argument must be a string.`);
+                  }
+
+                  // URL must be a valid URI string
+                  if (validUrl.isUri(url)) {
+                    links[linkName] = url;
+                    return Object.assign({}, links); // don't return the actual links object
+                  }
+
+                  throw new Error(`The provided URL "${url}" is not a valid URL string.`);
+
+                },
+                configurable: false,
+                enumerable: false,
+                writable: false,
+              },
+
+              // define the ".getLink()" method
+              getLink: {
+                value: linkName => links[linkName],
+                configurable: false,
+                enumerable: false,
+                writable: false,
+              },
+
+              // define the ".removeLink()" method
+              removeLink: {
+                value: linkName => Reflect.deleteProperty(links, linkName),
+                configurable: false,
+                enumerable: false,
+                writable: false,
+              },
+
+            });
+
+            // set the initial value of the "links" attribute
+            if (data.links && typeof data.links === 'object') {
+              for (const linkName in data.links) {
+                this.addLink(linkName, data.links[linkName]);
               }
-              throw new Error('The "startYear" attribute must be an integer from `1986` to `2100`.');
-            },
-          });
+            }
 
-          if (data.startYear) this.startYear = data.startYear;
+            break;
 
-          break;
+          }
+
+          case 'startYear': {
+
+            let startYear;
+
+            Object.defineProperty(this, 'startYear', {
+              configurable: false,
+              enumerable: true,
+              get() { return startYear; },
+              set(val) {
+                if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
+                  startYear = val;
+                  return startYear;
+                }
+                throw new Error('The "startYear" attribute must be an integer from `1986` to `2100`.');
+              },
+            });
+
+            if (data.startYear) this.startYear = data.startYear;
+
+            break;
+
+          }
+
+          case 'year': {
+
+            let year;
+
+            Object.defineProperty(this, 'year', {
+              configurable: false,
+              enumerable: true,
+              get() { return year; },
+              set(val) {
+                if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
+                  year = val;
+                  return val;
+                }
+                throw new Error('The "year" attribute must be an integer from 1985 to 2100.');
+              },
+            });
+
+            if (data.year) this.year = data.year;
+
+            break;
+
+          }
+
+          default:
+            throw new Error(`Unrecognized property "${prop}".`);
 
         }
-
-        case 'year': {
-
-          let year;
-
-          Object.defineProperty(this, 'year', {
-            configurable: false,
-            enumerable: true,
-            get() { return year; },
-            set(val) {
-              if (Number.isInteger(val) && minYear <= val && val <= maxYear) {
-                year = val;
-                return val;
-              }
-              throw new Error('The "year" attribute must be an integer from 1985 to 2100.');
-            },
-          });
-
-          if (data.year) this.year = data.year;
-
-          break;
-
-        }
-
-        default:
-          return;
 
       }
 
