@@ -10,9 +10,9 @@ const Category = class Category extends Document {
    * Create a new category
    * @param {Object} data               The new category data.
    * @param {String} data.title          A human-readable title for this category. HTML special characters should be escaped.
-   * @param {String} data.abbr          A human-readable abbreviation for this category, as a string (no spaces, letters only)
    * @param {String} data.description   A description of this category. May contain Markdown. Accessing this property returns the markdown data, and setting it sets the "markdown" attribute.
    * @param {String} data.html          An HTML representation of the description.
+   * @param {String} data.key          A human-readable abbreviation for this category, as a string (no spaces, letters only)
    * @param {String} data.markdown      The original markdown content for the description. Setting this property also sets the value for the "description" attribute.
   */
   constructor(data = {}) {
@@ -39,17 +39,17 @@ const Category = class Category extends Document {
     });
 
     // set abbreviation if none exists
-    category.abbr = category.abbr
+    category.key = category.key
       || category.title
          .toLowerCase()
          .trim()
          .replace(/\s/g, '');
 
     // tests for a valid abbreviation string (a-z only)
-    const validAbbr = str => /^[a-z]{1,255}$/.test(str);
+    const validKey = str => /^[a-z]{1,255}$/.test(str);
 
     // must have a valid abbreviation string
-    if (!validAbbr(category.abbr)) throw new Error(`Invalid format for the "abbr" attribute.`);
+    if (!validKey(category.key)) throw new Error(`Invalid format for the "key" attribute.`);
 
     // set the "type" attribute to "category"
     category.type = 'category';
@@ -58,7 +58,7 @@ const Category = class Category extends Document {
     super(category, ['title', 'description']);
 
     // adjust property descriptors for "abbr" attribute
-    Object.defineProperty(this, 'abbr', {
+    Object.defineProperty(this, 'key', {
       configurable: false,
       enumerable: true,
       writable: true,
@@ -73,9 +73,9 @@ const Category = class Category extends Document {
    */
   static get whitelist() {
     return Document.whitelist.concat([
-      'abbr',
       'description',
       'html',
+      'key',
       'markdown',
       'title',
     ]);

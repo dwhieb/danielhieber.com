@@ -13,9 +13,9 @@ describe('Category', function CategoryTest() {
 
   it('new Category()', function newCategory() {
 
-    const badAbbr = () => {
+    const badKey = () => {
       const testData = Object.assign({}, data);
-      testData.abbr = 'badABBR';
+      testData.key = 'badKEY';
       new Category(testData);
     };
     const noData = () => new Category();
@@ -24,7 +24,7 @@ describe('Category', function CategoryTest() {
 
     const category = new Category(data);
 
-    expect(badAbbr).toThrow();
+    expect(badKey).toThrow();
     expect(noData).toThrow();
     expect(noDescription).toThrow();
     expect(noTitle).toThrow();
@@ -35,36 +35,36 @@ describe('Category', function CategoryTest() {
 
   });
 
-  it('Category.prototype.abbr', function abbreviationTest() {
+  it('Category.prototype.key', function keyAttr() {
 
     const data = {
-      title: 'Abbreviation Test',
-      description: 'This is a test for the abbreviation property.',
+      title: 'Key Test',
+      description: 'This is a test for the "key" attribute.',
       type: 'test',
     };
 
     const category = new Category(data);
 
-    expect(category.abbr).toBe('abbreviationtest');
-    expect(Object.getOwnPropertyDescriptor(category, 'abbr').configurable).toBe(false);
+    expect(category.key).toBe('keytest');
+    expect(Object.getOwnPropertyDescriptor(category, 'key').configurable).toBe(false);
 
     const moreData = {
-      title: 'Another Abbreviation Test',
-      description: 'This is a test for the abbreviation property (again).',
+      title: 'Another Key Test',
+      description: 'This is a test for the key property (again).',
       type: 'test',
-      abbr: 'anotherabbrtest',
+      key: 'anotherkeytest',
     };
 
     const anotherCategory = new Category(moreData);
 
-    expect(anotherCategory.abbr).toBe(moreData.abbr);
+    expect(anotherCategory.key).toBe(moreData.key);
 
   });
 
   it('Category.whitelist', function whitelistTest() {
 
     const whitelist = Document.whitelist.concat([
-      'abbr',
+      'key',
       'description',
       'html',
       'markdown',
