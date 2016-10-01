@@ -9,7 +9,10 @@ const Proficiency = class Proficiency extends Document {
     const prof = {};
 
     // required attributes
-    const required = [];
+    const required = [
+      'proficiencyType',
+      'title',
+    ];
 
     // check for required attributes
     required.forEach(attr => {
