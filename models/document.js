@@ -131,6 +131,30 @@ const Document = class Document {
 
         switch (prop) {
 
+          // define the "abbreviation" attribute
+          case 'abbreviation': {
+
+            let abbr;
+
+            Object.defineProperty(this, 'abbreviation', {
+              configurable: false,
+              enumerable: true,
+              get() { return abbr; },
+              set(val) {
+                if (typeof val === 'string' && /^\w+$/.test(val)) {
+                  abbr = val;
+                  return abbr;
+                }
+                throw new Error(`The "abbreviation" attribute must be set to an alphanumeric string.`);
+              },
+            });
+
+            if (data.abbreviation) this.abbreviation = data.abbreviation;
+
+            break;
+
+          }
+
           // define the "categories" attribute and its associated methods
           case 'categories': {
 

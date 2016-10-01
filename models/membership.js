@@ -1,8 +1,5 @@
 const Document = require('./document');
 
-// storage variable for the getter/setter for the "abbreviation" attribute
-let abbr;
-
 const Membership = class Membership extends Document {
   constructor(data) {
 
@@ -21,20 +18,8 @@ const Membership = class Membership extends Document {
     membership.type = 'membership';
 
     // instantiate the new Document
-    super(membership, ['categories', 'links', 'title']);
+    super(membership, ['abbreviation', 'categories', 'links', 'title']);
 
-  }
-
-  // getter for the "abbreviation" attribute
-  get abbreviation() { return abbr; }
-
-  // setter for the "abbreviation" attribute
-  set abbreviation(val) {
-    if (typeof val === 'string' && /^\w+$/.test(val)) {
-      abbr = val;
-      return abbr;
-    }
-    throw new Error(`The "abbreviation" attribute must be set to an alphanumeric string.`);
   }
 
   // whitelisted properties allowed in Media data

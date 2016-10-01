@@ -22,15 +22,6 @@ describe('Membership', function membershipSpec() {
 
   });
 
-  it('Membership.prototype.abbreviation', function abbrAttr() {
-    const membership = new Membership(data);
-    const setBadAbbr = () => { membership.abbreviation = 'BAD ABBR'; };
-    expect(setBadAbbr).toThrow();
-    const newAbbr = 'NEWABBR';
-    membership.abbreviation = newAbbr;
-    expect(membership.abbreviation).toBe(newAbbr);
-  });
-
   it('Membership.whitelist', function whitelistAttr() {
 
     const whitelist = Document.whitelist.concat([

@@ -124,6 +124,23 @@ describe('Document', function DocumentTest() {
 
   });
 
+  it('Subclass.abbreviation', function abbrAttr() {
+
+    const data = {
+      type: 'test',
+      abbreviation: 'MT',
+    };
+
+    const subclass = makeSubclass(data, 'abbreviation');
+
+    const setBadAbbr = () => { subclass.abbreviation = 'BAD ABBR'; };
+    expect(setBadAbbr).toThrow();
+    const newAbbr = 'NEWABBR';
+    subclass.abbreviation = newAbbr;
+    expect(subclass.abbreviation).toBe(newAbbr);
+
+  });
+
   it('Subclass.categories', function categoriesAttr() {
 
     const data = {
