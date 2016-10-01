@@ -155,6 +155,50 @@ const Document = class Document {
 
           }
 
+          case 'achievements': {
+
+            const achievements = [];
+
+            // Define the non-configurable properties
+            Object.defineProperties(this, {
+
+              // getter for the "achievements" attribute
+              achievements: {
+                configurable: false,
+                enumerable: true,
+                get() { return Array.from(achievements); }, // don't return the actual achievements array
+              },
+
+              // adds an achievement to the "achievements" array
+              addAchievement: {
+                value: ach => achievements.push(String(ach)),
+                configurable: false,
+                enumerable: false,
+                writable: false,
+              },
+
+              // removes an achivement from the "achivements" array
+              removeAchievement: {
+                value: val => {
+                  const i = achievements.indexOf(val);
+                  if (i >= 0) return achievements.splice(i, 1);
+                  return false;
+                },
+                configurable: false,
+                enumerable: false,
+                writable: false,
+              },
+
+            });
+
+            if (Array.isArray(data.achievements)) {
+              data.achievements.forEach(ach => this.addAchievement(ach));
+            }
+
+            break;
+
+          }
+
           // define the "categories" attribute and its associated methods
           case 'categories': {
 
