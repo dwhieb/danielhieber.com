@@ -102,8 +102,8 @@ const Document = class Document {
         'location',
         'organization',
         'program',
-        'title',
         'publication',
+        'title',
       ];
 
       // if the property to add is a simple string property, use the generic string definition
