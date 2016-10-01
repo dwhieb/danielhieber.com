@@ -1,5 +1,15 @@
 const Document = require('./document');
 
+const whitelist = [
+  'achievements',
+  'categories',
+  'endYear',
+  'links',
+  'organization',
+  'role',
+  'startYear',
+];
+
 const Work = class Work extends Document {
   constructor(data) {
 
@@ -28,21 +38,13 @@ const Work = class Work extends Document {
     work.type = 'work';
 
     // instantiate the new Document object
-    super(work, Work.whitelist);
+    super(work, whitelist);
 
   }
 
   // whitelist of allowable properties in the Reference data
   static get whitelist() {
-    return Document.whitelist.concat([
-      'achievements',
-      'categories',
-      'endYear',
-      'links',
-      'organization',
-      'role',
-      'startYear',
-    ]);
+    return Document.whitelist.concat(whitelist);
   }
 
 };
