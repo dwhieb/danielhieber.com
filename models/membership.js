@@ -30,8 +30,9 @@ const Membership = class Membership extends Document {
 
   // setter for the "abbreviation" attribute
   set abbreviation(val) {
-    if (typeof val === 'string' && val.match(/^\w+$/)) {
+    if (typeof val === 'string' && /^\w+$/.test(val)) {
       abbr = val;
+      return abbr;
     }
     throw new Error(`The "abbreviation" attribute must be set to an alphanumeric string.`);
   }
