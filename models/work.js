@@ -1,10 +1,10 @@
 const Document = require('./document');
 
-const Service = class Service extends Document {
+const Work = class Work extends Document {
   constructor(data) {
 
     // empty object for copying valid data to
-    const service = {};
+    const work = {};
 
     // required attributes
     const required = [
@@ -20,22 +20,22 @@ const Service = class Service extends Document {
     });
 
     // copy whitelisted attributes
-    Service.whitelist.forEach(attr => {
-      if (attr in data) service[attr] = data[attr];
+    Work.whitelist.forEach(attr => {
+      if (attr in data) work[attr] = data[attr];
     });
 
     // set "type" attribute
-    service.type = 'service';
+    work.type = 'work';
 
     // instantiate the new Document object
-    super(service, Service.whitelist);
+    super(work, Work.whitelist);
 
   }
 
   // whitelist of allowable properties in the Reference data
   static get whitelist() {
     return Document.whitelist.concat([
-      'abbreviation',
+      'achievements',
       'categories',
       'endYear',
       'links',
@@ -47,4 +47,4 @@ const Service = class Service extends Document {
 
 };
 
-module.exports = Service;
+module.exports = Work;

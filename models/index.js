@@ -10,4 +10,6 @@ module.exports = {
   Media: require('./media'),
   Membership: require('./membership'),
   Proficiency: require('./proficiency'),
+  Reference: require('./reference'),
+  Service: require('./service'),
 };
