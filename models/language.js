@@ -36,10 +36,9 @@ const Language = class Language extends Document {
     lang.type = 'language';
 
     // instantiate a new Document
-    super(lang, ['categories', 'links', 'title']);
+    super(lang, ['autonym', 'categories', 'links', 'title']);
 
     // variables for getters/setters to store their values in
-    let autonym;
     let competency;
 
     // allowed values for the "competency" attribute
@@ -50,38 +49,22 @@ const Language = class Language extends Document {
       'structural knowledge',
     ];
 
-    Object.defineProperties(this, {
-
-      // define the "autonym" attribute
-      autonym: {
-        configurable: false,
-        enumerable: true,
-        get() { return autonym; },
-        set(val) {
-          autonym = String(val);
-          return autonym;
-        },
+    // define the "competency" attribute
+    Object.defineProperty(this, 'competency', {
+      configurable: false,
+      enumerable: true,
+      get() { return competency; },
+      set(val) {
+        const comp = val.toLowerCase(); // "competency" attribute is always lowercase
+        if (competencyWhitelist.includes(comp)) {
+          competency = comp;
+          return competency;
+        }
+        throw new Error(`Invalid value for the "competency" attribute.`);
       },
-
-      // define the "competency" attribute
-      competency: {
-        configurable: false,
-        enumerable: true,
-        get() { return competency; },
-        set(val) {
-          const comp = val.toLowerCase(); // "competency" attribute is always lowercase
-          if (competencyWhitelist.includes(comp)) {
-            competency = comp;
-            return competency;
-          }
-          throw new Error(`Invalid value for the "competency" attribute.`);
-        },
-      },
-
     });
 
     // set initial values for the "autonym" and "competency" attributes
-    this.autonym = lang.autonym;
     this.competency = lang.competency;
 
   }

@@ -97,7 +97,11 @@ const Document = class Document {
 
       const stringProps = [
         'author',
+        'autonym',
+        'competency',
         'location',
+        'organization',
+        'program',
         'title',
         'publication',
       ];
@@ -117,7 +121,7 @@ const Document = class Document {
         });
 
         // initialize the value of the string property
-        if (data[prop]) _private[prop] = data[prop];
+        if (data[prop]) this[prop] = data[prop];
 
       // otherwise, use the specific property definitions
       } else {
@@ -317,7 +321,9 @@ const Document = class Document {
             // set the initial value of the "links" attribute
             if (data.links && typeof data.links === 'object') {
               for (const linkName in data.links) {
-                this.addLink(linkName, data.links[linkName]);
+                if (data.links.hasOwnProperty(linkName)) {
+                  this.addLink(linkName, data.links[linkName]);
+                }
               }
             }
 

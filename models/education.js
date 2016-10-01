@@ -37,12 +37,10 @@ const Education = class Education extends Document {
     ed.type = 'education';
 
     // instantiate a document
-    super(ed, ['endYear', 'links', 'location', 'startYear']);
+    super(ed, ['endYear', 'links', 'location', 'organization', 'program', 'startYear']);
 
     // private variables for getters/setters
     const achievements = [];
-    let org;
-    let program;
 
     // Define the non-configurable properties
     Object.defineProperties(this, {
@@ -60,28 +58,6 @@ const Education = class Education extends Document {
         configurable: false,
         enumerable: false,
         writable: false,
-      },
-
-      // define the "organization" attribute
-      organization: {
-        configurable: false,
-        enumerable: true,
-        get() { return org; },
-        set(val) {
-          org = String(val);
-          return org;
-        },
-      },
-
-      // define the "program" attribute
-      program: {
-        configurable: false,
-        enumerable: true,
-        get() { return program; },
-        set(val) {
-          program = String(val);
-          return program;
-        },
       },
 
       // removes an achivement from the "achivements" array
