@@ -141,6 +141,43 @@ describe('Document', function DocumentTest() {
 
   });
 
+  it('Subclass.achievements', function achievementsAttr() {
+
+    const data = {
+      type: 'test',
+      achievements: [
+        'This is this.',
+        'And that is that.',
+      ],
+    };
+
+    const subclass = makeSubclass(data, 'achievements');
+
+    const arr = [];
+
+    expect(Array.isArray(subclass.achievements)).toBe(true);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'achievements').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(subclass, 'achievements').enumerable).toBe(true);
+    expect(subclass.achievements.length).toBe(2);
+
+    subclass.achievements = arr;
+    expect(subclass.achievements).not.toBe(arr);
+
+    let ach = 'I did lots of cool things.';
+    let len = subclass.achievements.length;
+
+    subclass.addAchievement(ach);
+    expect(subclass.achievements.length).toBe(len + 1);
+    expect(subclass.achievements.includes(ach)).toBe(true);
+
+    len = subclass.achievements.length;
+    ach = data.achievements[0];
+
+    subclass.removeAchievement(ach);
+    expect(subclass.achievements.length).toBe(len - 1);
+
+  });
+
   it('Subclass.categories', function categoriesAttr() {
 
     const data = {

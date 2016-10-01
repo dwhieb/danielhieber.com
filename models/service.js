@@ -1,5 +1,15 @@
 const Document = require('./document');
 
+const whitelist = [
+  'abbreviation',
+  'categories',
+  'endYear',
+  'links',
+  'organization',
+  'role',
+  'startYear',
+];
+
 const Service = class Service extends Document {
   constructor(data) {
 
@@ -28,21 +38,13 @@ const Service = class Service extends Document {
     service.type = 'service';
 
     // instantiate the new Document object
-    super(service, Service.whitelist);
+    super(service, whitelist);
 
   }
 
   // whitelist of allowable properties in the Reference data
   static get whitelist() {
-    return Document.whitelist.concat([
-      'abbreviation',
-      'categories',
-      'endYear',
-      'links',
-      'organization',
-      'role',
-      'startYear',
-    ]);
+    return Document.whitelist.concat(whitelist);
   }
 
 };
