@@ -100,9 +100,12 @@ const Document = class Document {
         'autonym',
         'competency',
         'location',
+        'name',
         'organization',
+        'phone',
         'program',
         'publication',
+        'role',
         'title',
       ];
 
