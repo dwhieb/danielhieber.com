@@ -74,7 +74,9 @@ describe('Publication', function PubSpec() {
       'categories',
       'date',
       'description',
+      'html',
       'links',
+      'markdown',
       'pubType',
       'title',
     ]);

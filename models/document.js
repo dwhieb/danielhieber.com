@@ -254,6 +254,23 @@ const Document = class Document {
 
           }
 
+          case 'date': {
+
+            let date;
+
+            Object.defineProperty(this, 'date', {
+              configurable: false,
+              enumerable: true,
+              get() { return new Date(date); },
+              set(val) { date = new Date(val).toJSON(); },
+            });
+
+            if (data.date) this.date = data.date;
+
+            break;
+
+          }
+
           // define the "description" attribute and its associated "html" and "markdown" attributes
           case 'description': {
 

@@ -243,6 +243,26 @@ describe('Document', function DocumentTest() {
 
   });
 
+  it('Subclass.date', function dateAttr() {
+
+    const data = {
+      type: 'test',
+      date: '2016-10-1',
+    };
+
+    const subclass = makeSubclass(data, 'date');
+
+    expect(subclass.date instanceof Date).toBe(true);
+    expect(subclass.date).not.toBe(new Date(data.date));
+    expect(subclass.date.toString()).toBe(new Date(data.date).toString());
+
+    subclass.date = 2016;
+    expect(subclass.date.toString()).toBe(new Date(2016).toString());
+    subclass.date = '2016';
+    expect(subclass.date.toString()).toBe(new Date('2016').toString());
+
+  });
+
   it('Subclass.description', function descriptionAttr() {
 
     const data = {

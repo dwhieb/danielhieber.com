@@ -60,7 +60,9 @@ const Publication = class Publication extends Document {
       'categories',
       'date',
       'description',
+      'html',
       'links',
+      'markdown',
       'pubType',
       'title',
     ]);

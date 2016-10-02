@@ -49,21 +49,6 @@ describe('Media', function MediaSpec() {
 
   });
 
-  it('Media.prototype.date', function dateAttr() {
-
-    const media = new Media(data);
-
-    expect(media.date instanceof Date).toBe(true);
-    expect(media.date).not.toBe(new Date(data.date));
-    expect(media.date.toString()).toBe(new Date(data.date).toString());
-
-    media.date = 2016;
-    expect(media.date.toString()).toBe(new Date(2016).toString());
-    media.date = '2016';
-    expect(media.date.toString()).toBe(new Date('2016').toString());
-
-  });
-
   it('Media.whitelist', function whitelistAttr() {
 
     const whitelist = Document.whitelist.concat([

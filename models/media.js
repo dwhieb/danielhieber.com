@@ -1,7 +1,13 @@
 const Document = require('./document');
 
-// private variable for the "date" getter/setter
-let date;
+const whitelist = [
+  'author',
+  'categories',
+  'date',
+  'links',
+  'publication',
+  'title',
+];
 
 const Media = class Media extends Document {
   constructor(data) {
@@ -27,41 +33,17 @@ const Media = class Media extends Document {
       if (attr in data) media[attr] = data[attr];
     });
 
-    // generic subclass properties to be added
-    const props = [
-      'author',
-      'categories',
-      'links',
-      'publication',
-      'title',
-    ];
-
     // set "type" attribute
     media.type = 'media';
 
     // instantiate the new Document
-    super(media, props);
+    super(media, whitelist);
 
-  }
-
-  // getter for the "date" attribute
-  get date() { return new Date(date); }
-
-  // setter for the "date" attribute
-  set date(val) {
-    date = new Date(val).toJSON();
   }
 
   // whitelist of allowable properties in Media data
   static get whitelist() {
-    return Document.whitelist.concat([
-      'author',
-      'categories',
-      'date',
-      'links',
-      'publication',
-      'title',
-    ]);
+    return Document.whitelist.concat(whitelist);
   }
 
 };
