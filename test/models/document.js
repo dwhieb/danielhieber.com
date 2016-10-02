@@ -56,14 +56,35 @@ describe('Document', function DocumentTest() {
 
     const doc = new Document(data);
 
-    const configureID = () => {
-      Object.defineProperty(doc, 'id', { writable: true });
-    };
+    const badid = () => new Document({ type: 'test', id: 2 });
 
     doc.id = 'newid';
 
     expect(doc.id).toBe(data.id);
-    expect(configureID).toThrow();
+    expect(Object.getOwnPropertyDescriptor(doc, 'id').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(doc, 'id').enumerable).toBe(true);
+    expect(badid).toThrow();
+
+  });
+
+  it('Document.prototype.cvid', function cvidAttr() {
+
+    const data = {
+      type: 'test',
+      cvid: 2,
+    };
+
+    const doc = new Document(data);
+    const badCVID1 = () => new Document({ type: 'test', cvid: 0 });
+    const badCVID2 = () => new Document({ type: 'test', cvid: '2' });
+
+    doc.cvid = 3;
+
+    expect(doc.cvid).toBe(data.cvid);
+    expect(Object.getOwnPropertyDescriptor(doc, 'cvid').configurable).toBe(false);
+    expect(Object.getOwnPropertyDescriptor(doc, 'cvid').enumerable).toBe(true);
+    expect(badCVID1).toThrow();
+    expect(badCVID2).toThrow();
 
   });
 

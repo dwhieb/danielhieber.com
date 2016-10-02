@@ -9,7 +9,9 @@ module.exports = {
   Langauge: require('./language'),
   Media: require('./media'),
   Membership: require('./membership'),
+  Publication: require('./publication'),
   Proficiency: require('./proficiency'),
   Reference: require('./reference'),
   Service: require('./service'),
+  Work: require('./work'),
 };

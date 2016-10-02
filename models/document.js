@@ -11,8 +11,9 @@ const Document = class Document {
   /**
    * Create a new Document
    * @param {Object} data                The document data
-   * @param {String} [data.id]           The document ID
    * @param {String} data.type           The document type
+   * @param {String} [data.id]           The document ID
+   * @param {String} [data.cvid]         The CV ID of the document
    * @param {String} [data._attachments] The attachments URL
    * @param {String} [data._etag]        The document ETag
    * @param {String} [data._rid]         The unique resource identifier of the document
@@ -33,19 +34,30 @@ const Document = class Document {
     Document.whitelist.forEach(attr => {
       if (
         attr in data
-        && attr !== 'ttl'
         && attr !== '_ts'
+        && attr !== 'cvid'
+        && attr !== 'ttl'
         && typeof data[attr] !== 'string'
       ) {
         throw new Error(`The "${attr}" attribute must be a string.`);
       }
     });
 
+    // "id" must be a string (can't guarantee it will be a UUID)
+    if (data.id && typeof data.id !== 'string') {
+      throw new Error('The "id" attribute must be a string.');
+    }
+
+    // "cvid" must be an integer
+    if ('cvid' in data && !(Number.isInteger(data.cvid) && data.cvid > 0)) {
+      throw new Error('The "cvid" attribute must be an integer.');
+    }
+
     // all documents must have a "type" attribute
     if (!data.type) throw new Error(`The "type" attribute is required.`);
 
     // _ts must be an integer
-    if (data._ts && !Number.isInteger(data._ts)) {
+    if ('_ts' in data && !Number.isInteger(data._ts)) {
       throw new Error(`The "_ts" attribute must be an integer.`);
     }
 
@@ -484,6 +496,7 @@ const Document = class Document {
   static get whitelist() {
     return [
       'id',
+      'cvid',
       'type',
       '_attachments',
       '_etag',
