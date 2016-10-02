@@ -68,6 +68,5 @@ describe('Work', function WorkSpec() {
       if (!whitelist.includes(attr)) fail(`The "${attr}" attribute is not whitelisted.`);
     }
 
-
   });
 });
