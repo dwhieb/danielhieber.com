@@ -1,7 +1,9 @@
 {
   "spec_dir": "test",
   "spec_files": [
-    "*.js"
+    "*/*.jsTEMP",
+    "*.jsTEMP",
+    "models/*.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": true,

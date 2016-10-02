@@ -1,89 +1,86 @@
-/* eslint-disable no-underscore-dangle */
-
-const Document = require('./document').Document;
+const Document = require('./document');
 
 /**
  * Class representing a research Category
+ * @class Category
  * @extends Document
- */
-class Category extends Document {
+*/
+const Category = class Category extends Document {
   /**
    * Create a new category
    * @param {Object} data               The new category data.
-   * @param {String} data.id            The ID of the category, as a string (no spaces, letters only)
-   * @param {String} data.name          A human-readable name for this category. HTML special characters should be escaped.
-   * @param {String} data.description   A description of this category. May contain HTML.
-   */
-  constructor(data) {
-    super(Object.assign({ type: 'category' }, data));
-  }
-}
+   * @param {String} data.title          A human-readable title for this category. HTML special characters should be escaped.
+   * @param {String} data.description   A description of this category. May contain Markdown. Accessing this property returns the markdown data, and setting it sets the "markdown" attribute.
+   * @param {String} data.html          An HTML representation of the description.
+   * @param {String} data.key          A human-readable abbreviation for this category, as a string (no spaces, letters only)
+   * @param {String} data.markdown      The original markdown content for the description. Setting this property also sets the value for the "description" attribute.
+  */
+  constructor(data = {}) {
 
-const handler = {
-  construct(Target, args) {
-
-    const categoryData = args[0];
-
-    const whitelist = [
-      'id',
-      'name',
-      'description',
-      'ttl',
-      '_attachments',
-      '_etag',
-      '_rid',
-      '_self',
-      '_ts',
-    ];
-
+    // required attributes
     const required = [
-      'id',
-      'name',
+      'title',
       'description',
     ];
 
-    const data = { type: 'category' };
-
-    // copy only whitelisted properties
-    whitelist.forEach(attr => {
-      if (attr in categoryData) {
-        data[attr] = categoryData[attr];
-      }
-    });
+    // create an empty category object for copying data to
+    const category = {};
 
     // check for required properties
     required.forEach(attr => {
-      if (!data[attr]) {
-        throw new Error(`Category must have a value for the '${attr}' attribute.`);
+      if (typeof data[attr] !== 'string') {
+        throw new Error(`The "${attr}" attribute must be present and set to a string.`);
       }
     });
 
-    // string properties must be strings
-    for (const attr in data) {
-      if (typeof data[attr] !== 'string' && attr !== 'ttl' && attr !== '_ts') {
-        throw new Error(`The '${attr}' attribute must be a string.`);
-      }
-    }
+    // copy only whitelisted properties
+    Category.whitelist.forEach(attr => {
+      if (attr in data) category[attr] = data[attr];
+    });
 
-    // tests for a valid ID string (a-z only)
-    const validId = str => /^[a-z]{1,255}$/.test(str);
+    // set abbreviation if none exists
+    category.key = category.key
+      || category.title
+         .toLowerCase()
+         .trim()
+         .replace(/\s/g, '');
 
-    // must have a valid ID string
-    if (!validId(data.id)) throw new Error('Invalid format for `id` attribute.');
+    // tests for a valid abbreviation string (a-z only)
+    const validKey = str => /^[a-z]{1,255}$/.test(str);
 
-    // 'ttl' must be an integer
-    if (data.ttl && !Number.isInteger(data.ttl)) {
-      throw new Error(`The 'ttl' attribute must be an integer.`);
-    }
+    // must have a valid abbreviation string
+    if (!validKey(category.key)) throw new Error(`Invalid format for the "key" attribute.`);
 
-    // _ts must be an integer
-    if (data._ts && !Number.isInteger(data._ts)) {
-      throw new Error(`The '_ts' attribute must be an integer.`);
-    }
+    // set the "type" attribute to "category"
+    category.type = 'category';
 
-    return new Target(data);
+    // construct a new Document
+    super(category, ['title', 'description']);
 
-  },
+    // adjust property descriptors for "abbr" attribute
+    Object.defineProperty(this, 'key', {
+      configurable: false,
+      enumerable: true,
+      writable: true,
+    });
+
+  }
+
+  /**
+   * Getter for whitelisted properties.
+   * @method whitelist
+   * @return {Array}  Returns the array of allowable properties.
+   */
+  static get whitelist() {
+    return Document.whitelist.concat([
+      'description',
+      'html',
+      'key',
+      'markdown',
+      'title',
+    ]);
+  }
+
 };
 
-module.exports = new Proxy(Category, handler);
+module.exports = Category;
