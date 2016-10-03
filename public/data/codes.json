@@ -1,4 +1,5 @@
 {
+  "badRequest": 400,
   "conflict": 409,
   "deleted": 201,
   "notFound": 404,
