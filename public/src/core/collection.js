@@ -6,19 +6,8 @@
  * @event Collection#remove
  */
 
-/**
- * Class representing a collection
- * @extends Array
- * @type {Array}
- */
 const Collection = class Collection extends Array {
-  /**
-   * Create a collection
-   * @class
-   * @param {Array} [models]      The array of models for the collection
-   * @param {Object} [model]      The default model to use for items in the collection
-   */
-  constructor(models, model = Model) {
+  constructor(models) {
 
     // instantiate the array
     if (Number.isInteger(models)) {
@@ -29,21 +18,13 @@ const Collection = class Collection extends Array {
       super();
     }
 
-    // set the default model for items in the collection
-    if (typeof models === 'function') {
-      this.Model = models;
-    } else {
-      this.Model = model;
-    }
-
     // make the collection an emitter
     Emitter.extend(this);
 
     // make sure each item in the collection is a model
     this.forEach((data, i) => {
-      if (!(data instanceof this.Model)) {
-        this[i] = new this.Model(data);
-      }
+      if (data instanceof Model) return;
+      this[i] = new Model(data);
     });
 
   }
@@ -55,10 +36,13 @@ const Collection = class Collection extends Array {
    * @return {Number} length      Returns the new length of the collection array
    */
   add(data) {
-    const model = new this.Model(data);
+
+    const model = new Model(data);
+
     this.push(model);
     this.emit('add', model);
-    return this;
+    return this.length;
+
   }
 
   /**
@@ -68,12 +52,15 @@ const Collection = class Collection extends Array {
    */
   remove(model) {
 
-    const i = this.findIndex(el => Object.is(model, el));
+    const i = this.indexOf(model);
 
     if (i >= 0) {
-      this.splice(i, 1);
+
+      const removed = this.splice(i, 1);
+
       this.emit('remove', model);
-      return this;
+      return removed;
+
     }
 
     return false;

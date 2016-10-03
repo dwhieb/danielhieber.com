@@ -50,7 +50,7 @@
     "dot-notation": ["error", { "allowKeywords": true }],
     "eqeqeq": ["warn", "always"],
     "eol-last": "error",
-    "func-names": ["error", "always"],
+    "func-names": ["warn", "always"],
     "func-style": ["error", "expression", { "allowArrowFunctions": true }],
     "generator-star-spacing": ["error", { "before": false, "after": true }],
     "global-require": "warn",
@@ -292,7 +292,7 @@
     "sort-vars": ["warn", { "ignoreCase": true }],
     "space-before-blocks": ["error", "always"],
     "space-before-function-paren": ["error", {
-      "anonymous": "always",
+      "anonymous": "never",
       "named": "never"
     }],
     "space-in-parens": ["error", "never"],

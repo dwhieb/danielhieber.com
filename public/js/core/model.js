@@ -2,86 +2,72 @@
 
 /**
  * Events emitted by Model
+ * @event Model#destroy
+ * @event Model#save
  * @event Model#update
  */
 
-/**
- * A class representing a Model
- * @type {Object} Model
- */
 const Model = class Model {
-
-  /**
-   * Create a new Model
-   * @param {Object} data         A plain-old JavaScript Object (POJO) with the data for the model
-   * @prop {Object} data          A reference to the original data object passed to the model
-   */
-
   constructor(data) {
 
+    // copy data to the model
     Object.assign(this, data);
 
+    // make the model an event emitter
     Emitter.extend(this);
 
-    // adjust property descriptors as needed
-    Object.defineProperties(this, {
-
+    // adjust property descriptors
+    Object.defineProperties(Model.prototype, {
       data: {
-        get: this.data
+        configurable: false
       },
-
       destroy: {
-        value: this.destroy,
-        writable: true
+        configurable: false,
+        writable: false
       },
-
       json: {
-        value: this.json
+        configurable: false
       },
-
       save: {
-        value: this.save,
-        writable: true
+        configurable: false,
+        writable: false
       },
-
       update: {
-        value: this.update
+        configurable: false,
+        writable: false
       }
-
     });
-  }
-
-  /**
-   * Returns a Plain-Old JavaScript Object (POJO) representation of the model
-   * @return {Object}         Returns a POJO version of the model
-   */
-  data() {
-    return JSON.parse(this.json());
   }
 
   /**
    * Delete this model from the database. This method should be overridden by the subclass.
    * @method
+   * @return {Promise}        Returns a Promise that resolves to the success response
    */
   destroy() {
-    throw new Error('No destroy method specified.');
-  }
-
-  /**
-   * Retruns a JSON string representation of the model
-   * @method
-   * @return {String}     A JSON string representing the model
-   */
-  json() {
-    return JSON.stringify(this, null, 2);
+    return new Promise((resolve, reject) => {
+      socket.emit('deleteCategory', this, (err, res) => {
+        if (err) reject(err);
+        this.emit('destroy');
+        resolve(res);
+      });
+    });
   }
 
   /**
    * Upsert this model to the database. This method should be overridden by the subclass.
    * @method
+   * @return {Promise}        Returns a Promise that resolves to the new category
    */
   save() {
-    throw new Error('No save method specified.');
+    return new Promise((resolve, reject) => {
+      socket.emit('updateCategory', this, (err, res) => {
+        if (err) reject(err);
+        this.update(res);
+        this.emit('save');
+        resolve(res);
+      });
+    });
   }
 
   /**
@@ -94,6 +80,23 @@ const Model = class Model {
     Object.assign(this, data);
     this.emit('update', this);
     return this;
+  }
+
+  /**
+   * Returns a Plain-Old JavaScript Object (POJO) representation of the model
+   * @return {Object}         Returns a POJO version of the model
+   */
+  get data() {
+    return JSON.parse(this.json);
+  }
+
+  /**
+   * Retruns a JSON string representation of the model
+   * @method
+   * @return {String}     A JSON string representing the model
+   */
+  get json() {
+    return JSON.stringify(this, null, 2);
   }
 
 };

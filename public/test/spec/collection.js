@@ -1,4 +1,4 @@
-/* global Category, Collection, Model */
+/* global Collection, Model */
 
 /* eslint-disable
   func-names,
@@ -12,7 +12,7 @@ describe('Collection', function CollectionSpec() {
     expect(Collection).toBeDefined();
 
     const passArray = () => new Collection([]);
-    const passModel = () => new Collection(Category);
+    const passModel = () => new Collection(Model);
     const passNothing = () => new Collection();
     const passNumber = () => new Collection(5);
     const passObj = () => new Collection({});
@@ -46,16 +46,8 @@ describe('Collection', function CollectionSpec() {
     expect(coll.length).toBe(0);
   });
 
-  it('Collection.prototype.Model', function () {
-    const defaultColl = new Collection();
-    const categoryColl1 = new Collection(Category);
-    const categoryColl2 = new Collection([], Category);
-    expect(defaultColl.Model).toBe(Model);
-    expect(categoryColl1.Model).toBe(Category);
-    expect(categoryColl2.Model).toBe(Category);
-  });
-
   it('Collection.prototype.length', function () {
+
     const models = [
       { hello: 'world' },
       { hello: 'again' },
