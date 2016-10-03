@@ -15,3 +15,10 @@ module.exports = {
   Service: require('./service'),
   Work: require('./work'),
 };
+
+// also export lowercased versions of models for convenience
+for (const model in module.exports) {
+  if (module.exports.hasOwnProperty(model)) {
+    module.exports[model.toLowerCase()] = module.exports[model];
+  }
+}
