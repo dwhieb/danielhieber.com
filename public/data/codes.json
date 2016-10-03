@@ -1,9 +1,0 @@
-{
-  "badRequest": 400,
-  "conflict": 409,
-  "deleted": 201,
-  "notFound": 404,
-  "ok": 200,
-  "serverError": 500,
-  "tooLarge": 413
-}
