@@ -6,9 +6,9 @@
   no-empty-function
 */
 
-describe('View', function () {
+describe('View', function ViewSpec() {
 
-  it('new View()', function () {
+  it('new View()', function newViewSpec() {
     expect(View).toBeDefined();
     const p = document.createElement('p');
     const passNothing = () => new View();
@@ -35,14 +35,14 @@ describe('View', function () {
     expect(pojoCollView.collection[0].id).toBe(pojoModel.id);
   });
 
-  it('View.bind()', function () {
+  it('View.bind()', function bindSpec() {
     const p = document.createElement('p');
     const el = View.bind(p);
     expect(el instanceof HTMLParagraphElement).toBe(true);
     expect(Array.isArray(el.listeners)).toBe(true);
   });
 
-  it('View.prototype.destroy()', function () {
+  it('View.prototype.destroy()', function destroySpec() {
     const p = document.createElement('p');
     p.textContent = 'Hello world!';
     document.body.appendChild(p);
@@ -53,21 +53,21 @@ describe('View', function () {
     expect(Array.from(document.body.children).includes(p)).toBe(false);
   });
 
-  it('View.prototype.display()', function () {
+  it('View.prototype.display()', function displaySpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     view.display();
     expect(p.style.display).toBe('flex');
   });
 
-  it('View.prototype.hide()', function () {
+  it('View.prototype.hide()', function hideSpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     view.hide();
     expect(p.style.display).toBe('none');
   });
 
-  it('View.prototype.removeListeners()', function () {
+  it('View.prototype.removeListeners()', function removeListenersSpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     view.el.addEventListener('click', () => {});
@@ -76,13 +76,19 @@ describe('View', function () {
     expect(view.el.listeners.length).toBe(0);
   });
 
-  it('View.prototype.el', function () {
+  it('View.prototype.render()', function renderSpec() {
+    const p = document.createElement('p');
+    const view = new View(p, {});
+    expect(view.render).toThrow();
+  });
+
+  it('View.prototype.el', function elSpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     expect(Object.is(view.el, p)).toBe(true);
   });
 
-  it('View.prototype.el.addEventListener()', function () {
+  it('View.prototype.el.addEventListener()', function addEventListenerSpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     const cb = () => {};
@@ -90,7 +96,7 @@ describe('View', function () {
     expect(view.el.listeners.length).toBe(1);
   });
 
-  it('View.prototype.el.removeEventListener()', function () {
+  it('View.prototype.el.removeEventListener()', function removeEventListenerSpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     const cb = () => {};
@@ -102,7 +108,7 @@ describe('View', function () {
     expect(view.el.listeners.length).toBe(0);
   });
 
-  it('View.prototype.nodes', function () {
+  it('View.prototype.nodes', function nodesSpec() {
     const p = document.createElement('p');
     const view = new View(p, {});
     expect(view.nodes).toBeDefined();

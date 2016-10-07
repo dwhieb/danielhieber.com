@@ -117,6 +117,13 @@ const View = class View {
   }
 
   /**
+   * A generic render method that throws an error letting the user know that a more specific method needs to be defined on the subclass.
+   */
+  render() {
+    throw new Error('No ".render()" method has been defined for this object. Please define a ".render()" method on the subclass.');
+  }
+
+  /**
    * Extends an HTML Node with a `.listeners` array, and adds/removes listener objects to/from that array whenever `.addEventListener` and `.removeEventListener` are called.
    * @static
    * @param {Object} element        The HTML element to bind
