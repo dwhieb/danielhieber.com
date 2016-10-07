@@ -1,3 +1,5 @@
+/* global socket */
+
 /* eslint-disable max-nested-callbacks */
 require('../app');
 const documentdb = require('documentdb');
@@ -15,206 +17,237 @@ const options = {
 
 describe('socket', function test() {
 
+  const data = {
+    id: 'test',
+    ttl: 300,
+    type: 'document',
+  };
+
   beforeAll(function before(done) {
-    this.socket = io('http://localhost:3000', options);
+    socket = io('http://localhost:3000', options); // eslint-disable-line
     done();
   });
 
-  it('sends gallery image list on connection', function connect(done) {
-    this.socket.on('gallery', data => {
+  it('connect', function connect(done) {
+    socket.on('gallery', data => {
       expect(Array.isArray(data)).toBe(true);
       expect(data.includes('cypress_trees.jpg')).toBe(true);
       done();
     });
   });
 
-  it('addCategory', function addCategory(done) {
+  it('handleError', function handleError() {
+    socket.on('error', err => fail(err));
+  });
 
-    const cat = {
-      id: 'addcategory',
-      name: 'Add Category',
-      description: 'Test for the `addCategory` event.',
-      ttl: 300,
-    };
+  it('add', function addItem(done) {
 
-    db.deleteDocument(`${coll}/docs/${cat.id}`, err => {
+    const testData = Object.assign({}, data);
+    testData.id = 'addtest';
+
+    db.deleteDocument(`${coll}/docs/${testData.id}`, err => {
       if (err && err.code != 404) {
         fail(err.body);
         done();
       } else {
-
-        this.socket.emit('addCategory', cat, (err, res) => {
+        socket.emit('add', testData, (err, res) => {
           if (err) {
             fail(JSON.stringify(err, null, 2));
             done();
           } else {
-            expect(res.id).toBe(cat.id);
+            expect(res.id).toBe(testData.id);
             done();
           }
         });
-
       }
     });
 
   });
 
-  it('deleteCategory', function deleteCategory(done) {
+  it('delete (by ID)', function deleteItem(done) {
 
-    const cat = {
-      id: 'deletecategory',
-      name: 'Delete Category',
-      description: 'Test for the `deleteCategory` event.',
-      ttl: 300,
-    };
+    const testData = Object.assign({}, data);
+    testData.id = 'deletebyid';
 
-    db.upsertDocument(coll, cat, err => {
-
+    db.upsertDocument(coll, testData, err => {
       if (err) {
         fail(err.body);
         done();
       } else {
-
-        this.socket.emit('deleteCategory', cat.id, (err, res) => {
-
+        socket.emit('delete', testData.id, (err, res) => {
           if (err) {
             fail(JSON.stringify(err, null, 2));
             done();
           } else {
-
-            expect(res.status).toBe(201);
-
-            db.deleteDocument(`${coll}/docs/${cat.id}`, err => {
+            expect(res.code).toBe(204);
+            db.deleteDocument(`${coll}/docs/${testData.id}`, err => {
               if (err && err.code != 404) fail(err.body);
               done();
             });
-
           }
-
         });
-
-      }
-
-    });
-
-  });
-
-  it('getCategories', function getCategories(done) {
-    this.socket.emit('getCategories', (err, res) => {
-      if (err) {
-        fail(`Could not get categories. Make sure that there are categories in your database. Full error: ${JSON.stringify(err, null, 2)}`);
-        done();
-      } else {
-        expect(Array.isArray(res)).toBe(true);
-        expect(res.length > 0).toBe(true);
-        done();
       }
     });
-  });
-
-  it('updateCategory', function updateCategory(done) {
-
-    const cat = {
-      id: 'updatecategory',
-      name: 'Update Category',
-      description: 'Test for the `updateCategory` event.',
-      ttl: 300,
-    };
-
-    db.upsertDocument(coll, cat, err => {
-      if (err) fail(err.body);
-
-      cat.name = 'Updated Category';
-
-      this.socket.emit('updateCategory', cat, (err, res) => {
-
-        if (err) {
-
-          fail(JSON.stringify(err, null, 2));
-          done();
-
-        } else {
-
-          expect(res.name).toBe(cat.name);
-
-          db.readDocument(`${coll}/docs/${cat.id}`, (err, res) => {
-            if (err) {
-              fail(err.body);
-              done();
-            } else {
-              expect(res.name).toBe(cat.name);
-              done();
-            }
-          });
-
-        }
-
-      });
-
-    });
 
   });
 
-  it("won't save bad category data", function badCategoryData(done) {
+  it('delete (by model)', function deleteItem(done) {
 
-    const cat1 = {
-      id: 'extraproperty',
-      name: 'Extra Property',
-      description: 'Test for bad Category data.',
-      ttl: 1,
-      extraProperty: true,
-    };
+    const testData = Object.assign({}, data);
+    testData.id = 'deletebyid';
 
-    const cat2 = {
-      id: 'wrongtype',
-      name: 'Wrong Type',
-      description: 'Test for bad Category data.',
-      ttl: 1,
-      type: 'not-category',
-    };
-
-    const cat3 = {
-      abbr: 'badAbbr',
-      name: 'Bad Abbreviation',
-      description: 'Test for bad Category data.',
-      ttl: 1,
-    };
-
-    this.socket.emit('updateCategory', cat1, (err, res) => {
+    db.upsertDocument(coll, testData, err => {
       if (err) {
-
-        fail(JSON.stringify(err, null, 2));
+        fail(err.body);
         done();
-
       } else {
-
-        expect(res.extraProperty).toBeUndefined();
-
-        this.socket.emit('updateCategory', cat2, (err, res) => {
+        socket.emit('delete', testData, (err, res) => {
           if (err) {
-
             fail(JSON.stringify(err, null, 2));
             done();
-
           } else {
-
-            expect(res.type).toBe('category');
-
-            this.socket.emit('updateCategory', cat3, (err, res) => {
-              if (res) {
-                fail(JSON.stringify(res, null, 2));
-                done();
-              } else {
-                expect(err.status).toBe(400);
-                done();
-              }
+            expect(res.code).toBe(204);
+            db.deleteDocument(`${coll}/docs/${testData.id}`, err => {
+              if (err && err.code != 404) fail(err.body);
+              done();
             });
-
           }
-
         });
-
       }
+    });
 
+  });
+
+  it('get (by IDs)', function getItemsByIds(done) {
+
+    const docs = [
+      { id: 'getbyid1', type: 'document', ttl: 300 },
+      { id: 'getbyid2', type: 'document', ttl: 300 },
+      { id: 'getbyid3', type: 'document', ttl: 300 },
+    ];
+
+    const upsert = doc => new Promise((resolve, reject) => {
+      db.upsertDocument(coll, doc, (err, res) => {
+        if (err) reject(err);
+        resolve(res);
+      });
+    });
+
+    Promise.all(docs.map(upsert))
+    .then(() => {
+
+      const ids = docs.map(doc => doc.id);
+
+      socket.emit('get', ids, (err, res) => {
+        if (err) fail(JSON.stringify(err, null, 2));
+        else expect(res.length).toBe(3);
+        done();
+      });
+
+    })
+    .catch(err => fail(JSON.stringify(err, null, 2)));
+
+  });
+
+  it('get (by models)', function getItemsByModels(done) {
+
+    const docs = [
+      { id: 'getbymodel1', type: 'document', ttl: 300 },
+      { id: 'getbymodel2', type: 'document', ttl: 300 },
+      { id: 'getbymodel3', type: 'document', ttl: 300 },
+    ];
+
+    const upsert = doc => new Promise((resolve, reject) => {
+      db.upsertDocument(coll, doc, (err, res) => {
+        if (err) reject(err);
+        resolve(res);
+      });
+    });
+
+    Promise.all(docs.map(upsert))
+    .then(() => {
+      socket.emit('get', docs, (err, res) => {
+        if (err) fail(JSON.stringify(err, null, 2));
+        else expect(res.length).toBe(3);
+        done();
+      });
+    })
+    .catch(err => fail(JSON.stringify(err, null, 2)));
+
+  });
+
+  it('getAll', function getAll(done) {
+
+    const docs = [
+      { id: 'getall1', type: 'document' },
+      { id: 'getall2', type: 'document' },
+      { id: 'getall3', type: 'document' },
+    ];
+
+    const upsert = doc => new Promise((resolve, reject) => {
+      db.upsertDocument(coll, doc, (err, res) => {
+        if (err) reject(err);
+        resolve(res);
+      });
+    });
+
+    Promise.all(docs.map(upsert))
+    .then(() => {
+      socket.emit('getAll', 'document', (err, res) => {
+        if (err) {
+          fail(JSON.stringify(err, null, 2));
+          done();
+        } else {
+          const ids = res.map(doc => doc.id);
+          expect(ids.includes(docs[0].id)).toBe(true);
+          expect(ids.includes(docs[1].id)).toBe(true);
+          expect(ids.includes(docs[2].id)).toBe(true);
+          socket.emit('delete', ids);
+          done();
+        }
+      });
+    })
+    .catch(err => fail(JSON.stringify(err, null, 2)));
+
+  });
+
+  it('update', function updateItem(done) {
+
+    const testData = Object.assign({}, data);
+    testData.id = 'updatetest';
+
+    db.upsertDocument(coll, testData, err => {
+      if (err) {
+        fail(err.body);
+        done();
+      } else {
+        testData.newProperty = 'new property';
+        socket.emit('update', testData, (err, res) => {
+          if (err) {
+            fail(JSON.stringify(err, null, 2));
+            done();
+          } else {
+            expect(res.newProperty).toBe(testData.newProperty);
+            done();
+          }
+        });
+      }
+    });
+
+  });
+
+  it('error', function errorTest(done) {
+
+    const doc = {};
+
+    socket.emit('add', doc, (err, res) => {
+      if (err) {
+        expect(err.code).toBe(400);
+        done();
+      } else {
+        fail(JSON.stringify(res, null, 2));
+        done();
+      }
     });
 
   });

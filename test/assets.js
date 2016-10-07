@@ -17,6 +17,16 @@ describe('assets', function assets() {
     });
   });
 
+  it('can retrieve regular images', function regularImage(done) {
+    req.get('/img/grad_slam.jpg')
+    .expect(200)
+    .expect('Content-Type', 'image/jpeg')
+    .end((err, res) => {
+      if (err) fail(JSON.stringify(err, null, 2));
+      done();
+    });
+  });
+
   it('can retrieve CSS files', function getCSSFiles(done) {
     req.get('/css/home.css')
     .expect(200)
