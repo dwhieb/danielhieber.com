@@ -21,7 +21,7 @@ var ListView = function (_View) {
     _classCallCheck(this, ListView);
 
     var el = document.getElementById('overview');
-    var template = document.getElementById('listItemTemplate');
+    var template = document.getElementById('listitem-template');
 
     var _this = _possibleConstructorReturn(this, (ListView.__proto__ || Object.getPrototypeOf(ListView)).call(this, el, template, collection));
 
