@@ -8,7 +8,7 @@ const ListView = class ListView extends View {
   constructor(collection, listedProperty) {
 
     const el = document.getElementById('overview');
-    const template = document.getElementById('listItemTemplate');
+    const template = document.getElementById('listitem-template');
 
     super(el, template, collection);
 

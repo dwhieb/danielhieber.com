@@ -10,7 +10,7 @@ const Publication = class Publication extends Document {
     const required = [
       'date',
       'description',
-      'pubType',
+      'publicationType',
       'title',
     ];
 
@@ -30,7 +30,7 @@ const Publication = class Publication extends Document {
     // instantiate the new Document object
     super(pub, ['categories', 'date', 'description', 'links', 'title']);
 
-    const pubTypes = [
+    const publicationTypes = [
       'edited',
       'non-linguistic',
       'online',
@@ -41,16 +41,16 @@ const Publication = class Publication extends Document {
       'unpublished',
     ];
 
-    if (!pubTypes.includes(pub.pubType)) {
-      throw new Error('Invalid value for the "pubType" attribute.');
+    if (!publicationTypes.includes(pub.publicationType)) {
+      throw new Error('Invalid value for the "publicationType" attribute.');
     }
 
-    const pubType = pub.pubType;
+    const publicationType = pub.publicationType;
 
-    Object.defineProperty(this, 'pubType', {
+    Object.defineProperty(this, 'publicationType', {
       configurable: false,
       enumerable: true,
-      get() { return pubType; },
+      get() { return publicationType; },
     });
 
   }
@@ -63,7 +63,7 @@ const Publication = class Publication extends Document {
       'html',
       'links',
       'markdown',
-      'pubType',
+      'publicationType',
       'title',
     ]);
   }
