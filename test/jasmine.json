@@ -1,8 +1,8 @@
 {
   "spec_dir": "test",
   "spec_files": [
-    "*/*.jsTEMP",
-    "*.jsTEMP",
+    "*/*.js",
+    "*.js",
     "socket.js"
   ],
   "stopSpecOnExpectationFailure": false,

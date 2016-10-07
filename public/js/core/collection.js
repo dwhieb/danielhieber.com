@@ -1,3 +1,15 @@
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 function _extendableBuiltin(cls) {
   function ExtendableBuiltin() {
     var instance = Reflect.construct(cls, Array.from(arguments));
@@ -31,26 +43,33 @@ function _extendableBuiltin(cls) {
  * @event Collection#remove
  */
 
-const Collection = class Collection extends _extendableBuiltin(Array) {
-  constructor(models) {
+var Collection = function (_extendableBuiltin2) {
+  _inherits(Collection, _extendableBuiltin2);
+
+  function Collection(models) {
+    _classCallCheck(this, Collection);
 
     // instantiate the array
     if (Number.isInteger(models)) {
-      super(models);
+      var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this, models));
     } else if (Array.isArray(models)) {
-      super(...models);
+      var _ref;
+
+      var _this = _possibleConstructorReturn(this, (_ref = Collection.__proto__ || Object.getPrototypeOf(Collection)).call.apply(_ref, [this].concat(_toConsumableArray(models))));
     } else {
-      super();
+      var _this = _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).call(this));
     }
 
     // make the collection an emitter
-    Emitter.extend(this);
+    Emitter.extend(_this);
 
     // make sure each item in the collection is a model
-    this.forEach((data, i) => {
+    _this.forEach(function (data, i) {
       if (data instanceof Model) return;
-      this[i] = new Model(data);
+      _this[i] = new Model(data);
     });
+
+    return _possibleConstructorReturn(_this);
   }
 
   /**
@@ -59,33 +78,42 @@ const Collection = class Collection extends _extendableBuiltin(Array) {
    * @param {Object} data         The model to add to the collection
    * @return {Number} length      Returns the new length of the collection array
    */
-  add(data) {
 
-    const model = new Model(data);
 
-    this.push(model);
-    this.emit('add', model);
-    return this.length;
-  }
+  _createClass(Collection, [{
+    key: 'add',
+    value: function add(data) {
 
-  /**
-   * Remove a model from the collection
-   * @param {Object} model                The model to remove from the collection
-   * @return {Array} deletedItems         Returns an array of the deleted items
-   */
-  remove(model) {
+      var model = new Model(data);
 
-    const i = this.indexOf(model);
-
-    if (i >= 0) {
-
-      const removed = this.splice(i, 1);
-
-      this.emit('remove', model);
-      return removed;
+      this.push(model);
+      this.emit('add', model);
+      return this.length;
     }
 
-    return false;
-  }
+    /**
+     * Remove a model from the collection
+     * @param {Object} model                The model to remove from the collection
+     * @return {Array} deletedItems         Returns an array of the deleted items
+     */
 
-};
+  }, {
+    key: 'remove',
+    value: function remove(model) {
+
+      var i = this.indexOf(model);
+
+      if (i >= 0) {
+
+        var removed = this.splice(i, 1);
+
+        this.emit('remove', model);
+        return removed;
+      }
+
+      return false;
+    }
+  }]);
+
+  return Collection;
+}(_extendableBuiltin(Array));

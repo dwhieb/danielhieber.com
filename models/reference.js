@@ -1,7 +1,5 @@
 const Document = require('./document');
 
-let email;
-
 const Reference = class Reference extends Document {
   constructor(data) {
 
@@ -32,23 +30,28 @@ const Reference = class Reference extends Document {
     // instantiate the new Document object
     super(ref, ['links', 'name', 'organization', 'phone', 'role']);
 
-  }
+    let email;
 
-  // getter for the "email" attribute
-  get email() { return email; }
+    Object.defineProperty(this, 'email', {
+      configurable: false,
+      enumerable: true,
+      get: () => email,
+      set: val => {
 
-  // setter for the "email" attribute
-  set email(val) {
+        // loose test for valid email address
+        const emailRegexp = /.+@.+\..+/;
 
-    // loose test for valid email address
-    const emailRegexp = /.+@.+\..+/;
+        if (typeof val === 'string' && emailRegexp.test(val)) {
+          email = val;
+          return email;
+        }
 
-    if (typeof val === 'string' && emailRegexp.test(val)) {
-      email = val;
-      return email;
-    }
+        throw new Error('Invalid email address.');
 
-    throw new Error('Invalid email address.');
+      },
+    });
+
+    this.email = ref.email;
 
   }
 
