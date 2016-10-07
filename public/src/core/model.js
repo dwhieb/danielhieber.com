@@ -8,7 +8,7 @@
  */
 
 const Model = class Model {
-  constructor(data) {
+  constructor(data = {}) {
 
     // copy data to the model
     Object.assign(this, data);
