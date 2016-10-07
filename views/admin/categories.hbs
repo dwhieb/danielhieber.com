@@ -13,24 +13,6 @@
 
   <form id=details>
 
-    <input id=title type=text name=title placeholder="Category Title" required>
-
-    <label for=id>
-      <p>ID</p>
-      <input id=id type=text name=id pattern="^[a-z]{1,255}$" placeholder=categoryid required>
-    </label>
-
-    <label for=description>
-      <p>Description</p>
-      <textarea
-        id=description
-        name=description
-        rows=8
-        placeholder="A description of the category, written in Markdown (including HTML)."
-        required>
-      </textarea>
-    </label>
-
     <div>
       <button id=saveButton   type=submit name=saveButton  >Save</button>
       <button id=deleteButton type=button name=deleteButton>Delete</button>

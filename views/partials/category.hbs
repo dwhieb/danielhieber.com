@@ -1,0 +1,26 @@
+<input
+  id=category-title
+  name=title
+  placeholder='Category Title'
+  required
+  type=text
+>
+
+<input
+  id=category-key
+  name=key
+  pattern='^[a-z]{1,255}$'
+  placeholder='A human-readable key for this category.'
+  type=text
+>
+
+<label for=category-description>
+  <p>Description</p>
+  <textarea
+    id=category-description
+    name=description
+    placeholder='A description of the category, in Markdown.'
+    required
+    rows=8
+  ></textarea>
+</label>
