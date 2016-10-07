@@ -1,4 +1,4 @@
-/* global Emitter */
+/* global Emitter, socket */
 
 /**
  * Events emitted by Model
@@ -47,7 +47,7 @@ const Model = class Model {
    */
   destroy() {
     return new Promise((resolve, reject) => {
-      socket.emit('deleteCategory', this, (err, res) => {
+      socket.emit('delete', this, (err, res) => {
         if (err) reject(err);
         this.emit('destroy');
         resolve(res);
@@ -62,7 +62,7 @@ const Model = class Model {
    */
   save() {
     return new Promise((resolve, reject) => {
-      socket.emit('updateCategory', this, (err, res) => {
+      socket.emit('update', this, (err, res) => {
         if (err) reject(err);
         this.update(res);
         this.emit('save');

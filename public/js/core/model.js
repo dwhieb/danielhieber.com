@@ -4,7 +4,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/* global Emitter */
+/* global Emitter, socket */
 
 /**
  * Events emitted by Model
@@ -59,7 +59,7 @@ var Model = function () {
       var _this = this;
 
       return new Promise(function (resolve, reject) {
-        socket.emit('deleteCategory', _this, function (err, res) {
+        socket.emit('delete', _this, function (err, res) {
           if (err) reject(err);
           _this.emit('destroy');
           resolve(res);
@@ -79,7 +79,7 @@ var Model = function () {
       var _this2 = this;
 
       return new Promise(function (resolve, reject) {
-        socket.emit('updateCategory', _this2, function (err, res) {
+        socket.emit('update', _this2, function (err, res) {
           if (err) reject(err);
           _this2.update(res);
           _this2.emit('save');
