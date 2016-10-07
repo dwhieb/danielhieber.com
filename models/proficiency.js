@@ -1,7 +1,5 @@
 const Document = require('./document');
 
-let profType;
-
 const Proficiency = class Proficiency extends Document {
   constructor(data) {
 
@@ -30,18 +28,23 @@ const Proficiency = class Proficiency extends Document {
     // instantiate the new Document object
     super(prof, ['categories', 'links', 'title']);
 
-  }
+    let profType;
 
-  // getter for the "proficiencyType" attribute
-  get proficiencyType() { return profType; }
+    Object.defineProperty(this, 'proficiencyType', {
+      configurable: false,
+      enumerable: true,
+      get: () => profType,
+      set: val => {
+        if (val === 'software' || val === 'skill') {
+          profType = val;
+          return profType;
+        }
+        throw new Error(`The "proficiencyType" attribute must be set to "software" or "skill".`);
+      },
+    });
 
-  // setter for the "proficiencyType" attribute
-  set proficiencyType(val) {
-    if (val === 'software' || val === 'skill') {
-      profType = val;
-      return profType;
-    }
-    throw new Error(`The "proficiencyType" attribute must be set to "software" or "skill".`);
+    this.proficiencyType = prof.proficiencyType;
+
   }
 
   // whitelist of allowable properties in Proficiency data

@@ -1,16 +1,17 @@
 /* global Emitter */
 
 /* eslint-disable
-  func-names,
   prefer-arrow-callback,
   no-empty-function,
+  no-invalid-this,
   max-statements,
-  newline-after-var
+  newline-after-var,
+  prefer-reflect
 */
 
-describe('Emitter', function () {
+describe('Emitter', function EmitterSpec() {
 
-  it('new Emitter()', function () {
+  it('new Emitter()', function newEmitterSpec() {
     expect(Emitter).toBeDefined();
 
     const passNothing = () => new Emitter();
@@ -24,7 +25,7 @@ describe('Emitter', function () {
     expect(emitter instanceof Emitter).toBe(true);
   });
 
-  it('Emitter.extend()', function () {
+  it('Emitter.extend()', function extendSpec() {
     expect(Emitter.extend).toBeDefined();
     const obj = { hello: 'world' };
     const emitter = Emitter.extend(obj);
@@ -40,7 +41,7 @@ describe('Emitter', function () {
     });
   });
 
-  it('Emitter.prototype.emit()', function () {
+  it('Emitter.prototype.emit()', function emitSpec() {
     const emitter = new Emitter();
     const emitUnregisteredEvent = () => emitter.emit('unregisteredEvent');
     expect(emitUnregisteredEvent).not.toThrow();
@@ -51,7 +52,7 @@ describe('Emitter', function () {
     expect(this.cb).toHaveBeenCalledTimes(1);
   });
 
-  it('Emitter.prototype.off()', function () {
+  it('Emitter.prototype.off()', function offSpec() {
     const emitter = new Emitter();
     const passBadEventName = () => emitter.off(true);
     const passUnregisteredEvent = () => emitter.off('unregistered');
@@ -69,19 +70,19 @@ describe('Emitter', function () {
     emitter.on('test4', cb4);
     expect(passBadEventName).toThrow();
     expect(passUnregisteredEvent).toThrow();
-    emitter.off(cb3);
-    expect(emitter.listeners.test1.length).toBe(2);
-    expect(emitter.listeners.test2.length).toBe(2);
+    emitter.off(cb3); // tests removing cb from all events
+    expect(emitter.listeners.test1.size).toBe(2);
+    expect(emitter.listeners.test2.size).toBe(2);
     expect(emitter.listeners.test3).toBeUndefined();
-    emitter.off('test1', cb1);
-    expect(emitter.listeners.test1.length).toBe(1);
-    emitter.off('test2');
+    emitter.off('test1', cb1); // tests removing specific cb from specific event
+    expect(emitter.listeners.test1.size).toBe(1);
+    emitter.off('test2'); // tests removing all cbs from a specific event
     expect(emitter.listeners.test2).toBeUndefined();
-    emitter.off();
+    emitter.off(); // tests removing all listeners
     expect(Object.keys(emitter.listeners).length).toBe(0);
   });
 
-  it('Emitter.prototype.on()', function () {
+  it('Emitter.prototype.on()', function onSpec() {
     const emitter = new Emitter();
     this.cb = () => {};
     const registerNonString = () => emitter.on(true, this.cb);
@@ -89,15 +90,13 @@ describe('Emitter', function () {
     expect(registerNonString).toThrow();
     expect(registerNonFunc).toThrow();
     emitter.on('test', this.cb);
-    expect(Array.isArray(emitter.listeners.test)).toBe(true);
-    expect(emitter.listeners.test.length).toBe(1);
-    expect(Object.is(emitter.listeners.test[0], this.cb)).toBe(true);
+    expect(emitter.listeners.test.size).toBe(1);
+    expect(emitter.listeners.test.has(this.cb)).toBe(true);
     emitter.emit('test');
-    expect(Array.isArray(emitter.listeners.test)).toBe(true);
-    expect(emitter.listeners.test.length).toBe(1);
+    expect(emitter.listeners.test.size).toBe(1);
   });
 
-  it('Emitter.prototype.once()', function () {
+  it('Emitter.prototype.once()', function onceSpec() {
     const emitter = new Emitter();
     const registerNonFunc = () => emitter.once('test', true);
     this.cb = () => {};
@@ -106,15 +105,14 @@ describe('Emitter', function () {
     expect(registerNonFunc).toThrow();
     emitter.once('test', this.cb);
     expect(emitter.on).toHaveBeenCalledTimes(1);
-    expect(Array.isArray(emitter.listeners.test)).toBe(true);
-    expect(emitter.listeners.test.length).toBe(1);
-    expect(Object.is(emitter.listeners.test[0], this.cb)).toBe(false);
+    expect(emitter.listeners.test.size).toBe(1);
+    expect(emitter.listeners.test.has(this.cb)).toBe(false);
     emitter.emit('test');
     expect(emitter.listeners.test).toBeUndefined();
     expect(this.cb).toHaveBeenCalledTimes(1);
   });
 
-  it('Emitter.prototype.listeners', function () {
+  it('Emitter.prototype.listeners', function listenersSpec() {
     const emitter = new Emitter();
     expect(emitter.listeners instanceof Object).toBe(true);
     expect(Object.getOwnPropertyDescriptor(emitter, 'listeners').enumerable).toBe(false);

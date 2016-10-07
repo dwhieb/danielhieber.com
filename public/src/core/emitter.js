@@ -1,7 +1,5 @@
 const Emitter = (function() {
 
-  const listeners = {};
-
   const assign = (target, src) => Object.getOwnPropertyNames(src).forEach(prop => {
     if (prop !== 'constructor') {
       const propertyDescriptor = Object.getOwnPropertyDescriptor(src, prop);
@@ -11,7 +9,16 @@ const Emitter = (function() {
 
   const Emitter = class Emitter {
     constructor() {
-      Object.defineProperties(Emitter.prototype, {});
+
+      Object.defineProperty(this, 'listeners', {
+        value: {},
+        configurable: false,
+        enumerable: false,
+        writable: false,
+      });
+
+      // TODO: secure the properties on this object
+
     }
 
     /**
@@ -21,38 +28,8 @@ const Emitter = (function() {
      * @param {Any}    [args]       The remaining arguments to pass to the event callback
      */
     emit(eventName, ...args) {
-      if (eventName in listeners) {
-        listeners[eventName].forEach(cb => cb(...args));
-      }
-    }
-
-    /**
-     * Retrieves a copy of the listeners object.
-     * @method
-     * @param {String} [eventName]      Pass the name of the event if you only want listeners returned for that event
-     * @return {Object} listeners       Returns a shallow copy of the listeners object
-     */
-    getListeners(eventName) {
-      if (eventName && eventName in listeners) {
-
-        return Array.from(listeners[eventName]);
-
-      } else if (eventName) {
-
-        throw new Error(`Event "${eventName}" not found in listeners.`);
-
-      } else {
-
-        const listenersObj = {};
-
-        for (const evName in listeners) {
-          if (listeners.hasOwnProperty(evName)) {
-            listenersObj[evName] = Array.from(listeners[evName]);
-          }
-        }
-
-        return listenersObj;
-
+      if (eventName in this.listeners) {
+        this.listeners[eventName].forEach(cb => cb(...args));
       }
     }
 
@@ -64,30 +41,25 @@ const Emitter = (function() {
      */
     off(...args) {
 
-      if (args.length && !(typeof args[0] === 'string' || typeof args[0] === 'function')) {
+      if (
+        args.length
+        && !(typeof args[0] === 'string'
+          || typeof args[0] === 'function')
+      ) {
         throw new Error(`The .off() method should be passed an event name (String), listener (Function), both, or neither.`);
       }
 
       const eventName = typeof args[0] === 'string' ? args[0] : null;
       const cb = typeof args[0] === 'function' ? args[0] : args[1];
 
-      if (eventName && !(eventName in listeners)) {
+      if (eventName && !(eventName in this.listeners)) {
         throw new Error(`No listeners for "${eventName}" exist.`);
       }
 
       // removes an individual listener from an event
       const removeListener = (evName, callback) => {
-
-        const i = listeners[evName].indexOf(callback);
-
-        if (i >= 0) {
-          listeners[evName].delete(callback);
-          if (!listeners[evName].size) delete listeners[evName];
-          return true;
-        }
-
-        return false;
-
+        this.listeners[evName].delete(callback);
+        if (!this.listeners[evName].size) delete this.listeners[evName];
       };
 
       // remove a single listener from a specific event
@@ -98,21 +70,21 @@ const Emitter = (function() {
       // remove a specific listener from all events
       } else if (cb) {
 
-        for (const ev in listeners) {
-          if (listeners.hasOwnProperty(ev)) {
-            removeListener(eventName, cb);
+        for (const ev in this.listeners) {
+          if (this.listeners.hasOwnProperty(ev)) {
+            removeListener(ev, cb);
           }
         }
 
       // remove all the listeners for an event
       } else if (eventName) {
 
-        delete listeners[eventName];
+        delete this.listeners[eventName];
 
       } else {
-        for (const ev in listeners) {
-          if (listeners.hasOwnProperty(ev)) {
-            delete listeners[ev];
+        for (const ev in this.listeners) {
+          if (this.listeners.hasOwnProperty(ev)) {
+            delete this.listeners[ev];
           }
         }
       }
@@ -127,14 +99,19 @@ const Emitter = (function() {
      */
     on(eventName, cb) {
 
-      if (typeof eventName !== 'string') throw new Error('Event name must be a string.');
-      if (typeof cb !== 'function') throw new Error('Callback must be a function.');
-
-      if (!(eventName in listeners)) {
-        listeners[eventName] = new Set;
+      if (typeof eventName !== 'string') {
+        throw new Error('Event name must be a string.');
       }
 
-      listeners[eventName].add(cb);
+      if (typeof cb !== 'function') {
+        throw new Error('Callback must be a function.');
+      }
+
+      if (!(eventName in this.listeners)) {
+        this.listeners[eventName] = new Set;
+      }
+
+      this.listeners[eventName].add(cb);
 
     }
 

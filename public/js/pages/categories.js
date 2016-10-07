@@ -1,3 +1,5 @@
+'use strict';
+
 /* global
   Category,
   CategoryView,
@@ -9,14 +11,14 @@
   func-style
 */
 
-socket.emit('getCategories', (err, res) => {
+socket.emit('getCategories', function (err, res) {
 
-  const app = {
+  var app = {
     categoryView: null,
     categoriesView: null
   };
 
-  const resetCategoryView = () => {
+  var resetCategoryView = function resetCategoryView() {
     if (app.categoryView) {
       app.categoryView.destroy();
     }
@@ -34,17 +36,21 @@ socket.emit('getCategories', (err, res) => {
 
       category.destroy()
       // must call .render() inside function to preserve categoriesView context
-      .then(() => app.categoriesView.render()).catch(err => {
+      .then(function () {
+        return app.categoriesView.render();
+      }).catch(function (err) {
         app.categoriesView.render();
-        console.error(`Category with ID ${ category.id } could not be deleted.`);
+        console.error('Category with ID ' + category.id + ' could not be deleted.');
         console.error(err);
       });
     }
   }
 
   function saveCategory(category) {
-    category.save().then(() => updateCategoryView()).catch(err => {
-      console.error(`Unable to save Category with ID ${ category.id }`);
+    category.save().then(function () {
+      return updateCategoryView();
+    }).catch(function (err) {
+      console.error('Unable to save Category with ID ' + category.id);
       console.log(err);
       resetCategoryView();
     });
@@ -56,7 +62,7 @@ socket.emit('getCategories', (err, res) => {
 
     if (category) {
 
-      const categoryView = new CategoryView(category);
+      var categoryView = new CategoryView(category);
 
       categoryView.on('delete', destroyCategory);
       categoryView.on('save', saveCategory);
@@ -68,26 +74,22 @@ socket.emit('getCategories', (err, res) => {
 
   if (err) {
 
-    const category = {
+    var category = {
       name: 'Error',
       id: 'error',
-      description: `
-        Unable to retrieve categories.
-        <br>
-        Try reloading the page.
-        <br>
-        ${ JSON.stringify(err, null, 2) }
-      `
+      description: '\n        Unable to retrieve categories.\n        <br>\n        Try reloading the page.\n        <br>\n        ' + JSON.stringify(err, null, 2) + '\n      '
     };
 
     updateCategoryView(category);
   } else {
 
-    const categories = new Collection(res, Category);
-    const categoriesView = new CategoriesView(categories);
+    var categories = new Collection(res, Category);
+    var categoriesView = new CategoriesView(categories);
 
     categoriesView.on('add', saveCategory);
-    categoriesView.on('new', () => updateCategoryView(new Category()));
+    categoriesView.on('new', function () {
+      return updateCategoryView(new Category());
+    });
     categoriesView.on('remove', destroyCategory);
     categoriesView.on('select', updateCategoryView);
 
