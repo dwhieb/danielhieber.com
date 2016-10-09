@@ -4,7 +4,7 @@ const Membership = require('../../models/membership');
 describe('Membership', function membershipSpec() {
 
   const data = {
-    title: 'Membership Test',
+    organization: 'Membership Test',
     abbreviation: 'MT',
     extraProperty: 'This is an extra property.',
   };
@@ -13,12 +13,12 @@ describe('Membership', function membershipSpec() {
 
     const membership = new Membership(data);
 
-    const noTitle = () => new Membership({});
+    const noOrg = () => new Membership({});
 
     expect(membership instanceof Document).toBe(true);
     expect(membership instanceof Membership).toBe(true);
     expect(membership.extraProperty).toBeUndefined();
-    expect(noTitle).toThrow();
+    expect(noOrg).toThrow();
 
   });
 
@@ -28,7 +28,7 @@ describe('Membership', function membershipSpec() {
       'abbreviation',
       'categories',
       'links',
-      'title',
+      'organization',
     ]);
 
     whitelist.forEach(attr => {

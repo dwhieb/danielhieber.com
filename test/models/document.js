@@ -357,8 +357,8 @@ describe('Document', function DocumentTest() {
     expect(Object.getOwnPropertyDescriptor(subclass, 'endYear').enumerable).toBe(true);
     expect(setBadInteger).toThrow();
     expect(setBadString).toThrow();
-    expect(setEmptyString).toThrow();
-    expect(setUndefined).toThrow();
+    expect(setEmptyString).not.toThrow();
+    expect(setUndefined).not.toThrow();
 
 
   });
