@@ -111,9 +111,11 @@ const ListView = class ListView extends View {
     this.collection.forEach(model => {
 
       const listItem = this.template.content.cloneNode(true);
+
       listItem.querySelector('p').textContent = model[this.listedProperty];
       this.nodes.list.appendChild(listItem);
       model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
+      this.el.model = this;
 
     });
 

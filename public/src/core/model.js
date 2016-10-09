@@ -101,3 +101,8 @@ const Model = class Model {
   }
 
 };
+
+socket.emit('getWhitelist', (err, res) => {
+  if (err) Model.whitelist = {};
+  else Model.whitelist = res;
+});

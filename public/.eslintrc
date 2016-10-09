@@ -1,5 +1,12 @@
 {
+
+  "globals": {
+    "debounce": true,
+    "socket": true
+  },
+
   "env": {
     "browser": true
   }
+
 }
