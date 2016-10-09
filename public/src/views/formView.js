@@ -26,6 +26,13 @@ const FormView = (function FormViewWrapper() {
 
     }
 
+    destroy() {
+      this.removeListeners();
+      this.hide();
+      this.el.innerHTML = '';
+      this.emit('destroy');
+    }
+
     // - populate template
     // - insert into DOM
     // - add listeners (if necessary)
@@ -350,6 +357,28 @@ const FormView = (function FormViewWrapper() {
         if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') {
           this.model.update({ [ev.target.name]: ev.target.value });
         }
+      });
+
+      this.nodes.buttons.addEventListener('click', ev => {
+
+        const handleError = err => {
+          this.hide();
+          this.el.innerHTML = `<pre>${JSON.stringify(err, null, 2)}</pre>`;
+          this.display();
+        };
+
+        if (ev.target.id === 'saveButton') {
+          this.model.save()
+          .then(res => {
+            this.model = res;
+          })
+          .catch(handleError);
+        } else if (ev.target.id === 'deleteButton') {
+          this.model.destroy()
+          .then(() => this.destroy())
+          .catch(handleError);
+        }
+
       });
 
     }
