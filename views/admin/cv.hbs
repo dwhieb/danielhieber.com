@@ -1,3 +1,46 @@
-<main id=cvAdmin>
+{{#section 'style'}}
+  <link rel=stylesheet href=/css/cv-admin.css charset=utf-8>
+{{/section}}
+
+<main id=cv-admin>
+
   <h1>CV Admin</h1>
+
+  <label for=cv-type>
+
+    <p>CV Type</p>
+
+    <select id=cv-type name=type>
+      {{#each modelNames}}
+        <option value={{lowercase}}>{{capitalized}}</option>
+      {{/each}}
+    </select>
+
+  </label>
+
+  <section id=overview>
+    <ol id=list></ol>
+    <button id=addButton type=button name=addButton>Add Item</button>
+  </section>
+
+  <form id=details>
+    <div id=formItems></div>
+    <div id=buttons>
+      <button id=saveButton   type=submit name=saveButton  >Save</button>
+      <button id=deleteButton type=button name=deleteButton>Delete</button>
+    </div>
+  </form>
+
 </main>
+
+{{> templates}}
+
+{{#section 'script'}}
+  <script src=/js/core/emitter.js    charset=utf-8></script>
+  <script src=/js/core/model.js      charset=utf-8></script>
+  <script src=/js/core/collection.js charset=utf-8></script>
+  <script src=/js/core/view.js       charset=utf-8></script>
+  <script src=/js/views/formView.js  charset=utf-8></script>
+  <script src=/js/views/listView.js  charset=utf-8></script>
+  <script src=/js/pages/admin/cv.js  charset=utf-8></script>
+{{/section}}

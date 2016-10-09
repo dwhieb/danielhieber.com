@@ -1,0 +1,20 @@
+<template id=endYear-template>
+
+  <label>
+
+    <p>End Year</p>
+
+    <input
+      inputmode=numeric
+      max=2100
+      min=1986
+      placeholder=YYYY
+      name=endYear
+      type=number
+    >
+    <!-- The endYear is required by the data model, but not by the HTML -->
+    <!-- The "endYear" attribute will be set to `null` if the endYear input is left blank. -->
+
+  </label>
+
+</template>

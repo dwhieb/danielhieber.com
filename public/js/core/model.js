@@ -14,7 +14,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  */
 
 var Model = function () {
-  function Model(data) {
+  function Model() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
     _classCallCheck(this, Model);
 
     // copy data to the model
@@ -129,3 +131,7 @@ var Model = function () {
 
   return Model;
 }();
+
+socket.emit('getWhitelist', function (err, res) {
+  if (err) Model.whitelist = {};else Model.whitelist = res;
+});

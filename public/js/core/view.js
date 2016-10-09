@@ -25,39 +25,42 @@ var View = function () {
   /**
    * Create a new View
    * @param {Object} el            An HTML Node to bind the view to
+   * @param {Object} [template]    An HTML template element to use for templating
    * @param {Object|Array} data    An object or array to serve as the model for the view
-   * @prop  {Object} el            The HTML node that has been bound to the view
-   * @prop  {Object} nodes         An object containing references to any other nodes that are relevant to this view. It is recommended that this object be populated by using View.bind(), e.g. `"container": View.bind(containerEl)`.
-   * @prop  {Object} model         If an object was passed as the model, this property will be present and contain a reference to the model.
+   *
    * @prop  {Array} collection     If an array was passed as the model/collection, this property will be present and contain a reference to that collection.
+   * @prop  {Object} el            The HTML node that has been bound to the view
+   * @prop  {Object} model         If an object was passed as the model, this property will be present and contain a reference to the model.
+   * @prop  {Object} nodes         An object containing references to any other nodes that are relevant to this view. It is recommended that this object be populated by using View.bind(), e.g. `"container": View.bind(containerEl)`.
    */
-  function View(el, data) {
+  function View(el, template) {
+    var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
     _classCallCheck(this, View);
 
-    if (!(el instanceof Node)) {
-      throw new Error('The `el` argument must be an instance of a Node.');
-    }
-
-    if (data) {
-
-      if (data instanceof Model) {
-        this.model = data;
-      } else if (data instanceof Collection) {
-        this.collection = data;
-      } else if (Array.isArray(data)) {
-        this.collection = new Collection(data);
-      } else if (data instanceof Object) {
-        this.model = new Model(data);
-      } else {
-        throw new Error('The `data` argument must be an object or an array.');
-      }
-    } else {
-
-      this.model = new Model({});
-    }
-
-    this.el = View.bind(el);
     this.nodes = {};
+
+    if (el instanceof Node) {
+      this.el = View.bind(el);
+    } else {
+      throw new TypeError('The "el" argument must be an HTML node.');
+    }
+
+    if (template instanceof HTMLTemplateElement) {
+      this.template = template;
+    }
+
+    if (data instanceof Model) {
+      this.model = data;
+    } else if (data instanceof Collection) {
+      this.collection = data;
+    } else if (Array.isArray(data)) {
+      this.collection = new Collection(data);
+    } else if (data instanceof Object) {
+      this.model = new Model(data);
+    } else {
+      throw new Error('The `data` argument must be an object or an array.');
+    }
 
     Emitter.extend(this);
   }
@@ -134,6 +137,16 @@ var View = function () {
       }
 
       this.emit('removeListeners');
+    }
+
+    /**
+     * A generic render method that throws an error letting the user know that a more specific method needs to be defined on the subclass.
+     */
+
+  }, {
+    key: 'render',
+    value: function render() {
+      throw new Error('No ".render()" method has been defined for this object. Please define a ".render()" method on the subclass.');
     }
 
     /**

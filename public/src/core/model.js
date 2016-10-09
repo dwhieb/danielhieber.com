@@ -8,7 +8,7 @@
  */
 
 const Model = class Model {
-  constructor(data) {
+  constructor(data = {}) {
 
     // copy data to the model
     Object.assign(this, data);
@@ -101,3 +101,8 @@ const Model = class Model {
   }
 
 };
+
+socket.emit('getWhitelist', (err, res) => {
+  if (err) Model.whitelist = {};
+  else Model.whitelist = res;
+});

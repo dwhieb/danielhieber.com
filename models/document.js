@@ -342,10 +342,16 @@ const Document = class Document {
               get() { return endYear; },
               set(val) {
 
+                const vals = [
+                  'present',
+                  '',
+                  null,
+                  undefined,
+                ];
+
                 if (
                   (Number.isInteger(val) && minYear <= val && val <= maxYear)
-                  || (typeof val === 'string' && val === 'present')
-                  || val === null
+                  || vals.includes(val)
                 ) {
                   endYear = val;
                   return endYear;

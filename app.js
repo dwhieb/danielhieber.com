@@ -45,7 +45,7 @@ const server = http.createServer(app);
 
 // start server listening
 server.listen(config.port, () => {
-  console.log(`Server started. Press Ctrl+C to terminate.
+  console.log(`\nServer started. Press Ctrl+C to terminate.
   Project:  ${meta.name}
   Port:     ${config.port}
   Time:     ${new Date}
