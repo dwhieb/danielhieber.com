@@ -11,6 +11,7 @@
     <p>CV Type</p>
 
     <select id=cv-type name=type>
+      <option disabled selected>Choose a CV Item Type</option>
       {{#each modelNames}}
         <option value={{lowercase}}>{{capitalized}}</option>
       {{/each}}

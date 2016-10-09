@@ -56,12 +56,22 @@ const View = class View {
   }
 
   /**
+  * Removes all event listeners from the view's primary HTML node as well as any nodes in the `.nodes` object, and then removes the primary node from the DOM.
+   * @method
+   */
+  destroy() {
+    this.removeListeners();
+    this.el.remove();
+    this.emit('destroy');
+  }
+
+  /**
    * Displays the view, if hidden. Takes an optional `displayStyle` argument specifying what to set the `display` attribute of the element to (defaults to 'flex').
    * @method
    * @param {String} [displayStyle]       A string to set the `display` attribute to
    */
   display(displayStyle) {
-    this.el.style.display = displayStyle || 'flex';
+    View.display(this, displayStyle);
     this.emit('display');
   }
 
@@ -70,18 +80,8 @@ const View = class View {
    * @method
    */
   hide() {
-    this.el.style.display = 'none';
+    View.hide(this);
     this.emit('hide');
-  }
-
-  /**
-  * Removes all event listeners from the view's primary HTML node as well as any nodes in the `.nodes` object, and then removes the primary node from the DOM.
-   * @method
-   */
-  destroy() {
-    this.removeListeners();
-    this.el.remove();
-    this.emit('destroy');
   }
 
   /**
@@ -120,6 +120,31 @@ const View = class View {
    */
   render() {
     throw new Error('No ".render()" method has been defined for this object. Please define a ".render()" method on the subclass.');
+  }
+
+  /**
+   * Displays an HTML element
+   * @param {Object} element        The HTML element to display
+   * @param {String} displayStyle   The display style to set (e.g. 'flex', 'block'). Defaults to 'flex'.
+   */
+  static display(element, displayStyle) {
+    if (element instanceof Node) {
+      element.style.display = displayStyle || 'flex'; // eslint-disable-line no-param-reassign
+    } else {
+      throw new Error('Must pass a Node element to View.display.');
+    }
+  }
+
+  /**
+   * Hides an HTML element
+   * @param {Object} element      The element to hide
+   */
+  static hide(element) {
+    if (element instanceof Node) {
+      element.style.display = 'none'; // eslint-disable-line no-param-reassign
+    } else {
+      throw new Error('Must pass a Node element to View.hide.');
+    }
   }
 
   /**

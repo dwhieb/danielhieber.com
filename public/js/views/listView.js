@@ -17,25 +17,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ListView = function (_View) {
   _inherits(ListView, _View);
 
-  function ListView(collection, listedProperty) {
+  /**
+   * Create a new ListView
+   * @param {Array} collection          The collection to use for the list
+   */
+  function ListView(collection) {
     _classCallCheck(this, ListView);
 
     var el = document.getElementById('overview');
-    var template = document.getElementById('listitem-template');
+    var template = document.getElementById('listItem-template');
 
     var _this = _possibleConstructorReturn(this, (ListView.__proto__ || Object.getPrototypeOf(ListView)).call(this, el, template, collection));
-
-    if (typeof listedProperty === 'string') {
-      _this.listedProperty = listedProperty;
-    } else {
-      throw new TypeError('The "listedProperty" argument must be a string.');
-    }
 
     _this.sort();
 
     _this.nodes = {
-      list: View.bind(document.getElementById('list')),
-      add: View.bind(document.getElementById('addButton'))
+      add: View.bind(document.getElementById('addButton')),
+      list: View.bind(document.getElementById('list'))
     };
 
     // helper function
@@ -128,7 +126,9 @@ var ListView = function (_View) {
 
         var listItem = _this2.template.content.cloneNode(true);
 
-        listItem.querySelector('p').textContent = model[_this2.listedProperty];
+        var listItemText = model.title || model.organization || model.location || model.name;
+
+        listItem.querySelector('p').textContent = listItemText;
         _this2.nodes.list.appendChild(listItem);
         model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
         _this2.el.model = _this2;

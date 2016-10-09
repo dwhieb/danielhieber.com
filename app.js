@@ -32,9 +32,9 @@ app.locals.meta = meta; // makes package.json data available to app and middlewa
 app.use(helmet()); // basic security features
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
 app.use(errors); // middleware for returning consistent errors
-app.use(session(session.sessionOptions)); // use sessions
-app.use(passport.initialize()); // initialize Passport
-app.use(passport.session()); // persist user in session with Passport
+// app.use(session(session.sessionOptions)); // use sessions
+// app.use(passport.initialize()); // initialize Passport
+// app.use(passport.session()); // persist user in session with Passport
 app.use(middleware); // custom middleware (logs URL, injects variables, etc.)
 
 // URL routing

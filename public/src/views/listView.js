@@ -5,24 +5,22 @@
  */
 
 const ListView = class ListView extends View {
-  constructor(collection, listedProperty) {
+  /**
+   * Create a new ListView
+   * @param {Array} collection          The collection to use for the list
+   */
+  constructor(collection) {
 
     const el = document.getElementById('overview');
-    const template = document.getElementById('listitem-template');
+    const template = document.getElementById('listItem-template');
 
     super(el, template, collection);
-
-    if (typeof listedProperty === 'string') {
-      this.listedProperty = listedProperty;
-    } else {
-      throw new TypeError(`The "listedProperty" argument must be a string.`);
-    }
 
     this.sort();
 
     this.nodes = {
-      list: View.bind(document.getElementById('list')),
       add:  View.bind(document.getElementById('addButton')),
+      list: View.bind(document.getElementById('list')),
     };
 
     // helper function
@@ -112,7 +110,12 @@ const ListView = class ListView extends View {
 
       const listItem = this.template.content.cloneNode(true);
 
-      listItem.querySelector('p').textContent = model[this.listedProperty];
+      const listItemText = model.title
+        || model.organization
+        || model.location
+        || model.name;
+
+      listItem.querySelector('p').textContent = listItemText;
       this.nodes.list.appendChild(listItem);
       model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
       this.el.model = this;
