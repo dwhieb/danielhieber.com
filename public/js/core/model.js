@@ -131,3 +131,7 @@ var Model = function () {
 
   return Model;
 }();
+
+socket.emit('getWhitelist', function (err, res) {
+  if (err) Model.whitelist = {};else Model.whitelist = res;
+});

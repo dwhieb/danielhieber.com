@@ -127,9 +127,11 @@ var ListView = function (_View) {
       this.collection.forEach(function (model) {
 
         var listItem = _this2.template.content.cloneNode(true);
+
         listItem.querySelector('p').textContent = model[_this2.listedProperty];
         _this2.nodes.list.appendChild(listItem);
         model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
+        _this2.el.model = _this2;
       });
 
       this.emit('render');
