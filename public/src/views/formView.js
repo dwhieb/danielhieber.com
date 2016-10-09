@@ -333,9 +333,7 @@ const FormView = (function FormViewWrapper() {
           const clone = template.content.cloneNode(true);
           const el = this.populate(prop, clone, this.model);
 
-          if (el) {
-            // add delegated event listener to 'el' (which is already inserted into the DOM)
-          } else {
+          if (!el) {
 
             const message = `Form element for the property "${prop}" not found.`;
 
@@ -345,7 +343,12 @@ const FormView = (function FormViewWrapper() {
 
           }
 
+        }
+      });
 
+      this.el.addEventListener('change', ev => {
+        if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') {
+          this.model.update({ [ev.target.name]: ev.target.value });
         }
       });
 
