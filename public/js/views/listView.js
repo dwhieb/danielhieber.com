@@ -131,6 +131,7 @@ var ListView = function (_View) {
           _this2.collection.add(model);
           fv.render();
           // TODO: add some listeners to the FormView
+          // TODO: add new model to listItems (with temporary filler for listed property)
           _this2.emit('new');
         } else if (!deadAreas.includes(ev.target.tagName)) {
 

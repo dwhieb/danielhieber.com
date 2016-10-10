@@ -114,6 +114,7 @@ const ListView = class ListView extends View {
         this.collection.add(model);
         fv.render();
         // TODO: add some listeners to the FormView
+        // TODO: add new model to listItems (with temporary filler for listed property)
         this.emit('new');
 
       } else if (!deadAreas.includes(ev.target.tagName)) {

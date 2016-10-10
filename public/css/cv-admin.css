@@ -41,6 +41,78 @@ button,
 #overview li:hover img {
   visibility: visible;
 }
+#formItems label[for=publicationType] {
+  order: 1;
+}
+#formItems label[for=author] {
+  order: 2;
+}
+#formItems label[for=title] {
+  order: 3;
+}
+#formItems label[for=autonym] {
+  order: 4;
+}
+#formItems label[for=organization] {
+  order: 5;
+}
+#formItems label[for=program] {
+  order: 6;
+}
+#formItems label[for=role] {
+  order: 7;
+}
+#formItems label[for=date] {
+  order: 8;
+}
+#formItems label[for=startYear] {
+  order: 9;
+}
+#formItems label[for=endYear] {
+  order: 10;
+}
+#formItems label[for=year] {
+  order: 11;
+}
+#formItems label[for=publication] {
+  order: 12;
+}
+#formItems label[for=abbreviation] {
+  order: 13;
+}
+#formItems label[for=key] {
+  order: 14;
+}
+#formItems label[for=name] {
+  order: 15;
+}
+#formItems label[for=email] {
+  order: 16;
+}
+#formItems label[for=phone] {
+  order: 17;
+}
+#formItems label[for=proficiencyType] {
+  order: 18;
+}
+#formItems label[for=location] {
+  order: 19;
+}
+#formItems label[for=competency] {
+  order: 20;
+}
+#formItems fieldset[name=categories] {
+  order: 21;
+}
+#formItems fieldset[name=links] {
+  order: 22;
+}
+#formItems label[for=description] {
+  order: 23;
+}
+#formItems fieldset[name=achievements] {
+  order: 24;
+}
 #deleteButton {
   background-color: #E23B32;
 }

@@ -16,11 +16,11 @@ var FormView = function FormViewWrapper() {
 
   var templates = document.querySelectorAll('#templates template');
   var templateNames = Array.from(templates).map(function (template) {
-    return template.id;
+    return template.id.replace('-template', '');
   });
 
   var getTemplate = function getTemplate(prop) {
-    return document.getElementById(prop + 'template');
+    return document.getElementById(prop + '-template');
   };
 
   var FormView = function (_View) {
@@ -58,6 +58,14 @@ var FormView = function FormViewWrapper() {
         this.el.innerHTML = '';
         this.emit('destroy');
       }
+    }, {
+      key: 'displayError',
+      value: function displayError(err) {
+        var message = err instanceof Error ? err.message : JSON.stringify(err, null, 2);
+        this.hide();
+        this.el.innerHTML = '<code>' + message + '</code>';
+        this.display();
+      }
 
       // - populate template
       // - insert into DOM
@@ -65,34 +73,38 @@ var FormView = function FormViewWrapper() {
 
     }, {
       key: 'populate',
-      value: function populate(prop, fragment, model) {
+      value: function populate(prop, clone, model) {
         var _this2 = this;
 
         var textInputProps = ['abbreviation', 'author', 'autonym', 'key', 'location', 'name', 'organization', 'program', 'publication', 'role', 'title'];
 
-        if (textInputProps.includes(prop) && model[prop]) {
-          var input = fragment.content.querySelector('input');
-          input.value = model[prop];
-          return this.el.appendChild(fragment);
+        if (textInputProps.includes(prop)) {
+          var input = clone.querySelector('input[name="' + prop + '"]');
+          if (model[prop]) input.value = model[prop];
+          return this.el.appendChild(clone);
         }
 
         var simpleProps = {
-          competency: 'select[name="competency"]',
-          description: 'textarea[name="description"]',
-          email: 'input[name="email"]',
-          endYear: 'input[name="endYear"]',
-          phone: 'input[name="phone"]',
-          proficiencyType: 'input[name="proficiencyType"]',
-          publicationType: 'input[name="publicationType"]',
-          startYear: 'input[name="startYear"]',
-          year: 'input[name="year"]'
+          competency: 'select[name=competency]',
+          description: 'textarea[name=description]',
+          email: 'input[name=email]',
+          endYear: 'input[name=endYear]',
+          phone: 'input[name=phone]',
+          proficiencyType: 'input[name=proficiencyType]',
+          publicationType: 'input[name=publicationType]',
+          startYear: 'input[name=startYear]',
+          year: 'input[name=year]'
         };
 
-        if (prop in simpleProps && model[prop]) {
+        if (prop in simpleProps) {
 
-          this.el.appendChild(fragment);
+          this.el.appendChild(clone);
 
-          this.el.querySelector(simpleProps[prop]).addEventListener('change', function (ev) {
+          var _input = this.el.querySelector(simpleProps[prop]);
+
+          if (model[prop]) _input.value = model[prop];
+
+          _input.addEventListener('change', function (ev) {
             model.update(_defineProperty({}, prop, ev.target.value));
           });
 
@@ -106,9 +118,9 @@ var FormView = function FormViewWrapper() {
             {
               var _ret = function () {
 
-                var button = fragment.content.querySelector('button');
-                var li = fragment.content.querySelector('li');
-                var ul = fragment.content.querySelector('ul');
+                var button = clone.querySelector('button');
+                var li = clone.querySelector('li');
+                var ul = clone.querySelector('ul');
 
                 var populateAchievement = function populateAchievement(listItem, data) {
 
@@ -135,7 +147,7 @@ var FormView = function FormViewWrapper() {
                   li.remove();
                 }
 
-                _this2.el.appendChild(fragment);
+                _this2.el.appendChild(clone);
 
                 button.addEventListener('click', function () {
                   var listItem = li.cloneNode(true);
@@ -155,10 +167,10 @@ var FormView = function FormViewWrapper() {
                 ul.addEventListener('click', function (ev) {
                   if (ev.target.tagName === 'IMG') {
 
-                    var _input = ul.querySelector('input[data-id="' + ev.target.dataset.random + '"]');
-                    var i = model.achievements.indexOf(_input.value);
+                    var _input2 = ul.querySelector('input[data-id="' + ev.target.dataset.random + '"]');
+                    var i = model.achievements.indexOf(_input2.value);
 
-                    _input.parentNode.remove();
+                    _input2.parentNode.remove();
 
                     if (i >= 0) {
                       model.achievements.splice(i, 1);
@@ -177,8 +189,8 @@ var FormView = function FormViewWrapper() {
             {
               var _ret2 = function () {
 
-                var fieldset = fragment.content.querySelector('fieldset');
-                var label = fragment.content.querySelector('label');
+                var fieldset = clone.querySelector('fieldset');
+                var label = clone.querySelector('label');
                 var addCategory = function addCategory(label, category) {
                   var p = label.querySelector('b');
                   var input = label.querySelector('input');
@@ -204,7 +216,7 @@ var FormView = function FormViewWrapper() {
 
                     model.categories.forEach(function (cat) {
                       if (categoryKeys.includes(cat)) {
-                        fragment.content.querySelector('input[name="' + cat.key + '"]').checked = true;
+                        clone.querySelector('input[name="' + cat.key + '"]').checked = true;
                       }
                     });
                   })();
@@ -213,7 +225,7 @@ var FormView = function FormViewWrapper() {
                   label.remove();
                 }
 
-                _this2.el.appendChild(fragment);
+                _this2.el.appendChild(clone);
 
                 fieldset.addEventListener('change', function (ev) {
 
@@ -243,7 +255,7 @@ var FormView = function FormViewWrapper() {
           case 'date':
             {
 
-              this.el.appendChild(fragment);
+              this.el.appendChild(clone);
 
               var waitTime = 1000;
 
@@ -260,10 +272,10 @@ var FormView = function FormViewWrapper() {
             {
               var _ret4 = function () {
 
-                var button = fragment.content.querySelector('button');
+                var button = clone.querySelector('button');
                 var linkTypes = Object.keys(model.links);
-                var li = fragment.content.querySelector('li');
-                var ul = fragment.content.querySelector('ul');
+                var li = clone.querySelector('li');
+                var ul = clone.querySelector('ul');
 
                 var populateLink = function populateLink(listItem, linkType, link) {
 
@@ -294,7 +306,7 @@ var FormView = function FormViewWrapper() {
                   li.remove();
                 }
 
-                _this2.el.appendChild(fragment);
+                _this2.el.appendChild(clone);
 
                 button.addEventListener('click', function () {
                   var listItem = li.cloneNode(true);
@@ -305,17 +317,17 @@ var FormView = function FormViewWrapper() {
                 ul.addEventListener('change', function (ev) {
                   if (ev.target.name === 'linkType') {
 
-                    var _input2 = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
+                    var _input3 = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
 
                     for (var linkType in model.links) {
                       if (model.links.hasOwnProperty(linkType)) {
-                        if (model.links[linkType] === _input2.value) {
+                        if (model.links[linkType] === _input3.value) {
                           Reflect.deleteProperty(model.links, linkType);
                         }
                       }
                     }
 
-                    model.links[ev.target.value] = _input2.value;
+                    model.links[ev.target.value] = _input3.value;
                     model.emit('update', model);
                   }
                 });
@@ -365,16 +377,20 @@ var FormView = function FormViewWrapper() {
           if (templateNames.includes(prop)) {
 
             var template = getTemplate(prop);
+
+            if (!template) {
+              var err = new Error('Template not found for property "' + prop + '".');
+              _this3.displayError(err);
+              throw err;
+            }
+
             var clone = template.content.cloneNode(true);
             var el = _this3.populate(prop, clone, _this3.model);
 
             if (!el) {
-
-              var message = 'Form element for the property "' + prop + '" not found.';
-
-              _this3.hide();
-              alert(message);
-              throw new Error(message);
+              var _err = new Error('Form element for the property "' + prop + '" not found.');
+              _this3.displayError(_err);
+              throw _err;
             }
           }
         });
@@ -387,17 +403,13 @@ var FormView = function FormViewWrapper() {
 
         this.nodes.buttons.addEventListener('click', function (ev) {
 
-          var handleError = function handleError(err) {
-            _this3.hide();
-            _this3.el.innerHTML = '<pre>' + JSON.stringify(err, null, 2) + '</pre>';
-            _this3.display();
-          };
-
           if (ev.target.id === 'saveButton') {
 
             _this3.model.save().then(function (res) {
               _this3.model = res;
-            }).catch(handleError);
+            }).catch(function (err) {
+              return _this3.displayError(err);
+            });
           } else if (ev.target.id === 'deleteButton') {
 
             var confirmed = confirm('Are you sure you want to delete this item?');
@@ -405,7 +417,9 @@ var FormView = function FormViewWrapper() {
             if (confirmed) {
               _this3.model.destroy().then(function () {
                 return _this3.destroy();
-              }).catch(handleError);
+              }).catch(function (err) {
+                return _this3.displayError(err);
+              });
             }
           }
         });

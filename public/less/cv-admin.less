@@ -37,9 +37,36 @@ button {
   }
 }
 
-#deleteButton {
-  background-color: @red;
+#formItems {
+  label[for=publicationType]  { order: 1; }
+  label[for=author]           { order: 2; }
+  label[for=title]            { order: 3; }
+  label[for=autonym]          { order: 4; }
+  label[for=organization]     { order: 5; }
+  label[for=program]          { order: 6; }
+  label[for=role]             { order: 7; }
+  label[for=date]             { order: 8; }
+  label[for=startYear]        { order: 9; }
+  label[for=endYear]          { order: 10; }
+  label[for=year]             { order: 11; }
+  label[for=publication]      { order: 12; }
+  label[for=abbreviation]     { order: 13; }
+  label[for=key]              { order: 14; }
+  label[for=name]             { order: 15; }
+  label[for=email]            { order: 16; }
+  label[for=phone]            { order: 17; }
+  label[for=proficiencyType]  { order: 18; }
+  label[for=location]         { order: 19; }
+  label[for=competency]       { order: 20; }
+  fieldset[name=categories]   { order: 21; }
+  fieldset[name=links]        { order: 22; }
+  label[for=description]      { order: 23; }
+  fieldset[name=achievements] { order: 24; }
 }
+
+  #deleteButton {
+    background-color: @red;
+  }
 
 // element-specific styling
 main > header > h1 { .pageHeader; }

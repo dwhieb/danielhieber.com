@@ -3,9 +3,9 @@
 const FormView = (function FormViewWrapper() {
 
   const templates = document.querySelectorAll('#templates template');
-  const templateNames = Array.from(templates).map(template => template.id);
+  const templateNames = Array.from(templates).map(template => template.id.replace('-template', ''));
 
-  const getTemplate = prop => document.getElementById(`${prop}template`);
+  const getTemplate = prop => document.getElementById(`${prop}-template`);
 
   const FormView = class FormView extends View {
     constructor(data = {}, type) {
@@ -34,10 +34,17 @@ const FormView = (function FormViewWrapper() {
       this.emit('destroy');
     }
 
+    displayError(err) {
+      const message = err instanceof Error ? err.message : JSON.stringify(err, null, 2);
+      this.hide();
+      this.el.innerHTML = `<code>${message}</code>`;
+      this.display();
+    }
+
     // - populate template
     // - insert into DOM
     // - add listeners (if necessary)
-    populate(prop, fragment, model) {
+    populate(prop, clone, model) {
 
       const textInputProps = [
         'abbreviation',
@@ -53,29 +60,33 @@ const FormView = (function FormViewWrapper() {
         'title',
       ];
 
-      if (textInputProps.includes(prop) && model[prop]) {
-        const input = fragment.content.querySelector('input');
-        input.value = model[prop];
-        return this.el.appendChild(fragment);
+      if (textInputProps.includes(prop)) {
+        const input = clone.querySelector(`input[name="${prop}"]`);
+        if (model[prop]) input.value = model[prop];
+        return this.el.appendChild(clone);
       }
 
       const simpleProps = {
-        competency:      'select[name="competency"]',
-        description:     'textarea[name="description"]',
-        email:           'input[name="email"]',
-        endYear:         'input[name="endYear"]',
-        phone:           'input[name="phone"]',
-        proficiencyType: 'input[name="proficiencyType"]',
-        publicationType: 'input[name="publicationType"]',
-        startYear:       'input[name="startYear"]',
-        year:            'input[name="year"]',
+        competency:      'select[name=competency]',
+        description:     'textarea[name=description]',
+        email:           'input[name=email]',
+        endYear:         'input[name=endYear]',
+        phone:           'input[name=phone]',
+        proficiencyType: 'input[name=proficiencyType]',
+        publicationType: 'input[name=publicationType]',
+        startYear:       'input[name=startYear]',
+        year:            'input[name=year]',
       };
 
-      if (prop in simpleProps && model[prop]) {
+      if (prop in simpleProps) {
 
-        this.el.appendChild(fragment);
+        this.el.appendChild(clone);
 
-        this.el.querySelector(simpleProps[prop]).addEventListener('change', ev => {
+        const input = this.el.querySelector(simpleProps[prop]);
+
+        if (model[prop]) input.value = model[prop];
+
+        input.addEventListener('change', ev => {
           model.update({ [prop]: ev.target.value });
         });
 
@@ -88,9 +99,9 @@ const FormView = (function FormViewWrapper() {
 
         case 'achievements': {
 
-          const button = fragment.content.querySelector('button');
-          const li     = fragment.content.querySelector('li');
-          const ul     = fragment.content.querySelector('ul');
+          const button = clone.querySelector('button');
+          const li     = clone.querySelector('li');
+          const ul     = clone.querySelector('ul');
 
           const populateAchievement = (listItem, data) => {
 
@@ -120,7 +131,7 @@ const FormView = (function FormViewWrapper() {
 
           }
 
-          this.el.appendChild(fragment);
+          this.el.appendChild(clone);
 
           button.addEventListener('click', () => {
             const listItem = li.cloneNode(true);
@@ -157,8 +168,8 @@ const FormView = (function FormViewWrapper() {
 
         case 'categories': {
 
-          const fieldset    = fragment.content.querySelector('fieldset');
-          const label       = fragment.content.querySelector('label');
+          const fieldset    = clone.querySelector('fieldset');
+          const label       = clone.querySelector('label');
           const addCategory = (label, category) => {
             const p       = label.querySelector('b');
             const input   = label.querySelector('input');
@@ -181,7 +192,7 @@ const FormView = (function FormViewWrapper() {
 
             model.categories.forEach(cat => {
               if (categoryKeys.includes(cat)) {
-                fragment.content.querySelector(`input[name="${cat.key}"]`).checked = true;
+                clone.querySelector(`input[name="${cat.key}"]`).checked = true;
               }
             });
 
@@ -191,7 +202,7 @@ const FormView = (function FormViewWrapper() {
 
           }
 
-          this.el.appendChild(fragment);
+          this.el.appendChild(clone);
 
           fieldset.addEventListener('change', ev => {
 
@@ -219,7 +230,7 @@ const FormView = (function FormViewWrapper() {
 
         case 'date': {
 
-          this.el.appendChild(fragment);
+          this.el.appendChild(clone);
 
           const waitTime = 1000;
 
@@ -235,10 +246,10 @@ const FormView = (function FormViewWrapper() {
 
         case 'links': {
 
-          const button    = fragment.content.querySelector('button');
+          const button    = clone.querySelector('button');
           const linkTypes = Object.keys(model.links);
-          const li        = fragment.content.querySelector('li');
-          const ul        = fragment.content.querySelector('ul');
+          const li        = clone.querySelector('li');
+          const ul        = clone.querySelector('ul');
 
           const populateLink = (listItem, linkType, link) => {
 
@@ -272,7 +283,7 @@ const FormView = (function FormViewWrapper() {
 
           }
 
-          this.el.appendChild(fragment);
+          this.el.appendChild(clone);
 
           button.addEventListener('click', () => {
             const listItem = li.cloneNode(true);
@@ -341,17 +352,20 @@ const FormView = (function FormViewWrapper() {
         if (templateNames.includes(prop)) {
 
           const template = getTemplate(prop);
+
+          if (!template) {
+            const err = new Error(`Template not found for property "${prop}".`);
+            this.displayError(err);
+            throw err;
+          }
+
           const clone = template.content.cloneNode(true);
           const el = this.populate(prop, clone, this.model);
 
           if (!el) {
-
-            const message = `Form element for the property "${prop}" not found.`;
-
-            this.hide();
-            alert(message);
-            throw new Error(message);
-
+            const err = new Error(`Form element for the property "${prop}" not found.`);
+            this.displayError(err);
+            throw err;
           }
 
         }
@@ -365,19 +379,13 @@ const FormView = (function FormViewWrapper() {
 
       this.nodes.buttons.addEventListener('click', ev => {
 
-        const handleError = err => {
-          this.hide();
-          this.el.innerHTML = `<pre>${JSON.stringify(err, null, 2)}</pre>`;
-          this.display();
-        };
-
         if (ev.target.id === 'saveButton') {
 
           this.model.save()
           .then(res => {
             this.model = res;
           })
-          .catch(handleError);
+          .catch(err => this.displayError(err));
 
         } else if (ev.target.id === 'deleteButton') {
 
@@ -386,7 +394,7 @@ const FormView = (function FormViewWrapper() {
           if (confirmed) {
             this.model.destroy()
             .then(() => this.destroy())
-            .catch(handleError);
+            .catch(err => this.displayError(err));
           }
 
         }

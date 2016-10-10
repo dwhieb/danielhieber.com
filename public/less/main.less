@@ -107,14 +107,21 @@ form {
   }
 }
 
+  input[type=text],
+  textarea {
+    .field;
+    .sharp-rounded;
+    padding: 0.25em 0.5em;
+  }
+
   label {
     padding: 0.5rem 0rem;
     b { font-weight: bold; }
   }
 
   select {
+    .sharp-rounded;
     align-self: flex-start;
-    border-radius: 0.125em;
   }
 
 .hanging {
@@ -137,6 +144,10 @@ i {
   font-family: 'Gentium Plus';
   vertical-align: top; // prevents line from expanding
   white-space: nowrap;
+}
+
+.sharp-rounded {
+  border-radius: 0.125em;
 }
 
 .link {
