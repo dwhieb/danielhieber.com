@@ -97,6 +97,33 @@ em {
   color: #cad2d3;
   cursor: not-allowed;
 }
+form button {
+  align-items: center;
+  background-color: #3180E1;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  margin: 0.5em;
+}
+form button:hover,
+form button:focus {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+form button:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+label {
+  padding: 0.5rem 0rem;
+}
+label b {
+  font-weight: bold;
+}
+select {
+  align-self: flex-start;
+  border-radius: 0.125em;
+}
 .hanging {
   text-indent: -1rem;
   margin-left: 1rem;
@@ -104,7 +131,10 @@ em {
 i {
   font-style: italic;
 }
-[lang=ipa] {
+.inlineIcon {
+  height: 1.5em;
+}
+[lang=en-fonipa] {
   font-family: 'Gentium Plus';
   vertical-align: top;
   white-space: nowrap;
@@ -135,7 +165,7 @@ i {
 .rollover {
   position: relative;
 }
-.rollover > span[lang=ipa] {
+.rollover > span[lang=en-fonipa] {
   left: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -144,12 +174,12 @@ i {
   transform: translateX(-50%);
   visibility: hidden;
 }
-.rollover:hover > span[lang=ipa],
-#nav > ul > li.selected > .rollover > span[lang=ipa] {
+.rollover:hover > span[lang=en-fonipa],
+#nav > ul > li.selected > .rollover > span[lang=en-fonipa] {
   visibility: visible;
 }
-.rollover:hover > span[lang=eng],
-#nav > ul > li.selected > .rollover > span[lang=eng] {
+.rollover:hover > span[lang=en],
+#nav > ul > li.selected > .rollover > span[lang=en] {
   visibility: hidden;
 }
 small {

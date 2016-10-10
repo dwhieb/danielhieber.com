@@ -183,6 +183,7 @@ describe('socket', function test() {
       { id: 'getall2', type: 'document' },
       { id: 'getall3', type: 'document' },
     ];
+    const ids = docs.map(doc => doc.id);
 
     const upsert = doc => new Promise((resolve, reject) => {
       db.upsertDocument(coll, doc, (err, res) => {
@@ -196,12 +197,13 @@ describe('socket', function test() {
       socket.emit('getAll', 'document', (err, res) => {
         if (err) {
           fail(JSON.stringify(err, null, 2));
+          socket.emit('delete', ids);
           done();
         } else {
-          const ids = res.map(doc => doc.id);
-          expect(ids.includes(docs[0].id)).toBe(true);
-          expect(ids.includes(docs[1].id)).toBe(true);
-          expect(ids.includes(docs[2].id)).toBe(true);
+          const resIds = res.map(doc => doc.id);
+          expect(resIds.includes(docs[0].id)).toBe(true);
+          expect(resIds.includes(docs[1].id)).toBe(true);
+          expect(resIds.includes(docs[2].id)).toBe(true);
           socket.emit('delete', ids);
           done();
         }

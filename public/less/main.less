@@ -99,6 +99,24 @@ em { font-style: italic; }
   }
 }
 
+// form and any form-associated elements
+form {
+  button {
+    .button;
+    margin: 0.5em;
+  }
+}
+
+  label {
+    padding: 0.5rem 0rem;
+    b { font-weight: bold; }
+  }
+
+  select {
+    align-self: flex-start;
+    border-radius: 0.125em;
+  }
+
 .hanging {
   text-indent: -1rem;
   margin-left: 1rem;
@@ -109,7 +127,13 @@ i {
   font-style: italic;
 }
 
-[lang=ipa] {
+.icon {}
+
+.inlineIcon {
+  height: 1.5em;
+}
+
+[lang=en-fonipa] {
   font-family: 'Gentium Plus';
   vertical-align: top; // prevents line from expanding
   white-space: nowrap;
@@ -132,7 +156,7 @@ i {
 .rollover {
   position: relative;
 
-  > span[lang=ipa] {
+  > span[lang=en-fonipa] {
     left: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -146,8 +170,8 @@ i {
 
 .rollover:hover,
 #nav > ul > li.selected > .rollover {
-  > span[lang=ipa] { visibility: visible; }
-  > span[lang=eng] { visibility: hidden; }
+  > span[lang=en-fonipa] { visibility: visible; }
+  > span[lang=en] { visibility: hidden; }
 }
 
 small { font-size: 0.8em; }

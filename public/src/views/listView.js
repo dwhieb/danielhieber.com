@@ -1,4 +1,4 @@
-/* global View */
+/* global FormView, Model, View */
 
 /**
  * Events emitted by ListView
@@ -8,8 +8,9 @@ const ListView = class ListView extends View {
   /**
    * Create a new ListView
    * @param {Array} collection          The collection to use for the list
+   * @param {String} type               The type of item displayed in this list
    */
-  constructor(collection) {
+  constructor(collection, type) {
 
     const el = document.getElementById('overview');
     const template = document.getElementById('listItem-template');
@@ -23,65 +24,11 @@ const ListView = class ListView extends View {
       list: View.bind(document.getElementById('list')),
     };
 
-    // helper function
-    const lookupModel = ev => {
+    this.type = type || this.collection[0].type;
 
-      var target = ev.target;
-
-      while (target.tagName !== 'LI') {
-        target = target.parentNode;
-      }
-
-      const model = this.collection.find(model => {
-        const symbols = Object.getOwnPropertySymbols(model);
-        const match = symbols.some(symbol => model[symbol] === target);
-        if (match) return true;
-        return false;
-      });
-
-      return model || undefined;
-
-    };
-
-    // add a single listener for event delegation
-    this.el.addEventListener('click', ev => {
-
-      if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
-
-        if (ev.target === this.nodes.add) {
-
-          // if the Add button is clicked, add a model
-          this.emit('new');
-
-        } else {
-
-          // otherwise lookup the model associated with the click event
-          const model = lookupModel(ev);
-
-          // model was found
-          if (model) {
-
-            if (ev.target.tagName === 'IMG') {
-              // if Delete button was clicked, delete the model
-              this.removeConfirmed(model);
-            } else {
-              // otherwise emit a 'select' event
-              this.emit('select', model);
-            }
-
-          // rerender if model was not found
-          } else {
-
-            console.error('Model could not be found.');
-            this.render();
-
-          }
-
-        }
-
-      }
-
-    });
+    if (typeof this.type !== 'string') {
+      throw new Error('A "type" attribute is required, either as a parameter to ListView, or as an attribute on the data.');
+    }
 
   }
 
@@ -89,6 +36,32 @@ const ListView = class ListView extends View {
     this.collection.add(model);
     this.emit('add', model);
     return this.collection.length;
+  }
+
+  destroy() {
+    this.hide();
+    this.nodes.list.innerHTML = '';
+    this.removeListeners();
+  }
+
+  // helper function
+  lookupModel(ev) {
+
+    var target = ev.target;
+
+    while (target.tagName !== 'LI') {
+      target = target.parentNode;
+    }
+
+    const model = this.collection.find(model => {
+      const symbols = Object.getOwnPropertySymbols(model);
+      const match = symbols.some(symbol => model[symbol] === target);
+      if (match) return true;
+      return false;
+    });
+
+    return model || undefined;
+
   }
 
   remove(model) {
@@ -103,6 +76,7 @@ const ListView = class ListView extends View {
 
   render() {
 
+    this.hide();
     this.nodes.list.innerHTML = '';
     this.sort();
 
@@ -122,6 +96,56 @@ const ListView = class ListView extends View {
 
     });
 
+    // add a single listener for event delegation
+    this.el.addEventListener('click', ev => {
+
+      const deadAreas = [
+        'H1',
+        'OL',
+        'SECTION',
+      ];
+
+      if (ev.target === this.nodes.add) {
+
+        // if the Add button is clicked, add a model
+        const model = new Model({ type: this.type });
+        const fv = new FormView(model);
+
+        this.collection.add(model);
+        fv.render();
+        // TODO: add some listeners to the FormView
+        this.emit('new');
+
+      } else if (!deadAreas.includes(ev.target.tagName)) {
+
+        // otherwise lookup the model associated with the click event
+        const model = this.lookupModel(ev);
+
+        // model was found
+        if (model) {
+
+          if (ev.target.tagName === 'IMG') {
+            // if Delete button was clicked, delete the model
+            this.removeConfirmed(model);
+          } else {
+            // otherwise emit a 'select' event
+            this.emit('select', model);
+          }
+
+        // rerender if model was not found
+        } else {
+
+          console.error('Model could not be found.');
+          this.render();
+
+        }
+
+      }
+
+    });
+
+    this.display();
+    this.nodes.add.display();
     this.emit('render');
     return this;
 

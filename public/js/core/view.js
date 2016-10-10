@@ -88,7 +88,7 @@ var View = function () {
   }, {
     key: 'display',
     value: function display(displayStyle) {
-      View.display(this, displayStyle);
+      View.display(this.el, displayStyle);
       this.emit('display');
     }
 
@@ -100,7 +100,7 @@ var View = function () {
   }, {
     key: 'hide',
     value: function hide() {
-      View.hide(this);
+      View.hide(this.el);
       this.emit('hide');
     }
 
@@ -246,6 +246,24 @@ var View = function () {
 
       el.addEventListener = new Proxy(el.addEventListener, proxyAdd);
       el.removeEventListener = new Proxy(el.removeEventListener, proxyRemove);
+
+      el.removeListeners = function () {
+        el.listeners.forEach(function (listener) {
+          var capture = listener.capture;
+          var eventHandler = listener.eventHandler;
+          var opts = listener.opts;
+          var type = listener.type;
+
+          el.removeEventListener(type, eventHandler, opts || capture);
+        });
+      };
+
+      el.display = function () {
+        return View.display(el);
+      };
+      el.hide = function () {
+        return View.hide(el);
+      };
 
       return el;
     }

@@ -22,6 +22,7 @@ const FormView = (function FormViewWrapper() {
 
       this.nodes = {
         buttons: View.bind(document.getElementById('buttons')),
+        form:    View.bind(document.getElementById('details')),
       };
 
     }
@@ -159,7 +160,7 @@ const FormView = (function FormViewWrapper() {
           const fieldset    = fragment.content.querySelector('fieldset');
           const label       = fragment.content.querySelector('label');
           const addCategory = (label, category) => {
-            const p       = label.querySelector('p');
+            const p       = label.querySelector('b');
             const input   = label.querySelector('input');
             p.textContent = category.title;
             input.value   = category.key;
@@ -301,11 +302,14 @@ const FormView = (function FormViewWrapper() {
           ul.addEventListener('click', ev => {
             if (ev.target.tagName === 'IMG') {
 
-              const select = ul.querySelector(`select[data-id="${ev.target.dataset.random}"]`);
+              const confirmed = confirm('Are you sure you want to delete this item?');
 
-              Reflect.deleteProperty(model.links, select.value);
-              select.parentNode.remove();
-              model.emit('update', model);
+              if (confirmed) {
+                const select = ul.querySelector(`select[data-id="${ev.target.dataset.random}"]`);
+                Reflect.deleteProperty(model.links, select.value);
+                select.parentNode.remove();
+                model.emit('update', model);
+              }
 
             }
           });
@@ -328,7 +332,7 @@ const FormView = (function FormViewWrapper() {
 
     render() {
 
-      this.el.model.removeListeners(); // remove existing listeners
+      this.el.removeListeners(); // remove existing listeners
       this.el.innerHTML = ''; // clear the view
 
       const props = Model.whitelist[this.type];
@@ -368,18 +372,29 @@ const FormView = (function FormViewWrapper() {
         };
 
         if (ev.target.id === 'saveButton') {
+
           this.model.save()
           .then(res => {
             this.model = res;
           })
           .catch(handleError);
+
         } else if (ev.target.id === 'deleteButton') {
-          this.model.destroy()
-          .then(() => this.destroy())
-          .catch(handleError);
+
+          const confirmed = confirm('Are you sure you want to delete this item?');
+
+          if (confirmed) {
+            this.model.destroy()
+            .then(() => this.destroy())
+            .catch(handleError);
+          }
+
         }
 
       });
+
+      this.nodes.buttons.display();
+      this.display();
 
     }
 

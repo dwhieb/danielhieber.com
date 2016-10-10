@@ -8,7 +8,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* global View */
+/* global FormView, Model, View */
 
 /**
  * Events emitted by ListView
@@ -20,8 +20,9 @@ var ListView = function (_View) {
   /**
    * Create a new ListView
    * @param {Array} collection          The collection to use for the list
+   * @param {String} type               The type of item displayed in this list
    */
-  function ListView(collection) {
+  function ListView(collection, type) {
     _classCallCheck(this, ListView);
 
     var el = document.getElementById('overview');
@@ -36,61 +37,11 @@ var ListView = function (_View) {
       list: View.bind(document.getElementById('list'))
     };
 
-    // helper function
-    var lookupModel = function lookupModel(ev) {
+    _this.type = type || _this.collection[0].type;
 
-      var target = ev.target;
-
-      while (target.tagName !== 'LI') {
-        target = target.parentNode;
-      }
-
-      var model = _this.collection.find(function (model) {
-        var symbols = Object.getOwnPropertySymbols(model);
-        var match = symbols.some(function (symbol) {
-          return model[symbol] === target;
-        });
-        if (match) return true;
-        return false;
-      });
-
-      return model || undefined;
-    };
-
-    // add a single listener for event delegation
-    _this.el.addEventListener('click', function (ev) {
-
-      if (ev.target.tagName !== 'OL' && ev.target.tagName !== 'SECTION') {
-
-        if (ev.target === _this.nodes.add) {
-
-          // if the Add button is clicked, add a model
-          _this.emit('new');
-        } else {
-
-          // otherwise lookup the model associated with the click event
-          var model = lookupModel(ev);
-
-          // model was found
-          if (model) {
-
-            if (ev.target.tagName === 'IMG') {
-              // if Delete button was clicked, delete the model
-              _this.removeConfirmed(model);
-            } else {
-              // otherwise emit a 'select' event
-              _this.emit('select', model);
-            }
-
-            // rerender if model was not found
-          } else {
-
-            console.error('Model could not be found.');
-            _this.render();
-          }
-        }
-      }
-    });
+    if (typeof _this.type !== 'string') {
+      throw new Error('A "type" attribute is required, either as a parameter to ListView, or as an attribute on the data.');
+    }
 
     return _this;
   }
@@ -101,6 +52,37 @@ var ListView = function (_View) {
       this.collection.add(model);
       this.emit('add', model);
       return this.collection.length;
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      this.hide();
+      this.nodes.list.innerHTML = '';
+      this.removeListeners();
+    }
+
+    // helper function
+
+  }, {
+    key: 'lookupModel',
+    value: function lookupModel(ev) {
+
+      var target = ev.target;
+
+      while (target.tagName !== 'LI') {
+        target = target.parentNode;
+      }
+
+      var model = this.collection.find(function (model) {
+        var symbols = Object.getOwnPropertySymbols(model);
+        var match = symbols.some(function (symbol) {
+          return model[symbol] === target;
+        });
+        if (match) return true;
+        return false;
+      });
+
+      return model || undefined;
     }
   }, {
     key: 'remove',
@@ -119,6 +101,7 @@ var ListView = function (_View) {
     value: function render() {
       var _this2 = this;
 
+      this.hide();
       this.nodes.list.innerHTML = '';
       this.sort();
 
@@ -134,6 +117,48 @@ var ListView = function (_View) {
         _this2.el.model = _this2;
       });
 
+      // add a single listener for event delegation
+      this.el.addEventListener('click', function (ev) {
+
+        var deadAreas = ['H1', 'OL', 'SECTION'];
+
+        if (ev.target === _this2.nodes.add) {
+
+          // if the Add button is clicked, add a model
+          var model = new Model({ type: _this2.type });
+          var fv = new FormView(model);
+
+          _this2.collection.add(model);
+          fv.render();
+          // TODO: add some listeners to the FormView
+          _this2.emit('new');
+        } else if (!deadAreas.includes(ev.target.tagName)) {
+
+          // otherwise lookup the model associated with the click event
+          var _model = _this2.lookupModel(ev);
+
+          // model was found
+          if (_model) {
+
+            if (ev.target.tagName === 'IMG') {
+              // if Delete button was clicked, delete the model
+              _this2.removeConfirmed(_model);
+            } else {
+              // otherwise emit a 'select' event
+              _this2.emit('select', _model);
+            }
+
+            // rerender if model was not found
+          } else {
+
+            console.error('Model could not be found.');
+            _this2.render();
+          }
+        }
+      });
+
+      this.display();
+      this.nodes.add.display();
       this.emit('render');
       return this;
     }

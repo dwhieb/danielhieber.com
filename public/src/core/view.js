@@ -71,7 +71,7 @@ const View = class View {
    * @param {String} [displayStyle]       A string to set the `display` attribute to
    */
   display(displayStyle) {
-    View.display(this, displayStyle);
+    View.display(this.el, displayStyle);
     this.emit('display');
   }
 
@@ -80,7 +80,7 @@ const View = class View {
    * @method
    */
   hide() {
-    View.hide(this);
+    View.hide(this.el);
     this.emit('hide');
   }
 
@@ -206,6 +206,16 @@ const View = class View {
 
     el.addEventListener = new Proxy(el.addEventListener, proxyAdd);
     el.removeEventListener = new Proxy(el.removeEventListener, proxyRemove);
+
+    el.removeListeners = () => {
+      el.listeners.forEach(listener => {
+        const { capture, eventHandler, opts, type } = listener;
+        el.removeEventListener(type, eventHandler, opts || capture);
+      });
+    };
+
+    el.display = () => View.display(el);
+    el.hide = () => View.hide(el);
 
     return el;
 

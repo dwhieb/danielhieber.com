@@ -1,30 +1,36 @@
 {{#section 'style'}}
-  <link rel=stylesheet href=/css/cv-admin.css charset=utf-8>
+  <link rel=stylesheet href=/css/cv-admin.css>
 {{/section}}
 
 <main id=cv-admin>
 
-  <h1>CV Admin</h1>
+  <header>
 
-  <label for=cv-type>
+    <h1>CV Admin</h1>
 
-    <p>CV Type</p>
+    <label for=cv-type>
 
-    <select id=cv-type name=type>
-      <option disabled selected>Choose a CV Item Type</option>
-      {{#each modelNames}}
-        <option value={{lowercase}}>{{capitalized}}</option>
-      {{/each}}
-    </select>
+      <b>CV Type</b>
 
-  </label>
+      <select id=cv-type name=type>
+        <option disabled selected>Choose a CV item type</option>
+        {{#each modelNames}}
+          <option value={{lowercase}}>{{capitalized}}</option>
+        {{/each}}
+      </select>
+
+    </label>
+
+  </header>
 
   <section id=overview>
+    <h1>Items</h1>
     <ol id=list></ol>
     <button id=addButton type=button name=addButton>Add Item</button>
   </section>
 
   <form id=details>
+    <h1>Item Details</h1>
     <div id=formItems></div>
     <div id=buttons>
       <button id=saveButton   type=submit name=saveButton  >Save</button>

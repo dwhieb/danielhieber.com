@@ -1,13 +1,12 @@
-/* global FormView, ListView, socket, View */
-
-// TODO: turn authentication back on for Admin subpages
-// TODO: turn session middleware back on
+/* global ListView, socket, View */
 
 (function app() {
 
   let categories = [];
+  let list;
 
   const nodes = {
+    addButton: View.bind(document.getElementById('addButton')),
     buttons:   View.bind(document.getElementById('buttons')),
     cvType:    View.bind(document.getElementById('cv-type')),
     details:   View.bind(document.getElementById('details')),
@@ -27,11 +26,17 @@
 
     socket.emit('getAll', ev.target.value, (err, res) => {
       if (err) return displayError(err, 'Error retrieving CV items.');
-      const lv = new ListView(res);
-      lv.render();
+      if (list) list.destroy();
+      list = new ListView(res, ev.target.value);
+      list.render();
     });
 
   });
+
+  nodes.details.addEventListener('submit', ev => ev.preventDefault());
+
+  nodes.addButton.hide();
+  nodes.buttons.hide();
 
   socket.emit('getAll', 'category', (err, res) => {
     if (err) return displayError(err, 'Error retrieving categories.');

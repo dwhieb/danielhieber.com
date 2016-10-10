@@ -76,16 +76,31 @@ input {
   &[type=time],
   &[type=week] {
     flex-direction: row;
+    border: 1px solid black;
   }
 
   &[type=radio] {
     min-height: 15px;
     min-width: 15px;
   }
+
+  &[type=email],
+  &[type=number],
+  &[type=password],
+  &[type=search],
+  &[type=tel],
+  &[type=text],
+  &[type=url] {
+    border: 1px solid black;
+  }
 }
 
 ol, ul {
   list-style: none;
+}
+
+select {
+  border: 1px solid black;
 }
 
 table {

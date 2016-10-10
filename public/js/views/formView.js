@@ -43,7 +43,8 @@ var FormView = function FormViewWrapper() {
       }
 
       _this.nodes = {
-        buttons: View.bind(document.getElementById('buttons'))
+        buttons: View.bind(document.getElementById('buttons')),
+        form: View.bind(document.getElementById('details'))
       };
 
       return _this;
@@ -179,7 +180,7 @@ var FormView = function FormViewWrapper() {
                 var fieldset = fragment.content.querySelector('fieldset');
                 var label = fragment.content.querySelector('label');
                 var addCategory = function addCategory(label, category) {
-                  var p = label.querySelector('p');
+                  var p = label.querySelector('b');
                   var input = label.querySelector('input');
                   p.textContent = category.title;
                   input.value = category.key;
@@ -322,11 +323,14 @@ var FormView = function FormViewWrapper() {
                 ul.addEventListener('click', function (ev) {
                   if (ev.target.tagName === 'IMG') {
 
-                    var select = ul.querySelector('select[data-id="' + ev.target.dataset.random + '"]');
+                    var confirmed = confirm('Are you sure you want to delete this item?');
 
-                    Reflect.deleteProperty(model.links, select.value);
-                    select.parentNode.remove();
-                    model.emit('update', model);
+                    if (confirmed) {
+                      var select = ul.querySelector('select[data-id="' + ev.target.dataset.random + '"]');
+                      Reflect.deleteProperty(model.links, select.value);
+                      select.parentNode.remove();
+                      model.emit('update', model);
+                    }
                   }
                 });
 
@@ -352,7 +356,7 @@ var FormView = function FormViewWrapper() {
       value: function render() {
         var _this3 = this;
 
-        this.el.model.removeListeners(); // remove existing listeners
+        this.el.removeListeners(); // remove existing listeners
         this.el.innerHTML = ''; // clear the view
 
         var props = Model.whitelist[this.type];
@@ -390,15 +394,24 @@ var FormView = function FormViewWrapper() {
           };
 
           if (ev.target.id === 'saveButton') {
+
             _this3.model.save().then(function (res) {
               _this3.model = res;
             }).catch(handleError);
           } else if (ev.target.id === 'deleteButton') {
-            _this3.model.destroy().then(function () {
-              return _this3.destroy();
-            }).catch(handleError);
+
+            var confirmed = confirm('Are you sure you want to delete this item?');
+
+            if (confirmed) {
+              _this3.model.destroy().then(function () {
+                return _this3.destroy();
+              }).catch(handleError);
+            }
           }
         });
+
+        this.nodes.buttons.display();
+        this.display();
       }
     }]);
 
