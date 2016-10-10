@@ -19,6 +19,8 @@ var Model = function () {
 
     _classCallCheck(this, Model);
 
+    if (data instanceof Model) return data;
+
     // copy data to the model
     Object.assign(this, data);
 

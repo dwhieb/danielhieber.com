@@ -10,6 +10,8 @@
 const Model = class Model {
   constructor(data = {}) {
 
+    if (data instanceof Model) return data;
+
     // copy data to the model
     Object.assign(this, data);
 

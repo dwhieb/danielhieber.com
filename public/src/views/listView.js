@@ -87,14 +87,17 @@ const ListView = class ListView extends View {
       const listItemText = model.title
         || model.organization
         || model.location
-        || model.name;
+        || model.name
+        || '(No Description)';
 
       listItem.querySelector('p').textContent = listItemText;
       this.nodes.list.appendChild(listItem);
       model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
-      this.el.model = this;
+      listItem.model = model;
 
     });
+
+    this.el.view = this;
 
     // add a single listener for event delegation
     this.el.addEventListener('click', ev => {
@@ -108,13 +111,16 @@ const ListView = class ListView extends View {
       if (ev.target === this.nodes.add) {
 
         // if the Add button is clicked, add a model
+        const waitTime = 5000;
+        const debouncedUpdate = debounce(() => this.render(), waitTime);
         const model = new Model({ type: this.type });
         const fv = new FormView(model);
 
         this.collection.add(model);
+        this.removeListeners();
+        this.render();
         fv.render();
-        // TODO: add some listeners to the FormView
-        // TODO: add new model to listItems (with temporary filler for listed property)
+        model.on('update', debouncedUpdate);
         this.emit('new');
 
       } else if (!deadAreas.includes(ev.target.tagName)) {

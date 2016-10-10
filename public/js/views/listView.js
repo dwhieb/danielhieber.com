@@ -109,13 +109,15 @@ var ListView = function (_View) {
 
         var listItem = _this2.template.content.cloneNode(true);
 
-        var listItemText = model.title || model.organization || model.location || model.name;
+        var listItemText = model.title || model.organization || model.location || model.name || '(No Description)';
 
         listItem.querySelector('p').textContent = listItemText;
         _this2.nodes.list.appendChild(listItem);
         model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
-        _this2.el.model = _this2;
+        listItem.model = model;
       });
+
+      this.el.view = this;
 
       // add a single listener for event delegation
       this.el.addEventListener('click', function (ev) {
@@ -125,13 +127,18 @@ var ListView = function (_View) {
         if (ev.target === _this2.nodes.add) {
 
           // if the Add button is clicked, add a model
+          var waitTime = 5000;
+          var debouncedUpdate = debounce(function () {
+            return _this2.render();
+          }, waitTime);
           var model = new Model({ type: _this2.type });
           var fv = new FormView(model);
 
           _this2.collection.add(model);
+          _this2.removeListeners();
+          _this2.render();
           fv.render();
-          // TODO: add some listeners to the FormView
-          // TODO: add new model to listItems (with temporary filler for listed property)
+          model.on('update', debouncedUpdate);
           _this2.emit('new');
         } else if (!deadAreas.includes(ev.target.tagName)) {
 

@@ -7,7 +7,7 @@ const debounce = (func, wait, immediate) => {
 
   let timeout;
 
-  return function debounce(...args) {
+  return (...args) => {
 
     const later = () => {
       timeout = null;
