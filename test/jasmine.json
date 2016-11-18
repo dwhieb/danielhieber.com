@@ -2,8 +2,7 @@
   "spec_dir": "test",
   "spec_files": [
     "*/*.js",
-    "*.js",
-    "socket.js"
+    "*.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": true,
