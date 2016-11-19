@@ -53,6 +53,9 @@ server.listen(config.port, () => {
   Env:      ${config.env}`);
 });
 
+// generic error handler for the server
+server.on('error', err => console.error(err, err.stack));
+
 // socket routing
 socket(server);
 
