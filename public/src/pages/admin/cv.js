@@ -1,8 +1,8 @@
 /* global ListView, socket, View */
 
-const app = (function app() {
+window.app = (function cv() {
 
-  let categories = [];
+  const app = {};
   let list;
 
   const nodes = {
@@ -22,6 +22,9 @@ const app = (function app() {
     `;
   };
 
+  nodes.addButton.hide();
+  nodes.details.hide();
+
   nodes.cvType.addEventListener('change', ev => {
 
     socket.emit('getAll', ev.target.value, (err, res) => {
@@ -37,14 +40,11 @@ const app = (function app() {
 
   nodes.details.addEventListener('submit', ev => ev.preventDefault());
 
-  nodes.addButton.hide();
-  nodes.details.hide();
-
   socket.emit('getAll', 'category', (err, res) => {
     if (err) return displayError(err, 'Error retrieving categories.');
-    categories = res;
+    app.categories = res;
   });
 
-  return { categories };
+  return app;
 
 }());

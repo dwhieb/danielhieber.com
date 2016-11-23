@@ -173,7 +173,7 @@ const FormView = (function FormViewWrapper() {
           const fieldset    = clone.querySelector('fieldset');
           const label       = clone.querySelector('label');
           const addCategory = (label, category) => {
-            const p       = label.querySelector('b');
+            const p       = label.querySelector('i');
             const input   = label.querySelector('input');
             p.textContent = category.title;
             input.value   = category.key;
@@ -191,6 +191,8 @@ const FormView = (function FormViewWrapper() {
             });
 
             const categoryKeys = app.categories.map(cat => cat.key);
+
+            model.categories = model.categories || [];
 
             model.categories.forEach(cat => {
               if (categoryKeys.includes(cat)) {
@@ -390,6 +392,8 @@ const FormView = (function FormViewWrapper() {
           this.model.save()
           .then(res => {
             this.model = res;
+            this.removeListeners();
+            this.render();
           })
           .catch(err => this.displayError(err));
 

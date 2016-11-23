@@ -194,7 +194,7 @@ var FormView = function FormViewWrapper() {
                                                                                 var fieldset = clone.querySelector('fieldset');
                                                                                 var label = clone.querySelector('label');
                                                                                 var addCategory = function addCategory(label, category) {
-                                                                                          var p = label.querySelector('b');
+                                                                                          var p = label.querySelector('i');
                                                                                           var input = label.querySelector('input');
                                                                                           p.textContent = category.title;
                                                                                           input.value = category.key;
@@ -215,6 +215,8 @@ var FormView = function FormViewWrapper() {
                                                                                                     var categoryKeys = app.categories.map(function (cat) {
                                                                                                               return cat.key;
                                                                                                     });
+
+                                                                                                    model.categories = model.categories || [];
 
                                                                                                     model.categories.forEach(function (cat) {
                                                                                                               if (categoryKeys.includes(cat)) {
@@ -413,6 +415,8 @@ var FormView = function FormViewWrapper() {
 
                                                             _this3.model.save().then(function (res) {
                                                                       _this3.model = res;
+                                                                      _this3.removeListeners();
+                                                                      _this3.render();
                                                             }).catch(function (err) {
                                                                       return _this3.displayError(err);
                                                             });

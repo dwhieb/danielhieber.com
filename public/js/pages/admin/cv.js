@@ -2,9 +2,9 @@
 
 /* global ListView, socket, View */
 
-var app = function app() {
+window.app = function cv() {
 
-  var categories = [];
+  var app = {};
   var list = void 0;
 
   var nodes = {
@@ -20,6 +20,9 @@ var app = function app() {
     View.hide(nodes.buttons);
     nodes.formItems.innerHTML = '\n      <h1>' + message + '</h1>\n      <code>' + JSON.stringify(err, null, 2).replace(/\\/g, '') + '</code>\n    ';
   };
+
+  nodes.addButton.hide();
+  nodes.details.hide();
 
   nodes.cvType.addEventListener('change', function (ev) {
 
@@ -37,13 +40,10 @@ var app = function app() {
     return ev.preventDefault();
   });
 
-  nodes.addButton.hide();
-  nodes.details.hide();
-
   socket.emit('getAll', 'category', function (err, res) {
     if (err) return displayError(err, 'Error retrieving categories.');
-    categories = res;
+    app.categories = res;
   });
 
-  return { categories: categories };
+  return app;
 }();

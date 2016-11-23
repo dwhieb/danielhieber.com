@@ -45,6 +45,14 @@ button,
 #formItems legend {
   font-weight: bold;
 }
+#formItems fieldset[name=categories] label {
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+}
+#formItems fieldset[name=categories] label input {
+  margin: 0rem 0.5rem;
+}
 #formItems label[for=publicationType] {
   order: 1;
 }

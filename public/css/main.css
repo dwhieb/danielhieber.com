@@ -156,9 +156,11 @@ textarea[disabled] {
   color: #cad2d3;
   cursor: not-allowed;
 }
+fieldset,
 label {
   padding: 0.5rem 0rem;
 }
+fieldset b,
 label b {
   font-weight: bold;
 }
