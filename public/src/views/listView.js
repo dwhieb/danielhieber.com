@@ -112,7 +112,10 @@ const ListView = class ListView extends View {
 
         // if the Add button is clicked, add a model
         const waitTime = 5000;
-        const debouncedUpdate = debounce(() => this.render(), waitTime);
+        const debouncedUpdate = debounce(() => {
+          this.removeListeners();
+          this.render();
+        }, waitTime);
         const model = new Model({ type: this.type });
         const fv = new FormView(model);
 
@@ -143,6 +146,7 @@ const ListView = class ListView extends View {
         } else {
 
           console.error('Model could not be found.');
+          this.removeListeners();
           this.render();
 
         }

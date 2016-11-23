@@ -129,7 +129,8 @@ var ListView = function (_View) {
           // if the Add button is clicked, add a model
           var waitTime = 5000;
           var debouncedUpdate = debounce(function () {
-            return _this2.render();
+            _this2.removeListeners();
+            _this2.render();
           }, waitTime);
           var model = new Model({ type: _this2.type });
           var fv = new FormView(model);
@@ -160,6 +161,7 @@ var ListView = function (_View) {
           } else {
 
             console.error('Model could not be found.');
+            _this2.removeListeners();
             _this2.render();
           }
         }
