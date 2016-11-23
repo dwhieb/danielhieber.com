@@ -32,7 +32,7 @@ var FormView = function FormViewWrapper() {
 
                               _classCallCheck(this, FormView);
 
-                              var el = document.getElementById('formItems');
+                              var el = document.getElementById('details');
 
                               var _this = _possibleConstructorReturn(this, (FormView.__proto__ || Object.getPrototypeOf(FormView)).call(this, el, null, data));
 
@@ -44,7 +44,7 @@ var FormView = function FormViewWrapper() {
 
                               _this.nodes = {
                                         buttons: View.bind(document.getElementById('buttons')),
-                                        form: View.bind(document.getElementById('details'))
+                                        formItems: View.bind(document.getElementById('formItems'))
                               };
 
                               return _this;
@@ -55,7 +55,7 @@ var FormView = function FormViewWrapper() {
                               value: function destroy() {
                                         this.removeListeners();
                                         this.hide();
-                                        this.el.innerHTML = '';
+                                        this.nodes.formItems.innerHTML = '';
                                         this.emit('destroy');
                               }
                     }, {
@@ -63,7 +63,7 @@ var FormView = function FormViewWrapper() {
                               value: function displayError(err) {
                                         var message = err instanceof Error ? err.message : JSON.stringify(err, null, 2);
                                         this.hide();
-                                        this.el.innerHTML = '<code>' + message + '</code>';
+                                        this.nodes.formItems.innerHTML = '<code>' + message + '</code>';
                                         this.display();
                               }
 
@@ -81,7 +81,7 @@ var FormView = function FormViewWrapper() {
                                         if (textInputProps.includes(prop)) {
                                                   var input = clone.querySelector('input[name="' + prop + '"]');
                                                   if (model[prop]) input.value = model[prop];
-                                                  return this.el.appendChild(clone);
+                                                  return this.nodes.formItems.appendChild(clone);
                                         }
 
                                         var simpleProps = {
@@ -98,9 +98,9 @@ var FormView = function FormViewWrapper() {
 
                                         if (prop in simpleProps) {
 
-                                                  this.el.appendChild(clone);
+                                                  this.nodes.formItems.appendChild(clone);
 
-                                                  var _input = this.el.querySelector(simpleProps[prop]);
+                                                  var _input = this.nodes.formItems.querySelector(simpleProps[prop]);
 
                                                   if (model[prop]) _input.value = model[prop];
 
@@ -108,7 +108,7 @@ var FormView = function FormViewWrapper() {
                                                             model.update(_defineProperty({}, prop, ev.target.value));
                                                   });
 
-                                                  return this.el;
+                                                  return this.nodes.formItems;
                                         }
 
                                         /* eslint-disable no-param-reassign */
@@ -149,7 +149,7 @@ var FormView = function FormViewWrapper() {
                                                                                           li.remove();
                                                                                 }
 
-                                                                                _this2.el.appendChild(clone);
+                                                                                _this2.nodes.formItems.appendChild(clone);
 
                                                                                 button.addEventListener('click', function () {
                                                                                           var listItem = li.cloneNode(true);
@@ -227,7 +227,7 @@ var FormView = function FormViewWrapper() {
                                                                                           label.remove();
                                                                                 }
 
-                                                                                _this2.el.appendChild(clone);
+                                                                                _this2.nodes.formItems.appendChild(clone);
 
                                                                                 fieldset.addEventListener('change', function (ev) {
 
@@ -257,7 +257,7 @@ var FormView = function FormViewWrapper() {
                                                   case 'date':
                                                             {
 
-                                                                      this.el.appendChild(clone);
+                                                                      this.nodes.formItems.appendChild(clone);
 
                                                                       var waitTime = 1000;
 
@@ -265,7 +265,7 @@ var FormView = function FormViewWrapper() {
                                                                                 model.update({ date: new Date(ev.target.value) });
                                                                       }, waitTime);
 
-                                                                      this.el.querySelector('input[name="date"]').addEventListener('change', debouncedListener);
+                                                                      this.nodes.formItems.querySelector('input[name="date"]').addEventListener('change', debouncedListener);
 
                                                                       break;
                                                             }
@@ -310,7 +310,7 @@ var FormView = function FormViewWrapper() {
                                                                                           li.remove();
                                                                                 }
 
-                                                                                _this2.el.appendChild(clone);
+                                                                                _this2.nodes.formItems.appendChild(clone);
 
                                                                                 button.addEventListener('click', function () {
                                                                                           var listItem = li.cloneNode(true);
@@ -365,7 +365,7 @@ var FormView = function FormViewWrapper() {
 
                                         /* eslint-enable no-param-reassign */
 
-                                        return this.el;
+                                        return this.nodes.formItems;
                               }
                     }, {
                               key: 'render',
@@ -373,7 +373,7 @@ var FormView = function FormViewWrapper() {
                                         var _this3 = this;
 
                                         this.el.removeListeners(); // remove existing listeners
-                                        this.el.innerHTML = ''; // clear the view
+                                        this.nodes.formItems.innerHTML = ''; // clear the view
 
                                         var props = Model.whitelist[this.type];
 
@@ -407,6 +407,8 @@ var FormView = function FormViewWrapper() {
 
                                         this.nodes.buttons.addEventListener('click', function (ev) {
 
+                                                  ev.preventDefault();
+
                                                   if (ev.target.id === 'saveButton') {
 
                                                             _this3.model.save().then(function (res) {
@@ -428,7 +430,6 @@ var FormView = function FormViewWrapper() {
                                                   }
                                         });
 
-                                        this.nodes.buttons.display();
                                         this.display();
                               }
                     }]);

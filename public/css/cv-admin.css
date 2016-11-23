@@ -24,6 +24,7 @@ button,
 }
 #overview > h1,
 #details > h1 {
+  font-size: 1.25rem;
   font-weight: bold;
   padding: 0.5rem 0rem;
 }
