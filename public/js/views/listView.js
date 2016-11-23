@@ -74,14 +74,8 @@ var ListView = function (_View) {
       }
 
       var model = this.collection.find(function (model) {
-        var symbols = Object.getOwnPropertySymbols(model);
-        var match = symbols.some(function (symbol) {
-          return model[symbol] === target;
-        });
-        if (match) return true;
-        return false;
+        return Object.is(target.model, model);
       });
-
       return model || undefined;
     }
   }, {
@@ -108,13 +102,11 @@ var ListView = function (_View) {
       this.collection.forEach(function (model) {
 
         var listItem = _this2.template.content.cloneNode(true);
-
         var listItemText = model.title || model.organization || model.location || model.name || '(No Description)';
 
         listItem.querySelector('p').textContent = listItemText;
+        listItem.querySelector('li').model = model;
         _this2.nodes.list.appendChild(listItem);
-        model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
-        listItem.model = model;
       });
 
       this.el.view = this;
@@ -149,11 +141,14 @@ var ListView = function (_View) {
           // model was found
           if (_model) {
 
+            // if Delete button was clicked, delete the model
             if (ev.target.tagName === 'IMG') {
-              // if Delete button was clicked, delete the model
               _this2.removeConfirmed(_model);
+
+              // otherwise render the form view for that model
             } else {
-              // otherwise emit a 'select' event
+              var _fv = new FormView(_model);
+              _fv.render();
               _this2.emit('select', _model);
             }
 

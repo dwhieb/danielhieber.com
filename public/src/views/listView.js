@@ -53,13 +53,7 @@ const ListView = class ListView extends View {
       target = target.parentNode;
     }
 
-    const model = this.collection.find(model => {
-      const symbols = Object.getOwnPropertySymbols(model);
-      const match = symbols.some(symbol => model[symbol] === target);
-      if (match) return true;
-      return false;
-    });
-
+    const model = this.collection.find(model => Object.is(target.model, model));
     return model || undefined;
 
   }
@@ -83,7 +77,6 @@ const ListView = class ListView extends View {
     this.collection.forEach(model => {
 
       const listItem = this.template.content.cloneNode(true);
-
       const listItemText = model.title
         || model.organization
         || model.location
@@ -91,9 +84,8 @@ const ListView = class ListView extends View {
         || '(No Description)';
 
       listItem.querySelector('p').textContent = listItemText;
+      listItem.querySelector('li').model = model;
       this.nodes.list.appendChild(listItem);
-      model[Symbol('element')] = listItem; // eslint-disable-line no-param-reassign
-      listItem.model = model;
 
     });
 
@@ -134,11 +126,14 @@ const ListView = class ListView extends View {
         // model was found
         if (model) {
 
+          // if Delete button was clicked, delete the model
           if (ev.target.tagName === 'IMG') {
-            // if Delete button was clicked, delete the model
             this.removeConfirmed(model);
+
+          // otherwise render the form view for that model
           } else {
-            // otherwise emit a 'select' event
+            const fv = new FormView(model);
+            fv.render();
             this.emit('select', model);
           }
 
