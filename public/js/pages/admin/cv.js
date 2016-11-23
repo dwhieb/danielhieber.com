@@ -2,7 +2,7 @@
 
 /* global ListView, socket, View */
 
-(function app() {
+var app = function app() {
 
   var categories = [];
   var list = void 0;
@@ -25,8 +25,10 @@
 
     socket.emit('getAll', ev.target.value, function (err, res) {
       if (err) return displayError(err, 'Error retrieving CV items.');
+      nodes.details.hide();
       if (list) list.destroy();
       list = new ListView(res, ev.target.value);
+      list.on('new', nodes.details.display);
       list.render();
     });
   });
@@ -36,10 +38,12 @@
   });
 
   nodes.addButton.hide();
-  nodes.buttons.hide();
+  nodes.details.hide();
 
   socket.emit('getAll', 'category', function (err, res) {
     if (err) return displayError(err, 'Error retrieving categories.');
     categories = res;
   });
-})();
+
+  return { categories: categories };
+}();

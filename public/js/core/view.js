@@ -119,9 +119,9 @@ var View = function () {
         if (_this.el.listeners) {
 
           el.listeners.forEach(function (listener) {
-            var type = listener.type;
-            var eventHandler = listener.eventHandler;
-            var opts = listener.opts;
+            var type = listener.type,
+                eventHandler = listener.eventHandler,
+                opts = listener.opts;
 
             el.removeEventListener(type, eventHandler, opts);
           });
@@ -201,13 +201,11 @@ var View = function () {
 
       var proxyAdd = {
         apply: function apply(target, context, args) {
-          var _args = _slicedToArray(args, 4);
-
-          var type = _args[0];
-          var eventHandler = _args[1];
-          var opts = _args[2];
-          var capture = _args[3];
-
+          var _args = _slicedToArray(args, 4),
+              type = _args[0],
+              eventHandler = _args[1],
+              opts = _args[2],
+              capture = _args[3];
 
           el.listeners.push({
             type: type,
@@ -222,13 +220,11 @@ var View = function () {
 
       var proxyRemove = {
         apply: function apply(target, context, args) {
-          var _args2 = _slicedToArray(args, 4);
-
-          var type = _args2[0];
-          var eventHandler = _args2[1];
-          var opts = _args2[2];
-          var capture = _args2[3];
-
+          var _args2 = _slicedToArray(args, 4),
+              type = _args2[0],
+              eventHandler = _args2[1],
+              opts = _args2[2],
+              capture = _args2[3];
 
           var i = el.listeners.findIndex(function (listener) {
             return listener.type === type && listener.eventHandler === eventHandler && listener.opts === opts && listener.capture === capture;
@@ -236,8 +232,6 @@ var View = function () {
 
           if (i >= 0) {
             el.listeners.splice(i, 1);
-          } else {
-            throw new Error('Listener not found.');
           }
 
           return Reflect.apply(target, context, args);
@@ -249,10 +243,10 @@ var View = function () {
 
       el.removeListeners = function () {
         el.listeners.forEach(function (listener) {
-          var capture = listener.capture;
-          var eventHandler = listener.eventHandler;
-          var opts = listener.opts;
-          var type = listener.type;
+          var capture = listener.capture,
+              eventHandler = listener.eventHandler,
+              opts = listener.opts,
+              type = listener.type;
 
           el.removeEventListener(type, eventHandler, opts || capture);
         });

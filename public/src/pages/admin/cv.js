@@ -1,6 +1,6 @@
 /* global ListView, socket, View */
 
-(function app() {
+const app = (function app() {
 
   let categories = [];
   let list;
@@ -26,8 +26,10 @@
 
     socket.emit('getAll', ev.target.value, (err, res) => {
       if (err) return displayError(err, 'Error retrieving CV items.');
+      nodes.details.hide();
       if (list) list.destroy();
       list = new ListView(res, ev.target.value);
+      list.on('new', nodes.details.display);
       list.render();
     });
 
@@ -36,11 +38,13 @@
   nodes.details.addEventListener('submit', ev => ev.preventDefault());
 
   nodes.addButton.hide();
-  nodes.buttons.hide();
+  nodes.details.hide();
 
   socket.emit('getAll', 'category', (err, res) => {
     if (err) return displayError(err, 'Error retrieving categories.');
     categories = res;
   });
+
+  return { categories };
 
 }());

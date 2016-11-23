@@ -1,4 +1,4 @@
-/* global cv, Model, View */
+/* global app, Model, View */
 
 const FormView = (function FormViewWrapper() {
 
@@ -115,6 +115,8 @@ const FormView = (function FormViewWrapper() {
 
           };
 
+          model.achievements = model.achievements || [];
+
           if (model.achievements.length) {
 
             populateAchievement(li, model.achievements[0]);
@@ -178,17 +180,17 @@ const FormView = (function FormViewWrapper() {
             input.name    = category.key;
           };
 
-          if (cv.categories.length) {
+          if (app.categories.length) {
 
-            addCategory(label, cv.categories[0]);
+            addCategory(label, app.categories[0]);
 
-            cv.categories.slice(1).forEach(cat => {
+            app.categories.slice(1).forEach(cat => {
               const checkboxItem = label.cloneNode(true);
               addCategory(checkboxItem, cat);
               fieldset.appendChild(checkboxItem);
             });
 
-            const categoryKeys = cv.categories.map(cat => cat.key);
+            const categoryKeys = app.categories.map(cat => cat.key);
 
             model.categories.forEach(cat => {
               if (categoryKeys.includes(cat)) {
@@ -245,6 +247,8 @@ const FormView = (function FormViewWrapper() {
         }
 
         case 'links': {
+
+          model.links = model.links || {};
 
           const button    = clone.querySelector('button');
           const linkTypes = Object.keys(model.links);

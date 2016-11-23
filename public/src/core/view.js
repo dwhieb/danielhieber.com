@@ -194,10 +194,7 @@ const View = class View {
 
         if (i >= 0) {
           el.listeners.splice(i, 1);
-        } else {
-          throw new Error('Listener not found.');
         }
-
 
         return Reflect.apply(target, context, args);
 

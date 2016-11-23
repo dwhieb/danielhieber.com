@@ -6,9 +6,9 @@
   prefer-arrow-callback
 */
 
-describe('Recent Posts', function () {
+describe('Recent Posts', function() {
 
-  xit('fetches recent posts', function (done) {
+  xit('fetches recent posts', function(done) {
 
     expect(ghost).toBeDefined();
 

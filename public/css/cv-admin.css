@@ -41,6 +41,9 @@ button,
 #overview li:hover img {
   visibility: visible;
 }
+#formItems legend {
+  font-weight: bold;
+}
 #formItems label[for=publicationType] {
   order: 1;
 }
