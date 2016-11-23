@@ -90,8 +90,8 @@ var FormView = function FormViewWrapper() {
                                                   email: 'input[name=email]',
                                                   endYear: 'input[name=endYear]',
                                                   phone: 'input[name=phone]',
-                                                  proficiencyType: 'input[name=proficiencyType]',
-                                                  publicationType: 'input[name=publicationType]',
+                                                  proficiencyType: 'select[name=proficiencyType]',
+                                                  publicationType: 'select[name=publicationType]',
                                                   startYear: 'input[name=startYear]',
                                                   year: 'input[name=year]'
                                         };
