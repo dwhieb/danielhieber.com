@@ -1,4 +1,4 @@
-/* global Emitter */
+/* global Emitter, socket */
 
 /**
  * Events emitted by Model
@@ -8,7 +8,10 @@
  */
 
 const Model = class Model {
-  constructor(data) {
+  constructor(data = {}) {
+
+    if (data instanceof Model) return data;
+    if (data.markdown) data.description = data.markdown;
 
     // copy data to the model
     Object.assign(this, data);
@@ -47,11 +50,18 @@ const Model = class Model {
    */
   destroy() {
     return new Promise((resolve, reject) => {
-      socket.emit('deleteCategory', this, (err, res) => {
-        if (err) reject(err);
-        this.emit('destroy');
-        resolve(res);
-      });
+      if (this.id) {
+        socket.emit('delete', this, (err, res) => {
+          if (err) reject(err);
+          this.emit('destroy');
+          resolve(res);
+        });
+      } else {
+        resolve({
+          code:     204,
+          details: 'Item succesfully deleted.',
+        });
+      }
     });
   }
 
@@ -62,7 +72,7 @@ const Model = class Model {
    */
   save() {
     return new Promise((resolve, reject) => {
-      socket.emit('updateCategory', this, (err, res) => {
+      socket.emit('update', this, (err, res) => {
         if (err) reject(err);
         this.update(res);
         this.emit('save');
@@ -101,3 +111,8 @@ const Model = class Model {
   }
 
 };
+
+socket.emit('getWhitelist', (err, res) => {
+  if (err) Model.whitelist = {};
+  else Model.whitelist = res;
+});

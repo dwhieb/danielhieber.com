@@ -56,7 +56,7 @@ const Fieldwork = class Fieldwork extends Document {
    * @return {Array} whitelist      Returns the allowed properties for a Fieldwork item
    */
   static get whitelist() {
-    return Document.whitelist.concat(props).concat([
+    return Document.whitelist.concat([
       'categories',
       'description',
       'endYear',

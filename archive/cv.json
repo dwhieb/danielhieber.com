@@ -40,7 +40,10 @@
     "type": "category",
     "name": "Typology &amp; Linguistic Theory",
     "abbreviation": "typ",
-    "description": "My interests in <a href=http://en.wikipedia.org/wiki/Language_typology>language typology</a> are largely theoretical, but also include the application of linguistic typology to the analysis of individual languages. My M.A. thesis aims to provide a functional definition of prosody for use in crosslinguistic research, and in a forthcoming paper I adopt a typological perspective to studying grammatical relations in Chitimacha. I am also especially interested in lexical categories and the nature of categories in language. My approach to language is largely functionalist – I see the ‘rules’ of language as a set of social conventions rather than algorithmic principles, and language itself as a complex adaptive system with numerous emergent properties.",
+    "description": "My interests in <a href=http://en.wikipedia.org/wiki/Language_typology>language typology</a> are largely theoretical, but also include the application of linguistic typology to the analysis of individual languages. My M.A. thesis aims to provide a functional definition of prosody for use in crosslinguistic research, and in a forthcoming paper I adopt a typological perspective to studying grammatical relations in Chitimacha. I am also especially interested in lexical categories and the nature of categories in language. My approach to language is largely functionalist – I see the ‘rules’ of language as a set of social conventions rather than algorithmic principles, and language itself as a complex adaptive system with numerous emergent properties.
+
+    My interest in language typology ranges from the broadly theoretical (such as my dissertation on a typology of flexible word classes, or my review discussing Basic Linguistic Theory) to the applications of typology to specific languages (such as my description of semantic alignment in Chitimacha, or the discourse functions of prosody in Kisii). My approach to typology is largely functionalist, so that I view the ‘rules’ of language as a set of social conventions rather than algorithmic principles, and language itself as a complex adaptive system with numerous emergent properties.
+    ",
     "_rid": "9XUnAOPvcgAEAAAAAAAAAA==",
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAEAAAAAAAAAA==/",
     "_etag": "\"0000ab00-0000-0000-0000-568dad710000\"",
@@ -1238,7 +1241,7 @@
   {
     "id": "97",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Teaching from difference",
     "date": "2009-10-01",
     "citation": "Term paper, ‘Linguistic Anthropology’, Prof. Amy L. Paugh, Fall 2009, James Madison University.",
@@ -1255,7 +1258,7 @@
   {
     "id": "96",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Why do languages die?",
     "date": "2012-01-04",
     "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
@@ -1274,7 +1277,7 @@
   {
     "id": "95",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Elicitation techniques",
     "date": "2010-06-01",
     "citation": "Invited talk, Content Development Department, Rosetta Stone, Harrisonburg, VA.",
@@ -1293,7 +1296,7 @@
   {
     "id": "94",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "To be not or to not to be",
     "date": "2015-03-20",
     "citation": "Term paper, ‘Semantics’, Prof. Stefan Th. Gries, Winter 2015, UC Santa Barbara.",
@@ -1312,7 +1315,7 @@
   {
     "id": "93",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "English for all, freedom for none",
     "date": "2012-09-25",
     "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
@@ -1331,7 +1334,7 @@
   {
     "id": "92",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "The politically incorrect guide to language death",
     "date": "2012-11-06",
     "citation": "Invited guest lecture, Anthropology 305: ‘Language & Culture’, Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
@@ -1350,7 +1353,7 @@
   {
     "id": "91",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Why are some languages so complicated?",
     "date": "2011-08-14",
     "citation": "<cite>Linguavore: RVoice.</cite>",
@@ -1367,7 +1370,7 @@
   {
     "id": "90",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Topics as contrast in Chitimacha",
     "date": "2013-12-01",
     "citation": "Term paper, ‘Discourse’, Prof. Patricia Clancy, Fall 2013, UC Santa Barbara.",
@@ -1386,7 +1389,7 @@
   {
     "id": "89",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "The participle -k and the structuring of Chitimacha discourse",
     "date": "2015-01-04",
     "citation": "Term paper, ‘Syntax Beyond the Clause’, Prof. Marianne Mithun, Fall 2014, UC Santa Barbara.",
@@ -1405,7 +1408,7 @@
   {
     "id": "88",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Marian Klamer, <cite>A short grammar of Alorese (Austronesian)</cite>",
     "date": "2013-06-19",
     "citation": "<cite>eLanguage</cite> book notice.",
@@ -1424,7 +1427,7 @@
   {
     "id": "87",
     "type": "publication",
-    "pubType": "nonLing",
+    "publicationType": "nonLing",
     "title": "18 going on 19",
     "date": "2005-09-01",
     "citation": "<cite>American Pilgrim Magazine</cite>, Vol. 1, No. 2 (Fall).",
@@ -1441,7 +1444,7 @@
   {
     "id": "86",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Language change & variation in Mombasa: Recent trends in Kimvita Swahili",
     "date": "2007-06-01",
     "citation": "Independent study project, ‘Development, Health, & Society’, Spring 2007, School for International Training, Nairobi, Kenya.",
@@ -1458,7 +1461,7 @@
   {
     "id": "85",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Language revitalization in Africa",
     "date": "2014-10-14",
     "citation": "LSA Committee on Endangered Languages & their Preservation blog.",
@@ -1478,7 +1481,7 @@
   {
     "id": "84",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Terrence Deacon, ‘Language origins: What coevolved, what devolved, and what’s universal’",
     "date": "2011-08-12",
     "citation": "Summary of Terrence Deacon’s plenary talk at the LSA Institute 2011, presented to the Content Development Department, Rosetta Stone, Harrisonburg, VA.",
@@ -1495,7 +1498,7 @@
   {
     "id": "83",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Language and the socialist-calculation problem",
     "date": "2010-09-07",
     "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute",
@@ -1514,7 +1517,7 @@
   {
     "id": "82",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Assessing the Chitimacha-Totozoquean hypothesis",
     "date": "2014-06-01",
     "citation": "Term paper, ‘Language & Prehistory’, Prof. Laura Robinson, Spring 2014, UC Santa Barbara.",
@@ -1531,7 +1534,7 @@
   {
     "id": "81",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Canonical typology",
     "date": "2011-09-01",
     "citation": "Lecture given to the Content Development department, Rosetta Stone, Harrisonburg, VA.",
@@ -1550,7 +1553,7 @@
   {
     "id": "80",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "An introduction to typology",
     "date": "2012-05-01",
     "citation": "Three-part lecture series. Rosetta Stone, Harrisonburg, VA.",
@@ -1569,7 +1572,7 @@
   {
     "id": "79",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Review of <cite>Baboon metaphysics: The evolution of a social mind</cite>, by Dorothy L. Cheney & Robert M. Seyfarth",
     "date": "2007-11-05",
     "citation": "Term paper, ‘Science & Human Agency’, Prof. Paul S. Davies, Winter 2005, The College of William & Mary.",
@@ -1586,7 +1589,7 @@
   {
     "id": "78",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Rising to the challenge: Navajo",
     "date": "2010-08-25",
     "citation": "<cite>Linguavore: RVoice</cite>.",
@@ -1605,7 +1608,7 @@
   {
     "id": "77",
     "type": "publication",
-    "pubType": "article",
+    "publicationType": "article",
     "title": "Growing up",
     "date": "2011-01-01",
     "citation": "In Lynn K. Talbot & Andrew Talbot Squires (eds.), <a href='http://www.amazon.com/Following-Yellow-Arrow-Younger-Pilgrims/dp/1595944354/ref=sr_1_1?ie=UTF8&s=books&qid=1300840723&sr=8-1'><cite>Following the yellow arrow: Younger pilgrims on the Camino</cite></a>. Wingspan Press.",
@@ -1622,7 +1625,7 @@
   {
     "id": "76",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Building the lexicon for awakening languages",
     "date": "2015-07-12",
     "citation": "Chapter prepared for the Conference on Language Revitalization: Sleeping & Awakened Languages of the Gulf South, Tulane University. (Proceedings were never published.)",
@@ -1641,7 +1644,7 @@
   {
     "id": "75",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Documenting conversational conventions in Swahili",
     "date": "2013-12-02",
     "citation": "Term paper, ‘Discourse Transcription’, Prof. John W. Dubois, Fall 2013, UC Santa Barbara.",
@@ -1660,7 +1663,7 @@
   {
     "id": "74",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Linguistic Institute 2011 overview",
     "date": "2011-08-12",
     "citation": "With Benjamin Keller. Overview of several courses attended at the LSA Linguistic Institute 2011, for the Content Development Department, Rosetta Stone, Harrisonburg, VA.",
@@ -1679,7 +1682,7 @@
   {
     "id": "73",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Kristina Riedel, <cite>The syntax of object marking in Sambaa</cite>",
     "date": "2010-10-14",
     "citation": "Linguist List 21.4069.",
@@ -1699,7 +1702,7 @@
   {
     "id": "72",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Prosodic phrase types in Ékegusií",
     "date": "2015-03-22",
     "citation": "Term paper, ‘Advanced Phonology’, Prof. Matthew Gordon, Winter 2015, UC Santa Barbara.",
@@ -1719,7 +1722,7 @@
   {
     "id": "71",
     "type": "publication",
-    "pubType": "project",
+    "publicationType": "project",
     "title": "Rosetta Stone Navajo (Diné bizaad)",
     "date": "2010-09-01",
     "citation": "Rosetta Stone language-learning software for the Navajo language. Available for purchase <a href=http://launch.rosettastone.com/en/licenses/demo>here</a>.",
@@ -1739,7 +1742,7 @@
   {
     "id": "70",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Primitivism in linguistics and anthropology: The American tradition after Boas",
     "date": "2014-03-20",
     "citation": "Term paper, ‘Language as Culture’, Prof. John W. Dubois, Winter 2013, UC Santa Barbara.",
@@ -1756,7 +1759,7 @@
   {
     "id": "69",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Linguistics in industry",
     "date": "2013-11-12",
     "citation": "Invited talk, UCSB Linguistics Club, Santa Barbara, CA.",
@@ -1775,7 +1778,7 @@
   {
     "id": "68",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Loan translations in the U.S. Southeast",
     "date": "2014-03-16",
     "citation": "Term paper, ‘Languages in Contact’, Prof. Marianne Mithun, Winter 2013, UC Santa Barbara.",
@@ -1794,7 +1797,7 @@
   {
     "id": "67",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "A world of words",
     "date": "2013-07-01",
     "citation": "Blog post written for the Rosetta Stone blog. (Left the company before it was published.)",
@@ -1813,7 +1816,7 @@
   {
     "id": "66",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Typology: The study of unity or diversity?",
     "date": "2012-09-28",
     "citation": "<cite>Diversity Linguistics Comment</cite>.",
@@ -1832,7 +1835,7 @@
   {
     "id": "65",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Choctaw in syntactic typology",
     "date": "2011-07-01",
     "citation": "Term paper, ‘Syntactic Typology’, Prof. Irina Nikolaeva, LSA Institute 2011, University of Colorado, Boulder.",
@@ -1851,7 +1854,7 @@
   {
     "id": "64",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "A case study in digital collaboration: Navajo Language Renaissance & Rosetta Stone Navajo",
     "date": "2011-05-20",
     "citation": "With Lorraine Begay Manavi & Marion K. Bittinger. Stabilizing Indigenous Languages Symposium (SILS), Albuquerque, NM.",
@@ -1871,7 +1874,7 @@
   {
     "id": "63",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Chitimacha: Building blocks for revitalization",
     "date": "2010-11-10",
     "citation": "<cite>Linguavore: RVoice</cite>.",
@@ -1890,7 +1893,7 @@
   {
     "id": "62",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Category genesis through schematicity: On the origin of Chitimacha preverbs",
     "date": "2014-10-11",
     "citation": "Paper presented at the UC Santa Barbara Linguistics Department’s Silver Anniversary Conference, University of California, Santa Barbara.",
@@ -1910,7 +1913,7 @@
   {
     "id": "61",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Review of <cite>When languages die: The extinction of the world’s languages and the erosion of human knowledge</cite>",
     "date": "2008-10-29",
     "citation": "",
@@ -1930,7 +1933,7 @@
   {
     "id": "60",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "A dying language is making a comeback",
     "date": "2015-07-29",
     "citation": "<cite>Time Magazine</cite>. Originally published in <cite><a href='http://theconversation.com/renaissance-on-the-bayou-the-revival-of-a-lost-language-43958'>The Conversation</a></cite> as ‘Renaissance on the bayou: The revival of a lost language’. Also published in <cite><a href='http://languagemagazine.com/?p=124218'>Language Magazine</a></cite>, <cite><a href='http://www.houstonchronicle.com/local/gray-matters/article/Reviving-a-lost-language-of-Louisiana-6409708'>The Houston Chronicle</a></cite>.",
@@ -1950,7 +1953,7 @@
   {
     "id": "59",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Dunstan Brown, Marina Chumakina, & Greville G. Corbett (eds.), <cite>Canonical morphology & syntax</cite>",
     "date": "2013-12-05",
     "citation": "Linguist List 24.4963.",
@@ -1969,7 +1972,7 @@
   {
     "id": "58",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Language as action",
     "date": "2013-06-14",
     "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
@@ -1988,7 +1991,7 @@
   {
     "id": "57",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Language endangerment: A history",
     "date": "2011-11-01",
     "citation": "Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
@@ -2008,7 +2011,7 @@
   {
     "id": "56",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "The syntactic typology of Choctaw & Nankina",
     "date": "2011-07-01",
     "citation": "Term paper, ‘Syntactic Typology’, Prof. Irina Nikolaeva, LSA Linguistic Institute 2011, University of Colorado, Boulder.",
@@ -2027,7 +2030,7 @@
   {
     "id": "55",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Discourse connectives and pragmatic implications",
     "date": "2006-05-10",
     "citation": "Term paper, ‘Semantics’, Prof. Ann M. Reed, Spring 2006, The College of William & Mary.",
@@ -2044,7 +2047,7 @@
   {
     "id": "54",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Where theory meets practice: Using language to help make the world a better place",
     "date": "2012-01-26",
     "citation": "<cite>Linguavore: RVoice</cite>.",
@@ -2065,7 +2068,7 @@
   {
     "id": "53",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Digital collaboration: 21st century tools for revitalization",
     "date": "2012-06-01",
     "citation": "Poster presented at the Language Revitalization in the 21st Century.",
@@ -2085,7 +2088,7 @@
   {
     "id": "52",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Reduplicative roots in Chitimacha",
     "date": "2014-05-13",
     "citation": "Term paper, ‘Introduction to Morphology’, Prof. Marianne Mithun, Spring 2014, UC Santa Barbara.",
@@ -2102,7 +2105,7 @@
   {
     "id": "51",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "The necessity of grammatical structures",
     "date": "2014-02-25",
     "citation": "<cite>Diversity Linguistics Comment</cite>.",
@@ -2121,7 +2124,7 @@
   {
     "id": "50",
     "type": "publication",
-    "pubType": "edited",
+    "publicationType": "edited",
     "title": "Working Papers in Athabaskan (Dene) Languages 2012",
     "date": "2013-01-01",
     "citation": "(Alaska Native Language Center Working Papers 11), eds. Sharon Hargus, Edward Vajda, Daniel W. Hieber. ANLC.",
@@ -2138,7 +2141,7 @@
   {
     "id": "49",
     "type": "publication",
-    "pubType": "article",
+    "publicationType": "article",
     "title": "On linguistics, linguists, and our times: A linguist’s personal narrative reviewed",
     "date": "2013-08-07",
     "citation": "<cite>Linguistic Typology</cite> 17(2): 291–321. Review article of R. M. W. Dixon. 2010. <cite>I am a linguist</cite>. Brill. DOI: <a href=http://dx.doi.org/10.1515/lity-2013-0013>10.1515/lity-2013-0013</a>.",
@@ -2159,7 +2162,7 @@
   {
     "id": "48",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "What are the origins of language?",
     "date": "2010-12-29",
     "citation": "<cite>Linguavore: RVoice.</cite>",
@@ -2178,7 +2181,7 @@
   {
     "id": "47",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Degrees & dimensions of grammaticalization in Chitimacha preverbs",
     "date": "2014-05-02",
     "citation": "17th Annual Workshop on American Indigenous Languages (WAIL), University of California, Santa Barbara.",
@@ -2198,7 +2201,7 @@
   {
     "id": "46",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "What’s in a word? Code-switching in Mombasa Swahili",
     "date": "2006-12-15",
     "citation": "Term paper, ‘Swahili Language & Culture Studies’, Fall 2006, School for International Training, Mombasa, Kenya.",
@@ -2217,7 +2220,7 @@
   {
     "id": "45",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Rosetta Stone & Navajo Language Renaissance",
     "date": "2012-08-16",
     "citation": "With Lorraine Begay Manavi & Kasra Manavi. Invited keynote, Athabaskan (Dene) Languages Conference, Western Washington University, Bellingham, WA.",
@@ -2237,7 +2240,7 @@
   {
     "id": "44",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Nicholas Evans, <cite>Dying words: Endangered languages and what they have to tell us</cite>",
     "date": "2009-08-03",
     "citation": "Linguist List 20.2673.",
@@ -2257,7 +2260,7 @@
   {
     "id": "43",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Shobhana L. Chelliah & Willem J. de Reuse, <cite>Handbook of descriptive linguistic fieldwork</cite>",
     "date": "2011-08-05",
     "citation": "Linguist List 23.3129.",
@@ -2277,7 +2280,7 @@
   {
     "id": "42",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Language revitalization: Issues with reference to Navajo",
     "date": "2011-04-01",
     "citation": "With Marion K. Bittinger. Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
@@ -2297,7 +2300,7 @@
   {
     "id": "41",
     "type": "publication",
-    "pubType": "article",
+    "publicationType": "article",
     "title": "Category genesis in Chitimacha: A constructional approach",
     "date": "forthcoming",
     "citation": "To appear in Kristel Van Goethem, Muriel Norde, Evie Coussé, & Gudrun Vanderbauwhede (eds.), <cite>Categorization and category change from a constructional perspective</cite> (Constructional Approaches to Language). John Benjamins.",
@@ -2314,7 +2317,7 @@
   {
     "id": "40",
     "type": "publication",
-    "pubType": "project",
+    "publicationType": "project",
     "title": "Rosetta Stone Chitimacha (Sitimaxa)",
     "date": "2010-01-01",
     "citation": "Rosetta Stone language-learning software for the Chitimacha language. Not available for public purchase.",
@@ -2332,7 +2335,7 @@
   {
     "id": "39",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "A grammar of Turkish",
     "date": "2007-12-15",
     "citation": "Term paper, ‘Descriptive Linguistics’, Prof. Ann M. Reed, Fall 2007, The College of William & Mary.",
@@ -2351,7 +2354,7 @@
   {
     "id": "38",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Renaissance on the bayou: The revival of a lost language",
     "date": "2015-07-27",
     "citation": "<cite>The Conversation</cite>.",
@@ -2370,7 +2373,7 @@
   {
     "id": "37",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "The Navajo language",
     "date": "2009-10-15",
     "citation": "Term paper, ‘Linguistic Anthropology’, Prof. Amy L. Paugh, Fall 2009, James Madison University.",
@@ -2387,7 +2390,7 @@
   {
     "id": "36",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Viveka Velupillai, <cite>An introduction to linguistic typology</cite>",
     "date": "2013-06-24",
     "citation": "Linguist List 24.2550.",
@@ -2406,7 +2409,7 @@
   {
     "id": "35",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Causativity and the origin of the causative suffix in Chitimacha",
     "date": "2014-06-10",
     "citation": "Term paper, ‘Advanced Syntax’, Prof. Marianne Mithun, Fall 2014, UC Santa Barbara.",
@@ -2423,7 +2426,7 @@
   {
     "id": "34",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Rapid reading",
     "date": "2012-02-02",
     "citation": "Content Development Department, Rosetta Stone, Harrisonburg, VA.",
@@ -2440,7 +2443,7 @@
   {
     "id": "33",
     "type": "publication",
-    "pubType": "online",
+    "publicationType": "online",
     "title": "Language myths and complicated languages",
     "date": "2011-09-21",
     "citation": "<cite>Linguavore: RVoice</cite>.",
@@ -2459,7 +2462,7 @@
   {
     "id": "32",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "George Yule, <cite>The study of language, 4th ed.</cite>",
     "date": "2011-04-18",
     "citation": "<cite>eLanguage</cite> book notice.",
@@ -2476,7 +2479,7 @@
   {
     "id": "31",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "Truth and the sentential hierarchy",
     "date": "2006-04-04",
     "citation": "Term paper, ‘Philosophy of Language’, Prof. Robert Maximilian de Gaynesford, Spring 2006, The College of William & Mary.",
@@ -2493,7 +2496,7 @@
   {
     "id": "30",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Semantic alignment in Chitimacha",
     "date": "2014-01-04",
     "citation": "Winter Meeting of the Society for the Study of the Indigenous Languages of the Americas (SSILA), Minneapolis, MN.",
@@ -2513,7 +2516,7 @@
   {
     "id": "29",
     "type": "publication",
-    "pubType": "project",
+    "publicationType": "project",
     "title": "Rosetta Stone Iñupiaq (North Slope Iñupiatun)",
     "date": "2011-08-01",
     "citation": "Rosetta Stone language-learning software for the Inupiaq language. Not available for public purchase. See the <a href='http://launch.rosettastone.com/en/licenses/demo?application_launcher_session_id=585fbc94952f633a4f1720683eda0c6c'>demo</a>.",
@@ -2533,7 +2536,7 @@
   {
     "id": "28",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Building the lexion for reawakening languages",
     "date": "2014-03-09",
     "citation": "Conference on Language Revitalization: Sleeping & Awakening Languages of the Gulf South, Tulane University, New Orleans, LA.",
@@ -2552,7 +2555,7 @@
   {
     "id": "27",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Dik Bakker & Martin Haspelmath (eds.), <cite>Languages across boundaries</cite>",
     "date": "2014-04-24",
     "citation": "Linguist List 26.542.",
@@ -2572,7 +2575,7 @@
   {
     "id": "26",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "The processing of multicategorial roots in Swahili",
     "date": "2014-12-01",
     "citation": "Term paper, ‘Cognitive Foundations of Language’, Prof. Fermin Moscoso del Prado Martin, Fall 2014, UC Santa Barbara.",
@@ -2589,7 +2592,7 @@
   {
     "id": "25",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "The start and the end of it: Prosodic marking of speech report boundaries in Dolakha Newar",
     "date": "2015-05",
     "citation": "(with Carol Genetti) Plenary talk given to the South Asian Languages Conference, May 15, 2015, London, UK.",
@@ -2606,7 +2609,7 @@
   {
     "id": "24",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Documentation & revitalization of Ékegusií language & culture",
     "date": "2014-08-01",
     "citation": "Invited talk to the Ékegusií Encyclopedia Project, Mombasa, Kenya.",
@@ -2626,7 +2629,7 @@
   {
     "id": "23",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Language revitalization: Navajo",
     "date": "2009-11-01",
     "citation": "With Marion K. Bittinger. Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
@@ -2646,7 +2649,7 @@
   {
     "id": "22",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "On the status of the subject agreement marker in Swahili",
     "date": "2008-05-07",
     "citation": "Term paper, ‘Advanced Syntax’, Prof. Ann M. Reed, Spring 2008, The College of William & Mary.",
@@ -2663,7 +2666,7 @@
   {
     "id": "21",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Language endangerment & nationalism",
     "date": "2012-02-27",
     "citation": "Invited talk co-sponsored by the Latin American Studies Program and the Arts & Sciences Lectures Committee, The College of William & Mary, Williamsburg, VA.",
@@ -2683,7 +2686,7 @@
   {
     "id": "20",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "Renaissance on the bayou: Revitalizing the Chitimacha language",
     "date": "2015-05-04",
     "citation": "Award-winning 3-minute talk on my work with the Chitimacha language, presented as part of the University of California Grad Slam competition for the best 3-minute research talk by a graduate student. Watch the video <a href=http://1drv.ms/1dTFEDb>here</a>.",
@@ -2703,7 +2706,7 @@
   {
     "id": "19",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Nicole Nau, Geoffrey L. J. Haig, Stefan Schnell, & Claudia Wegener, <cite>Documenting endangered languages: Achievements & perspectives</cite>",
     "date": "2012-05-19",
     "citation": "Linguist List 23.2390.",
@@ -2722,7 +2725,7 @@
   {
     "id": "18",
     "type": "publication",
-    "pubType": "unpublished",
+    "publicationType": "unpublished",
     "title": "The U.S. Southeast as a linguistic area",
     "date": "2014-01-27",
     "citation": "Class presentation, ‘Language & Prehistory’, Prof. Laura Robinson, Winter 2014, UC Santa Barbara.",
@@ -3076,7 +3079,7 @@
   {
     "id": "173",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "The extension of structure to discourse: Chitimacha participles in discourse and diachrony",
     "date": "2016-01-08",
     "citation": "Talk presented at the Society for the Study of the Indigenous Languages of the Americas (SSILA), Jan. 7—10, Washington, D.C.",
@@ -3095,7 +3098,7 @@
   {
     "id": "174",
     "type": "publication",
-    "pubType": "presentation",
+    "publicationType": "presentation",
     "title": "How to become a Kisii folktalke: Generic features of moralizing narratives among the Gusii people of Kenya",
     "date": "2016-04-08",
     "citation": "Talk presented at the Language, Interaction, & Social Organization Symposium (LISO) special session on Interaction & Culture Across Languages: Perspectives from Field Linguistics, April 8, 2016, University of California, Santa Barbara.",
@@ -3113,7 +3116,7 @@
   {
     "id": "175",
     "type": "publication",
-    "pubType": "review",
+    "publicationType": "review",
     "title": "Thomas E. Payne & Doris L. Payne, <cite>A typological grammar of Panare: A Cariban language of Venezuela</cite>",
     "date": "2016-07-11",
     "citation": "International Journal of American Linguistics (IJAL) 82(3): 387–389. DOI: <a href='http://dx.doi.org/10.1086/687388'>10.1086/687388</a>.",

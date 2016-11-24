@@ -50,6 +50,11 @@
 
 }
 
+code {
+  font-family: 'Fira Mono';
+  white-space: pre;
+}
+
 dfn { font-style: italic; }
 
 .doc {
@@ -94,6 +99,38 @@ em { font-style: italic; }
   }
 }
 
+// form and any form-associated elements
+form {
+
+  button {
+    .button;
+    margin: 0.5em;
+  }
+
+  input[type=date],
+  input[type=email],
+  input[type=number],
+  input[type=tel],
+  input[type=text],
+  textarea {
+    .field;
+    .sharp-rounded;
+    padding: 0.25em 0.5em;
+  }
+
+  fieldset,
+  label {
+    padding: 0.5rem 0rem;
+    b { font-weight: bold; }
+  }
+
+  select {
+    .sharp-rounded;
+    align-self: flex-start;
+  }
+
+}
+
 .hanging {
   text-indent: -1rem;
   margin-left: 1rem;
@@ -104,10 +141,20 @@ i {
   font-style: italic;
 }
 
-[lang=ipa] {
+.icon {}
+
+.inlineIcon {
+  height: 1.5em;
+}
+
+[lang=en-fonipa] {
   font-family: 'Gentium Plus';
   vertical-align: top; // prevents line from expanding
   white-space: nowrap;
+}
+
+.sharp-rounded {
+  border-radius: 0.125em;
 }
 
 .link {
@@ -127,7 +174,7 @@ i {
 .rollover {
   position: relative;
 
-  > span[lang=ipa] {
+  > span[lang=en-fonipa] {
     left: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -141,8 +188,8 @@ i {
 
 .rollover:hover,
 #nav > ul > li.selected > .rollover {
-  > span[lang=ipa] { visibility: visible; }
-  > span[lang=eng] { visibility: hidden; }
+  > span[lang=en-fonipa] { visibility: visible; }
+  > span[lang=en] { visibility: hidden; }
 }
 
 small { font-size: 0.8em; }

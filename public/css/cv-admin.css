@@ -1,0 +1,166 @@
+button {
+  align-items: center;
+  background-color: #3180E1;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+button:hover,
+button:focus {
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+}
+button:active {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+button,
+#buttons {
+  align-self: center;
+}
+#buttons {
+  flex-direction: row;
+}
+#overview > h1,
+#details > h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.5rem 0rem;
+}
+#overview li {
+  align-items: center;
+  cursor: pointer;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.25rem 0rem;
+}
+#overview li img {
+  height: 1.5em;
+  visibility: hidden;
+}
+#overview li:hover img {
+  visibility: visible;
+}
+#form legend {
+  font-weight: bold;
+}
+#form fieldset[name=categories] label {
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+}
+#form fieldset[name=categories] label input {
+  margin: 0rem 0.5rem;
+}
+#form label[for=publicationType] {
+  order: 1;
+}
+#form label[for=author] {
+  order: 2;
+}
+#form label[for=title] {
+  order: 3;
+}
+#form label[for=autonym] {
+  order: 4;
+}
+#form label[for=organization] {
+  order: 5;
+}
+#form label[for=program] {
+  order: 6;
+}
+#form label[for=role] {
+  order: 7;
+}
+#form label[for=date] {
+  order: 8;
+}
+#form label[for=startYear] {
+  order: 9;
+}
+#form label[for=endYear] {
+  order: 10;
+}
+#form label[for=year] {
+  order: 11;
+}
+#form label[for=publication] {
+  order: 12;
+}
+#form label[for=abbreviation] {
+  order: 13;
+}
+#form label[for=key] {
+  order: 14;
+}
+#form label[for=name] {
+  order: 15;
+}
+#form label[for=email] {
+  order: 16;
+}
+#form label[for=phone] {
+  order: 17;
+}
+#form label[for=proficiencyType] {
+  order: 18;
+}
+#form label[for=location] {
+  order: 19;
+}
+#form label[for=competency] {
+  order: 20;
+}
+#form fieldset[name=categories] {
+  order: 21;
+}
+#form fieldset[name=links] {
+  order: 22;
+}
+#form label[for=description] {
+  order: 23;
+}
+#form fieldset[name=achievements] {
+  order: 24;
+}
+#deleteButton {
+  background-color: #E23B32;
+}
+main > header > h1 {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+label[for=cv-type] {
+  align-self: flex-end;
+}
+@media screen and (max-width: 699px) {
+  main > * {
+    padding-bottom: 1rem;
+  }
+  #overview > h1,
+  #details > h1 {
+    align-self: center;
+  }
+  #list {
+    align-self: center;
+  }
+}
+@media screen and (min-width: 700px) {
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  main header {
+    width: 100%;
+  }
+  #overview {
+    width: 40%;
+  }
+  #details {
+    width: 60%;
+  }
+}

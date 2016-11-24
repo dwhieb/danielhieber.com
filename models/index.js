@@ -13,5 +13,13 @@ module.exports = {
   Proficiency: require('./proficiency'),
   Reference: require('./reference'),
   Service: require('./service'),
+  Test: require('./test'),
   Work: require('./work'),
 };
+
+// also export lowercased versions of models for convenience
+for (const model in module.exports) {
+  if (module.exports.hasOwnProperty(model)) {
+    module.exports[model.toLowerCase()] = module.exports[model];
+  }
+}

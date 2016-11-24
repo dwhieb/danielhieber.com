@@ -6,7 +6,7 @@ describe('Publication', function PubSpec() {
   const data = {
     date: '10-1-2016',
     description: 'Citation here.',
-    pubType: 'peer-reviewed',
+    publicationType: 'peer-reviewed',
     title: 'A typology of lexical flexibility',
   };
 
@@ -24,9 +24,9 @@ describe('Publication', function PubSpec() {
       delete testData.description;
       new Publication(testData);
     };
-    const noPubType = () => {
+    const nopublicationType = () => {
       const testData = Object.assign({}, data);
-      delete testData.pubType;
+      delete testData.publicationType;
       new Publication(testData);
     };
     const noTitle = () => {
@@ -45,26 +45,26 @@ describe('Publication', function PubSpec() {
     expect(pub.title).toBeDefined();
     expect(noDate).toThrow();
     expect(noDescription).toThrow();
-    expect(noPubType).toThrow();
+    expect(nopublicationType).toThrow();
     expect(noTitle).toThrow();
 
   });
 
-  it('Publication.prototype.pubType', function pubTypeAttr() {
+  it('Publication.prototype.publicationType', function publicationTypeAttr() {
 
     const pub = new Publication(data);
 
-    const badPubType = () => {
+    const badpublicationType = () => {
       const testData = Object.assign({}, data);
-      testData.pubType = 'bad type';
+      testData.publicationType = 'bad type';
       new Publication(testData);
     };
 
-    expect(badPubType).toThrow();
+    expect(badpublicationType).toThrow();
 
-    expect(pub.pubType).toBe(data.pubType);
-    pub.pubType = 'unpublished';
-    expect(pub.pubType).toBe(data.pubType);
+    expect(pub.publicationType).toBe(data.publicationType);
+    pub.publicationType = 'unpublished';
+    expect(pub.publicationType).toBe(data.publicationType);
 
   });
 
@@ -77,7 +77,7 @@ describe('Publication', function PubSpec() {
       'html',
       'links',
       'markdown',
-      'pubType',
+      'publicationType',
       'title',
     ]);
 

@@ -1,5 +1,5 @@
 {{#section 'style'}}
-  <link rel=stylesheet href=/css/cv.css media=screen charset=utf-8>
+  <link rel=stylesheet href=/css/cv.css media=screen>
 {{/section}}
 
 <main id=cv itemscope itemtype=http://schema.org/CreativeWork>
@@ -40,9 +40,9 @@
       {{#each sections}}
         <li>
           <p><a href=#{{@key}}>{{title}}</a></p>
-          {{#if pubTypes}}
+          {{#if publicationTypes}}
             <ol>
-              {{#each pubTypes}}
+              {{#each publicationTypes}}
                 <li><p><a href=#{{@key}}>{{title}}</a></p></li>
               {{/each}}
             </ol>
@@ -134,7 +134,7 @@
       <section id=publications>
         {{> sectionHeader this}}
 
-        {{#each pubTypes}}
+        {{#each publicationTypes}}
           <section id={{@key}}>
             {{> sectionHeader this}}
 

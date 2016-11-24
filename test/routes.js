@@ -57,16 +57,6 @@ describe('routes', function routes() {
     });
   }, 10000);
 
-  it('GET /admin/categories', function categoriesAdmin(done) {
-    req.get('/admin/categories')
-    .expect(302)
-    .end((err, res) => {
-      if (err) fail(JSON.stringify(err, null, 2));
-      expect(res.headers.location.includes('https://login.live.com/')).toBe(true);
-      done();
-    });
-  }, 10000);
-
   it('GET /blog', function blog(done) {
     req.get('/blog')
     .expect(302)

@@ -1,11 +1,10 @@
 {
   "spec_dir": "test",
   "spec_files": [
-    "*/*.jsTEMP",
-    "*.jsTEMP",
-    "models/*.js"
+    "*/*.js",
+    "*.js"
   ],
   "stopSpecOnExpectationFailure": false,
-  "random": true,
+  "random": false,
   "defaultTimeoutInterval": 10000
 }

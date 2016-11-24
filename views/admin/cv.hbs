@@ -1,3 +1,66 @@
-<main id=cvAdmin>
-  <h1>CV Admin</h1>
+{{#section 'style'}}
+  <link rel=stylesheet href=/css/cv-admin.css>
+{{/section}}
+
+<main id=cv-admin>
+
+  <header>
+
+    <h1>CV Admin</h1>
+
+    <label for=cv-type>
+
+      <b>CV Type</b>
+
+      <select id=cv-type name=type>
+        <option disabled selected>Choose a CV item type</option>
+        {{#each modelNames}}
+          <option value={{lowercase}}>{{capitalized}}</option>
+        {{/each}}
+      </select>
+
+    </label>
+
+  </header>
+
+  <section id=overview>
+    <h1>Items</h1>
+    <ol id=list></ol>
+    <button id=addButton type=button name=addButton>Add Item</button>
+  </section>
+
+  <section id=details>
+    <h1>Item Details</h1>
+    <form id=form></form>
+    <div id=buttons>
+
+      <button
+        id=saveButton
+        type=submit
+        name=saveButton
+        tabindex=25
+      >Save</button>
+
+      <button
+        id=deleteButton
+        type=button
+        name=deleteButton
+        tabindex=25
+      >Delete</button>
+
+    </div>
+  </section>
+
 </main>
+
+{{> templates}}
+
+{{#section 'script'}}
+  <script src=/js/core/emitter.js    charset=utf-8></script>
+  <script src=/js/core/model.js      charset=utf-8></script>
+  <script src=/js/core/collection.js charset=utf-8></script>
+  <script src=/js/core/view.js       charset=utf-8></script>
+  <script src=/js/views/formView.js  charset=utf-8></script>
+  <script src=/js/views/listView.js  charset=utf-8></script>
+  <script src=/js/pages/admin/cv.js  charset=utf-8></script>
+{{/section}}

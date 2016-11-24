@@ -17,62 +17,42 @@ const View = class View {
   /**
    * Create a new View
    * @param {Object} el            An HTML Node to bind the view to
+   * @param {Object} [template]    An HTML template element to use for templating
    * @param {Object|Array} data    An object or array to serve as the model for the view
-   * @prop  {Object} el            The HTML node that has been bound to the view
-   * @prop  {Object} nodes         An object containing references to any other nodes that are relevant to this view. It is recommended that this object be populated by using View.bind(), e.g. `"container": View.bind(containerEl)`.
-   * @prop  {Object} model         If an object was passed as the model, this property will be present and contain a reference to the model.
+   *
    * @prop  {Array} collection     If an array was passed as the model/collection, this property will be present and contain a reference to that collection.
+   * @prop  {Object} el            The HTML node that has been bound to the view
+   * @prop  {Object} model         If an object was passed as the model, this property will be present and contain a reference to the model.
+   * @prop  {Object} nodes         An object containing references to any other nodes that are relevant to this view. It is recommended that this object be populated by using View.bind(), e.g. `"container": View.bind(containerEl)`.
    */
-  constructor(el, data) {
+  constructor(el, template, data = {}) {
 
-    if (!(el instanceof Node)) {
-      throw new Error('The `el` argument must be an instance of a Node.');
-    }
-
-    if (data) {
-
-      if (data instanceof Model) {
-        this.model = data;
-      } else if (data instanceof Collection) {
-        this.collection = data;
-      } else if (Array.isArray(data)) {
-        this.collection = new Collection(data);
-      } else if (data instanceof Object) {
-        this.model = new Model(data);
-      } else {
-        throw new Error('The `data` argument must be an object or an array.');
-      }
-
-    } else {
-
-      this.model = new Model({});
-
-    }
-
-    this.el = View.bind(el);
     this.nodes = {};
+
+    if (el instanceof Node) {
+      this.el = View.bind(el);
+    } else {
+      throw new TypeError(`The "el" argument must be an HTML node.`);
+    }
+
+    if (template instanceof HTMLTemplateElement) {
+      this.template = template;
+    }
+
+    if (data instanceof Model) {
+      this.model = data;
+    } else if (data instanceof Collection) {
+      this.collection = data;
+    } else if (Array.isArray(data)) {
+      this.collection = new Collection(data);
+    } else if (data instanceof Object) {
+      this.model = new Model(data);
+    } else {
+      throw new Error('The `data` argument must be an object or an array.');
+    }
 
     Emitter.extend(this);
 
-  }
-
-  /**
-   * Displays the view, if hidden. Takes an optional `displayStyle` argument specifying what to set the `display` attribute of the element to (defaults to 'flex').
-   * @method
-   * @param {String} [displayStyle]       A string to set the `display` attribute to
-   */
-  display(displayStyle) {
-    this.el.style.display = displayStyle || 'flex';
-    this.emit('display');
-  }
-
-  /**
-   * Hides the view, if displayed.
-   * @method
-   */
-  hide() {
-    this.el.style.display = 'none';
-    this.emit('hide');
   }
 
   /**
@@ -83,6 +63,25 @@ const View = class View {
     this.removeListeners();
     this.el.remove();
     this.emit('destroy');
+  }
+
+  /**
+   * Displays the view, if hidden. Takes an optional `displayStyle` argument specifying what to set the `display` attribute of the element to (defaults to 'flex').
+   * @method
+   * @param {String} [displayStyle]       A string to set the `display` attribute to
+   */
+  display(displayStyle) {
+    View.display(this.el, displayStyle);
+    this.emit('display');
+  }
+
+  /**
+   * Hides the view, if displayed.
+   * @method
+   */
+  hide() {
+    View.hide(this.el);
+    this.emit('hide');
   }
 
   /**
@@ -114,6 +113,38 @@ const View = class View {
 
     this.emit('removeListeners');
 
+  }
+
+  /**
+   * A generic render method that throws an error letting the user know that a more specific method needs to be defined on the subclass.
+   */
+  render() {
+    throw new Error('No ".render()" method has been defined for this object. Please define a ".render()" method on the subclass.');
+  }
+
+  /**
+   * Displays an HTML element
+   * @param {Object} element        The HTML element to display
+   * @param {String} displayStyle   The display style to set (e.g. 'flex', 'block'). Defaults to 'flex'.
+   */
+  static display(element, displayStyle) {
+    if (element instanceof Node) {
+      element.style.display = displayStyle || 'flex'; // eslint-disable-line no-param-reassign
+    } else {
+      throw new Error('Must pass a Node element to View.display.');
+    }
+  }
+
+  /**
+   * Hides an HTML element
+   * @param {Object} element      The element to hide
+   */
+  static hide(element) {
+    if (element instanceof Node) {
+      element.style.display = 'none'; // eslint-disable-line no-param-reassign
+    } else {
+      throw new Error('Must pass a Node element to View.hide.');
+    }
   }
 
   /**
@@ -163,10 +194,7 @@ const View = class View {
 
         if (i >= 0) {
           el.listeners.splice(i, 1);
-        } else {
-          throw new Error('Listener not found.');
         }
-
 
         return Reflect.apply(target, context, args);
 
@@ -175,6 +203,16 @@ const View = class View {
 
     el.addEventListener = new Proxy(el.addEventListener, proxyAdd);
     el.removeEventListener = new Proxy(el.removeEventListener, proxyRemove);
+
+    el.removeListeners = () => {
+      el.listeners.forEach(listener => {
+        const { capture, eventHandler, opts, type } = listener;
+        el.removeEventListener(type, eventHandler, opts || capture);
+      });
+    };
+
+    el.display = () => View.display(el);
+    el.hide = () => View.hide(el);
 
     return el;
 

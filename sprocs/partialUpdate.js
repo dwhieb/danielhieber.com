@@ -1,6 +1,7 @@
 /* global __ */
 
 /* eslint-disable
+  func-style,
   max-statements,
   no-param-reassign,
   prefer-rest-params,
@@ -13,7 +14,7 @@
  * @param  {Object} newDoc.id      The ID of the document to update
  * @return {undefined} No return
  */
-function update(newDoc) { // eslint-disable-line func-style, no-unused-vars
+function update(newDoc) { // eslint-disable-line no-unused-vars
 
   // polyfill for Object.assign()
   if (typeof Object.assign !== 'function') {

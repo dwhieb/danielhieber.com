@@ -1,0 +1,29 @@
+<template id=links-template>
+
+  <fieldset name=links>
+
+    <legend>Links</legend>
+
+    <ul>
+      <li>
+
+        <select name=linkType tabindex=22>
+          <option value=handout >handout</option>
+          <option value=info    >info   </option>
+          <option value=org     >org    </option>
+          <option value=pdf     >pdf    </option>
+          <option value=pub     >pub    </option>
+          <option value=slides  >slides </option>
+        </select>
+
+        <input type=url name=link placeholder=URL inputmode=url>
+        <img src=/img/delete.svg alt='delete this link'>
+
+      </li>
+    </ul>
+
+    <button type=button name=addLink>Add Link</button>
+
+  </fieldset>
+
+</template>

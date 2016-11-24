@@ -7,7 +7,7 @@ const Membership = class Membership extends Document {
     const membership = {};
 
     // check for required "title" attribute
-    if (!('title' in data)) throw new Error(`The "title" attribute is required.`);
+    if (!('organization' in data)) throw new Error(`The "organization" attribute is required.`);
 
     // copy whitelisted attributes
     Membership.whitelist.forEach(attr => {
@@ -18,7 +18,7 @@ const Membership = class Membership extends Document {
     membership.type = 'membership';
 
     // instantiate the new Document
-    super(membership, ['abbreviation', 'categories', 'links', 'title']);
+    super(membership, ['abbreviation', 'categories', 'links', 'organization']);
 
   }
 
@@ -28,7 +28,7 @@ const Membership = class Membership extends Document {
       'abbreviation',
       'categories',
       'links',
-      'title',
+      'organization',
     ]);
   }
 
