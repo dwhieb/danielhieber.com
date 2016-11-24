@@ -13,13 +13,13 @@
   },
   "research": {
     "eng": "Research",
-    "ipa": "/ ɹisɜ˞tʃ /",
+    "ipa": "/ ɹisɜɹʧ /",
     "pageTitle": "Research",
     "path": "/research"
   },
   "cv": {
     "eng": "Curriculum Vitae",
-    "ipa": "/ kə˞ɪkjələm vitaᶦ /",
+    "ipa": "/ kəɹɪkjələm vitaᶦ /",
     "pageTitle": "CV",
     "path": "/cv"
   },
@@ -28,6 +28,12 @@
     "ipa": "/ leᶦŋgwɪdʒɪz /",
     "pageTitle": "Languages",
     "path": "/languages"
+  },
+  "teaching": {
+    "eng": "Teaching",
+    "ipa": "/ tiʧɪŋ /",
+    "pageTitle": "Teaching",
+    "path": "/teaching"
   },
   "bibliographies": {
     "eng": "Bibliographies",
