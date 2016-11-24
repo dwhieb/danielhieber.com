@@ -114,12 +114,12 @@ form button:focus {
 form button:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
-input[type=date],
-input[type=email],
-input[type=number],
-input[type=tel],
-input[type=text],
-textarea {
+form input[type=date],
+form input[type=email],
+form input[type=number],
+form input[type=tel],
+form input[type=text],
+form textarea {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -127,44 +127,44 @@ textarea {
   border-radius: 0.125em;
   padding: 0.25em 0.5em;
 }
-input[type=date]:focus,
-input[type=email]:focus,
-input[type=number]:focus,
-input[type=tel]:focus,
-input[type=text]:focus,
-textarea:focus {
+form input[type=date]:focus,
+form input[type=email]:focus,
+form input[type=number]:focus,
+form input[type=tel]:focus,
+form input[type=text]:focus,
+form textarea:focus {
   border-color: #3180E1;
   box-shadow: inset 0 1px 3px rgba(49, 128, 225, 0.5);
 }
-input[type=date]:focus:invalid,
-input[type=email]:focus:invalid,
-input[type=number]:focus:invalid,
-input[type=tel]:focus:invalid,
-input[type=text]:focus:invalid,
-textarea:focus:invalid {
+form input[type=date]:focus:invalid,
+form input[type=email]:focus:invalid,
+form input[type=number]:focus:invalid,
+form input[type=tel]:focus:invalid,
+form input[type=text]:focus:invalid,
+form textarea:focus:invalid {
   border-color: #E23B32;
   box-shadow: inset 0 1px 3px rgba(226, 59, 50, 0.5);
   color: #e23b32;
 }
-input[type=date][disabled],
-input[type=email][disabled],
-input[type=number][disabled],
-input[type=tel][disabled],
-input[type=text][disabled],
-textarea[disabled] {
+form input[type=date][disabled],
+form input[type=email][disabled],
+form input[type=number][disabled],
+form input[type=tel][disabled],
+form input[type=text][disabled],
+form textarea[disabled] {
   background-color: #eaeded;
   color: #cad2d3;
   cursor: not-allowed;
 }
-fieldset,
-label {
+form fieldset,
+form label {
   padding: 0.5rem 0rem;
 }
-fieldset b,
-label b {
+form fieldset b,
+form label b {
   font-weight: bold;
 }
-select {
+form select {
   border-radius: 0.125em;
   align-self: flex-start;
 }
