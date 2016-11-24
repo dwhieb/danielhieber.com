@@ -43,7 +43,6 @@ window.app = {
       if (this.list) this.list.destroy();
       this.list = new ListView(res, type);
       this.collection = this.list.collection;
-      this.collection.sort((a, b) => a.title > b.title);
       this.list.render();
     });
   },

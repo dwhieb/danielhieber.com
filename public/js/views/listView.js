@@ -26,8 +26,6 @@ var ListView = function (_View) {
 
     var _this = _possibleConstructorReturn(this, (ListView.__proto__ || Object.getPrototypeOf(ListView)).call(this, el, template, collection));
 
-    _this.sort();
-
     _this.nodes = {
       add: View.bind(document.getElementById('addButton')),
       list: View.bind(document.getElementById('list'))
@@ -107,7 +105,14 @@ var ListView = function (_View) {
       this.hide();
       this.removeListeners();
       this.nodes.list.innerHTML = '';
-      this.sort();
+
+      this.collection.sort(function (a, b) {
+        if (a.title) return a.title > b.title;
+        if (a.name) return a.name > b.name;
+        if (a.organization) return a.organization > b.organization;
+        if (a.location) return a.location > b.location;
+        return a.id > b.id;
+      });
 
       this.collection.forEach(function (model) {
 

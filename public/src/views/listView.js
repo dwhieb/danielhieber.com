@@ -13,8 +13,6 @@ const ListView = class ListView extends View {
 
     super(el, template, collection);
 
-    this.sort();
-
     this.nodes = {
       add:  View.bind(document.getElementById('addButton')),
       list: View.bind(document.getElementById('list')),
@@ -72,7 +70,14 @@ const ListView = class ListView extends View {
     this.hide();
     this.removeListeners();
     this.nodes.list.innerHTML = '';
-    this.sort();
+
+    this.collection.sort((a, b) => {
+      if (a.title) return a.title > b.title;
+      if (a.name) return a.name > b.name;
+      if (a.organization) return a.organization > b.organization;
+      if (a.location) return a.location > b.location;
+      return a.id > b.id;
+    });
 
     this.collection.forEach(model => {
 
