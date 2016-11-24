@@ -10,10 +10,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 /* global FormView, Model, View */
 
-/**
- * Events emitted by ListView
- */
-
 var ListView = function (_View) {
   _inherits(ListView, _View);
 
@@ -50,15 +46,14 @@ var ListView = function (_View) {
     key: 'add',
     value: function add(model) {
       this.collection.add(model);
-      this.emit('add', model);
       return this.collection.length;
     }
   }, {
     key: 'destroy',
     value: function destroy() {
       this.hide();
-      this.nodes.list.innerHTML = '';
       this.removeListeners();
+      this.nodes.list.innerHTML = '';
     }
 
     // helper function
@@ -82,7 +77,6 @@ var ListView = function (_View) {
     key: 'remove',
     value: function remove(model) {
       this.collection.remove(model);
-      this.emit('remove', model);
     }
   }, {
     key: 'removeConfirmed',
@@ -96,6 +90,7 @@ var ListView = function (_View) {
       var _this2 = this;
 
       this.hide();
+      this.removeListeners();
       this.nodes.list.innerHTML = '';
       this.sort();
 
@@ -119,26 +114,17 @@ var ListView = function (_View) {
         if (ev.target === _this2.nodes.add) {
 
           // if the Add button is clicked, add a model
-          var waitTime = 5000;
-          var debouncedUpdate = debounce(function () {
-            _this2.removeListeners();
-            _this2.render();
-          }, waitTime);
           var model = new Model({ type: _this2.type });
           var fv = new FormView(model);
 
           _this2.collection.add(model);
-          _this2.removeListeners();
           _this2.render();
           fv.render();
-          model.on('update', debouncedUpdate);
-          _this2.emit('new');
         } else if (!deadAreas.includes(ev.target.tagName)) {
 
           // otherwise lookup the model associated with the click event
           var _model = _this2.lookupModel(ev);
 
-          // model was found
           if (_model) {
 
             // if Delete button was clicked, delete the model
@@ -149,22 +135,16 @@ var ListView = function (_View) {
             } else {
               var _fv = new FormView(_model);
               _fv.render();
-              _this2.emit('select', _model);
             }
-
-            // rerender if model was not found
           } else {
 
-            console.error('Model could not be found.');
-            _this2.removeListeners();
-            _this2.render();
+            _this2.render(); // rerender if model was not found
           }
         }
       });
 
       this.display();
       this.nodes.add.display();
-      this.emit('render');
       return this;
     }
   }, {
@@ -173,7 +153,6 @@ var ListView = function (_View) {
       this.collection.sort(function (a, b) {
         return a.name < b.name;
       });
-      this.emit('sort', this.collection);
       return this;
     }
   }]);

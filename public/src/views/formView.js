@@ -403,7 +403,10 @@ const FormView = (function FormViewWrapper() {
 
           if (confirmed) {
             this.model.destroy()
-            .then(() => this.destroy())
+            .then(() => {
+              this.destroy();
+              this.emit('destroy');
+            })
             .catch(err => this.displayError(err));
           }
 

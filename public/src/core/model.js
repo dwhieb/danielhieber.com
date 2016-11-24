@@ -11,6 +11,7 @@ const Model = class Model {
   constructor(data = {}) {
 
     if (data instanceof Model) return data;
+    if (data.markdown) data.description = data.markdown;
 
     // copy data to the model
     Object.assign(this, data);

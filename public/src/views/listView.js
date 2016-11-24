@@ -1,9 +1,5 @@
 /* global FormView, Model, View */
 
-/**
- * Events emitted by ListView
- */
-
 const ListView = class ListView extends View {
   /**
    * Create a new ListView
@@ -34,14 +30,13 @@ const ListView = class ListView extends View {
 
   add(model) {
     this.collection.add(model);
-    this.emit('add', model);
     return this.collection.length;
   }
 
   destroy() {
     this.hide();
-    this.nodes.list.innerHTML = '';
     this.removeListeners();
+    this.nodes.list.innerHTML = '';
   }
 
   // helper function
@@ -60,7 +55,6 @@ const ListView = class ListView extends View {
 
   remove(model) {
     this.collection.remove(model);
-    this.emit('remove', model);
   }
 
   removeConfirmed(model) {
@@ -71,6 +65,7 @@ const ListView = class ListView extends View {
   render() {
 
     this.hide();
+    this.removeListeners();
     this.nodes.list.innerHTML = '';
     this.sort();
 
@@ -103,27 +98,18 @@ const ListView = class ListView extends View {
       if (ev.target === this.nodes.add) {
 
         // if the Add button is clicked, add a model
-        const waitTime = 5000;
-        const debouncedUpdate = debounce(() => {
-          this.removeListeners();
-          this.render();
-        }, waitTime);
         const model = new Model({ type: this.type });
         const fv = new FormView(model);
 
         this.collection.add(model);
-        this.removeListeners();
         this.render();
         fv.render();
-        model.on('update', debouncedUpdate);
-        this.emit('new');
 
       } else if (!deadAreas.includes(ev.target.tagName)) {
 
         // otherwise lookup the model associated with the click event
         const model = this.lookupModel(ev);
 
-        // model was found
         if (model) {
 
           // if Delete button was clicked, delete the model
@@ -134,15 +120,11 @@ const ListView = class ListView extends View {
           } else {
             const fv = new FormView(model);
             fv.render();
-            this.emit('select', model);
           }
 
-        // rerender if model was not found
         } else {
 
-          console.error('Model could not be found.');
-          this.removeListeners();
-          this.render();
+          this.render(); // rerender if model was not found
 
         }
 
@@ -152,14 +134,12 @@ const ListView = class ListView extends View {
 
     this.display();
     this.nodes.add.display();
-    this.emit('render');
     return this;
 
   }
 
   sort() {
     this.collection.sort((a, b) => a.name < b.name);
-    this.emit('sort', this.collection);
     return this;
   }
 

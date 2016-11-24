@@ -1,49 +1,57 @@
 'use strict';
 
-/* global ListView, socket, View */
+/* global app, ListView, socket, View */
 
-window.app = function cv() {
+window.app = {
 
-  var app = {};
-  var list = void 0;
-
-  var nodes = {
+  nodes: {
     addButton: View.bind(document.getElementById('addButton')),
     buttons: View.bind(document.getElementById('buttons')),
     cvType: View.bind(document.getElementById('cv-type')),
     details: View.bind(document.getElementById('details')),
     formItems: View.bind(document.getElementById('formItems')),
     overview: View.bind(document.getElementById('overview'))
-  };
+  },
 
-  var displayError = function displayError(err, message) {
-    View.hide(nodes.buttons);
-    nodes.formItems.innerHTML = '\n      <h1>' + message + '</h1>\n      <code>' + JSON.stringify(err, null, 2).replace(/\\/g, '') + '</code>\n    ';
-  };
+  categories: [],
+  collection: [],
+  form: null,
+  list: null,
 
-  nodes.addButton.hide();
-  nodes.details.hide();
+  displayError: function displayError(err, message) {
+    View.hide(this.nodes.buttons);
+    this.nodes.formItems.innerHTML = '\n      <h1>' + message + '</h1>\n      <code>' + JSON.stringify(err, null, 2).replace(/\\/g, '') + '</code>\n    ';
+  },
+  refreshCategories: function refreshCategories() {
+    var _this = this;
 
-  nodes.cvType.addEventListener('change', function (ev) {
-
-    socket.emit('getAll', ev.target.value, function (err, res) {
-      if (err) return displayError(err, 'Error retrieving CV items.');
-      nodes.details.hide();
-      if (list) list.destroy();
-      list = new ListView(res, ev.target.value);
-      list.on('new', nodes.details.display);
-      list.render();
+    socket.emit('getAll', 'category', function (err, res) {
+      if (err) _this.displayError(err, 'Error retrieving categories');
+      _this.categories = res;
     });
-  });
+  },
+  refreshList: function refreshList(type) {
+    var _this2 = this;
 
-  nodes.details.addEventListener('submit', function (ev) {
-    return ev.preventDefault();
-  });
+    socket.emit('getAll', type, function (err, res) {
+      if (err) _this2.displayError(err, 'Error retrieving CV items.');
+      _this2.nodes.details.hide();
+      if (_this2.list) _this2.list.destroy();
+      _this2.list = new ListView(res, type);
+      _this2.collection = _this2.list.collection;
+      _this2.list.render();
+    });
+  }
+};
 
-  socket.emit('getAll', 'category', function (err, res) {
-    if (err) return displayError(err, 'Error retrieving categories.');
-    app.categories = res;
-  });
+app.nodes.addButton.hide();
+app.nodes.details.hide();
+app.refreshCategories();
 
-  return app;
-}();
+// add event listeners
+app.nodes.cvType.addEventListener('change', function (ev) {
+  return app.refreshList(ev.target.value);
+});
+app.nodes.formItems.addEventListener('submit', function (ev) {
+  return ev.preventDefault();
+});
