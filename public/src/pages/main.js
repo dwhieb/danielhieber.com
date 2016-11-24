@@ -3,7 +3,7 @@ const socket = io({
   transports: ['websocket', 'xhr-polling'],
 });
 
-const debounce = (func, wait, immediate) => {
+const debounce = function(func, wait, immediate) {
 
   let timeout;
 

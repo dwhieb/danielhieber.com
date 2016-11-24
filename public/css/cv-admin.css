@@ -42,87 +42,87 @@ button,
 #overview li:hover img {
   visibility: visible;
 }
-#formItems legend {
+#form legend {
   font-weight: bold;
 }
-#formItems fieldset[name=categories] label {
+#form fieldset[name=categories] label {
   align-items: center;
   flex-direction: row;
   padding: 0;
 }
-#formItems fieldset[name=categories] label input {
+#form fieldset[name=categories] label input {
   margin: 0rem 0.5rem;
 }
-#formItems label[for=publicationType] {
+#form label[for=publicationType] {
   order: 1;
 }
-#formItems label[for=author] {
+#form label[for=author] {
   order: 2;
 }
-#formItems label[for=title] {
+#form label[for=title] {
   order: 3;
 }
-#formItems label[for=autonym] {
+#form label[for=autonym] {
   order: 4;
 }
-#formItems label[for=organization] {
+#form label[for=organization] {
   order: 5;
 }
-#formItems label[for=program] {
+#form label[for=program] {
   order: 6;
 }
-#formItems label[for=role] {
+#form label[for=role] {
   order: 7;
 }
-#formItems label[for=date] {
+#form label[for=date] {
   order: 8;
 }
-#formItems label[for=startYear] {
+#form label[for=startYear] {
   order: 9;
 }
-#formItems label[for=endYear] {
+#form label[for=endYear] {
   order: 10;
 }
-#formItems label[for=year] {
+#form label[for=year] {
   order: 11;
 }
-#formItems label[for=publication] {
+#form label[for=publication] {
   order: 12;
 }
-#formItems label[for=abbreviation] {
+#form label[for=abbreviation] {
   order: 13;
 }
-#formItems label[for=key] {
+#form label[for=key] {
   order: 14;
 }
-#formItems label[for=name] {
+#form label[for=name] {
   order: 15;
 }
-#formItems label[for=email] {
+#form label[for=email] {
   order: 16;
 }
-#formItems label[for=phone] {
+#form label[for=phone] {
   order: 17;
 }
-#formItems label[for=proficiencyType] {
+#form label[for=proficiencyType] {
   order: 18;
 }
-#formItems label[for=location] {
+#form label[for=location] {
   order: 19;
 }
-#formItems label[for=competency] {
+#form label[for=competency] {
   order: 20;
 }
-#formItems fieldset[name=categories] {
+#form fieldset[name=categories] {
   order: 21;
 }
-#formItems fieldset[name=links] {
+#form fieldset[name=links] {
   order: 22;
 }
-#formItems label[for=description] {
+#form label[for=description] {
   order: 23;
 }
-#formItems fieldset[name=achievements] {
+#form fieldset[name=achievements] {
   order: 24;
 }
 #deleteButton {

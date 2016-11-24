@@ -7,7 +7,7 @@ window.app = {
     buttons:   View.bind(document.getElementById('buttons')),
     cvType:    View.bind(document.getElementById('cv-type')),
     details:   View.bind(document.getElementById('details')),
-    formItems: View.bind(document.getElementById('formItems')),
+    form:      View.bind(document.getElementById('form')),
     overview:  View.bind(document.getElementById('overview')),
   },
 
@@ -15,13 +15,18 @@ window.app = {
   collection: [],
   form:       null,
   list:       null,
+  templates:  document.querySelectorAll('#templates template'),
 
   displayError(err, message) {
     View.hide(this.nodes.buttons);
-    this.nodes.formItems.innerHTML = `
-      <h1>${message}</h1>
+    this.nodes.form.innerHTML = `
+      <h1>${message || err.message}</h1>
       <code>${JSON.stringify(err, null, 2).replace(/\\/g, '')}</code>
     `;
+  },
+
+  getTemplate(prop) {
+    return document.getElementById(`${prop}-template`);
   },
 
   refreshCategories() {
@@ -38,8 +43,20 @@ window.app = {
       if (this.list) this.list.destroy();
       this.list = new ListView(res, type);
       this.collection = this.list.collection;
+      this.collection.sort((a, b) => a.title > b.title);
       this.list.render();
     });
+  },
+
+  removeModel(model) {
+    model.destroy()
+    .then(() => {
+      this.form.destroy();
+      const i = this.collection.indexOf(model);
+      if (i >= 0) this.collection.splice(i, 1);
+      this.list.render();
+    })
+    .catch(err => this.displayError(err));
   },
 
 };
@@ -50,4 +67,4 @@ app.refreshCategories();
 
 // add event listeners
 app.nodes.cvType.addEventListener('change', ev => app.refreshList(ev.target.value));
-app.nodes.formItems.addEventListener('submit', ev => ev.preventDefault());
+app.nodes.form.addEventListener('submit', ev => ev.preventDefault());

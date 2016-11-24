@@ -6,6 +6,7 @@ var socket = io({
 });
 
 var debounce = function debounce(func, wait, immediate) {
+  var _this = this;
 
   var timeout = void 0;
 
@@ -16,7 +17,7 @@ var debounce = function debounce(func, wait, immediate) {
 
     var later = function later() {
       timeout = null;
-      if (!immediate) func.apply(undefined, args);
+      if (!immediate) func.apply(_this, args);
     };
 
     var callNow = immediate && !timeout;
@@ -24,6 +25,6 @@ var debounce = function debounce(func, wait, immediate) {
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
 
-    if (callNow) func.apply(undefined, args);
+    if (callNow) func.apply(_this, args);
   };
 };

@@ -1,0 +1,3085 @@
+[
+  {
+    "id": "168",
+    "type": "category",
+    "name": "Documentation &amp; Revitalization",
+    "abbreviation": "doc",
+    "description": "Language documentation is the foundation on which my other theoretical work is built, and so I am deeply involved in the theorizing and practical implementation of language documentation. I serve as a student advisor to <dfn><abbr title='Institute on Collaborative Language Documentation'>CoLang</abbr></dfn> (the Institute on Collaborative Language Documentation), and through my work at Rosetta Stone’s Endangered Language Program, I helped to create language-learning software for the Iñupiaq, Inuttitut, Mohawk, Navajo, and Chitimacha languages. These projects involved many hours of long-distance and in-person elicitation, followed by an intense process of designing software to teach grammar and vocabulary. Since then I have continued to work with the Chitimacha tribe on a grammar and dictionary of the language, based on documentary materials compiled by Morris Swadesh in the 1930’s.\nI also work with the <dfn>Ékegusií Encyclopedia Project</dfn> (<abbr title='Ekegusii Encyclopedia Project'>EEP</abbr>) to document and revitalize the Ékegusií (Kisii) language of western Kenya. In the summer of 2014 I spent two months in Kisii Town recording traditional narratives, songs, and expository texts in the language, and these constituted the data for my M.A. thesis on the cohesive function of prosody in Ékegusií. I also give talks on topics relating to language endangerment and strategies for revitalization, and I frequently review books relating to language endangerment and revitalization.\nFinally, through my work on Digital Linguistics, I aim to provide some of the practical tools that will enable linguists to do better documentation in an easier way.",
+    "_rid": "9XUnAOPvcgAFAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAFAAAAAAAAAA==/",
+    "_etag": "\"0000a900-0000-0000-0000-568dad500000\"",
+    "_ts": 1452125520,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "167",
+    "type": "award",
+    "title": "National Honor Society",
+    "description": "",
+    "categories": [],
+    "links": {
+      "award": "http://www.nhs.us/"
+    },
+    "year": "2004",
+    "_rid": "9XUnAOPvcgAGAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAGAAAAAAAAAA==/",
+    "_etag": "\"0000a800-0000-0000-0000-568dad320000\"",
+    "_ts": 1452125490,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "166",
+    "type": "award",
+    "title": "<dfn>Graduate Student Research Fellowship</dfn> (<abbr title='Graduate Student Research Fellowship'>GRFP</abbr>), <dfn>National Science Foundation</dfn> (<abbr title='National Science Foundation'>NSF</abbr>)",
+    "description": "For dissertation research on the typology of lexical categories. $34,000 stipend plus $12,000 tuition remission per year for 3 years. NSF DGE 1144085.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "award": "http://www.nsfgrfp.org/"
+    },
+    "year": "2015",
+    "_rid": "9XUnAOPvcgAHAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAHAAAAAAAAAA==/",
+    "_etag": "\"0000a700-0000-0000-0000-568dad200000\"",
+    "_ts": 1452125472,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "165",
+    "type": "award",
+    "title": "Winner, UC Santa Barbara Grad Slam",
+    "description": "Campus-wide competition for the best 3-minute research talk by a graduate student. Presented on Chitimacha langauge revitalization. $5,000 prize.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "award": "http://gradpost.ucsb.edu/grad-slam-2015/"
+    },
+    "year": "2015",
+    "_rid": "9XUnAOPvcgAIAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAIAAAAAAAAAA==/",
+    "_etag": "\"0000a600-0000-0000-0000-568dad190000\"",
+    "_ts": 1452125465,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "164",
+    "type": "award",
+    "title": "Chancellor’s Fellowship, UC Santa Barbara",
+    "description": "Central campus fellowship to attend the M.A./Ph.D. program in linguistics at UC Santa Barbara. $24,000/yr. for 3 years, plus $5,000 summer research funding in year 1.",
+    "categories": [
+      "disc",
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "award": "http://www.graddiv.ucsb.edu/financial/central-campus-fellowships"
+    },
+    "year": "2013",
+    "_rid": "9XUnAOPvcgAJAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAJAAAAAAAAAA==/",
+    "_etag": "\"0000a500-0000-0000-0000-568dad130000\"",
+    "_ts": 1452125459,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "163",
+    "type": "award",
+    "title": "Honorable Mention, <dfn>Graduate Research Fellowship</dfn> (<abbr title='Graduate Research Fellowship Program'>GRFP</abbr>), <dfn>National Science Foundation</dfn> (<abbr title='National Science Foundation'>NSF</abbr>)",
+    "description": "",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "award": "http://www.nsfgrfp.org/"
+    },
+    "year": "2014",
+    "_rid": "9XUnAOPvcgAKAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAKAAAAAAAAAA==/",
+    "_etag": "\"0000a400-0000-0000-0000-568dad0b0000\"",
+    "_ts": 1452125451,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "162",
+    "type": "award",
+    "title": "LSA CoLang Scholarship",
+    "description": "For attendance at the 2014 Institute on Collaborative Language Research. $375 towards registration costs.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {
+      "award": "http://www.uta.edu/faculty/cmfitz/swnal/projects/CoLang/"
+    },
+    "year": "2014",
+    "_rid": "9XUnAOPvcgALAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgALAAAAAAAAAA==/",
+    "_etag": "\"0000a300-0000-0000-0000-568dacf30000\"",
+    "_ts": 1452125427,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "161",
+    "type": "award",
+    "title": "National Foreign Language Honor Society",
+    "description": "",
+    "categories": [],
+    "links": {
+      "award": "https://sites.google.com/site/sachemeastlote/home/national-foreign-language-honor-society"
+    },
+    "year": "2004",
+    "_rid": "9XUnAOPvcgAMAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAMAAAAAAAAAA==/",
+    "_etag": "\"0000a200-0000-0000-0000-568dace90000\"",
+    "_ts": 1452125417,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "160",
+    "type": "award",
+    "title": "2nd place, University of California Grad Slam",
+    "description": "UC-wide competition for the best 3-minute research talk by a graduate student. Presented on Chitimacha language revitalization. $3,000 prize.",
+    "categories": [
+      "doc"
+    ],
+    "link": {
+      "award": "http://www.universityofcalifornia.edu/grad-slam"
+    },
+    "year": "2015",
+    "_rid": "9XUnAOPvcgANAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgANAAAAAAAAAA==/",
+    "_etag": "\"0000a100-0000-0000-0000-568dace20000\"",
+    "_ts": 1452125410,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "159",
+    "type": "award",
+    "title": "Boren Scholarship, <dfn>National Security Education Program</dfn> (<abbr title='National Security Education Program'>NSEP</abbr>)",
+    "description": "For study abroad and independent research over in Kenya. $20,000 over 2 semesters. (I declined the scholarship because a travel warning made the funds no longer useable in Kenya.)",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "award": "http://www.borenawards.org/"
+    },
+    "year": "2006",
+    "_rid": "9XUnAOPvcgAOAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAOAAAAAAAAAA==/",
+    "_etag": "\"0000a000-0000-0000-0000-568dacdb0000\"",
+    "_ts": 1452125403,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "158",
+    "type": "award",
+    "title": "Excellence in Language Scholarship, Turner Ashby High School",
+    "description": "For outstanding academic performance in foreign languages. $500 towards college tuition.",
+    "categories": [],
+    "links": {},
+    "year": "2004",
+    "_rid": "9XUnAOPvcgAPAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAPAAAAAAAAAA==/",
+    "_etag": "\"00009f00-0000-0000-0000-568dacd40000\"",
+    "_ts": 1452125396,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "157",
+    "type": "education",
+    "organization": "University of California, Santa Barbara",
+    "program": "M.A. / Ph.D. in Linguistics",
+    "city": "Santa Barbara, CA",
+    "startYear": "2013",
+    "endYear": "present",
+    "achievements": [
+      "Chancellor’s Fellowship Recipient"
+    ],
+    "links": {
+      "org": "http://www.linguistics.ucsb.edu"
+    },
+    "_rid": "9XUnAOPvcgAQAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAQAAAAAAAAAA==/",
+    "_etag": "\"00009e00-0000-0000-0000-568daccd0000\"",
+    "_ts": 1452125389,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "156",
+    "type": "education",
+    "organization": "LSA Linguistic Institute",
+    "program": "",
+    "city": "Boulder, CO",
+    "startYear": "2011",
+    "endYear": "",
+    "links": {
+      "org": "http://verbs.colorado.edu/LSA2011/"
+    },
+    "_rid": "9XUnAOPvcgARAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgARAAAAAAAAAA==/",
+    "_etag": "\"00009d00-0000-0000-0000-568dacc60000\"",
+    "_ts": 1452125382,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "155",
+    "type": "education",
+    "organization": "School for International Training (SIT)",
+    "program": "Swahili Studies & Coastal Cultures",
+    "city": "Mombasa, Kenya",
+    "startYear": "2006",
+    "endYear": "",
+    "achievements": [
+      "Independent Research Project: What’s in a word? Code-switching in Mombasa Swahili"
+    ],
+    "links": {
+      "org": "http://studyabroad.sit.edu/"
+    },
+    "_rid": "9XUnAOPvcgASAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgASAAAAAAAAAA==/",
+    "_etag": "\"00009c00-0000-0000-0000-568dacbf0000\"",
+    "_ts": 1452125375,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "154",
+    "type": "education",
+    "organization": "The College of William & Mary",
+    "program": "B.A. in Linguistics, Philosophy (double major)",
+    "city": "Williamsburg, VA",
+    "startYear": "2004",
+    "endYear": "2008",
+    "achievements": [
+      "<i>magna cum laude</i>"
+    ],
+    "links": {
+      "org": "http://www.wm.edu/as/linguistics/"
+    },
+    "_rid": "9XUnAOPvcgATAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgATAAAAAAAAAA==/",
+    "_etag": "\"00009b00-0000-0000-0000-568dacb80000\"",
+    "_ts": 1452125368,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "153",
+    "type": "education",
+    "organization": "School for International Training (SIT)",
+    "program": "Development, Health, & Society",
+    "city": "Nairobi, Kenya",
+    "startYear": "2007",
+    "endYear": "",
+    "achievements": [
+      "Independent Research Project: <cite>Language change & variation in Mombasa: Recent trends in Kimvita Swahili</cite>"
+    ],
+    "links": {
+      "org": "http://studyabroad.sit.edu/sn/programs/semester/fall-2015/ker/"
+    },
+    "_rid": "9XUnAOPvcgAUAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAUAAAAAAAAAA==/",
+    "_etag": "\"00000703-0000-0000-0000-568de3df0000\"",
+    "_ts": 1452139487,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "152",
+    "type": "fieldwork",
+    "location": "Mombasa, Kenya",
+    "description": "Two semesters researching language shift in the Kimvita (<a href=https://en.wikipedia.org/wiki/Mombasa>Mombasa</a> dialect of Swahili. Worked primarily with youth speakers collecting recorded texts for analysis.",
+    "startYear": "2006",
+    "endYear": "2007",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgAVAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAVAAAAAAAAAA==/",
+    "_etag": "\"00009900-0000-0000-0000-568dac8b0000\"",
+    "_ts": 1452125323,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "151",
+    "type": "fieldwork",
+    "location": "Santa Barbara, California",
+    "description": "One-year, graduate-level field methods class working with a speaker of Tlahuapa <a href=http://danielhieber.com/languages/mixtec>Mixtec</a>.",
+    "startYear": "2015",
+    "endYear": "2016",
+    "categories": [
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAWAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAWAAAAAAAAAA==/",
+    "_etag": "\"00009800-0000-0000-0000-568dac7e0000\"",
+    "_ts": 1452125310,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "150",
+    "type": "fieldwork",
+    "location": "Rosetta Stone",
+    "description": "Daily elicitation with speakers of <a href=https://en.wikipedia.org/wiki/Navajo_language>Navajo</a> and <a href=https://en.wikipedia.org/wiki/Inupiat_language>Iñupiaq</a> for the purpose of creating Rosetta Stone language software. Included both long-distance elicitation and numerous on-site visits, generally for two weeks at a time.",
+    "startYear": "2008",
+    "endYear": "2013",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAXAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAXAAAAAAAAAA==/",
+    "_etag": "\"00009700-0000-0000-0000-568dac740000\"",
+    "_ts": 1452125300,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "149",
+    "type": "fieldwork",
+    "location": "Chitimacha Tribe of Louisiana",
+    "description": "Ongoing preparation of a <a href=http://danielhieber.com/languages/chitimacha>Chitimacha</a> dictionary, text collection, and grammar from archival sources. Completed <a href=http://rosettastone.com/endangered>Rosetta Stone</a> language-learning software in 2010.",
+    "startYear": "2008",
+    "endYear": "present",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAYAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAYAAAAAAAAAA==/",
+    "_etag": "\"00009600-0000-0000-0000-568dac5c0000\"",
+    "_ts": 1452125276,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "148",
+    "type": "fieldwork",
+    "location": "Anchorage, AK",
+    "description": "Two weeks of elicitation with a native speaker of the Point Hope dialect of <a href=https://en.wikipedia.org/wiki/Inupiat_language>Iñupiaq</a>.",
+    "startYear": "2010",
+    "endYear": "",
+    "categories": [
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAZAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAZAAAAAAAAAA==/",
+    "_etag": "\"00009500-0000-0000-0000-568dac530000\"",
+    "_ts": 1452125267,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "147",
+    "type": "fieldwork",
+    "location": "Mombasa &amp; Kisii, Kenya",
+    "description": "Two months of fieldwork in western Kenya, recording conversation as well as traditional songs and folktales in <a href=https://en.wikipedia.org/wiki/Gusii_language>Ékegusií</a>.",
+    "startYear": "2014",
+    "endYear": "",
+    "categories": [
+      "disc",
+      "dlx",
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAaAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAaAAAAAAAAAA==/",
+    "_etag": "\"00009400-0000-0000-0000-568dabdd0000\"",
+    "_ts": 1452125149,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "146",
+    "type": "fieldwork",
+    "location": "Williamsburg, VA",
+    "description": "An undergraduate-level descriptive linguistics / field methods course with a native speaker of <a href=https://en.wikipedia.org/wiki/Turkish_language>Turkish</a>.",
+    "startYear": "2007",
+    "endYear": "",
+    "categories": [
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAbAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAbAAAAAAAAAA==/",
+    "_etag": "\"00009300-0000-0000-0000-568dabd60000\"",
+    "_ts": 1452125142,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "145",
+    "type": "language",
+    "name": "French",
+    "autonym": "français",
+    "categories": [],
+    "competency": "beginner",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/French_language"
+    },
+    "_rid": "9XUnAOPvcgAcAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAcAAAAAAAAAA==/",
+    "_etag": "\"00009200-0000-0000-0000-568dabd00000\"",
+    "_ts": 1452125136,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "144",
+    "type": "language",
+    "name": "Inuit",
+    "autonym": "Iñupiaq",
+    "categories": [
+      "doc"
+    ],
+    "competency": "structural knowledge",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/Inupiat_language"
+    },
+    "_rid": "9XUnAOPvcgAdAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAdAAAAAAAAAA==/",
+    "_etag": "\"00009100-0000-0000-0000-568dabc80000\"",
+    "_ts": 1452125128,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "143",
+    "type": "language",
+    "name": "Turkish",
+    "autonym": "Türkçe",
+    "categories": [
+      "doc"
+    ],
+    "competency": "structural knowledge",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/Turkish_language"
+    },
+    "_rid": "9XUnAOPvcgAeAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAeAAAAAAAAAA==/",
+    "_etag": "\"00009000-0000-0000-0000-568dabbe0000\"",
+    "_ts": 1452125118,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "142",
+    "type": "language",
+    "name": "Spanish",
+    "autonym": "español",
+    "categories": [],
+    "competency": "intermediate",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/Spanish_language"
+    },
+    "_rid": "9XUnAOPvcgAfAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAfAAAAAAAAAA==/",
+    "_etag": "\"00008f00-0000-0000-0000-568dabb10000\"",
+    "_ts": 1452125105,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "141",
+    "type": "language",
+    "name": "Kisii",
+    "autonym": "Ékegusií",
+    "categories": [
+      "dlx",
+      "disc",
+      "doc",
+      "typ"
+    ],
+    "competency": "structural knowledge",
+    "links": {
+      "lang": "http://www.danielhieber.com/languages/kisii"
+    },
+    "_rid": "9XUnAOPvcgAgAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAgAAAAAAAAAA==/",
+    "_etag": "\"00008e00-0000-0000-0000-568daba90000\"",
+    "_ts": 1452125097,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "140",
+    "type": "language",
+    "name": "Swahili",
+    "autonym": "Kiswahili",
+    "categories": [
+      "prax"
+    ],
+    "competency": "advanced",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/Swahili_language"
+    },
+    "_rid": "9XUnAOPvcgAhAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAhAAAAAAAAAA==/",
+    "_etag": "\"00008d00-0000-0000-0000-568daba20000\"",
+    "_ts": 1452125090,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "139",
+    "type": "language",
+    "name": "Chitimacha",
+    "autonym": "Sitimaxa",
+    "categories": [
+      "dlx",
+      "disc",
+      "doc",
+      "prax",
+      "typ"
+    ],
+    "competency": "structural knowledge",
+    "link": {
+      "lang": "http://www.danielhieber.com/languages/Chitimacha"
+    },
+    "_rid": "9XUnAOPvcgAiAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAiAAAAAAAAAA==/",
+    "_etag": "\"00008c00-0000-0000-0000-568dab9b0000\"",
+    "_ts": 1452125083,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "138",
+    "type": "language",
+    "name": "Latin",
+    "autonym": "lingua Latina",
+    "categories": [],
+    "competency": "intermediate",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/Latin"
+    },
+    "_rid": "9XUnAOPvcgAjAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAjAAAAAAAAAA==/",
+    "_etag": "\"00008b00-0000-0000-0000-568dab930000\"",
+    "_ts": 1452125075,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "137",
+    "type": "language",
+    "name": "Navajo",
+    "autonym": "Diné bizaad",
+    "categories": [
+      "doc"
+    ],
+    "competency": "structural knowledge",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/Navajo_language"
+    },
+    "_rid": "9XUnAOPvcgAkAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAkAAAAAAAAAA==/",
+    "_etag": "\"00008a00-0000-0000-0000-568dab8a0000\"",
+    "_ts": 1452125066,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "136",
+    "type": "language",
+    "name": "English",
+    "autonym": "English",
+    "categories": [],
+    "competency": "native",
+    "links": {
+      "lang": "https://en.wikipedia.org/wiki/English_language"
+    },
+    "_rid": "9XUnAOPvcgAlAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAlAAAAAAAAAA==/",
+    "_etag": "\"00008900-0000-0000-0000-568dab840000\"",
+    "_ts": 1452125060,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "135",
+    "type": "media",
+    "title": "The three-minute challenge: Graduate student in linguistics goes on to compete in the first UC-wide competition on May 4",
+    "author": "Julie Cohen",
+    "date": "2015-04-20",
+    "publication": "UC Santa Barbara Current",
+    "links": {
+      "pubLink": "http://www.news.ucsb.edu/2015/015330/three-minute-challenge"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgAmAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAmAAAAAAAAAA==/",
+    "_etag": "\"00008800-0000-0000-0000-568dab7d0000\"",
+    "_ts": 1452125053,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "134",
+    "type": "media",
+    "title": "UCSB Ph.D. student Daniel Hieber takes second place in inaugural UC Grad Slam",
+    "author": "Patricia Marroquin",
+    "date": "2015-05-05",
+    "publication": "Noozhawk",
+    "links": {
+      "pubLink": "http://www.noozhawk.com/article/ucsb_ph.d._student_daniel_hieber_takes_second_place_in_uc_grad_slam"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgAnAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAnAAAAAAAAAA==/",
+    "_etag": "\"00008700-0000-0000-0000-568dab760000\"",
+    "_ts": 1452125046,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "133",
+    "type": "media",
+    "title": "Grad Slam 2015 Final Round for UCSB: The right to represent",
+    "author": "Kyle Crocco",
+    "date": "2015-04-20",
+    "publication": "UCSB GradPost",
+    "links": {
+      "pubLink": "http://gradpost.ucsb.edu/headlines/2015/4/20/grad-slam-2015-final-round-for-ucsb-the-right-to-represent.html"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgAoAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAoAAAAAAAAAA==/",
+    "_etag": "\"00008600-0000-0000-0000-568dab6f0000\"",
+    "_ts": 1452125039,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "132",
+    "type": "media",
+    "title": "UC students’ research wows judges at Grad Slam competition",
+    "author": "Nanette Asimov",
+    "date": "2015-05-04",
+    "publication": "San Francisco Chronicle",
+    "links": {
+      "pubLink": "http://www.sfgate.com/bayarea/article/UC-students-research-wows-judges-at-Grad-Slam-6241904.php"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgApAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgApAAAAAAAAAA==/",
+    "_etag": "\"00008500-0000-0000-0000-568dab660000\"",
+    "_ts": 1452125030,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "131",
+    "type": "media",
+    "title": "Graduate student in the spotlight: Daniel Hieber on revitalizing languages, rock climbing, and research motivation",
+    "author": "Melissa Rapp",
+    "date": "2015-07-15",
+    "publication": "UCSB GradPost",
+    "links": {
+      "pubLink": "http://gradpost.ucsb.edu/headlines/2015/7/2/graduate-student-in-the-spotlight-daniel-hieber-on-revitaliz.html"
+    },
+    "categories": [
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAqAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAqAAAAAAAAAA==/",
+    "_etag": "\"00008400-0000-0000-0000-568dab600000\"",
+    "_ts": 1452125024,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "130",
+    "type": "media",
+    "title": "10 linguistics students receive NSF graduate fellowships",
+    "author": "Linguistic Society of America",
+    "date": "2015-04-01",
+    "publication": "LinguisticSociety.org",
+    "links": {
+      "pubLink": "http://www.linguisticsociety.org/news/2015/04/01/10-linguistics-students-receive-nsf-graduate-fellowships"
+    },
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "_rid": "9XUnAOPvcgArAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgArAAAAAAAAAA==/",
+    "_etag": "\"00008300-0000-0000-0000-568dab5a0000\"",
+    "_ts": 1452125018,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "129",
+    "type": "media",
+    "title": "UC Grad Slam tests scholars’ communication skills",
+    "author": "Carolyn McMillian",
+    "date": "2015-04-16",
+    "publication": "University of California Press Room",
+    "links": {
+      "pubLink": "http://universityofcalifornia.edu/news/uc-grad-slam-tests-scholars-communication-skills"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgAsAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAsAAAAAAAAAA==/",
+    "_etag": "\"00008200-0000-0000-0000-568dab520000\"",
+    "_ts": 1452125010,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "128",
+    "type": "media",
+    "title": "CoLang 2014 scholarship recipients announced",
+    "author": "Linguistic Society of America",
+    "date": "2014-05-06",
+    "publication": "LinguisticSociety.org",
+    "links": {
+      "pubLink": "http://www.linguisticsociety.org/news/2014/05/06/colang-2014-scholarship-recipients-announced"
+    },
+    "categories": [
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAtAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAtAAAAAAAAAA==/",
+    "_etag": "\"00008100-0000-0000-0000-568dab4c0000\"",
+    "_ts": 1452125004,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "127",
+    "type": "media",
+    "title": "For UCSB linguistics Ph.D. student Daniel Hieber, a second-place win in inaugural UC Grad Slam was the ‘icing on the cake’",
+    "author": "Patricia Marroquin",
+    "date": "2015-05-05",
+    "publication": "UCSB GradPost",
+    "links": {
+      "pubLink": "http://gradpost.ucsb.edu/headlines/2015/5/5/for-ucsb-linguistics-phd-student-daniel-hieber-a-second-plac.html"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "_rid": "9XUnAOPvcgAuAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAuAAAAAAAAAA==/",
+    "_etag": "\"00008000-0000-0000-0000-568dab450000\"",
+    "_ts": 1452124997,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "126",
+    "type": "membership",
+    "title": "Association for Linguistic Typology",
+    "abbreviation": "ALT",
+    "links": {
+      "org": "http://www.linguistic-typology.org/"
+    },
+    "categories": [
+      "typ"
+    ],
+    "_rid": "9XUnAOPvcgAvAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAvAAAAAAAAAA==/",
+    "_etag": "\"00007f00-0000-0000-0000-568dab3f0000\"",
+    "_ts": 1452124991,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "125",
+    "type": "membership",
+    "title": "Association for Contemporary African Linguistics",
+    "abbreviation": "ACAL",
+    "links": {
+      "org": "http://acal.linguistlist.org/"
+    },
+    "categories": [
+      "dlx",
+      "disc",
+      "doc"
+    ],
+    "_rid": "9XUnAOPvcgAwAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAwAAAAAAAAAA==/",
+    "_etag": "\"00007e00-0000-0000-0000-568dab390000\"",
+    "_ts": 1452124985,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "124",
+    "type": "membership",
+    "title": "Society for the Study of the Indigenous Languages of the Americas",
+    "abbreviation": "SSILA",
+    "links": {
+      "org": "http://www.ssila.org"
+    },
+    "categories": [
+      "dlx",
+      "disc",
+      "doc",
+      "typ"
+    ],
+    "_rid": "9XUnAOPvcgAxAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAxAAAAAAAAAA==/",
+    "_etag": "\"00007d00-0000-0000-0000-568dab320000\"",
+    "_ts": 1452124978,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "123",
+    "type": "membership",
+    "title": "Foundation for Endangered Languages",
+    "abbreviation": "FEL",
+    "links": {
+      "org": "http://www.ogmios.org/index.php"
+    },
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "_rid": "9XUnAOPvcgAyAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAyAAAAAAAAAA==/",
+    "_etag": "\"00007c00-0000-0000-0000-568dab2b0000\"",
+    "_ts": 1452124971,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "122",
+    "type": "membership",
+    "title": "Linguistic Society of America",
+    "abbreviation": "LSA",
+    "links": {
+      "pubLink": "http://www.linguisticsociety.org"
+    },
+    "categories": [
+      "dlx",
+      "disc",
+      "doc",
+      "prax",
+      "typ"
+    ],
+    "_rid": "9XUnAOPvcgAzAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAzAAAAAAAAAA==/",
+    "_etag": "\"00007b00-0000-0000-0000-568dab240000\"",
+    "_ts": 1452124964,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "121",
+    "type": "proficiency",
+    "description": "Mendeley",
+    "subtype": "software",
+    "links": {
+      "info": "https://www.mendeley.com/"
+    },
+    "_rid": "9XUnAOPvcgA0AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA0AAAAAAAAAA==/",
+    "_etag": "\"00007a00-0000-0000-0000-568dab190000\"",
+    "_ts": 1452124953,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "120",
+    "type": "proficiency",
+    "description": "Microsoft Azure",
+    "subtype": "software",
+    "links": {
+      "info": "https://azure.microsoft.com/en-us/"
+    },
+    "_rid": "9XUnAOPvcgA1AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA1AAAAAAAAAA==/",
+    "_etag": "\"00007900-0000-0000-0000-568dab140000\"",
+    "_ts": 1452124948,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "119",
+    "type": "proficiency",
+    "description": "Git / GitHub",
+    "subtype": "software",
+    "links": {
+      "info": "https://github.com/"
+    },
+    "_rid": "9XUnAOPvcgA2AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA2AAAAAAAAAA==/",
+    "_etag": "\"00007800-0000-0000-0000-568dab0d0000\"",
+    "_ts": 1452124941,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "118",
+    "type": "proficiency",
+    "description": "Praat",
+    "subtype": "software",
+    "links": {
+      "info": "http://www.fon.hum.uva.nl/praat/"
+    },
+    "_rid": "9XUnAOPvcgA3AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA3AAAAAAAAAA==/",
+    "_etag": "\"00007700-0000-0000-0000-568dab000000\"",
+    "_ts": 1452124928,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "117",
+    "type": "proficiency",
+    "description": "JSON Schema",
+    "subtype": "skill",
+    "links": {
+      "info": "http://json-schema.org/"
+    },
+    "_rid": "9XUnAOPvcgA4AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA4AAAAAAAAAA==/",
+    "_etag": "\"00007600-0000-0000-0000-568daaf90000\"",
+    "_ts": 1452124921,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "116",
+    "type": "proficiency",
+    "description": "regular expressions",
+    "subtype": "skill",
+    "links": {
+      "info": "https://en.wikipedia.org/wiki/Regular_expression"
+    },
+    "_rid": "9XUnAOPvcgA5AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA5AAAAAAAAAA==/",
+    "_etag": "\"00007500-0000-0000-0000-568daaf10000\"",
+    "_ts": 1452124913,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "115",
+    "type": "proficiency",
+    "description": "database management & design",
+    "subtype": "skill",
+    "links": {
+      "info": "https://en.wikipedia.org/wiki/Database_design"
+    },
+    "_rid": "9XUnAOPvcgA6AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA6AAAAAAAAAA==/",
+    "_etag": "\"00007400-0000-0000-0000-568daaea0000\"",
+    "_ts": 1452124906,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "114",
+    "type": "proficiency",
+    "description": "digital audio recording & editing",
+    "subtype": "skill",
+    "links": {},
+    "_rid": "9XUnAOPvcgA7AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA7AAAAAAAAAA==/",
+    "_etag": "\"00007300-0000-0000-0000-568daae40000\"",
+    "_ts": 1452124900,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "113",
+    "type": "proficiency",
+    "description": "SQL",
+    "subtype": "skill",
+    "links": {
+      "info": "https://en.wikipedia.org/wiki/SQL"
+    },
+    "_rid": "9XUnAOPvcgA8AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA8AAAAAAAAAA==/",
+    "_etag": "\"00007200-0000-0000-0000-568daade0000\"",
+    "_ts": 1452124894,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "112",
+    "type": "proficiency",
+    "description": "CSS",
+    "subtype": "skill",
+    "links": {
+      "info": "https://developer.mozilla.org/en-US/docs/Web/CSS?redirectlocale=en-US&redirectslug=CSS"
+    },
+    "_rid": "9XUnAOPvcgA9AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA9AAAAAAAAAA==/",
+    "_etag": "\"00007100-0000-0000-0000-568daad70000\"",
+    "_ts": 1452124887,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "111",
+    "type": "proficiency",
+    "description": "HTML",
+    "subtype": "skill",
+    "links": {
+      "info": "https://developer.mozilla.org/en-US/docs/Web/HTML?redirectlocale=en-US&redirectslug=HTML"
+    },
+    "_rid": "9XUnAOPvcgA+AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA+AAAAAAAAAA==/",
+    "_etag": "\"00007000-0000-0000-0000-568daad00000\"",
+    "_ts": 1452124880,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "110",
+    "type": "proficiency",
+    "description": "IndexedDB",
+    "subtype": "skill",
+    "links": {
+      "info": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API"
+    },
+    "_rid": "9XUnAOPvcgA-AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgA-AAAAAAAAAA==/",
+    "_etag": "\"00006f00-0000-0000-0000-568daaca0000\"",
+    "_ts": 1452124874,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "109",
+    "type": "proficiency",
+    "description": "LexiquePro",
+    "subtype": "software",
+    "links": {
+      "info": "http://lexiquepro.com/"
+    },
+    "_rid": "9XUnAOPvcgBAAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBAAAAAAAAAAA==/",
+    "_etag": "\"00006e00-0000-0000-0000-568daac20000\"",
+    "_ts": 1452124866,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "108",
+    "type": "proficiency",
+    "description": "JavaScript",
+    "subtype": "skill",
+    "links": {
+      "info": "https://developer.mozilla.org/en-US/docs/Web/JavaScript?redirectlocale=en-US&redirectslug=JavaScript"
+    },
+    "_rid": "9XUnAOPvcgBBAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBBAAAAAAAAAA==/",
+    "_etag": "\"00006d00-0000-0000-0000-568daabb0000\"",
+    "_ts": 1452124859,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "107",
+    "type": "proficiency",
+    "description": "Handlebars.js",
+    "subtype": "skill",
+    "links": {
+      "info": "http://handlebarsjs.com/"
+    },
+    "_rid": "9XUnAOPvcgBCAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBCAAAAAAAAAA==/",
+    "_etag": "\"00006c00-0000-0000-0000-568daab20000\"",
+    "_ts": 1452124850,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "106",
+    "type": "proficiency",
+    "description": "R",
+    "subtype": "software",
+    "links": {
+      "info": "https://www.r-project.org/"
+    },
+    "_rid": "9XUnAOPvcgBDAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBDAAAAAAAAAA==/",
+    "_etag": "\"00006b00-0000-0000-0000-568daaab0000\"",
+    "_ts": 1452124843,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "105",
+    "type": "proficiency",
+    "description": "ELAN",
+    "subtype": "software",
+    "links": {
+      "info": "https://tla.mpi.nl/tools/tla-tools/elan/"
+    },
+    "_rid": "9XUnAOPvcgBEAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBEAAAAAAAAAA==/",
+    "_etag": "\"00006a00-0000-0000-0000-568daaa30000\"",
+    "_ts": 1452124835,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "104",
+    "type": "proficiency",
+    "description": "Microsoft Office",
+    "subtype": "software",
+    "links": {
+      "info": "https://www.office.com/"
+    },
+    "_rid": "9XUnAOPvcgBFAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBFAAAAAAAAAA==/",
+    "_etag": "\"00006900-0000-0000-0000-568daa9d0000\"",
+    "_ts": 1452124829,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "103",
+    "type": "proficiency",
+    "description": "Audacity",
+    "subtype": "software",
+    "links": {
+      "info": "http://web.audacityteam.org/"
+    },
+    "_rid": "9XUnAOPvcgBGAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBGAAAAAAAAAA==/",
+    "_etag": "\"00006800-0000-0000-0000-568daa920000\"",
+    "_ts": 1452124818,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "102",
+    "type": "proficiency",
+    "description": "Fieldworks Language Explorer (FLEx)",
+    "subtype": "software",
+    "links": {
+      "info": "http://fieldworks.sil.org/flex/"
+    },
+    "_rid": "9XUnAOPvcgBHAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBHAAAAAAAAAA==/",
+    "_etag": "\"00006700-0000-0000-0000-568daa8b0000\"",
+    "_ts": 1452124811,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "101",
+    "type": "proficiency",
+    "description": "Atom",
+    "subtype": "software",
+    "links": {
+      "info": "https://atom.io/"
+    },
+    "_rid": "9XUnAOPvcgBIAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBIAAAAAAAAAA==/",
+    "_etag": "\"00006600-0000-0000-0000-568daa840000\"",
+    "_ts": 1452124804,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "100",
+    "type": "proficiency",
+    "description": "WordPress",
+    "subtype": "software",
+    "links": {
+      "info": "https://wordpress.org/"
+    },
+    "_rid": "9XUnAOPvcgBJAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBJAAAAAAAAAA==/",
+    "_etag": "\"00006500-0000-0000-0000-568daa7d0000\"",
+    "_ts": 1452124797,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "99",
+    "type": "proficiency",
+    "description": "web hosting solutions",
+    "subtype": "skill",
+    "links": {
+      "info": "https://en.wikipedia.org/wiki/Web_hosting_service"
+    },
+    "_rid": "9XUnAOPvcgBKAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBKAAAAAAAAAA==/",
+    "_etag": "\"00006400-0000-0000-0000-568daa740000\"",
+    "_ts": 1452124788,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "98",
+    "type": "proficiency",
+    "description": "Node.js + Express.js",
+    "subtype": "skill",
+    "links": {
+      "info": "https://nodejs.org/en/"
+    },
+    "_rid": "9XUnAOPvcgBLAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBLAAAAAAAAAA==/",
+    "_etag": "\"00006300-0000-0000-0000-568daa6d0000\"",
+    "_ts": 1452124781,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "97",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Teaching from difference",
+    "date": "2009-10-01",
+    "citation": "Term paper, ‘Linguistic Anthropology’, Prof. Amy L. Paugh, Fall 2009, James Madison University.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1L0UVRh"
+    },
+    "_rid": "9XUnAOPvcgBMAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBMAAAAAAAAAA==/",
+    "_etag": "\"00006200-0000-0000-0000-568daa650000\"",
+    "_ts": 1452124773,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "96",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Why do languages die?",
+    "date": "2012-01-04",
+    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
+    "categories": [
+      "prax"
+    ],
+    "links": {
+      "pubLink": "http://mises.org/daily/5846/Why-Do-Languages-Die"
+    },
+    "_rid": "9XUnAOPvcgBNAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBNAAAAAAAAAA==/",
+    "_etag": "\"00002b03-0000-0000-0000-568de86a0000\"",
+    "_ts": 1452140650,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "95",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Elicitation techniques",
+    "date": "2010-06-01",
+    "citation": "Invited talk, Content Development Department, Rosetta Stone, Harrisonburg, VA.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "folder": "http://1drv.ms/1dUE2Ju"
+    },
+    "_rid": "9XUnAOPvcgBOAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBOAAAAAAAAAA==/",
+    "_etag": "\"00006000-0000-0000-0000-568daa500000\"",
+    "_ts": 1452124752,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "94",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "To be not or to not to be",
+    "date": "2015-03-20",
+    "citation": "Term paper, ‘Semantics’, Prof. Stefan Th. Gries, Winter 2015, UC Santa Barbara.",
+    "categories": [
+      "disc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1CzIsRy"
+    },
+    "_rid": "9XUnAOPvcgBPAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBPAAAAAAAAAA==/",
+    "_etag": "\"00005f00-0000-0000-0000-568daa490000\"",
+    "_ts": 1452124745,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "93",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "English for all, freedom for none",
+    "date": "2012-09-25",
+    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
+    "categories": [
+      "prax"
+    ],
+    "links": {
+      "pubLink": "http://mises.org/daily/6199/English-for-All-Freedom-for-None"
+    },
+    "_rid": "9XUnAOPvcgBQAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBQAAAAAAAAAA==/",
+    "_etag": "\"00005e00-0000-0000-0000-568daa3d0000\"",
+    "_ts": 1452124733,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "92",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "The politically incorrect guide to language death",
+    "date": "2012-11-06",
+    "citation": "Invited guest lecture, Anthropology 305: ‘Language & Culture’, Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
+    "categories": [
+      "prax"
+    ],
+    "links": {
+      "folder": "http://1drv.ms/1eRRbno"
+    },
+    "_rid": "9XUnAOPvcgBRAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBRAAAAAAAAAA==/",
+    "_etag": "\"00005d00-0000-0000-0000-568daa340000\"",
+    "_ts": 1452124724,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "91",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Why are some languages so complicated?",
+    "date": "2011-08-14",
+    "citation": "<cite>Linguavore: RVoice.</cite>",
+    "categories": [],
+    "links": {
+      "pubLink": "http://blog.rosettastone.com/why-are-some-languages-so-complicated/"
+    },
+    "_rid": "9XUnAOPvcgBSAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBSAAAAAAAAAA==/",
+    "_etag": "\"00005c00-0000-0000-0000-568daa2d0000\"",
+    "_ts": 1452124717,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "90",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Topics as contrast in Chitimacha",
+    "date": "2013-12-01",
+    "citation": "Term paper, ‘Discourse’, Prof. Patricia Clancy, Fall 2013, UC Santa Barbara.",
+    "categories": [
+      "disc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1K2VOWC"
+    },
+    "_rid": "9XUnAOPvcgBTAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBTAAAAAAAAAA==/",
+    "_etag": "\"00005b00-0000-0000-0000-568daa250000\"",
+    "_ts": 1452124709,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "89",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "The participle -k and the structuring of Chitimacha discourse",
+    "date": "2015-01-04",
+    "citation": "Term paper, ‘Syntax Beyond the Clause’, Prof. Marianne Mithun, Fall 2014, UC Santa Barbara.",
+    "categories": [
+      "disc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1O4HNsQ"
+    },
+    "_rid": "9XUnAOPvcgBUAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBUAAAAAAAAAA==/",
+    "_etag": "\"00005a00-0000-0000-0000-568daa1c0000\"",
+    "_ts": 1452124700,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "88",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Marian Klamer, <cite>A short grammar of Alorese (Austronesian)</cite>",
+    "date": "2013-06-19",
+    "citation": "<cite>eLanguage</cite> book notice.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pubLink": "http://journals.linguisticsociety.org/booknotices/?p=2525"
+    },
+    "_rid": "9XUnAOPvcgBVAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBVAAAAAAAAAA==/",
+    "_etag": "\"00005900-0000-0000-0000-568daa150000\"",
+    "_ts": 1452124693,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "87",
+    "type": "publication",
+    "publicationType": "nonLing",
+    "title": "18 going on 19",
+    "date": "2005-09-01",
+    "citation": "<cite>American Pilgrim Magazine</cite>, Vol. 1, No. 2 (Fall).",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1HnlkVx"
+    },
+    "_rid": "9XUnAOPvcgBWAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBWAAAAAAAAAA==/",
+    "_etag": "\"00005800-0000-0000-0000-568daa0e0000\"",
+    "_ts": 1452124686,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "86",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Language change & variation in Mombasa: Recent trends in Kimvita Swahili",
+    "date": "2007-06-01",
+    "citation": "Independent study project, ‘Development, Health, & Society’, Spring 2007, School for International Training, Nairobi, Kenya.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1eUM9Xb"
+    },
+    "_rid": "9XUnAOPvcgBXAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBXAAAAAAAAAA==/",
+    "_etag": "\"00005700-0000-0000-0000-568daa060000\"",
+    "_ts": 1452124678,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "85",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Language revitalization in Africa",
+    "date": "2014-10-14",
+    "citation": "LSA Committee on Endangered Languages & their Preservation blog.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "pubLink": "https://www.facebook.com/notes/committee-on-endangered-languages-and-their-preservation/language-revitalization-in-africa/745305242171758"
+    },
+    "_rid": "9XUnAOPvcgBYAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBYAAAAAAAAAA==/",
+    "_etag": "\"00005600-0000-0000-0000-568da9ee0000\"",
+    "_ts": 1452124654,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "84",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Terrence Deacon, ‘Language origins: What coevolved, what devolved, and what’s universal’",
+    "date": "2011-08-12",
+    "citation": "Summary of Terrence Deacon’s plenary talk at the LSA Institute 2011, presented to the Content Development Department, Rosetta Stone, Harrisonburg, VA.",
+    "categories": [],
+    "links": {
+      "slides": "http://1drv.ms/1fAMhvZ"
+    },
+    "_rid": "9XUnAOPvcgBZAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBZAAAAAAAAAA==/",
+    "_etag": "\"00005500-0000-0000-0000-568da9670000\"",
+    "_ts": 1452124519,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "83",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Language and the socialist-calculation problem",
+    "date": "2010-09-07",
+    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute",
+    "categories": [
+      "prax"
+    ],
+    "links": {
+      "pubLink": "http://mises.org/daily/4687"
+    },
+    "_rid": "9XUnAOPvcgBaAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBaAAAAAAAAAA==/",
+    "_etag": "\"00005400-0000-0000-0000-568da95f0000\"",
+    "_ts": 1452124511,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "82",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Assessing the Chitimacha-Totozoquean hypothesis",
+    "date": "2014-06-01",
+    "citation": "Term paper, ‘Language & Prehistory’, Prof. Laura Robinson, Spring 2014, UC Santa Barbara.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1IUkmCx"
+    },
+    "_rid": "9XUnAOPvcgBbAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBbAAAAAAAAAA==/",
+    "_etag": "\"00005300-0000-0000-0000-568da9560000\"",
+    "_ts": 1452124502,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "81",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Canonical typology",
+    "date": "2011-09-01",
+    "citation": "Lecture given to the Content Development department, Rosetta Stone, Harrisonburg, VA.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1HXGuLB"
+    },
+    "_rid": "9XUnAOPvcgBcAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBcAAAAAAAAAA==/",
+    "_etag": "\"00005200-0000-0000-0000-568da9500000\"",
+    "_ts": 1452124496,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "80",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "An introduction to typology",
+    "date": "2012-05-01",
+    "citation": "Three-part lecture series. Rosetta Stone, Harrisonburg, VA.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "folder": "http://1drv.ms/1RqXksh"
+    },
+    "_rid": "9XUnAOPvcgBdAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBdAAAAAAAAAA==/",
+    "_etag": "\"00005100-0000-0000-0000-568da9480000\"",
+    "_ts": 1452124488,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "79",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Review of <cite>Baboon metaphysics: The evolution of a social mind</cite>, by Dorothy L. Cheney & Robert M. Seyfarth",
+    "date": "2007-11-05",
+    "citation": "Term paper, ‘Science & Human Agency’, Prof. Paul S. Davies, Winter 2005, The College of William & Mary.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1RsO3Ae"
+    },
+    "_rid": "9XUnAOPvcgBeAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBeAAAAAAAAAA==/",
+    "_etag": "\"00005000-0000-0000-0000-568da9420000\"",
+    "_ts": 1452124482,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "78",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Rising to the challenge: Navajo",
+    "date": "2010-08-25",
+    "citation": "<cite>Linguavore: RVoice</cite>.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pubLink": "http://blog.rosettastone.com/2010/08/25/rising-to-the-challenge-producing-navajo/"
+    },
+    "_rid": "9XUnAOPvcgBfAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBfAAAAAAAAAA==/",
+    "_etag": "\"00004f00-0000-0000-0000-568da93a0000\"",
+    "_ts": 1452124474,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "77",
+    "type": "publication",
+    "publicationType": "article",
+    "title": "Growing up",
+    "date": "2011-01-01",
+    "citation": "In Lynn K. Talbot & Andrew Talbot Squires (eds.), <a href='http://www.amazon.com/Following-Yellow-Arrow-Younger-Pilgrims/dp/1595944354/ref=sr_1_1?ie=UTF8&s=books&qid=1300840723&sr=8-1'><cite>Following the yellow arrow: Younger pilgrims on the Camino</cite></a>. Wingspan Press.",
+    "categories": [],
+    "links": {
+      "purchaseLink": "http://www.amazon.com/Following-Yellow-Arrow-Younger-Pilgrims/dp/1595944354/ref=sr_1_1?ie=UTF8&s=books&qid=1300840723&sr=8-1"
+    },
+    "_rid": "9XUnAOPvcgBgAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBgAAAAAAAAAA==/",
+    "_etag": "\"00001c03-0000-0000-0000-568de7a50000\"",
+    "_ts": 1452140453,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "76",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Building the lexicon for awakening languages",
+    "date": "2015-07-12",
+    "citation": "Chapter prepared for the Conference on Language Revitalization: Sleeping & Awakened Languages of the Gulf South, Tulane University. (Proceedings were never published.)",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1TvPwTP"
+    },
+    "_rid": "9XUnAOPvcgBhAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBhAAAAAAAAAA==/",
+    "_etag": "\"00004d00-0000-0000-0000-568da92b0000\"",
+    "_ts": 1452124459,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "75",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Documenting conversational conventions in Swahili",
+    "date": "2013-12-02",
+    "citation": "Term paper, ‘Discourse Transcription’, Prof. John W. Dubois, Fall 2013, UC Santa Barbara.",
+    "categories": [
+      "disc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1K2NiqH"
+    },
+    "_rid": "9XUnAOPvcgBiAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBiAAAAAAAAAA==/",
+    "_etag": "\"00004c00-0000-0000-0000-568da9230000\"",
+    "_ts": 1452124451,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "74",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Linguistic Institute 2011 overview",
+    "date": "2011-08-12",
+    "citation": "With Benjamin Keller. Overview of several courses attended at the LSA Linguistic Institute 2011, for the Content Development Department, Rosetta Stone, Harrisonburg, VA.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1Hp2WJR"
+    },
+    "_rid": "9XUnAOPvcgBjAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBjAAAAAAAAAA==/",
+    "_etag": "\"00004b00-0000-0000-0000-568da91c0000\"",
+    "_ts": 1452124444,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "73",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Kristina Riedel, <cite>The syntax of object marking in Sambaa</cite>",
+    "date": "2010-10-14",
+    "citation": "Linguist List 21.4069.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issues/21/21-4069.html"
+    },
+    "_rid": "9XUnAOPvcgBkAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBkAAAAAAAAAA==/",
+    "_etag": "\"00004a00-0000-0000-0000-568da9150000\"",
+    "_ts": 1452124437,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "72",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Prosodic phrase types in Ékegusií",
+    "date": "2015-03-22",
+    "citation": "Term paper, ‘Advanced Phonology’, Prof. Matthew Gordon, Winter 2015, UC Santa Barbara.",
+    "categories": [
+      "doc",
+      "disc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1CzIbya"
+    },
+    "_rid": "9XUnAOPvcgBlAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBlAAAAAAAAAA==/",
+    "_etag": "\"00004900-0000-0000-0000-568da90f0000\"",
+    "_ts": 1452124431,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "71",
+    "type": "publication",
+    "publicationType": "project",
+    "title": "Rosetta Stone Navajo (Diné bizaad)",
+    "date": "2010-09-01",
+    "citation": "Rosetta Stone language-learning software for the Navajo language. Available for purchase <a href=http://launch.rosettastone.com/en/licenses/demo>here</a>.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {
+      "pubLink": "http://launch.rosettastone.com/en/licenses/demo"
+    },
+    "_rid": "9XUnAOPvcgBmAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBmAAAAAAAAAA==/",
+    "_etag": "\"00004800-0000-0000-0000-568da9080000\"",
+    "_ts": 1452124424,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "70",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Primitivism in linguistics and anthropology: The American tradition after Boas",
+    "date": "2014-03-20",
+    "citation": "Term paper, ‘Language as Culture’, Prof. John W. Dubois, Winter 2013, UC Santa Barbara.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1L0PfqC"
+    },
+    "_rid": "9XUnAOPvcgBnAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBnAAAAAAAAAA==/",
+    "_etag": "\"00004700-0000-0000-0000-568da9010000\"",
+    "_ts": 1452124417,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "69",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Linguistics in industry",
+    "date": "2013-11-12",
+    "citation": "Invited talk, UCSB Linguistics Club, Santa Barbara, CA.",
+    "categories": [
+      "dlx"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1GgoOoS"
+    },
+    "_rid": "9XUnAOPvcgBoAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBoAAAAAAAAAA==/",
+    "_etag": "\"00004600-0000-0000-0000-568da8fa0000\"",
+    "_ts": 1452124410,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "68",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Loan translations in the U.S. Southeast",
+    "date": "2014-03-16",
+    "citation": "Term paper, ‘Languages in Contact’, Prof. Marianne Mithun, Winter 2013, UC Santa Barbara.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1IUkhyw"
+    },
+    "_rid": "9XUnAOPvcgBpAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBpAAAAAAAAAA==/",
+    "_etag": "\"00004500-0000-0000-0000-568da8f30000\"",
+    "_ts": 1452124403,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "67",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "A world of words",
+    "date": "2013-07-01",
+    "citation": "Blog post written for the Rosetta Stone blog. (Left the company before it was published.)",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1CzIlph"
+    },
+    "_rid": "9XUnAOPvcgBqAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBqAAAAAAAAAA==/",
+    "_etag": "\"00004400-0000-0000-0000-568da8ec0000\"",
+    "_ts": 1452124396,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "66",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Typology: The study of unity or diversity?",
+    "date": "2012-09-28",
+    "citation": "<cite>Diversity Linguistics Comment</cite>.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://dlc.hypotheses.org/299"
+    },
+    "_rid": "9XUnAOPvcgBrAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBrAAAAAAAAAA==/",
+    "_etag": "\"00004300-0000-0000-0000-568da8e40000\"",
+    "_ts": 1452124388,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "65",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Choctaw in syntactic typology",
+    "date": "2011-07-01",
+    "citation": "Term paper, ‘Syntactic Typology’, Prof. Irina Nikolaeva, LSA Institute 2011, University of Colorado, Boulder.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1dUPSTP"
+    },
+    "_rid": "9XUnAOPvcgBsAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBsAAAAAAAAAA==/",
+    "_etag": "\"00004200-0000-0000-0000-568da8dd0000\"",
+    "_ts": 1452124381,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "64",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "A case study in digital collaboration: Navajo Language Renaissance & Rosetta Stone Navajo",
+    "date": "2011-05-20",
+    "citation": "With Lorraine Begay Manavi & Marion K. Bittinger. Stabilizing Indigenous Languages Symposium (SILS), Albuquerque, NM.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1L0q8Ep"
+    },
+    "_rid": "9XUnAOPvcgBtAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBtAAAAAAAAAA==/",
+    "_etag": "\"00004100-0000-0000-0000-568da8d30000\"",
+    "_ts": 1452124371,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "63",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Chitimacha: Building blocks for revitalization",
+    "date": "2010-11-10",
+    "citation": "<cite>Linguavore: RVoice</cite>.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pubLink": "http://blog.rosettastone.com/2010/11/10/chitimacha-building-blocks-for-revitalization/"
+    },
+    "_rid": "9XUnAOPvcgBuAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBuAAAAAAAAAA==/",
+    "_etag": "\"00004000-0000-0000-0000-568da8cb0000\"",
+    "_ts": 1452124363,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "62",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Category genesis through schematicity: On the origin of Chitimacha preverbs",
+    "date": "2014-10-11",
+    "citation": "Paper presented at the UC Santa Barbara Linguistics Department’s Silver Anniversary Conference, University of California, Santa Barbara.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1Hw9LYU"
+    },
+    "_rid": "9XUnAOPvcgBvAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBvAAAAAAAAAA==/",
+    "_etag": "\"00003f00-0000-0000-0000-568da8bf0000\"",
+    "_ts": 1452124351,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "61",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Review of <cite>When languages die: The extinction of the world’s languages and the erosion of human knowledge</cite>",
+    "date": "2008-10-29",
+    "citation": "",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1fBcpad"
+    },
+    "_rid": "9XUnAOPvcgBwAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBwAAAAAAAAAA==/",
+    "_etag": "\"00003e00-0000-0000-0000-568da8b50000\"",
+    "_ts": 1452124341,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "60",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "A dying language is making a comeback",
+    "date": "2015-07-29",
+    "citation": "<cite>Time Magazine</cite>. Originally published in <cite><a href='http://theconversation.com/renaissance-on-the-bayou-the-revival-of-a-lost-language-43958'>The Conversation</a></cite> as ‘Renaissance on the bayou: The revival of a lost language’. Also published in <cite><a href='http://languagemagazine.com/?p=124218'>Language Magazine</a></cite>, <cite><a href='http://www.houstonchronicle.com/local/gray-matters/article/Reviving-a-lost-language-of-Louisiana-6409708'>The Houston Chronicle</a></cite>.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "pubLink": "http://time.com/3975016/chitimacha-language-comeback/"
+    },
+    "_rid": "9XUnAOPvcgBxAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBxAAAAAAAAAA==/",
+    "_etag": "\"00002603-0000-0000-0000-568de8200000\"",
+    "_ts": 1452140576,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "59",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Dunstan Brown, Marina Chumakina, & Greville G. Corbett (eds.), <cite>Canonical morphology & syntax</cite>",
+    "date": "2013-12-05",
+    "citation": "Linguist List 24.4963.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issues/24/24-4963.html"
+    },
+    "_rid": "9XUnAOPvcgByAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgByAAAAAAAAAA==/",
+    "_etag": "\"00003c00-0000-0000-0000-568da8a50000\"",
+    "_ts": 1452124325,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "58",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Language as action",
+    "date": "2013-06-14",
+    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
+    "categories": [
+      "prax"
+    ],
+    "links": {
+      "pubLink": "http://mises.org/daily/6448/Language-as-Action"
+    },
+    "_rid": "9XUnAOPvcgBzAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBzAAAAAAAAAA==/",
+    "_etag": "\"00003b00-0000-0000-0000-568da89e0000\"",
+    "_ts": 1452124318,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "57",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Language endangerment: A history",
+    "date": "2011-11-01",
+    "citation": "Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1O41zEZ"
+    },
+    "_rid": "9XUnAOPvcgB0AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB0AAAAAAAAAA==/",
+    "_etag": "\"00003a00-0000-0000-0000-568da8960000\"",
+    "_ts": 1452124310,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "56",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "The syntactic typology of Choctaw & Nankina",
+    "date": "2011-07-01",
+    "citation": "Term paper, ‘Syntactic Typology’, Prof. Irina Nikolaeva, LSA Linguistic Institute 2011, University of Colorado, Boulder.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1K2USBx"
+    },
+    "_rid": "9XUnAOPvcgB1AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB1AAAAAAAAAA==/",
+    "_etag": "\"00003900-0000-0000-0000-568da8900000\"",
+    "_ts": 1452124304,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "55",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Discourse connectives and pragmatic implications",
+    "date": "2006-05-10",
+    "citation": "Term paper, ‘Semantics’, Prof. Ann M. Reed, Spring 2006, The College of William & Mary.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1MoZLFo"
+    },
+    "_rid": "9XUnAOPvcgB2AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB2AAAAAAAAAA==/",
+    "_etag": "\"00003800-0000-0000-0000-568da8880000\"",
+    "_ts": 1452124296,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "54",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Where theory meets practice: Using language to help make the world a better place",
+    "date": "2012-01-26",
+    "citation": "<cite>Linguavore: RVoice</cite>.",
+    "categories": [
+      "doc",
+      "prax",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://blog.rosettastone.com/2012/01/26/where-theory-meets-practice-using-language-to-help-make-the-world-a-better-place/"
+    },
+    "_rid": "9XUnAOPvcgB3AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB3AAAAAAAAAA==/",
+    "_etag": "\"00003700-0000-0000-0000-568da8800000\"",
+    "_ts": 1452124288,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "53",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Digital collaboration: 21st century tools for revitalization",
+    "date": "2012-06-01",
+    "citation": "Poster presented at the Language Revitalization in the 21st Century.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1fAuXXX"
+    },
+    "_rid": "9XUnAOPvcgB4AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB4AAAAAAAAAA==/",
+    "_etag": "\"00003600-0000-0000-0000-568da8790000\"",
+    "_ts": 1452124281,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "52",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Reduplicative roots in Chitimacha",
+    "date": "2014-05-13",
+    "citation": "Term paper, ‘Introduction to Morphology’, Prof. Marianne Mithun, Spring 2014, UC Santa Barbara.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1eUHG6X"
+    },
+    "_rid": "9XUnAOPvcgB5AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB5AAAAAAAAAA==/",
+    "_etag": "\"00003500-0000-0000-0000-568da8720000\"",
+    "_ts": 1452124274,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "51",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "The necessity of grammatical structures",
+    "date": "2014-02-25",
+    "citation": "<cite>Diversity Linguistics Comment</cite>.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://dlc.hypotheses.org/660"
+    },
+    "_rid": "9XUnAOPvcgB6AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB6AAAAAAAAAA==/",
+    "_etag": "\"00003400-0000-0000-0000-568da8690000\"",
+    "_ts": 1452124265,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "50",
+    "type": "publication",
+    "publicationType": "edited",
+    "title": "Working Papers in Athabaskan (Dene) Languages 2012",
+    "date": "2013-01-01",
+    "citation": "(Alaska Native Language Center Working Papers 11), eds. Sharon Hargus, Edward Vajda, Daniel W. Hieber. ANLC.",
+    "categories": [],
+    "links": {
+      "purchaseLink": "http://www.uaf.edu/anlc/publications/detail/index.xml?id=224"
+    },
+    "_rid": "9XUnAOPvcgB7AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB7AAAAAAAAAA==/",
+    "_etag": "\"00003300-0000-0000-0000-568da8630000\"",
+    "_ts": 1452124259,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "49",
+    "type": "publication",
+    "publicationType": "article",
+    "title": "On linguistics, linguists, and our times: A linguist’s personal narrative reviewed",
+    "date": "2013-08-07",
+    "citation": "<cite>Linguistic Typology</cite> 17(2): 291–321. Review article of R. M. W. Dixon. 2010. <cite>I am a linguist</cite>. Brill. DOI: <a href=http://dx.doi.org/10.1515/lity-2013-0013>10.1515/lity-2013-0013</a>.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://1drv.ms/1O2dHq2",
+      "paper": "https://danielhieber.blob.core.windows.net/vitae/49-paper"
+    },
+    "_rid": "9XUnAOPvcgB8AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB8AAAAAAAAAA==/",
+    "_etag": "\"00005d05-0000-0000-0000-568e12830000\"",
+    "_ts": 1452151427,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "48",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "What are the origins of language?",
+    "date": "2010-12-29",
+    "citation": "<cite>Linguavore: RVoice.</cite>",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://blog.rosettastone.com/what-are-the-origins-of-language/"
+    },
+    "_rid": "9XUnAOPvcgB9AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB9AAAAAAAAAA==/",
+    "_etag": "\"00003100-0000-0000-0000-568da8540000\"",
+    "_ts": 1452124244,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "47",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Degrees & dimensions of grammaticalization in Chitimacha preverbs",
+    "date": "2014-05-02",
+    "citation": "17th Annual Workshop on American Indigenous Languages (WAIL), University of California, Santa Barbara.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1HnYxca"
+    },
+    "_rid": "9XUnAOPvcgB+AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB+AAAAAAAAAA==/",
+    "_etag": "\"00003000-0000-0000-0000-568da84c0000\"",
+    "_ts": 1452124236,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "46",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "What’s in a word? Code-switching in Mombasa Swahili",
+    "date": "2006-12-15",
+    "citation": "Term paper, ‘Swahili Language & Culture Studies’, Fall 2006, School for International Training, Mombasa, Kenya.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1K2WTxF"
+    },
+    "_rid": "9XUnAOPvcgB-AAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB-AAAAAAAAAA==/",
+    "_etag": "\"00002f00-0000-0000-0000-568da8430000\"",
+    "_ts": 1452124227,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "45",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Rosetta Stone & Navajo Language Renaissance",
+    "date": "2012-08-16",
+    "citation": "With Lorraine Begay Manavi & Kasra Manavi. Invited keynote, Athabaskan (Dene) Languages Conference, Western Washington University, Bellingham, WA.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1fzdn6G"
+    },
+    "_rid": "9XUnAOPvcgCAAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCAAAAAAAAAAA==/",
+    "_etag": "\"00002e00-0000-0000-0000-568da83a0000\"",
+    "_ts": 1452124218,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "44",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Nicholas Evans, <cite>Dying words: Endangered languages and what they have to tell us</cite>",
+    "date": "2009-08-03",
+    "citation": "Linguist List 20.2673.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issue/20/20-2673.html"
+    },
+    "_rid": "9XUnAOPvcgCBAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCBAAAAAAAAAA==/",
+    "_etag": "\"00002d00-0000-0000-0000-568da8330000\"",
+    "_ts": 1452124211,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "43",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Shobhana L. Chelliah & Willem J. de Reuse, <cite>Handbook of descriptive linguistic fieldwork</cite>",
+    "date": "2011-08-05",
+    "citation": "Linguist List 23.3129.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issues/22/22-3129.html"
+    },
+    "_rid": "9XUnAOPvcgCCAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCCAAAAAAAAAA==/",
+    "_etag": "\"00002c00-0000-0000-0000-568da82b0000\"",
+    "_ts": 1452124203,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "42",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Language revitalization: Issues with reference to Navajo",
+    "date": "2011-04-01",
+    "citation": "With Marion K. Bittinger. Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1NYOn3v"
+    },
+    "_rid": "9XUnAOPvcgCDAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCDAAAAAAAAAA==/",
+    "_etag": "\"00002a00-0000-0000-0000-568da81d0000\"",
+    "_ts": 1452124189,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "41",
+    "type": "publication",
+    "publicationType": "article",
+    "title": "Category genesis in Chitimacha: A constructional approach",
+    "date": "forthcoming",
+    "citation": "To appear in Kristel Van Goethem, Muriel Norde, Evie Coussé, & Gudrun Vanderbauwhede (eds.), <cite>Categorization and category change from a constructional perspective</cite> (Constructional Approaches to Language). John Benjamins.",
+    "categories": [
+      "typ"
+    ],
+    "links": {},
+    "_rid": "9XUnAOPvcgCEAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCEAAAAAAAAAA==/",
+    "_etag": "\"00001b00-0000-0000-0000-56db88fb0000\"",
+    "_ts": 1457228027,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "40",
+    "type": "publication",
+    "publicationType": "project",
+    "title": "Rosetta Stone Chitimacha (Sitimaxa)",
+    "date": "2010-01-01",
+    "citation": "Rosetta Stone language-learning software for the Chitimacha language. Not available for public purchase.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {},
+    "_rid": "9XUnAOPvcgCFAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCFAAAAAAAAAA==/",
+    "_etag": "\"00002800-0000-0000-0000-568da80f0000\"",
+    "_ts": 1452124175,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "39",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "A grammar of Turkish",
+    "date": "2007-12-15",
+    "citation": "Term paper, ‘Descriptive Linguistics’, Prof. Ann M. Reed, Fall 2007, The College of William & Mary.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pdf": "http://1drv.ms/1dUPC7j"
+    },
+    "_rid": "9XUnAOPvcgCGAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCGAAAAAAAAAA==/",
+    "_etag": "\"00002700-0000-0000-0000-568da8080000\"",
+    "_ts": 1452124168,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "38",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Renaissance on the bayou: The revival of a lost language",
+    "date": "2015-07-27",
+    "citation": "<cite>The Conversation</cite>.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pubLink": "https://theconversation.com/renaissance-on-the-bayou-the-revival-of-a-lost-language-43958"
+    },
+    "_rid": "9XUnAOPvcgCHAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCHAAAAAAAAAA==/",
+    "_etag": "\"00002600-0000-0000-0000-568da8010000\"",
+    "_ts": 1452124161,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "37",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "The Navajo language",
+    "date": "2009-10-15",
+    "citation": "Term paper, ‘Linguistic Anthropology’, Prof. Amy L. Paugh, Fall 2009, James Madison University.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1Db8OV6"
+    },
+    "_rid": "9XUnAOPvcgCIAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCIAAAAAAAAAA==/",
+    "_etag": "\"00002500-0000-0000-0000-568da7fb0000\"",
+    "_ts": 1452124155,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "36",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Viveka Velupillai, <cite>An introduction to linguistic typology</cite>",
+    "date": "2013-06-24",
+    "citation": "Linguist List 24.2550.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issues/24/24-2550.html"
+    },
+    "_rid": "9XUnAOPvcgCJAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCJAAAAAAAAAA==/",
+    "_etag": "\"00002400-0000-0000-0000-568da7f10000\"",
+    "_ts": 1452124145,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "35",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Causativity and the origin of the causative suffix in Chitimacha",
+    "date": "2014-06-10",
+    "citation": "Term paper, ‘Advanced Syntax’, Prof. Marianne Mithun, Fall 2014, UC Santa Barbara.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1K2WMSQ"
+    },
+    "_rid": "9XUnAOPvcgCKAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCKAAAAAAAAAA==/",
+    "_etag": "\"00002300-0000-0000-0000-568da7e60000\"",
+    "_ts": 1452124134,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "34",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Rapid reading",
+    "date": "2012-02-02",
+    "citation": "Content Development Department, Rosetta Stone, Harrisonburg, VA.",
+    "categories": [],
+    "links": {
+      "slides": "http://1drv.ms/1O4uyZg"
+    },
+    "_rid": "9XUnAOPvcgCLAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCLAAAAAAAAAA==/",
+    "_etag": "\"00002200-0000-0000-0000-568da7df0000\"",
+    "_ts": 1452124127,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "33",
+    "type": "publication",
+    "publicationType": "online",
+    "title": "Language myths and complicated languages",
+    "date": "2011-09-21",
+    "citation": "<cite>Linguavore: RVoice</cite>.",
+    "categories": [
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://blog.rosettastone.com/language-myths-and-complicated-languages/"
+    },
+    "_rid": "9XUnAOPvcgCMAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCMAAAAAAAAAA==/",
+    "_etag": "\"00002100-0000-0000-0000-568da7d80000\"",
+    "_ts": 1452124120,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "32",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "George Yule, <cite>The study of language, 4th ed.</cite>",
+    "date": "2011-04-18",
+    "citation": "<cite>eLanguage</cite> book notice.",
+    "categories": [],
+    "links": {
+      "pubLink": "http://journals.linguisticsociety.org/booknotices/?p=1510"
+    },
+    "_rid": "9XUnAOPvcgCNAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCNAAAAAAAAAA==/",
+    "_etag": "\"00002000-0000-0000-0000-568da7d10000\"",
+    "_ts": 1452124113,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "31",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "Truth and the sentential hierarchy",
+    "date": "2006-04-04",
+    "citation": "Term paper, ‘Philosophy of Language’, Prof. Robert Maximilian de Gaynesford, Spring 2006, The College of William & Mary.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1GgzfJ1"
+    },
+    "_rid": "9XUnAOPvcgCOAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCOAAAAAAAAAA==/",
+    "_etag": "\"00001f00-0000-0000-0000-568da7ca0000\"",
+    "_ts": 1452124106,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "30",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Semantic alignment in Chitimacha",
+    "date": "2014-01-04",
+    "citation": "Winter Meeting of the Society for the Study of the Indigenous Languages of the Americas (SSILA), Minneapolis, MN.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1dTFgVg"
+    },
+    "_rid": "9XUnAOPvcgCPAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCPAAAAAAAAAA==/",
+    "_etag": "\"00001e00-0000-0000-0000-568da7c40000\"",
+    "_ts": 1452124100,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "29",
+    "type": "publication",
+    "publicationType": "project",
+    "title": "Rosetta Stone Iñupiaq (North Slope Iñupiatun)",
+    "date": "2011-08-01",
+    "citation": "Rosetta Stone language-learning software for the Inupiaq language. Not available for public purchase. See the <a href='http://launch.rosettastone.com/en/licenses/demo?application_launcher_session_id=585fbc94952f633a4f1720683eda0c6c'>demo</a>.",
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "links": {
+      "pubLink": "http://launch.rosettastone.com/en/licenses/demo?application_launcher_session_id=585fbc94952f633a4f1720683eda0c6c"
+    },
+    "_rid": "9XUnAOPvcgCQAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCQAAAAAAAAAA==/",
+    "_etag": "\"00002103-0000-0000-0000-568de7dd0000\"",
+    "_ts": 1452140509,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "28",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Building the lexion for reawakening languages",
+    "date": "2014-03-09",
+    "citation": "Conference on Language Revitalization: Sleeping & Awakening Languages of the Gulf South, Tulane University, New Orleans, LA.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1KZ839I"
+    },
+    "_rid": "9XUnAOPvcgCRAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCRAAAAAAAAAA==/",
+    "_etag": "\"00001c00-0000-0000-0000-568da7b50000\"",
+    "_ts": 1452124085,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "27",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Dik Bakker & Martin Haspelmath (eds.), <cite>Languages across boundaries</cite>",
+    "date": "2014-04-24",
+    "citation": "Linguist List 26.542.",
+    "categories": [
+      "disc",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issues/26/26-542.html"
+    },
+    "_rid": "9XUnAOPvcgCSAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCSAAAAAAAAAA==/",
+    "_etag": "\"00001b00-0000-0000-0000-568da7af0000\"",
+    "_ts": 1452124079,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "26",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "The processing of multicategorial roots in Swahili",
+    "date": "2014-12-01",
+    "citation": "Term paper, ‘Cognitive Foundations of Language’, Prof. Fermin Moscoso del Prado Martin, Fall 2014, UC Santa Barbara.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1L0Xra8"
+    },
+    "_rid": "9XUnAOPvcgCTAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCTAAAAAAAAAA==/",
+    "_etag": "\"00001a00-0000-0000-0000-568da7a70000\"",
+    "_ts": 1452124071,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "25",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "The start and the end of it: Prosodic marking of speech report boundaries in Dolakha Newar",
+    "date": "2015-05",
+    "citation": "(with Carol Genetti) Plenary talk given to the South Asian Languages Conference, May 15, 2015, London, UK.",
+    "categories": [
+      "disc"
+    ],
+    "links": {},
+    "_rid": "9XUnAOPvcgCUAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCUAAAAAAAAAA==/",
+    "_etag": "\"00000600-0000-0000-0000-57257f280000\"",
+    "_attachments": "attachments/",
+    "_ts": 1462075175
+  },
+  {
+    "id": "24",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Documentation & revitalization of Ékegusií language & culture",
+    "date": "2014-08-01",
+    "citation": "Invited talk to the Ékegusií Encyclopedia Project, Mombasa, Kenya.",
+    "categories": [
+      "doc",
+      "disc"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1ShKzeV"
+    },
+    "_rid": "9XUnAOPvcgCVAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCVAAAAAAAAAA==/",
+    "_etag": "\"00001800-0000-0000-0000-568da7970000\"",
+    "_ts": 1452124055,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "23",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Language revitalization: Navajo",
+    "date": "2009-11-01",
+    "citation": "With Marion K. Bittinger. Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1HXMUKA"
+    },
+    "_rid": "9XUnAOPvcgCWAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCWAAAAAAAAAA==/",
+    "_etag": "\"00001700-0000-0000-0000-568da7900000\"",
+    "_ts": 1452124048,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "22",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "On the status of the subject agreement marker in Swahili",
+    "date": "2008-05-07",
+    "citation": "Term paper, ‘Advanced Syntax’, Prof. Ann M. Reed, Spring 2008, The College of William & Mary.",
+    "categories": [],
+    "links": {
+      "pdf": "http://1drv.ms/1HXZ4mN"
+    },
+    "_rid": "9XUnAOPvcgCXAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCXAAAAAAAAAA==/",
+    "_etag": "\"00001600-0000-0000-0000-568da7890000\"",
+    "_ts": 1452124041,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "21",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Language endangerment & nationalism",
+    "date": "2012-02-27",
+    "citation": "Invited talk co-sponsored by the Latin American Studies Program and the Arts & Sciences Lectures Committee, The College of William & Mary, Williamsburg, VA.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "slides": "http://1drv.ms/1HoiehO"
+    },
+    "_rid": "9XUnAOPvcgCYAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCYAAAAAAAAAA==/",
+    "_etag": "\"00001500-0000-0000-0000-568da7820000\"",
+    "_ts": 1452124034,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "20",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "Renaissance on the bayou: Revitalizing the Chitimacha language",
+    "date": "2015-05-04",
+    "citation": "Award-winning 3-minute talk on my work with the Chitimacha language, presented as part of the University of California Grad Slam competition for the best 3-minute research talk by a graduate student. Watch the video <a href=http://1drv.ms/1dTFEDb>here</a>.",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "pubLink": "http://www.universityofcalifornia.edu/grad-slam"
+    },
+    "_rid": "9XUnAOPvcgCZAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCZAAAAAAAAAA==/",
+    "_etag": "\"00001400-0000-0000-0000-568da77b0000\"",
+    "_ts": 1452124027,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "19",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Nicole Nau, Geoffrey L. J. Haig, Stefan Schnell, & Claudia Wegener, <cite>Documenting endangered languages: Achievements & perspectives</cite>",
+    "date": "2012-05-19",
+    "citation": "Linguist List 23.2390.",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "pubLink": "http://linguistlist.org/issues/23/23-2390.html"
+    },
+    "_rid": "9XUnAOPvcgCaAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCaAAAAAAAAAA==/",
+    "_etag": "\"00001300-0000-0000-0000-568da7730000\"",
+    "_ts": 1452124019,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "18",
+    "type": "publication",
+    "publicationType": "unpublished",
+    "title": "The U.S. Southeast as a linguistic area",
+    "date": "2014-01-27",
+    "citation": "Class presentation, ‘Language & Prehistory’, Prof. Laura Robinson, Winter 2014, UC Santa Barbara.",
+    "categories": [],
+    "links": {
+      "slides": "http://1drv.ms/1fB6t0F"
+    },
+    "_rid": "9XUnAOPvcgCbAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCbAAAAAAAAAA==/",
+    "_etag": "\"00001200-0000-0000-0000-568da76c0000\"",
+    "_ts": 1452124012,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "17",
+    "type": "reference",
+    "name": "Carol Genetti",
+    "organization": "University of California, Santa Barbara",
+    "role": "Graduate Dean & Professor, Department of Linguistics",
+    "email": "cgenetti@linguistics.ucsb.edu",
+    "phone": "(805) 893-3574",
+    "links": {
+      "homepage": "",
+      "academia": ""
+    },
+    "_rid": "9XUnAOPvcgCcAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCcAAAAAAAAAA==/",
+    "_etag": "\"00001100-0000-0000-0000-568da7640000\"",
+    "_ts": 1452124004,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "16",
+    "type": "reference",
+    "name": "Marion K. Bittinger",
+    "organization": "Rosetta Stone",
+    "role": "Director, Endangered Language Program",
+    "email": "mkbittinger@gmail.com",
+    "phone": "(540) 248-3310",
+    "links": {
+      "homepage": "",
+      "academia": ""
+    },
+    "_rid": "9XUnAOPvcgCdAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCdAAAAAAAAAA==/",
+    "_etag": "\"00001000-0000-0000-0000-568da75c0000\"",
+    "_ts": 1452123996,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "15",
+    "type": "reference",
+    "name": "Kim Walden",
+    "organization": "Chitimacha Tribe of Louisiana",
+    "role": "Cultural Director, Chitimacha Cultural Department",
+    "email": "kim@chitimacha.gov",
+    "phone": "(337) 923-9923",
+    "links": {},
+    "_rid": "9XUnAOPvcgCeAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCeAAAAAAAAAA==/",
+    "_etag": "\"00000f00-0000-0000-0000-568da7530000\"",
+    "_ts": 1452123987,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "14",
+    "type": "reference",
+    "name": "Marianne Mithun",
+    "organization": "University of California, Santa Barbara",
+    "role": "Professor, Department of Linguistics",
+    "email": "mithun@linguistics.ucsb.edu",
+    "phone": "",
+    "links": {
+      "homepage": "",
+      "academia": ""
+    },
+    "_rid": "9XUnAOPvcgCfAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCfAAAAAAAAAA==/",
+    "_etag": "\"00000e00-0000-0000-0000-568da74b0000\"",
+    "_ts": 1452123979,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "13",
+    "type": "reference",
+    "name": "Jack B. Martin",
+    "organization": "The College of William & Mary",
+    "role": "Boyd Associate Professor of English & Linguistics",
+    "email": "jbmart@wm.edu",
+    "phone": "(757) 221-3906",
+    "links": {
+      "homepage": "",
+      "academia": ""
+    },
+    "_rid": "9XUnAOPvcgCgAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCgAAAAAAAAAA==/",
+    "_etag": "\"00000d00-0000-0000-0000-568da7430000\"",
+    "_ts": 1452123971,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "12",
+    "type": "service",
+    "role": "Member, Website Creator, Webmaster",
+    "organization": "Society for the Study of the Indigenous Languages of the Americas (SSILA)",
+    "startYear": "2009",
+    "endYear": "present",
+    "categories": [
+      "disc",
+      "dlx",
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "org": "http://www.ssila.org"
+    },
+    "_rid": "9XUnAOPvcgChAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgChAAAAAAAAAA==/",
+    "_etag": "\"00000c00-0000-0000-0000-568da73c0000\"",
+    "_ts": 1452123964,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "11",
+    "type": "service",
+    "role": "Proofreader",
+    "organization": "Language Science Press",
+    "startYear": "2014",
+    "endYear": "",
+    "categories": [
+      "dlx",
+      "typ"
+    ],
+    "links": {
+      "org": "http://langsci-press.org"
+    },
+    "_rid": "9XUnAOPvcgCiAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCiAAAAAAAAAA==/",
+    "_etag": "\"00000b00-0000-0000-0000-568da7270000\"",
+    "_ts": 1452123943,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "10",
+    "type": "service",
+    "role": "Advisory Council",
+    "organization": "Institute for Collaborative Language Documentation (CoLang)",
+    "startYear": "2015",
+    "endYear": "present",
+    "categories": [
+      "doc"
+    ],
+    "links": {
+      "org": "http://www.alaska.edu/colang2016/"
+    },
+    "_rid": "9XUnAOPvcgCjAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCjAAAAAAAAAA==/",
+    "_etag": "\"00000a00-0000-0000-0000-568da71d0000\"",
+    "_ts": 1452123933,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "9",
+    "type": "service",
+    "role": "Member, Website Creator, Webmaster, Social Media Subcommittee",
+    "organization": "LSA Committee on Endangered Languages &amp; Their Preservation",
+    "startYear": "2011",
+    "endYear": "present",
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "links": {
+      "org": "http://www.linguisticsociety.org/about/who-we-are/committees/endangered-languages-and-their-preservation-celp"
+    },
+    "_rid": "9XUnAOPvcgCkAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCkAAAAAAAAAA==/",
+    "_etag": "\"00000900-0000-0000-0000-568da7150000\"",
+    "_ts": 1452123925,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "8",
+    "type": "service",
+    "role": "Reviewer",
+    "organization": "Libertarian Papers",
+    "startYear": "2010",
+    "endYear": "2011",
+    "categories": [
+      "prax"
+    ],
+    "links": {
+      "org": "http://libertarianpapers.org/"
+    },
+    "_rid": "9XUnAOPvcgClAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgClAAAAAAAAAA==/",
+    "_etag": "\"00000800-0000-0000-0000-568da70c0000\"",
+    "_ts": 1452123916,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "7",
+    "type": "work",
+    "role": "Intern",
+    "organization": "Rosetta Stone Endangered Language Program",
+    "startYear": "2007",
+    "endYear": "2008",
+    "links": {
+      "org": "http://www.rosettastone.com/endangered"
+    },
+    "categories": [
+      "doc",
+      "prax"
+    ],
+    "duties": [],
+    "_rid": "9XUnAOPvcgCmAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCmAAAAAAAAAA==/",
+    "_etag": "\"00000700-0000-0000-0000-568da7040000\"",
+    "_ts": 1452123908,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "6",
+    "type": "work",
+    "role": "Latin Instructor",
+    "organization": "Bridgewater Home School Unit",
+    "startYear": "2003",
+    "endYear": "2004",
+    "links": {},
+    "categories": [],
+    "duties": [],
+    "_rid": "9XUnAOPvcgCnAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCnAAAAAAAAAA==/",
+    "_etag": "\"00000600-0000-0000-0000-568da6fb0000\"",
+    "_ts": 1452123899,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "5",
+    "type": "work",
+    "role": "Spanish Instructor",
+    "organization": "Nielsen Builders",
+    "startYear": "2006",
+    "endYear": "",
+    "links": {
+      "org": "http://nielsen.nielsen-inc.com/"
+    },
+    "categories": [],
+    "duties": [],
+    "_rid": "9XUnAOPvcgCoAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCoAAAAAAAAAA==/",
+    "_etag": "\"00000500-0000-0000-0000-568da6f20000\"",
+    "_ts": 1452123890,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "4",
+    "type": "work",
+    "role": "Lab Assistant",
+    "organization": "Language Labs, The College of William & Mary",
+    "startYear": "2004",
+    "endYear": "2006",
+    "links": {},
+    "categories": [],
+    "duties": [],
+    "_rid": "9XUnAOPvcgCpAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCpAAAAAAAAAA==/",
+    "_etag": "\"00000400-0000-0000-0000-568da6ea0000\"",
+    "_ts": 1452123882,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "3",
+    "type": "work",
+    "role": "Editor",
+    "organization": "Rosetta Stone Endangered Language Program",
+    "startYear": "2008",
+    "endYear": "2011",
+    "links": {
+      "org": "http://www.rosettastone.com/endangered"
+    },
+    "categories": [
+      "doc",
+      "prax",
+      "typ"
+    ],
+    "duties": [
+      "created language-learning software for the Chitimacha, Navajo, Iñupiaq, Inuttitut, and Mohawk languages",
+      "conducted daily elicitation sessions, both long-distance and on-site, with native speakers",
+      "made numerous site visits for elicitation, recording, and photography",
+      "designed culturally-relevant, immersion-based language lessons",
+      "provided linguistic consulting to indigenous communities on language planning, immersion teaching, documentation, and basic linguistics",
+      "managed program interns"
+    ],
+    "_rid": "9XUnAOPvcgCqAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCqAAAAAAAAAA==/",
+    "_etag": "\"00000300-0000-0000-0000-568da6e30000\"",
+    "_ts": 1452123875,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "2",
+    "type": "work",
+    "role": "Associate Researcher",
+    "organization": "Rosetta Stone Research Labs",
+    "startYear": "2011",
+    "endYear": "2012",
+    "links": {
+      "org": "http://www.rosettastone.com"
+    },
+    "categories": [
+      "dlx",
+      "typ"
+    ],
+    "duties": [
+      "conducted applied research in linguistics, typology, acquisition, and pedagogy as it related to company initiatives",
+      "designed and prototyped new products and features",
+      "gave company-internal presentations on a variety of linguistic and typological topics"
+    ],
+    "_rid": "9XUnAOPvcgCrAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCrAAAAAAAAAA==/",
+    "_etag": "\"00000200-0000-0000-0000-568da6dd0000\"",
+    "_ts": 1452123869,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "1",
+    "type": "work",
+    "role": "Editor",
+    "organization": "Rosetta Stone",
+    "startYear": "2012",
+    "endYear": "2013",
+    "links": {
+      "org": "http://www.rosettastone.com"
+    },
+    "categories": [
+      "dlx",
+      "doc"
+    ],
+    "duties": [
+      "created lesson content for commerical language products",
+      "used language typology to create products more appropriate for specific languages",
+      "managed lexical database and linguistic corpora, and used them for insights into language products and our learners"
+    ],
+    "_rid": "9XUnAOPvcgCsAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCsAAAAAAAAAA==/",
+    "_etag": "\"00000100-0000-0000-0000-568da65a0000\"",
+    "_ts": 1452123738,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "173",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "The extension of structure to discourse: Chitimacha participles in discourse and diachrony",
+    "date": "2016-01-08",
+    "citation": "Talk presented at the Society for the Study of the Indigenous Languages of the Americas (SSILA), Jan. 7—10, Washington, D.C.",
+    "categories": [
+      "disc"
+    ],
+    "links": {
+      "slides": "https://danielhieber.blob.core.windows.net/vitae/173-slides"
+    },
+    "_rid": "9XUnAOPvcgCtAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCtAAAAAAAAAA==/",
+    "_etag": "\"0000ef0c-0000-0000-0000-5691f04c0000\"",
+    "_ts": 1452404812,
+    "_attachments": "attachments/"
+  },
+  {
+    "id": "174",
+    "type": "publication",
+    "publicationType": "presentation",
+    "title": "How to become a Kisii folktalke: Generic features of moralizing narratives among the Gusii people of Kenya",
+    "date": "2016-04-08",
+    "citation": "Talk presented at the Language, Interaction, & Social Organization Symposium (LISO) special session on Interaction & Culture Across Languages: Perspectives from Field Linguistics, April 8, 2016, University of California, Santa Barbara.",
+    "categories": [
+      "doc",
+      "disc"
+    ],
+    "links": {},
+    "_rid": "9XUnAOPvcgCuAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCuAAAAAAAAAA==/",
+    "_etag": "\"00000500-0000-0000-0000-57257c8d0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1462074507
+  },
+  {
+    "id": "175",
+    "type": "publication",
+    "publicationType": "review",
+    "title": "Thomas E. Payne & Doris L. Payne, <cite>A typological grammar of Panare: A Cariban language of Venezuela</cite>",
+    "date": "2016-07-11",
+    "citation": "International Journal of American Linguistics (IJAL) 82(3): 387–389. DOI: <a href='http://dx.doi.org/10.1086/687388'>10.1086/687388</a>.",
+    "categories": [
+      "doc",
+      "typ"
+    ],
+    "links": {
+      "pubLink": "http://www.journals.uchicago.edu/doi/10.1086/687388"
+    },
+    "_rid": "9XUnAOPvcgCvAAAAAAAAAA==",
+    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCvAAAAAAAAAA==/",
+    "_etag": "\"00006ec4-0000-0000-0000-578945490000\"",
+    "_attachments": "attachments/",
+    "_ts": 1468613948
+  }
+]

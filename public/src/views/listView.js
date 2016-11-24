@@ -147,7 +147,6 @@ const ListView = class ListView extends View {
 
   // sorts the collection (data only)
   sort() {
-    this.collection.sort((a, b) => a.name < b.name);
     return this;
   }
 

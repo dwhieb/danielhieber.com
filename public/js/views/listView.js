@@ -170,9 +170,6 @@ var ListView = function (_View) {
   }, {
     key: 'sort',
     value: function sort() {
-      this.collection.sort(function (a, b) {
-        return a.name < b.name;
-      });
       return this;
     }
   }]);
