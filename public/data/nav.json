@@ -29,6 +29,12 @@
     "pageTitle": "Languages",
     "path": "/languages"
   },
+  "bibliographies": {
+    "eng": "Bibliographies",
+    "ipa": "/ bɪbliɑgɹəfiz /",
+    "pageTitle": "Bibliographies",
+    "path": "/bibliographies"
+  },
   "admin": {
     "eng": "Admin",
     "ipa": "/ ædmɪn /",
