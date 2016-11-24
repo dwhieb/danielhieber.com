@@ -526,6 +526,7 @@ const Document = class Document {
     const genericTypes = [
       'authRequest',
       'category',
+      'counter',
       'session',
       'test',
     ];
