@@ -1,4 +1,4 @@
-/* global FormView, Model, View */
+/* global app, FormView, Model, View */
 
 const ListView = class ListView extends View {
   /**
@@ -28,18 +28,20 @@ const ListView = class ListView extends View {
 
   }
 
+  // adds a model to the collection (data only)
   add(model) {
     this.collection.add(model);
     return this.collection.length;
   }
 
+  // destroys this view, removing all listeners
   destroy() {
     this.hide();
     this.removeListeners();
     this.nodes.list.innerHTML = '';
   }
 
-  // helper function
+  // looks up the model based on a click event in the list
   lookupModel(ev) {
 
     var target = ev.target;
@@ -53,15 +55,18 @@ const ListView = class ListView extends View {
 
   }
 
+  // removes a model from the collection (data only)
   remove(model) {
     this.collection.remove(model);
   }
 
+  // confirms that the user wants to remove a model from the collection (data only)
   removeConfirmed(model) {
     const accepted = confirm('Are you sure you want to delete this item?');
     if (accepted) this.remove(model);
   }
 
+  // renders the view, removing any existing listeners first
   render() {
 
     this.hide();
@@ -98,12 +103,11 @@ const ListView = class ListView extends View {
       if (ev.target === this.nodes.add) {
 
         // if the Add button is clicked, add a model
-        const model = new Model({ type: this.type });
-        const fv = new FormView(model);
-
-        this.collection.add(model);
+        app.model = new Model({ type: this.type });
+        this.collection.add(app.model);
         this.render();
-        fv.render();
+        app.form = new FormView(app.model);
+        app.form.render();
 
       } else if (!deadAreas.includes(ev.target.tagName)) {
 
@@ -112,14 +116,17 @@ const ListView = class ListView extends View {
 
         if (model) {
 
-          // if Delete button was clicked, delete the model
           if (ev.target.tagName === 'IMG') {
+            // if Delete button was clicked, delete the model
             this.removeConfirmed(model);
-
-          // otherwise render the form view for that model
+            model.destroy();
+            app.form.destroy();
+            this.render();
           } else {
-            const fv = new FormView(model);
-            fv.render();
+            // otherwise render the form view for that model
+            app.model = model;
+            app.form = new FormView(model);
+            app.form.render();
           }
 
         } else {
@@ -138,6 +145,7 @@ const ListView = class ListView extends View {
 
   }
 
+  // sorts the collection (data only)
   sort() {
     this.collection.sort((a, b) => a.name < b.name);
     return this;

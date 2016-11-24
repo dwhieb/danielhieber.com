@@ -64,11 +64,18 @@ var Model = function () {
       var _this = this;
 
       return new Promise(function (resolve, reject) {
-        socket.emit('delete', _this, function (err, res) {
-          if (err) reject(err);
-          _this.emit('destroy');
-          resolve(res);
-        });
+        if (_this.id) {
+          socket.emit('delete', _this, function (err, res) {
+            if (err) reject(err);
+            _this.emit('destroy');
+            resolve(res);
+          });
+        } else {
+          resolve({
+            code: 204,
+            details: 'Item succesfully deleted.'
+          });
+        }
       });
     }
 

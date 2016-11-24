@@ -50,11 +50,18 @@ const Model = class Model {
    */
   destroy() {
     return new Promise((resolve, reject) => {
-      socket.emit('delete', this, (err, res) => {
-        if (err) reject(err);
-        this.emit('destroy');
-        resolve(res);
-      });
+      if (this.id) {
+        socket.emit('delete', this, (err, res) => {
+          if (err) reject(err);
+          this.emit('destroy');
+          resolve(res);
+        });
+      } else {
+        resolve({
+          code:     204,
+          details: 'Item succesfully deleted.',
+        });
+      }
     });
   }
 

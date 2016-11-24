@@ -33,8 +33,8 @@ window.app = {
 
   refreshList(type) {
     socket.emit('getAll', type, (err, res) => {
-      if (err) this.displayError(err, 'Error retrieving CV items.');
       this.nodes.details.hide();
+      if (err) this.displayError(err, 'Error retrieving CV items.');
       if (this.list) this.list.destroy();
       this.list = new ListView(res, type);
       this.collection = this.list.collection;

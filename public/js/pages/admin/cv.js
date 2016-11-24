@@ -34,8 +34,8 @@ window.app = {
     var _this2 = this;
 
     socket.emit('getAll', type, function (err, res) {
-      if (err) _this2.displayError(err, 'Error retrieving CV items.');
       _this2.nodes.details.hide();
+      if (err) _this2.displayError(err, 'Error retrieving CV items.');
       if (_this2.list) _this2.list.destroy();
       _this2.list = new ListView(res, type);
       _this2.collection = _this2.list.collection;

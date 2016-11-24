@@ -8,7 +8,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* global FormView, Model, View */
+/* global app, FormView, Model, View */
 
 var ListView = function (_View) {
   _inherits(ListView, _View);
@@ -42,12 +42,18 @@ var ListView = function (_View) {
     return _this;
   }
 
+  // adds a model to the collection (data only)
+
+
   _createClass(ListView, [{
     key: 'add',
     value: function add(model) {
       this.collection.add(model);
       return this.collection.length;
     }
+
+    // destroys this view, removing all listeners
+
   }, {
     key: 'destroy',
     value: function destroy() {
@@ -56,7 +62,7 @@ var ListView = function (_View) {
       this.nodes.list.innerHTML = '';
     }
 
-    // helper function
+    // looks up the model based on a click event in the list
 
   }, {
     key: 'lookupModel',
@@ -73,17 +79,26 @@ var ListView = function (_View) {
       });
       return model || undefined;
     }
+
+    // removes a model from the collection (data only)
+
   }, {
     key: 'remove',
     value: function remove(model) {
       this.collection.remove(model);
     }
+
+    // confirms that the user wants to remove a model from the collection (data only)
+
   }, {
     key: 'removeConfirmed',
     value: function removeConfirmed(model) {
       var accepted = confirm('Are you sure you want to delete this item?');
       if (accepted) this.remove(model);
     }
+
+    // renders the view, removing any existing listeners first
+
   }, {
     key: 'render',
     value: function render() {
@@ -114,27 +129,29 @@ var ListView = function (_View) {
         if (ev.target === _this2.nodes.add) {
 
           // if the Add button is clicked, add a model
-          var model = new Model({ type: _this2.type });
-          var fv = new FormView(model);
-
-          _this2.collection.add(model);
+          app.model = new Model({ type: _this2.type });
+          _this2.collection.add(app.model);
           _this2.render();
-          fv.render();
+          app.form = new FormView(app.model);
+          app.form.render();
         } else if (!deadAreas.includes(ev.target.tagName)) {
 
           // otherwise lookup the model associated with the click event
-          var _model = _this2.lookupModel(ev);
+          var model = _this2.lookupModel(ev);
 
-          if (_model) {
+          if (model) {
 
-            // if Delete button was clicked, delete the model
             if (ev.target.tagName === 'IMG') {
-              _this2.removeConfirmed(_model);
-
-              // otherwise render the form view for that model
+              // if Delete button was clicked, delete the model
+              _this2.removeConfirmed(model);
+              model.destroy();
+              app.form.destroy();
+              _this2.render();
             } else {
-              var _fv = new FormView(_model);
-              _fv.render();
+              // otherwise render the form view for that model
+              app.model = model;
+              app.form = new FormView(model);
+              app.form.render();
             }
           } else {
 
@@ -147,6 +164,9 @@ var ListView = function (_View) {
       this.nodes.add.display();
       return this;
     }
+
+    // sorts the collection (data only)
+
   }, {
     key: 'sort',
     value: function sort() {
