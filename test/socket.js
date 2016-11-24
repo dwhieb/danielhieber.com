@@ -66,6 +66,38 @@ describe('socket', function test() {
 
   });
 
+  it('increment "cvid"', function incrementcvid(done) {
+
+    const data = {
+      ttl:             300,
+      type:            'publication',
+      id:              'publication-test',
+      date:            Date.now(),
+      description:     'Test publication.',
+      publicationType: 'unpublished',
+      title:           'Test Publication',
+    };
+
+    db.deleteDocument(`${coll}/docs/${data.id}`, err => {
+      if (err && err.code != 404) {
+        fail(err.body);
+        done();
+      } else {
+        socket.emit('add', data, (err, res) => {
+          if (err) {
+            fail(JSON.stringify(err, null, 2));
+            done();
+          } else {
+            expect(res.cvid).toBeDefined();
+            expect(Number.isInteger(res.cvid)).toBe(true);
+            done();
+          }
+        });
+      }
+    });
+
+  });
+
   it('add', function addItem(done) {
 
     const testData = Object.assign({}, data);
