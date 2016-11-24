@@ -40,6 +40,32 @@ describe('socket', function test() {
     socket.on('error', err => fail(err));
   });
 
+  it('pretrigger: "type"', function pretriggerType(done) {
+
+    const testData = {
+      ttl: 300,
+      id: 'type-pretrigger-test',
+    };
+
+    db.deleteDocument(`${coll}/docs/${testData.id}`, err => {
+      if (err && err.code != 404) {
+        fail(err.body);
+        done();
+      } else {
+        socket.emit('add', testData, (err, res) => {
+          if (res) {
+            fail(res);
+            done();
+          } else {
+            expect(err).toBeDefined();
+            done();
+          }
+        });
+      }
+    });
+
+  });
+
   it('add', function addItem(done) {
 
     const testData = Object.assign({}, data);
