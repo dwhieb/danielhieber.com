@@ -152,9 +152,9 @@ const FormView = class FormView extends View {
 
       case 'categories': {
 
-        const fieldset    = clone.querySelector('fieldset');
-        const label       = clone.querySelector('label');
-        const addCategory = (label, category) => {
+        const fieldset         = clone.querySelector('fieldset');
+        const label            = clone.querySelector('label');
+        const populateCategory = (label, category) => {
           const p       = label.querySelector('i');
           const input   = label.querySelector('input');
           p.textContent = category.title;
@@ -164,11 +164,13 @@ const FormView = class FormView extends View {
 
         if (app.categories.length) {
 
-          addCategory(label, app.categories[0]);
+          app.categories.sort((a, b) => a.title > b.title);
+
+          populateCategory(label, app.categories[0]);
 
           app.categories.slice(1).forEach(cat => {
             const checkboxItem = label.cloneNode(true);
-            addCategory(checkboxItem, cat);
+            populateCategory(checkboxItem, cat);
             fieldset.appendChild(checkboxItem);
           });
 

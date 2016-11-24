@@ -174,7 +174,7 @@ var FormView = function (_View) {
 
                                                         var fieldset = clone.querySelector('fieldset');
                                                         var label = clone.querySelector('label');
-                                                        var addCategory = function addCategory(label, category) {
+                                                        var populateCategory = function populateCategory(label, category) {
                                                                 var p = label.querySelector('i');
                                                                 var input = label.querySelector('input');
                                                                 p.textContent = category.title;
@@ -185,11 +185,15 @@ var FormView = function (_View) {
                                                         if (app.categories.length) {
                                                                 (function () {
 
-                                                                        addCategory(label, app.categories[0]);
+                                                                        app.categories.sort(function (a, b) {
+                                                                                return a.title > b.title;
+                                                                        });
+
+                                                                        populateCategory(label, app.categories[0]);
 
                                                                         app.categories.slice(1).forEach(function (cat) {
                                                                                 var checkboxItem = label.cloneNode(true);
-                                                                                addCategory(checkboxItem, cat);
+                                                                                populateCategory(checkboxItem, cat);
                                                                                 fieldset.appendChild(checkboxItem);
                                                                         });
 
