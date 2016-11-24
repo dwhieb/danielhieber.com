@@ -1,17 +1,5 @@
 [
   {
-    "id": "168",
-    "type": "category",
-    "name": "Documentation &amp; Revitalization",
-    "abbreviation": "doc",
-    "description": "Language documentation is the foundation on which my other theoretical work is built, and so I am deeply involved in the theorizing and practical implementation of language documentation. I serve as a student advisor to <dfn><abbr title='Institute on Collaborative Language Documentation'>CoLang</abbr></dfn> (the Institute on Collaborative Language Documentation), and through my work at Rosetta Stone’s Endangered Language Program, I helped to create language-learning software for the Iñupiaq, Inuttitut, Mohawk, Navajo, and Chitimacha languages. These projects involved many hours of long-distance and in-person elicitation, followed by an intense process of designing software to teach grammar and vocabulary. Since then I have continued to work with the Chitimacha tribe on a grammar and dictionary of the language, based on documentary materials compiled by Morris Swadesh in the 1930’s.\nI also work with the <dfn>Ékegusií Encyclopedia Project</dfn> (<abbr title='Ekegusii Encyclopedia Project'>EEP</abbr>) to document and revitalize the Ékegusií (Kisii) language of western Kenya. In the summer of 2014 I spent two months in Kisii Town recording traditional narratives, songs, and expository texts in the language, and these constituted the data for my M.A. thesis on the cohesive function of prosody in Ékegusií. I also give talks on topics relating to language endangerment and strategies for revitalization, and I frequently review books relating to language endangerment and revitalization.\nFinally, through my work on Digital Linguistics, I aim to provide some of the practical tools that will enable linguists to do better documentation in an easier way.",
-    "_rid": "9XUnAOPvcgAFAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAFAAAAAAAAAA==/",
-    "_etag": "\"0000a900-0000-0000-0000-568dad500000\"",
-    "_ts": 1452125520,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "167",
     "type": "award",
     "title": "National Honor Society",
