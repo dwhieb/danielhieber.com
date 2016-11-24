@@ -20,7 +20,7 @@ describe('socket', function test() {
   const data = {
     id: 'test',
     ttl: 300,
-    type: 'document',
+    type: 'test',
   };
 
   beforeAll(function before(done) {
@@ -147,9 +147,9 @@ describe('socket', function test() {
   it('get (by IDs)', function getItemsByIds(done) {
 
     const docs = [
-      { id: 'getbyid1', type: 'document', ttl: 300 },
-      { id: 'getbyid2', type: 'document', ttl: 300 },
-      { id: 'getbyid3', type: 'document', ttl: 300 },
+      { id: 'getbyid1', type: 'test', ttl: 300 },
+      { id: 'getbyid2', type: 'test', ttl: 300 },
+      { id: 'getbyid3', type: 'test', ttl: 300 },
     ];
 
     const upsert = doc => new Promise((resolve, reject) => {
@@ -178,9 +178,9 @@ describe('socket', function test() {
   it('get (by models)', function getItemsByModels(done) {
 
     const docs = [
-      { id: 'getbymodel1', type: 'document', ttl: 300 },
-      { id: 'getbymodel2', type: 'document', ttl: 300 },
-      { id: 'getbymodel3', type: 'document', ttl: 300 },
+      { id: 'getbymodel1', type: 'test', ttl: 300 },
+      { id: 'getbymodel2', type: 'test', ttl: 300 },
+      { id: 'getbymodel3', type: 'test', ttl: 300 },
     ];
 
     const upsert = doc => new Promise((resolve, reject) => {
@@ -204,10 +204,13 @@ describe('socket', function test() {
 
   it('getAll', function getAll(done) {
 
+    // do not include TTL on these docs, or the test will fail
+    // (getAll does not return documents which have a TTL set)
+    // the documents will be deleted at the end of the test
     const docs = [
-      { id: 'getall1', type: 'document' },
-      { id: 'getall2', type: 'document' },
-      { id: 'getall3', type: 'document' },
+      { id: 'getall2', type: 'test' },
+      { id: 'getall1', type: 'test' },
+      { id: 'getall3', type: 'test' },
     ];
     const ids = docs.map(doc => doc.id);
 
@@ -220,7 +223,7 @@ describe('socket', function test() {
 
     Promise.all(docs.map(upsert))
     .then(() => {
-      socket.emit('getAll', 'document', (err, res) => {
+      socket.emit('getAll', 'test', (err, res) => {
         if (err) {
           fail(JSON.stringify(err, null, 2));
           socket.emit('delete', ids);
@@ -230,7 +233,7 @@ describe('socket', function test() {
           expect(resIds.includes(docs[0].id)).toBe(true);
           expect(resIds.includes(docs[1].id)).toBe(true);
           expect(resIds.includes(docs[2].id)).toBe(true);
-          socket.emit('delete', ids);
+          socket.emit('delete', resIds);
           done();
         }
       });

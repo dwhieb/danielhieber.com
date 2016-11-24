@@ -48,13 +48,16 @@ const Document = class Document {
       throw new Error('The "id" attribute must be a string.');
     }
 
+    // all documents must have a "type" attribute
+    if (!data.type) throw new Error(`The "type" attribute is required.`);
+
+    // the "type" attribute must be one of the values in Document.types
+    if (!Document.types.includes(data.type)) throw new Error(`The "type" attribute is not valid.`);
+
     // "cvid" must be an integer
     if ('cvid' in data && !(Number.isInteger(data.cvid) && data.cvid > 0)) {
       throw new Error('The "cvid" attribute must be an integer.');
     }
-
-    // all documents must have a "type" attribute
-    if (!data.type) throw new Error(`The "type" attribute is required.`);
 
     // _ts must be an integer
     if ('_ts' in data && !Number.isInteger(data._ts)) {
@@ -491,6 +494,43 @@ const Document = class Document {
       }
 
     });
+
+  }
+
+  /**
+   * Returns a list of types of CV items
+   * @return {Array}        The array of CV item types
+   */
+  static get cvTypes() {
+    return [
+      'award',
+      'education',
+      'fieldwork',
+      'language',
+      'media',
+      'membership',
+      'proficiency',
+      'publication',
+      'reference',
+      'service',
+      'work',
+    ];
+  }
+
+  /**
+   * Returns a list of document types.
+   * @return {Array} types      Returns the list of document types as an array
+   */
+  static get types() {
+
+    const genericTypes = [
+      'authRequest',
+      'category',
+      'session',
+      'test',
+    ];
+
+    return Document.cvTypes.concat(genericTypes).sort();
 
   }
 

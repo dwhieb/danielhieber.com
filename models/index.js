@@ -13,6 +13,7 @@ module.exports = {
   Proficiency: require('./proficiency'),
   Reference: require('./reference'),
   Service: require('./service'),
+  Test: require('./test'),
   Work: require('./work'),
 };
 
