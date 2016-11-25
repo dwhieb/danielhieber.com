@@ -1,3 +1,12 @@
 <main id=research>
+
   <h1>Research</h1>
+
+  {{#each categories as |category|}}
+    <section id={{key}}>
+      <h1>{{title}}</h1>
+      {{{html}}}
+    </section>
+  {{/each}}
+
 </main>
