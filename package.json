@@ -37,28 +37,28 @@
     "node": ">=6.0"
   },
   "dependencies": {
-    "cors": "^2.8.0",
-    "documentdb": "^1.9.0",
+    "cors": "^2.8.1",
+    "documentdb": "^1.10.0",
     "documentdb-session": "^1.0.0",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.14.0",
-    "helmet": "^2.1.2",
+    "express-session": "^1.14.2",
+    "helmet": "^2.3.0",
     "markdown": "^0.5.0",
     "passport": "^0.3.2",
     "passport-windowslive": "^1.0.2",
-    "socket.io": "^1.4.8",
+    "socket.io": "^1.6.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
+    "babel-cli": "^6.18.0",
     "babel-plugin-transform-builtin-extend": "^1.1.0",
     "babel-preset-latest": "^6.16.0",
     "co": "^4.6.0",
-    "jasmine": "^2.4.1",
+    "jasmine": "^2.5.2",
     "less": "^2.7.1",
-    "socket.io-client": "^1.4.8",
-    "supertest": "^2.0.0",
+    "socket.io-client": "^1.6.0",
+    "supertest": "^2.0.1",
     "supertest-as-promised": "^3.2.0"
   }
 }
