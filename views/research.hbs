@@ -1,12 +1,26 @@
+{{#section 'style'}}
+  <link rel=stylesheet href=/css/research.css>
+{{/section}}
+
 <main id=research>
 
-  <h1>Research</h1>
+  <header>
+    <h1>Research</h1>
+    <p>Click on a topic to read more.</p>
+  </header>
 
-  {{#each categories as |category|}}
-    <section id={{key}}>
-      <h1>{{title}}</h1>
-      {{{html}}}
-    </section>
-  {{/each}}
+  <section>
+    <ul>
+      {{#each categories}}
+        <li>
+          <input type=radio id="{{key}}" name="tabs">
+          <label for="{{key}}">{{title}}</label>
+          <div class=description>
+            {{{html}}}
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
 
 </main>
