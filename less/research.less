@@ -11,7 +11,15 @@
   }
 
   section {
+
     position: relative;
+
+    li[data-key=typology]      { order: 1; }
+    li[data-key=dlx]           { order: 2; }
+    li[data-key=documentation] { order: 3; }
+    li[data-key=discourse]     { order: 4; }
+    li[data-key=praxeology]    { order: 5; }
+
     label {
       border-radius: 0.125em;
       cursor: pointer;
@@ -25,7 +33,9 @@
       color: white;
       text-shadow: 1px 1px black;
     }
+
     input:checked ~ label,
+
     label:active,
     label:hover {
       background-color: white;
@@ -34,14 +44,18 @@
       color: @blue;
       text-shadow: none;
     }
+
     input { display: none; }
+
     input:checked ~ .description { display: flex; }
+
     .description {
       display: none;
       font-size: 1.25rem;
       position: absolute;
       p { padding: 0.5rem 1rem; }
     }
+
   }
 
 }

@@ -28,6 +28,21 @@
 #research section {
   position: relative;
 }
+#research section li[data-key=typology] {
+  order: 1;
+}
+#research section li[data-key=dlx] {
+  order: 2;
+}
+#research section li[data-key=documentation] {
+  order: 3;
+}
+#research section li[data-key=discourse] {
+  order: 4;
+}
+#research section li[data-key=praxeology] {
+  order: 5;
+}
 #research section label {
   border-radius: 0.125em;
   cursor: pointer;
