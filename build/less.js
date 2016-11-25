@@ -10,7 +10,7 @@ const convertLess = lessData => new Promise((resolve, reject) => {
 
 // read the LESS data from the file
 const readFile = filename => new Promise((resolve, reject) => {
-  const filepath = path.join(__dirname, `../public/less/${filename}`);
+  const filepath = path.join(__dirname, `../less/${filename}`);
   fs.readFile(filepath, 'utf8', (err, res) => {
     if (err) reject(err);
     resolve(res);
@@ -43,7 +43,7 @@ const convertFile = filename => new Promise((resolve, reject) => {
 });
 
 // read the list of files in the LESS directory
-fs.readdir('./public/less', 'utf8', (err, filenames) => {
+fs.readdir('./less', 'utf8', (err, filenames) => {
 
   if (err) {
     console.error(err, err.stack);

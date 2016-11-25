@@ -57,6 +57,16 @@ describe('routes', function routes() {
     });
   }, 10000);
 
+  it('GET /bibliographies', function bibliographies(done) {
+    req.get('/bibliographies')
+    .expect(200)
+    .end((err, res) => {
+      if (err) fail(JSON.stringify(err, null, 2));
+      expect(res.text.includes('| Bibliographies')).toBe(true);
+      done();
+    });
+  });
+
   it('GET /blog', function blog(done) {
     req.get('/blog')
     .expect(302)
