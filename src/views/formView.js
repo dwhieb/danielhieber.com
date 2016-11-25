@@ -1,4 +1,4 @@
-/* global app, Model, View */
+/* global app, debounce, Model, View */
 
 const FormView = class FormView extends View {
   constructor(data = {}, type) {
@@ -74,7 +74,7 @@ const FormView = class FormView extends View {
 
       input.addEventListener('change', ev => model.update({ [prop]: ev.target.value }));
 
-      return this.nodes.form;
+      return input;
 
     }
 
@@ -180,7 +180,7 @@ const FormView = class FormView extends View {
 
           model.categories.forEach(cat => {
             if (categoryKeys.includes(cat)) {
-              clone.querySelector(`input[name="${cat.key}"]`).checked = true;
+              clone.querySelector(`input[name="${cat}"]`).checked = true;
             }
           });
 
@@ -218,13 +218,15 @@ const FormView = class FormView extends View {
 
         this.nodes.form.appendChild(clone);
 
+        const input = this.nodes.form.querySelector('input[name=date]');
         const waitTime = 1000;
-
         const debouncedListener = debounce(ev => {
           model.update({ date: new Date(ev.target.value) });
         }, waitTime);
+        const dateText = new Date(model.date).toISOString().slice(0, 10);
 
-        this.nodes.form.querySelector('input[name="date"]').addEventListener('change', debouncedListener);
+        input.value = dateText;
+        input.addEventListener('change', debouncedListener);
 
         break;
 
