@@ -1,3 +1,20 @@
+#research a:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#research a:visited {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#research a:hover {
+  border-bottom: 2px solid #3180E1;
+}
+#research a:active {
+  color: #3180E1;
+  font-weight: bold;
+}
 #research header {
   align-items: center;
   margin-bottom: 1rem;
