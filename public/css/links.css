@@ -1,12 +1,12 @@
 #profile-links h1 {
   background-color: #9232E2;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   color: white;
   font-weight: bold;
-  padding: 0.25em 0.5em;
+  padding: 0.25rem 0.5rem;
 }
 #profile-links ul {
-  padding: 0.25em 0.5em;
+  padding: 0.25rem 0.5rem;
 }
 #profile-links li {
   flex-direction: row;

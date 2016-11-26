@@ -2,7 +2,45 @@
   flex-direction: row;
 }
 #cv-page aside {
+  margin-right: 1.5rem;
   width: 25%;
+}
+#cv-page #contents h1 {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+#cv-page #contents ol {
+  padding: 0.25rem 0.5rem;
+}
+#cv-page #contents li {
+  flex-direction: row;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+}
+#cv-page #contents li::before {
+  background: rgba(146, 50, 226, 0.2);
+  border-left: 2px solid rgba(146, 50, 226, 0);
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  color: #9232E2;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transition: all 0.3s;
+  top: 0;
+  width: 0%;
+  z-index: -1;
+}
+#cv-page #contents li:hover::before,
+#cv-page #contents li:active::before {
+  border: none;
+  width: 100%;
+}
+#cv-page #contents a {
+  width: 100%;
 }
 #cv-page #cv {
   width: 75%;

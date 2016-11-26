@@ -5,7 +5,47 @@
   flex-direction: row;
 
   aside {
+    margin-right: 1.5rem;
     width: 25%;
+  }
+
+  #contents {
+
+    h1 { .sidebar-header; }
+
+    ol { padding: 0.25rem 0.5rem; }
+
+    li {
+      flex-direction: row;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+    }
+
+    li::before {
+      background: rgba(146, 50, 226, 0.2);
+      border-left: 2px solid rgba(146, 50, 226, 0);
+      border-radius: 0rem 0.25rem 0.25rem 0rem;
+      color: @purple;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      transition: all 0.3s;
+      top: 0;
+      width: 0%;
+      z-index: -1;
+    }
+
+    li:hover::before,
+    li:active::before {
+      border: none;
+      width: 100%;
+    }
+
+    a {
+      width: 100%;
+    }
+
   }
 
   #cv {
