@@ -1,0 +1,28 @@
+#profile-links h1 {
+  background-color: #9232E2;
+  border-radius: 0.25em;
+  color: white;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+}
+#profile-links ul {
+  padding: 0.25em 0.5em;
+}
+#profile-links li {
+  flex-direction: row;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 1em;
+  padding: 0.25em 1.5em;
+}
+#profile-links #academia-link {
+  background-image: url('/img/icons/academia.svg');
+}
+#profile-links #github-link {
+  background-image: url('/img/icons/github.svg');
+}
+#profile-links #twitter-link {
+  background-image: url('/img/icons/twitter.svg');
+  background-position: -0.25em center;
+  background-size: 1.5em;
+}

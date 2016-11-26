@@ -183,6 +183,13 @@ i {
   vertical-align: top;
   white-space: nowrap;
 }
+.sidebar-header {
+  background-color: #9232E2;
+  border-radius: 0.25em;
+  color: white;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+}
 .sharp-rounded {
   border-radius: 0.125em;
 }

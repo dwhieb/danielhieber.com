@@ -1,60 +1,62 @@
 @import (reference) 'less/main.less';
 
-.link {
-  &:link { .boldPink; border-bottom: 2px solid white; }
-  &:visited { .boldPink; border-bottom: 2px solid white; }
-  &:hover { border-bottom: 2px solid @pink; }
-  &:active { .boldPink; }
-}
+#home {
 
-#intro {
-  align-items: center;
-
-  p { font-size: 150%; }
-
-  a { .link; }
-}
-
-#singing {
-  padding: 0.5rem 0rem 1.5rem 0rem;
-}
-
-#posts {
-
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
+  .link {
+    &:link { .boldPink; border-bottom: 2px solid white; }
+    &:visited { .boldPink; border-bottom: 2px solid white; }
+    &:hover { border-bottom: 2px solid @pink; }
+    &:active { .boldPink; }
   }
 
-  li {
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    margin: 0.5rem 0rem;
-    padding: 1rem;
+  #intro {
+    align-items: center;
 
-    > a {
-      align-items: center;
-      display: flex;
+    p { font-size: 150%; }
+
+    a { .link; }
+  }
+
+  #singing {
+    padding: 0.5rem 0rem 1.5rem 0rem;
+  }
+
+  #posts {
+
+    h1 { .sidebar-header; }
+
+    li {
+      border: 1px solid black;
+      border-radius: 0.5rem;
+      margin: 0.5rem 0rem;
+      padding: 1rem;
+
+      > a {
+        align-items: center;
+        display: flex;
+      }
     }
-  }
 
-  div { padding-top: 0.5rem; }
+    div { padding-top: 0.5rem; }
 
-  h2 {
-    font-weight: bold;
-  }
+    h2 {
+      font-weight: bold;
+    }
 
-  time {
-    font-style: italic;
-    padding-bottom: 0.5rem;
-  }
+    time {
+      font-style: italic;
+      padding-bottom: 0.5rem;
+    }
 
-  span, .error-fallback {
-    .boldBlue;
-    &:hover { border-bottom: 2px solid @blue; }
+    span, .error-fallback {
+      .boldBlue;
+      &:hover { border-bottom: 2px solid @purple; }
+    }
+
   }
 
 }
+
 
 // mobile styling
 @media screen and (max-width: 699px) {
@@ -67,36 +69,45 @@
     width: 100%;
   }
 
-  #posts {
-    h1 { font-size: 2rem; }
+  aside > * {
+    padding-top: 1rem;
   }
+
+  aside h1 {
+    font-size: 1.25rem;
+  }
+
+  #posts { order: 1; }
+  #profile-links { order: 2; }
 
 }
 
 // desktop styling
 @media screen and (min-width: 700px) {
   #home {
+
     flex-direction: row;
+
+    #intro {
+      padding: 1rem;
+      width: 70%;
+    }
+
+    aside {
+      width: 30%;
+    }
+
+    #gradSlam {
+      float: left;
+      margin: 0.5rem 1.5rem 1.5rem 0rem;
+      width: 50%;
+    }
+
+    #singing {
+      margin: auto;
+      width: 75%;
+    }
+
   }
 
-  #intro {
-    padding: 1rem;
-    width: 70%;
-  }
-
-  #posts {
-    padding: 1rem;
-    width: 30%;
-  }
-
-  #gradSlam {
-    float: left;
-    margin: 0.5rem 1.5rem 1.5rem 0rem;
-    width: 50%;
-  }
-
-  #singing {
-    margin: auto;
-    width: 75%;
-  }
 }
