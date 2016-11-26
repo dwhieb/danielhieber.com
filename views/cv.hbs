@@ -1,3 +1,64 @@
-<main id=cv>
-  <h1>Curriculum Vitae</h1>
+{{#section 'style'}}
+  <link rel=stylesheet href=/css/cv.css>
+{{/section}}
+
+<!-- CONTEXT
+  res.locals.header = false
+  lastUpdatedISO - for datetime attribute (yyyy-mm-dd)
+  lastUpdatedString - human-readable, for display
+-->
+
+<main id=cv-page>
+
+  <aside>
+
+    {{> links}}
+
+    <nav id=contents>
+      <h1>Contents</h1>
+      <ol></ol>
+    </nav>
+
+  </aside>
+
+  <section id=cv>
+
+    <header>
+      <img src='/img/headshot.jpg' alt='picture of Daniel W. Hieber' width=500px height=500px>
+      <h1>Daniel W. Hieber</h1>
+      <h2>/dænjəl hibəɹ/</h2>
+      <h2>Ph.D. Candidate in Linguistics</h2>
+      <h2>University of California, Santa Barbara</h2>
+      <address>
+        <p><a href=mailto:dhieber@umail.ucsb.edu>dhieber@umail.ucsb.edu</a></p>
+        <p><a href=http://danielhieber.com>www.danielhieber.com</a></p>
+        <div>
+          <p>Department of Linguistics</p>
+          <p>University of California, Santa Barbara</p>
+          <p>South Hall 3432</p>
+          <p>Santa Barbara, CA 93106-3100</p>
+        </div>
+      </address>
+      <p>
+        Last updated: <time datetime={{lastUpdatedISO}}>
+          {{lastUpdatedString}}
+        </time>
+      </p>
+    </header>
+
+    <section id=education></section>
+    <section id=work></section>
+    <section id=teaching></section>
+    <section id=awards></section>
+    <section id=publications></section>
+    <section id=service></section>
+    <section id=memberships></section>
+    <section id=fieldwork></section>
+    <section id=languages></section>
+    <section id=proficiencies></section>
+    <section id=media></section>
+    <section id=references></section>
+
+  </section>
+
 </main>

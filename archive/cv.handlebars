@@ -1,301 +1,233 @@
-{{#section 'style'}}
-  <link rel=stylesheet href=/css/cv.css media=screen>
-{{/section}}
+<section id=cvBody>
 
-<main id=cv itemscope itemtype=http://schema.org/CreativeWork>
-{{#with cv}}
+  {{#*inline 'sectionHeader'}}
+    <header>
+      <h1>{{title}}</h1>
+      <a href=#nav>back to top</a>
+    </header>
+  {{/inline}}
 
-  <header id=cvHeader>
+  {{#with sections.education}}
+    <section id=education>
+      {{> sectionHeader this}}
 
-    <address itemscope itemtype=http://schema.org/Person>
-      <h1 itemprop=name>{{name}}</h1>
-      <h2 itemprop=jobTitle>{{role}}</h2>
-      <h2 itemprop=affiliation>{{affiliation}}</h2>
-      <p itemprop=email><a href='mailto:{{workEmail}}'>{{workEmail}}</a></p>
-      <p itemprop=url><a href='{{website}}'>{{websiteString}}</a></p>
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
+          <div>
+            <p><a href='{{links.org}}' target=_blank>{{organization}}</a> ({{city}})</p>
+            {{#if program}}<p>Program: {{{program}}}</p>{{/if}}
 
-      <div itemprop=worksFor itemscope itemtype=http://schema.org/Organization>
-        {{#with workAddress}}
-          <p itemprop=name>{{orgName}}</p>
-          <p itemprop='department url'><a href=http://www.linguistics.ucsb.edu/>{{orgUnit}}</a></p>
-          <div itemprop=address itemscope itemtype=http://schema.org/PostalAddress>
-            <p itemprop=streetAddress>{{address}}</p>
-            <p><span itemprop=addressLocality>{{locality}}</span>, <span itemprop=addressRegion>{{region}}</span> <span itemprop=postalCode>{{postalCode}}</span></p>
-          </div>
-        {{/with}}
-      </div>
-
-    </address>
-
-    <div>
-      <p>Last updated:</p>
-      <time itemprop=dateModified datetime={{lastUpdated}}>{{lastUpdatedString}}</time>
-    </div>
-
-  </header>
-
-  <nav id=contents class=sticky>
-    <h1>Contents</h1>
-    <ol>
-      {{#each sections}}
-        <li>
-          <p><a href=#{{@key}}>{{title}}</a></p>
-          {{#if publicationTypes}}
-            <ol>
-              {{#each publicationTypes}}
-                <li><p><a href=#{{@key}}>{{title}}</a></p></li>
+            <ul>
+              {{#each achievements}}
+                <li><p>{{{this}}}</p></li>
               {{/each}}
-            </ol>
-          {{/if}}
+            </ul>
+          </div>
         </li>
       {{/each}}
-    </ol>
-  </nav>
+      </ol>
+    </section>
+  {{/with}}
 
-  <section id=cvBody>
+  {{#with sections.awards}}
+    <section id=awards>
+      {{> sectionHeader this}}
 
-    {{#*inline 'sectionHeader'}}
-      <header>
-        <h1>{{title}}</h1>
-        <a href=#nav>back to top</a>
-      </header>
-    {{/inline}}
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <time datetime={{year}}>{{year}}</time>
+          <p>{{#if links.award}}
+            <a href='{{links.award}}' target=_blank>{{{title}}}.</a>
+          {{else}}
+            <strong>{{{title}}}.</strong>
+          {{/if}} {{{description}}}</p>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
 
-    {{#with sections.education}}
-      <section id=education>
-        {{> sectionHeader this}}
+  {{#with sections.work}}
+    <section id=work>
+      {{> sectionHeader this}}
 
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
-            <div>
-              <p><a href='{{links.org}}' target=_blank>{{organization}}</a> ({{city}})</p>
-              {{#if program}}<p>Program: {{{program}}}</p>{{/if}}
-
-              <ul>
-                {{#each achievements}}
-                  <li><p>{{{this}}}</p></li>
-                {{/each}}
-              </ul>
-            </div>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
-
-    {{#with sections.awards}}
-      <section id=awards>
-        {{> sectionHeader this}}
-
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <time datetime={{year}}>{{year}}</time>
-            <p>{{#if links.award}}
-              <a href='{{links.award}}' target=_blank>{{{title}}}.</a>
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
+          <div>
+            <p><strong>{{{role}}}, {{#if links.org}}
+              <a href='{{links.org}}' target=_blank>{{{organization}}}</a>
             {{else}}
-              <strong>{{{title}}}.</strong>
-            {{/if}} {{{description}}}</p>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
+              {{{organization}}}
+            {{/if}}</strong></p>
+            <ul>
+              {{#each duties}}
+                <li><p>{{{this}}}</p></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
 
-    {{#with sections.work}}
-      <section id=work>
-        {{> sectionHeader this}}
+  {{#with sections.publications}}
+    <section id=publications>
+      {{> sectionHeader this}}
 
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
-            <div>
-              <p><strong>{{{role}}}, {{#if links.org}}
-                <a href='{{links.org}}' target=_blank>{{{organization}}}</a>
-              {{else}}
-                {{{organization}}}
-              {{/if}}</strong></p>
-              <ul>
-                {{#each duties}}
-                  <li><p>{{{this}}}</p></li>
-                {{/each}}
-              </ul>
-            </div>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
+      {{#each publicationTypes}}
+        <section id={{@key}}>
+          {{> sectionHeader this}}
 
-    {{#with sections.publications}}
-      <section id=publications>
-        {{> sectionHeader this}}
-
-        {{#each publicationTypes}}
-          <section id={{@key}}>
-            {{> sectionHeader this}}
-
-            <ol>
-            {{#each items}}
-              <li id={{id}} class=cvItem>
-                <time datetime={{date}}>{{year}}</time>
-                <div>
-                  <h2>
-                    {{#if links.pubLink}}
-                      <a href='{{links.pubLink}}'>{{{title}}}.</a>
-                    {{else}}
-                      <strong>{{{title}}}.</strong>
-                    {{/if}}
-                  </h2>
-                  <p>{{{citation}}}</p>
-                  <p>
-                    {{#if links.pubLink}}(<a href='{{links.pubLink}}'>view online</a>){{/if}}
-                    {{#if links.purchaseLink}}(<a href='{{links.purchaseLink}}'>purchase</a>){{/if}}
-                    {{#if links.paper}}(<a href='{{links.pdf}}'>pdf</a>){{/if}}
-                    {{#if links.slides}}(<a href='{{links.slides}}'>slides</a>){{/if}}
-                    {{#if links.handout}}(<a href='{{links.handout}}'>handout</a>){{/if}}
-                    {{#if links.poster}}(<a href='{{links.handout}}'>handout</a>){{/if}}
-                  </p>
-                </div>
-              </li>
-            {{/each}}
-            </ol>
-          </section>
-        {{/each}}
-
-      </section>
-    {{/with}}
-
-    {{#with sections.media}}
-      <section id=media>
-        {{> sectionHeader this}}
-
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <time datetime={{date}}>{{date}}</time>
-            <p><a href='{{links.pubLink}}'>{{{title}}}</a>, by {{{author}}}. {{{publication}}}</p>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
-
-    {{#with sections.service}}
-      <section id=service>
-        {{> sectionHeader this}}
-
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
-            <h2>{{{role}}}, <a href='{{links.org}}'>{{{organization}}}</a></h2>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
-
-    {{#with sections.fieldwork}}
-      <section id=fieldwork>
-        {{> sectionHeader this}}
-
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
-            <p><strong>{{{location}}}.</strong> {{{description}}}</p>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
-
-    {{#with sections.memberships}}
-      <section id=memberships>
-        {{> sectionHeader this}}
-
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem><p><a href='{{links.org}}'>{{{title}}}</a> ({{{abbreviation}}})<p></li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
-
-    {{#with sections.languages}}
-      <section id=languages>
-        {{> sectionHeader this}}
-
-        <ol>
-        {{#each items}}
-          <li id={{id}} class=cvItem>
-            <p><a href='{{links.lang}}'>{{{name}}}</a> ({{{autonym}}})</p>
-            <p>{{{competency}}}</p>
-          </li>
-        {{/each}}
-        </ol>
-      </section>
-    {{/with}}
-
-    {{#with sections.proficiencies}}
-      <section id=proficiencies>
-        {{> sectionHeader this}}
-
-        <section>
-          <h2>Technical Skills</h2>
-          <ul>
-          {{#each software}}
-            <li id={{id}} class=cvItem><p><a href='{{links.info}}'>{{{description}}}</a></p></li>
+          <ol>
+          {{#each items}}
+            <li id={{id}} class=cvItem>
+              <time datetime={{date}}>{{year}}</time>
+              <div>
+                <h2>
+                  {{#if links.pubLink}}
+                    <a href='{{links.pubLink}}'>{{{title}}}.</a>
+                  {{else}}
+                    <strong>{{{title}}}.</strong>
+                  {{/if}}
+                </h2>
+                <p>{{{citation}}}</p>
+                <p>
+                  {{#if links.pubLink}}(<a href='{{links.pubLink}}'>view online</a>){{/if}}
+                  {{#if links.purchaseLink}}(<a href='{{links.purchaseLink}}'>purchase</a>){{/if}}
+                  {{#if links.paper}}(<a href='{{links.pdf}}'>pdf</a>){{/if}}
+                  {{#if links.slides}}(<a href='{{links.slides}}'>slides</a>){{/if}}
+                  {{#if links.handout}}(<a href='{{links.handout}}'>handout</a>){{/if}}
+                  {{#if links.poster}}(<a href='{{links.handout}}'>handout</a>){{/if}}
+                </p>
+              </div>
+            </li>
           {{/each}}
-          </ul>
+          </ol>
         </section>
+      {{/each}}
 
-        <section>
-          <h2>Software Proficiencies</h2>
-          <ul>
-          {{#each skill}}
-            <li id={{id}} class=cvItem><p><a href='{{links.info}}'>{{{description}}}</a></p></li>
-          {{/each}}
-          </ul>
-        </section>
-      </section>
+    </section>
+  {{/with}}
 
-    {{/with}}
+  {{#with sections.media}}
+    <section id=media>
+      {{> sectionHeader this}}
 
-    {{#with sections.references}}
-      <section id=references>
-        {{> sectionHeader this}}
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <time datetime={{date}}>{{date}}</time>
+          <p><a href='{{links.pubLink}}'>{{{title}}}</a>, by {{{author}}}. {{{publication}}}</p>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
 
+  {{#with sections.service}}
+    <section id=service>
+      {{> sectionHeader this}}
+
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
+          <h2>{{{role}}}, <a href='{{links.org}}'>{{{organization}}}</a></h2>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
+
+  {{#with sections.fieldwork}}
+    <section id=fieldwork>
+      {{> sectionHeader this}}
+
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
+          <p><strong>{{{location}}}.</strong> {{{description}}}</p>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
+
+  {{#with sections.memberships}}
+    <section id=memberships>
+      {{> sectionHeader this}}
+
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem><p><a href='{{links.org}}'>{{{title}}}</a> ({{{abbreviation}}})<p></li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
+
+  {{#with sections.languages}}
+    <section id=languages>
+      {{> sectionHeader this}}
+
+      <ol>
+      {{#each items}}
+        <li id={{id}} class=cvItem>
+          <p><a href='{{links.lang}}'>{{{name}}}</a> ({{{autonym}}})</p>
+          <p>{{{competency}}}</p>
+        </li>
+      {{/each}}
+      </ol>
+    </section>
+  {{/with}}
+
+  {{#with sections.proficiencies}}
+    <section id=proficiencies>
+      {{> sectionHeader this}}
+
+      <section>
+        <h2>Technical Skills</h2>
         <ul>
-        {{#each items}}
-          <li id={{id}}>
-            <h2><a href='{{links.homepage}}'>{{name}}</a></h2>
-            <p>{{role}}</p>
-            <p>{{organization}}</p>
-            <p>{{phone}}</p>
-            <p><a href=mailto:{{email}}>{{email}}</a></p>
-          </li>
+        {{#each software}}
+          <li id={{id}} class=cvItem><p><a href='{{links.info}}'>{{{description}}}</a></p></li>
         {{/each}}
         </ul>
       </section>
-    {{/with}}
 
-  </section>
+      <section>
+        <h2>Software Proficiencies</h2>
+        <ul>
+        {{#each skill}}
+          <li id={{id}} class=cvItem><p><a href='{{links.info}}'>{{{description}}}</a></p></li>
+        {{/each}}
+        </ul>
+      </section>
+    </section>
 
-{{/with}}
-</main>
+  {{/with}}
 
-{{#section 'script'}}
-<script>
-  if (window.location.hash) {
-    var id = window.location.hash.replace('#', '');
-    var el = document.getElementById(id);
-    el.style.backgroundColor = '#e1b431';
-    el.style.padding = '0.5rem 0rem';
-  }
-</script>
-{{/section}}
+  {{#with sections.references}}
+    <section id=references>
+      {{> sectionHeader this}}
+
+      <ul>
+      {{#each items}}
+        <li id={{id}}>
+          <h2><a href='{{links.homepage}}'>{{name}}</a></h2>
+          <p>{{role}}</p>
+          <p>{{organization}}</p>
+          <p>{{phone}}</p>
+          <p><a href=mailto:{{email}}>{{email}}</a></p>
+        </li>
+      {{/each}}
+      </ul>
+    </section>
+  {{/with}}
+
+</section>
