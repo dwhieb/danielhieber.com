@@ -2,13 +2,6 @@
 
 #cv-page {
 
-  flex-direction: row;
-
-  aside {
-    margin-right: 1.5rem;
-    width: 25%;
-  }
-
   #contents {
 
     h1 { .sidebar-header; }
@@ -48,15 +41,62 @@
 
   }
 
-  #cv {
+  #cv-header,
+  #cv-header > address {
+    align-items: center;
+  }
 
-    width: 75%;
+  #cv-header,
+  #cv-header > address > div {
+    padding: 1rem 0rem;
+  }
 
-    #headshot {
-      height: 10rem;
-      width: 10rem;
+  #headshot {
+    border-radius: 0.25rem;
+    box-shadow: 0px 0px 3px black;
+    height: 10rem;
+    width: 10rem;
+  }
+
+}
+
+// mobile styling
+@media screen and (max-width: 699px) {
+  #cv-page {
+
+    position: relative;
+
+    #profile-links {
+      left: 0;
+      padding: 0rem 1.5rem;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: calc(100% - 3rem);
     }
 
   }
+}
 
+// narrow styling
+@media screen and (min-width: 900px) {
+  #cv-header { position: relative; }
+  #headshot {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+// desktop styling
+@media screen and (min-width: 700px) {
+  #cv-page {
+
+    flex-direction: row;
+
+    aside { width: 25%; }
+
+    #cv { width: 75%; }
+
+  }
 }

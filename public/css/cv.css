@@ -1,10 +1,3 @@
-#cv-page {
-  flex-direction: row;
-}
-#cv-page aside {
-  margin-right: 1.5rem;
-  width: 25%;
-}
 #cv-page #contents h1 {
   background-color: #9232E2;
   border-radius: 0.25rem;
@@ -42,10 +35,51 @@
 #cv-page #contents a {
   width: 100%;
 }
-#cv-page #cv {
-  width: 75%;
+#cv-page #cv-header,
+#cv-page #cv-header > address {
+  align-items: center;
 }
-#cv-page #cv #headshot {
+#cv-page #cv-header,
+#cv-page #cv-header > address > div {
+  padding: 1rem 0rem;
+}
+#cv-page #headshot {
+  border-radius: 0.25rem;
+  box-shadow: 0px 0px 3px black;
   height: 10rem;
   width: 10rem;
+}
+@media screen and (max-width: 699px) {
+  #cv-page {
+    position: relative;
+  }
+  #cv-page #profile-links {
+    left: 0;
+    padding: 0rem 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: calc(97%);
+  }
+}
+@media screen and (min-width: 900px) {
+  #cv-header {
+    position: relative;
+  }
+  #headshot {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+@media screen and (min-width: 700px) {
+  #cv-page {
+    flex-direction: row;
+  }
+  #cv-page aside {
+    width: 25%;
+  }
+  #cv-page #cv {
+    width: 75%;
+  }
 }
