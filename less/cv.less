@@ -51,6 +51,26 @@
     padding: 1rem 0rem;
   }
 
+  #cv-header {
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: -0.25rem;
+    }
+
+    h2 { font-size: 1.5rem; }
+
+    address a {
+      &:link { color: @blue; border-bottom: 1px solid white; }
+      &:visited { color: @blue; border-bottom: 1px solid white; }
+      &:hover { border-bottom: 1px solid @blue; }
+      &:active { color: @blue; }
+    }
+
+    #updated { font-style: italic; }
+
+  }
+
   #headshot {
     border-radius: 0.25rem;
     box-shadow: 0px 0px 3px black;
@@ -79,7 +99,7 @@
 }
 
 // narrow styling
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   #cv-header { position: relative; }
   #headshot {
     position: absolute;

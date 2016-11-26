@@ -53,20 +53,17 @@ dfn {
 }
 .doc p a:link {
   color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 }
 .doc p a:visited {
   color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 }
 .doc p a:hover {
-  border-bottom: 2px solid #3180E1;
+  border-bottom: 1px solid #3180E1;
 }
 .doc p a:active {
   color: #3180E1;
-  font-weight: bold;
 }
 em {
   font-style: italic;
@@ -195,18 +192,32 @@ i {
 }
 .link:link {
   color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 }
 .link:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+.link:hover {
+  border-bottom: 1px solid #3180E1;
+}
+.link:active {
+  color: #3180E1;
+}
+.boldLink:link {
   color: #3180E1;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-.link:hover {
+.boldLink:visited {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.boldLink:hover {
   border-bottom: 2px solid #3180E1;
 }
-.link:active {
+.boldLink:active {
   color: #3180E1;
   font-weight: bold;
 }

@@ -18,8 +18,14 @@
 #profile-links #academia-link {
   background-image: url('/img/icons/academia.svg');
 }
+#profile-links #facebook-link {
+  background-image: url('/img/icons/facebook.svg');
+}
 #profile-links #github-link {
   background-image: url('/img/icons/github.svg');
+}
+#profile-links #linkedin-link {
+  background-image: url('/img/icons/linkedin.svg');
 }
 #profile-links #twitter-link {
   background-image: url('/img/icons/twitter.svg');

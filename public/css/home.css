@@ -1,17 +1,17 @@
-#home .link:link {
+#home .boldPinkLink:link {
   color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#home .link:visited {
+#home .boldPinkLink:visited {
   color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#home .link:hover {
+#home .boldPinkLink:hover {
   border-bottom: 2px solid #E23281;
 }
-#home .link:active {
+#home .boldPinkLink:active {
   color: #E23281;
   font-weight: bold;
 }

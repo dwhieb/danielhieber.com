@@ -166,6 +166,13 @@ i {
 }
 
 .link {
+  &:link { color: @blue; border-bottom: 1px solid white; }
+  &:visited { color: @blue; border-bottom: 1px solid white; }
+  &:hover { border-bottom: 1px solid @blue; }
+  &:active { color: @blue; }
+}
+
+.boldLink {
   &:link { .boldBlue; border-bottom: 2px solid white; }
   &:visited { .boldBlue; border-bottom: 2px solid white; }
   &:hover { border-bottom: 2px solid @blue; }
