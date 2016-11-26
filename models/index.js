@@ -6,7 +6,7 @@ module.exports = {
   Document: require('./document'),
   Education: require('./education'),
   Fieldwork: require('./fieldwork'),
-  Langauge: require('./language'),
+  Language: require('./language'),
   Media: require('./media'),
   Membership: require('./membership'),
   Publication: require('./publication'),
