@@ -1,4 +1,48 @@
-<nav>
+{{#section 'partialStyle'}}
+<style>
+
+  #profile-links h1 {
+    background-color: #9232E2;
+    border-radius: 0.25em;
+    color: white;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+  }
+
+  #profile-links ul {
+    padding: 0.25em 0.5em;
+  }
+
+  #profile-links li {
+    flex-direction: row;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    padding: 0.25em 1.5em;
+  }
+
+  #profile-links #academia-link {
+    background-image: url('/img/icons/academia.svg');
+  }
+
+  #profile-links #github-link {
+    background-image: url('/img/icons/github.svg');
+  }
+
+  #profile-links #twitter-link {
+    background-image: url('/img/icons/twitter.svg');
+    background-position: -0.25em center;
+    background-size: 1.5em;
+  }
+
+</style>
+{{/section}}
+
+<nav id=profile-links>
   <h1>Me on the Web</h1>
-  <ul></ul>
+  <ul>
+    <li id=academia-link><a href=http://ucsb.academia.edu/DanielHieber>Academia.edu</a></li>
+    <li id=github-link><a href=https://github.com/dwhieb>GitHub</a></li>
+    <li id=twitter-link><a href=https://twitter.com/dwhieb>Twitter</a></li>
+  </ul>
 </nav>

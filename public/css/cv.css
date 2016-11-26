@@ -1,0 +1,9 @@
+#cv-page {
+  flex-direction: row;
+}
+#cv-page aside {
+  width: 25%;
+}
+#cv-page #cv {
+  width: 75%;
+}
