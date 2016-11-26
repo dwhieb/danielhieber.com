@@ -398,6 +398,7 @@ const FormView = class FormView extends View {
 
     });
 
+    this.nodes.buttons.display();
     this.display();
 
   }

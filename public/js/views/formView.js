@@ -417,6 +417,7 @@ var FormView = function (_View) {
         }
       });
 
+      this.nodes.buttons.display();
       this.display();
     }
   }]);
