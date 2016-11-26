@@ -45,3 +45,7 @@
 #cv-page #cv {
   width: 75%;
 }
+#cv-page #cv #headshot {
+  height: 10rem;
+  width: 10rem;
+}
