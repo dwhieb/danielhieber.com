@@ -67,9 +67,9 @@
 
       <ol>
         {{#each education}}
-          <li>
+          <li class=cvItem>
 
-            <div>
+            <div class=date>
               <time datetime=startYear>{{startYear}}</time>
               {{#if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
             </div>
@@ -79,7 +79,7 @@
               <p><a href={{links.org}} target=_blank>{{organization}}</a> ({{location}})</p>
               {{#if program}}<p>Program: {{program}}</p>{{/if}}
 
-              <ul>
+              <ul class=bulleted>
                 {{#each achievements}}
                   <li>{{{this}}}</li>
                 {{/each}}

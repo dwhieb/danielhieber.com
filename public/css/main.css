@@ -16,7 +16,6 @@
 }
 .bulleted li {
   display: list-item;
-  padding-bottom: 0.25rem;
 }
 .button {
   align-items: center;
