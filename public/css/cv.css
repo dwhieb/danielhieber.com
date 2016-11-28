@@ -77,6 +77,34 @@
   height: 10rem;
   width: 10rem;
 }
+#cv-page .cv-section header {
+  align-items: center;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 0px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#cv-page .cv-section h1 {
+  font-size: 1.5rem;
+}
+#cv-page .cv-section a {
+  white-space: nowrap;
+}
+#cv-page .cv-section a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page .cv-section a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page .cv-section a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+#cv-page .cv-section a:active {
+  color: #3180E1;
+}
 @media screen and (max-width: 699px) {
   #cv-page {
     position: relative;
