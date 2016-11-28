@@ -132,13 +132,19 @@ const FormView = class FormView extends View {
         ul.addEventListener('click', ev => {
           if (ev.target.tagName === 'IMG') {
 
-            const input = ul.querySelector(`input[data-id="${ev.target.dataset.random}"]`);
-            const i = model.achievements.indexOf(input.value);
+            const confirmed = confirm('Are you sure you want to delete this item?');
 
-            input.parentNode.remove();
+            if (confirmed) {
 
-            if (i >= 0) {
-              model.achievements.splice(i, 1);
+              const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
+              const i = model.achievements.indexOf(input.value);
+
+              input.parentNode.remove();
+
+              if (i >= 0) {
+                model.achievements.splice(i, 1);
+              }
+
             }
 
           }
@@ -237,6 +243,7 @@ const FormView = class FormView extends View {
         const linkTypes = Object.keys(model.links);
         const li        = clone.querySelector('li');
         const ul        = clone.querySelector('ul');
+        let currentType = null;
 
         const populateLink = (listItem, linkType, link) => {
 
@@ -278,22 +285,31 @@ const FormView = class FormView extends View {
           ul.appendChild(listItem);
         });
 
-        ul.addEventListener('change', ev => {
+        ul.addEventListener('focus', ev => {
           if (ev.target.name === 'linkType') {
-
-            const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
-
-            for (const linkType in model.links) {
-              if (model.links.hasOwnProperty(linkType)) {
-                if (model.links[linkType] === input.value) {
-                  Reflect.deleteProperty(model.links, linkType);
-                }
-              }
-            }
-
-            model.links[ev.target.value] = input.value;
-
+            console.log(`Current type before focus: ${currentType}`);
+            currentType = ev.target.value;
+            console.log(`Current type after focus: ${currentType}`);
           }
+        });
+
+        ul.addEventListener('change', ev => {
+
+          const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
+          const type = ul.querySelector(`select[data-id="${ev.target.dataset.id}"]`).value;
+          console.log(`type: ${type}`);
+
+          if (ev.target.name === 'linkType') {
+            console.log(`linkType conditional ran`);
+            console.log('model.links before deletion');
+            console.log(model.links);
+            Reflect.deleteProperty(model.links, currentType);
+            console.log('model.links after deletion');
+            console.log(model.links);
+          }
+
+          model.links[type] = input.value;
+
         });
 
         ul.addEventListener('click', ev => {
@@ -302,7 +318,7 @@ const FormView = class FormView extends View {
             const confirmed = confirm('Are you sure you want to delete this item?');
 
             if (confirmed) {
-              const select = ul.querySelector(`select[data-id="${ev.target.dataset.random}"]`);
+              const select = ul.querySelector(`select[data-id="${ev.target.dataset.id}"]`);
               Reflect.deleteProperty(model.links, select.value);
               select.parentNode.remove();
             }
@@ -404,8 +420,6 @@ const FormView = class FormView extends View {
     this.nodes.buttons.addEventListener('click', ev => {
 
       if (ev.target.id === 'saveButton') {
-
-        window.model = this.model;
 
         this.model.save()
         .then(res => {

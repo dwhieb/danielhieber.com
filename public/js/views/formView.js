@@ -149,13 +149,18 @@ var FormView = function (_View) {
                                                         ul.addEventListener('click', function (ev) {
                                                                 if (ev.target.tagName === 'IMG') {
 
-                                                                        var _input2 = ul.querySelector('input[data-id="' + ev.target.dataset.random + '"]');
-                                                                        var i = model.achievements.indexOf(_input2.value);
+                                                                        var confirmed = confirm('Are you sure you want to delete this item?');
 
-                                                                        _input2.parentNode.remove();
+                                                                        if (confirmed) {
 
-                                                                        if (i >= 0) {
-                                                                                model.achievements.splice(i, 1);
+                                                                                var _input2 = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
+                                                                                var i = model.achievements.indexOf(_input2.value);
+
+                                                                                _input2.parentNode.remove();
+
+                                                                                if (i >= 0) {
+                                                                                        model.achievements.splice(i, 1);
+                                                                                }
                                                                         }
                                                                 }
                                                         });
@@ -264,6 +269,7 @@ var FormView = function (_View) {
                                                         var linkTypes = Object.keys(model.links);
                                                         var li = clone.querySelector('li');
                                                         var ul = clone.querySelector('ul');
+                                                        var currentType = null;
 
                                                         var populateLink = function populateLink(listItem, linkType, link) {
 
@@ -302,21 +308,30 @@ var FormView = function (_View) {
                                                                 ul.appendChild(listItem);
                                                         });
 
-                                                        ul.addEventListener('change', function (ev) {
+                                                        ul.addEventListener('focus', function (ev) {
                                                                 if (ev.target.name === 'linkType') {
-
-                                                                        var _input4 = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
-
-                                                                        for (var linkType in model.links) {
-                                                                                if (model.links.hasOwnProperty(linkType)) {
-                                                                                        if (model.links[linkType] === _input4.value) {
-                                                                                                Reflect.deleteProperty(model.links, linkType);
-                                                                                        }
-                                                                                }
-                                                                        }
-
-                                                                        model.links[ev.target.value] = _input4.value;
+                                                                        console.log('Current type before focus: ' + currentType);
+                                                                        currentType = ev.target.value;
+                                                                        console.log('Current type after focus: ' + currentType);
                                                                 }
+                                                        });
+
+                                                        ul.addEventListener('change', function (ev) {
+
+                                                                var input = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
+                                                                var type = ul.querySelector('select[data-id="' + ev.target.dataset.id + '"]').value;
+                                                                console.log('type: ' + type);
+
+                                                                if (ev.target.name === 'linkType') {
+                                                                        console.log('linkType conditional ran');
+                                                                        console.log('model.links before deletion');
+                                                                        console.log(model.links);
+                                                                        Reflect.deleteProperty(model.links, currentType);
+                                                                        console.log('model.links after deletion');
+                                                                        console.log(model.links);
+                                                                }
+
+                                                                model.links[type] = input.value;
                                                         });
 
                                                         ul.addEventListener('click', function (ev) {
@@ -325,7 +340,7 @@ var FormView = function (_View) {
                                                                         var confirmed = confirm('Are you sure you want to delete this item?');
 
                                                                         if (confirmed) {
-                                                                                var select = ul.querySelector('select[data-id="' + ev.target.dataset.random + '"]');
+                                                                                var select = ul.querySelector('select[data-id="' + ev.target.dataset.id + '"]');
                                                                                 Reflect.deleteProperty(model.links, select.value);
                                                                                 select.parentNode.remove();
                                                                         }
@@ -343,15 +358,15 @@ var FormView = function (_View) {
 
                                                 this.nodes.form.appendChild(clone);
 
-                                                var _input5 = this.nodes.form.querySelector('input[name=startYear]');
+                                                var _input4 = this.nodes.form.querySelector('input[name=startYear]');
 
-                                                if (model.startYear) _input5.value = model.startYear;
+                                                if (model.startYear) _input4.value = model.startYear;
 
-                                                _input5.addEventListener('change', function (ev) {
+                                                _input4.addEventListener('change', function (ev) {
                                                         return model.update({ startYear: Number(ev.target.value) });
                                                 });
 
-                                                return _input5;
+                                                return _input4;
                                         }
 
                                 case 'year':
@@ -359,15 +374,15 @@ var FormView = function (_View) {
 
                                                 this.nodes.form.appendChild(clone);
 
-                                                var _input6 = this.nodes.form.querySelector('input[name=year]');
+                                                var _input5 = this.nodes.form.querySelector('input[name=year]');
 
-                                                if (model.year) _input6.value = model.year;
+                                                if (model.year) _input5.value = model.year;
 
-                                                _input6.addEventListener('change', function (ev) {
+                                                _input5.addEventListener('change', function (ev) {
                                                         return model.update({ year: Number(ev.target.value) });
                                                 });
 
-                                                return _input6;
+                                                return _input5;
                                         }
 
                                 default:
@@ -430,8 +445,6 @@ var FormView = function (_View) {
                         this.nodes.buttons.addEventListener('click', function (ev) {
 
                                 if (ev.target.id === 'saveButton') {
-
-                                        window.model = _this3.model;
 
                                         _this3.model.save().then(function (res) {
                                                 _this3.model.update(res);
