@@ -94,10 +94,34 @@
     </section>
 
     <section id=work class=cv-section>
+
       <header>
         <h1>Professional Experience</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each work}}
+          <li class=cvItem>
+
+            <div class=date>
+              <time datetime=startYear>{{startYear}}</time>
+              {{#if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
+            </div>
+
+            <div>
+              <p><strong>{{role}}, </strong><a href={{links.org}} target=_blank>{{organization}}</a></p>
+              <ul class=bulleted>
+                {{#each achievements}}
+                  <li>{{{this}}}</li>
+                {{/each}}
+              </ul>
+            </div>
+
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=teaching class=cv-section>

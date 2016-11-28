@@ -133,6 +133,23 @@
   height: 10rem;
   width: 10rem;
 }
+#cv-page #work p > a {
+  font-weight: normal;
+}
+#cv-page #work p > a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page #work p > a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page #work p > a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+#cv-page #work p > a:active {
+  color: #3180E1;
+}
 @media screen and (max-width: 699px) {
   #cv-page {
     position: relative;

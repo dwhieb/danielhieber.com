@@ -19,32 +19,6 @@
     </section>
   {{/with}}
 
-  {{#with sections.work}}
-    <section id=work>
-      {{> sectionHeader this}}
-
-      <ol>
-      {{#each items}}
-        <li id={{id}} class=cvItem>
-          <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
-          <div>
-            <p><strong>{{{role}}}, {{#if links.org}}
-              <a href='{{links.org}}' target=_blank>{{{organization}}}</a>
-            {{else}}
-              {{{organization}}}
-            {{/if}}</strong></p>
-            <ul>
-              {{#each duties}}
-                <li><p>{{{this}}}</p></li>
-              {{/each}}
-            </ul>
-          </div>
-        </li>
-      {{/each}}
-      </ol>
-    </section>
-  {{/with}}
-
   {{#with sections.publications}}
     <section id=publications>
       {{> sectionHeader this}}
