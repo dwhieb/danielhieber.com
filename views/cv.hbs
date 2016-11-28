@@ -2,10 +2,6 @@
   <link rel=stylesheet href=/css/cv.css>
 {{/section}}
 
-<!-- CONTEXT
-  lastUpdatedString - human-readable, for display
--->
-
 <main id=cv-page>
 
   <aside>
@@ -63,10 +59,38 @@
     </header>
 
     <section id=education class=cv-section>
+
       <header>
         <h1>Education</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each education}}
+          <li>
+
+            <div>
+              <time datetime=startYear>{{startYear}}</time>
+              {{#if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
+            </div>
+
+            <div>
+
+              <p><a href={{links.org}} target=_blank>{{organization}}</a> ({{location}})</p>
+              {{#if program}}<p>Program: {{program}}</p>{{/if}}
+
+              <ul>
+                {{#each achievements}}
+                  <li>{{{this}}}</li>
+                {{/each}}
+              </ul>
+
+            </div>
+
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=work class=cv-section>
