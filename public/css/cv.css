@@ -66,6 +66,10 @@
 }
 #cv-page #cv-header #updated {
   font-style: italic;
+  text-align: center;
+}
+#cv-page #cv-header time {
+  font-style: normal;
 }
 #cv-page #headshot {
   border-radius: 0.25rem;
