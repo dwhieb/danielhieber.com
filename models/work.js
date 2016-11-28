@@ -18,7 +18,6 @@ const Work = class Work extends Document {
 
     // required attributes
     const required = [
-      'endYear',
       'organization',
       'role',
       'startYear',
