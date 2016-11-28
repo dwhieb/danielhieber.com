@@ -176,26 +176,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "157",
-    "type": "education",
-    "organization": "University of California, Santa Barbara",
-    "program": "M.A. / Ph.D. in Linguistics",
-    "city": "Santa Barbara, CA",
-    "startYear": "2013",
-    "endYear": "present",
-    "achievements": [
-      "Chancellor’s Fellowship Recipient"
-    ],
-    "links": {
-      "org": "http://www.linguistics.ucsb.edu"
-    },
-    "_rid": "9XUnAOPvcgAQAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgAQAAAAAAAAAA==/",
-    "_etag": "\"00009e00-0000-0000-0000-568daccd0000\"",
-    "_ts": 1452125389,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "156",
     "type": "education",
     "organization": "LSA Linguistic Institute",

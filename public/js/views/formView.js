@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -59,9 +61,7 @@ var FormView = function (_View) {
                 value: function populate(prop, clone, model) {
                         var _this2 = this;
 
-                        var textInputProps = ['abbreviation', 'author', 'autonym', 'key', 'location', 'name', 'organization', 'program', 'publication', 'role', 'title'];
-
-                        if (textInputProps.includes(prop)) {
+                        if (this.textProps.includes(prop)) {
                                 var input = clone.querySelector('input[name="' + prop + '"]');
                                 if (model[prop]) input.value = model[prop];
                                 return this.nodes.form.appendChild(clone);
@@ -71,7 +71,6 @@ var FormView = function (_View) {
                                 competency: 'select[name=competency]',
                                 description: 'textarea[name=description]',
                                 email: 'input[name=email]',
-                                endYear: 'input[name=endYear]',
                                 phone: 'input[name=phone]',
                                 proficiencyType: 'select[name=proficiencyType]',
                                 publicationType: 'select[name=publicationType]'
@@ -259,9 +258,32 @@ var FormView = function (_View) {
                                                 break;
                                         }
 
-                                case 'links':
+                                case 'endYear':
                                         {
                                                 var _ret4 = function () {
+
+                                                        _this2.nodes.form.appendChild(clone);
+
+                                                        var input = _this2.nodes.form.querySelector('input[name=endYear]');
+
+                                                        if (model.endYear) input.value = model.endYear;
+
+                                                        input.addEventListener('change', function () {
+                                                                var endYear = isNaN(input.value) ? input.value : Number(input.value);
+                                                                model.update({ endYear: endYear });
+                                                        });
+
+                                                        return {
+                                                                v: input
+                                                        };
+                                                }();
+
+                                                if ((typeof _ret4 === 'undefined' ? 'undefined' : _typeof(_ret4)) === "object") return _ret4.v;
+                                        }
+
+                                case 'links':
+                                        {
+                                                var _ret5 = function () {
 
                                                         model.links = model.links || {};
 
@@ -310,9 +332,7 @@ var FormView = function (_View) {
 
                                                         ul.addEventListener('focus', function (ev) {
                                                                 if (ev.target.name === 'linkType') {
-                                                                        console.log('Current type before focus: ' + currentType);
                                                                         currentType = ev.target.value;
-                                                                        console.log('Current type after focus: ' + currentType);
                                                                 }
                                                         });
 
@@ -320,15 +340,9 @@ var FormView = function (_View) {
 
                                                                 var input = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
                                                                 var type = ul.querySelector('select[data-id="' + ev.target.dataset.id + '"]').value;
-                                                                console.log('type: ' + type);
 
                                                                 if (ev.target.name === 'linkType') {
-                                                                        console.log('linkType conditional ran');
-                                                                        console.log('model.links before deletion');
-                                                                        console.log(model.links);
                                                                         Reflect.deleteProperty(model.links, currentType);
-                                                                        console.log('model.links after deletion');
-                                                                        console.log(model.links);
                                                                 }
 
                                                                 model.links[type] = input.value;
@@ -350,7 +364,7 @@ var FormView = function (_View) {
                                                         return 'break';
                                                 }();
 
-                                                if (_ret4 === 'break') break;
+                                                if (_ret5 === 'break') break;
                                         }
 
                                 case 'startYear':
@@ -436,7 +450,7 @@ var FormView = function (_View) {
                         var displayProps = ['location', 'name', 'organization', 'title'];
 
                         this.el.addEventListener('change', function (ev) {
-                                if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') {
+                                if (ev.target.tagName === 'INPUT' && _this3.textProps.includes(ev.target.name)) {
                                         _this3.model.update(_defineProperty({}, ev.target.name, ev.target.value));
                                         if (displayProps.includes(ev.target.name)) debouncedListRender();
                                 }
@@ -463,6 +477,11 @@ var FormView = function (_View) {
 
                         this.nodes.buttons.display();
                         this.display();
+                }
+        }, {
+                key: 'textProps',
+                get: function get() {
+                        return ['abbreviation', 'author', 'autonym', 'key', 'location', 'name', 'organization', 'program', 'publication', 'role', 'title'];
                 }
         }]);
 

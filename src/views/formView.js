@@ -32,21 +32,7 @@ const FormView = class FormView extends View {
   // - add listeners (if necessary)
   populate(prop, clone, model) {
 
-    const textInputProps = [
-      'abbreviation',
-      'author',
-      'autonym',
-      'key',
-      'location',
-      'name',
-      'organization',
-      'program',
-      'publication',
-      'role',
-      'title',
-    ];
-
-    if (textInputProps.includes(prop)) {
+    if (this.textProps.includes(prop)) {
       const input = clone.querySelector(`input[name="${prop}"]`);
       if (model[prop]) input.value = model[prop];
       return this.nodes.form.appendChild(clone);
@@ -56,7 +42,6 @@ const FormView = class FormView extends View {
       competency:      'select[name=competency]',
       description:     'textarea[name=description]',
       email:           'input[name=email]',
-      endYear:         'input[name=endYear]',
       phone:           'input[name=phone]',
       proficiencyType: 'select[name=proficiencyType]',
       publicationType: 'select[name=publicationType]',
@@ -235,6 +220,23 @@ const FormView = class FormView extends View {
 
       }
 
+      case 'endYear': {
+
+        this.nodes.form.appendChild(clone);
+
+        const input = this.nodes.form.querySelector('input[name=endYear]');
+
+        if (model.endYear) input.value = model.endYear;
+
+        input.addEventListener('change', () => {
+          const endYear = isNaN(input.value) ? input.value : Number(input.value);
+          model.update({ endYear });
+        });
+
+        return input;
+
+      }
+
       case 'links': {
 
         model.links = model.links || {};
@@ -287,9 +289,7 @@ const FormView = class FormView extends View {
 
         ul.addEventListener('focus', ev => {
           if (ev.target.name === 'linkType') {
-            console.log(`Current type before focus: ${currentType}`);
             currentType = ev.target.value;
-            console.log(`Current type after focus: ${currentType}`);
           }
         });
 
@@ -297,15 +297,9 @@ const FormView = class FormView extends View {
 
           const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
           const type = ul.querySelector(`select[data-id="${ev.target.dataset.id}"]`).value;
-          console.log(`type: ${type}`);
 
           if (ev.target.name === 'linkType') {
-            console.log(`linkType conditional ran`);
-            console.log('model.links before deletion');
-            console.log(model.links);
             Reflect.deleteProperty(model.links, currentType);
-            console.log('model.links after deletion');
-            console.log(model.links);
           }
 
           model.links[type] = input.value;
@@ -411,7 +405,7 @@ const FormView = class FormView extends View {
     ];
 
     this.el.addEventListener('change', ev => {
-      if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') {
+      if (ev.target.tagName === 'INPUT' && this.textProps.includes(ev.target.name)) {
         this.model.update({ [ev.target.name]: ev.target.value });
         if (displayProps.includes(ev.target.name)) debouncedListRender();
       }
@@ -442,6 +436,22 @@ const FormView = class FormView extends View {
     this.nodes.buttons.display();
     this.display();
 
+  }
+
+  get textProps() {
+    return [
+      'abbreviation',
+      'author',
+      'autonym',
+      'key',
+      'location',
+      'name',
+      'organization',
+      'program',
+      'publication',
+      'role',
+      'title',
+    ];
   }
 
 };
