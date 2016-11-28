@@ -164,6 +164,7 @@
     width: 25%;
   }
   #cv-page #cv {
+    margin-left: 1rem;
     width: 75%;
   }
 }
