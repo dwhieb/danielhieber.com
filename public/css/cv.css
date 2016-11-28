@@ -35,11 +35,14 @@
 #cv-page #contents a {
   width: 100%;
 }
+#cv-page #cv {
+  padding: 1rem;
+}
 #cv-page #cv-header,
 #cv-page #cv-header > address {
   align-items: center;
 }
-#cv-page #cv-header,
+#cv-page #cv-header > div,
 #cv-page #cv-header > address > div {
   padding: 1rem 0rem;
 }
@@ -77,6 +80,9 @@
   height: 10rem;
   width: 10rem;
 }
+#cv-page .cv-section {
+  padding-top: 1rem;
+}
 #cv-page .cv-section header {
   align-items: center;
   border-color: black;
@@ -84,6 +90,7 @@
   border-width: 1px 0px;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0.25rem 0rem;
 }
 #cv-page .cv-section h1 {
   font-size: 1.5rem;
