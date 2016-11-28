@@ -223,9 +223,8 @@ const FormView = class FormView extends View {
         const debouncedListener = debounce(ev => {
           model.update({ date: new Date(ev.target.value) });
         }, waitTime);
-        const dateText = new Date(model.date).toISOString().slice(0, 10);
 
-        input.value = dateText;
+        input.value = model.date ? new Date(model.date).toISOString().slice(0, 10) : '';
         input.addEventListener('change', debouncedListener);
 
         break;

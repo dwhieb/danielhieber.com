@@ -249,9 +249,8 @@ var FormView = function (_View) {
             var debouncedListener = debounce(function (ev) {
               model.update({ date: new Date(ev.target.value) });
             }, waitTime);
-            var dateText = new Date(model.date).toISOString().slice(0, 10);
 
-            _input3.value = dateText;
+            _input3.value = model.date ? new Date(model.date).toISOString().slice(0, 10) : '';
             _input3.addEventListener('change', debouncedListener);
 
             break;
