@@ -60,8 +60,6 @@ const FormView = class FormView extends View {
       phone:           'input[name=phone]',
       proficiencyType: 'select[name=proficiencyType]',
       publicationType: 'select[name=publicationType]',
-      startYear:       'input[name=startYear]',
-      year:            'input[name=year]',
     };
 
     if (prop in simpleProps) {
@@ -316,6 +314,34 @@ const FormView = class FormView extends View {
 
       }
 
+      case 'startYear': {
+
+        this.nodes.form.appendChild(clone);
+
+        const input = this.nodes.form.querySelector('input[name=startYear]');
+
+        if (model.startYear) input.value = model.startYear;
+
+        input.addEventListener('change', ev => model.update({ startYear: Number(ev.target.value) }));
+
+        return input;
+
+      }
+
+      case 'year': {
+
+        this.nodes.form.appendChild(clone);
+
+        const input = this.nodes.form.querySelector('input[name=year]');
+
+        if (model.year) input.value = model.year;
+
+        input.addEventListener('change', ev => model.update({ year: Number(ev.target.value) }));
+
+        return input;
+
+      }
+
       default: {
         return null;
       }
@@ -379,13 +405,15 @@ const FormView = class FormView extends View {
 
       if (ev.target.id === 'saveButton') {
 
+        window.model = this.model;
+
         this.model.save()
         .then(res => {
           this.model.update(res);
           app.list.render();
           this.render();
         })
-        .catch(err => this.displayError(err));
+        .catch(err => app.displayError(err));
 
       } else if (ev.target.id === 'deleteButton') {
 

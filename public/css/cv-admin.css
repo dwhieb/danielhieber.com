@@ -45,6 +45,40 @@ button,
 #form legend {
   font-weight: bold;
 }
+#form fieldset[name=achievements] li,
+#form fieldset[name=links] li {
+  align-items: center;
+  flex-direction: row;
+}
+#form fieldset[name=achievements] li input,
+#form fieldset[name=links] li input {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px #ddd;
+  flex-grow: 1;
+}
+#form fieldset[name=achievements] li input:focus,
+#form fieldset[name=links] li input:focus {
+  border-color: #3180E1;
+  box-shadow: inset 0 1px 3px rgba(49, 128, 225, 0.5);
+}
+#form fieldset[name=achievements] li input:focus:invalid,
+#form fieldset[name=links] li input:focus:invalid {
+  border-color: #E23B32;
+  box-shadow: inset 0 1px 3px rgba(226, 59, 50, 0.5);
+  color: #e23b32;
+}
+#form fieldset[name=achievements] li input[disabled],
+#form fieldset[name=links] li input[disabled] {
+  background-color: #eaeded;
+  color: #cad2d3;
+  cursor: not-allowed;
+}
+#form fieldset[name=achievements] li img,
+#form fieldset[name=links] li img {
+  height: 2em;
+}
 #form fieldset[name=categories] label {
   align-items: center;
   flex-direction: row;
@@ -52,6 +86,26 @@ button,
 }
 #form fieldset[name=categories] label input {
   margin: 0rem 0.5rem;
+}
+#form textarea[name=description] {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px #ddd;
+}
+#form textarea[name=description]:focus {
+  border-color: #3180E1;
+  box-shadow: inset 0 1px 3px rgba(49, 128, 225, 0.5);
+}
+#form textarea[name=description]:focus:invalid {
+  border-color: #E23B32;
+  box-shadow: inset 0 1px 3px rgba(226, 59, 50, 0.5);
+  color: #e23b32;
+}
+#form textarea[name=description][disabled] {
+  background-color: #eaeded;
+  color: #cad2d3;
+  cursor: not-allowed;
 }
 #form label[for=publicationType] {
   order: 1;
