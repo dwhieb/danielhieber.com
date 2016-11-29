@@ -504,6 +504,7 @@ const Document = class Document {
   static get cvTypes() {
     return [
       'award',
+      'course',
       'education',
       'fieldwork',
       'language',
