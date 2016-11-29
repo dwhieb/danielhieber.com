@@ -216,10 +216,27 @@
     </section>
 
     <section id=fieldwork class=cv-section>
+
       <header>
         <h1>Fieldwork &amp; Descriptive Work</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each fieldwork}}
+          <li class=cvItem>
+
+            <div class=date>
+              <time datetime=startYear>{{startYear}}</time>
+              {{#if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
+            </div>
+
+            <div class=description><strong>{{location}}.</strong> {{{html}}}</div>
+
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=languages class=cv-section>

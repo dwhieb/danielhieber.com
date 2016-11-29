@@ -54,10 +54,6 @@
     </section>
   {{/with}}
 
-  {{#with sections.fieldwork}}
-    <section id=fieldwork>
-      {{> sectionHeader this}}
-
       <ol>
       {{#each items}}
         <li id={{id}} class=cvItem>
@@ -66,8 +62,6 @@
         </li>
       {{/each}}
       </ol>
-    </section>
-  {{/with}}
 
   {{#with sections.languages}}
     <section id=languages>

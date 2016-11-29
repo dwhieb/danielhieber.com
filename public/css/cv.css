@@ -134,6 +134,9 @@
   height: 10rem;
   width: 10rem;
 }
+#cv-page strong {
+  color: black;
+}
 #cv-page #teaching .cvItem {
   flex-direction: column;
 }
