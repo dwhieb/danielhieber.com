@@ -24,7 +24,6 @@ const Fieldwork = class Fieldwork extends Document {
     // required attributes
     const required = [
       'description',
-      'endYear',
       'location',
       'startYear',
     ];
