@@ -133,6 +133,23 @@
   height: 10rem;
   width: 10rem;
 }
+#cv-page #teaching .cvItem {
+  flex-direction: column;
+}
+#cv-page #teaching h2 {
+  font-weight: bold;
+}
+#cv-page #teaching .description {
+  padding: 0.5rem 0rem;
+}
+#cv-page #teaching .description ul {
+  list-style: circle outside none;
+  margin-left: 2rem;
+}
+#cv-page #teaching .description ul li {
+  display: list-item;
+  padding-top: 0.25rem;
+}
 @media screen and (max-width: 699px) {
   #cv-page {
     position: relative;

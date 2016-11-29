@@ -11,11 +11,12 @@
   font-weight: bold;
 }
 .bulleted {
-  list-style: disc outside none;
+  list-style: circle outside none;
   margin-left: 2rem;
 }
 .bulleted li {
   display: list-item;
+  padding-top: 0.25rem;
 }
 .button {
   align-items: center;

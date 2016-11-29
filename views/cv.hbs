@@ -76,7 +76,7 @@
 
             <div>
 
-              <p><a href={{links.org}} target=_blank>{{organization}}</a> ({{location}})</p>
+              <h2><a href={{links.org}} target=_blank>{{organization}}</a> ({{location}})</h2>
               {{#if program}}<p>Program: {{program}}</p>{{/if}}
 
               <ul class=bulleted>
@@ -110,7 +110,7 @@
             </div>
 
             <div>
-              <p><a href={{links.org}} target=_blank>{{role}}, {{organization}}</a></p>
+              <h2><a href={{links.org}} target=_blank>{{role}}, {{organization}}</a></h2>
               <ul class=bulleted>
                 {{#each achievements}}
                   <li>{{{this}}}</li>
@@ -125,10 +125,28 @@
     </section>
 
     <section id=teaching class=cv-section>
+
       <header>
         <h1>Teaching</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each course}}
+          <li class=cvItem>
+
+            {{#if links.info}}
+              <h2><a href={{links.info}}>{{title}} ({{role}}, {{organization}})</a></h2>
+            {{else}}
+              <h2>{{title}} ({{role}}, {{organization}})</h2>
+            {{/if}}
+
+            <div class=description>{{{html}}}</div>
+
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=awards class=cv-section>
