@@ -49,9 +49,6 @@
 #cv-page #cv-header > address > div {
   padding: 1rem 0rem;
 }
-#cv-page #cv-header {
-  margin-bottom: 1rem;
-}
 #cv-page #cv-header h1 {
   font-size: 2.5rem;
   margin-bottom: -0.25rem;
@@ -73,8 +70,9 @@
 #cv-page #cv-header address a:active {
   color: #3180E1;
 }
-#cv-page #cv-header #updated {
+#cv-page #cv-header > p {
   font-style: italic;
+  padding-bottom: 1rem;
   text-align: center;
 }
 #cv-page #cv-header time {

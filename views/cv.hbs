@@ -56,6 +56,8 @@
         </time>
       </p>
 
+      <p>Click the links below for more information on each CV item.</p>
+
     </header>
 
     <section id=education class=cv-section>
@@ -136,7 +138,7 @@
           <li class=cvItem>
 
             {{#if links.info}}
-              <h2><a href={{links.info}}>{{title}} ({{role}}, {{organization}})</a></h2>
+              <h2><a href={{links.info}} target=_blank>{{title}} ({{role}}, {{organization}})</a></h2>
             {{else}}
               <h2>{{title}} ({{role}}, {{organization}})</h2>
             {{/if}}
@@ -160,7 +162,7 @@
         {{#each award}}
           <li class=cvItem>
             <time class=date datetime=startYear>{{year}}</time>
-            <div class=description><a href={{links.info}}>{{title}}</a> {{{html}}}</div>
+            <div class=description><a href={{links.info}} target=_blank>{{title}}</a> {{{html}}}</div>
           </li>
         {{/each}}
       </ol>
@@ -175,10 +177,27 @@
     </section>
 
     <section id=service class=cv-section>
+
       <header>
         <h1>Service</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each service}}
+          <li class=cvItem>
+
+            <div class=date>
+              <time datetime=startYear>{{startYear}}</time>
+              {{#if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
+            </div>
+
+            <h2><a href={{links.org}} target=_blank>{{role}}, {{organization}}{{#if abbreviation}} ({{abbreviation}}){{/if}}</a></h2>
+
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=memberships class=cv-section>
