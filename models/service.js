@@ -18,7 +18,6 @@ const Service = class Service extends Document {
 
     // required attributes
     const required = [
-      'endYear',
       'organization',
       'role',
       'startYear',
