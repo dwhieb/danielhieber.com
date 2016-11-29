@@ -201,10 +201,18 @@
     </section>
 
     <section id=memberships class=cv-section>
+
       <header>
         <h1>Memberships</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each membership}}
+          <li class=cvItem><a href={{links.org}} target=_blank>{{organization}} ({{abbreviation}})</a></li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=fieldwork class=cv-section>

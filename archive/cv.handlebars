@@ -54,16 +54,6 @@
     </section>
   {{/with}}
 
-
-      <ol>
-      {{#each items}}
-        <li id={{id}} class=cvItem>
-          <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
-          <h2>{{{role}}}, <a href='{{links.org}}'>{{{organization}}}</a></h2>
-        </li>
-      {{/each}}
-      </ol>
-
   {{#with sections.fieldwork}}
     <section id=fieldwork>
       {{> sectionHeader this}}
@@ -74,18 +64,6 @@
           <div class=year>{{startYear}}{{#if endYear}}—{{endYear}}{{/if}}</div>
           <p><strong>{{{location}}}.</strong> {{{description}}}</p>
         </li>
-      {{/each}}
-      </ol>
-    </section>
-  {{/with}}
-
-  {{#with sections.memberships}}
-    <section id=memberships>
-      {{> sectionHeader this}}
-
-      <ol>
-      {{#each items}}
-        <li id={{id}} class=cvItem><p><a href='{{links.org}}'>{{{title}}}</a> ({{{abbreviation}}})<p></li>
       {{/each}}
       </ol>
     </section>
