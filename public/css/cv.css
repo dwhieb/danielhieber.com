@@ -127,6 +127,9 @@
   min-width: 7.5em;
   width: 7.5em;
 }
+#cv-page .description {
+  display: inline;
+}
 #cv-page #headshot {
   border-radius: 0.25rem;
   box-shadow: 0px 0px 3px black;

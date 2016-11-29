@@ -150,10 +150,21 @@
     </section>
 
     <section id=awards class=cv-section>
+
       <header>
         <h1>Awards &amp; Honors</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each award}}
+          <li class=cvItem>
+            <time class=date datetime=startYear>{{year}}</time>
+            <div class=description><a href={{links.info}}>{{title}}</a> {{{html}}}</div>
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=publications class=cv-section>

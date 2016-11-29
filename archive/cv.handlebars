@@ -1,24 +1,5 @@
 <section id=cvBody>
 
-  {{#with sections.awards}}
-    <section id=awards>
-      {{> sectionHeader this}}
-
-      <ol>
-      {{#each items}}
-        <li id={{id}} class=cvItem>
-          <time datetime={{year}}>{{year}}</time>
-          <p>{{#if links.award}}
-            <a href='{{links.award}}' target=_blank>{{{title}}}.</a>
-          {{else}}
-            <strong>{{{title}}}.</strong>
-          {{/if}} {{{description}}}</p>
-        </li>
-      {{/each}}
-      </ol>
-    </section>
-  {{/with}}
-
   {{#with sections.publications}}
     <section id=publications>
       {{> sectionHeader this}}
