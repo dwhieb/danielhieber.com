@@ -27,6 +27,8 @@ const FormView = class FormView extends View {
     this.nodes.form.innerHTML = '';
   }
 
+  /* eslint-disable no-param-reassign */
+
   // - populate template
   // - insert into DOM
   // - add listeners (if necessary)
@@ -53,7 +55,11 @@ const FormView = class FormView extends View {
 
       const input = this.nodes.form.querySelector(simpleProps[prop]);
 
-      if (model[prop]) input.value = model[prop];
+      if (model[prop]) {
+        input.value = model[prop];
+      } else if (simpleProps[prop].includes('select')) {
+        model[prop] = input.value;
+      }
 
       input.addEventListener('change', ev => model.update({ [prop]: ev.target.value }));
 
@@ -61,7 +67,6 @@ const FormView = class FormView extends View {
 
     }
 
-    /* eslint-disable no-param-reassign */
     switch (prop) {
 
       case 'achievements': {
@@ -358,11 +363,11 @@ const FormView = class FormView extends View {
 
     }
 
-    /* eslint-enable no-param-reassign */
-
     return this.nodes.form;
 
   }
+
+  /* eslint-enable no-param-reassign */
 
   render() {
 

@@ -52,6 +52,8 @@ var FormView = function (_View) {
                         this.nodes.form.innerHTML = '';
                 }
 
+                /* eslint-disable no-param-reassign */
+
                 // - populate template
                 // - insert into DOM
                 // - add listeners (if necessary)
@@ -82,7 +84,11 @@ var FormView = function (_View) {
 
                                 var _input = this.nodes.form.querySelector(simpleProps[prop]);
 
-                                if (model[prop]) _input.value = model[prop];
+                                if (model[prop]) {
+                                        _input.value = model[prop];
+                                } else if (simpleProps[prop].includes('select')) {
+                                        model[prop] = _input.value;
+                                }
 
                                 _input.addEventListener('change', function (ev) {
                                         return model.update(_defineProperty({}, prop, ev.target.value));
@@ -91,7 +97,6 @@ var FormView = function (_View) {
                                 return _input;
                         }
 
-                        /* eslint-disable no-param-reassign */
                         switch (prop) {
 
                                 case 'achievements':
@@ -406,10 +411,11 @@ var FormView = function (_View) {
 
                         }
 
-                        /* eslint-enable no-param-reassign */
-
                         return this.nodes.form;
                 }
+
+                /* eslint-enable no-param-reassign */
+
         }, {
                 key: 'render',
                 value: function render() {
