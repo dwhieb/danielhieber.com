@@ -51,8 +51,8 @@
       </address>
 
       <p id=updated>
-        Last updated: <time datetime={{lastUpdatedISO}}>
-          {{lastUpdatedString}}
+        Last updated: <time datetime={{lastUpdatedDatetime}}>
+          {{lastUpdatedDateString}}
         </time>
       </p>
 
@@ -285,10 +285,21 @@
     </section>
 
     <section id=media class=cv-section>
+
       <header>
         <h1>Media About Me</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each media}}
+          <li class=cvItem>
+            <time datetime={{datetime}}>{{dateString}}</time>
+            <p><a href={{links.pub}}>{{title}}</a>, by {{author}}. {{publication}}</p>
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=references class=cv-section>

@@ -39,21 +39,6 @@
     </section>
   {{/with}}
 
-  {{#with sections.media}}
-    <section id=media>
-      {{> sectionHeader this}}
-
-      <ol>
-      {{#each items}}
-        <li id={{id}} class=cvItem>
-          <time datetime={{date}}>{{date}}</time>
-          <p><a href='{{links.pubLink}}'>{{{title}}}</a>, by {{{author}}}. {{{publication}}}</p>
-        </li>
-      {{/each}}
-      </ol>
-    </section>
-  {{/with}}
-
   {{#with sections.references}}
     <section id=references>
       {{> sectionHeader this}}
