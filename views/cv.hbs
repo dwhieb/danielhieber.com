@@ -240,10 +240,21 @@
     </section>
 
     <section id=languages class=cv-section>
+
       <header>
         <h1>Languages</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      <ol>
+        {{#each language}}
+          <li class=cvItem>
+            <p><a href={{links.info}}>{{title}} ({{autonym}})</a></p>
+            <p>{{competency}}</p>
+          </li>
+        {{/each}}
+      </ol>
+
     </section>
 
     <section id=proficiencies class=cv-section>

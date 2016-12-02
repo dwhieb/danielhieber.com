@@ -137,6 +137,9 @@
 #cv-page strong {
   color: black;
 }
+#cv-page #languages .cvItem p {
+  width: 50%;
+}
 #cv-page #teaching .cvItem {
   flex-direction: column;
 }
