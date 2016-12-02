@@ -54,24 +54,6 @@
     </section>
   {{/with}}
 
-      <section>
-        <h2>Technical Skills</h2>
-        <ul>
-        {{#each software}}
-          <li id={{id}} class=cvItem><p><a href='{{links.info}}'>{{{description}}}</a></p></li>
-        {{/each}}
-        </ul>
-      </section>
-
-      <section>
-        <h2>Software Proficiencies</h2>
-        <ul>
-        {{#each skill}}
-          <li id={{id}} class=cvItem><p><a href='{{links.info}}'>{{{description}}}</a></p></li>
-        {{/each}}
-        </ul>
-      </section>
-
   {{#with sections.references}}
     <section id=references>
       {{> sectionHeader this}}

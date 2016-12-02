@@ -140,6 +140,12 @@
 #cv-page #languages .cvItem p {
   width: 50%;
 }
+#cv-page #proficiencies h2 {
+  font-size: 1.25rem;
+}
+#cv-page #proficiencies li {
+  align-items: flex-start;
+}
 #cv-page #teaching .cvItem {
   flex-direction: column;
 }
@@ -190,5 +196,13 @@
   #cv-page #cv {
     margin-left: 1rem;
     width: 75%;
+  }
+  #proficiencies {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #proficiencies header {
+    width: 100%;
   }
 }

@@ -125,6 +125,11 @@
 
   #languages .cvItem p { width: 50%; }
 
+  #proficiencies {
+    h2 { font-size: 1.25rem; }
+    li { align-items: flex-start; }
+  }
+
   #teaching {
     .cvItem { flex-direction: column; }
     h2 { font-weight: bold; }
@@ -150,6 +155,7 @@
     }
 
   }
+
 }
 
 // narrow styling
@@ -175,5 +181,12 @@
       width: 75%;
     }
 
+  }
+
+  #proficiencies {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    header { width: 100%; }
   }
 }

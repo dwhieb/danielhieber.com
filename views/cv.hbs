@@ -266,16 +266,20 @@
 
       <section>
         <h2>Technical Skills</h2>
-        <ul>
-          
-        </ul>
+        <ol>
+          {{#each proficiency.skill}}
+            <li><a href={{links.info}}>{{title}}</a></li>
+          {{/each}}
+        </ol>
       </section>
 
       <section>
         <h2>Software Proficiencies</h2>
-        <ul>
-
-        </ul>
+        <ol>
+          {{#each proficiency.software}}
+            <li><a href={{links.info}}>{{title}}</a></li>
+          {{/each}}
+        </ol>
       </section>
 
     </section>
