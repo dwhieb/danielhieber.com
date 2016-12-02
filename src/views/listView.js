@@ -70,14 +70,7 @@ const ListView = class ListView extends View {
     this.hide();
     this.removeListeners();
     this.nodes.list.innerHTML = '';
-
-    this.collection.sort((a, b) => {
-      if (a.title) return a.title > b.title;
-      if (a.name) return a.name > b.name;
-      if (a.organization) return a.organization > b.organization;
-      if (a.location) return a.location > b.location;
-      return a.id > b.id;
-    });
+    this.sort();
 
     this.collection.forEach(model => {
 
@@ -152,7 +145,15 @@ const ListView = class ListView extends View {
 
   // sorts the collection (data only)
   sort() {
-    return this;
+
+    return this.collection.sort((a, b) => {
+      if (a.title) return a.title > b.title;
+      if (a.location) return a.location > b.location;
+      if (a.name) return a.name > b.name;
+      if (a.organization) return a.organization > b.organization;
+      return a.id > b.id;
+    });
+
   }
 
 };
