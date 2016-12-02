@@ -76,9 +76,9 @@ const ListView = class ListView extends View {
 
       const listItem = this.template.content.cloneNode(true);
       const listItemText = model.title
+        || model.name
         || model.organization
         || model.location
-        || model.name
         || '(No Description)';
 
       listItem.querySelector('p').textContent = listItemText;

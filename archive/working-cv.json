@@ -1,4 +1,5 @@
 [
+  "http://www.houstonchronicle.com/local/gray-matters/article/Reviving-a-lost-language-of-Louisiana-6409708.php",
   {
     "id": "97",
     "type": "publication",
@@ -1498,93 +1499,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCbAAAAAAAAAA==/",
     "_etag": "\"00001200-0000-0000-0000-568da76c0000\"",
     "_ts": 1452124012,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "17",
-    "type": "reference",
-    "name": "Carol Genetti",
-    "organization": "University of California, Santa Barbara",
-    "role": "Graduate Dean & Professor, Department of Linguistics",
-    "email": "cgenetti@linguistics.ucsb.edu",
-    "phone": "(805) 893-3574",
-    "links": {
-      "homepage": "",
-      "academia": ""
-    },
-    "_rid": "9XUnAOPvcgCcAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCcAAAAAAAAAA==/",
-    "_etag": "\"00001100-0000-0000-0000-568da7640000\"",
-    "_ts": 1452124004,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "16",
-    "type": "reference",
-    "name": "Marion K. Bittinger",
-    "organization": "Rosetta Stone",
-    "role": "Director, Endangered Language Program",
-    "email": "mkbittinger@gmail.com",
-    "phone": "(540) 248-3310",
-    "links": {
-      "homepage": "",
-      "academia": ""
-    },
-    "_rid": "9XUnAOPvcgCdAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCdAAAAAAAAAA==/",
-    "_etag": "\"00001000-0000-0000-0000-568da75c0000\"",
-    "_ts": 1452123996,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "15",
-    "type": "reference",
-    "name": "Kim Walden",
-    "organization": "Chitimacha Tribe of Louisiana",
-    "role": "Cultural Director, Chitimacha Cultural Department",
-    "email": "kim@chitimacha.gov",
-    "phone": "(337) 923-9923",
-    "links": {},
-    "_rid": "9XUnAOPvcgCeAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCeAAAAAAAAAA==/",
-    "_etag": "\"00000f00-0000-0000-0000-568da7530000\"",
-    "_ts": 1452123987,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "14",
-    "type": "reference",
-    "name": "Marianne Mithun",
-    "organization": "University of California, Santa Barbara",
-    "role": "Professor, Department of Linguistics",
-    "email": "mithun@linguistics.ucsb.edu",
-    "phone": "",
-    "links": {
-      "homepage": "",
-      "academia": ""
-    },
-    "_rid": "9XUnAOPvcgCfAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCfAAAAAAAAAA==/",
-    "_etag": "\"00000e00-0000-0000-0000-568da74b0000\"",
-    "_ts": 1452123979,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "13",
-    "type": "reference",
-    "name": "Jack B. Martin",
-    "organization": "The College of William & Mary",
-    "role": "Boyd Associate Professor of English & Linguistics",
-    "email": "jbmart@wm.edu",
-    "phone": "(757) 221-3906",
-    "links": {
-      "homepage": "",
-      "academia": ""
-    },
-    "_rid": "9XUnAOPvcgCgAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCgAAAAAAAAAA==/",
-    "_etag": "\"00000d00-0000-0000-0000-568da7430000\"",
-    "_ts": 1452123971,
     "_attachments": "attachments/"
   },
   {

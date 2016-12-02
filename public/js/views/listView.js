@@ -110,7 +110,7 @@ var ListView = function (_View) {
       this.collection.forEach(function (model) {
 
         var listItem = _this2.template.content.cloneNode(true);
-        var listItemText = model.title || model.organization || model.location || model.name || '(No Description)';
+        var listItemText = model.title || model.name || model.organization || model.location || '(No Description)';
 
         listItem.querySelector('p').textContent = listItemText;
         listItem.querySelector('li').model = model;
