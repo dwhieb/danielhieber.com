@@ -146,6 +146,13 @@
 #cv-page #proficiencies li {
   align-items: flex-start;
 }
+#cv-page #references h2 {
+  font-size: 1.5rem;
+}
+#cv-page #references li {
+  align-items: center;
+  padding-bottom: 1rem;
+}
 #cv-page #teaching .cvItem {
   flex-direction: column;
 }

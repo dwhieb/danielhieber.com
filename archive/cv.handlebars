@@ -39,22 +39,4 @@
     </section>
   {{/with}}
 
-  {{#with sections.references}}
-    <section id=references>
-      {{> sectionHeader this}}
-
-      <ul>
-      {{#each items}}
-        <li id={{id}}>
-          <h2><a href='{{links.homepage}}'>{{name}}</a></h2>
-          <p>{{role}}</p>
-          <p>{{organization}}</p>
-          <p>{{phone}}</p>
-          <p><a href=mailto:{{email}}>{{email}}</a></p>
-        </li>
-      {{/each}}
-      </ul>
-    </section>
-  {{/with}}
-
 </section>
