@@ -286,9 +286,48 @@ var FormView = function (_View) {
                                                 if ((typeof _ret4 === 'undefined' ? 'undefined' : _typeof(_ret4)) === "object") return _ret4.v;
                                         }
 
-                                case 'links':
+                                case 'files':
                                         {
                                                 var _ret5 = function () {
+
+                                                        _this2.nodes.form.appendChild(clone);
+
+                                                        var ul = _this2.nodes.form.querySelector('fieldset[name=files] ul');
+                                                        var input = _this2.nodes.form.querySelector('input[name=file]');
+
+                                                        Object.keys(model.files).forEach(function (filename) {
+                                                                return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <a href=\'' + model.files[filename] + '\'>' + filename + '</a>\n            <img data-filename=' + filename + ' src=/img/icons/delete.svg alt=\'delete this file\'>\n          </li>\n        ');
+                                                        });
+
+                                                        ul.addEventListener('click', function (ev) {
+                                                                if (ev.target.tagName === 'IMG') {
+                                                                        socket.emit('deleteFile', model.files[ev.target.dataset.filename], function (err) {
+                                                                                if (err) return app.displayError(err, 'Error deleting file.');
+
+                                                                                delete model.files[ev.target.dataset.filename];
+
+                                                                                model.save().then(function (res) {
+                                                                                        _this2.model.update(res);
+                                                                                        app.list.render();
+                                                                                        _this2.render();
+                                                                                }).catch(function (err) {
+                                                                                        return app.displayError(err);
+                                                                                });
+                                                                        });
+                                                                }
+                                                        });
+
+                                                        return {
+                                                                v: input
+                                                        };
+                                                }();
+
+                                                if ((typeof _ret5 === 'undefined' ? 'undefined' : _typeof(_ret5)) === "object") return _ret5.v;
+                                        }
+
+                                case 'links':
+                                        {
+                                                var _ret6 = function () {
 
                                                         model.links = model.links || {};
 
@@ -369,7 +408,7 @@ var FormView = function (_View) {
                                                         return 'break';
                                                 }();
 
-                                                if (_ret5 === 'break') break;
+                                                if (_ret6 === 'break') break;
                                         }
 
                                 case 'startYear':

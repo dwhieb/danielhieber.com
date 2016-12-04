@@ -179,6 +179,9 @@ button,
 #form fieldset[name=achievements] {
   order: 24;
 }
+#form fieldset[name=files] {
+  order: 25;
+}
 #deleteButton {
   background-color: #E23B32;
 }

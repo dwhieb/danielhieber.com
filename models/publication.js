@@ -46,11 +46,38 @@ const Publication = class Publication extends Document {
     }
 
     const publicationType = pub.publicationType;
+    const files = {};
 
-    Object.defineProperty(this, 'publicationType', {
-      configurable: false,
-      enumerable: true,
-      get() { return publicationType; },
+    if (pub.files) Object.assign(files, pub.files);
+
+    Object.defineProperties(this, {
+
+      addFile: {
+        configurable: false,
+        enumerable:   false,
+        writable:     false,
+        value: (filename, url) => { files[filename] = url; },
+      },
+
+      files: {
+        configurable: false,
+        enumerable:   true,
+        get() { return Object.assign({}, files); },
+      },
+
+      publicationType: {
+        configurable: false,
+        enumerable:   true,
+        get() { return publicationType; },
+      },
+
+      removeFile: {
+        configurable: false,
+        enumerable:   false,
+        writable:     false,
+        value: filename => { delete files[filename]; },
+      },
+
     });
 
   }
@@ -60,6 +87,7 @@ const Publication = class Publication extends Document {
       'categories',
       'date',
       'description',
+      'files',
       'html',
       'links',
       'markdown',

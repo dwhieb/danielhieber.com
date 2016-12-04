@@ -242,6 +242,42 @@ const FormView = class FormView extends View {
 
       }
 
+      case 'files': {
+
+        this.nodes.form.appendChild(clone);
+
+        const ul    = this.nodes.form.querySelector('fieldset[name=files] ul');
+        const input = this.nodes.form.querySelector('input[name=file]');
+
+        Object.keys(model.files).forEach(filename => ul.insertAdjacentHTML('beforeend', `
+          <li>
+            <a href='${model.files[filename]}'>${filename}</a>
+            <img data-filename=${filename} src=/img/icons/delete.svg alt='delete this file'>
+          </li>
+        `));
+
+        ul.addEventListener('click', ev => {
+          if (ev.target.tagName === 'IMG') {
+            socket.emit('deleteFile', model.files[ev.target.dataset.filename], err => {
+              if (err) return app.displayError(err, 'Error deleting file.');
+
+              delete model.files[ev.target.dataset.filename];
+
+              model.save()
+              .then(res => {
+                this.model.update(res);
+                app.list.render();
+                this.render();
+              }).catch(err => app.displayError(err));
+
+            });
+          }
+        });
+
+        return input;
+
+      }
+
       case 'links': {
 
         model.links = model.links || {};
