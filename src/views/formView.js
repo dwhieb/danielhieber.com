@@ -293,11 +293,11 @@ const FormView = class FormView extends View {
             return app.displayError(new Error('The file to upload must have a .pdf extension.'));
           }
 
-          socket.emit('upsertFile', file.name, input.files[0], (err, res) => {
+          socket.emit('upsertFile', file.name, file, (err, res) => {
 
             if (err) return app.displayError(err);
 
-            model.files[file.name] = `https://danielhieber.blob.core.windows.net/publications/${res.name}`;
+            model.files[file.name] = `https://danielhieber.blob.core.windows.net/publications/${encodeURIComponent(res.name)}`;
 
             this.model.save()
             .then(res => {

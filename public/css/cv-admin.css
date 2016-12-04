@@ -141,7 +141,7 @@ button,
   height: 2em;
   position: absolute;
   right: 0;
-  top: 0;
+  top: auto;
   width: 2em;
 }
 #form fieldset[name=files] li:hover img {

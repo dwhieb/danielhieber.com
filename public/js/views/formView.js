@@ -332,11 +332,11 @@ var FormView = function (_View) {
                                                                         return app.displayError(new Error('The file to upload must have a .pdf extension.'));
                                                                 }
 
-                                                                socket.emit('upsertFile', file.name, input.files[0], function (err, res) {
+                                                                socket.emit('upsertFile', file.name, file, function (err, res) {
 
                                                                         if (err) return app.displayError(err);
 
-                                                                        model.files[file.name] = 'https://danielhieber.blob.core.windows.net/publications/' + res.name;
+                                                                        model.files[file.name] = 'https://danielhieber.blob.core.windows.net/publications/' + encodeURIComponent(res.name);
 
                                                                         _this2.model.save().then(function (res) {
                                                                                 _this2.model.update(res);
