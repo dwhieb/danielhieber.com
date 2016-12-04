@@ -107,6 +107,10 @@ button,
   color: #cad2d3;
   cursor: not-allowed;
 }
+#form fieldset[name=files] .inputs {
+  align-items: center;
+  flex-direction: row;
+}
 #form label[for=publicationType] {
   order: 1;
 }

@@ -246,8 +246,11 @@ const FormView = class FormView extends View {
 
         this.nodes.form.appendChild(clone);
 
-        const ul    = this.nodes.form.querySelector('fieldset[name=files] ul');
-        const input = this.nodes.form.querySelector('input[name=file]');
+        const ul     = this.nodes.form.querySelector('fieldset[name=files] ul');
+        const input  = this.nodes.form.querySelector('input[name=file]');
+        const upload = document.getElementById('uploadFileButton');
+
+        model.files = model.files || {};
 
         Object.keys(model.files).forEach(filename => ul.insertAdjacentHTML('beforeend', `
           <li>
@@ -272,6 +275,30 @@ const FormView = class FormView extends View {
 
             });
           }
+        });
+
+        upload.addEventListener('click', () => {
+
+          if (!input.files.length) {
+            return app.displayError(new Error('Please select a file to upload.'));
+          }
+
+          const file = input.files[0];
+
+          if (!file.name.endsWith('.pdf')) {
+            return app.displayError(new Error('The file to upload must have a .pdf extension.'));
+          }
+
+          socket.emit('upsertFile', file.name, input.files[0], (err, res) => {
+
+            if (err) return app.displayError(err);
+
+            model.files[file.name] = `https://danielhieber.blob.core.windows.net/publications/${res.name}`;
+
+            this.render();
+
+          });
+
         });
 
         return input;

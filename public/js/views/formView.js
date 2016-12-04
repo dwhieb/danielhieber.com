@@ -294,6 +294,9 @@ var FormView = function (_View) {
 
                                                         var ul = _this2.nodes.form.querySelector('fieldset[name=files] ul');
                                                         var input = _this2.nodes.form.querySelector('input[name=file]');
+                                                        var upload = document.getElementById('uploadFileButton');
+
+                                                        model.files = model.files || {};
 
                                                         Object.keys(model.files).forEach(function (filename) {
                                                                 return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <a href=\'' + model.files[filename] + '\'>' + filename + '</a>\n            <img data-filename=' + filename + ' src=/img/icons/delete.svg alt=\'delete this file\'>\n          </li>\n        ');
@@ -301,7 +304,7 @@ var FormView = function (_View) {
 
                                                         ul.addEventListener('click', function (ev) {
                                                                 if (ev.target.tagName === 'IMG') {
-                                                                        socket.emit('deleteFile', model.files[ev.target.dataset.filename], function (err) {
+                                                                        socket.emit('deleteFile', ev.target.dataset.filename, function (err) {
                                                                                 if (err) return app.displayError(err, 'Error deleting file.');
 
                                                                                 delete model.files[ev.target.dataset.filename];
@@ -315,6 +318,28 @@ var FormView = function (_View) {
                                                                                 });
                                                                         });
                                                                 }
+                                                        });
+
+                                                        upload.addEventListener('click', function () {
+
+                                                                if (!input.files.length) {
+                                                                        return app.displayError(new Error('Please select a file to upload.'));
+                                                                }
+
+                                                                var file = input.files[0];
+
+                                                                if (!file.name.endsWith('.pdf')) {
+                                                                        return app.displayError(new Error('The file to upload must have a .pdf extension.'));
+                                                                }
+
+                                                                socket.emit('upsertFile', file.name, input.files[0], function (err, res) {
+
+                                                                        if (err) return app.displayError(err);
+
+                                                                        model.files[file.name] = 'https://danielhieber.blob.core.windows.net/publications/' + res.name;
+
+                                                                        _this2.render();
+                                                                });
                                                         });
 
                                                         return {

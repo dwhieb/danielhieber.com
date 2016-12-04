@@ -2,18 +2,12 @@
 
 /* eslint-disable max-nested-callbacks */
 require('../app');
-const documentdb = require('documentdb');
-const io = require('socket.io-client');
+const db      = require('../lib/db');
+const io      = require('socket.io-client');
+const storage = require('../lib/storage');
 
 const coll = 'dbs/danielhieber/colls/danielhieber';
-const dbUrl = process.env.DOCUMENTDB_URL;
-const dbKey = process.env.DOCUMENTDB_KEY;
-
-const db = new documentdb.DocumentClient(dbUrl, { masterKey: dbKey });
-
-const options = {
-  transports: ['websocket', 'xhr-polling'],
-};
+const options = { transports: ['websocket', 'xhr-polling'] };
 
 describe('socket', function test() {
 
@@ -28,7 +22,7 @@ describe('socket', function test() {
     done();
   });
 
-  it('connect', function connect(done) {
+  xit('connect', function connect(done) {
     socket.on('gallery', data => {
       expect(Array.isArray(data)).toBe(true);
       expect(data.includes('cypress_trees.jpg')).toBe(true);
@@ -36,11 +30,11 @@ describe('socket', function test() {
     });
   });
 
-  it('handleError', function handleError() {
+  xit('handleError', function handleError() {
     socket.on('error', err => fail(err));
   });
 
-  it('pretrigger: "type"', function pretriggerType(done) {
+  xit('pretrigger: "type"', function pretriggerType(done) {
 
     const testData = {
       ttl: 300,
@@ -66,7 +60,7 @@ describe('socket', function test() {
 
   });
 
-  it('increment "cvid"', function incrementcvid(done) {
+  xit('increment "cvid"', function incrementcvid(done) {
 
     const data = {
       ttl:             300,
@@ -98,7 +92,7 @@ describe('socket', function test() {
 
   });
 
-  it('add', function addItem(done) {
+  xit('add', function addItem(done) {
 
     const testData = Object.assign({}, data);
     testData.id = 'addtest';
@@ -122,7 +116,7 @@ describe('socket', function test() {
 
   });
 
-  it('delete (by ID)', function deleteItem(done) {
+  xit('delete (by ID)', function deleteItem(done) {
 
     const testData = Object.assign({}, data);
     testData.id = 'deletebyid';
@@ -149,7 +143,7 @@ describe('socket', function test() {
 
   });
 
-  it('delete (by model)', function deleteItem(done) {
+  xit('delete (by model)', function deleteItem(done) {
 
     const testData = Object.assign({}, data);
     testData.id = 'deletebyid';
@@ -176,7 +170,27 @@ describe('socket', function test() {
 
   });
 
-  it('get (by IDs)', function getItemsByIds(done) {
+  it('deleteFile', function deleteFile(done) {
+
+    storage.createBlockBlobFromLocalFile('publications', 'testFile.md', 'test/testFile.md', err => {
+      if (err) {
+        fail(JSON.stringify(err, null, 2));
+        done();
+      } else {
+        socket.emit('deleteFile', 'testFile.md', err => {
+          if (err) {
+            fail(JSON.stringify(err, null, 2));
+            done();
+          } else {
+            done();
+          }
+        });
+      }
+    });
+
+  });
+
+  xit('get (by IDs)', function getItemsByIds(done) {
 
     const docs = [
       { id: 'getbyid1', type: 'test', ttl: 300 },
@@ -207,7 +221,7 @@ describe('socket', function test() {
 
   });
 
-  it('get (by models)', function getItemsByModels(done) {
+  xit('get (by models)', function getItemsByModels(done) {
 
     const docs = [
       { id: 'getbymodel1', type: 'test', ttl: 300 },
@@ -234,7 +248,7 @@ describe('socket', function test() {
 
   });
 
-  it('getAll', function getAll(done) {
+  xit('getAll', function getAll(done) {
 
     // do not include TTL on these docs, or the test will fail
     // (getAll does not return documents which have a TTL set)
@@ -274,7 +288,7 @@ describe('socket', function test() {
 
   });
 
-  it('update', function updateItem(done) {
+  xit('update', function updateItem(done) {
 
     const testData = Object.assign({}, data);
     testData.id = 'updatetest';
@@ -299,7 +313,21 @@ describe('socket', function test() {
 
   });
 
-  it('error', function errorTest(done) {
+  xit('updateFile', function updateFile(done) {
+
+    const text = '# This is half a text file';
+
+    storage.createBlockBlobFromText('publications', 'testFile.md', text, (err, res) => {
+      if (err) {
+        fail(err);
+        done();
+      } else {
+        // socket.emit('updateFile', );
+      }
+    });
+  });
+
+  xit('error', function errorTest(done) {
 
     const doc = {};
 
