@@ -258,7 +258,7 @@ const FormView = class FormView extends View {
 
         ul.addEventListener('click', ev => {
           if (ev.target.tagName === 'IMG') {
-            socket.emit('deleteFile', model.files[ev.target.dataset.filename], err => {
+            socket.emit('deleteFile', ev.target.dataset.filename, err => {
               if (err) return app.displayError(err, 'Error deleting file.');
 
               delete model.files[ev.target.dataset.filename];
