@@ -107,9 +107,48 @@ button,
   color: #cad2d3;
   cursor: not-allowed;
 }
-#form fieldset[name=files] .inputs {
+#form fieldset[name=files] .inputs,
+#form fieldset[name=files] li {
   align-items: center;
   flex-direction: row;
+  position: relative;
+}
+#form fieldset[name=files] .inputs p,
+#form fieldset[name=files] li p {
+  margin-right: 2em;
+}
+#form fieldset[name=files] .inputs a:link,
+#form fieldset[name=files] li a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#form fieldset[name=files] .inputs a:visited,
+#form fieldset[name=files] li a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#form fieldset[name=files] .inputs a:hover,
+#form fieldset[name=files] li a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+#form fieldset[name=files] .inputs a:active,
+#form fieldset[name=files] li a:active {
+  color: #3180E1;
+}
+#form fieldset[name=files] img {
+  cursor: pointer;
+  display: none;
+  height: 2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2em;
+}
+#form fieldset[name=files] li:hover img {
+  display: flex;
+}
+#form fieldset[name=links] select {
+  margin: 0.5rem;
 }
 #form label[for=publicationType] {
   order: 1;

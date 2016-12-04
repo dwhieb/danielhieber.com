@@ -116,7 +116,8 @@ form input[type=email],
 form input[type=number],
 form input[type=tel],
 form input[type=text],
-form input[type=url] textarea {
+form input[type=url],
+form textarea {
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -129,7 +130,8 @@ form input[type=email]:focus,
 form input[type=number]:focus,
 form input[type=tel]:focus,
 form input[type=text]:focus,
-form input[type=url] textarea:focus {
+form input[type=url]:focus,
+form textarea:focus {
   border-color: #3180E1;
   box-shadow: inset 0 1px 3px rgba(49, 128, 225, 0.5);
 }
@@ -138,7 +140,8 @@ form input[type=email]:focus:invalid,
 form input[type=number]:focus:invalid,
 form input[type=tel]:focus:invalid,
 form input[type=text]:focus:invalid,
-form input[type=url] textarea:focus:invalid {
+form input[type=url]:focus:invalid,
+form textarea:focus:invalid {
   border-color: #E23B32;
   box-shadow: inset 0 1px 3px rgba(226, 59, 50, 0.5);
   color: #e23b32;
@@ -148,7 +151,8 @@ form input[type=email][disabled],
 form input[type=number][disabled],
 form input[type=tel][disabled],
 form input[type=text][disabled],
-form input[type=url] textarea[disabled] {
+form input[type=url][disabled],
+form textarea[disabled] {
   background-color: #eaeded;
   color: #cad2d3;
   cursor: not-allowed;

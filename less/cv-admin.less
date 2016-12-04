@@ -62,10 +62,28 @@ button {
 
   textarea[name=description] { .field; }
 
-  fieldset[name=files] .inputs {
-    align-items: center;
-    flex-direction: row;
+  fieldset[name=files] {
+    .inputs,
+    li {
+      align-items: center;
+      flex-direction: row;
+      position: relative;
+      p { margin-right: 2em; }
+      a { .link; }
+    }
+    img {
+      cursor: pointer;
+      display: none;
+      height: 2em;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 2em;
+    }
+    li:hover img { display: flex; }
   }
+
+  fieldset[name=links] select { margin: 0.5rem; }
 
   label[for=publicationType]  { order: 1; }
   label[for=author]           { order: 2; }

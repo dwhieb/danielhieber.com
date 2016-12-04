@@ -254,7 +254,7 @@ const FormView = class FormView extends View {
 
         Object.keys(model.files).forEach(filename => ul.insertAdjacentHTML('beforeend', `
           <li>
-            <a href='${model.files[filename]}'>${filename}</a>
+            <p><a href='${model.files[filename]}'>${filename}</a></p>
             <img
               data-filename="${filename}"
               src=/img/icons/delete.svg
