@@ -299,7 +299,7 @@ var FormView = function (_View) {
                                                         model.files = model.files || {};
 
                                                         Object.keys(model.files).forEach(function (filename) {
-                                                                return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <a href=\'' + model.files[filename] + '\'>' + filename + '</a>\n            <img data-filename=' + filename + ' src=/img/icons/delete.svg alt=\'delete this file\'>\n          </li>\n        ');
+                                                                return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <a href=\'' + model.files[filename] + '\'>' + filename + '</a>\n            <img\n              data-filename="' + filename + '"\n              src=/img/icons/delete.svg\n              alt=\'delete this file\'\n            >\n          </li>\n        ');
                                                         });
 
                                                         ul.addEventListener('click', function (ev) {
@@ -338,7 +338,12 @@ var FormView = function (_View) {
 
                                                                         model.files[file.name] = 'https://danielhieber.blob.core.windows.net/publications/' + res.name;
 
-                                                                        _this2.render();
+                                                                        _this2.model.save().then(function (res) {
+                                                                                _this2.model.update(res);
+                                                                                _this2.render();
+                                                                        }).catch(function (err) {
+                                                                                return app.displayError(err);
+                                                                        });
                                                                 });
                                                         });
 

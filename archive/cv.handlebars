@@ -5,13 +5,13 @@
       {{> sectionHeader this}}
 
       {{#each publicationTypes}}
-        <section id={{@key}}>
+        <section id="{{@key}}">
           {{> sectionHeader this}}
 
           <ol>
           {{#each items}}
-            <li id={{id}} class=cvItem>
-              <time datetime={{date}}>{{year}}</time>
+            <li id="{{id}}" class=cvItem>
+              <time datetime="{{date}}">{{year}}</time>
               <div>
                 <h2>
                   {{#if links.pubLink}}

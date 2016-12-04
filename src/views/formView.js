@@ -255,7 +255,11 @@ const FormView = class FormView extends View {
         Object.keys(model.files).forEach(filename => ul.insertAdjacentHTML('beforeend', `
           <li>
             <a href='${model.files[filename]}'>${filename}</a>
-            <img data-filename=${filename} src=/img/icons/delete.svg alt='delete this file'>
+            <img
+              data-filename="${filename}"
+              src=/img/icons/delete.svg
+              alt='delete this file'
+            >
           </li>
         `));
 
@@ -295,7 +299,11 @@ const FormView = class FormView extends View {
 
             model.files[file.name] = `https://danielhieber.blob.core.windows.net/publications/${res.name}`;
 
-            this.render();
+            this.model.save()
+            .then(res => {
+              this.model.update(res);
+              this.render();
+            }).catch(err => app.displayError(err));
 
           });
 
@@ -488,8 +496,7 @@ const FormView = class FormView extends View {
           this.model.update(res);
           app.list.render();
           this.render();
-        })
-        .catch(err => app.displayError(err));
+        }).catch(err => app.displayError(err));
 
       } else if (ev.target.id === 'deleteButton') {
 

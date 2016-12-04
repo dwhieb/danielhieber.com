@@ -51,7 +51,7 @@
       </address>
 
       <p id=updated>
-        Last updated: <time datetime={{lastUpdatedDatetime}}>
+        Last updated: <time datetime="{{lastUpdatedDatetime}}">
           {{lastUpdatedDateString}}
         </time>
       </p>
@@ -78,7 +78,7 @@
 
             <div>
 
-              <h2><a href={{links.org}} target=_blank>{{organization}}</a> ({{location}})</h2>
+              <h2><a href="{{links.org}}" target=_blank>{{organization}}</a> ({{location}})</h2>
               {{#if program}}<p>Program: {{program}}</p>{{/if}}
 
               <ul class=bulleted>
@@ -112,7 +112,7 @@
             </div>
 
             <div>
-              <h2><a href={{links.org}} target=_blank>{{role}}, {{organization}}</a></h2>
+              <h2><a href="{{links.org}}" target=_blank>{{role}}, {{organization}}</a></h2>
               <ul class=bulleted>
                 {{#each achievements}}
                   <li>{{{this}}}</li>
@@ -138,7 +138,7 @@
           <li class=cvItem>
 
             {{#if links.info}}
-              <h2><a href={{links.info}} target=_blank>{{title}} ({{role}}, {{organization}})</a></h2>
+              <h2><a href="{{links.info}}" target=_blank>{{title}} ({{role}}, {{organization}})</a></h2>
             {{else}}
               <h2>{{title}} ({{role}}, {{organization}})</h2>
             {{/if}}
@@ -162,7 +162,7 @@
         {{#each award}}
           <li class=cvItem>
             <time class=date datetime=startYear>{{year}}</time>
-            <div class=description><a href={{links.info}} target=_blank>{{title}}</a> {{{html}}}</div>
+            <div class=description><a href="{{links.info}}" target=_blank>{{title}}</a> {{{html}}}</div>
           </li>
         {{/each}}
       </ol>
@@ -192,7 +192,7 @@
               {{#if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
             </div>
 
-            <h2><a href={{links.org}} target=_blank>{{role}}, {{organization}}{{#if abbreviation}} ({{abbreviation}}){{/if}}</a></h2>
+            <h2><a href="{{links.org}}" target=_blank>{{role}}, {{organization}}{{#if abbreviation}} ({{abbreviation}}){{/if}}</a></h2>
 
           </li>
         {{/each}}
@@ -209,7 +209,7 @@
 
       <ol>
         {{#each membership}}
-          <li class=cvItem><a href={{links.org}} target=_blank>{{organization}} ({{abbreviation}})</a></li>
+          <li class=cvItem><a href="{{links.org}}" target=_blank>{{organization}} ({{abbreviation}})</a></li>
         {{/each}}
       </ol>
 
@@ -249,7 +249,7 @@
       <ol>
         {{#each language}}
           <li class=cvItem>
-            <p><a href={{links.info}}>{{title}} ({{autonym}})</a></p>
+            <p><a href="{{links.info}}">{{title}} ({{autonym}})</a></p>
             <p>{{competency}}</p>
           </li>
         {{/each}}
@@ -268,7 +268,7 @@
         <h2>Technical Skills</h2>
         <ol>
           {{#each proficiency.skill}}
-            <li><a href={{links.info}}>{{title}}</a></li>
+            <li><a href="{{links.info}}">{{title}}</a></li>
           {{/each}}
         </ol>
       </section>
@@ -277,7 +277,7 @@
         <h2>Software Proficiencies</h2>
         <ol>
           {{#each proficiency.software}}
-            <li><a href={{links.info}}>{{title}}</a></li>
+            <li><a href="{{links.info}}">{{title}}</a></li>
           {{/each}}
         </ol>
       </section>
@@ -294,8 +294,8 @@
       <ol>
         {{#each media}}
           <li class=cvItem>
-            <time class=date datetime={{datetime}}>{{dateString}}</time>
-            <p><a href={{links.pub}}>{{title}}</a>, by {{author}}. {{publication}}</p>
+            <time class=date datetime="{{datetime}}">{{dateString}}</time>
+            <p><a href="{{links.pub}}">{{title}}</a>, by {{author}}. {{publication}}</p>
           </li>
         {{/each}}
       </ol>
@@ -312,7 +312,7 @@
       <ol>
         {{#each reference}}
           <li>
-            <h2><a href={{links.info}}>{{name}}</a></h2>
+            <h2><a href="{{links.info}}">{{name}}</a></h2>
             <p>{{role}}</p>
             <p>{{organization}}</p>
             {{#if phone}}<p>{{phone}}</p>{{/if}}
