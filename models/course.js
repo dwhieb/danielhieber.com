@@ -1,4 +1,4 @@
-const Document = require('./Document');
+const Document = require('./document');
 
 const whitelist = [
   'description', // includes terms taught, course number
