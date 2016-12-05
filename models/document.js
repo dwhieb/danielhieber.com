@@ -103,7 +103,6 @@ const Document = class Document {
     props.forEach(property => {
 
       const prop = Array.isArray(property) ? property[0] : property;
-      const args = Array.isArray(property) ? property.slice(1) : [];
 
       // property name must be a string
       if (typeof prop !== 'string') {
