@@ -170,10 +170,51 @@
     </section>
 
     <section id=publications class=cv-section>
+
       <header>
         <h1>Publications &amp; Presentations</h1>
         <a href=#>Back to Top</a>
       </header>
+
+      {{#each publication as |pubType|}}
+        <section>
+
+          <h2>{{@key}}</h2>
+
+          <ol>
+            {{#each this}}
+              <li class=cvItem>
+
+                <time datetime="{{datetime}}">{{year}}</time>
+
+                <div>
+
+                  <h3>
+                    {{#if links.pdf}}<a href="{{links.pdf}}">{{title}}.</a>
+                    {{else if links.pub}}<a href="{{links.pub}}">{{title}}.</a>
+                    {{else}}<strong>{{title}}.</strong>{{/if}}
+                  </h3>
+
+                  <p>{{{html}}}</p>
+
+                  <p>
+                    {{#if links.info}}    <a href="{{links.info}}"    >(more info)</a>{{/if}}
+                    {{#if links.pub}}     <a href="{{links.pub}}"     >(view online)</a>{{/if}}
+                    {{#if links.abstract}}<a href="{{links.abstract}}">(abstract)</a>{{/if}}
+                    {{#if links.pdf}}     <a href="{{links.pdf}}"     >(pdf)</a>{{/if}}
+                    {{#if links.slides}}  <a href="{{links.slides}}"  >(slides)</a>{{/if}}
+                    {{#if links.handout}} <a href="{{links.handout}}" >(handout)</a>{{/if}}
+                  </p>
+
+                </div>
+
+              </li>
+            {{/each}}
+          </ol>
+
+        </section>
+      {{/each}}
+
     </section>
 
     <section id=service class=cv-section>

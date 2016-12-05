@@ -1,42 +1,10 @@
-<section id=cvBody>
-
-  {{#with sections.publications}}
-    <section id=publications>
-      {{> sectionHeader this}}
-
-      {{#each publicationTypes}}
-        <section id="{{@key}}">
-          {{> sectionHeader this}}
-
-          <ol>
-          {{#each items}}
-            <li id="{{id}}" class=cvItem>
-              <time datetime="{{date}}">{{year}}</time>
-              <div>
-                <h2>
-                  {{#if links.pubLink}}
-                    <a href='{{links.pubLink}}'>{{{title}}}.</a>
-                  {{else}}
-                    <strong>{{{title}}}.</strong>
-                  {{/if}}
-                </h2>
-                <p>{{{citation}}}</p>
-                <p>
-                  {{#if links.pubLink}}(<a href='{{links.pubLink}}'>view online</a>){{/if}}
-                  {{#if links.purchaseLink}}(<a href='{{links.purchaseLink}}'>purchase</a>){{/if}}
-                  {{#if links.paper}}(<a href='{{links.pdf}}'>pdf</a>){{/if}}
-                  {{#if links.slides}}(<a href='{{links.slides}}'>slides</a>){{/if}}
-                  {{#if links.handout}}(<a href='{{links.handout}}'>handout</a>){{/if}}
-                  {{#if links.poster}}(<a href='{{links.handout}}'>handout</a>){{/if}}
-                </p>
-              </div>
-            </li>
-          {{/each}}
-          </ol>
-        </section>
-      {{/each}}
-
-    </section>
-  {{/with}}
-
-</section>
+<div>
+  <p>
+    {{#if links.pubLink}}(<a href='{{links.pubLink}}'>view online</a>){{/if}}
+    {{#if links.purchaseLink}}(<a href='{{links.purchaseLink}}'>purchase</a>){{/if}}
+    {{#if links.paper}}(<a href='{{links.pdf}}'>pdf</a>){{/if}}
+    {{#if links.slides}}(<a href='{{links.slides}}'>slides</a>){{/if}}
+    {{#if links.handout}}(<a href='{{links.handout}}'>handout</a>){{/if}}
+    {{#if links.poster}}(<a href='{{links.handout}}'>handout</a>){{/if}}
+  </p>
+</div>
