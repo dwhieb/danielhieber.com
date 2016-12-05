@@ -213,13 +213,25 @@ const FormView = class FormView extends View {
         this.nodes.form.appendChild(clone);
 
         const input = this.nodes.form.querySelector('input[name=date]');
+        const forthcoming = this.nodes.form.querySelector('input[name=forthcoming]');
         const waitTime = 1000;
         const debouncedListener = debounce(ev => {
+          if (forthcoming.checked) return model.update({ date: 'forthcoming' });
           model.update({ date: new Date(ev.target.value) });
         }, waitTime);
 
-        input.value = model.date ? new Date(model.date).toISOString().slice(0, 10) : '';
+        if (model.date === 'forthcoming') {
+          input.disabled = true;
+          forthcoming.checked = true;
+        } else if (model.date) {
+          input.value = new Date(model.date).toISOString().slice(0, 10);
+        }
+
         input.addEventListener('change', debouncedListener);
+        forthcoming.addEventListener('change', ev => {
+          input.disabled = forthcoming.checked;
+          debouncedListener(ev);
+        });
 
         break;
 

@@ -83,6 +83,12 @@ button {
     li:hover img { display: flex; }
   }
 
+  label[for=forthcoming] {
+    align-items: center;
+    flex-direction: row;
+    input { margin: 0.5rem; }
+  }
+
   fieldset[name=links] select { margin: 0.5rem; }
 
   label[for=publicationType]  { order: 1; }
@@ -92,7 +98,7 @@ button {
   label[for=organization]     { order: 5; }
   label[for=program]          { order: 6; }
   label[for=role]             { order: 7; }
-  label[for=date]             { order: 8; }
+  fieldset[name=date]         { order: 8; }
   label[for=startYear]        { order: 9; }
   label[for=endYear]          { order: 10; }
   label[for=year]             { order: 11; }

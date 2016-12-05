@@ -147,6 +147,13 @@ button,
 #form fieldset[name=files] li:hover img {
   display: flex;
 }
+#form label[for=forthcoming] {
+  align-items: center;
+  flex-direction: row;
+}
+#form label[for=forthcoming] input {
+  margin: 0.5rem;
+}
 #form fieldset[name=links] select {
   margin: 0.5rem;
 }
@@ -171,7 +178,7 @@ button,
 #form label[for=role] {
   order: 7;
 }
-#form label[for=date] {
+#form fieldset[name=date] {
   order: 8;
 }
 #form label[for=startYear] {
