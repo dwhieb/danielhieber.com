@@ -1,22 +1,5 @@
 [
   {
-    "id": "97",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Teaching from difference",
-    "date": "2009-10-01",
-    "citation": "Term paper, ‘Linguistic Anthropology’, Prof. Amy L. Paugh, Fall 2009, James Madison University.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1L0UVRh"
-    },
-    "_rid": "9XUnAOPvcgBMAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBMAAAAAAAAAA==/",
-    "_etag": "\"00006200-0000-0000-0000-568daa650000\"",
-    "_ts": 1452124773,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "96",
     "type": "publication",
     "publicationType": "online",
@@ -183,23 +166,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBVAAAAAAAAAA==/",
     "_etag": "\"00005900-0000-0000-0000-568daa150000\"",
     "_ts": 1452124693,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "87",
-    "type": "publication",
-    "publicationType": "nonLing",
-    "title": "18 going on 19",
-    "date": "2005-09-01",
-    "citation": "<cite>American Pilgrim Magazine</cite>, Vol. 1, No. 2 (Fall).",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1HnlkVx"
-    },
-    "_rid": "9XUnAOPvcgBWAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBWAAAAAAAAAA==/",
-    "_etag": "\"00005800-0000-0000-0000-568daa0e0000\"",
-    "_ts": 1452124686,
     "_attachments": "attachments/"
   },
   {
@@ -900,27 +866,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "49",
-    "type": "publication",
-    "publicationType": "article",
-    "title": "On linguistics, linguists, and our times: A linguist’s personal narrative reviewed",
-    "date": "2013-08-07",
-    "citation": "<cite>Linguistic Typology</cite> 17(2): 291–321. Review article of R. M. W. Dixon. 2010. <cite>I am a linguist</cite>. Brill. DOI: <a href=http://dx.doi.org/10.1515/lity-2013-0013>10.1515/lity-2013-0013</a>.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://1drv.ms/1O2dHq2",
-      "paper": "https://danielhieber.blob.core.windows.net/vitae/49-paper"
-    },
-    "_rid": "9XUnAOPvcgB8AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB8AAAAAAAAAA==/",
-    "_etag": "\"00005d05-0000-0000-0000-568e12830000\"",
-    "_ts": 1452151427,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "48",
     "type": "publication",
     "publicationType": "online",
@@ -1056,23 +1001,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCDAAAAAAAAAA==/",
     "_etag": "\"00002a00-0000-0000-0000-568da81d0000\"",
     "_ts": 1452124189,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "41",
-    "type": "publication",
-    "publicationType": "article",
-    "title": "Category genesis in Chitimacha: A constructional approach",
-    "date": "forthcoming",
-    "citation": "To appear in Kristel Van Goethem, Muriel Norde, Evie Coussé, & Gudrun Vanderbauwhede (eds.), <cite>Categorization and category change from a constructional perspective</cite> (Constructional Approaches to Language). John Benjamins.",
-    "categories": [
-      "typ"
-    ],
-    "links": {},
-    "_rid": "9XUnAOPvcgCEAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCEAAAAAAAAAA==/",
-    "_etag": "\"00001b00-0000-0000-0000-56db88fb0000\"",
-    "_ts": 1457228027,
     "_attachments": "attachments/"
   },
   {
