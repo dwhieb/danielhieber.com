@@ -95,23 +95,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "91",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Why are some languages so complicated?",
-    "date": "2011-08-14",
-    "citation": "<cite>Linguavore: RVoice.</cite>",
-    "categories": [],
-    "links": {
-      "pubLink": "http://blog.rosettastone.com/why-are-some-languages-so-complicated/"
-    },
-    "_rid": "9XUnAOPvcgBSAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBSAAAAAAAAAA==/",
-    "_etag": "\"00005c00-0000-0000-0000-568daa2d0000\"",
-    "_ts": 1452124717,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "90",
     "type": "publication",
     "publicationType": "unpublished",
@@ -223,25 +206,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "83",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Language and the socialist-calculation problem",
-    "date": "2010-09-07",
-    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute",
-    "categories": [
-      "prax"
-    ],
-    "links": {
-      "pubLink": "http://mises.org/daily/4687"
-    },
-    "_rid": "9XUnAOPvcgBaAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBaAAAAAAAAAA==/",
-    "_etag": "\"00005400-0000-0000-0000-568da95f0000\"",
-    "_ts": 1452124511,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "82",
     "type": "publication",
     "publicationType": "unpublished",
@@ -311,42 +275,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBeAAAAAAAAAA==/",
     "_etag": "\"00005000-0000-0000-0000-568da9420000\"",
     "_ts": 1452124482,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "78",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Rising to the challenge: Navajo",
-    "date": "2010-08-25",
-    "citation": "<cite>Linguavore: RVoice</cite>.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "pubLink": "http://blog.rosettastone.com/2010/08/25/rising-to-the-challenge-producing-navajo/"
-    },
-    "_rid": "9XUnAOPvcgBfAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBfAAAAAAAAAA==/",
-    "_etag": "\"00004f00-0000-0000-0000-568da93a0000\"",
-    "_ts": 1452124474,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "77",
-    "type": "publication",
-    "publicationType": "article",
-    "title": "Growing up",
-    "date": "2011-01-01",
-    "citation": "In Lynn K. Talbot & Andrew Talbot Squires (eds.), <a href='http://www.amazon.com/Following-Yellow-Arrow-Younger-Pilgrims/dp/1595944354/ref=sr_1_1?ie=UTF8&s=books&qid=1300840723&sr=8-1'><cite>Following the yellow arrow: Younger pilgrims on the Camino</cite></a>. Wingspan Press.",
-    "categories": [],
-    "links": {
-      "purchaseLink": "http://www.amazon.com/Following-Yellow-Arrow-Younger-Pilgrims/dp/1595944354/ref=sr_1_1?ie=UTF8&s=books&qid=1300840723&sr=8-1"
-    },
-    "_rid": "9XUnAOPvcgBgAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBgAAAAAAAAAA==/",
-    "_etag": "\"00001c03-0000-0000-0000-568de7a50000\"",
-    "_ts": 1452140453,
     "_attachments": "attachments/"
   },
   {
@@ -599,25 +527,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "63",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Chitimacha: Building blocks for revitalization",
-    "date": "2010-11-10",
-    "citation": "<cite>Linguavore: RVoice</cite>.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "pubLink": "http://blog.rosettastone.com/2010/11/10/chitimacha-building-blocks-for-revitalization/"
-    },
-    "_rid": "9XUnAOPvcgBuAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBuAAAAAAAAAA==/",
-    "_etag": "\"00004000-0000-0000-0000-568da8cb0000\"",
-    "_ts": 1452124363,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "62",
     "type": "publication",
     "publicationType": "presentation",
@@ -772,27 +681,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "54",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Where theory meets practice: Using language to help make the world a better place",
-    "date": "2012-01-26",
-    "citation": "<cite>Linguavore: RVoice</cite>.",
-    "categories": [
-      "doc",
-      "prax",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://blog.rosettastone.com/2012/01/26/where-theory-meets-practice-using-language-to-help-make-the-world-a-better-place/"
-    },
-    "_rid": "9XUnAOPvcgB3AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB3AAAAAAAAAA==/",
-    "_etag": "\"00003700-0000-0000-0000-568da8800000\"",
-    "_ts": 1452124288,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "53",
     "type": "publication",
     "publicationType": "presentation",
@@ -863,25 +751,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB7AAAAAAAAAA==/",
     "_etag": "\"00003300-0000-0000-0000-568da8630000\"",
     "_ts": 1452124259,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "48",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "What are the origins of language?",
-    "date": "2010-12-29",
-    "citation": "<cite>Linguavore: RVoice.</cite>",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://blog.rosettastone.com/what-are-the-origins-of-language/"
-    },
-    "_rid": "9XUnAOPvcgB9AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB9AAAAAAAAAA==/",
-    "_etag": "\"00003100-0000-0000-0000-568da8540000\"",
-    "_ts": 1452124244,
     "_attachments": "attachments/"
   },
   {
@@ -1127,25 +996,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCLAAAAAAAAAA==/",
     "_etag": "\"00002200-0000-0000-0000-568da7df0000\"",
     "_ts": 1452124127,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "33",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Language myths and complicated languages",
-    "date": "2011-09-21",
-    "citation": "<cite>Linguavore: RVoice</cite>.",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://blog.rosettastone.com/language-myths-and-complicated-languages/"
-    },
-    "_rid": "9XUnAOPvcgCMAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCMAAAAAAAAAA==/",
-    "_etag": "\"00002100-0000-0000-0000-568da7d80000\"",
-    "_ts": 1452124120,
     "_attachments": "attachments/"
   },
   {
