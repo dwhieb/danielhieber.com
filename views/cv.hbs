@@ -185,7 +185,7 @@
             {{#each this}}
               <li class=cvItem>
 
-                <time datetime="{{datetime}}">{{year}}</time>
+                <time class=date datetime="{{datetime}}">{{year}}</time>
 
                 <div>
 
@@ -195,9 +195,9 @@
                     {{else}}<strong>{{title}}.</strong>{{/if}}
                   </h3>
 
-                  <p>{{{html}}}</p>
+                  <div class=citation>{{{html}}}</div>
 
-                  <p>
+                  <p class=links>
                     {{#if links.info}}    <a href="{{links.info}}"    >(more info)</a>{{/if}}
                     {{#if links.pub}}     <a href="{{links.pub}}"     >(view online)</a>{{/if}}
                     {{#if links.abstract}}<a href="{{links.abstract}}">(abstract)</a>{{/if}}
