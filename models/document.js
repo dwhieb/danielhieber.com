@@ -275,8 +275,8 @@ const Document = class Document {
             Object.defineProperty(this, 'date', {
               configurable: false,
               enumerable: true,
-              get() { return new Date(date); },
-              set(val) { date = new Date(val).toJSON(); },
+              get() { return date === 'forthcoming' ? date : new Date(date); },
+              set(val) { date = val === 'forthcoming' ? val : new Date(val).toJSON(); },
             });
 
             if (data.date) this.date = data.date;

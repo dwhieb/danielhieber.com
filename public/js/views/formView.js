@@ -248,24 +248,40 @@ var FormView = function (_View) {
 
                                 case 'date':
                                         {
+                                                var _ret4 = function () {
 
-                                                this.nodes.form.appendChild(clone);
+                                                        _this2.nodes.form.appendChild(clone);
 
-                                                var _input3 = this.nodes.form.querySelector('input[name=date]');
-                                                var waitTime = 1000;
-                                                var debouncedListener = debounce(function (ev) {
-                                                        model.update({ date: new Date(ev.target.value) });
-                                                }, waitTime);
+                                                        var input = _this2.nodes.form.querySelector('input[name=date]');
+                                                        var forthcoming = _this2.nodes.form.querySelector('input[name=forthcoming]');
+                                                        var waitTime = 1000;
+                                                        var debouncedListener = debounce(function (ev) {
+                                                                if (forthcoming.checked) return model.update({ date: 'forthcoming' });
+                                                                model.update({ date: new Date(ev.target.value) });
+                                                        }, waitTime);
 
-                                                _input3.value = model.date ? new Date(model.date).toISOString().slice(0, 10) : '';
-                                                _input3.addEventListener('change', debouncedListener);
+                                                        if (model.date === 'forthcoming') {
+                                                                input.disabled = true;
+                                                                forthcoming.checked = true;
+                                                        } else if (model.date) {
+                                                                input.value = new Date(model.date).toISOString().slice(0, 10);
+                                                        }
 
-                                                break;
+                                                        input.addEventListener('change', debouncedListener);
+                                                        forthcoming.addEventListener('change', function (ev) {
+                                                                input.disabled = forthcoming.checked;
+                                                                debouncedListener(ev);
+                                                        });
+
+                                                        return 'break';
+                                                }();
+
+                                                if (_ret4 === 'break') break;
                                         }
 
                                 case 'endYear':
                                         {
-                                                var _ret4 = function () {
+                                                var _ret5 = function () {
 
                                                         _this2.nodes.form.appendChild(clone);
 
@@ -283,12 +299,12 @@ var FormView = function (_View) {
                                                         };
                                                 }();
 
-                                                if ((typeof _ret4 === 'undefined' ? 'undefined' : _typeof(_ret4)) === "object") return _ret4.v;
+                                                if ((typeof _ret5 === 'undefined' ? 'undefined' : _typeof(_ret5)) === "object") return _ret5.v;
                                         }
 
                                 case 'files':
                                         {
-                                                var _ret5 = function () {
+                                                var _ret6 = function () {
 
                                                         _this2.nodes.form.appendChild(clone);
 
@@ -352,12 +368,12 @@ var FormView = function (_View) {
                                                         };
                                                 }();
 
-                                                if ((typeof _ret5 === 'undefined' ? 'undefined' : _typeof(_ret5)) === "object") return _ret5.v;
+                                                if ((typeof _ret6 === 'undefined' ? 'undefined' : _typeof(_ret6)) === "object") return _ret6.v;
                                         }
 
                                 case 'links':
                                         {
-                                                var _ret6 = function () {
+                                                var _ret7 = function () {
 
                                                         model.links = model.links || {};
 
@@ -438,7 +454,7 @@ var FormView = function (_View) {
                                                         return 'break';
                                                 }();
 
-                                                if (_ret6 === 'break') break;
+                                                if (_ret7 === 'break') break;
                                         }
 
                                 case 'startYear':
@@ -446,15 +462,15 @@ var FormView = function (_View) {
 
                                                 this.nodes.form.appendChild(clone);
 
-                                                var _input4 = this.nodes.form.querySelector('input[name=startYear]');
+                                                var _input3 = this.nodes.form.querySelector('input[name=startYear]');
 
-                                                if (model.startYear) _input4.value = model.startYear;
+                                                if (model.startYear) _input3.value = model.startYear;
 
-                                                _input4.addEventListener('change', function (ev) {
+                                                _input3.addEventListener('change', function (ev) {
                                                         return model.update({ startYear: Number(ev.target.value) });
                                                 });
 
-                                                return _input4;
+                                                return _input3;
                                         }
 
                                 case 'year':
@@ -462,15 +478,15 @@ var FormView = function (_View) {
 
                                                 this.nodes.form.appendChild(clone);
 
-                                                var _input5 = this.nodes.form.querySelector('input[name=year]');
+                                                var _input4 = this.nodes.form.querySelector('input[name=year]');
 
-                                                if (model.year) _input5.value = model.year;
+                                                if (model.year) _input4.value = model.year;
 
-                                                _input5.addEventListener('change', function (ev) {
+                                                _input4.addEventListener('change', function (ev) {
                                                         return model.update({ year: Number(ev.target.value) });
                                                 });
 
-                                                return _input5;
+                                                return _input4;
                                         }
 
                                 default:
