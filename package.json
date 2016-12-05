@@ -37,6 +37,7 @@
     "node": ">=6.0"
   },
   "dependencies": {
+    "azure-storage": "^1.4.0",
     "cors": "^2.8.1",
     "documentdb": "^1.10.0",
     "documentdb-session": "^1.0.0",

@@ -1,0 +1,213 @@
+@import (reference) 'less/main.less';
+
+#cv-page {
+
+  cite { font-style: italic; }
+
+  #contents {
+
+    h1 { .sidebar-header; }
+
+    ol { padding: 0.25rem 0.5rem; }
+
+    li {
+      flex-direction: row;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+    }
+
+    li::before {
+      background: rgba(146, 50, 226, 0.2);
+      border-left: 2px solid rgba(146, 50, 226, 0);
+      border-radius: 0rem 0.25rem 0.25rem 0rem;
+      color: @purple;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      transition: all 0.3s;
+      top: 0;
+      width: 0%;
+      z-index: -1;
+    }
+
+    li:hover::before,
+    li:active::before {
+      border: none;
+      width: 100%;
+    }
+
+    a {
+      width: 100%;
+    }
+
+  }
+
+  #cv { padding: 1rem; }
+
+  #cv-header,
+  #cv-header > address {
+    align-items: center;
+    > div { padding: 1rem 0rem; }
+  }
+
+  #cv-header {
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: -0.25rem;
+    }
+
+    h2 { font-size: 1.5rem; }
+
+    address a {
+      &:link { color: @blue; border-bottom: 1px solid white; }
+      &:visited { color: @blue; border-bottom: 1px solid white; }
+      &:hover { border-bottom: 1px solid @blue; }
+      &:active { color: @blue; }
+    }
+
+    > p {
+      font-style: italic;
+      padding-bottom: 1rem;
+      text-align: center;
+    }
+
+    time { font-style: normal; }
+
+  }
+
+  .cv-section {
+
+    a { .boldLink; }
+
+    header {
+
+      align-items: center;
+      border-color: black;
+      border-style: solid;
+      border-width: 1px 0px;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0.25rem 0rem;
+
+      h1 { font-size: 1.5rem; }
+
+      a { white-space: nowrap; }
+
+    }
+
+    header ~ * { margin: 0.5rem 0rem; }
+
+  }
+
+  .cvItem,
+  .date { flex-direction: row; }
+
+  .cvItem { margin: 0.25rem 0rem; }
+
+  .date {
+    max-width: 7.5em;
+    min-width: 7.5em;
+    width: 7.5em;
+  }
+
+  .description { display: inline; }
+
+  #headshot {
+    border-radius: 0.25rem;
+    box-shadow: 0px 0px 3px black;
+    height: 10rem;
+    width: 10rem;
+  }
+
+  strong { color: black; }
+
+  #languages .cvItem p { width: 50%; }
+
+  #proficiencies {
+    h2 { font-size: 1.25rem; }
+    li { align-items: flex-start; }
+  }
+
+  #publications {
+    h2 { font-size: 1.5rem; }
+    li > time + div { display: inline; }
+    .citation {
+      display: inline;
+      a { .link; font-weight: normal; }
+    }
+    .links {
+      display: block;
+    }
+  }
+
+  #references {
+    h2 { font-size: 1.5rem; }
+    li {
+      align-items: center;
+      padding-bottom: 1rem;
+    }
+  }
+
+  #teaching {
+    .cvItem { flex-direction: column; }
+    h2 { font-weight: bold; }
+    .description { padding: 0.5rem 0rem; }
+    .description ul { .bulleted; }
+  }
+
+}
+
+// mobile styling
+@media screen and (max-width: 699px) {
+  #cv-page {
+
+    position: relative;
+
+    #profile-links {
+      left: 0;
+      padding: 0rem 1.5rem;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: calc(100% - 3rem);
+    }
+
+  }
+
+}
+
+// narrow styling
+@media screen and (min-width: 1100px) {
+  #cv-header { position: relative; }
+  #headshot {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+// desktop styling
+@media screen and (min-width: 700px) {
+  #cv-page {
+
+    flex-direction: row;
+
+    aside { width: 25%; }
+
+    #cv {
+      margin-left: 1rem;
+      width: 75%;
+    }
+
+  }
+
+  #proficiencies {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    header { width: 100%; }
+    section { width: 50%; }
+  }
+}

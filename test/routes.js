@@ -47,7 +47,7 @@ describe('routes', function routes() {
     });
   }, 10000);
 
-  it('GET /admin/blog', function blogAdmin(done) {
+  xit('GET /admin/blog', function blogAdmin(done) {
     req.get('/admin/blog')
     .expect(302)
     .end((err, res) => {
@@ -67,7 +67,7 @@ describe('routes', function routes() {
     });
   });
 
-  it('GET /blog', function blog(done) {
+  xit('GET /blog', function blog(done) {
     req.get('/blog')
     .expect(302)
     .expect('Location', 'http://blog.danielhieber.com')

@@ -1,4 +1,4 @@
-/* global app, Model, View */
+/* global app, debounce, Model, View */
 
 const FormView = class FormView extends View {
   constructor(data = {}, type) {
@@ -27,26 +27,14 @@ const FormView = class FormView extends View {
     this.nodes.form.innerHTML = '';
   }
 
+  /* eslint-disable no-param-reassign */
+
   // - populate template
   // - insert into DOM
   // - add listeners (if necessary)
   populate(prop, clone, model) {
 
-    const textInputProps = [
-      'abbreviation',
-      'author',
-      'autonym',
-      'key',
-      'location',
-      'name',
-      'organization',
-      'program',
-      'publication',
-      'role',
-      'title',
-    ];
-
-    if (textInputProps.includes(prop)) {
+    if (this.textProps.includes(prop)) {
       const input = clone.querySelector(`input[name="${prop}"]`);
       if (model[prop]) input.value = model[prop];
       return this.nodes.form.appendChild(clone);
@@ -56,12 +44,9 @@ const FormView = class FormView extends View {
       competency:      'select[name=competency]',
       description:     'textarea[name=description]',
       email:           'input[name=email]',
-      endYear:         'input[name=endYear]',
       phone:           'input[name=phone]',
       proficiencyType: 'select[name=proficiencyType]',
       publicationType: 'select[name=publicationType]',
-      startYear:       'input[name=startYear]',
-      year:            'input[name=year]',
     };
 
     if (prop in simpleProps) {
@@ -70,15 +55,18 @@ const FormView = class FormView extends View {
 
       const input = this.nodes.form.querySelector(simpleProps[prop]);
 
-      if (model[prop]) input.value = model[prop];
+      if (model[prop]) {
+        input.value = model[prop];
+      } else if (simpleProps[prop].includes('select')) {
+        model[prop] = input.value;
+      }
 
       input.addEventListener('change', ev => model.update({ [prop]: ev.target.value }));
 
-      return this.nodes.form;
+      return input;
 
     }
 
-    /* eslint-disable no-param-reassign */
     switch (prop) {
 
       case 'achievements': {
@@ -134,13 +122,19 @@ const FormView = class FormView extends View {
         ul.addEventListener('click', ev => {
           if (ev.target.tagName === 'IMG') {
 
-            const input = ul.querySelector(`input[data-id="${ev.target.dataset.random}"]`);
-            const i = model.achievements.indexOf(input.value);
+            const confirmed = confirm('Are you sure you want to delete this item?');
 
-            input.parentNode.remove();
+            if (confirmed) {
 
-            if (i >= 0) {
-              model.achievements.splice(i, 1);
+              const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
+              const i = model.achievements.indexOf(input.value);
+
+              input.parentNode.remove();
+
+              if (i >= 0) {
+                model.achievements.splice(i, 1);
+              }
+
             }
 
           }
@@ -180,7 +174,7 @@ const FormView = class FormView extends View {
 
           model.categories.forEach(cat => {
             if (categoryKeys.includes(cat)) {
-              clone.querySelector(`input[name="${cat.key}"]`).checked = true;
+              clone.querySelector(`input[name="${cat}"]`).checked = true;
             }
           });
 
@@ -218,15 +212,104 @@ const FormView = class FormView extends View {
 
         this.nodes.form.appendChild(clone);
 
+        const input = this.nodes.form.querySelector('input[name=date]');
         const waitTime = 1000;
-
         const debouncedListener = debounce(ev => {
           model.update({ date: new Date(ev.target.value) });
         }, waitTime);
 
-        this.nodes.form.querySelector('input[name="date"]').addEventListener('change', debouncedListener);
+        input.value = model.date ? new Date(model.date).toISOString().slice(0, 10) : '';
+        input.addEventListener('change', debouncedListener);
 
         break;
+
+      }
+
+      case 'endYear': {
+
+        this.nodes.form.appendChild(clone);
+
+        const input = this.nodes.form.querySelector('input[name=endYear]');
+
+        if (model.endYear) input.value = model.endYear;
+
+        input.addEventListener('change', () => {
+          const endYear = isNaN(input.value) ? input.value : Number(input.value);
+          model.update({ endYear });
+        });
+
+        return input;
+
+      }
+
+      case 'files': {
+
+        this.nodes.form.appendChild(clone);
+
+        const ul     = this.nodes.form.querySelector('fieldset[name=files] ul');
+        const input  = this.nodes.form.querySelector('input[name=file]');
+        const upload = document.getElementById('uploadFileButton');
+
+        model.files = model.files || {};
+
+        Object.keys(model.files).forEach(filename => ul.insertAdjacentHTML('beforeend', `
+          <li>
+            <p><a href='${model.files[filename]}'>${filename}</a></p>
+            <img
+              data-filename="${filename}"
+              src=/img/icons/delete.svg
+              alt='delete this file'
+            >
+          </li>
+        `));
+
+        ul.addEventListener('click', ev => {
+          if (ev.target.tagName === 'IMG') {
+            socket.emit('deleteFile', ev.target.dataset.filename, err => {
+              if (err) return app.displayError(err, 'Error deleting file.');
+
+              delete model.files[ev.target.dataset.filename];
+
+              model.save()
+              .then(res => {
+                this.model.update(res);
+                app.list.render();
+                this.render();
+              }).catch(err => app.displayError(err));
+
+            });
+          }
+        });
+
+        upload.addEventListener('click', () => {
+
+          if (!input.files.length) {
+            return app.displayError(new Error('Please select a file to upload.'));
+          }
+
+          const file = input.files[0];
+
+          if (!file.name.endsWith('.pdf')) {
+            return app.displayError(new Error('The file to upload must have a .pdf extension.'));
+          }
+
+          socket.emit('upsertFile', file.name, file, (err, res) => {
+
+            if (err) return app.displayError(err);
+
+            model.files[file.name] = `https://danielhieber.blob.core.windows.net/publications/${encodeURIComponent(res.name)}`;
+
+            this.model.save()
+            .then(res => {
+              this.model.update(res);
+              this.render();
+            }).catch(err => app.displayError(err));
+
+          });
+
+        });
+
+        return input;
 
       }
 
@@ -238,6 +321,7 @@ const FormView = class FormView extends View {
         const linkTypes = Object.keys(model.links);
         const li        = clone.querySelector('li');
         const ul        = clone.querySelector('ul');
+        let currentType = null;
 
         const populateLink = (listItem, linkType, link) => {
 
@@ -279,22 +363,23 @@ const FormView = class FormView extends View {
           ul.appendChild(listItem);
         });
 
-        ul.addEventListener('change', ev => {
+        ul.addEventListener('focus', ev => {
           if (ev.target.name === 'linkType') {
-
-            const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
-
-            for (const linkType in model.links) {
-              if (model.links.hasOwnProperty(linkType)) {
-                if (model.links[linkType] === input.value) {
-                  Reflect.deleteProperty(model.links, linkType);
-                }
-              }
-            }
-
-            model.links[ev.target.value] = input.value;
-
+            currentType = ev.target.value;
           }
+        });
+
+        ul.addEventListener('change', ev => {
+
+          const input = ul.querySelector(`input[data-id="${ev.target.dataset.id}"]`);
+          const type = ul.querySelector(`select[data-id="${ev.target.dataset.id}"]`).value;
+
+          if (ev.target.name === 'linkType') {
+            Reflect.deleteProperty(model.links, currentType);
+          }
+
+          model.links[type] = input.value;
+
         });
 
         ul.addEventListener('click', ev => {
@@ -303,7 +388,7 @@ const FormView = class FormView extends View {
             const confirmed = confirm('Are you sure you want to delete this item?');
 
             if (confirmed) {
-              const select = ul.querySelector(`select[data-id="${ev.target.dataset.random}"]`);
+              const select = ul.querySelector(`select[data-id="${ev.target.dataset.id}"]`);
               Reflect.deleteProperty(model.links, select.value);
               select.parentNode.remove();
             }
@@ -315,17 +400,45 @@ const FormView = class FormView extends View {
 
       }
 
+      case 'startYear': {
+
+        this.nodes.form.appendChild(clone);
+
+        const input = this.nodes.form.querySelector('input[name=startYear]');
+
+        if (model.startYear) input.value = model.startYear;
+
+        input.addEventListener('change', ev => model.update({ startYear: Number(ev.target.value) }));
+
+        return input;
+
+      }
+
+      case 'year': {
+
+        this.nodes.form.appendChild(clone);
+
+        const input = this.nodes.form.querySelector('input[name=year]');
+
+        if (model.year) input.value = model.year;
+
+        input.addEventListener('change', ev => model.update({ year: Number(ev.target.value) }));
+
+        return input;
+
+      }
+
       default: {
         return null;
       }
 
     }
 
-    /* eslint-enable no-param-reassign */
-
     return this.nodes.form;
 
   }
+
+  /* eslint-enable no-param-reassign */
 
   render() {
 
@@ -368,7 +481,7 @@ const FormView = class FormView extends View {
     ];
 
     this.el.addEventListener('change', ev => {
-      if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') {
+      if (ev.target.tagName === 'INPUT' && this.textProps.includes(ev.target.name)) {
         this.model.update({ [ev.target.name]: ev.target.value });
         if (displayProps.includes(ev.target.name)) debouncedListRender();
       }
@@ -383,8 +496,7 @@ const FormView = class FormView extends View {
           this.model.update(res);
           app.list.render();
           this.render();
-        })
-        .catch(err => this.displayError(err));
+        }).catch(err => app.displayError(err));
 
       } else if (ev.target.id === 'deleteButton') {
 
@@ -396,8 +508,25 @@ const FormView = class FormView extends View {
 
     });
 
+    this.nodes.buttons.display();
     this.display();
 
+  }
+
+  get textProps() {
+    return [
+      'abbreviation',
+      'author',
+      'autonym',
+      'key',
+      'location',
+      'name',
+      'organization',
+      'program',
+      'publication',
+      'role',
+      'title',
+    ];
   }
 
 };

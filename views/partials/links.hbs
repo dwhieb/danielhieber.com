@@ -1,29 +1,14 @@
-<template id=links-template>
+{{#section 'partialStyle'}}
+  <link rel=stylesheet href=/css/links.css>
+{{/section}}
 
-  <fieldset name=links>
-
-    <legend>Links</legend>
-
-    <ul>
-      <li>
-
-        <select name=linkType tabindex=22>
-          <option value=handout >handout</option>
-          <option value=info    >info   </option>
-          <option value=org     >org    </option>
-          <option value=pdf     >pdf    </option>
-          <option value=pub     >pub    </option>
-          <option value=slides  >slides </option>
-        </select>
-
-        <input type=url name=link placeholder=URL inputmode=url>
-        <img src=/img/delete.svg alt='delete this link'>
-
-      </li>
-    </ul>
-
-    <button type=button name=addLink>Add Link</button>
-
-  </fieldset>
-
-</template>
+<nav id=profile-links>
+  <h1>Me on the Web</h1>
+  <ul>
+    <li id=academia-link><a href=http://ucsb.academia.edu/DanielHieber>Academia.edu</a></li>
+    <li id=github-link><a href=https://github.com/dwhieb>GitHub</a></li>
+    <li id=linkedin-link><a href=https://www.linkedin.com/in/dwhieb>LinkedIn</a></li>
+    <li id=twitter-link><a href=https://twitter.com/dwhieb>Twitter</a></li>
+    <li id=facebook-link><a href=https://www.facebook.com/dwhieb>Facebook</a></li>
+  </ul>
+</nav>

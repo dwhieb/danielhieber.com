@@ -39,7 +39,7 @@ describe('Work', function WorkSpec() {
     expect(work instanceof Work).toBe(true);
     expect(work.type).toBe('work');
     expect(work.extraProperty).toBeUndefined();
-    expect(noEndYear).toThrow();
+    expect(noEndYear).not.toThrow();
     expect(noOrg).toThrow();
     expect(noRole).toThrow();
     expect(noStartYear).toThrow();

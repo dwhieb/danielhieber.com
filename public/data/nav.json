@@ -5,12 +5,6 @@
     "pageTitle": "Home",
     "path": "/"
   },
-  "blog": {
-    "eng": "Blog",
-    "ipa": "/ blɑg /",
-    "pageTitle": "Blog",
-    "path": "/blog"
-  },
   "research": {
     "eng": "Research",
     "ipa": "/ ɹisɜɹʧ /",

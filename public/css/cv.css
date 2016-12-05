@@ -1,0 +1,247 @@
+#cv-page cite {
+  font-style: italic;
+}
+#cv-page #contents h1 {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+#cv-page #contents ol {
+  padding: 0.25rem 0.5rem;
+}
+#cv-page #contents li {
+  flex-direction: row;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+}
+#cv-page #contents li::before {
+  background: rgba(146, 50, 226, 0.2);
+  border-left: 2px solid rgba(146, 50, 226, 0);
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  color: #9232E2;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transition: all 0.3s;
+  top: 0;
+  width: 0%;
+  z-index: -1;
+}
+#cv-page #contents li:hover::before,
+#cv-page #contents li:active::before {
+  border: none;
+  width: 100%;
+}
+#cv-page #contents a {
+  width: 100%;
+}
+#cv-page #cv {
+  padding: 1rem;
+}
+#cv-page #cv-header,
+#cv-page #cv-header > address {
+  align-items: center;
+}
+#cv-page #cv-header > div,
+#cv-page #cv-header > address > div {
+  padding: 1rem 0rem;
+}
+#cv-page #cv-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: -0.25rem;
+}
+#cv-page #cv-header h2 {
+  font-size: 1.5rem;
+}
+#cv-page #cv-header address a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page #cv-header address a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page #cv-header address a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+#cv-page #cv-header address a:active {
+  color: #3180E1;
+}
+#cv-page #cv-header > p {
+  font-style: italic;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+#cv-page #cv-header time {
+  font-style: normal;
+}
+#cv-page .cv-section a:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#cv-page .cv-section a:visited {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+#cv-page .cv-section a:hover {
+  border-bottom: 2px solid #3180E1;
+}
+#cv-page .cv-section a:active {
+  color: #3180E1;
+  font-weight: bold;
+}
+#cv-page .cv-section header {
+  align-items: center;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 0px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.25rem 0rem;
+}
+#cv-page .cv-section header h1 {
+  font-size: 1.5rem;
+}
+#cv-page .cv-section header a {
+  white-space: nowrap;
+}
+#cv-page .cv-section header ~ * {
+  margin: 0.5rem 0rem;
+}
+#cv-page .cvItem,
+#cv-page .date {
+  flex-direction: row;
+}
+#cv-page .cvItem {
+  margin: 0.25rem 0rem;
+}
+#cv-page .date {
+  max-width: 7.5em;
+  min-width: 7.5em;
+  width: 7.5em;
+}
+#cv-page .description {
+  display: inline;
+}
+#cv-page #headshot {
+  border-radius: 0.25rem;
+  box-shadow: 0px 0px 3px black;
+  height: 10rem;
+  width: 10rem;
+}
+#cv-page strong {
+  color: black;
+}
+#cv-page #languages .cvItem p {
+  width: 50%;
+}
+#cv-page #proficiencies h2 {
+  font-size: 1.25rem;
+}
+#cv-page #proficiencies li {
+  align-items: flex-start;
+}
+#cv-page #publications h2 {
+  font-size: 1.5rem;
+}
+#cv-page #publications li > time + div {
+  display: inline;
+}
+#cv-page #publications .citation {
+  display: inline;
+}
+#cv-page #publications .citation a {
+  font-weight: normal;
+}
+#cv-page #publications .citation a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page #publications .citation a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+#cv-page #publications .citation a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+#cv-page #publications .citation a:active {
+  color: #3180E1;
+}
+#cv-page #publications .links {
+  display: block;
+}
+#cv-page #references h2 {
+  font-size: 1.5rem;
+}
+#cv-page #references li {
+  align-items: center;
+  padding-bottom: 1rem;
+}
+#cv-page #teaching .cvItem {
+  flex-direction: column;
+}
+#cv-page #teaching h2 {
+  font-weight: bold;
+}
+#cv-page #teaching .description {
+  padding: 0.5rem 0rem;
+}
+#cv-page #teaching .description ul {
+  list-style: circle outside none;
+  margin-left: 2rem;
+}
+#cv-page #teaching .description ul li {
+  display: list-item;
+  padding-top: 0.25rem;
+}
+@media screen and (max-width: 699px) {
+  #cv-page {
+    position: relative;
+  }
+  #cv-page #profile-links {
+    left: 0;
+    padding: 0rem 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: calc(97%);
+  }
+}
+@media screen and (min-width: 1100px) {
+  #cv-header {
+    position: relative;
+  }
+  #headshot {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+@media screen and (min-width: 700px) {
+  #cv-page {
+    flex-direction: row;
+  }
+  #cv-page aside {
+    width: 25%;
+  }
+  #cv-page #cv {
+    margin-left: 1rem;
+    width: 75%;
+  }
+  #proficiencies {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #proficiencies header {
+    width: 100%;
+  }
+  #proficiencies section {
+    width: 50%;
+  }
+}

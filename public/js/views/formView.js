@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -10,7 +12,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* global app, Model, View */
+/* global app, debounce, Model, View */
 
 var FormView = function (_View) {
         _inherits(FormView, _View);
@@ -50,6 +52,8 @@ var FormView = function (_View) {
                         this.nodes.form.innerHTML = '';
                 }
 
+                /* eslint-disable no-param-reassign */
+
                 // - populate template
                 // - insert into DOM
                 // - add listeners (if necessary)
@@ -59,9 +63,7 @@ var FormView = function (_View) {
                 value: function populate(prop, clone, model) {
                         var _this2 = this;
 
-                        var textInputProps = ['abbreviation', 'author', 'autonym', 'key', 'location', 'name', 'organization', 'program', 'publication', 'role', 'title'];
-
-                        if (textInputProps.includes(prop)) {
+                        if (this.textProps.includes(prop)) {
                                 var input = clone.querySelector('input[name="' + prop + '"]');
                                 if (model[prop]) input.value = model[prop];
                                 return this.nodes.form.appendChild(clone);
@@ -71,12 +73,9 @@ var FormView = function (_View) {
                                 competency: 'select[name=competency]',
                                 description: 'textarea[name=description]',
                                 email: 'input[name=email]',
-                                endYear: 'input[name=endYear]',
                                 phone: 'input[name=phone]',
                                 proficiencyType: 'select[name=proficiencyType]',
-                                publicationType: 'select[name=publicationType]',
-                                startYear: 'input[name=startYear]',
-                                year: 'input[name=year]'
+                                publicationType: 'select[name=publicationType]'
                         };
 
                         if (prop in simpleProps) {
@@ -85,16 +84,19 @@ var FormView = function (_View) {
 
                                 var _input = this.nodes.form.querySelector(simpleProps[prop]);
 
-                                if (model[prop]) _input.value = model[prop];
+                                if (model[prop]) {
+                                        _input.value = model[prop];
+                                } else if (simpleProps[prop].includes('select')) {
+                                        model[prop] = _input.value;
+                                }
 
                                 _input.addEventListener('change', function (ev) {
                                         return model.update(_defineProperty({}, prop, ev.target.value));
                                 });
 
-                                return this.nodes.form;
+                                return _input;
                         }
 
-                        /* eslint-disable no-param-reassign */
                         switch (prop) {
 
                                 case 'achievements':
@@ -151,13 +153,18 @@ var FormView = function (_View) {
                                                         ul.addEventListener('click', function (ev) {
                                                                 if (ev.target.tagName === 'IMG') {
 
-                                                                        var _input2 = ul.querySelector('input[data-id="' + ev.target.dataset.random + '"]');
-                                                                        var i = model.achievements.indexOf(_input2.value);
+                                                                        var confirmed = confirm('Are you sure you want to delete this item?');
 
-                                                                        _input2.parentNode.remove();
+                                                                        if (confirmed) {
 
-                                                                        if (i >= 0) {
-                                                                                model.achievements.splice(i, 1);
+                                                                                var _input2 = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
+                                                                                var i = model.achievements.indexOf(_input2.value);
+
+                                                                                _input2.parentNode.remove();
+
+                                                                                if (i >= 0) {
+                                                                                        model.achievements.splice(i, 1);
+                                                                                }
                                                                         }
                                                                 }
                                                         });
@@ -205,7 +212,7 @@ var FormView = function (_View) {
 
                                                                         model.categories.forEach(function (cat) {
                                                                                 if (categoryKeys.includes(cat)) {
-                                                                                        clone.querySelector('input[name="' + cat.key + '"]').checked = true;
+                                                                                        clone.querySelector('input[name="' + cat + '"]').checked = true;
                                                                                 }
                                                                         });
                                                                 })();
@@ -244,20 +251,113 @@ var FormView = function (_View) {
 
                                                 this.nodes.form.appendChild(clone);
 
+                                                var _input3 = this.nodes.form.querySelector('input[name=date]');
                                                 var waitTime = 1000;
-
                                                 var debouncedListener = debounce(function (ev) {
                                                         model.update({ date: new Date(ev.target.value) });
                                                 }, waitTime);
 
-                                                this.nodes.form.querySelector('input[name="date"]').addEventListener('change', debouncedListener);
+                                                _input3.value = model.date ? new Date(model.date).toISOString().slice(0, 10) : '';
+                                                _input3.addEventListener('change', debouncedListener);
 
                                                 break;
                                         }
 
-                                case 'links':
+                                case 'endYear':
                                         {
                                                 var _ret4 = function () {
+
+                                                        _this2.nodes.form.appendChild(clone);
+
+                                                        var input = _this2.nodes.form.querySelector('input[name=endYear]');
+
+                                                        if (model.endYear) input.value = model.endYear;
+
+                                                        input.addEventListener('change', function () {
+                                                                var endYear = isNaN(input.value) ? input.value : Number(input.value);
+                                                                model.update({ endYear: endYear });
+                                                        });
+
+                                                        return {
+                                                                v: input
+                                                        };
+                                                }();
+
+                                                if ((typeof _ret4 === 'undefined' ? 'undefined' : _typeof(_ret4)) === "object") return _ret4.v;
+                                        }
+
+                                case 'files':
+                                        {
+                                                var _ret5 = function () {
+
+                                                        _this2.nodes.form.appendChild(clone);
+
+                                                        var ul = _this2.nodes.form.querySelector('fieldset[name=files] ul');
+                                                        var input = _this2.nodes.form.querySelector('input[name=file]');
+                                                        var upload = document.getElementById('uploadFileButton');
+
+                                                        model.files = model.files || {};
+
+                                                        Object.keys(model.files).forEach(function (filename) {
+                                                                return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <p><a href=\'' + model.files[filename] + '\'>' + filename + '</a></p>\n            <img\n              data-filename="' + filename + '"\n              src=/img/icons/delete.svg\n              alt=\'delete this file\'\n            >\n          </li>\n        ');
+                                                        });
+
+                                                        ul.addEventListener('click', function (ev) {
+                                                                if (ev.target.tagName === 'IMG') {
+                                                                        socket.emit('deleteFile', ev.target.dataset.filename, function (err) {
+                                                                                if (err) return app.displayError(err, 'Error deleting file.');
+
+                                                                                delete model.files[ev.target.dataset.filename];
+
+                                                                                model.save().then(function (res) {
+                                                                                        _this2.model.update(res);
+                                                                                        app.list.render();
+                                                                                        _this2.render();
+                                                                                }).catch(function (err) {
+                                                                                        return app.displayError(err);
+                                                                                });
+                                                                        });
+                                                                }
+                                                        });
+
+                                                        upload.addEventListener('click', function () {
+
+                                                                if (!input.files.length) {
+                                                                        return app.displayError(new Error('Please select a file to upload.'));
+                                                                }
+
+                                                                var file = input.files[0];
+
+                                                                if (!file.name.endsWith('.pdf')) {
+                                                                        return app.displayError(new Error('The file to upload must have a .pdf extension.'));
+                                                                }
+
+                                                                socket.emit('upsertFile', file.name, file, function (err, res) {
+
+                                                                        if (err) return app.displayError(err);
+
+                                                                        model.files[file.name] = 'https://danielhieber.blob.core.windows.net/publications/' + encodeURIComponent(res.name);
+
+                                                                        _this2.model.save().then(function (res) {
+                                                                                _this2.model.update(res);
+                                                                                _this2.render();
+                                                                        }).catch(function (err) {
+                                                                                return app.displayError(err);
+                                                                        });
+                                                                });
+                                                        });
+
+                                                        return {
+                                                                v: input
+                                                        };
+                                                }();
+
+                                                if ((typeof _ret5 === 'undefined' ? 'undefined' : _typeof(_ret5)) === "object") return _ret5.v;
+                                        }
+
+                                case 'links':
+                                        {
+                                                var _ret6 = function () {
 
                                                         model.links = model.links || {};
 
@@ -265,6 +365,7 @@ var FormView = function (_View) {
                                                         var linkTypes = Object.keys(model.links);
                                                         var li = clone.querySelector('li');
                                                         var ul = clone.querySelector('ul');
+                                                        var currentType = null;
 
                                                         var populateLink = function populateLink(listItem, linkType, link) {
 
@@ -303,21 +404,22 @@ var FormView = function (_View) {
                                                                 ul.appendChild(listItem);
                                                         });
 
-                                                        ul.addEventListener('change', function (ev) {
+                                                        ul.addEventListener('focus', function (ev) {
                                                                 if (ev.target.name === 'linkType') {
-
-                                                                        var _input3 = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
-
-                                                                        for (var linkType in model.links) {
-                                                                                if (model.links.hasOwnProperty(linkType)) {
-                                                                                        if (model.links[linkType] === _input3.value) {
-                                                                                                Reflect.deleteProperty(model.links, linkType);
-                                                                                        }
-                                                                                }
-                                                                        }
-
-                                                                        model.links[ev.target.value] = _input3.value;
+                                                                        currentType = ev.target.value;
                                                                 }
+                                                        });
+
+                                                        ul.addEventListener('change', function (ev) {
+
+                                                                var input = ul.querySelector('input[data-id="' + ev.target.dataset.id + '"]');
+                                                                var type = ul.querySelector('select[data-id="' + ev.target.dataset.id + '"]').value;
+
+                                                                if (ev.target.name === 'linkType') {
+                                                                        Reflect.deleteProperty(model.links, currentType);
+                                                                }
+
+                                                                model.links[type] = input.value;
                                                         });
 
                                                         ul.addEventListener('click', function (ev) {
@@ -326,7 +428,7 @@ var FormView = function (_View) {
                                                                         var confirmed = confirm('Are you sure you want to delete this item?');
 
                                                                         if (confirmed) {
-                                                                                var select = ul.querySelector('select[data-id="' + ev.target.dataset.random + '"]');
+                                                                                var select = ul.querySelector('select[data-id="' + ev.target.dataset.id + '"]');
                                                                                 Reflect.deleteProperty(model.links, select.value);
                                                                                 select.parentNode.remove();
                                                                         }
@@ -336,7 +438,39 @@ var FormView = function (_View) {
                                                         return 'break';
                                                 }();
 
-                                                if (_ret4 === 'break') break;
+                                                if (_ret6 === 'break') break;
+                                        }
+
+                                case 'startYear':
+                                        {
+
+                                                this.nodes.form.appendChild(clone);
+
+                                                var _input4 = this.nodes.form.querySelector('input[name=startYear]');
+
+                                                if (model.startYear) _input4.value = model.startYear;
+
+                                                _input4.addEventListener('change', function (ev) {
+                                                        return model.update({ startYear: Number(ev.target.value) });
+                                                });
+
+                                                return _input4;
+                                        }
+
+                                case 'year':
+                                        {
+
+                                                this.nodes.form.appendChild(clone);
+
+                                                var _input5 = this.nodes.form.querySelector('input[name=year]');
+
+                                                if (model.year) _input5.value = model.year;
+
+                                                _input5.addEventListener('change', function (ev) {
+                                                        return model.update({ year: Number(ev.target.value) });
+                                                });
+
+                                                return _input5;
                                         }
 
                                 default:
@@ -346,10 +480,11 @@ var FormView = function (_View) {
 
                         }
 
-                        /* eslint-enable no-param-reassign */
-
                         return this.nodes.form;
                 }
+
+                /* eslint-enable no-param-reassign */
+
         }, {
                 key: 'render',
                 value: function render() {
@@ -390,7 +525,7 @@ var FormView = function (_View) {
                         var displayProps = ['location', 'name', 'organization', 'title'];
 
                         this.el.addEventListener('change', function (ev) {
-                                if (ev.target.tagName === 'INPUT' && ev.target.type === 'text') {
+                                if (ev.target.tagName === 'INPUT' && _this3.textProps.includes(ev.target.name)) {
                                         _this3.model.update(_defineProperty({}, ev.target.name, ev.target.value));
                                         if (displayProps.includes(ev.target.name)) debouncedListRender();
                                 }
@@ -405,7 +540,7 @@ var FormView = function (_View) {
                                                 app.list.render();
                                                 _this3.render();
                                         }).catch(function (err) {
-                                                return _this3.displayError(err);
+                                                return app.displayError(err);
                                         });
                                 } else if (ev.target.id === 'deleteButton') {
 
@@ -415,7 +550,13 @@ var FormView = function (_View) {
                                 }
                         });
 
+                        this.nodes.buttons.display();
                         this.display();
+                }
+        }, {
+                key: 'textProps',
+                get: function get() {
+                        return ['abbreviation', 'author', 'autonym', 'key', 'location', 'name', 'organization', 'program', 'publication', 'role', 'title'];
                 }
         }]);
 

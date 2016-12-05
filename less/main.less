@@ -23,11 +23,11 @@
 }
 
 .bulleted {
-  list-style: disc outside none;
+  list-style: circle outside none;
   margin-left: 2rem;
   li {
     display: list-item;
-    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
   }
 }
 
@@ -112,6 +112,7 @@ form {
   input[type=number],
   input[type=tel],
   input[type=text],
+  input[type=url],
   textarea {
     .field;
     .sharp-rounded;
@@ -124,10 +125,7 @@ form {
     b { font-weight: bold; }
   }
 
-  select {
-    .sharp-rounded;
-    align-self: flex-start;
-  }
+  select { .sharp-rounded; }
 
 }
 
@@ -153,11 +151,26 @@ i {
   white-space: nowrap;
 }
 
+.sidebar-header {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+
 .sharp-rounded {
   border-radius: 0.125em;
 }
 
 .link {
+  &:link { color: @blue; border-bottom: 1px solid white; }
+  &:visited { color: @blue; border-bottom: 1px solid white; }
+  &:hover { border-bottom: 1px solid @blue; }
+  &:active { color: @blue; }
+}
+
+.boldLink {
   &:link { .boldBlue; border-bottom: 2px solid white; }
   &:visited { .boldBlue; border-bottom: 2px solid white; }
   &:hover { border-bottom: 2px solid @blue; }

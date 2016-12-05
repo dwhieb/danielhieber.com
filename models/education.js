@@ -27,7 +27,6 @@ const Education = class Education extends Document {
 
     // required attributes
     const required = [
-      'endYear',
       'location',
       'organization',
       'startYear',
@@ -45,6 +44,7 @@ const Education = class Education extends Document {
 
     // set document type to "education"
     ed.type = 'education';
+    ed.endYear = ed.endYear || '';
 
     // instantiate a document
     super(ed, whitelist);

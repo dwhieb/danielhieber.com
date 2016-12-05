@@ -15,6 +15,7 @@
   <link rel=stylesheet href=/css/main.css type=text/css>
 
   {{{sections.style}}}
+  {{{sections.partialStyle}}}
 
 </head>
 
@@ -26,7 +27,7 @@
   {{#if header}}
 
   {{!-- Subscribe to blog button --}}
-  <button id=subscribe type=button name=subscribe onclick="window.location = 'https://blog.danielhieber.com/subscribe/';">Subscribe to my blog!</button>
+  {{!-- <button id=subscribe type=button name=subscribe onclick="window.location = 'https://blog.danielhieber.com/subscribe/';">Subscribe to my blog!</button> --}}
 
   {{!-- Site header, with rotating gallery images --}}
   <header id=header>
@@ -34,7 +35,7 @@
 
       <h1 class=rollover>
         <span lang=en>Daniel W. Hieber</span>
-        <span lang=en-fonipa>/dænjəl hibə˞/</span>
+        <span lang=en-fonipa>/dænjəl hibəɹ/</span>
       </h1>
 
       <h2>Graduate student in linguistics at the University of California, Santa Barbara</h2>
@@ -50,13 +51,13 @@
   <nav id=nav>
 
     <label for=menuToggle>
-      <img id=menuButton src=/img/menu.svg alt='open/close menu'>
+      <img id=menuButton src=/img/icons/menu.svg alt='open/close menu'>
     </label>
 
     <ul>
       {{#each nav}}
       <li {{#if selected}} class=selected {{/if}}>
-        <a class=rollover href={{path}}>
+        <a class=rollover href="{{path}}">
           <span lang=en>{{eng}}</span>
           <span lang=en-fonipa>{{ipa}}</span>
         </a>

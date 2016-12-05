@@ -47,7 +47,7 @@ describe('Education', function EducationSpec() {
     expect(ed.program).toBeUndefined();
     expect(ed.type).toBe('education');
     expect(ed.links).toBeDefined();
-    expect(noEndYear).toThrow();
+    expect(noEndYear).not.toThrow();
     expect(noLoc).toThrow();
     expect(noOrg).toThrow();
     expect(noStartYear).toThrow();

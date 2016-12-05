@@ -1,95 +1,81 @@
-.link:link {
+#home .boldPinkLink:link {
   color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-.link:visited {
+#home .boldPinkLink:visited {
   color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-.link:hover {
+#home .boldPinkLink:hover {
   border-bottom: 2px solid #E23281;
 }
-.link:active {
+#home .boldPinkLink:active {
   color: #E23281;
   font-weight: bold;
 }
-#intro {
+#home #intro {
   align-items: center;
 }
-#intro p {
+#home #intro p {
   font-size: 150%;
 }
-#intro a:link {
-  color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-#intro a:visited {
-  color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-#intro a:hover {
-  border-bottom: 2px solid #3180E1;
-}
-#intro a:active {
-  color: #3180E1;
-  font-weight: bold;
-}
-#intro a:link {
+#home #intro a:link {
   color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#intro a:visited {
+#home #intro a:visited {
   color: #E23281;
   font-weight: bold;
   border-bottom: 2px solid white;
 }
-#intro a:hover {
+#home #intro a:hover {
   border-bottom: 2px solid #E23281;
 }
-#intro a:active {
+#home #intro a:active {
   color: #E23281;
   font-weight: bold;
 }
-#singing {
+#home #singing {
   padding: 0.5rem 0rem 1.5rem 0rem;
 }
-#posts h1 {
-  font-size: 1.5rem;
+#home #posts h1 {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
   font-weight: bold;
+  padding: 0.25rem 0.5rem;
 }
-#posts li {
+#home #posts li {
   border: 1px solid black;
   border-radius: 0.5rem;
   margin: 0.5rem 0rem;
   padding: 1rem;
 }
-#posts li > a {
+#home #posts li > a {
   align-items: center;
   display: flex;
 }
-#posts div {
+#home #posts div {
   padding-top: 0.5rem;
 }
-#posts h2 {
+#home #posts h2 {
   font-weight: bold;
 }
-#posts time {
+#home #posts time {
   font-style: italic;
   padding-bottom: 0.5rem;
 }
-#posts span,
-#posts .error-fallback {
+#home #posts span,
+#home #posts .error-fallback {
   color: #3180E1;
   font-weight: bold;
 }
-#posts span:hover,
-#posts .error-fallback:hover {
-  border-bottom: 2px solid #3180E1;
+#home #posts span:hover,
+#home #posts .error-fallback:hover {
+  border-bottom: 2px solid #9232E2;
 }
 @media screen and (max-width: 699px) {
   #gradSlam {
@@ -99,28 +85,36 @@
   #singing {
     width: 100%;
   }
-  #posts h1 {
-    font-size: 2rem;
+  aside > * {
+    padding-top: 1rem;
+  }
+  aside h1 {
+    font-size: 1.25rem;
+  }
+  #posts {
+    order: 1;
+  }
+  #profile-links {
+    order: 2;
   }
 }
 @media screen and (min-width: 700px) {
   #home {
     flex-direction: row;
   }
-  #intro {
+  #home #intro {
     padding: 1rem;
     width: 70%;
   }
-  #posts {
-    padding: 1rem;
+  #home aside {
     width: 30%;
   }
-  #gradSlam {
+  #home #gradSlam {
     float: left;
     margin: 0.5rem 1.5rem 1.5rem 0rem;
     width: 50%;
   }
-  #singing {
+  #home #singing {
     margin: auto;
     width: 75%;
   }

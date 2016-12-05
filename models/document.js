@@ -133,7 +133,7 @@ const Document = class Document {
           enumerable: true,
           get() { return _private[prop]; },
           set(val) {
-            _private[prop] = String(val);
+            _private[prop] = String(val).trim();
             return _private[prop];
           },
         });
@@ -504,6 +504,7 @@ const Document = class Document {
   static get cvTypes() {
     return [
       'award',
+      'course',
       'education',
       'fieldwork',
       'language',

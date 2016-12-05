@@ -165,10 +165,10 @@ blockquote,
 q {
   quotes: none;
 }
-blockquote:before,
-q:before,
-blockquote:after,
-q:after {
+blockquote::before,
+q::before,
+blockquote::after,
+q::after {
   content: '';
   content: none;
 }

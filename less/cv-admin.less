@@ -39,13 +39,51 @@ button {
 }
 
 #form {
+
   legend { font-weight: bold; }
+
+  fieldset[name=achievements] li,
+  fieldset[name=links] li {
+    align-items: center;
+    flex-direction: row;
+    input {
+      .field;
+      flex-grow: 1;
+    }
+    img { height: 2em; }
+  }
+
   fieldset[name=categories] label {
     align-items: center;
     flex-direction: row;
     padding: 0;
     input { margin: 0rem 0.5rem; }
   }
+
+  textarea[name=description] { .field; }
+
+  fieldset[name=files] {
+    .inputs,
+    li {
+      align-items: center;
+      flex-direction: row;
+      position: relative;
+      p { margin-right: 2em; }
+      a { .link; }
+    }
+    img {
+      cursor: pointer;
+      display: none;
+      height: 2em;
+      position: absolute;
+      right: 0;
+      top: auto;
+      width: 2em;
+    }
+    li:hover img { display: flex; }
+  }
+
+  fieldset[name=links] select { margin: 0.5rem; }
 
   label[for=publicationType]  { order: 1; }
   label[for=author]           { order: 2; }
@@ -71,6 +109,8 @@ button {
   fieldset[name=links]        { order: 22; }
   label[for=description]      { order: 23; }
   fieldset[name=achievements] { order: 24; }
+  fieldset[name=files]        { order: 25; }
+
 }
 
   #deleteButton {

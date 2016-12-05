@@ -105,19 +105,12 @@ var ListView = function (_View) {
       this.hide();
       this.removeListeners();
       this.nodes.list.innerHTML = '';
-
-      this.collection.sort(function (a, b) {
-        if (a.title) return a.title > b.title;
-        if (a.name) return a.name > b.name;
-        if (a.organization) return a.organization > b.organization;
-        if (a.location) return a.location > b.location;
-        return a.id > b.id;
-      });
+      this.sort();
 
       this.collection.forEach(function (model) {
 
         var listItem = _this2.template.content.cloneNode(true);
-        var listItemText = model.title || model.organization || model.location || model.name || '(No Description)';
+        var listItemText = model.title || model.name || model.organization || model.location || '(No Description)';
 
         listItem.querySelector('p').textContent = listItemText;
         listItem.querySelector('li').model = model;
@@ -175,7 +168,14 @@ var ListView = function (_View) {
   }, {
     key: 'sort',
     value: function sort() {
-      return this;
+
+      return this.collection.sort(function (a, b) {
+        if (a.title) return a.title > b.title;
+        if (a.location) return a.location > b.location;
+        if (a.name) return a.name > b.name;
+        if (a.organization) return a.organization > b.organization;
+        return a.id > b.id;
+      });
     }
   }]);
 

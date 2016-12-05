@@ -12,7 +12,7 @@
   <section>
     <ul>
       {{#each categories}}
-        <li>
+        <li data-key="{{key}}">
           <input type=radio id="{{key}}" name="tabs">
           <label for="{{key}}">{{title}}</label>
           <div class=description>
