@@ -315,7 +315,7 @@ var FormView = function (_View) {
                                                         model.files = model.files || {};
 
                                                         Object.keys(model.files).forEach(function (filename) {
-                                                                return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <p><a href=\'' + model.files[filename] + '\'>' + filename + '</a></p>\n            <img\n              data-filename="' + filename + '"\n              src=/img/icons/delete.svg\n              alt=\'delete this file\'\n            >\n          </li>\n        ');
+                                                                return ul.insertAdjacentHTML('beforeend', '\n          <li>\n            <p><a href="' + model.files[filename] + '">' + filename + '</a></p>\n            <img\n              data-filename="' + filename + '"\n              src=/img/icons/delete.svg\n              alt=\'delete this file\'\n            >\n          </li>\n        ');
                                                         });
 
                                                         ul.addEventListener('click', function (ev) {

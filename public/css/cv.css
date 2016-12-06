@@ -173,7 +173,7 @@
   color: #3180E1;
 }
 #cv-page #publications .links {
-  display: block;
+  display: inline;
 }
 #cv-page #references h2 {
   font-size: 1.5rem;

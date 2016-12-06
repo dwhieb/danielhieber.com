@@ -170,11 +170,11 @@ var ListView = function (_View) {
     value: function sort() {
 
       return this.collection.sort(function (a, b) {
-        if (a.title) return a.title > b.title;
-        if (a.location) return a.location > b.location;
-        if (a.name) return a.name > b.name;
-        if (a.organization) return a.organization > b.organization;
-        return a.id > b.id;
+        if (a.title && a.title < b.title) return -1;
+        if (a.location && a.location < b.location) return -1;
+        if (a.name && a.name < b.name) return -1;
+        if (a.organization & a.organization < b.organization) return -1;
+        return 1;
       });
     }
   }]);
