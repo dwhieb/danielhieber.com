@@ -190,12 +190,18 @@
                 <div>
 
                   <h3>
-                    {{#if links.pdf}}<a href="{{links.pdf}}">{{title}}.</a>
-                    {{else if links.pub}}<a href="{{links.pub}}">{{title}}.</a>
-                    {{else}}<strong>{{title}}.</strong>{{/if}}
+                    {{#if links.pdf}}<a href="{{links.pdf}}">{{title}}</a>
+                    {{else if links.slides}}<a href="{{links.slides}}">{{title}}</a>
+                    {{else if links.pub}}<a href="{{links.pub}}" target=_blank>{{title}}</a>
+                    {{else}}<strong>{{title}}</strong>{{/if}}
                   </h3>
 
-                  <div class=citation>{{{html}}}</div>
+                  <div class=citation>
+                    {{{html}}}
+                    {{#if links.doi}}
+                      DOI: <a href="{{links.doi}}" target=_blank>{{links.doi}}</a>
+                    {{/if}}
+                  </div>
 
                   <p class=links>
                     {{#if links.info}}    <a href="{{links.info}}"    >(more info)</a>{{/if}}
