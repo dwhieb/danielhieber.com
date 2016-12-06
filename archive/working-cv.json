@@ -1,24 +1,5 @@
 [
   {
-    "id": "96",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Why do languages die?",
-    "date": "2012-01-04",
-    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
-    "categories": [
-      "prax"
-    ],
-    "links": {
-      "pubLink": "http://mises.org/daily/5846/Why-Do-Languages-Die"
-    },
-    "_rid": "9XUnAOPvcgBNAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBNAAAAAAAAAA==/",
-    "_etag": "\"00002b03-0000-0000-0000-568de86a0000\"",
-    "_ts": 1452140650,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "95",
     "type": "publication",
     "publicationType": "presentation",
@@ -54,25 +35,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBPAAAAAAAAAA==/",
     "_etag": "\"00005f00-0000-0000-0000-568daa490000\"",
     "_ts": 1452124745,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "93",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "English for all, freedom for none",
-    "date": "2012-09-25",
-    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
-    "categories": [
-      "prax"
-    ],
-    "links": {
-      "pubLink": "http://mises.org/daily/6199/English-for-All-Freedom-for-None"
-    },
-    "_rid": "9XUnAOPvcgBQAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBQAAAAAAAAAA==/",
-    "_etag": "\"00005e00-0000-0000-0000-568daa3d0000\"",
-    "_ts": 1452124733,
     "_attachments": "attachments/"
   },
   {
@@ -166,26 +128,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBXAAAAAAAAAA==/",
     "_etag": "\"00005700-0000-0000-0000-568daa060000\"",
     "_ts": 1452124678,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "85",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Language revitalization in Africa",
-    "date": "2014-10-14",
-    "citation": "LSA Committee on Endangered Languages & their Preservation blog.",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "pubLink": "https://www.facebook.com/notes/committee-on-endangered-languages-and-their-preservation/language-revitalization-in-africa/745305242171758"
-    },
-    "_rid": "9XUnAOPvcgBYAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBYAAAAAAAAAA==/",
-    "_etag": "\"00005600-0000-0000-0000-568da9ee0000\"",
-    "_ts": 1452124654,
     "_attachments": "attachments/"
   },
   {
@@ -567,26 +509,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "60",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "A dying language is making a comeback",
-    "date": "2015-07-29",
-    "citation": "<cite>Time Magazine</cite>. Originally published in <cite><a href='http://theconversation.com/renaissance-on-the-bayou-the-revival-of-a-lost-language-43958'>The Conversation</a></cite> as ‘Renaissance on the bayou: The revival of a lost language’. Also published in <cite><a href='http://languagemagazine.com/?p=124218'>Language Magazine</a></cite>, <cite><a href='http://www.houstonchronicle.com/local/gray-matters/article/Reviving-a-lost-language-of-Louisiana-6409708'>The Houston Chronicle</a></cite>. http://www.houstonchronicle.com/local/gray-matters/article/Reviving-a-lost-language-of-Louisiana-6409708.php",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "pubLink": "http://time.com/3975016/chitimacha-language-comeback/"
-    },
-    "_rid": "9XUnAOPvcgBxAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBxAAAAAAAAAA==/",
-    "_etag": "\"00002603-0000-0000-0000-568de8200000\"",
-    "_ts": 1452140576,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "59",
     "type": "publication",
     "publicationType": "review",
@@ -603,25 +525,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgByAAAAAAAAAA==/",
     "_etag": "\"00003c00-0000-0000-0000-568da8a50000\"",
     "_ts": 1452124325,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "58",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "Language as action",
-    "date": "2013-06-14",
-    "citation": "<cite>Mises Daily</cite>, Ludwig von Mises Institute.",
-    "categories": [
-      "prax"
-    ],
-    "links": {
-      "pubLink": "http://mises.org/daily/6448/Language-as-Action"
-    },
-    "_rid": "9XUnAOPvcgBzAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBzAAAAAAAAAA==/",
-    "_etag": "\"00003b00-0000-0000-0000-568da89e0000\"",
-    "_ts": 1452124318,
     "_attachments": "attachments/"
   },
   {
@@ -678,26 +581,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB2AAAAAAAAAA==/",
     "_etag": "\"00003800-0000-0000-0000-568da8880000\"",
     "_ts": 1452124296,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "53",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Digital collaboration: 21st century tools for revitalization",
-    "date": "2012-06-01",
-    "citation": "Poster presented at the Language Revitalization in the 21st Century.",
-    "categories": [
-      "dlx",
-      "doc"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1fAuXXX"
-    },
-    "_rid": "9XUnAOPvcgB4AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB4AAAAAAAAAA==/",
-    "_etag": "\"00003600-0000-0000-0000-568da8790000\"",
-    "_ts": 1452124281,
     "_attachments": "attachments/"
   },
   {
@@ -979,23 +862,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCKAAAAAAAAAA==/",
     "_etag": "\"00002300-0000-0000-0000-568da7e60000\"",
     "_ts": 1452124134,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "34",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Rapid reading",
-    "date": "2012-02-02",
-    "citation": "Content Development Department, Rosetta Stone, Harrisonburg, VA.",
-    "categories": [],
-    "links": {
-      "slides": "http://1drv.ms/1O4uyZg"
-    },
-    "_rid": "9XUnAOPvcgCLAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCLAAAAAAAAAA==/",
-    "_etag": "\"00002200-0000-0000-0000-568da7df0000\"",
-    "_ts": 1452124127,
     "_attachments": "attachments/"
   },
   {
