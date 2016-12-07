@@ -1,24 +1,5 @@
 [
   {
-    "id": "95",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Elicitation techniques",
-    "date": "2010-06-01",
-    "citation": "Invited talk, Content Development Department, Rosetta Stone, Harrisonburg, VA.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "folder": "http://1drv.ms/1dUE2Ju"
-    },
-    "_rid": "9XUnAOPvcgBOAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBOAAAAAAAAAA==/",
-    "_etag": "\"00006000-0000-0000-0000-568daa500000\"",
-    "_ts": 1452124752,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "94",
     "type": "publication",
     "publicationType": "unpublished",
@@ -35,25 +16,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBPAAAAAAAAAA==/",
     "_etag": "\"00005f00-0000-0000-0000-568daa490000\"",
     "_ts": 1452124745,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "92",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "The politically incorrect guide to language death",
-    "date": "2012-11-06",
-    "citation": "Invited guest lecture, Anthropology 305: ‘Language & Culture’, Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
-    "categories": [
-      "prax"
-    ],
-    "links": {
-      "folder": "http://1drv.ms/1eRRbno"
-    },
-    "_rid": "9XUnAOPvcgBRAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBRAAAAAAAAAA==/",
-    "_etag": "\"00005d00-0000-0000-0000-568daa340000\"",
-    "_ts": 1452124724,
     "_attachments": "attachments/"
   },
   {
@@ -95,59 +57,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "88",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Marian Klamer, <cite>A short grammar of Alorese (Austronesian)</cite>",
-    "date": "2013-06-19",
-    "citation": "<cite>eLanguage</cite> book notice.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "pubLink": "http://journals.linguisticsociety.org/booknotices/?p=2525"
-    },
-    "_rid": "9XUnAOPvcgBVAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBVAAAAAAAAAA==/",
-    "_etag": "\"00005900-0000-0000-0000-568daa150000\"",
-    "_ts": 1452124693,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "86",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Language change & variation in Mombasa: Recent trends in Kimvita Swahili",
-    "date": "2007-06-01",
-    "citation": "Independent study project, ‘Development, Health, & Society’, Spring 2007, School for International Training, Nairobi, Kenya.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1eUM9Xb"
-    },
-    "_rid": "9XUnAOPvcgBXAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBXAAAAAAAAAA==/",
-    "_etag": "\"00005700-0000-0000-0000-568daa060000\"",
-    "_ts": 1452124678,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "84",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Terrence Deacon, ‘Language origins: What coevolved, what devolved, and what’s universal’",
-    "date": "2011-08-12",
-    "citation": "Summary of Terrence Deacon’s plenary talk at the LSA Institute 2011, presented to the Content Development Department, Rosetta Stone, Harrisonburg, VA.",
-    "categories": [],
-    "links": {
-      "slides": "http://1drv.ms/1fAMhvZ"
-    },
-    "_rid": "9XUnAOPvcgBZAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBZAAAAAAAAAA==/",
-    "_etag": "\"00005500-0000-0000-0000-568da9670000\"",
-    "_ts": 1452124519,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "82",
     "type": "publication",
     "publicationType": "unpublished",
@@ -162,61 +71,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBbAAAAAAAAAA==/",
     "_etag": "\"00005300-0000-0000-0000-568da9560000\"",
     "_ts": 1452124502,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "81",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Canonical typology",
-    "date": "2011-09-01",
-    "citation": "Lecture given to the Content Development department, Rosetta Stone, Harrisonburg, VA.",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1HXGuLB"
-    },
-    "_rid": "9XUnAOPvcgBcAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBcAAAAAAAAAA==/",
-    "_etag": "\"00005200-0000-0000-0000-568da9500000\"",
-    "_ts": 1452124496,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "80",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "An introduction to typology",
-    "date": "2012-05-01",
-    "citation": "Three-part lecture series. Rosetta Stone, Harrisonburg, VA.",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "folder": "http://1drv.ms/1RqXksh"
-    },
-    "_rid": "9XUnAOPvcgBdAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBdAAAAAAAAAA==/",
-    "_etag": "\"00005100-0000-0000-0000-568da9480000\"",
-    "_ts": 1452124488,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "79",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Review of <cite>Baboon metaphysics: The evolution of a social mind</cite>, by Dorothy L. Cheney & Robert M. Seyfarth",
-    "date": "2007-11-05",
-    "citation": "Term paper, ‘Science & Human Agency’, Prof. Paul S. Davies, Winter 2005, The College of William & Mary.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1RsO3Ae"
-    },
-    "_rid": "9XUnAOPvcgBeAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBeAAAAAAAAAA==/",
-    "_etag": "\"00005000-0000-0000-0000-568da9420000\"",
-    "_ts": 1452124482,
     "_attachments": "attachments/"
   },
   {
@@ -277,26 +131,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "73",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Kristina Riedel, <cite>The syntax of object marking in Sambaa</cite>",
-    "date": "2010-10-14",
-    "citation": "Linguist List 21.4069.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issues/21/21-4069.html"
-    },
-    "_rid": "9XUnAOPvcgBkAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBkAAAAAAAAAA==/",
-    "_etag": "\"00004a00-0000-0000-0000-568da9150000\"",
-    "_ts": 1452124437,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "72",
     "type": "publication",
     "publicationType": "unpublished",
@@ -354,25 +188,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "69",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Linguistics in industry",
-    "date": "2013-11-12",
-    "citation": "Invited talk, UCSB Linguistics Club, Santa Barbara, CA.",
-    "categories": [
-      "dlx"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1GgoOoS"
-    },
-    "_rid": "9XUnAOPvcgBoAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBoAAAAAAAAAA==/",
-    "_etag": "\"00004600-0000-0000-0000-568da8fa0000\"",
-    "_ts": 1452124410,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "68",
     "type": "publication",
     "publicationType": "unpublished",
@@ -389,25 +204,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBpAAAAAAAAAA==/",
     "_etag": "\"00004500-0000-0000-0000-568da8f30000\"",
     "_ts": 1452124403,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "67",
-    "type": "publication",
-    "publicationType": "online",
-    "title": "A world of words",
-    "date": "2013-07-01",
-    "citation": "Blog post written for the Rosetta Stone blog. (Left the company before it was published.)",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1CzIlph"
-    },
-    "_rid": "9XUnAOPvcgBqAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBqAAAAAAAAAA==/",
-    "_etag": "\"00004400-0000-0000-0000-568da8ec0000\"",
-    "_ts": 1452124396,
     "_attachments": "attachments/"
   },
   {
@@ -449,158 +245,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "64",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "A case study in digital collaboration: Navajo Language Renaissance & Rosetta Stone Navajo",
-    "date": "2011-05-20",
-    "citation": "With Lorraine Begay Manavi & Marion K. Bittinger. Stabilizing Indigenous Languages Symposium (SILS), Albuquerque, NM.",
-    "categories": [
-      "dlx",
-      "doc"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1L0q8Ep"
-    },
-    "_rid": "9XUnAOPvcgBtAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBtAAAAAAAAAA==/",
-    "_etag": "\"00004100-0000-0000-0000-568da8d30000\"",
-    "_ts": 1452124371,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "62",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Category genesis through schematicity: On the origin of Chitimacha preverbs",
-    "date": "2014-10-11",
-    "citation": "Paper presented at the UC Santa Barbara Linguistics Department’s Silver Anniversary Conference, University of California, Santa Barbara.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1Hw9LYU"
-    },
-    "_rid": "9XUnAOPvcgBvAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBvAAAAAAAAAA==/",
-    "_etag": "\"00003f00-0000-0000-0000-568da8bf0000\"",
-    "_ts": 1452124351,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "61",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Review of <cite>When languages die: The extinction of the world’s languages and the erosion of human knowledge</cite>",
-    "date": "2008-10-29",
-    "citation": "",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1fBcpad"
-    },
-    "_rid": "9XUnAOPvcgBwAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgBwAAAAAAAAAA==/",
-    "_etag": "\"00003e00-0000-0000-0000-568da8b50000\"",
-    "_ts": 1452124341,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "59",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Dunstan Brown, Marina Chumakina, & Greville G. Corbett (eds.), <cite>Canonical morphology & syntax</cite>",
-    "date": "2013-12-05",
-    "citation": "Linguist List 24.4963.",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issues/24/24-4963.html"
-    },
-    "_rid": "9XUnAOPvcgByAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgByAAAAAAAAAA==/",
-    "_etag": "\"00003c00-0000-0000-0000-568da8a50000\"",
-    "_ts": 1452124325,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "57",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Language endangerment: A history",
-    "date": "2011-11-01",
-    "citation": "Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1O41zEZ"
-    },
-    "_rid": "9XUnAOPvcgB0AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB0AAAAAAAAAA==/",
-    "_etag": "\"00003a00-0000-0000-0000-568da8960000\"",
-    "_ts": 1452124310,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "56",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "The syntactic typology of Choctaw & Nankina",
-    "date": "2011-07-01",
-    "citation": "Term paper, ‘Syntactic Typology’, Prof. Irina Nikolaeva, LSA Linguistic Institute 2011, University of Colorado, Boulder.",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1K2USBx"
-    },
-    "_rid": "9XUnAOPvcgB1AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB1AAAAAAAAAA==/",
-    "_etag": "\"00003900-0000-0000-0000-568da8900000\"",
-    "_ts": 1452124304,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "55",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Discourse connectives and pragmatic implications",
-    "date": "2006-05-10",
-    "citation": "Term paper, ‘Semantics’, Prof. Ann M. Reed, Spring 2006, The College of William & Mary.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1MoZLFo"
-    },
-    "_rid": "9XUnAOPvcgB2AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB2AAAAAAAAAA==/",
-    "_etag": "\"00003800-0000-0000-0000-568da8880000\"",
-    "_ts": 1452124296,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "52",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Reduplicative roots in Chitimacha",
-    "date": "2014-05-13",
-    "citation": "Term paper, ‘Introduction to Morphology’, Prof. Marianne Mithun, Spring 2014, UC Santa Barbara.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1eUHG6X"
-    },
-    "_rid": "9XUnAOPvcgB5AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB5AAAAAAAAAA==/",
-    "_etag": "\"00003500-0000-0000-0000-568da8720000\"",
-    "_ts": 1452124274,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "51",
     "type": "publication",
     "publicationType": "online",
@@ -637,125 +281,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "47",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Degrees & dimensions of grammaticalization in Chitimacha preverbs",
-    "date": "2014-05-02",
-    "citation": "17th Annual Workshop on American Indigenous Languages (WAIL), University of California, Santa Barbara.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1HnYxca"
-    },
-    "_rid": "9XUnAOPvcgB+AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB+AAAAAAAAAA==/",
-    "_etag": "\"00003000-0000-0000-0000-568da84c0000\"",
-    "_ts": 1452124236,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "46",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "What’s in a word? Code-switching in Mombasa Swahili",
-    "date": "2006-12-15",
-    "citation": "Term paper, ‘Swahili Language & Culture Studies’, Fall 2006, School for International Training, Mombasa, Kenya.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1K2WTxF"
-    },
-    "_rid": "9XUnAOPvcgB-AAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgB-AAAAAAAAAA==/",
-    "_etag": "\"00002f00-0000-0000-0000-568da8430000\"",
-    "_ts": 1452124227,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "45",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Rosetta Stone & Navajo Language Renaissance",
-    "date": "2012-08-16",
-    "citation": "With Lorraine Begay Manavi & Kasra Manavi. Invited keynote, Athabaskan (Dene) Languages Conference, Western Washington University, Bellingham, WA.",
-    "categories": [
-      "dlx",
-      "doc"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1fzdn6G"
-    },
-    "_rid": "9XUnAOPvcgCAAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCAAAAAAAAAAA==/",
-    "_etag": "\"00002e00-0000-0000-0000-568da83a0000\"",
-    "_ts": 1452124218,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "44",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Nicholas Evans, <cite>Dying words: Endangered languages and what they have to tell us</cite>",
-    "date": "2009-08-03",
-    "citation": "Linguist List 20.2673.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issue/20/20-2673.html"
-    },
-    "_rid": "9XUnAOPvcgCBAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCBAAAAAAAAAA==/",
-    "_etag": "\"00002d00-0000-0000-0000-568da8330000\"",
-    "_ts": 1452124211,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "43",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Shobhana L. Chelliah & Willem J. de Reuse, <cite>Handbook of descriptive linguistic fieldwork</cite>",
-    "date": "2011-08-05",
-    "citation": "Linguist List 23.3129.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issues/22/22-3129.html"
-    },
-    "_rid": "9XUnAOPvcgCCAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCCAAAAAAAAAA==/",
-    "_etag": "\"00002c00-0000-0000-0000-568da82b0000\"",
-    "_ts": 1452124203,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "42",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Language revitalization: Issues with reference to Navajo",
-    "date": "2011-04-01",
-    "citation": "With Marion K. Bittinger. Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1NYOn3v"
-    },
-    "_rid": "9XUnAOPvcgCDAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCDAAAAAAAAAA==/",
-    "_etag": "\"00002a00-0000-0000-0000-568da81d0000\"",
-    "_ts": 1452124189,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "40",
     "type": "publication",
     "publicationType": "project",
@@ -771,25 +296,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCFAAAAAAAAAA==/",
     "_etag": "\"00002800-0000-0000-0000-568da80f0000\"",
     "_ts": 1452124175,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "39",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "A grammar of Turkish",
-    "date": "2007-12-15",
-    "citation": "Term paper, ‘Descriptive Linguistics’, Prof. Ann M. Reed, Fall 2007, The College of William & Mary.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "pdf": "http://1drv.ms/1dUPC7j"
-    },
-    "_rid": "9XUnAOPvcgCGAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCGAAAAAAAAAA==/",
-    "_etag": "\"00002700-0000-0000-0000-568da8080000\"",
-    "_ts": 1452124168,
     "_attachments": "attachments/"
   },
   {
@@ -812,42 +318,6 @@
     "_attachments": "attachments/"
   },
   {
-    "id": "37",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "The Navajo language",
-    "date": "2009-10-15",
-    "citation": "Term paper, ‘Linguistic Anthropology’, Prof. Amy L. Paugh, Fall 2009, James Madison University.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1Db8OV6"
-    },
-    "_rid": "9XUnAOPvcgCIAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCIAAAAAAAAAA==/",
-    "_etag": "\"00002500-0000-0000-0000-568da7fb0000\"",
-    "_ts": 1452124155,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "36",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Viveka Velupillai, <cite>An introduction to linguistic typology</cite>",
-    "date": "2013-06-24",
-    "citation": "Linguist List 24.2550.",
-    "categories": [
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issues/24/24-2550.html"
-    },
-    "_rid": "9XUnAOPvcgCJAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCJAAAAAAAAAA==/",
-    "_etag": "\"00002400-0000-0000-0000-568da7f10000\"",
-    "_ts": 1452124145,
-    "_attachments": "attachments/"
-  },
-  {
     "id": "35",
     "type": "publication",
     "publicationType": "unpublished",
@@ -862,60 +332,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCKAAAAAAAAAA==/",
     "_etag": "\"00002300-0000-0000-0000-568da7e60000\"",
     "_ts": 1452124134,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "32",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "George Yule, <cite>The study of language, 4th ed.</cite>",
-    "date": "2011-04-18",
-    "citation": "<cite>eLanguage</cite> book notice.",
-    "categories": [],
-    "links": {
-      "pubLink": "http://journals.linguisticsociety.org/booknotices/?p=1510"
-    },
-    "_rid": "9XUnAOPvcgCNAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCNAAAAAAAAAA==/",
-    "_etag": "\"00002000-0000-0000-0000-568da7d10000\"",
-    "_ts": 1452124113,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "31",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "Truth and the sentential hierarchy",
-    "date": "2006-04-04",
-    "citation": "Term paper, ‘Philosophy of Language’, Prof. Robert Maximilian de Gaynesford, Spring 2006, The College of William & Mary.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1GgzfJ1"
-    },
-    "_rid": "9XUnAOPvcgCOAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCOAAAAAAAAAA==/",
-    "_etag": "\"00001f00-0000-0000-0000-568da7ca0000\"",
-    "_ts": 1452124106,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "30",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Semantic alignment in Chitimacha",
-    "date": "2014-01-04",
-    "citation": "Winter Meeting of the Society for the Study of the Indigenous Languages of the Americas (SSILA), Minneapolis, MN.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1dTFgVg"
-    },
-    "_rid": "9XUnAOPvcgCPAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCPAAAAAAAAAA==/",
-    "_etag": "\"00001e00-0000-0000-0000-568da7c40000\"",
-    "_ts": 1452124100,
     "_attachments": "attachments/"
   },
   {
@@ -936,45 +352,6 @@
     "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCQAAAAAAAAAA==/",
     "_etag": "\"00002103-0000-0000-0000-568de7dd0000\"",
     "_ts": 1452140509,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "28",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Building the lexion for reawakening languages",
-    "date": "2014-03-09",
-    "citation": "Conference on Language Revitalization: Sleeping & Awakening Languages of the Gulf South, Tulane University, New Orleans, LA.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1KZ839I"
-    },
-    "_rid": "9XUnAOPvcgCRAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCRAAAAAAAAAA==/",
-    "_etag": "\"00001c00-0000-0000-0000-568da7b50000\"",
-    "_ts": 1452124085,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "27",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Dik Bakker & Martin Haspelmath (eds.), <cite>Languages across boundaries</cite>",
-    "date": "2014-04-24",
-    "citation": "Linguist List 26.542.",
-    "categories": [
-      "disc",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issues/26/26-542.html"
-    },
-    "_rid": "9XUnAOPvcgCSAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCSAAAAAAAAAA==/",
-    "_etag": "\"00001b00-0000-0000-0000-568da7af0000\"",
-    "_ts": 1452124079,
     "_attachments": "attachments/"
   },
   {
@@ -1010,122 +387,6 @@
     "_etag": "\"00000600-0000-0000-0000-57257f280000\"",
     "_attachments": "attachments/",
     "_ts": 1462075175
-  },
-  {
-    "id": "24",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Documentation & revitalization of Ékegusií language & culture",
-    "date": "2014-08-01",
-    "citation": "Invited talk to the Ékegusií Encyclopedia Project, Mombasa, Kenya.",
-    "categories": [
-      "doc",
-      "disc"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1ShKzeV"
-    },
-    "_rid": "9XUnAOPvcgCVAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCVAAAAAAAAAA==/",
-    "_etag": "\"00001800-0000-0000-0000-568da7970000\"",
-    "_ts": 1452124055,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "23",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Language revitalization: Navajo",
-    "date": "2009-11-01",
-    "citation": "With Marion K. Bittinger. Invited guest lecture, Anthropology 305: ‘Language & Culture’ Professor Amy L. Paugh, Department of Anthropology, James Madison University, Harrisonburg, VA.",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1HXMUKA"
-    },
-    "_rid": "9XUnAOPvcgCWAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCWAAAAAAAAAA==/",
-    "_etag": "\"00001700-0000-0000-0000-568da7900000\"",
-    "_ts": 1452124048,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "22",
-    "type": "publication",
-    "publicationType": "unpublished",
-    "title": "On the status of the subject agreement marker in Swahili",
-    "date": "2008-05-07",
-    "citation": "Term paper, ‘Advanced Syntax’, Prof. Ann M. Reed, Spring 2008, The College of William & Mary.",
-    "categories": [],
-    "links": {
-      "pdf": "http://1drv.ms/1HXZ4mN"
-    },
-    "_rid": "9XUnAOPvcgCXAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCXAAAAAAAAAA==/",
-    "_etag": "\"00001600-0000-0000-0000-568da7890000\"",
-    "_ts": 1452124041,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "21",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Language endangerment & nationalism",
-    "date": "2012-02-27",
-    "citation": "Invited talk co-sponsored by the Latin American Studies Program and the Arts & Sciences Lectures Committee, The College of William & Mary, Williamsburg, VA.",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "slides": "http://1drv.ms/1HoiehO"
-    },
-    "_rid": "9XUnAOPvcgCYAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCYAAAAAAAAAA==/",
-    "_etag": "\"00001500-0000-0000-0000-568da7820000\"",
-    "_ts": 1452124034,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "20",
-    "type": "publication",
-    "publicationType": "presentation",
-    "title": "Renaissance on the bayou: Revitalizing the Chitimacha language",
-    "date": "2015-05-04",
-    "citation": "Award-winning 3-minute talk on my work with the Chitimacha language, presented as part of the University of California Grad Slam competition for the best 3-minute research talk by a graduate student. Watch the video <a href=http://1drv.ms/1dTFEDb>here</a>.",
-    "categories": [
-      "doc",
-      "prax"
-    ],
-    "links": {
-      "pubLink": "http://www.universityofcalifornia.edu/grad-slam"
-    },
-    "_rid": "9XUnAOPvcgCZAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCZAAAAAAAAAA==/",
-    "_etag": "\"00001400-0000-0000-0000-568da77b0000\"",
-    "_ts": 1452124027,
-    "_attachments": "attachments/"
-  },
-  {
-    "id": "19",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Nicole Nau, Geoffrey L. J. Haig, Stefan Schnell, & Claudia Wegener, <cite>Documenting endangered languages: Achievements & perspectives</cite>",
-    "date": "2012-05-19",
-    "citation": "Linguist List 23.2390.",
-    "categories": [
-      "doc"
-    ],
-    "links": {
-      "pubLink": "http://linguistlist.org/issues/23/23-2390.html"
-    },
-    "_rid": "9XUnAOPvcgCaAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCaAAAAAAAAAA==/",
-    "_etag": "\"00001300-0000-0000-0000-568da7730000\"",
-    "_ts": 1452124019,
-    "_attachments": "attachments/"
   },
   {
     "id": "18",
@@ -1180,25 +441,5 @@
     "_etag": "\"00000500-0000-0000-0000-57257c8d0000\"",
     "_attachments": "attachments/",
     "_ts": 1462074507
-  },
-  {
-    "id": "175",
-    "type": "publication",
-    "publicationType": "review",
-    "title": "Thomas E. Payne & Doris L. Payne, <cite>A typological grammar of Panare: A Cariban language of Venezuela</cite>",
-    "date": "2016-07-11",
-    "citation": "International Journal of American Linguistics (IJAL) 82(3): 387–389. DOI: <a href='http://dx.doi.org/10.1086/687388'>10.1086/687388</a>.",
-    "categories": [
-      "doc",
-      "typ"
-    ],
-    "links": {
-      "pubLink": "http://www.journals.uchicago.edu/doi/10.1086/687388"
-    },
-    "_rid": "9XUnAOPvcgCvAAAAAAAAAA==",
-    "_self": "dbs/9XUnAA==/colls/9XUnAOPvcgA=/docs/9XUnAOPvcgCvAAAAAAAAAA==/",
-    "_etag": "\"00006ec4-0000-0000-0000-578945490000\"",
-    "_attachments": "attachments/",
-    "_ts": 1468613948
   }
 ]
