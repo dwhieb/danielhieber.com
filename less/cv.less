@@ -104,7 +104,13 @@
   .cvItem,
   .date { flex-direction: row; }
 
-  .cvItem { margin: 0.25rem 0rem; }
+  .cvItem {
+    margin: 0.25rem 0rem;
+    ul, ol {
+      align-items: flex-start;
+      li { display: inline; }
+    }
+  }
 
   .date {
     max-width: 7.5em;
