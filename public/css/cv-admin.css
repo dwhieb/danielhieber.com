@@ -157,6 +157,9 @@ button,
 #form fieldset[name=links] select {
   margin: 0.5rem;
 }
+#form fieldset[name=links] img {
+  cursor: pointer;
+}
 #form label[for=publicationType] {
   order: 1;
 }

@@ -120,6 +120,14 @@
 #cv-page .cvItem {
   margin: 0.25rem 0rem;
 }
+#cv-page .cvItem ul,
+#cv-page .cvItem ol {
+  align-items: flex-start;
+}
+#cv-page .cvItem ul li,
+#cv-page .cvItem ol li {
+  display: inline;
+}
 #cv-page .date {
   max-width: 7.5em;
   min-width: 7.5em;
