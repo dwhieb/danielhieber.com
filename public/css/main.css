@@ -34,6 +34,9 @@
 .button:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
+cite {
+  font-style: italic;
+}
 code {
   font-family: 'Fira Mono';
   white-space: pre;
@@ -178,10 +181,9 @@ i {
 .inlineIcon {
   height: 1.5em;
 }
-[lang=en-fonipa] {
+[lang] {
   font-family: 'Gentium Plus';
   vertical-align: top;
-  white-space: nowrap;
 }
 .sidebar-header {
   background-color: #9232E2;
