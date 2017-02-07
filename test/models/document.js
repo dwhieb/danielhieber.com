@@ -4,7 +4,7 @@
 */
 
 const Document = require('../../models/document');
-const md = require('markdown').markdown;
+const md = require('markdown-it')();
 
 const makeSubclass = (data, props) => {
 
@@ -322,14 +322,14 @@ describe('Document', function DocumentTest() {
     subclass.description = newDescription;
 
     subclass.html = '<p></p>';
-    expect(subclass.html).toBe(md.toHTML(newDescription));
+    expect(subclass.html).toBe(md.render(newDescription));
 
     subclass.markdown = 'This is *emphatic*.';
     expect(subclass.markdown).toBe(newDescription);
 
     expect(subclass.description).toBe(newDescription);
     expect(subclass.markdown).toBe(newDescription);
-    expect(subclass.html).toBe(md.toHTML(newDescription));
+    expect(subclass.html).toBe(md.render(newDescription));
     expect(badDescription).not.toThrow();
     expect(noDescription).not.toThrow();
     expect(setNumericDescription).not.toThrow();
