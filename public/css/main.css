@@ -2,6 +2,23 @@
   color: #3180E1;
   font-weight: bold;
 }
+.boldLink:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.boldLink:visited {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.boldLink:hover {
+  border-bottom: 2px solid #3180E1;
+}
+.boldLink:active {
+  color: #3180E1;
+  font-weight: bold;
+}
 .boldPink {
   color: #E23281;
   font-weight: bold;
@@ -181,19 +198,10 @@ i {
 .inlineIcon {
   height: 1.5em;
 }
-[lang] {
+[lang]:not(html) {
   font-family: 'Gentium Plus';
-  vertical-align: top;
-}
-.sidebar-header {
-  background-color: #9232E2;
-  border-radius: 0.25rem;
-  color: white;
-  font-weight: bold;
-  padding: 0.25rem 0.5rem;
-}
-.sharp-rounded {
-  border-radius: 0.125em;
+  font-size: 1.125em;
+  white-space: nowrap;
 }
 .link:link {
   color: #3180E1;
@@ -209,23 +217,6 @@ i {
 .link:active {
   color: #3180E1;
 }
-.boldLink:link {
-  color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-.boldLink:visited {
-  color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-.boldLink:hover {
-  border-bottom: 2px solid #3180E1;
-}
-.boldLink:active {
-  color: #3180E1;
-  font-weight: bold;
-}
 .pageHeader {
   align-self: center;
   font-size: 1.5rem;
@@ -234,6 +225,9 @@ i {
 }
 .rollover {
   position: relative;
+}
+.rollover > span[lang=en] {
+  font-family: 'Fira Sans';
 }
 .rollover > span[lang=en-fonipa] {
   left: 50%;
@@ -252,6 +246,16 @@ i {
 #nav > ul > li.selected > .rollover > span[lang=en] {
   visibility: hidden;
 }
+.sharp-rounded {
+  border-radius: 0.125em;
+}
+.sidebar-header {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
 small {
   font-size: 0.8em;
 }
@@ -263,6 +267,10 @@ strong {
 #nav,
 main {
   transition: transform 0.5s;
+}
+#header [lang],
+#nav [lang] {
+  font-size: 1em;
 }
 #subscribe {
   align-items: center;

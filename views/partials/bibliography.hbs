@@ -1,3 +1,57 @@
 <section id=bibliography>
 
+  {{#each this}}
+    <li>
+
+      <p>
+
+        {{#if websites}}<a class=link href={{websites.[0]}}>{{/if}}
+
+        {{#each authors}}{{#if unknown}}unknown{{else if @first}}{{last_name}}{{#if first_name}}, {{first_name}}{{/if}}{{else if @last}} &amp; {{first_name}} {{last_name}}{{else}},{{#if first_name}} {{first_name}}{{/if}} {{last_name}}{{/if}}{{#if @last}}.{{/if}}{{/each}}
+
+        {{year}}
+
+        .
+
+        {{#if book}}<cite>{{/if}}
+        {{#if thesis}}<cite>{{/if}}
+          {{title}}
+        {{#if thesis}}</cite>{{/if}}
+        {{#if book}}</cite>{{/if}}
+
+        {{#if edition}}({{edition}} ed.){{/if}}
+
+        {{#if series}}, ({{series}}{{#if revision}} {{revision}}{{/if}}){{/if}}
+
+        .
+
+        {{#if source}}<cite>{{source}}</cite>{{/if}}
+
+        {{#if volume}}
+          {{volume}}{{#if issue}}({{issue}}){{/if}}{{#if pages}}: {{pages}}{{/if}}
+        {{else}}
+          {{#if pages}}, {{pages}}{{/if}}
+        {{/if}}
+
+        .
+
+        {{#if institution}}
+          {{#if city}}{{city}}: {{/if}}{{institution}}
+        {{else if city}}
+          {{city}}{{#if publisher}}: {{publisher}}{{/if}}
+        {{else if publisher}}
+          {{publisher}}
+        {{/if}}
+
+        .
+
+        {{#if websites}}</a>{{/if}}
+
+      </p>
+
+      {{!-- {{#if abstract}}<p>{{abstract}}</p>{{/if}} --}}
+
+    </li>
+  {{/each}}
+
 </section>
