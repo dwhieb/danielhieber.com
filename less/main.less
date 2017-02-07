@@ -12,6 +12,13 @@
   font-weight: bold;
 }
 
+.boldLink {
+  &:link { .boldBlue; border-bottom: 2px solid white; }
+  &:visited { .boldBlue; border-bottom: 2px solid white; }
+  &:hover { border-bottom: 2px solid @blue; }
+  &:active { .boldBlue; }
+}
+
 .boldPink {
   color: @pink;
   font-weight: bold;
@@ -48,6 +55,10 @@
     box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset, 0 0 6px rgba(0,0,0,0.20) inset;
   }
 
+}
+
+cite {
+  font-style: italic;
 }
 
 code {
@@ -134,7 +145,6 @@ form {
   margin-left: 1rem;
 }
 
-// inline citation form of data
 i {
   font-style: italic;
 }
@@ -145,22 +155,12 @@ i {
   height: 1.5em;
 }
 
-[lang=en-fonipa] {
+// inline citation form of data
+[lang]:not(html) {
   font-family: 'Gentium Plus';
-  vertical-align: top; // prevents line from expanding
+  font-size: 1.125em;
+  // vertical-align: top; // prevents line from expanding
   white-space: nowrap;
-}
-
-.sidebar-header {
-  background-color: #9232E2;
-  border-radius: 0.25rem;
-  color: white;
-  font-weight: bold;
-  padding: 0.25rem 0.5rem;
-}
-
-.sharp-rounded {
-  border-radius: 0.125em;
 }
 
 .link {
@@ -168,13 +168,6 @@ i {
   &:visited { color: @blue; border-bottom: 1px solid white; }
   &:hover { border-bottom: 1px solid @blue; }
   &:active { color: @blue; }
-}
-
-.boldLink {
-  &:link { .boldBlue; border-bottom: 2px solid white; }
-  &:visited { .boldBlue; border-bottom: 2px solid white; }
-  &:hover { border-bottom: 2px solid @blue; }
-  &:active { .boldBlue; }
 }
 
 .pageHeader {
@@ -186,6 +179,10 @@ i {
 
 .rollover {
   position: relative;
+
+  > span[lang=en] {
+    font-family: 'Fira Sans';
+  }
 
   > span[lang=en-fonipa] {
     left: 50%;
@@ -205,6 +202,18 @@ i {
   > span[lang=en] { visibility: hidden; }
 }
 
+.sharp-rounded {
+  border-radius: 0.125em;
+}
+
+.sidebar-header {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+
 small { font-size: 0.8em; }
 
 strong { .boldBlue; }
@@ -213,6 +222,10 @@ strong { .boldBlue; }
 // ELEMENTS
 #header, #nav, main {
   transition: transform 0.5s;
+}
+
+#header [lang], #nav [lang] {
+  font-size: 1em;
 }
 
 #subscribe {

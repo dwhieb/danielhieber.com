@@ -1,0 +1,43 @@
+@import (reference) 'less/main.less';
+
+main {
+
+  .abstract, .notes {
+    strong { color: black; }
+    margin: 0rem 0rem 1rem 3rem;
+  }
+
+  .citation {
+    display: inline;
+    margin-bottom: 0.125em;
+    margin-left: 3rem;
+    text-indent: -3rem;
+  }
+
+  section {
+
+    h1, h2, h3 {
+      border-bottom: 2px solid black;
+      font-variant: small-caps;
+      font-weight: bold;
+      margin: 0.5em 0em;
+    }
+
+    h2 {
+      align-self: center;
+    }
+
+    ol, ul {
+      .bulleted;
+    }
+
+  }
+
+}
+
+// desktop styling
+@media screen and (min-width: 700px) {
+  main {
+    padding: 1.5rem 10%;
+  }
+}

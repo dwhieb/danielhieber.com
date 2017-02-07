@@ -2,6 +2,23 @@
   color: #3180E1;
   font-weight: bold;
 }
+.boldLink:link {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.boldLink:visited {
+  color: #3180E1;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+.boldLink:hover {
+  border-bottom: 2px solid #3180E1;
+}
+.boldLink:active {
+  color: #3180E1;
+  font-weight: bold;
+}
 .boldPink {
   color: #E23281;
   font-weight: bold;
@@ -33,6 +50,9 @@
 }
 .button:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+}
+cite {
+  font-style: italic;
 }
 code {
   font-family: 'Fira Mono';
@@ -178,20 +198,10 @@ i {
 .inlineIcon {
   height: 1.5em;
 }
-[lang=en-fonipa] {
+[lang]:not(html) {
   font-family: 'Gentium Plus';
-  vertical-align: top;
+  font-size: 1.125em;
   white-space: nowrap;
-}
-.sidebar-header {
-  background-color: #9232E2;
-  border-radius: 0.25rem;
-  color: white;
-  font-weight: bold;
-  padding: 0.25rem 0.5rem;
-}
-.sharp-rounded {
-  border-radius: 0.125em;
 }
 .link:link {
   color: #3180E1;
@@ -207,23 +217,6 @@ i {
 .link:active {
   color: #3180E1;
 }
-.boldLink:link {
-  color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-.boldLink:visited {
-  color: #3180E1;
-  font-weight: bold;
-  border-bottom: 2px solid white;
-}
-.boldLink:hover {
-  border-bottom: 2px solid #3180E1;
-}
-.boldLink:active {
-  color: #3180E1;
-  font-weight: bold;
-}
 .pageHeader {
   align-self: center;
   font-size: 1.5rem;
@@ -232,6 +225,9 @@ i {
 }
 .rollover {
   position: relative;
+}
+.rollover > span[lang=en] {
+  font-family: 'Fira Sans';
 }
 .rollover > span[lang=en-fonipa] {
   left: 50%;
@@ -250,6 +246,16 @@ i {
 #nav > ul > li.selected > .rollover > span[lang=en] {
   visibility: hidden;
 }
+.sharp-rounded {
+  border-radius: 0.125em;
+}
+.sidebar-header {
+  background-color: #9232E2;
+  border-radius: 0.25rem;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
 small {
   font-size: 0.8em;
 }
@@ -261,6 +267,10 @@ strong {
 #nav,
 main {
   transition: transform 0.5s;
+}
+#header [lang],
+#nav [lang] {
+  font-size: 1em;
 }
 #subscribe {
   align-items: center;

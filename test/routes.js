@@ -139,7 +139,7 @@ describe('routes', function routes() {
     });
   });
 
-  it('GET /languages/Chitimacha/bibliography', function bibliography(done) {
+  xit('GET /languages/Chitimacha/bibliography', function bibliography(done) {
     req.get('/languages/Chitimacha/bibliography')
     .expect(200)
     .end((err, res) => {

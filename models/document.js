@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 
-const md = require('markdown').markdown;
+const md = require('markdown-it')();
 const validUrl = require('valid-url');
 
 /**
@@ -302,7 +302,7 @@ const Document = class Document {
                 set(val) {
                   // set the "markdown" and "html" attributes whenever the "description" attribute is set
                   markdown = String(val);
-                  html = md.toHTML(markdown);
+                  html = md.render(markdown);
                   return markdown;
                 },
               },

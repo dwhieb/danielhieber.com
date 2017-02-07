@@ -1,0 +1,158 @@
+<section id=bibliography>
+
+  {{#*inline "person"}}{{#if @first}}{{last_name}}{{#if first_name}}, {{first_name}}{{/if}}{{else if @last}} &amp; {{first_name}} {{last_name}}{{else}}, {{#if first_name}}{{first_name}}{{/if}} {{last_name}}{{/if}}{{/inline}}
+
+  {{#*inline "authors"}}{{#each authors}}{{> person}}{{/each}}{{/inline}}
+
+  {{#*inline "editors"}}{{#each editors}}{{> person}}{{#if @last}} {{#if @first}}(ed.){{else}}(eds.){{/if}}{{/if}}{{/each}}{{/inline}}
+
+  {{#*inline "publisherInfo"}}{{#if city}}{{city}}{{#if publisher}}: {{else if institution}}: {{/if}}{{/if}}{{#if publisher}}{{publisher}}{{else if institution}}{{institution}}{{/if}}{{#if city}}.{{else if publisher}}.{{else if institution}}.{{/if}}
+  {{/inline}}
+
+  {{#*inline "seriesInfo"}}{{#if series}} ({{series}}{{#if revision}} {{revision}}{{/if}}){{/if}}{{/inline}}
+
+  {{#*inline "reference"}}
+    <li>
+
+      <details closed>
+
+        <summary class=citation>
+
+          {{#unless web_page}}
+            {{#if websites}}<a class=link href="{{websites.[0]}}">{{/if}}
+          {{/unless}}
+
+          {{#if book}}
+            {{#if authors}}{{> authors}}{{else if editors}}{{> editors}}{{else}}unknown{{/if}}.
+            {{year}}.
+            <cite>{{title}}</cite>{{> seriesInfo}}.
+            {{> publisherInfo}}
+          {{/if}}
+
+          {{#if book_section}}
+            {{> authors}}.
+            {{year}}.
+            ‘{{title}}’, in {{#if editors}}{{> editors}}{{/if}}, <cite>{{source}}</cite>{{> seriesInfo}}.
+            {{> publisherInfo}}
+          {{/if}}
+
+          {{#if conference_proceedings}}
+            {{> authors}}.
+            {{year}}.
+            ‘{{title}}’, presented at {{#if editors}}{{> editors}}, {{/if}}<cite>{{source}}</cite>{{> seriesInfo}}.
+            {{> publisherInfo}}
+          {{/if}}
+
+          {{#if generic}}
+            {{#if authors}}{{> authors}}{{else if editors}}{{> editors}}{{else}}unknown{{/if}}.
+            {{year}}.
+            {{#unless source}}<cite>{{/unless}}{{title}}{{#unless source}}</cite>{{/unless}}{{#if source}}, in <cite>{{source}}</cite>{{/if}}{{> seriesInfo}}.
+            {{#if source_type}}{{source_type}}.{{/if}}
+            {{> publisherInfo}}
+          {{/if}}
+
+          {{#if journal}}
+            {{> authors}}.
+            {{year}}.
+            {{title}}.
+            <cite>{{source}}</cite> {{volume}}{{#if issue}}({{issue}}){{/if}}: {{pages}}.
+          {{/if}}
+
+          {{#if thesis}}
+            {{> authors}}.
+            {{year}}.
+            <cite>{{title}}</cite>.
+            {{user_context}}.
+            {{#if department}}{{department}}, {{/if}}{{institution}}.
+          {{/if}}
+
+          {{#if web_page}}
+            {{> authors}}.
+            {{year}}.
+            ‘{{title}}’. {{#if editors}}In {{> editors}}, {{/if}}<cite>{{source}}</cite>.
+            Accessible at: <a class=link href="{{websites.[0]}}">{{websites.[0]}}</a>.
+          {{/if}}
+
+          {{#if working_paper}}
+            {{> authors}}.
+            {{year}}.
+            ‘{{title}}’, presented at {{#if editors}}{{> editors}}, {{/if}}<cite>{{source}}</cite>{{> seriesInfo}}.
+            {{> publisherInfo}}
+          {{/if}}
+
+          {{#if encyclopedia_article}}
+            {{> authors}}.
+            {{year}}.
+            ‘{{title}}’, in {{#if editors}}{{> editors}}{{/if}}, <cite>{{source}}</cite>{{> seriesInfo}}.
+            {{> publisherInfo}}
+          {{/if}}
+
+          {{#if magazine_article}}
+            {{> authors}}.
+            {{year}}.
+            ‘{{title}}’. {{#if editors}}In {{> editors}}, {{/if}}<cite>{{source}}</cite>.
+            Accessible at: <a class=link href="{{websites.[0]}}">{{websites.[0]}}</a>.
+          {{/if}}
+
+          {{#unless web_page}}
+            {{#if websites}}</a>{{/if}}
+          {{/unless}}
+
+        </summary>
+
+        {{#if abstract}}
+          <section class=abstract>
+            <h3>Abstract</h3>
+            <p>{{abstract}}</p>
+          </section>
+        {{/if}}
+
+        {{#if notes}}
+          <section class=notes>
+            <h3>Notes</h3>
+            <div>{{{notes}}}</div>
+          </section>
+        {{/if}}
+
+      </details>
+
+    </li>
+  {{/inline}}
+
+  <section>
+    <h2>Primary Sources</h2>
+    {{#each this}}
+      {{#if primary}}
+        {{> reference}}
+      {{/if}}
+    {{/each}}
+  </section>
+
+  <section>
+    <h2>Secondary Sources</h2>
+    {{#each this}}
+      {{#if secondary}}
+        {{> reference}}
+      {{/if}}
+    {{/each}}
+  </section>
+
+  <section>
+    <h2>Tertiary Sources</h2>
+    {{#each this}}
+      {{#if tertiary}}
+        {{> reference}}
+      {{/if}}
+    {{/each}}
+  </section>
+
+  <section>
+    <h2>Minor Sources</h2>
+    {{#each this}}
+      {{#if minor}}
+        {{> reference}}
+      {{/if}}
+    {{/each}}
+  </section>
+
+</section>
