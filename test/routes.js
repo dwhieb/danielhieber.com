@@ -85,7 +85,7 @@ describe('routes', function routes() {
       expect(res.text.includes('| CV')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   // tests that `/cv` and `/CV` both return the CV page
   it('GET /CV', function CV(done) {
@@ -126,7 +126,7 @@ describe('routes', function routes() {
       expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   // checks that both `/chitimacha` and `/Chitimacha` return the correct page
   it('GET /languages/Chitimacha', function Language(done) {
@@ -137,7 +137,7 @@ describe('routes', function routes() {
       expect(res.text.includes('| Chitimacha')).toBe(true);
       done();
     });
-  });
+  }, 10000);
 
   xit('GET /languages/Chitimacha/bibliography', function bibliography(done) {
     req.get('/languages/Chitimacha/bibliography')
@@ -214,6 +214,15 @@ describe('routes', function routes() {
     .end((err, res) => {
       if (err) fail(JSON.stringify(err, null, 2));
       expect(res.text.includes('| PUBLICATION TITLE')).toBe(true);
+      done();
+    });
+  });
+
+  it('GET /recipes', function recipes(done) {
+    req.get('/recipes/')
+    .expect(200)
+    .end(err => {
+      if (err) fail(JSON.stringify(err, null, 2));
       done();
     });
   });
