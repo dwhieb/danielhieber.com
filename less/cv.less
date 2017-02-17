@@ -97,6 +97,7 @@
 
     }
 
+    // adds space between CV sections
     header ~ * { margin: 0.5rem 0rem; }
 
   }
@@ -108,7 +109,6 @@
     margin: 0.25rem 0rem;
     ul, ol {
       align-items: flex-start;
-      li { display: inline; }
     }
   }
 
@@ -214,4 +214,122 @@
     header { width: 100%; }
     section { width: 50%; }
   }
+}
+
+@media print {
+
+  @page {
+
+    font-family: 'Fira Sans';
+    margin: 1in;
+    size: portrait;
+
+    @bottom-center {
+      content: counter(page);
+    }
+
+    @top-left {
+      content: 'Curriculum Vitae';
+    }
+
+    @top-right {
+      content: 'Daniel W. Hieber';
+    }
+
+  }
+
+  @page :first {
+    @top-left { content: ''; }
+    @top-right { content: ''; }
+  }
+
+  li, p {
+    page-break-inside: avoid;
+  }
+
+  header, h1, h2 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  #nav,
+  #cv-page > aside,
+  #headshot,
+  #cv-header > :last-child,
+  #cv > section > header > a,
+  #publications-Unpublished,
+  #media,
+  {
+    display: none;
+  }
+
+  #cv-page {
+
+    font-size: 12pt;
+    line-height: 1.25;
+    padding: 0;
+
+    #cv {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+
+      > section:first-of-type {
+        clear: both;
+      }
+    }
+
+    // fallbacks for lack of flexbox support in Prince
+    #cv-header,
+    #cv-header > address > div,
+    {
+
+      * {
+        text-align: center;
+      }
+
+      > * {
+        clear: both;
+        float: left;
+        margin: auto;
+        width: 100%;
+      }
+
+    }
+
+    .date {
+      float: left;
+    }
+
+    .date ~ * {
+      display: block !important;
+      // margin-left: 7.5rem; // NB: Uncomment this rule when you need to print to PDF using Prince
+    }
+    // end of fallbacks
+
+    #cv-header {
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+    }
+
+    #proficiencies {
+      header { width: 100%; }
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    #references h2 {
+      font-size: 1.25rem;
+    }
+
+  }
+
 }

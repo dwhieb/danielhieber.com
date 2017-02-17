@@ -5,7 +5,7 @@
   },
 
   "events": {
-    "restart": "node build/less.js & babel src -d public/js"
+    "restart": "npm run build-less"
   },
 
   "ext": "hbs js json less",
