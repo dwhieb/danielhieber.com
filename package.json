@@ -31,6 +31,9 @@
   },
   "main": "app.js",
   "scripts": {
+    "build": "npm run build-less & npm run build-js",
+    "build-less": "node build/less.js",
+    "build-js": "babel src -d public/js",
     "test": "jasmine JASMINE_CONFIG_PATH=test/jasmine.json"
   },
   "engines": {

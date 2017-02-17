@@ -124,10 +124,6 @@
 #cv-page .cvItem ol {
   align-items: flex-start;
 }
-#cv-page .cvItem ul li,
-#cv-page .cvItem ol li {
-  display: inline;
-}
 #cv-page .date {
   max-width: 7.5em;
   min-width: 7.5em;
@@ -251,5 +247,95 @@
   }
   #proficiencies section {
     width: 50%;
+  }
+}
+@media print {
+  @page {
+    font-family: 'Fira Sans';
+    margin: 1in;
+    size: portrait;
+    @bottom-center {
+      content: counter(page);
+    }
+    @top-left {
+      content: 'Curriculum Vitae';
+    }
+    @top-right {
+      content: 'Daniel W. Hieber';
+    }
+  }
+  @page :first {
+    @top-left {
+      content: '';
+    }
+    @top-right {
+      content: '';
+    }
+  }
+  li,
+  p {
+    page-break-inside: avoid;
+  }
+  header,
+  h1,
+  h2 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  #nav,
+  #cv-page > aside,
+  #headshot,
+  #cv-header > :last-child,
+  #cv > section > header > a,
+  #publications-Unpublished,
+  #media {
+    display: none;
+  }
+  #cv-page {
+    font-size: 12pt;
+    line-height: 1.25;
+    padding: 0;
+  }
+  #cv-page #cv {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  #cv-page #cv > section:first-of-type {
+    clear: both;
+  }
+  #cv-page #cv-header *,
+  #cv-page #cv-header > address > div * {
+    text-align: center;
+  }
+  #cv-page #cv-header > *,
+  #cv-page #cv-header > address > div > * {
+    clear: both;
+    float: left;
+    margin: auto;
+    width: 100%;
+  }
+  #cv-page .date {
+    float: left;
+  }
+  #cv-page .date ~ * {
+    display: block !important;
+  }
+  #cv-page #cv-header h1 {
+    font-size: 2rem;
+  }
+  #cv-page #cv-header h2 {
+    font-size: 1rem;
+  }
+  #cv-page #proficiencies {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  #cv-page #proficiencies header {
+    width: 100%;
+  }
+  #cv-page #references h2 {
+    font-size: 1.25rem;
   }
 }
