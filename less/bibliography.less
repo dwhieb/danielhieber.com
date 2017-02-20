@@ -1,10 +1,24 @@
 @import (reference) 'less/main.less';
 
-main {
+.bibliography-page {
 
-  .abstract, .notes {
-    strong { color: black; }
+  a {
+    &:link { color: black; border-bottom: 1px solid white; }
+    &:visited { color: black; border-bottom: 1px solid white; }
+    &:hover { border-bottom: 1px solid black; }
+    &:active { color: black; }
+  }
+
+  .abstract,
+  .notes,
+  {
     margin: 0rem 0rem 1rem 3rem;
+  }
+
+  .bibliography {
+    .section-header {
+      flex-direction: column;
+    }
   }
 
   .citation {
@@ -14,30 +28,33 @@ main {
     text-indent: -3rem;
   }
 
-  section {
+  #contents a {
+    .link;
+  }
 
-    h1, h2, h3 {
-      border-bottom: 2px solid black;
-      font-variant: small-caps;
-      font-weight: bold;
-      margin: 0.5em 0em;
+  .section {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
     }
+  }
 
-    h2 {
-      align-self: center;
-    }
+  .section-header {
+    border-bottom: 2px solid black;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin: 0.5em 0em;
+  }
 
-    ol, ul {
-      .bulleted;
-    }
-
+  strong {
+    color: black;
   }
 
 }
 
 // desktop styling
 @media screen and (min-width: 700px) {
-  main {
+  .bibliography-page {
     padding: 1.5rem 10%;
   }
 }
