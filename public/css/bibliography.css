@@ -25,18 +25,32 @@
   margin-left: 3rem;
   text-indent: -3rem;
 }
-.bibliography-page #contents a:link {
+.bibliography-page .citation summary a:link {
   color: #3180E1;
   border-bottom: 1px solid white;
 }
-.bibliography-page #contents a:visited {
+.bibliography-page .citation summary a:visited {
   color: #3180E1;
   border-bottom: 1px solid white;
 }
-.bibliography-page #contents a:hover {
+.bibliography-page .citation summary a:hover {
   border-bottom: 1px solid #3180E1;
 }
-.bibliography-page #contents a:active {
+.bibliography-page .citation summary a:active {
+  color: #3180E1;
+}
+.bibliography-page p a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+.bibliography-page p a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+.bibliography-page p a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+.bibliography-page p a:active {
   color: #3180E1;
 }
 .bibliography-page .section header {
