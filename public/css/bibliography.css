@@ -1,40 +1,59 @@
-main .abstract,
-main .notes {
-  margin: 0rem 0rem 1rem 3rem;
+.bibliography-page a:link {
+  color: black;
+  border-bottom: 1px solid white;
 }
-main .abstract strong,
-main .notes strong {
+.bibliography-page a:visited {
+  color: black;
+  border-bottom: 1px solid white;
+}
+.bibliography-page a:hover {
+  border-bottom: 1px solid black;
+}
+.bibliography-page a:active {
   color: black;
 }
-main .citation {
+.bibliography-page .abstract,
+.bibliography-page .notes {
+  margin: 0rem 0rem 1rem 3rem;
+}
+.bibliography-page .bibliography .section-header {
+  flex-direction: column;
+}
+.bibliography-page .citation {
   display: inline;
   margin-bottom: 0.125em;
   margin-left: 3rem;
   text-indent: -3rem;
 }
-main section h1,
-main section h2,
-main section h3 {
+.bibliography-page #contents a:link {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+.bibliography-page #contents a:visited {
+  color: #3180E1;
+  border-bottom: 1px solid white;
+}
+.bibliography-page #contents a:hover {
+  border-bottom: 1px solid #3180E1;
+}
+.bibliography-page #contents a:active {
+  color: #3180E1;
+}
+.bibliography-page .section header {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bibliography-page .section-header {
   border-bottom: 2px solid black;
   font-variant: small-caps;
   font-weight: bold;
   margin: 0.5em 0em;
 }
-main section h2 {
-  align-self: center;
-}
-main section ol,
-main section ul {
-  list-style: circle outside none;
-  margin-left: 2rem;
-}
-main section ol li,
-main section ul li {
-  display: list-item;
-  padding-top: 0.25rem;
+.bibliography-page strong {
+  color: black;
 }
 @media screen and (min-width: 700px) {
-  main {
+  .bibliography-page {
     padding: 1.5rem 10%;
   }
 }

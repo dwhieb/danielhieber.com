@@ -1,4 +1,4 @@
-<section id=bibliography>
+<section class=bibliography>
 
   {{#*inline "person"}}{{#if @first}}{{last_name}}{{#if first_name}}, {{first_name}}{{/if}}{{else if @last}} &amp; {{first_name}} {{last_name}}{{else}}, {{#if first_name}}{{first_name}}{{/if}} {{last_name}}{{/if}}{{/inline}}
 
@@ -12,7 +12,7 @@
   {{#*inline "seriesInfo"}}{{#if series}} ({{series}}{{#if revision}} {{revision}}{{/if}}){{/if}}{{/inline}}
 
   {{#*inline "reference"}}
-    <li>
+    <li id="{{citation_key}}">
 
       <details closed>
 
@@ -102,14 +102,18 @@
 
         {{#if abstract}}
           <section class=abstract>
-            <h3>Abstract</h3>
+            <header class=section-header>
+              <h3>Abstract</h3>
+            </header>
             <p>{{abstract}}</p>
           </section>
         {{/if}}
 
         {{#if notes}}
           <section class=notes>
-            <h3>Notes</h3>
+            <header class=section-header>
+              <h3>Notes</h3>
+            </header>
             <div>{{{notes}}}</div>
           </section>
         {{/if}}
@@ -119,40 +123,56 @@
     </li>
   {{/inline}}
 
-  <section>
-    <h2>Primary Sources</h2>
-    {{#each this}}
-      {{#if primary}}
-        {{> reference}}
-      {{/if}}
-    {{/each}}
+  <section class=section>
+    <header class=section-header>
+      <h2>Primary Sources</h2>
+    </header>
+    <ul>
+      {{#each this}}
+        {{#if primary}}
+          {{> reference}}
+        {{/if}}
+      {{/each}}
+    </ul>
   </section>
 
-  <section>
-    <h2>Secondary Sources</h2>
-    {{#each this}}
-      {{#if secondary}}
-        {{> reference}}
-      {{/if}}
-    {{/each}}
+  <section class=section>
+    <header class=section-header>
+      <h2>Secondary Sources</h2>
+    </header>
+    <ul>
+      {{#each this}}
+        {{#if secondary}}
+          {{> reference}}
+        {{/if}}
+      {{/each}}
+    </ul>
   </section>
 
-  <section>
-    <h2>Tertiary Sources</h2>
-    {{#each this}}
-      {{#if tertiary}}
-        {{> reference}}
-      {{/if}}
-    {{/each}}
+  <section class=section>
+    <header class=section-header>
+      <h2>Tertiary Sources</h2>
+    </header>
+    <ul>
+      {{#each this}}
+        {{#if tertiary}}
+          {{> reference}}
+        {{/if}}
+      {{/each}}
+    </ul>
   </section>
 
-  <section>
-    <h2>Minor Sources</h2>
-    {{#each this}}
-      {{#if minor}}
-        {{> reference}}
-      {{/if}}
-    {{/each}}
+  <section class=section>
+    <header class=section-header>
+      <h2>Minor Sources</h2>
+    </header>
+    <ul>
+      {{#each this}}
+        {{#if minor}}
+          {{> reference}}
+        {{/if}}
+      {{/each}}
+    </ul>
   </section>
 
 </section>
