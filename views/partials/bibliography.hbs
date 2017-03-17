@@ -25,28 +25,28 @@
           {{#if book}}
             {{#if authors}}{{> authors}}{{else if editors}}{{> editors}}{{else}}unknown{{/if}}.
             {{year}}.
-            <cite>{{title}}</cite>{{> seriesInfo}}.
+            <cite>{{{title}}}</cite>{{> seriesInfo}}.
             {{> publisherInfo}}
           {{/if}}
 
           {{#if book_section}}
             {{> authors}}.
             {{year}}.
-            ‘{{title}}’, in {{#if editors}}{{> editors}}{{/if}}, <cite>{{source}}</cite>{{> seriesInfo}}.
+            ‘{{{title}}}’, in {{#if editors}}{{> editors}}{{/if}}, <cite>{{source}}</cite>{{> seriesInfo}}.
             {{> publisherInfo}}
           {{/if}}
 
           {{#if conference_proceedings}}
             {{> authors}}.
             {{year}}.
-            ‘{{title}}’, presented at {{#if editors}}{{> editors}}, {{/if}}<cite>{{source}}</cite>{{> seriesInfo}}.
+            ‘{{{title}}}’, presented at {{#if editors}}{{> editors}}, {{/if}}<cite>{{source}}</cite>{{> seriesInfo}}.
             {{> publisherInfo}}
           {{/if}}
 
           {{#if generic}}
             {{#if authors}}{{> authors}}{{else if editors}}{{> editors}}{{else}}unknown{{/if}}.
             {{year}}.
-            {{#unless source}}<cite>{{/unless}}{{title}}{{#unless source}}</cite>{{/unless}}{{#if source}}, in <cite>{{source}}</cite>{{/if}}{{> seriesInfo}}.
+            {{#unless source}}<cite>{{/unless}}{{{title}}}{{#unless source}}</cite>{{/unless}}{{#if source}}, in <cite>{{source}}</cite>{{/if}}{{> seriesInfo}}.
             {{#if source_type}}{{source_type}}.{{/if}}
             {{> publisherInfo}}
           {{/if}}
@@ -54,14 +54,14 @@
           {{#if journal}}
             {{> authors}}.
             {{year}}.
-            {{title}}.
+            {{{title}}}.
             <cite>{{source}}</cite> {{volume}}{{#if issue}}({{issue}}){{/if}}: {{pages}}.
           {{/if}}
 
           {{#if thesis}}
             {{> authors}}.
             {{year}}.
-            <cite>{{title}}</cite>.
+            <cite>{{{title}}}</cite>.
             {{user_context}}.
             {{#if department}}{{department}}, {{/if}}{{institution}}.
           {{/if}}
@@ -69,28 +69,28 @@
           {{#if web_page}}
             {{> authors}}.
             {{year}}.
-            ‘{{title}}’. {{#if editors}}In {{> editors}}, {{/if}}<cite>{{source}}</cite>.
+            ‘{{{title}}}’. {{#if editors}}In {{> editors}}, {{/if}}<cite>{{source}}</cite>.
             Accessible at: <a class=link href="{{websites.[0]}}">{{websites.[0]}}</a>.
           {{/if}}
 
           {{#if working_paper}}
             {{> authors}}.
             {{year}}.
-            ‘{{title}}’, presented at {{#if editors}}{{> editors}}, {{/if}}<cite>{{source}}</cite>{{> seriesInfo}}.
+            ‘{{{title}}}’, presented at {{#if editors}}{{> editors}}, {{/if}}<cite>{{source}}</cite>{{> seriesInfo}}.
             {{> publisherInfo}}
           {{/if}}
 
           {{#if encyclopedia_article}}
             {{> authors}}.
             {{year}}.
-            ‘{{title}}’, in {{#if editors}}{{> editors}}{{/if}}, <cite>{{source}}</cite>{{> seriesInfo}}.
+            ‘{{{title}}}’, in {{#if editors}}{{> editors}}{{/if}}, <cite>{{source}}</cite>{{> seriesInfo}}.
             {{> publisherInfo}}
           {{/if}}
 
           {{#if magazine_article}}
             {{> authors}}.
             {{year}}.
-            ‘{{title}}’. {{#if editors}}In {{> editors}}, {{/if}}<cite>{{source}}</cite>.
+            ‘{{{title}}}’. {{#if editors}}In {{> editors}}, {{/if}}<cite>{{source}}</cite>.
             Accessible at: <a class=link href="{{websites.[0]}}">{{websites.[0]}}</a>.
           {{/if}}
 
