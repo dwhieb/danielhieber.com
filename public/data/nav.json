@@ -17,6 +17,12 @@
     "pageTitle": "CV",
     "path": "/cv"
   },
+  "blog": {
+    "eng": "Blog",
+    "ipa": "/ blɑɡ /",
+    "pageTitle": "Blog",
+    "path": "/blog"
+  },
   "languages": {
     "eng": "Languages",
     "ipa": "/ leᶦŋgwɪdʒɪz /",
