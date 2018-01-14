@@ -20,6 +20,8 @@ The academic homepage of Daniel W. Hieber, graduate student in linguistics at th
     - other 3rd party scripts
 1. Add item to test checklist
 1. Write code
+1. Update environment variables on dev server
+1. Update environment variables on production server
 1. Update inline code commenting
     - Prefer Handlebars comments for HTML
 1. Build
