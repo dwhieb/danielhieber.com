@@ -14,30 +14,30 @@ The academic homepage of Daniel W. Hieber, graduate student in linguistics at th
 1. Select an issue to work on
 1. Create issue branch (from `dev`)
 1. Update dependencies
-  - npm
-  - Node
-  - npm packages
-  - other 3rd party scripts
+    - npm
+    - Node
+    - npm packages
+    - other 3rd party scripts
 1. Add item to test checklist
 1. Write code
 1. Update inline code commenting
-  - Prefer Handlebars comments for HTML
+    - Prefer Handlebars comments for HTML
 1. Build
-  - transpile JS
-  - compile LESS
+    - transpile JS
+    - compile LESS
 1. Go through [checklists][3]
 1. Run through tests in each browser
-  - Chrome (desktop)
-  - Chrome (mobile)
-  - Safari (deskop)
-  - Safari (mobile)
-  - Edge (desktop)
-  - Edge (mobile)
-  - Firefox (desktop)
-  - Firefox (mobile)
+    - Chrome (desktop)
+    - Chrome (mobile)
+    - Safari (deskop)
+    - Safari (mobile)
+    - Edge (desktop)
+    - Edge (mobile)
+    - Firefox (desktop)
+    - Firefox (mobile)
 1. Open pull request into `dev` branch
 1. Squash & merge pull request
-  - Add commit message that closes issue
+    - Add commit message that closes issue
 1. Repeat tests on dev server
 1. Open pull request to `master` branch
 1. Squash & merge pull request
