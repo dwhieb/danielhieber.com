@@ -3,18 +3,26 @@
   - rotating images in header
   - IPA on hover
   - inline SVG icons
+  - indicate current page in a manner different from hover effect (and accessibly)
+  - sticky nav bar
 - Partials
-  - Links
   - Fields (fields reused across forms)
-- Home
   - Me on the Web
     - inline SVG icons
     - links show on hover
-  - Latest Blog Posts
+- Home
+  - Latest Blog Posts (retrieve on server side)
   - Goodreads
+  - use better singing picture (with you looking straight ahead rather than sideways)
 - Research
   - tabbed overviews of research, with CV links
 - Curriculum Vitae
+  - add page numbers to any CV items missing them
+  - show/collapse buttons for each section of CV
+  - show/collapse all button
+  - live filtering of CV items using search box
+  - option to hide CV items from CV page and printed version
+  - print / download buttons
   - base certain CV data on package.json
   - centered, not on the side
   - headshot
@@ -24,7 +32,10 @@
   - each CV item is assigned a number, tracked by a `counter` document
   - CV subpage displays if `cv/{###}` route is used
   - if CV item is a publication type, the subpage displays the title and available materials in different formats
+  - fully printable (at least using Prince)
+  - exactly mirror the current print version
 - Blog (link)
+  - automatically share posts
 - Digital Linguistics (link)
 - Languages (dedicated page for each)
   - Chitimacha
@@ -48,7 +59,10 @@
 - Error Page
 
 # Development
+- HTTPS only, for everything, all assets
+- update to latest ESLint rules
 - only use LESS on layout/page styles (reset.css and fonts.css shouldn't change)
+- use link types (add to checklists - https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)
 - reset.css
 - fonts.css
 - inline critical CSS
@@ -56,16 +70,22 @@
 - preset color theme
 - use ninja wug for favicon
 - only use inline JS in client (use Babel to insert this during build)
-- cache assets
+- cache assets with web worker
 - support mobile
 - slideout menu on mobile
 - use CosmosDB attachments for file uploads
 - use better naming scheme for file uploads
+- use upgrade-insecure-requests header (add this to checklists too)
 - Express
   - trust proxy
   - .hbs extension
   - helmet
   - public directory
+- Application Insights
+  - error logging (use Node's built-in status codes)
+  - download counts of papers
+- use Bing webmaster tools
+- use custom domain on Azure Storage account
 
 # Admin
 - no separate admin nav page (for now)
