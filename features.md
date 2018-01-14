@@ -1,0 +1,80 @@
+# Content
+- Layout
+  - rotating images in header
+  - IPA on hover
+  - inline SVG icons
+- Partials
+  - Links
+  - Fields (fields reused across forms)
+- Home
+  - Me on the Web
+    - inline SVG icons
+    - links show on hover
+  - Latest Blog Posts
+  - Goodreads
+- Research
+  - tabbed overviews of research, with CV links
+- Curriculum Vitae
+  - base certain CV data on package.json
+  - centered, not on the side
+  - headshot
+  - last updated (based on most recent document)
+  - nav links to each section (underneath CV header on mobile)
+  - subroutes for individual CV items (by number)
+  - each CV item is assigned a number, tracked by a `counter` document
+  - CV subpage displays if `cv/{###}` route is used
+  - if CV item is a publication type, the subpage displays the title and available materials in different formats
+- Blog (link)
+- Digital Linguistics (link)
+- Languages (dedicated page for each)
+  - Chitimacha
+  - Gusii
+  - Tlahuapa Mixtec
+  - ...
+- Teaching
+  - Word Cloud
+  - Teaching Philosophy
+  - Courses Taught
+- Bibliographies (uses ling-ref)
+  - Chitimacha
+  - Gusii
+  - Lexical Flexibility
+  - Semantic Alignment
+  - Preverbs
+  - Pluractionality
+  - Digital Linguistics
+- Personal
+  - Recipes
+- Error Page
+
+# Development
+- only use LESS on layout/page styles (reset.css and fonts.css shouldn't change)
+- reset.css
+- fonts.css
+- inline critical CSS
+- async loading of non-critical CSS
+- preset color theme
+- use ninja wug for favicon
+- only use inline JS in client (use Babel to insert this during build)
+- cache assets
+- support mobile
+- slideout menu on mobile
+- use CosmosDB attachments for file uploads
+- use better naming scheme for file uploads
+- Express
+  - trust proxy
+  - .hbs extension
+  - helmet
+  - public directory
+
+# Admin
+- no separate admin nav page (for now)
+- CV admin page is a list of links to each type of CV item
+- each link takes you to a static form page, which submits to server
+- all logic for admin pages is server-side (no JS on client)
+- use Azure's turnkey solution rather than Passport
+
+# Testing
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
