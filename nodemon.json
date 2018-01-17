@@ -2,7 +2,7 @@
   "env": {
     "NODE_ENV": "localhost"
   },
-  "exec": "node app.js --inspect",
+  "exec": "node --inspect app.js",
   "ext": "js",
   "ignore": [
     "/public"
