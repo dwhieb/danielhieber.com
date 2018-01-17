@@ -2,15 +2,16 @@
 const config  = require('./lib/config');
 
 // modules
-const { error404 } = require('./lib/middleware');
-const { error500 } = require('./lib/middleware');
 const express      = require('express');
 const hbs          = require('./lib/handlebars');
 const helmet       = require('./lib/helmet');
 const meta         = require('./package.json');
+const middleware   = require('./lib/middleware');
 const path         = require('path');
 const route        = require('./lib/router');
 const startServer  = require('./lib/server');
+
+const { error404, error500, errors } = middleware;
 
 // initialize Express
 const app = express();
@@ -25,6 +26,7 @@ app.locals.meta = meta;              // make package.json data available to app
 // middleware
 app.use(helmet);                                          // security settings
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
+app.use(errors);                                          // returns consistent errors
 
 // add routes
 route(app);
