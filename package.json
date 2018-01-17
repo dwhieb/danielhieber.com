@@ -30,7 +30,7 @@
   "main": "app.js",
   "scripts": {},
   "engines": {
-    "node": ">=9.4"
+    "node": ">=9.3"
   },
   "dependencies": {
     "express": "^4.16.2",
