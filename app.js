@@ -5,6 +5,7 @@ const config  = require('./lib/config');
 const express     = require('express');
 const helmet      = require('./lib/helmet');
 const meta        = require('./package.json');
+const route       = require('./lib/router');
 const startServer = require('./lib/server');
 
 // initialize Express
@@ -18,4 +19,8 @@ app.set(`port`, config.port); // set port
 // middleware
 app.use(helmet);
 
+// add routes
+route(app);
+
+// start the server
 startServer(app);
