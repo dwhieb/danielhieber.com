@@ -33,6 +33,7 @@
     "node": ">=8.x"
   },
   "dependencies": {
+    "boom": "^7.1.1",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "helmet": "^3.9.0"
