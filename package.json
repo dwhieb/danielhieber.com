@@ -32,6 +32,8 @@
   "engines": {
     "node": ">=9.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.2"
+  },
   "devDependencies": {}
 }
