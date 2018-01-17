@@ -3,6 +3,7 @@ const config  = require('./lib/config');
 
 // modules
 const express     = require('express');
+const helmet      = require('./lib/helmet');
 const meta        = require('./package.json');
 const startServer = require('./lib/server');
 
@@ -13,5 +14,8 @@ const app = express();
 app.enable(`trust proxy`);    // trust the Azure proxy server
 app.locals.meta = meta;       // makes package.json data available to app and middleware
 app.set(`port`, config.port); // set port
+
+// middleware
+app.use(helmet);
 
 startServer(app);

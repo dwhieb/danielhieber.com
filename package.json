@@ -33,7 +33,8 @@
     "node": ">=9.4"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "helmet": "^3.9.0"
   },
   "devDependencies": {}
 }
