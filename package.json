@@ -32,6 +32,10 @@
   "engines": {
     "node": ">=9.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "helmet": "^3.9.0"
+  },
   "devDependencies": {}
 }

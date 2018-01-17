@@ -7,3 +7,6 @@ parserOptions:
 env:
   browser: true
   node: true
+
+rules:
+  require-jsdoc: off
