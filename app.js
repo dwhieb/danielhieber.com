@@ -2,13 +2,15 @@
 const config  = require('./lib/config');
 
 // modules
-const express     = require('express');
-const hbs         = require('./lib/handlebars');
-const helmet      = require('./lib/helmet');
-const meta        = require('./package.json');
-const path        = require('path');
-const route       = require('./lib/router');
-const startServer = require('./lib/server');
+const { error404 } = require('./lib/middleware');
+const { error500 } = require('./lib/middleware');
+const express      = require('express');
+const hbs          = require('./lib/handlebars');
+const helmet       = require('./lib/helmet');
+const meta         = require('./package.json');
+const path         = require('path');
+const route        = require('./lib/router');
+const startServer  = require('./lib/server');
 
 // initialize Express
 const app = express();
@@ -26,6 +28,10 @@ app.use(express.static(path.join(__dirname, '/public'))); // routing for static 
 
 // add routes
 route(app);
+
+// generic error handling
+app.use(error404);
+app.use(error500);
 
 // start the server
 startServer(app);
