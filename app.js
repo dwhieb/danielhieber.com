@@ -7,7 +7,7 @@ const hbs          = require('./lib/handlebars');
 const meta         = require('./package.json');
 const middleware   = require('./lib/middleware');
 const path         = require('path');
-const router       = require('./lib/router');
+const route        = require('./lib/router');
 const startServer  = require('./lib/server');
 
 const {
@@ -16,7 +16,6 @@ const {
   errors,
   helmet,
   logger,
-  route,
   vary,
 } = middleware;
 
@@ -25,12 +24,15 @@ const app         = express();
 const routeStatic = express.static(path.join(__dirname, '/public'));
 
 // app settings
-app.enable(`trust proxy`);           // trust the Azure proxy server
-app.engine(hbs.extname, hbs.engine); // declare Handlebars engine
-app.set(`port`, config.port);        // set port
-app.set(`view engine`, hbs.extname); // use Handlebars for templating
-app.locals.meta = meta;              // make package.json data available to app
-app.locals.baseURL = config.baseURL; // make baseURL available to app
+app.enable(`trust proxy`);                 // trust the Azure proxy server
+app.engine(hbs.extname, hbs.engine);       // declare Handlebars engine
+app.set(`port`, config.port);              // set port
+app.set(`view engine`, hbs.extname);       // use Handlebars for templating
+app.locals.baseURL = config.baseURL;       // make baseURL available to app
+app.locals.localhost = config.localhost;   // makes env available to app
+app.locals.header = true;                  // show page header by default
+app.locals.meta = meta;                    // make package.json data available to app
+app.locals.production = config.production; // makes env available to app
 
 // middleware
 app.use(helmet);      // security settings
@@ -40,7 +42,7 @@ app.use(routeStatic); // routing for static files
 app.use(errors);      // returns consistent errors
 
 // add routes
-router(app);
+route(app);
 
 // generic error handling
 app.use(error404);

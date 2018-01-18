@@ -9,7 +9,9 @@
     <title>Daniel W. Hieber | {{pageTitle}}</title>
 
     {{!-- Security --}}
-    <meta http-equiv=Content-Security-Policy content="default-src 'self'; upgrade-insecure-requests">
+    {{#if production}}
+      <meta http-equiv=Content-Security-Policy content="default-src 'self' *.danielhieber.com; upgrade-insecure-requests">
+    {{/if}}
 
     {{!-- SEO --}}
     <meta name=author content='{{meta.author.name}}'>
@@ -39,10 +41,36 @@
     <link rel=icon type=image/png href={{baseURL}}/img/karate_wugbot.png>
     <link rel=license href=https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE>
 
+    {{{sections.style}}}
+    {{{sections.partialStyle}}}
+
   </head>
 
   <body>
+
+    {{!-- Site Header --}}
+    {{#if header}}
+      <header id=header>
+        <h1>Daniel W. Hieber</h1>
+        <p>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</p>
+        <img id=gallery src='' opacity='0.2' aria-hidden=true>
+      </header>
+    {{/if}}{{!-- end header conditional --}}
+
+    {{!-- Main Site Navigation --}}
+    <nav id=nav>
+      <ul>
+        <li><a href=/home>Home</a></li>
+      </ul>
+    </nav>
+
+    {{!-- Body Content --}}
+    {{!-- Should always be wrapped in a <main id=pageName></main> tag --}}
     {{{body}}}
+
+    {{!-- Scripts from individual views get loaded here --}}
+    {{{sections.script}}}
+
   </body>
 
 </html>
