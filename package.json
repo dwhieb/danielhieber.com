@@ -28,7 +28,9 @@
     "url": "git+https://github.com/dwhieb/danielhieber.com.git"
   },
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "build": "node ../utilities/node/less.js less public/css"
+  },
   "engines": {
     "node": ">=8.x"
   },
