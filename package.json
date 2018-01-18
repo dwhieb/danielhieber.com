@@ -38,5 +38,7 @@
     "express-handlebars": "^3.0.0",
     "helmet": "^3.9.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "flexbox-reset": "^2.3.0"
+  }
 }
