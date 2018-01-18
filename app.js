@@ -7,7 +7,7 @@ const hbs          = require('./lib/handlebars');
 const meta         = require('./package.json');
 const middleware   = require('./lib/middleware');
 const path         = require('path');
-const route        = require('./lib/router');
+const router       = require('./lib/router');
 const startServer  = require('./lib/server');
 
 const {
@@ -16,11 +16,13 @@ const {
   errors,
   helmet,
   logger,
+  route,
   vary,
 } = middleware;
 
 // initialize Express
-const app = express();
+const app         = express();
+const routeStatic = express.static(path.join(__dirname, '/public'));
 
 // app settings
 app.enable(`trust proxy`);           // trust the Azure proxy server
@@ -31,14 +33,14 @@ app.locals.meta = meta;              // make package.json data available to app
 app.locals.baseURL = config.baseURL; // make baseURL available to app
 
 // middleware
-app.use(helmet);                                          // security settings
-app.use(vary);                                            // set the Vary header
-app.use(logger);                                          // request logging
-app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
-app.use(errors);                                          // returns consistent errors
+app.use(helmet);      // security settings
+app.use(vary);        // set the Vary header
+app.use(logger);      // request logging
+app.use(routeStatic); // routing for static files
+app.use(errors);      // returns consistent errors
 
 // add routes
-route(app);
+router(app);
 
 // generic error handling
 app.use(error404);

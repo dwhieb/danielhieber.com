@@ -6,7 +6,7 @@
     "restart": ""
   },
   "exec": "node --inspect app.js",
-  "ext": "js",
+  "ext": "hbs js",
   "ignore": [
     "/build",
     "/public"
