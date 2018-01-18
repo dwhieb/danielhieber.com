@@ -28,6 +28,7 @@ app.engine(hbs.extname, hbs.engine); // declare Handlebars engine
 app.set(`port`, config.port);        // set port
 app.set(`view engine`, hbs.extname); // use Handlebars for templating
 app.locals.meta = meta;              // make package.json data available to app
+app.locals.baseURL = config.baseURL; // make baseURL available to app
 
 // middleware
 app.use(helmet);                                          // security settings
