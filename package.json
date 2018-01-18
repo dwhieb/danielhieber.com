@@ -29,7 +29,6 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "npm run less & npm run upload",
     "less": "node ../utilities/node/less.js less public/css",
     "upload": "node build/upload.js"
   },
@@ -43,7 +42,6 @@
     "helmet": "^3.9.0"
   },
   "devDependencies": {
-    "azure-arm-cdn": "^3.0.0",
     "azure-storage": "^2.7.0",
     "flexbox-reset": "^2.3.0"
   }

@@ -8,6 +8,7 @@
   "exec": "node --inspect app.js",
   "ext": "js",
   "ignore": [
+    "/build",
     "/public"
   ]
 }
