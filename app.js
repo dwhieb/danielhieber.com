@@ -4,7 +4,6 @@ const config  = require('./lib/config');
 // modules
 const express      = require('express');
 const hbs          = require('./lib/handlebars');
-const helmet       = require('./lib/helmet');
 const meta         = require('./package.json');
 const middleware   = require('./lib/middleware');
 const path         = require('path');
@@ -15,7 +14,9 @@ const {
   error404,
   error500,
   errors,
+  helmet,
   logger,
+  vary,
 } = middleware;
 
 // initialize Express
@@ -30,6 +31,7 @@ app.locals.meta = meta;              // make package.json data available to app
 
 // middleware
 app.use(helmet);                                          // security settings
+app.use(vary);                                            // set the Vary header
 app.use(logger);                                          // request logging
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
 app.use(errors);                                          // returns consistent errors
