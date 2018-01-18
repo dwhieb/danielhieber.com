@@ -11,7 +11,12 @@ const path         = require('path');
 const route        = require('./lib/router');
 const startServer  = require('./lib/server');
 
-const { error404, error500, errors } = middleware;
+const {
+  error404,
+  error500,
+  errors,
+  logger,
+} = middleware;
 
 // initialize Express
 const app = express();
@@ -25,6 +30,7 @@ app.locals.meta = meta;              // make package.json data available to app
 
 // middleware
 app.use(helmet);                                          // security settings
+app.use(logger);                                          // request logging
 app.use(express.static(path.join(__dirname, '/public'))); // routing for static files
 app.use(errors);                                          // returns consistent errors
 
