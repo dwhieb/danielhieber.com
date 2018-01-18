@@ -3,7 +3,7 @@
     "NODE_ENV": "localhost"
   },
   "events": {
-    "restart": "npm run build"
+    "restart": ""
   },
   "exec": "node --inspect app.js",
   "ext": "js",

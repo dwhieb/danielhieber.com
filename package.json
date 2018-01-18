@@ -29,7 +29,9 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "node ../utilities/node/less.js less public/css"
+    "build": "npm run less & npm run upload",
+    "less": "node ../utilities/node/less.js less public/css",
+    "upload": "node build/upload.js"
   },
   "engines": {
     "node": ">=8.x"
