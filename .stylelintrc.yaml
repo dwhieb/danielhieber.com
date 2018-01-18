@@ -4,3 +4,5 @@ rules:
   function-url-scheme-blacklist:
     - '/^http$/'
     - '/^HTTP$/'
+ignoreFiles:
+  - 'public/css/*.css'
