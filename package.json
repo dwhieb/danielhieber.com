@@ -29,7 +29,8 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "node ../utilities/node/less.js less public/css"
+    "less": "node ../utilities/node/less.js less public/css",
+    "upload": "node build/upload.js"
   },
   "engines": {
     "node": ">=8.x"
@@ -41,6 +42,7 @@
     "helmet": "^3.9.0"
   },
   "devDependencies": {
+    "azure-storage": "^2.7.0",
     "flexbox-reset": "^2.3.0"
   }
 }
