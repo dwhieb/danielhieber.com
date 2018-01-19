@@ -60,7 +60,7 @@
         <p><a href=/>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</a></p>
         <a href=/><img id=gallery src='img/gallery/letter_blocks.jpg' opacity='0.2' aria-hidden=true></a>
       </header>
-    {{/if}}{{!-- end header conditional --}}
+    {{/if}}{{!-- end site header (and its conditional) --}}
 
     {{!-- Main Site Navigation --}}
     <nav id=nav>
@@ -72,7 +72,7 @@
             <span>Home</span>
           </a>
         </li>
-        <li>
+        {{!-- <li>
           <a {{#if research}} href=#research aria-describedby=current {{else}} href=/research {{/if}}>
             {{{icons.bookOpen}}}
             <span>Research</span>
@@ -119,12 +119,13 @@
             {{{icons.heart}}}
             <span>Personal</span>
           </a>
-        </li>
-      </ul>
+        </li> --}}
+      </ul>{{!-- End nav ul --}}
 
+      {{!-- Describes the current page to assistive technologies --}}
       <div hidden id=current>Current Page</div>
 
-    </nav>
+    </nav>{{!-- End main nav --}}
 
     {{!-- Body Content --}}
     {{!-- Should always be wrapped in a <main id=pageName></main> tag --}}
