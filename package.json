@@ -29,7 +29,7 @@
   },
   "main": "app.js",
   "scripts": {
-    "less": "lessc --clean-css --strict-math=on views/layouts/main.less views/layouts/main.css",
+    "less": "lessc --clean-css --strict-math=on views/layouts/less/index.less public/css/main.css",
     "upload": "node build/upload.js"
   },
   "engines": {
