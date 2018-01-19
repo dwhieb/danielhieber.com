@@ -67,13 +67,58 @@
 
       <ul>
         <li>
-          <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}}>Home</a>
+          <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}}>
+            {{{icons.home}}}
+            <span>Home</span>
+          </a>
         </li>
         <li>
-          <a {{#if home}} href=# aria-describedby=current {{else}} href=/nav {{/if}}>Nav Item 1</a>
+          <a {{#if research}} href=#research aria-describedby=current {{else}} href=/research {{/if}}>
+            {{{icons.bookOpen}}}
+            <span>Research</span>
+          </a>
         </li>
         <li>
-          <a {{#if home}} href=# aria-describedby=current {{else}} href=/nav {{/if}}>Nav Item 2</a>
+          <a href=/dlx>
+            {{{icons.code}}}
+            <span>Digital Linguistics</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if cv}} href=#cv aria-describedby=current {{else}} href=/cv {{/if}}>
+            {{{icons.fileText}}}
+            <span>Curriculum Vitae</span>
+          </a>
+        </li>
+        <li>
+          <a href=/blog>
+            {{{icons.edit}}}
+            <span>Blog</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if languages}} href=#languages aria-describedby=current {{else}} href=/languages {{/if}}>
+            {{{icons.messageCircle}}}
+            <span>Languages</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if teaching}} href=#teaching aria-describedby=current {{else}} href=/teaching {{/if}}>
+            {{{icons.users}}}
+            <span>Teaching</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if bibliographies}} href=#bibliographies aria-describedby=current {{else}} href=/bibliographies {{/if}}>
+            {{{icons.list}}}
+            <span>Bibliographies</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if personal}} href=#personal aria-describedby=current {{else}} href=/personal {{/if}}>
+            {{{icons.heart}}}
+            <span>Personal</span>
+          </a>
         </li>
       </ul>
 

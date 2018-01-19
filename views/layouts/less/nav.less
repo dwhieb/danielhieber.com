@@ -5,19 +5,35 @@
   color: white;
 
   ul {
-
+    flex-flow: row wrap;
     justify-content: space-around;
-
-    // Desktop styling
-    @media screen and (min-width: 400px) {
-      flex-flow: row wrap;
-    }
-
+    justify-content: space-evenly;
   }
 
   li {
-    padding: 0.5em;
+    padding: 0.5em 0.75em;
     white-space: nowrap;
   }
 
+  a {
+    align-items: center;
+    display: flex;
+  }
+
+  svg {
+    height: 1em;
+    padding: 0.125em;
+    width: 1em;
+  }
+
 }
+
+// Mobile styling
+@media screen and (max-width: 399px) {
+  #nav {
+    font-size: var(--font-size-small);
+  }
+}
+
+// Desktop styling
+@media screen and (min-width: 400px) {}

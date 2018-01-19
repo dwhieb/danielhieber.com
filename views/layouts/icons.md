@@ -4,13 +4,13 @@ Page           | Feather | Octicon
 -------------- | :-----: | :-----:
 Home           | ![][1]  | ![][10]
 Research       | ![][2]  | ![][11]
-Teaching       | ![][3]  | ![][12]
+DLx            | ![][9]  | ![][18]
 CV             | ![][4]  | ![][13]
-Bibliographies | ![][5]  | ![][14]
 Blog           | ![][6]  | ![][15]
 Languages      | ![][7]  | ![][16]
+Teaching       | ![][3]  | ![][12]
+Bibliographies | ![][5]  | ![][14]
 Personal       | ![][8]  | ![][17]
-DLx            | ![][9]  | ![][18]
 
 [1]: C:\Users\dwhieb\Coding\danielhieber.com\node_modules\feather-icons\dist\icons\home.svg
 [2]: C:\Users\dwhieb\Coding\danielhieber.com\node_modules\feather-icons\dist\icons\book-open.svg

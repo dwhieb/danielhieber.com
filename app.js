@@ -50,6 +50,6 @@ app.use(error404);
 app.use(error500);
 
 (async () => {
-  await inject(app); // inject critical CSS and JS
+  await inject(app); // inject critical CSS, JS, and SVG icons
   startServer(app);  // start the server
 })();
