@@ -1,8 +1,5 @@
 extends: 'C:\Users\dwhieb\Coding\dev\.stylelintrc.yaml'
 rules:
   function-url-no-scheme-relative: true
-  function-url-scheme-blacklist:
-    - '/^http$/'
-    - '/^HTTP$/'
 ignoreFiles:
-  - 'public/css/*.css'
+  - '*.css'

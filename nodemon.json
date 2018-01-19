@@ -6,7 +6,7 @@
     "restart": ""
   },
   "exec": "npm run less & node --inspect app.js",
-  "ext": "hbs js",
+  "ext": "hbs js less",
   "ignore": [
     "/build",
     "/public"
