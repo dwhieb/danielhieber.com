@@ -50,18 +50,24 @@
 
     {{!-- Site Header --}}
     {{#if header}}
-      <header id=header>
-        <h1>Daniel W. Hieber</h1>
+      <header id=header role=banner>
+        <h1><a href=/>Daniel W. Hieber</a></h1>
         <p>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</p>
-        <img id=gallery src='' opacity='0.2' aria-hidden=true>
+        <a href=/><img id=gallery src='' opacity='0.2' aria-hidden=true></a>
       </header>
     {{/if}}{{!-- end header conditional --}}
 
     {{!-- Main Site Navigation --}}
     <nav id=nav>
+
       <ul>
-        <li><a href=/home>Home</a></li>
+        <li>
+          <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}} >Home</a>
+        </li>
       </ul>
+
+      <div hidden id=current>Current Page</div>
+
     </nav>
 
     {{!-- Body Content --}}
