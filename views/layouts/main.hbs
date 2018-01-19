@@ -69,6 +69,12 @@
         <li>
           <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}}>Home</a>
         </li>
+        <li>
+          <a {{#if home}} href=# aria-describedby=current {{else}} href=/nav {{/if}}>Nav Item 1</a>
+        </li>
+        <li>
+          <a {{#if home}} href=# aria-describedby=current {{else}} href=/nav {{/if}}>Nav Item 2</a>
+        </li>
       </ul>
 
       <div hidden id=current>Current Page</div>
