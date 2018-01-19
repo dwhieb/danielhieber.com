@@ -3,12 +3,13 @@ const config  = require('./lib/config');
 
 // modules
 const express      = require('express');
-const hbs          = require('./lib/handlebars');
+const hbs          = require('./lib/modules/handlebars');
 const meta         = require('./package.json');
 const middleware   = require('./lib/middleware');
+const inject       = require('./lib/modules/inject');
 const path         = require('path');
 const route        = require('./lib/router');
-const startServer  = require('./lib/server');
+const startServer  = require('./lib/modules/server');
 
 const {
   error404,
@@ -48,5 +49,7 @@ route(app);
 app.use(error404);
 app.use(error500);
 
-// start the server
-startServer(app);
+(async () => {
+  await inject(app); // inject critical CSS and JS
+  startServer(app);  // start the server
+})();
