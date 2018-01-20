@@ -1,3 +1,7 @@
+/* nav.less */
+
+/* Styling for the main navigation bar at the top of each page */
+
 #nav {
 
   // Global styling
@@ -15,14 +19,26 @@
     white-space: nowrap;
   }
 
+  [aria-describedby=current] {
+
+    font-weight: 500;
+
+    svg {
+      background-color: white;
+      color: black;
+    }
+
+  }
+
   a {
     align-items: center;
     display: flex;
   }
 
   svg {
+    border-radius: 0.25em;
     height: 1em;
-    padding: 0.125em;
+    padding: 0.25em;
     width: 1em;
   }
 
