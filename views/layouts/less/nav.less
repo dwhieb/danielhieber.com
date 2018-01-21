@@ -19,18 +19,8 @@
     padding: 0.5em 0.75em;
   }
 
-  svg {
-    border-radius: 0.25em;
-    height: 1em;
-    padding: 0.25em;
-    width: 1em;
-  }
-
   [aria-describedby=current] {
-    svg {
-      background-color: white;
-      color: black;
-    }
+    border-bottom: 0.05em solid white;
   }
 
   a {
@@ -46,6 +36,3 @@
     font-size: var(--font-size-small);
   }
 }
-
-// Desktop styling
-@media screen and (min-width: 400px) {}
