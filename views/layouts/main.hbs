@@ -56,7 +56,10 @@
     {{!-- Site Header --}}
     {{#if header}}
       <header id=header role=banner>
-        <h1><a href=/>Daniel W. Hieber</a></h1>
+        <h1><a href=/ class=rollover>
+          <span lang=en-Latn>Daniel W. Hieber</span>
+          <span lang=en-fonipa-x-emic>dænjəl hibɜɹ</span>
+        </a></h1>
         <p><a href=/>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</a></p>
         <a href=/><img id=gallery src='img/gallery/letter_blocks.jpg' opacity='0.2' aria-hidden=true></a>
       </header>
@@ -67,57 +70,66 @@
 
       <ul>
         <li>
-          <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}}>
+          <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}} class=rollover>
             {{{icons.home}}}
-            <span>Home</span>
+            <span lang=en-Latn>Home</span>
+            <span lang=en-fonipa-x-emic>hoᶷm</span>
           </a>
         </li>
         <li>
-          <a {{#if research}} href=#research aria-describedby=current {{else}} href=/research {{/if}}>
+          <a {{#if research}} href=#research aria-describedby=current {{else}} href=/research {{/if}} class=rollover>
             {{{icons.bookOpen}}}
-            <span>Research</span>
+            <span lang=en-Latn>Research</span>
+            <span lang=en-fonipa-x-emic>ɹisɜɹt͡ʃ</span>
           </a>
         </li>
         <li>
-          <a href=/dlx>
+          <a href=/dlx class=rollover>
             {{{icons.code}}}
-            <span>Digital Linguistics</span>
+            <span lang=en-Latn>Digital Linguistics</span>
+            <span lang=en-fonipa-x-emic>dɪd͡ʒɪtəl lɪŋgwɪstɪks</span>
           </a>
         </li>
         <li>
-          <a {{#if cv}} href=#cv aria-describedby=current {{else}} href=/cv {{/if}}>
+          <a {{#if cv}} href=#cv aria-describedby=current {{else}} href=/cv {{/if}} class=rollover>
             {{{icons.fileText}}}
-            <span>Curriculum Vitae</span>
+            <span lang=en-Latn>Curriculum Vitae</span>
+            <span lang=en-fonipa-x-emic>kɜɹɪkjələm vitaᶦ</span>
           </a>
         </li>
         <li>
-          <a href=/blog>
+          <a href=/blog class=rollover>
             {{{icons.edit}}}
-            <span>Blog</span>
+            <span lang=en-Latn>Blog</span>
+            <span lang=en-fonipa-x-emic>blɑg</span>
           </a>
         </li>
         <li>
-          <a {{#if languages}} href=#languages aria-describedby=current {{else}} href=/languages {{/if}}>
+          <a {{#if languages}} href=#languages aria-describedby=current {{else}} href=/languages {{/if}} class=rollover>
             {{{icons.messageCircle}}}
-            <span>Languages</span>
+            <span lang=en-Latn>Languages</span>
+            <span lang=en-fonipa-x-emic>læŋgwɪd͡ʒɪz</span>
           </a>
         </li>
         <li>
-          <a {{#if teaching}} href=#teaching aria-describedby=current {{else}} href=/teaching {{/if}}>
+          <a {{#if teaching}} href=#teaching aria-describedby=current {{else}} href=/teaching {{/if}} class=rollover>
             {{{icons.users}}}
-            <span>Teaching</span>
+            <span lang=en-Latn>Teaching</span>
+            <span lang=en-fonipa-x-emic>tit͡ʃɪŋ</span>
           </a>
         </li>
         <li>
-          <a {{#if bibliographies}} href=#bibliographies aria-describedby=current {{else}} href=/bibliographies {{/if}}>
+          <a {{#if bibliographies}} href=#bibliographies aria-describedby=current {{else}} href=/bibliographies {{/if}} class=rollover>
             {{{icons.list}}}
-            <span>Bibliographies</span>
+            <span lang=en-Latn>Bibliographies</span>
+            <span lang=en-fonipa-x-emic>bɪbliɑgɹəfiz</span>
           </a>
         </li>
         <li>
-          <a {{#if personal}} href=#personal aria-describedby=current {{else}} href=/personal {{/if}}>
+          <a {{#if personal}} href=#personal aria-describedby=current {{else}} href=/personal {{/if}} class=rollover>
             {{{icons.heart}}}
-            <span>Personal</span>
+            <span lang=en-Latn>Personal</span>
+            <span lang=en-fonipa-x-emic>pɜɹsənəl</span>
           </a>
         </li>
       </ul>{{!-- End nav ul --}}

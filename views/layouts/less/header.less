@@ -2,12 +2,16 @@
 
 /* Styling for the site's main banner / header (doesn't include the nav) */
 
+:root {
+  --font-size-header: calc(2rem + 1.5vw);
+}
+
 #header {
 
-  align-items: center;
-  overflow: hidden;
-  padding: 2em 1em;
-  position: relative;
+  align-items: stretch;
+  overflow:    hidden;
+  padding:     2em 1em;
+  position:    relative;
 
   * {
     text-align: center;
@@ -31,4 +35,5 @@
   position:   absolute;
   top:        0;
   transform:  translateY(-25%);
+  z-index:    -1;
 }

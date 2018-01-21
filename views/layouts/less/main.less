@@ -17,3 +17,30 @@ body {
 main {
   padding: 1.5em;
 }
+
+.rollover {
+
+  position:    relative;
+  white-space: nowrap;
+
+  [lang=en-fonipa-x-emic] {
+    bottom:     0;
+    left:       50%;
+    position:   absolute;
+    transform:  translateX(-50%);
+    visibility: hidden;
+  }
+
+  &:hover {
+
+    [lang=en-Latn] {
+      visibility: hidden;
+    }
+
+    [lang=en-fonipa-x-emic] {
+      visibility: visible;
+    }
+
+  }
+
+}

@@ -1,0 +1,67 @@
+/* classes.less */
+
+/* A set of global classes that are applied to all stylesheets. */
+
+:root {
+  --padding-ipa: 0.125em;
+}
+
+/* IPA transcriptions */
+[lang*=fonipa] {
+  font-family:
+    'Gentium Plus',
+    'Charis SIL',
+    'Doulos SIL',
+    Andika,
+    'Lucida Sans Unicode',
+    'Times New Roman',
+    Cambria,
+    Georgia,
+    serif;
+  font-size: 1.125em;
+}
+
+/* Orthographic transcriptions */
+.orthographic {
+
+  &::before {
+    content: '⟨';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: '⟩';
+    padding-left: var(--padding-ipa);
+  }
+
+}
+
+/* Phonemic transcriptions */
+[lang$=emic] {
+
+  &::before {
+    content: '/';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: '/';
+    padding-left: var(--padding-ipa);
+  }
+
+}
+
+/* Phonetic transcriptions */
+[lang$=etic] {
+
+  &::before {
+    content: '[';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: ']';
+    padding-left: var(--padding-ipa);
+  }
+
+}
