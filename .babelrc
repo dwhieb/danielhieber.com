@@ -1,0 +1,18 @@
+{
+
+  "plugins": [],
+
+  "presets": [
+    ["env", {
+      "exclude": [
+        "transform-regenerator"
+      ]
+    }]
+  ],
+
+  "comments": false,
+  "compact": true,
+  "minified": true,
+  "sourceMaps": "inline"
+
+}

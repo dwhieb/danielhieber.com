@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang=en>
+
+  <head>
+
+    {{!-- Critical metadata --}}
+    <meta charset=utf-8>
+    <meta name=viewport content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <title>Daniel W. Hieber | {{pageTitle}}</title>
+
+    {{!-- Security --}}
+    {{#if production}}
+      <meta http-equiv=Content-Security-Policy content="default-src 'self' *.danielhieber.com; upgrade-insecure-requests">
+    {{/if}}
+
+    {{!-- SEO --}}
+    <meta name=author content='{{meta.author.name}}'>
+    <meta name=description content="{{meta.description}}">
+    <meta name=generator content=Atom>
+    <meta name=googlebot content='index,follow'>
+    <meta name=keywords content='{{#each meta.keywords}}{{#if @last}}{{@this}}{{else}}{{@this}}, {{/if}}{{/each}}'>
+    <meta name=rating content=general>
+    <meta name=referrer content=no-referrer>
+    <meta name=robots content='index,follow'>
+    <meta name=subject content='Daniel W. Hieber'>
+
+    {{!-- Facebook Open Graph --}}
+    <meta property=og:description content='{{meta.description}}'>
+    <meta property=og:image content=https://danielhieber.com/img/grad_slam.jpg>
+    <meta property=og:locale content=en_US>
+    <meta property=og:title content='{{pageTitle}}'>
+    <meta property=og:type content=website>
+    <meta property=og:url content=https://danielhieber.com>
+
+    {{!-- Twitter Card (also uses og properties) --}}
+    <meta name=twitter:card content=summary>
+    <meta name=twitter:creator content=@dwhieb>
+
+    {{!-- Links --}}
+    <link rel=author href=https://danielhieber.com>
+    <link rel=icon type=image/png href={{baseURL}}/img/karate_wugbot.png>
+    <link rel=license href=https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE>
+    <link href=fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
+
+    {{!-- Critical CSS --}}
+    <style>
+      {{{css}}}
+    </style>
+
+    {{!-- Styling for pages and partials --}}
+    {{{sections.style}}}
+    {{{sections.partialStyle}}}
+
+  </head>
+
+  <body>
+
+    {{!-- Site Header --}}
+    {{#if header}}
+      <header id=header role=banner>
+        <h1><a href=/ class=rollover>
+          <span lang=en-Latn>Daniel W. Hieber</span>
+          <span lang=en-fonipa-x-emic>dænjəl hibɜɹ</span>
+        </a></h1>
+        <p><a href=/>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</a></p>
+        <a href=/><img id=gallery src='img/gallery/letter_blocks.jpg' opacity='0.2' aria-hidden=true></a>
+      </header>
+    {{/if}}{{!-- end site header (and its conditional) --}}
+
+    {{!-- Main Site Navigation --}}
+    <nav id=nav>
+
+      <ul>
+        <li>
+          <a {{#if home}} href=#home aria-describedby=current {{else}} href=/home {{/if}} class=rollover>
+            <span lang=en-Latn>Home</span>
+            <span lang=en-fonipa-x-emic>hoᶷm</span>
+          </a>
+        </li>
+        {{!-- <li>
+          <a {{#if research}} href=#research aria-describedby=current {{else}} href=/research {{/if}} class=rollover>
+            <span lang=en-Latn>Research</span>
+            <span lang=en-fonipa-x-emic>ɹisɜɹt͡ʃ</span>
+          </a>
+        </li>
+        <li>
+          <a href=/dlx class=rollover>
+            <span lang=en-Latn>Digital Linguistics</span>
+            <span lang=en-fonipa-x-emic>dɪd͡ʒɪtəl lɪŋgwɪstɪks</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if cv}} href=#cv aria-describedby=current {{else}} href=/cv {{/if}} class=rollover>
+            <span lang=en-Latn>Curriculum Vitae</span>
+            <span lang=en-fonipa-x-emic>kɜɹɪkjələm vitaᶦ</span>
+          </a>
+        </li>
+        <li>
+          <a href=/blog class=rollover>
+            <span lang=en-Latn>Blog</span>
+            <span lang=en-fonipa-x-emic>blɑg</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if languages}} href=#languages aria-describedby=current {{else}} href=/languages {{/if}} class=rollover>
+            <span lang=en-Latn>Languages</span>
+            <span lang=en-fonipa-x-emic>læŋgwɪd͡ʒɪz</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if teaching}} href=#teaching aria-describedby=current {{else}} href=/teaching {{/if}} class=rollover>
+            <span lang=en-Latn>Teaching</span>
+            <span lang=en-fonipa-x-emic>tit͡ʃɪŋ</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if bibliographies}} href=#bibliographies aria-describedby=current {{else}} href=/bibliographies {{/if}} class=rollover>
+            <span lang=en-Latn>Bibliographies</span>
+            <span lang=en-fonipa-x-emic>bɪbliɑgɹəfiz</span>
+          </a>
+        </li>
+        <li>
+          <a {{#if personal}} href=#personal aria-describedby=current {{else}} href=/personal {{/if}} class=rollover>
+            <span lang=en-Latn>Personal</span>
+            <span lang=en-fonipa-x-emic>pɜɹsənəl</span>
+          </a>
+        </li> --}}
+      </ul>{{!-- End nav ul --}}
+
+      {{!-- Describes the current page to assistive technologies --}}
+      <div hidden id=current>Current Page</div>
+
+    </nav>{{!-- End main nav --}}
+
+    {{!-- Body Content --}}
+    {{!-- Should always be wrapped in a <main id=pageName></main> tag --}}
+    {{{body}}}
+
+    {{!-- Critical JS --}}
+    <script>
+
+      // List of gallery images
+      {{{images}}}
+
+      // Gallery widget
+      {{{js}}}
+
+    </script>
+
+    {{!-- Scripts from individual views get loaded here --}}
+    {{{sections.script}}}
+
+  </body>
+
+</html>

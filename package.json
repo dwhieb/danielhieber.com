@@ -1,7 +1,7 @@
 {
   "name": "danielhieber.com",
   "version": "1.0.0",
-  "description": "The academic homepage of Daniel W. Hieber, graduate student in linguistics at the University of California, Santa Barbara.",
+  "description": "The personal academic homepage of Daniel W. Hieber, Ph.D. Candidate in Linguistics at the University of California, Santa Barbara",
   "author": {
     "name": "Daniel W. Hieber",
     "email": "dhieber@umail.ucsb.edu",
@@ -29,7 +29,9 @@
   },
   "main": "app.js",
   "scripts": {
-    "less": "node ../utilities/node/less.js less public/css",
+    "build": "npm run js & npm run less",
+    "js": "babel src/gallery.js -o public/js/gallery.js",
+    "less": "lessc --clean-css --strict-math=on views/layouts/less/index.less public/css/main.css",
     "upload": "node build/upload.js"
   },
   "engines": {
@@ -43,6 +45,9 @@
   },
   "devDependencies": {
     "azure-storage": "^2.7.0",
-    "flexbox-reset": "^2.3.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "less": "^2.7.3",
+    "less-plugin-clean-css": "^1.5.1"
   }
 }

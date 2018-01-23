@@ -1,0 +1,38 @@
+/* nav.less */
+
+/* Styling for the main navigation bar at the top of each page */
+
+#nav {
+
+  // Global styling
+  background-color: black;
+  color: white;
+  position: sticky;
+  top: 0;
+
+  ul {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  li {
+    padding: 0.5em 0.75em;
+  }
+
+  [aria-describedby=current] {
+    border-bottom: 0.05em solid white;
+  }
+
+  a {
+    align-items: center;
+    display: flex;
+  }
+
+}
+
+// Mobile styling
+@media screen and (max-width: 399px) {
+  #nav {
+    font-size: var(--font-size-small);
+  }
+}
