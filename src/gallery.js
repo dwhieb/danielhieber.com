@@ -3,7 +3,7 @@
 (() => {
 
   const gallery    = document.getElementById(`gallery`);
-  const interval   = 5000;
+  const interval   = 10000;
   const transition = 250;
 
   // Get the name of a random image from the list
