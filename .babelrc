@@ -1,0 +1,11 @@
+{
+
+  "presets": [
+    "env"
+  ],
+
+  "comments": false,
+  "compact": true,
+  "minified": true
+
+}

@@ -29,6 +29,8 @@
   },
   "main": "app.js",
   "scripts": {
+    "build": "npm run js & npm run less",
+    "js": "babel src/gallery.js -o public/js/gallery.js",
     "less": "lessc --clean-css --strict-math=on views/layouts/less/index.less public/css/main.css",
     "upload": "node build/upload.js"
   },
@@ -43,6 +45,8 @@
   },
   "devDependencies": {
     "azure-storage": "^2.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "less": "^2.7.3",
     "less-plugin-clean-css": "^1.5.1"
   }
