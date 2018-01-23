@@ -1,7 +1,13 @@
 {
 
+  "plugins": [],
+
   "presets": [
-    "env"
+    ["env", {
+      "exclude": [
+        "transform-regenerator"
+      ]
+    }]
   ],
 
   "comments": false,
