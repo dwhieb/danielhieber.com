@@ -6,6 +6,7 @@
 
   "comments": false,
   "compact": true,
-  "minified": true
+  "minified": true,
+  "sourceMaps": "inline"
 
 }

@@ -1,1 +1,2 @@
-"use strict";var test="This is a test";
+"use strict";(function(){var gallery=document.getElementById("gallery")})();
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9nYWxsZXJ5LmpzIl0sIm5hbWVzIjpbImdhbGxlcnkiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIl0sIm1hcHBpbmdzIjoiYUFBQSxDQUFDLFVBQU0sQ0FFTCxHQUFNQSxTQUFVQyxTQUFTQyxjQUFULFdBRWpCLENBSkQiLCJmaWxlIjoiZ2FsbGVyeS5qcyIsInNvdXJjZXNDb250ZW50IjpbIigoKSA9PiB7XG5cbiAgY29uc3QgZ2FsbGVyeSA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGBnYWxsZXJ5YCk7XG5cbn0pKCk7XG4iXX0=

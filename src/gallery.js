@@ -1,1 +1,5 @@
-const test = `This is a test`;
+(() => {
+
+  const gallery = document.getElementById(`gallery`);
+
+})();
