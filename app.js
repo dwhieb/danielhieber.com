@@ -4,19 +4,20 @@
  */
 
 // load config file before other modules
-const config  = require('./lib/config');
+const config = require('./lib/config');
 
 // modules
-const csurf        = require('csurf');
-const express      = require('express');
-const hbs          = require('./lib/modules/handlebars');
-const middleware   = require('./lib/middleware');
-const inject       = require('./lib/modules/inject');
-const path         = require('path');
-const route        = require('./lib/router');
-const startServer  = require('./lib/modules/server');
+const express     = require('express');
+const hbs         = require('./lib/modules/handlebars');
+const middleware  = require('./lib/middleware');
+const inject      = require('./lib/modules/inject');
+const path        = require('path');
+const route       = require('./lib/router');
+const startServer = require('./lib/modules/server');
 
 const {
+  cookieParser,
+  csurf,
   error404,
   error500,
   errors,
@@ -36,11 +37,13 @@ app.set(`port`, config.port);        // set port
 app.set(`view engine`, hbs.extname); // use Handlebars for templating
 
 // middleware
-app.use(helmet);      // security settings
-app.use(vary);        // set the Vary header
-app.use(logger);      // request logging
-app.use(routeStatic); // routing for static files
-app.use(errors);      // returns consistent errors
+app.use(helmet);       // security settings
+app.use(cookieParser); // parse cookies
+app.use(csurf);        // protect from CSRF attacks
+app.use(vary);         // set the Vary header
+app.use(logger);       // request logging
+app.use(routeStatic);  // routing for static files
+app.use(errors);       // returns consistent errors
 
 // add routes
 route(app);
