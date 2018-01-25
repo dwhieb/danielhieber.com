@@ -7,6 +7,7 @@
 const config  = require('./lib/config');
 
 // modules
+const csurf        = require('csurf');
 const express      = require('express');
 const hbs          = require('./lib/modules/handlebars');
 const middleware   = require('./lib/middleware');
