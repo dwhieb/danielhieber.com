@@ -3,7 +3,11 @@
 /* A set of global classes that are applied to all stylesheets. */
 
 :root {
-  --padding-ipa: 0.125em;
+  --link-color:            var(--blue);
+  --link-color-visited:    var(--purple);
+  --padding-ipa:           0.125em;
+  --underline:             var(--line-width) solid;
+  --underline-transparent: var(--line-width) solid transparent;
 }
 
 /* IPA transcriptions */
@@ -19,21 +23,6 @@
     Georgia,
     serif;
   // font-size: 1.125em;
-}
-
-/* Orthographic transcriptions */
-.orthographic {
-
-  &::before {
-    content: '⟨';
-    padding-right: var(--padding-ipa);
-  }
-
-  &::after {
-    content: '⟩';
-    padding-left: var(--padding-ipa);
-  }
-
 }
 
 /* Phonemic transcriptions */
@@ -62,6 +51,55 @@
   &::after {
     content: ']';
     padding-left: var(--padding-ipa);
+  }
+
+}
+
+/* Orthographic transcriptions */
+.orthographic {
+
+  &::before {
+    content: '⟨';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: '⟩';
+    padding-left: var(--padding-ipa);
+  }
+
+}
+
+p a {
+
+  background:    transparent;
+  border-bottom: var(--underline-transparent);
+  color:         var(--link-color);
+  font-weight:   var(--font-weight-bold);
+
+  &:link {
+    border-bottom: var(--underline-transparent);
+    color:         var(--link-color);
+  }
+
+  &:hover {
+    border-bottom: var(--underline);
+    color:         var(--link-color);
+  }
+
+  &:visited {
+    color: var(--link-color-visited);
+  }
+
+  &.non-link { /* stylelint-disable-line selector-no-qualifying-type */
+
+    color:       inherit;
+    font-weight: var(--font-weight);
+
+    &:hover {
+      border-bottom: var(--underline-transparent);
+    }
+
   }
 
 }
