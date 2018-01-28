@@ -43,7 +43,7 @@
     "csurf": "^1.9.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "helmet": "^3.9.0"
+    "helmet": "^3.10.0"
   },
   "devDependencies": {
     "azure-storage": "^2.7.0",
