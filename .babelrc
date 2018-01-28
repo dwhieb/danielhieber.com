@@ -12,7 +12,6 @@
 
   "comments": false,
   "compact": true,
-  "minified": true,
-  "sourceMaps": "inline"
+  "minified": true
 
 }

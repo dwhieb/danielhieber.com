@@ -9,8 +9,8 @@
   "ext": "hbs js less",
   "ignore": [
     "/build",
-    "/public",
-    "/public/**",
+    "/dist",
+    "/dist/**",
     "/public/**/**"
   ]
 }
