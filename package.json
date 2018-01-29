@@ -29,10 +29,10 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "npm run js & npm run less",
-    "js": "babel src -d public/js",
-    "less": "lessc --clean-css --strict-math=on views/layouts/less/index.less public/css/main.css",
-    "upload": "node build/upload.js"
+    "build": "npm run build-js & npm run build-less && npm run build-upload",
+    "build-js": "babel src -d public/js && node build/move.js",
+    "build-less": "lessc --clean-css --strict-math=on views/layouts/less/index.less public/css/main.css",
+    "build-upload": "node build/upload.js"
   },
   "engines": {
     "node": ">=8.x"
@@ -43,7 +43,7 @@
     "csurf": "^1.9.0",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "helmet": "^3.9.0"
+    "helmet": "^3.10.0"
   },
   "devDependencies": {
     "azure-storage": "^2.7.0",
