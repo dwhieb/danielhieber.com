@@ -1,5 +1,6 @@
 /**
  * This script uploads the latest version of the CSS and JavaScript files. It does NOT reupload images or fonts. These must be uploaded manually to Azure Storage.
+ * @name upload.js
  */
 
 const cssFiles = [];

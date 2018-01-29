@@ -24,6 +24,7 @@ const {
   helmet,
   logger,
   vary,
+  worker,
 } = middleware;
 
 // initialize Express
@@ -40,8 +41,9 @@ app.set(`view engine`, hbs.extname); // use Handlebars for templating
 app.use(helmet);       // security settings
 app.use(cookieParser); // parse cookies
 app.use(csurf);        // protect from CSRF attacks
-app.use(vary);         // set the Vary header
 app.use(logger);       // request logging
+app.use(vary);         // set the Vary header
+app.use(worker);       // set the Service-Worker-Allowed header
 app.use(routeStatic);  // routing for static files
 app.use(errors);       // returns consistent errors
 
