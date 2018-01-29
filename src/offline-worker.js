@@ -5,20 +5,22 @@
  */
 
 const cacheName = `danielhieber`;
+const cacheURL  = `json/cache.json`;
 
-// Checks whether a URL is included in cache.json
+// Checks whether a URL is included in cache.json. Can only use this within oninstall and onactivate.
 const isWhitelisted = req => self.files.some(file => req.url.endsWith(file));
 
 // On activation, remove any items not listed in cache.json from the cache
 const activate = ev => {
 
   const cleanCache = async () => {
-    const { cache } = self;
+    const cache     = await caches.open(cacheName);
     const checkFile = req => (isWhitelisted(req) ? Promise.resolve() : cache.delete(req));
     const keys      = await cache.keys();
     await Promise.all(keys.map(checkFile));
   };
 
+  self.skipWaiting();
   ev.waitUntil(cleanCache());
 
 };
@@ -41,11 +43,10 @@ const fetcher = ev => {
         });
       }
 
-      const res = await fetch(req);
+      const cache = await caches.open(cacheName);
+      const res   = await fetch(req);
 
-      if (res.status === 200 && isWhitelisted(req)) {
-        await self.cache.put(req, res.clone());
-      }
+      if (res.status === 200) await cache.put(req, res.clone());
 
       return res;
 
@@ -61,6 +62,7 @@ const fetcher = ev => {
   };
 
   ev.respondWith(getResponse());
+  ev.waitUntil(self.clients.claim());
 
 };
 
@@ -68,10 +70,13 @@ const fetcher = ev => {
 const install = ev => {
 
   const cacheFiles = async () => {
-    const res  = await fetch(`json/cache.json`);
-    self.files = await res.json();
-    self.cache = await caches.open(cacheName);
-    await self.cache.addAll(self.files);
+
+    const res   = await fetch(cacheURL);
+    const cache = await caches.open(cacheName);
+    self.files  = await res.json();
+
+    if (res.status === 200) await cache.addAll(self.files);
+
   };
 
   ev.waitUntil(cacheFiles());

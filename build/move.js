@@ -9,5 +9,7 @@ const { promisify } = require('util');
 const copy = promisify(copyFile);
 const del  = promisify(unlink);
 
-copy(`public/js/offline-worker.js`, `public/offline-worker.js`);
-del(`public/js/offline-worker.js`);
+const logError = () => console.error(`Could not copy offline-worker.js`);
+
+copy(`public/js/offline-worker.js`, `public/offline-worker.js`).catch(logError);
+del(`public/js/offline-worker.js`).catch(logError);
