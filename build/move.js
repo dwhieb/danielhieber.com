@@ -3,13 +3,30 @@
  * @name move.js
  */
 
-const { copyFile, unlink } = require('fs');
+/* eslint-disable
+  wrap-iife,
+  func-names,
+*/
+
+const { copyFile, stat, unlink } = require('fs');
 const { promisify } = require('util');
 
-const copy = promisify(copyFile);
-const del  = promisify(unlink);
+const copy  = promisify(copyFile);
+const del   = promisify(unlink);
+const check = promisify(stat);
 
-const logError = () => console.error(`Could not copy offline-worker.js`);
+const path = `public/js/offline-worker.js`;
 
-copy(`public/js/offline-worker.js`, `public/offline-worker.js`).catch(logError);
-del(`public/js/offline-worker.js`).catch(logError);
+void async function() {
+
+  try {
+    await check(path);
+    await copy(path, `public/offline-worker.js`);
+    del(path);
+  } catch (e) {
+    console.log(` -- offline-worker.js already moved`);
+  }
+
+  console.log(` -- Moved offline-worker.js`);
+
+}();
