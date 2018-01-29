@@ -53,7 +53,7 @@ const fetcher = ev => {
     };
 
     const [cacheResponse, networkResponse] = await Promise.all([
-      caches.match(req),
+      caches.match(req, { ignoreVary: true }),
       getNetworkResponse(),
     ]);
 
