@@ -3,8 +3,8 @@
  * @name app.js
  */
 
-// load config file before other modules
-const config = require('./lib/config');
+const config = require('./lib/config'); // load config file before other modules
+require('./lib/modules/appInsights');   // start Azure Application Insights
 
 // modules
 const express     = require('express');

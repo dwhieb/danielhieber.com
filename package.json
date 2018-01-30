@@ -38,6 +38,7 @@
     "node": ">=8.x"
   },
   "dependencies": {
+    "applicationinsights": "^1.0.1",
     "boom": "^7.1.1",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
@@ -50,6 +51,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "less": "^2.7.3",
-    "less-plugin-clean-css": "^1.5.1"
+    "less-plugin-clean-css": "^1.5.1",
+    "superagent": "^3.8.2"
   }
 }
