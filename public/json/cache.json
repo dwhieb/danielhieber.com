@@ -2,6 +2,7 @@
   "/",
   "/home",
   "/css/error.css",
+  "/css/home.css",
   "/fonts/FiraMono-Regular.woff",
   "/fonts/FiraMono-Regular.woff2",
   "/fonts/FiraSans-Light.woff",
@@ -28,5 +29,7 @@
   "/img/gallery/snake_bayou.jpg",
   "/img/gallery/Swahili_door_1.jpg",
   "/img/gallery/Swahili_door_2.jpg",
-  "/img/gallery/two_lions.jpg"
+  "/img/gallery/two_lions.jpg",
+  "/img/grad_slam.jpg",
+  "img/singing.jpg"
 ]
