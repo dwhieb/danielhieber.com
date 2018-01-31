@@ -2,26 +2,9 @@
 
 /* A set of global classes that are applied to all stylesheets. */
 
-:root {
-  --link-color:            var(--blue);
-  --link-color-visited:    var(--purple);
-  --padding-ipa:           0.125em;
-  --underline:             var(--line-width) solid;
-  --underline-transparent: var(--line-width) solid transparent;
-}
-
 /* IPA transcriptions */
 [lang*=fonipa] {
-  font-family:
-    'Gentium Plus',
-    'Charis SIL',
-    'Doulos SIL',
-    Andika,
-    'Lucida Sans Unicode',
-    'Times New Roman',
-    Cambria,
-    Georgia,
-    serif;
+  font-family: var(--font-unicode);
   // font-size: 1.125em;
 }
 

@@ -3,11 +3,52 @@
 /* CSS custom variables that are used by the main layout (NOT ones used across the site) */
 
 :root {
-  --font:             'Fira Sans', Calibri, 'DejaVu Sans', Verdana, Arial, Helvetica, sans-serif;
+
+  --font:
+    'Fira Sans',
+    Calibri,
+    'DejaVu Sans',
+    Verdana,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  --font-unicode:
+    'Gentium Plus',
+    'Charis SIL',
+    'Doulos SIL',
+    Andika,
+    'Lucida Sans Unicode',
+    'Times New Roman',
+    Cambria,
+    Georgia,
+    serif;
+
+  --font-mono:
+    'Fira Mono',
+    'Consolas',
+    'Monaco',
+    'DejaVu Sans Mono',
+    'Courier New',
+    monospace;
+
   --font-size:        calc(1rem + 0.25vw);
+  --font-size-header: calc(2rem + 1.5vw);
   --font-size-large:  calc(1.25rem + 0.25vw);
   --font-size-small:  calc(0.75rem + 0.25vw);
   --font-weight:      300;
   --font-weight-bold: 500;
-  --line-width:       0.075em;
+
+  --link-color:         var(--blue);
+  --link-color-visited: var(--purple);
+
+  --line-width: 0.075em;
+
+  --padding-box:  1.5em;
+  --padding-ipa:  0.125em;
+  --padding-wide: 0.5em 1em;
+
+  --underline:             var(--line-width) solid;
+  --underline-transparent: var(--line-width) solid transparent;
+
 }
