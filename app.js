@@ -11,7 +11,6 @@ const express     = require('express');
 const hbs         = require('./lib/modules/handlebars');
 const middleware  = require('./lib/middleware');
 const inject      = require('./lib/modules/inject');
-const path        = require('path');
 const route       = require('./lib/router');
 const startServer = require('./lib/modules/server');
 
@@ -23,13 +22,13 @@ const {
   errors,
   helmet,
   logger,
+  routeStatic,
   vary,
   worker,
 } = middleware;
 
 // initialize Express
-const app         = express();
-const routeStatic = express.static(path.join(__dirname, '/public'));
+const app = express();
 
 // app settings
 app.enable(`trust proxy`);           // trust the Azure proxy server
