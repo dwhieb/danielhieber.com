@@ -4,6 +4,6 @@ if (
   && navigator.onLine
 ) {
   navigator.serviceWorker
-  .register(`js/offline-worker.js`, { scope: `/` })
+  .register(`/js/offline-worker.js`, { scope: `/` })
   .catch(console.error);
 }
