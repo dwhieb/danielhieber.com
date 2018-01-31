@@ -1,0 +1,1 @@
+#home{align-self:center;box-sizing:border-box;display:block;font-size:var(--font-size-large);width:100%}#home p{padding-bottom:.5em}#home strong{color:var(--pink)}#grad-slam,#singing{width:100%}@media screen and (min-width:700px){#home{max-width:var(--measure)}#grad-slam{float:left;margin:.5em 1em .25em 0;width:50%}}/*# sourceMappingURL=home.css.map */

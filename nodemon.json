@@ -5,7 +5,7 @@
   "events": {
     "restart": ""
   },
-  "exec": "node --inspect app.js",
+  "exec": "npm run build-css-main & npm run build-css-home & node --inspect app.js",
   "ext": "hbs js less",
   "ignore": [
     "/build",

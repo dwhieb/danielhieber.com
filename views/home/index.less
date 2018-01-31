@@ -1,0 +1,38 @@
+#home {
+
+  align-self: center;
+  box-sizing: border-box;
+  display:    block;
+  font-size:  var(--font-size-large);
+  width:      100%;
+
+  p {
+    padding-bottom: 0.5em;
+  }
+
+  strong {
+    color: var(--pink);
+  }
+
+}
+
+#grad-slam,
+#singing
+{
+  width: 100%;
+}
+
+// Desktop styling
+@media screen and (min-width: 700px) {
+
+  #home {
+    max-width: var(--measure);
+  }
+
+  #grad-slam {
+    float:  left;
+    margin: 0.5em 1em 0.25em 0em;
+    width:  50%;
+  }
+
+}
