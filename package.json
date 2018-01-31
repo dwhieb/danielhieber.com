@@ -29,12 +29,11 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "npm run build-js & npm run build-css & npm run build-upload",
+    "build": "npm run build-js & npm run build-css",
     "build-css": "npm run build-css-error & npm run build-css-main",
     "build-css-error": "lessc --clean-css --strict-math=on views/error/index.less public/css/error.css",
     "build-css-main": "lessc --clean-css --strict-math=on views/layouts/main/less/index.less public/css/main.css",
-    "build-js": "babel src -d public/js",
-    "build-upload": "node build/upload.js"
+    "build-js": "babel src -d public/js"
   },
   "engines": {
     "node": ">=8.x"
