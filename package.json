@@ -31,9 +31,9 @@
   "scripts": {
     "build": "npm run build-js & npm run build-css",
     "build-css": "npm run build-css-error & npm run build-css-main & npm run build-css-home",
-    "build-css-error": "lessc --clean-css --strict-math=on --source-map views/error/index.less public/css/error.css",
-    "build-css-home": "lessc --clean-css --strict-math=on --source-map views/home/index.less public/css/home.css",
-    "build-css-main": "lessc --clean-css --strict-math=on --source-map-map-inline views/layouts/main/less/index.less public/css/main.css",
+    "build-css-error": "lessc --clean-css --strict-math=on views/error/index.less public/css/error.css",
+    "build-css-home": "lessc --clean-css --strict-math=on views/home/index.less public/css/home.css",
+    "build-css-main": "lessc --clean-css --strict-math=on views/layouts/main/less/index.less public/css/main.css",
     "build-js": "babel src -d public/js & node build/move.js"
   },
   "engines": {
