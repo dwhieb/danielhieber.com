@@ -5,7 +5,7 @@
  */
 
 const cacheName = `danielhieber`;
-const cacheURL  = `../json/cache.json`;
+const cacheURL  = `json/cache.json`;
 
 // Checks whether a URL is included in cache.json. Can only use this within oninstall and onactivate.
 const isWhitelisted = req => self.files.some(file => req.url.endsWith(file));
@@ -46,7 +46,7 @@ const fetcher = ev => {
       const cache = await caches.open(cacheName);
       const res   = await fetch(req);
 
-      if (res.status === 200) await cache.put(req, res.clone());
+      if (res.ok) await cache.put(req, res.clone());
 
       return res;
 
@@ -76,7 +76,7 @@ const install = ev => {
     self.files  = await res.json();
 
     // NB: Items in the cache must have a leading slash for path to resolve correctly when the service worker is not at the root
-    if (res.status === 200) await cache.addAll(self.files);
+    if (res.ok) await cache.addAll(self.files);
 
   };
 

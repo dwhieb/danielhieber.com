@@ -33,7 +33,7 @@
     "build-css": "npm run build-css-error & npm run build-css-main",
     "build-css-error": "lessc --clean-css --strict-math=on views/error/index.less public/css/error.css",
     "build-css-main": "lessc --clean-css --strict-math=on views/layouts/main/less/index.less public/css/main.css",
-    "build-js": "babel src -d public/js"
+    "build-js": "babel src -d public/js & node build/move.js"
   },
   "engines": {
     "node": ">=8.x"

@@ -24,7 +24,6 @@ const {
   logger,
   routeStatic,
   vary,
-  worker,
 } = middleware;
 
 // initialize Express
@@ -41,7 +40,6 @@ app.use(helmet);       // security settings
 app.use(cookieParser); // parse cookies
 app.use(csurf);        // protect from CSRF attacks
 app.use(vary);         // set the Vary header
-app.use(worker);       // set the Service-Worker-Allowed header
 app.use(routeStatic);  // routing for static files
 app.use(errors);       // returns consistent errors
 app.use(logger);       // request logging
