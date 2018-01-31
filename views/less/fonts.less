@@ -2,7 +2,18 @@
 
 /* Font declarations for all fonts used on the site */
 
-/* NB: Values within url() functions don't need to be quoted, but it breaks the syntax highlighting if you do this, and makes the file hard to read. */
+@font-face {
+  font-family: 'Fira Mono';
+  src:
+    local('Fira Mono Regular'),
+    url(fonts/FiraMono-Regular.woff2) format('woff2'),
+    url(fonts/FiraMono-Regular.woff) format('woff');
+  font-display: swap;
+  font-stretch: normal;
+  font-style:   normal;
+  font-variant: normal;
+  font-weight:  normal;
+}
 
 @font-face {
   font-family: 'Fira Sans';
@@ -12,9 +23,9 @@
     url(fonts/FiraSans-Light.woff) format('woff');
   font-display: swap;
   font-stretch: normal;
-  font-style: normal;
+  font-style:   normal;
   font-variant: normal;
-  font-weight: 300;
+  font-weight:  300;
 }
 
 @font-face {
@@ -25,9 +36,9 @@
     url(fonts/FiraSans-LightItalic.woff) format('woff');
   font-display: swap;
   font-stretch: normal;
-  font-style: italic;
+  font-style:   italic;
   font-variant: normal;
-  font-weight: 300;
+  font-weight:  300;
 }
 
 @font-face {
@@ -38,9 +49,9 @@
     url(fonts/FiraSans-Medium.woff) format('woff');
   font-display: swap;
   font-stretch: normal;
-  font-style: normal;
+  font-style:   normal;
   font-variant: normal;
-  font-weight: 500;
+  font-weight:  500;
 }
 
 @font-face {
@@ -51,9 +62,9 @@
     url(fonts/FiraSans-MediumItalic.woff) format('woff');
   font-display: swap;
   font-stretch: normal;
-  font-style: italic;
+  font-style:   italic;
   font-variant: normal;
-  font-weight: 500;
+  font-weight:  500;
 }
 
 @font-face {
@@ -64,9 +75,9 @@
     url(fonts/GentiumPlus-Regular.woff) format('woff');
   font-display: swap;
   font-stretch: normal;
-  font-style: normal;
+  font-style:   normal;
   font-variant: normal;
-  font-weight: normal;
+  font-weight:  normal;
 }
 
 @font-face {
@@ -77,7 +88,7 @@
     url(fonts/GentiumPlus-Italic.woff) format('woff');
   font-display: swap;
   font-stretch: normal;
-  font-style: italic;
+  font-style:   italic;
   font-variant: normal;
-  font-weight: normal;
+  font-weight:  normal;
 }

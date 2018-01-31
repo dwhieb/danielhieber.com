@@ -51,11 +51,6 @@
     {{{sections.style}}}
     {{{sections.partialStyle}}}
 
-    {{!-- Application Insights --}}
-    <script>
-      {{{appInsights}}}
-    </script>
-
   </head>
 
   <body>
@@ -175,6 +170,9 @@
 
     {{!-- Critical JS --}}
     <script>
+
+      // Application Insights
+      {{{appInsights}}}
 
       // Register offline worker
       {{{worker}}}
