@@ -3,8 +3,9 @@
  * @name upload.js
  */
 
-const cssFiles = [];
-const jsFiles = [];
+const cssFiles  = [];
+const jsFiles   = [];
+const jsonFiles = [];
 
 require('../../credentials/azure-storage-danielhieber');
 const path          = require('path');
@@ -46,6 +47,8 @@ const Storage       = require('azure-storage');
   await Promise.all([
     uploadFiles(cssFiles, `css`),
     uploadFiles(jsFiles, `js`),
+    uploadFiles(jsonFiles, `json`),
+    uploadWorker(),
   ]);
 
   console.log(` -- File uploads complete`);
