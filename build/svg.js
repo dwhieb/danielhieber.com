@@ -13,6 +13,12 @@ const opts = {
       },
     },
   },
+  svg: {
+    dimensionAttributes: true,
+    rootAttributes: {
+      style: `display: none;`,
+    },
+  },
 };
 
 const spriter = new Spriter(opts);

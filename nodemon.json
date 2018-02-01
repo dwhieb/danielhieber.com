@@ -5,7 +5,7 @@
   "events": {
     "restart": ""
   },
-  "exec": "node build/svg.js",
+  "exec": "node build/svg.js & node --inspect app.js",
   "ext": "hbs js less",
   "ignore": [
     "/build",
