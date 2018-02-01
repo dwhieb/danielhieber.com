@@ -48,6 +48,22 @@ p a {
 
   .link;
 
+  &:not([href*='danielhieber.com']):not(.non-link)::after {
+    --icon-width:        0.75em;
+    background-image:    url(img/icons/external-link.svg);
+    background-repeat:   no-repeat;
+    background-position: center;
+    background-size:     contain;
+    content:             '(external link)';
+    display:             inline-block;
+    height:              var(--icon-width);
+    margin-left:         0.125em;
+    overflow:            hidden;
+    text-indent:         var(--icon-width);
+    white-space:         nowrap;
+    width:               var(--icon-width);
+  }
+
   &.non-link { /* stylelint-disable-line selector-no-qualifying-type */
 
     color:       inherit;
