@@ -1,4 +1,4 @@
-{{#section 'style'}}
+{{#head 'error'}}
 
   <link rel=preload href=/css/error.css as=style onload="this.rel='stylesheet';">
 
@@ -6,9 +6,9 @@
     <link rel=stylesheet href=/css/error.css>
   </noscript>
 
-{{/section}}
+{{/head}}
 
-<main id=error>
+<main id={{id}}>
   <h1 class=page-title>{{statusCode}}: {{error}}</h1>
   <p>{{{message}}}</p>
 </main>

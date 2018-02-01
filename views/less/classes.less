@@ -76,3 +76,48 @@ Styles applied with classes. Use with LESS's (reference) option.
   }
 
 }
+
+.skip-link {
+
+  padding:              var(--padding-text);
+  position:             absolute;
+  text-decoration-skip: ink;
+  z-index:              1;
+
+  &:link {
+    background-color: white;
+    color:            var(--link-color);
+    text-decoration:  none;
+  }
+
+  &:hover {
+    background-color: white;
+    color:            var(--link-color);
+    text-decoration:  underline;
+  }
+
+  &:visited {
+    background-color: white;
+    color:            var(--link-color);
+    text-decoration:  underline;
+  }
+
+  &:not(:focus) {
+    .visually-hidden;
+  }
+
+}
+
+/* stylelint-disable unit-blacklist */
+.visually-hidden {
+  clip:        rect(1px 1px 1px 1px);
+  clip:        rect(1px, 1px, 1px, 1px);
+  clip-path:   inset(1px);
+  display:     block;
+  height:      1px;
+  overflow:    hidden;
+  position:    absolute;
+  white-space: nowrap;
+  width:       1px;
+}
+/* stylelint-enable unit-blacklist */
