@@ -1,6 +1,7 @@
 {
-  "error": "views/error/index.less",
-  "home":  "views/home/index.less",
-  "links": "views/partials/links/index.less",
-  "main":  "views/layouts/main/less/index.less"
+  "error":    "views/error/index.less",
+  "home":     "views/home/index.less",
+  "links":    "views/partials/links/index.less",
+  "main":     "views/layouts/main/less/index.less",
+  "personal": "views/personal/index.less"
 }
