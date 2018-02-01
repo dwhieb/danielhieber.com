@@ -38,9 +38,13 @@ const convert = async ([name, filepath]) => {
 };
 
 void async function() {
-  const text     = await read(`build/less.json`, `utf8`);
-  const files    = JSON.parse(text);
-  const promises = Object.entries(files).map(convert);
-  await Promise.all(promises);
-  console.log(` -- LESS files converted`);
+  try {
+    const text     = await read(`build/less.json`, `utf8`);
+    const files    = JSON.parse(text);
+    const promises = Object.entries(files).map(convert);
+    await Promise.all(promises);
+    console.log(` -- LESS files converted`);
+  } catch (e) {
+    console.error(e);
+  }
 }();
