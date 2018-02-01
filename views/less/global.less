@@ -1,6 +1,8 @@
-/* classes.less */
+/* global.less */
 
 /* A set of global classes that are applied to all stylesheets. */
+
+@import (reference) 'classes.less';
 
 /* IPA transcriptions */
 [lang*=fonipa] {
@@ -44,24 +46,7 @@ code {
 
 p a {
 
-  background:    transparent;
-  border-bottom: var(--underline-transparent);
-  color:         var(--link-color);
-  font-weight:   var(--font-weight-bold);
-
-  &:link {
-    border-bottom: var(--underline-transparent);
-    color:         var(--link-color);
-  }
-
-  &:hover {
-    border-bottom: var(--underline);
-    color:         var(--link-color);
-  }
-
-  &:visited {
-    color: var(--link-color-visited);
-  }
+  .link;
 
   &.non-link { /* stylelint-disable-line selector-no-qualifying-type */
 
