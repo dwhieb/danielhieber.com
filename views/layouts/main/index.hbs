@@ -42,14 +42,15 @@
     <link rel=license href=https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE>
     <link href=fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
 
-    {{!-- Critical CSS --}}
+    <!-- Critical CSS -->
     <style>
       {{{css}}}
     </style>
 
     {{!-- Styling for pages and partials --}}
-    {{{sections.style}}}
-    {{{sections.partialStyle}}}
+    {{#each head}}
+      {{{this}}}
+    {{/each}}
 
   </head>
 
@@ -146,6 +147,7 @@
     {{!-- Should always be wrapped in a <main id=pageName></main> tag --}}
     {{{body}}}
 
+    {{!-- Main site footer --}}
     <footer id=footer>
 
       {{!-- begin GitHub icon --}}
