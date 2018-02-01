@@ -3,11 +3,6 @@
  * @name move.js
  */
 
-/* eslint-disable
-  wrap-iife,
-  func-names,
-*/
-
 const { copyFile, stat, unlink } = require('fs');
 const { promisify } = require('util');
 

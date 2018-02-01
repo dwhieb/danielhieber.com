@@ -1,0 +1,5 @@
+{
+  "error": "views/error/index.less",
+  "home":  "views/home/index.less",
+  "main":  "views/layouts/main/less/index.less"
+}

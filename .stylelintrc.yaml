@@ -3,3 +3,4 @@ rules:
   function-url-no-scheme-relative: true
 ignoreFiles:
   - '*.css'
+  - 'public/css/*.css'
