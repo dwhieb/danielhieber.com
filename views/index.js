@@ -1,7 +1,3 @@
-const error = require('./error');
-const home  = require('./home');
+const home = require('./home');
 
-module.exports = {
-  error,
-  home,
-};
+module.exports = { home };

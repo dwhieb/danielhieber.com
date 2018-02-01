@@ -48,6 +48,33 @@ p a {
 
   .link;
 
+  &:not([href*='danielhieber.com']):not(.non-link) {
+
+    --icon-width: 0.75em;
+    margin-right: var(--icon-width);
+
+    &::after {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url(img/icons/external-link.svg);
+      background-repeat:   no-repeat;
+      background-position: center;
+      background-size:     contain;
+      content:             '(external link)';
+      margin-left:         0.125em;
+      overflow:            hidden;
+      position:            absolute;
+      text-indent:         var(--icon-width);
+      white-space:         nowrap;
+      width:               var(--icon-width);
+    }
+
+    &:hover::after {
+      background-image: url(img/icons/external-link.svg);
+    }
+
+  }
+
   &.non-link { /* stylelint-disable-line selector-no-qualifying-type */
 
     color:       inherit;
