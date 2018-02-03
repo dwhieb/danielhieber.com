@@ -44,13 +44,15 @@
     <link href={{cdn}}/fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
     <link href={{cdn}}/fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
 
+    {{#unless admin}}
+      <!-- Critical CSS -->
+      <style>
+        {{{css}}}
+      </style>
+    {{/unless}}
+
     {{!-- Semantic UI styles --}}
     {{{sections.semantic}}}
-
-    <!-- Critical CSS -->
-    <style>
-      {{{css}}}
-    </style>
 
     {{!-- Styling for pages and partials --}}
     {{#each head}}

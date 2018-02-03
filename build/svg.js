@@ -18,6 +18,7 @@ const opts = {
     rootAttributes: {
       style: `display: none;`,
     },
+    xmlDeclaration: false,
   },
 };
 

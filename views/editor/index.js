@@ -4,16 +4,70 @@
  */
 
 const db = require('../../lib/modules/db');
+const { promisify } = require('util');
 
-module.exports = async (req, res) => {
+const types = {
+  awards:        `award`,
+  categories:    `category`,
+  courses:       `course`,
+  education:     `education`,
+  fieldwork:     `fieldwork`,
+  languages:     `language`,
+  media:         `media`,
+  memberships:   `membership`,
+  proficiencies: `proficiency`,
+  publications:  `publication`,
+  references:    `reference`,
+  service:       `service`,
+  work:          `work`,
+};
 
-  res.render(`editor`, {
+module.exports = (req, res, next) => {
+
+  const type = types[req.params.type];
+
+  if (!type) return next();
+
+  const query = `
+    SELECT * FROM c
+    WHERE (
+      c.type="${type}"
+      AND (
+        (NOT IS_DEFINED(c.ttl))
+        OR c.ttl < 1
+      )
+    )
+  `;
+
+  const iterator = db.queryDocuments(db.coll, query);
+  const toArray  = promisify(iterator.toArray).bind(iterator);
+
+  const render = docs => res.render(`editor`, {
     admin:     true,
+    docs,
     editor:    true,
     header:    false,
     id:        `editor`,
     pageTitle: `Editor`,
     type:      req.params.type,
   });
+
+  const convertError = err => {
+
+    if (err instanceof Error) throw err;
+
+    const headers    = {};
+    const message    = err.error_description || err.message;
+    const statusCode = Number(err.status || err.code);
+
+    if (err.status === 429 && err.retryAfter) headers[`Retry-After`] = err.retryAfter / 1000;
+
+    res.error(message, { statusCode }, headers);
+
+  };
+
+  toArray()
+  .then(render)
+  .catch(convertError);
 
 };
