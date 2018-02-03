@@ -5,6 +5,7 @@
 
 module.exports = (req, res) => res.render(`admin`, {
   admin:     true,
+  header:    false,
   id:        `admin`,
   pageTitle: `Personal`,
 });
