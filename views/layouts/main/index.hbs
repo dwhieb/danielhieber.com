@@ -3,17 +3,17 @@
 
   <head>
 
-    {{!-- Critical metadata --}}
+    <!-- Critical metadata -->
     <meta charset=utf-8>
     <meta name=viewport content='width=device-width, initial-scale=1, shrink-to-fit=no'>
     <title>Daniel W. Hieber | {{pageTitle}}</title>
 
-    {{!-- Security --}}
     {{#if production}}
+      <!-- Security -->
       <meta http-equiv=Content-Security-Policy content="default-src 'self' *.danielhieber.com; upgrade-insecure-requests">
     {{/if}}
 
-    {{!-- SEO --}}
+    <!-- SEO -->
     <meta name=author content='{{meta.author.name}}'>
     <meta name=description content="{{meta.description}}">
     <meta name=generator content=Atom>
@@ -24,7 +24,7 @@
     <meta name=robots content='index,follow'>
     <meta name=subject content='Daniel W. Hieber'>
 
-    {{!-- Facebook Open Graph --}}
+    <!-- Facebook Open Graph -->
     <meta property=og:description content='{{meta.description}}'>
     <meta property=og:image content={{cdn}}/img/grad_slam.jpg>
     <meta property=og:locale content=en_US>
@@ -32,17 +32,21 @@
     <meta property=og:type content=website>
     <meta property=og:url content=https://danielhieber.com>
 
-    {{!-- Twitter Card (also uses og properties) --}}
+    <!-- Twitter Card (also uses og properties) -->
     <meta name=twitter:card content=summary>
     <meta name=twitter:creator content=@dwhieb>
 
-    {{!-- Links --}}
+    <!-- Links -->
     <link rel=author href=https://danielhieber.com>
     <link rel=icon type=image/png hre={{cdn}}/img/karate_wugbot.png>
     <link rel=icon type=image/png href={{cdn}}/img/karate_wugbot.svg>
     <link rel=license href=https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE>
-    <link href={{cdn}}/fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
-    <link href={{cdn}}/fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
+
+    {{#unless editor}}
+      <!-- Preload Fira Sans -->
+      <link href={{cdn}}/fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
+      <link href={{cdn}}/fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
+    {{/unless}}
 
     {{#unless editor}}
       <!-- Critical CSS -->

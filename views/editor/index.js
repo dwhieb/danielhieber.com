@@ -42,6 +42,8 @@ module.exports = (req, res, next) => {
   const iterator = db.queryDocuments(db.coll, query);
   const toArray  = promisify(iterator.toArray).bind(iterator);
 
+  const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+
   const sortDocs = docs => docs.sort((a, b) => {
     if (a.title < b.title) return -1;
     if (a.title > b.title) return +1;
@@ -56,6 +58,7 @@ module.exports = (req, res, next) => {
     id:        `editor`,
     pageTitle: `Editor`,
     type:      req.params.type,
+    Type:      capitalize(req.params.type),
     types,
   });
 

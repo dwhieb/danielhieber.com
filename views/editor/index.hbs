@@ -20,8 +20,10 @@
 
   </select>
 
+  <h1 class='ui header center aligned'>{{Type}}</h1>
+
   <nav id=list>
-    <ol class='ui list divided plain selection small'>
+    <ol class='ui list divided left floated plain selection small'>
       {{#each docs}}
         <li class=item><a href='/admin/{{../type}}/{{cvid}}'>{{title}}</a></li>
       {{/each}}
