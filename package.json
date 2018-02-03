@@ -43,6 +43,7 @@
     "boom": "^7.1.1",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
+    "documentdb": "^1.14.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "helmet": "^3.10.0",
