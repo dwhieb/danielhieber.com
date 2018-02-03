@@ -42,6 +42,12 @@ module.exports = (req, res, next) => {
   const iterator = db.queryDocuments(db.coll, query);
   const toArray  = promisify(iterator.toArray).bind(iterator);
 
+  const sortDocs = docs => docs.sort((a, b) => {
+    if (a.title < b.title) return -1;
+    if (a.title > b.title) return +1;
+    return 0;
+  });
+
   const render = docs => res.render(`editor`, {
     admin:     true,
     docs,
@@ -67,6 +73,7 @@ module.exports = (req, res, next) => {
   };
 
   toArray()
+  .then(sortDocs)
   .then(render)
   .catch(convertError);
 

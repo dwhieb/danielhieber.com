@@ -7,10 +7,12 @@
 
 <main id={{editor}}>
 
-  <nav class='ui list'>
-    {{#each docs}}
-      {{title}}
-    {{/each}}
+  <nav>
+    <ol class='ui list divided plain selection small'>
+      {{#each docs}}
+        <li class=item><a href='/admin/{{../type}}/{{cvid}}'>{{title}}</a></li>
+      {{/each}}
+    </ol>
   </nav>
 
 </main>

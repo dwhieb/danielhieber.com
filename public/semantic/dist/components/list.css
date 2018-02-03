@@ -949,3 +949,8 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 
+.ui.list.plain .item::before {
+  content: '';
+  margin-left: 0;
+  position: relative;
+}

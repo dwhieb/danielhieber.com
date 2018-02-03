@@ -44,7 +44,7 @@
     <link href={{cdn}}/fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
     <link href={{cdn}}/fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
 
-    {{#unless admin}}
+    {{#unless editor}}
       <!-- Critical CSS -->
       <style>
         {{{css}}}
@@ -63,7 +63,9 @@
 
   <body>
 
-    <a href=#{{id}} class=skip-link>Skip to main content</a>
+    {{#unless editor}}
+      <a href=#{{id}} class=skip-link>Skip to main content</a>
+    {{/unless}}
 
     {{!-- Site Header --}}
     {{#if header}}
