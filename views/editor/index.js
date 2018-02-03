@@ -9,4 +9,5 @@ module.exports = (req, res) => res.render(`editor`, {
   header:    false,
   id:        `editor`,
   pageTitle: `Editor`,
+  type:      req.params.type,
 });
