@@ -56,6 +56,7 @@ module.exports = (req, res, next) => {
     id:        `editor`,
     pageTitle: `Editor`,
     type:      req.params.type,
+    types,
   });
 
   const convertError = err => {

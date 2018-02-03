@@ -1,0 +1,41 @@
+@import '../less/variables.less';
+@import (reference) '../less/classes.less';
+
+.rollover { .rollover; }
+
+/* Phonemic transcriptions */
+[lang$=emic] { .phonemic; }
+
+/* IPA transcriptions */
+[lang*=fonipa] { .ipa; }
+
+#nav {
+  ul {
+    margin: 0;
+  }
+}
+
+.ui.dropdown {
+  float:  right;
+  margin: 1em;
+}
+
+#list {
+  clear: right;
+  float: left;
+}
+
+// Desktop styling
+@media screen and (min-width: 700px) {
+  #nav {
+
+    position: sticky;
+    top:      0;
+    z-index:  1;
+
+    ul {
+      border-radius: 0em;
+    }
+
+  }
+}

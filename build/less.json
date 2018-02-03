@@ -1,4 +1,5 @@
 {
+  "editor": "views/editor/index.less",
   "error": "views/error/index.less",
   "home":  "views/home/index.less",
   "links": "views/partials/links/index.less",

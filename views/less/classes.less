@@ -4,6 +4,13 @@
 Styles applied with classes. Use with LESS's (reference) option.
  */
 
+// IPA transcriptions
+.ipa {
+  font-family: var(--font-unicode);
+  // font-size: 1.125em;
+}
+
+// Inline links
 .link {
 
   background:    transparent;
@@ -42,11 +49,42 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 }
 
+// Page header
 .page-title {
   font-size:   var(--font-size-large);
   font-weight: var(--font-weight-bold);
   padding:     var(--padding-wide);
   text-align:  center;
+}
+
+// Phonemic transcriptions
+.phonemic {
+
+  &::before {
+    content: '/';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: '/';
+    padding-left: var(--padding-ipa);
+  }
+
+}
+
+// Phonetic transcriptions
+.phonetic {
+
+  &::before {
+    content: '[';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: ']';
+    padding-left: var(--padding-ipa);
+  }
+
 }
 
 // IPA rollover text
@@ -77,6 +115,7 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 }
 
+// Skip link
 .skip-link {
 
   padding:              var(--padding-text);
@@ -112,6 +151,7 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 }
 
+// Accessibly hide content visually
 /* stylelint-disable unit-blacklist */
 .visually-hidden {
   clip:        rect(1px 1px 1px 1px);

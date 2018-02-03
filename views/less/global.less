@@ -7,40 +7,13 @@
 @cdn: 'https://cdn.danielhieber.com';
 
 /* IPA transcriptions */
-[lang*=fonipa] {
-  font-family: var(--font-unicode);
-  // font-size: 1.125em;
-}
+[lang*=fonipa] { .ipa; }
 
 /* Phonemic transcriptions */
-[lang$=emic] {
-
-  &::before {
-    content: '/';
-    padding-right: var(--padding-ipa);
-  }
-
-  &::after {
-    content: '/';
-    padding-left: var(--padding-ipa);
-  }
-
-}
+[lang$=emic] { .phonemic; }
 
 /* Phonetic transcriptions */
-[lang$=etic] {
-
-  &::before {
-    content: '[';
-    padding-right: var(--padding-ipa);
-  }
-
-  &::after {
-    content: ']';
-    padding-left: var(--padding-ipa);
-  }
-
-}
+[lang$=etic] { .phonetic; }
 
 code {
   font-family: var(--font-mono);

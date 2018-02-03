@@ -3,11 +3,24 @@
   <!-- Semantic UI styles -->
   <link rel=stylesheet type=text/css href=/semantic/dist/semantic.min.css>
 
+  <!-- Styling for Editor page -->
+  <link rel=stylesheet href={{baseURL}}/css/editor.css>
+
 {{/section}}
 
-<main id={{editor}}>
+<main id={{id}}>
 
-  <nav>
+  <select id=dropdown class='ui dropdown'>
+
+    <option value='' disabled selected>CV Type</option>
+
+    {{#each types}}
+      <option value={{@key}}>{{@key}}</option>
+    {{/each}}
+
+  </select>
+
+  <nav id=list>
     <ol class='ui list divided plain selection small'>
       {{#each docs}}
         <li class=item><a href='/admin/{{../type}}/{{cvid}}'>{{title}}</a></li>
@@ -27,5 +40,16 @@
 
   <!-- Semantic UI -->
   <script src=/semantic/dist/semantic.min.js></script>
+
+  <!-- Scripts for Editor page -->
+  <script>
+
+    // Initialize the dropdown menu
+    window.onload = () => {
+      const action = (optText, type) => window.location = `/admin/${type}`;
+      $('#dropdown').dropdown({ action });
+    };
+
+  </script>
 
 {{/section}}
