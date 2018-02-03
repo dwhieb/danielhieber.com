@@ -3,27 +3,41 @@
  * @name upload.js
  */
 
-const cssFiles  = [];
-const jsFiles   = [];
-const jsonFiles = [];
-
 require('../../credentials/azure-storage-danielhieber');
-const path          = require('path');
+const config        = require('../lib/config');
+const fs            = require('fs');
 const { promisify } = require('util');
 const Storage       = require('azure-storage');
 
-(async () => {
+// Do not upload localhost or development files to Azure Storage
+if (!config.production) return;
+
+const readdir = promisify(fs.readdir);
+
+const mimeTypes = {
+  css:  `text/css`,
+  js:   `application/javascript`,
+  json: `application/json`,
+};
+
+void async function() {
 
   console.log(` -- Beginning file uploads`);
 
-  const uploadFiles = async (filepaths, type) => {
+  const storage = Storage.createBlobService();
+  const upload  = promisify(storage.createBlockBlobFromLocalFile).bind(storage);
 
-    const uploadFile = async filepath => {
+  const cssFiles  = await readdir(`public/css`, `utf8`);
+  const jsFiles   = await readdir(`public/js`, `utf8`);
+  const jsonFiles = await readdir(`public/json`, `utf8`);
 
-      const container       = type === `js` ? `scripts` : `css`;
+  const uploadFiles = async (filenames, type) => {
+
+    const uploadFile = async filename => {
+
+      const container       = type === `js` ? `scripts` : type;
       const contentEncoding = `utf-8`;
-      const contentType     = type === `js` ? `application/javascript` : `text/css`;
-      const filename        = path.basename(filepath);
+      const contentType     = mimeTypes[type];
 
       const opts = {
         contentSettings: {
@@ -32,13 +46,12 @@ const Storage       = require('azure-storage');
         },
       };
 
-      const storage = Storage.createBlobService();
-      const upload  = promisify(storage.createBlockBlobFromLocalFile).bind(storage);
-      await upload(container, filename, filepath, opts);
+      const dir = `public/${type}/${filename}`;
+      await upload(container, filename, dir, opts);
 
     };
 
-    await Promise.all(filepaths.map(uploadFile));
+    await Promise.all(filenames.map(uploadFile));
 
     console.log(` -- ${type.toUpperCase()} files uploaded`);
 
@@ -52,4 +65,4 @@ const Storage       = require('azure-storage');
 
   console.log(` -- File uploads complete`);
 
-})();
+}();
