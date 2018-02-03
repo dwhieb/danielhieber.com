@@ -3,6 +3,7 @@
  * @name less.js
  */
 
+const { env }       = require('../lib/config');
 const Cleaner       = require('less-plugin-clean-css');
 const less          = require('less');
 const path          = require('path');
@@ -25,7 +26,7 @@ const convert = async ([name, filepath]) => {
     strictMath: true,
   };
 
-  if (process.argv[2] && process.argv[2].split(`=`)[1] === `development`) {
+  if (env === `localhost` || env === `development`) {
     opts.sourceMap = {
       sourceMapFileInline: true,
     };

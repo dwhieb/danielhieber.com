@@ -26,7 +26,7 @@
 
     {{!-- Facebook Open Graph --}}
     <meta property=og:description content='{{meta.description}}'>
-    <meta property=og:image content=https://danielhieber.com/img/grad_slam.jpg>
+    <meta property=og:image content={{cdn}}/img/grad_slam.jpg>
     <meta property=og:locale content=en_US>
     <meta property=og:title content='{{pageTitle}}'>
     <meta property=og:type content=website>
@@ -38,10 +38,10 @@
 
     {{!-- Links --}}
     <link rel=author href=https://danielhieber.com>
-    <link rel=icon type=image/png href={{baseURL}}/img/karate_wugbot.png>
+    <link rel=icon type=image/png href={{cdn}}/img/karate_wugbot.png>
     <link rel=license href=https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE>
-    <link href=fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
-    <link href=fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
+    <link href=/fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
+    <link href=/fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
 
     <!-- Critical CSS -->
     <style>
@@ -67,7 +67,7 @@
           <span lang=en-fonipa-x-emic>dænjəl hibɜɹ</span>
         </a></h1>
         <p><a href=/ class=non-link>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</a></p>
-        <a href=/ class=non-link><img id=gallery src='img/gallery/letter_blocks.jpg' opacity='0.2' aria-hidden=true></a>
+        <a href=/ class=non-link><img id=gallery src={{cdn}}/img/gallery/letter_blocks.jpg opacity='0.2' aria-hidden=true></a>
       </header>
     {{/if}}{{!-- end site header (and its conditional) --}}
 
@@ -197,7 +197,9 @@
       {{{images}}}
 
       // Gallery widget
-      {{{gallery}}}
+      {{#if header}}
+        {{{gallery}}}
+      {{/if}}
 
     </script>
 

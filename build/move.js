@@ -19,9 +19,9 @@ void async function() {
     await copy(path, `public/offline-worker.js`);
     del(path);
   } catch (e) {
-    console.log(` -- offline-worker.js already moved`);
+    console.log(`\n -- offline-worker.js already moved`);
   }
 
-  console.log(` -- Moved offline-worker.js`);
+  console.log(`\n -- Moved offline-worker.js`);
 
 }();

@@ -76,7 +76,7 @@ const install = ev => {
     self.files  = await res.json();
 
     // NB: Items in the cache must have a leading slash for path to resolve correctly when the service worker is not at the root
-    if (res.ok) await cache.addAll(self.files);
+    if (res.ok) await cache.addAll(self.files.map(file => new Request(file, { mode: `cors` })));
 
   };
 

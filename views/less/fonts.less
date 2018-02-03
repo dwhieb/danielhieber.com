@@ -2,12 +2,14 @@
 
 /* Font declarations for all fonts used on the site */
 
+@baseURL: 'https://cdn.danielhieber.com/fonts';
+
 @font-face {
   font-family: 'Fira Mono';
   src:
     local('Fira Mono Regular'),
-    url(fonts/FiraMono-Regular.woff2) format('woff2'),
-    url(fonts/FiraMono-Regular.woff) format('woff');
+    url('@{baseURL}/FiraMono-Regular.woff2') format('woff2'),
+    url('@{baseURL}/FiraMono-Regular.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   normal;
@@ -19,8 +21,8 @@
   font-family: 'Fira Sans';
   src:
     local('Fira Sans Light'),
-    url(fonts/FiraSans-Light.woff2) format('woff2'),
-    url(fonts/FiraSans-Light.woff) format('woff');
+    url('@{baseURL}/FiraSans-Light.woff2') format('woff2'),
+    url('@{baseURL}/FiraSans-Light.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   normal;
@@ -32,8 +34,8 @@
   font-family: 'Fira Sans';
   src:
     local('Fira Sans Light Italic'),
-    url(fonts/FiraSans-LightItalic.woff2) format('woff2'),
-    url(fonts/FiraSans-LightItalic.woff) format('woff');
+    url('@{baseURL}/FiraSans-LightItalic.woff2') format('woff2'),
+    url('@{baseURL}/FiraSans-LightItalic.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   italic;
@@ -45,8 +47,8 @@
   font-family: 'Fira Sans';
   src:
     local('Fira Sans Medium'),
-    url(fonts/FiraSans-Medium.woff2) format('woff2'),
-    url(fonts/FiraSans-Medium.woff) format('woff');
+    url('@{baseURL}/FiraSans-Medium.woff2') format('woff2'),
+    url('@{baseURL}/FiraSans-Medium.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   normal;
@@ -58,8 +60,8 @@
   font-family: 'Fira Sans';
   src:
     local('Fira Sans Medium Italic'),
-    url(fonts/FiraSans-MediumItalic.woff2) format('woff2'),
-    url(fonts/FiraSans-MediumItalic.woff) format('woff');
+    url('@{baseURL}/FiraSans-MediumItalic.woff2') format('woff2'),
+    url('@{baseURL}/FiraSans-MediumItalic.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   italic;
@@ -71,8 +73,8 @@
   font-family: 'Gentium Plus';
   src:
     local('Gentium Plus Regular'),
-    url(fonts/GentiumPlus-Regular.woff2) format('woff2'),
-    url(fonts/GentiumPlus-Regular.woff) format('woff');
+    url('@{baseURL}/GentiumPlus-Regular.woff2') format('woff2'),
+    url('@{baseURL}/GentiumPlus-Regular.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   normal;
@@ -84,8 +86,8 @@
   font-family: 'Gentium Plus';
   src:
     local('Gentium Plus Italic'),
-    url(fonts/GentiumPlus-Italic.woff2) format('woff2'),
-    url(fonts/GentiumPlus-Italic.woff) format('woff');
+    url('@{baseURL}/GentiumPlus-Italic.woff2') format('woff2'),
+    url('@{baseURL}/GentiumPlus-Italic.woff') format('woff');
   font-display: swap;
   font-stretch: normal;
   font-style:   italic;

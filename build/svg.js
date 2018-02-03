@@ -41,4 +41,6 @@ void async function() {
   const result = await compile();
   await write(`public/img/sprites.svg`, result.symbol.sprite.contents);
 
+  console.log(` -- SVG sprites created`);
+
 }();

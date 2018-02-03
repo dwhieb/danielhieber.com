@@ -48,7 +48,6 @@ const Storage       = require('azure-storage');
     uploadFiles(cssFiles, `css`),
     uploadFiles(jsFiles, `js`),
     uploadFiles(jsonFiles, `json`),
-    uploadWorker(),
   ]);
 
   console.log(` -- File uploads complete`);

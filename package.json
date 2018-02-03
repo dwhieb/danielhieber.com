@@ -29,10 +29,11 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "npm run build-js & npm run build-css",
+    "build": "npm run build-js & npm run build-css & npm run build-svg & npm run upload",
     "build-css": "node build/less.js",
     "build-js": "babel src -d public/js & node build/move.js",
-    "build-svg": "node build/svg.js"
+    "build-svg": "node build/svg.js",
+    "upload": "node build/upload.js"
   },
   "engines": {
     "node": ">=8.x"

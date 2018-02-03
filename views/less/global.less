@@ -4,6 +4,8 @@
 
 @import (reference) 'classes.less';
 
+@baseURL: 'https://cdn.danielhieber.com';
+
 /* IPA transcriptions */
 [lang*=fonipa] {
   font-family: var(--font-unicode);
@@ -70,7 +72,7 @@ p a {
     }
 
     &:hover::after {
-      background-image: url(img/icons/external-link.svg);
+      background-image: url('@{baseURL}/img/icons/external-link.svg');
     }
 
   }
