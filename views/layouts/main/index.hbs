@@ -44,6 +44,9 @@
     <link href={{cdn}}/fonts/FiraSans-Light.woff2 rel=preload as=font type=font/woff2 crossorigin>
     <link href={{cdn}}/fonts/FiraSans-Medium.woff2 rel=preload as=font type=font/woff2 crossorigin>
 
+    {{!-- Semantic UI styles --}}
+    {{{sections.semantic}}}
+
     <!-- Critical CSS -->
     <style>
       {{{css}}}
@@ -161,29 +164,31 @@
     {{{body}}}
 
     {{!-- Main site footer --}}
-    <footer id=footer>
+    {{#unless admin}}
+      <footer id=footer>
 
-      {{!-- GitHub --}}
-      <p class=github>
-        <a href='https://github.com/dwhieb/danielhieber.com' class=non-link>
-          <svg class=svg-octicon aria-hidden=true height='64pt'>
-            <use href=#octicon></use>
-          </svg>
-        </a>
-        <a href='https://github.com/dwhieb/danielhieber.com'>View source on GitHub</a>
-      </p>
+        {{!-- GitHub --}}
+        <p class=github>
+          <a href='https://github.com/dwhieb/danielhieber.com' class=non-link>
+            <svg class=svg-octicon aria-hidden=true height='64pt'>
+              <use href=#octicon></use>
+            </svg>
+          </a>
+          <a href='https://github.com/dwhieb/danielhieber.com'>View source on GitHub</a>
+        </p>
 
-      {{!-- License --}}
-      <p class=cc>
-        <a href='http://creativecommons.org/licenses/by-nc/4.0/' rel=license class=non-link>
-          <svg class=svg-cc aria-hidden=true height=42 width=120>
-            <use href=#cc-by-nc></use>
-          </svg>
-        </a>
-        <span>Most of the content on this site is licensed under a <a href='http://creativecommons.org/licenses/by-nc/4.0/' rel=license>Creative Commons Attribution-NonCommercial 4.0 International License</a>. See the <a href='https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE.md' rel=license>license page</a> for more details.</span>
-      </p>
+        {{!-- License --}}
+        <p class=cc>
+          <a href='http://creativecommons.org/licenses/by-nc/4.0/' rel=license class=non-link>
+            <svg class=svg-cc aria-hidden=true height=42 width=120>
+              <use href=#cc-by-nc></use>
+            </svg>
+          </a>
+          <span>Most of the content on this site is licensed under a <a href='http://creativecommons.org/licenses/by-nc/4.0/' rel=license>Creative Commons Attribution-NonCommercial 4.0 International License</a>. See the <a href='https://github.com/dwhieb/danielhieber.com/blob/master/LICENSE.md' rel=license>license page</a> for more details.</span>
+        </p>
 
-    </footer>
+      </footer>
+    {{/unless}}
 
     {{!-- Critical JS --}}
     <script>
@@ -204,11 +209,11 @@
 
     </script>
 
-    {{!-- Scripts from individual views get loaded here --}}
-    {{{sections.script}}}
-
     <!-- SVG icons -->
     {{{svg}}}
+
+    {{!-- Scripts from individual views get loaded here --}}
+    {{{sections.script}}}
 
   </body>
 
