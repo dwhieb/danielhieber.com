@@ -14,7 +14,7 @@
 
   // Set the src property of #gallery with the provided image's filename
   const setImage = img => {
-    gallery.src = `https://cdn.danielhieber.com/img/gallery/${img}`;
+    gallery.src = `/img/gallery/${img}`;
   };
 
   const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
