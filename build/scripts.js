@@ -19,10 +19,18 @@ const processFile = async ([name, path]) => {
   await write(mapOutpath, sourceMap, `utf8`);
 };
 
+const processWorker = async () => {
+  const workerPath = `views/layouts/main/offline-worker.js`;
+  const outPath    = `public/offline-worker.js`;
+  const { code }   = await transform(workerPath);
+  await write(outPath, code, `utf8`);
+};
+
 void async function() {
   const scriptsPath = resolve(__dirname, `scripts.yaml`);
   const yaml        = await read(scriptsPath, `utf8`);
   const files       = convertYAML(yaml);
   const promises    = Object.entries(files).map(processFile);
   await Promise.all(promises);
+  await processWorker();
 }();

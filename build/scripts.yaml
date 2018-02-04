@@ -1,1 +1,4 @@
-editor: views/editor/editor.js
+app-insights:    views/layouts/main/js/app-insights.js
+editor:          views/editor/editor.js
+gallery:         views/layouts/main/js/gallery.js
+register-worker: views/layouts/main/js/register-worker.js

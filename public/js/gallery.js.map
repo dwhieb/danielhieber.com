@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "sources": [
+    "gallery.js"
+  ],
+  "names": [
+    "gallery",
+    "document",
+    "getElementById",
+    "interval",
+    "transition",
+    "getRandomImage",
+    "randomImage",
+    "images",
+    "Math",
+    "floor",
+    "random",
+    "length",
+    "src",
+    "includes",
+    "setImage",
+    "img",
+    "wait",
+    "Promise",
+    "setTimeout",
+    "resolve",
+    "delay",
+    "advance",
+    "style",
+    "opacity",
+    "setInterval"
+  ],
+  "mappings": ";;;;AAAA;;AAEA,CAAC,YAAM;;AAEL,MAAMA,UAAaC,SAASC,cAAT,WAAnB;AACA,MAAMC,WAAa,KAAnB;AACA,MAAMC,aAAa,GAAnB;;AAEA;AACA,MAAMC,iBAAiB,SAAjBA,cAAiB,GAAM;AAC3B,QAAMC,cAAcC,OAAOC,KAAKC,KAAL,CAAWD,KAAKE,MAAL,KAAgBH,OAAOI,MAAlC,CAAP,CAApB;AACA,WAAOX,QAAQY,GAAR,CAAYC,QAAZ,CAAqBP,WAArB,IAAoCD,gBAApC,GAAuDC,WAA9D;AACD,GAHD;;AAKA;AACA,MAAMQ,WAAW,SAAXA,QAAW,MAAO;AACtBd,YAAQY,GAAR,qBAA8BG,GAA9B;AACD,GAFD;;AAIA,MAAMC,OAAO,SAAPA,IAAO;AAAA,WAAS,IAAIC,OAAJ,CAAY;AAAA,aAAWC,WAAWC,OAAX,EAAoBC,KAApB,CAAX;AAAA,KAAZ,CAAT;AAAA,GAAb;;AAEA,MAAMC;AAAA,iCAAU,aAAY;AAC1BrB,cAAQsB,KAAR,CAAcC,OAAd,GAAwB,CAAxB;AACA,YAAMP,KAAKZ,UAAL,CAAN;AACAU,eAAST,gBAAT;AACAL,cAAQsB,KAAR,CAAcC,OAAd,GAAwB,CAAxB;AACA,YAAMP,KAAKZ,UAAL,CAAN;AACAJ,cAAQsB,KAAR,CAAcC,OAAd,GAAwB,GAAxB;AACD,KAPK;;AAAA;AAAA;AAAA;AAAA,KAAN;;AASA;AACAT,WAAST,gBAAT;;AAEA;AACAmB,cAAYH,OAAZ,EAAqBlB,QAArB;AAED,CAlCD",
+  "file": "gallery.js",
+  "sourcesContent": [
+    "/* global images */\r\n\r\n(() => {\r\n\r\n  const gallery    = document.getElementById(`gallery`);\r\n  const interval   = 10000;\r\n  const transition = 250;\r\n\r\n  // Get the name of a random image from the list\r\n  const getRandomImage = () => {\r\n    const randomImage = images[Math.floor(Math.random() * images.length)];\r\n    return gallery.src.includes(randomImage) ? getRandomImage() : randomImage;\r\n  };\r\n\r\n  // Set the src property of #gallery with the provided image's filename\r\n  const setImage = img => {\r\n    gallery.src = `/img/gallery/${img}`;\r\n  };\r\n\r\n  const wait = delay => new Promise(resolve => setTimeout(resolve, delay));\r\n\r\n  const advance = async () => {\r\n    gallery.style.opacity = 0;\r\n    await wait(transition);\r\n    setImage(getRandomImage());\r\n    gallery.style.opacity = 0;\r\n    await wait(transition);\r\n    gallery.style.opacity = 0.2;\r\n  };\r\n\r\n  // Set the initial image randomly\r\n  setImage(getRandomImage());\r\n\r\n  // Change the image every interval\r\n  setInterval(advance, interval);\r\n\r\n})();\r\n"
+  ]
+}
