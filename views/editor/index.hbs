@@ -22,7 +22,19 @@
   <nav id=list>
     <ol>
       {{#each docs}}
-        <li><a href='/admin/{{../type}}/{{cvid}}'>{{title}}</a></li>
+        <li>
+          <a href='/admin/{{../type}}/{{cvid}}'>
+            {{#if title}}
+              {{title}}
+            {{else if name}}
+              {{name}}
+            {{else if organization}}
+              {{organization}}
+            {{else if location}}
+              {{location}} ({{languages}})
+            {{/if}}
+          </a>
+        </li>
       {{/each}}
     </ol>
   </nav>

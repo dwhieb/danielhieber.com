@@ -44,11 +44,13 @@ module.exports = (req, res, next) => {
 
   const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
-  const sortDocs = docs => docs.sort((a, b) => {
-    if (a.title < b.title) return -1;
-    if (a.title > b.title) return +1;
+  const compare = (a, b) => {
+    if (a < b) return -1;
+    if (a > b) return +1;
     return 0;
-  });
+  };
+
+  const sortDocs = docs => docs.sort((a, b) => compare(a.title, b.title));
 
   const render = docs => res.render(`editor`, {
     admin:     true,
