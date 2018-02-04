@@ -3,11 +3,12 @@
  * @name less.js
  */
 
-const { env }       = require('../lib/config');
-const Cleaner       = require('less-plugin-clean-css');
-const less          = require('less');
-const path          = require('path');
-const { promisify } = require('util');
+const { env }               = require('../lib/config');
+const Cleaner               = require('less-plugin-clean-css');
+const { load: convertYAML } = require('js-yaml');
+const less                  = require('less');
+const path                  = require('path');
+const { promisify }         = require('util');
 
 const {
   readFile,
@@ -40,8 +41,8 @@ const convert = async ([name, filepath]) => {
 
 void async function() {
   try {
-    const text     = await read(`build/less.json`, `utf8`);
-    const files    = JSON.parse(text);
+    const yaml     = await read(`build/less.yaml`, `utf8`);
+    const files    = convertYAML(yaml);
     const promises = Object.entries(files).map(convert);
     await Promise.all(promises);
     console.log(` -- LESS files converted`);

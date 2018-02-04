@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "sources": [
+    "editor.js"
+  ],
+  "names": [
+    "dropdown",
+    "document",
+    "getElementById",
+    "onchange",
+    "window",
+    "location",
+    "ev",
+    "target",
+    "value"
+  ],
+  "mappings": ";;AAAA,IAAMA,WAAWC,SAASC,cAAT,YAAjB;AACAF,SAASG,QAAT,GAAoB,cAAM;AAAEC,SAAOC,QAAP,eAA4BC,GAAGC,MAAH,CAAUC,KAAtC;AAAgD,CAA5E",
+  "file": "editor.js",
+  "sourcesContent": [
+    "const dropdown = document.getElementById(`dropdown`);\r\ndropdown.onchange = ev => { window.location = `/admin/${ev.target.value}`; };\r\n"
+  ]
+}

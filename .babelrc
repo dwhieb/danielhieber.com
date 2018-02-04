@@ -1,5 +1,30 @@
 {
 
+  "env": {
+
+    "development": {
+      "comments":   true,
+      "compact":    false,
+      "minified":   false,
+      "sourceMaps": true
+    },
+
+    "localhost": {
+      "comments":   true,
+      "compact":    false,
+      "minified":   false,
+      "sourceMaps": true
+    },
+
+    "production": {
+      "comments":   false,
+      "compact":    true,
+      "minified":   true,
+      "sourceMaps": false
+    }
+
+  },
+
   "ignore": [],
 
   "plugins": [],
@@ -12,8 +37,6 @@
     }]
   ],
 
-  "comments": false,
-  "compact": true,
-  "minified": true
+  "sourceType": "module"
 
 }

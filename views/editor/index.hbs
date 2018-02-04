@@ -32,9 +32,6 @@
 {{#section 'script'}}
 
   <!-- Script for Editor page -->
-  <script type=module defer>
-    const dropdown = document.getElementById(`dropdown`);
-    dropdown.onchange = ev => window.location = `/admin/${ev.target.value}`;
-  </script>
+  <script src=/js/editor.js type=module defer></script>
 
 {{/section}}
