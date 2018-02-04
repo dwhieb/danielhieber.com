@@ -1,0 +1,46 @@
+@import '../less/variables.less';
+@import (reference) '../less/classes.less';
+
+.page-title { .page-title; }
+
+#editor {
+
+  align-content: flex-start;
+  display:       flex;
+  flex-flow:     row wrap;
+  padding:       var(--padding-box);
+
+  select {
+    border: var(--border-width) solid black;
+  }
+
+  .page-title {
+    text-align: center;
+    width:      100%;
+  }
+
+}
+
+#dropdown {
+  align-self:  flex-end;
+  margin-left: auto;
+}
+
+#list {
+
+  max-width: 30%;
+
+  li {
+    font-size: smaller;
+    padding:   var(--padding-text);
+  }
+
+  li:not(:last-child) {
+    border-bottom: var(--border-width) solid #CCC;
+  }
+
+  li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+}
