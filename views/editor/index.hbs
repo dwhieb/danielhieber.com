@@ -1,18 +1,15 @@
-{{#section 'semantic'}}
-
-  <!-- Semantic UI styles -->
-  <link rel=stylesheet type=text/css href=/semantic/dist/semantic.min.css>
+{{#head 'editor'}}
 
   <!-- Styling for Editor page -->
   <link rel=stylesheet href={{baseURL}}/css/editor.css>
 
-{{/section}}
+{{/head}}
 
 <main id={{id}}>
 
-  <select id=dropdown class='ui dropdown'>
+  <select id=dropdown>
 
-    <option value='' disabled selected>CV Type</option>
+    <option value=placeholder disabled selected>CV Type</option>
 
     {{#each types}}
       <option value={{@key}}>{{@key}}</option>
@@ -20,12 +17,12 @@
 
   </select>
 
-  <h1 class='ui header center aligned'>{{Type}}</h1>
+  <h1 class=page-title>{{Type}}</h1>
 
   <nav id=list>
-    <ol class='ui list divided left floated plain selection small'>
+    <ol>
       {{#each docs}}
-        <li class=item><a href='/admin/{{../type}}/{{cvid}}'>{{title}}</a></li>
+        <li><a href='/admin/{{../type}}/{{cvid}}'>{{title}}</a></li>
       {{/each}}
     </ol>
   </nav>
@@ -34,24 +31,8 @@
 
 {{#section 'script'}}
 
-  <!-- jQuery -->
-  <script
-    src=https://code.jquery.com/jquery-3.1.1.min.js
-    integrity=sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=
-    crossorigin=anonymous></script>
-
-  <!-- Semantic UI -->
-  <script src=/semantic/dist/semantic.min.js></script>
-
   <!-- Scripts for Editor page -->
-  <script>
-
-    // Initialize the dropdown menu
-    window.onload = () => {
-      const action = (optText, type) => window.location = `/admin/${type}`;
-      $('#dropdown').dropdown({ action });
-    };
-
+  <script type=module defer>
   </script>
 
 {{/section}}
