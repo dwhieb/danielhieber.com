@@ -50,7 +50,12 @@ module.exports = (req, res, next) => {
     return 0;
   };
 
-  const sortDocs = docs => docs.sort((a, b) => compare(a.title, b.title));
+  const sortDocs = docs => docs.sort((a, b) => {
+    return compare(a.title, b.title)
+    || compare(a.name, b.name)
+    || compare(a.organization, b.organization)
+    || compare(a.location, b.location);
+  });
 
   const render = docs => res.render(`editor`, {
     admin:     true,
