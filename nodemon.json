@@ -8,6 +8,8 @@
     "restart": "npm run build-less"
   },
 
+  "exec": "node --inspect app.js",
+
   "ext": "hbs js json less",
 
   "ignore": [
