@@ -5,10 +5,10 @@
 
 const get  = require('./get');
 const post = require('./post');
+const put  = require('./put');
 
-const methods = {
+module.exports = {
   get,
   post,
+  put,
 };
-
-module.exports = (req, res, next) => methods[req.method.toLowerCase()](req, res, next);

@@ -21,7 +21,14 @@
 
   <nav id=list>
 
-    <button type=button name=addItem>Add Item</button>
+    <button
+      form=form
+      formaction='/admin/{{type}}'
+      name=addItem
+      type=submit
+      value=true>
+      Add Item
+    </button>
 
     <ol>
       {{#each docs}}
@@ -43,17 +50,19 @@
 
   </nav>
 
-  {{#if doc}}
-    <form method=post action=/admin/{{type}}/{{doc.cvid}}>
+  <form id=form method=post action=/admin/{{type}}/{{doc.cvid}}>
 
-      {{!-- CSRF token --}}
-      <input type=hidden name=_csrf value='{{csrf}}'>
+    {{!-- CSRF token --}}
+    <input type=hidden name=_csrf value='{{csrf}}'>
+
+    {{#if doc}}
 
       {{!-- Save button --}}
       <button type=submit>Save</button>
 
-    </form>
-  {{/if}}
+    {{/if}}
+
+  </form>
 
     {{!-- {{#if achievements}}
       <fieldset class=achievements>
