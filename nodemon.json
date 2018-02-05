@@ -5,8 +5,10 @@
   "events": {
     "restart": ""
   },
+
   "exec": "node --inspect app.js",
   "ext": "hbs js json less",
+
   "ignore": [
     "/build",
     "/dist",
