@@ -514,6 +514,7 @@ const Document = class Document {
       'publication',
       'reference',
       'service',
+      'test',
       'work',
     ];
   }
@@ -545,6 +546,7 @@ const Document = class Document {
     return [
       'id',
       'cvid',
+      'test',
       'type',
       '_attachments',
       '_etag',
