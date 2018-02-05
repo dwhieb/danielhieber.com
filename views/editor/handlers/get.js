@@ -41,7 +41,7 @@ module.exports = async (req, res, next) => {
   const { cvid } = req.params;
 
   // eslint-disable-next-line no-param-reassign
-  if (cvid) res.locals.current = docs.find(doc => doc.cvid === Number(cvid));
+  if (cvid) res.locals.doc = docs.find(doc => doc.cvid === Number(cvid));
 
   // Sort docs
 

@@ -4,6 +4,50 @@
 Styles applied with classes. Use with LESS's (reference) option.
  */
 
+@import 'variables.less';
+
+.button {
+
+  background-color:  #0078E7;
+  border:            none transparent;
+  border-radius:     var(--border-radius);
+  box-sizing:        border-box;
+  color:             white;
+  cursor:            pointer;
+  padding:           var(--padding-text);
+  text-align:        center;
+  user-select:       none;
+  vertical-align:    middle;
+  -webkit-user-drag: none;
+  white-space:       nowrap;
+
+  &:active {
+    box-shadow:
+      0 0 0 0.0125em rgba(0, 0, 0, 0.15) inset,
+      0 0 0.075em rgba(0, 0, 0, 0.2) inset;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    background-image:
+      linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+  }
+
+  &[disabled] {
+    background-image: none;
+    border:           none;
+    box-shadow:       none;
+    cursor:           not-allowed;
+    filter:           alpha(opacity=40);
+    opacity:          0.4;
+    pointer-events:   none;
+  }
+
+}
+
 // IPA transcriptions
 .ipa {
   font-family: var(--font-unicode);

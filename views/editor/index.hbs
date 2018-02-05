@@ -20,6 +20,9 @@
   <h1 class=page-title>{{Type}}</h1>
 
   <nav id=list>
+
+    <button type=button name=addItem>Add Item</button>
+
     <ol>
       {{#each docs}}
         <li>
@@ -37,14 +40,22 @@
         </li>
       {{/each}}
     </ol>
+
   </nav>
 
-  <form method=post action=/admin/{{type}}>
+  {{#if doc}}
+    <form method=post action=/admin/{{type}}/{{doc.cvid}}>
 
-    {{!-- CSRF token --}}
-    <input type=hidden name=_csrf value='{{csrf}}'>
+      {{!-- CSRF token --}}
+      <input type=hidden name=_csrf value='{{csrf}}'>
 
-    {{#if achievements}}
+      {{!-- Save button --}}
+      <button type=submit>Save</button>
+
+    </form>
+  {{/if}}
+
+    {{!-- {{#if achievements}}
       <fieldset class=achievements>
 
         <legend>Achievements</legend>
@@ -68,11 +79,7 @@
         </ul>
 
       </fieldset>
-    {{/if}}
-
-    <button type=submit>Save</button>
-
-  </form>
+    {{/if}} --}}
 
 </main>
 
