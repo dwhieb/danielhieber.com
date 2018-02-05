@@ -39,6 +39,18 @@
     </ol>
   </nav>
 
+  <form method=post action=/admin/{{type}}>
+
+    {{csrf}}
+
+    <input type=hidden name=_csrf value='{{csrf}}'>
+
+    <input type=text name=test value=test>
+
+    <button type=submit>Save</button>
+
+  </form>
+
 </main>
 
 {{#section 'script'}}
