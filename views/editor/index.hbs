@@ -41,11 +41,34 @@
 
   <form method=post action=/admin/{{type}}>
 
-    {{csrf}}
-
+    {{!-- CSRF token --}}
     <input type=hidden name=_csrf value='{{csrf}}'>
 
-    <input type=text name=test value=test>
+    {{#if achievements}}
+      <fieldset class=achievements>
+
+        <legend>Achievements</legend>
+
+        <ul>
+          {{#each achievements}}
+            <li>
+
+              <input
+                inputmode=latin-prose
+                placeholder='Brief description of this achievement'
+                type=text
+                value='{{this}}'>
+
+              <button type=button name=deleteAchievement>
+                {{../icons.delete}}
+              </button>
+
+            </li>
+          {{/each}}
+        </ul>
+
+      </fieldset>
+    {{/if}}
 
     <button type=submit>Save</button>
 

@@ -47,6 +47,7 @@
     "documentdb": "^1.14.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "feather-icons": "^4.5.0",
     "helmet": "^3.10.0",
     "uuid": "^3.2.1"
   },

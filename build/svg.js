@@ -5,7 +5,11 @@ const Spriter       = require('svg-sprite');
 
 const opts = {
   dest:  `public/img`,
-  mode:  { symbol: true },
+  mode:  {
+    symbol: {
+      inline: true,
+    },
+  },
   shape: {
     id: {
       generator(name, file) {

@@ -1,23 +1,13 @@
-const db = require('../../lib/modules/db');
+const db            = require('../../lib/modules/db');
 const { promisify } = require('util');
+const types         = require('./types');
 
-const types = {
-  awards:        `award`,
-  categories:    `category`,
-  courses:       `course`,
-  education:     `education`,
-  fieldwork:     `fieldwork`,
-  languages:     `language`,
-  media:         `media`,
-  memberships:   `membership`,
-  proficiencies: `proficiency`,
-  publications:  `publication`,
-  references:    `reference`,
-  service:       `service`,
-  work:          `work`,
-};
+const {
+  capitalize,
+  compare,
+} = require('../../lib/utilities');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
 
   // Retrieve docs
 
@@ -36,33 +26,36 @@ module.exports = (req, res, next) => {
     )
   `;
 
-  const iterator = db.queryDocuments(db.coll, query);
-  const toArray  = promisify(iterator.toArray).bind(iterator);
-
-  // Process docs
-
-  const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
-
-  const compare = (a, b) => {
-    if (a < b) return -1;
-    if (a > b) return +1;
-    return 0;
+  const catchError = err => {
+    if (err instanceof Error) return next(err);
+    const { headers, message, statusCode } = db.convertError(err);
+    res.error(message, { statusCode }, headers);
   };
 
-  const sortDocs = docs => docs.sort((a, b) => {
-    return compare(a.title, b.title)
-    || compare(a.name, b.name)
-    || compare(a.organization, b.organization)
-    || compare(a.location, b.location);
-  });
+  const iterator = db.queryDocuments(db.coll, query);
+  const toArray  = promisify(iterator.toArray).bind(iterator);
+  const docs     = await toArray().catch(catchError);
+
+  // Set current doc
+
+  const { cvid } = req.params;
+
+  // eslint-disable-next-line no-param-reassign
+  if (cvid) res.locals.current = docs.find(doc => doc.cvid === Number(cvid));
+
+  // Sort docs
+
+  docs.sort((a, b) => compare(a.title, b.title)
+  || compare(a.name, b.name)
+  || compare(a.organization, b.organization)
+  || compare(a.location, b.location));
 
   // Render page
 
-  const render = docs => res.render(`editor`, {
+  res.render(`editor`, {
     admin:     true,
     csrf:      req.csrfToken(),
     docs,
-    editor:    true,
     header:    false,
     id:        `editor`,
     pageTitle: `Editor`,
@@ -70,26 +63,5 @@ module.exports = (req, res, next) => {
     Type:      capitalize(req.params.type),
     types,
   });
-
-  // Handle DocumentDB errors
-
-  const convertError = err => {
-
-    if (err instanceof Error) throw err;
-
-    const headers    = {};
-    const message    = err.error_description || err.message;
-    const statusCode = Number(err.status || err.code);
-
-    if (err.status === 429 && err.retryAfter) headers[`Retry-After`] = err.retryAfter / 1000;
-
-    res.error(message, { statusCode }, headers);
-
-  };
-
-  toArray()
-  .then(sortDocs)
-  .then(render)
-  .catch(convertError);
 
 };
