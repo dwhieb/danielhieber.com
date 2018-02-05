@@ -11,5 +11,6 @@
   "publications":  "publication",
   "references":    "reference",
   "service":       "service",
-  "work":          "work"
+  "work":          "work",
+  "test":          "test"
 }

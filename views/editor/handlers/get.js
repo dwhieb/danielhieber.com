@@ -1,4 +1,4 @@
-const db            = require('../../../lib/modules/db');
+const db            = require('../../../lib/modules/database');
 const { promisify } = require('util');
 const types         = require('./types');
 
@@ -32,7 +32,7 @@ module.exports = async (req, res, next) => {
     res.error(message, { statusCode }, headers);
   };
 
-  const iterator = db.queryDocuments(db.coll, query);
+  const iterator = db.query(db.coll, query);
   const toArray  = promisify(iterator.toArray).bind(iterator);
   const docs     = await toArray().catch(catchError);
 
