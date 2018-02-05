@@ -1,11 +1,11 @@
-const db            = require('../../lib/modules/db');
+const db            = require('../../../lib/modules/db');
 const { promisify } = require('util');
 const types         = require('./types');
 
 const {
   capitalize,
   compare,
-} = require('../../lib/utilities');
+} = require('../../../lib/utilities');
 
 module.exports = async (req, res, next) => {
 
