@@ -1,6 +1,8 @@
 extends: 'C:\Users\dwhieb\Coding\dev\.eslintrc.yaml'
 
 parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
   ecmaVersion: 8
   sourceType: script
 

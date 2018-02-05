@@ -6,10 +6,11 @@ const descriptor = {
 
 module.exports = class Document {
 
-  constructor({ cvid, type } = {}) {
+  constructor({ cvid, id, type } = {}) {
 
     Object.defineProperties(this, {
       cvid: Object.assign({ value: cvid }, descriptor),
+      id:   Object.assign({ value: id }, descriptor),
       type: Object.assign({ value: type }, descriptor),
     });
 

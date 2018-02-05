@@ -1,3 +1,4 @@
+const catchError    = require('./catchError');
 const db            = require('../../../lib/modules/database');
 const { promisify } = require('util');
 const types         = require('./types');
@@ -26,22 +27,16 @@ module.exports = async (req, res, next) => {
     )
   `;
 
-  const catchError = err => {
-    if (err instanceof Error) return next(err);
-    const { headers, message, statusCode } = db.convertError(err);
-    res.error(message, { statusCode }, headers);
-  };
-
   const iterator = db.query(db.coll, query);
   const toArray  = promisify(iterator.toArray).bind(iterator);
-  const docs     = await toArray().catch(catchError);
+  const docs     = await toArray().catch(catchError(req, res, next));
 
   // Set current doc
 
   const { cvid } = req.params;
 
-  // eslint-disable-next-line no-param-reassign
-  if (cvid) res.locals.doc = docs.find(doc => doc.cvid === Number(cvid));
+  const doc = docs.find(d => d.cvid === Number(cvid));
+  if (!doc) return next();
 
   // Sort docs
 
@@ -55,6 +50,7 @@ module.exports = async (req, res, next) => {
   res.render(`editor`, {
     admin:     true,
     csrf:      req.csrfToken(),
+    doc,
     docs,
     header:    false,
     id:        `editor`,
