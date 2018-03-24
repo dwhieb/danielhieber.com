@@ -23,7 +23,7 @@
 
     <button
       form=form
-      formaction='/admin/{{type}}'
+      formaction='/admin/{{coll}}'
       name=addItem
       type=submit
       value=true>
@@ -33,7 +33,7 @@
     <ol>
       {{#each docs}}
         <li>
-          <a href='/admin/{{../type}}/{{cvid}}'>
+          <a href='/admin/{{../coll}}/{{cvid}}'>
             {{#if title}}
               {{title}}
             {{else if name}}
@@ -50,7 +50,7 @@
 
   </nav>
 
-  <form id=form method=post action=/admin/{{type}}/{{doc.cvid}}>
+  <form id=form method=post action=/admin/{{coll}}/{{doc.cvid}}>
 
     {{!-- CSRF token --}}
     <input type=hidden name=_csrf value='{{csrf}}'>

@@ -3,10 +3,10 @@
  * @name put.js
  */
 
-const catchError = require('./catchError');
-const db         = require('../../../lib/modules/database');
-const Document   = require('../Document');
-const types      = require('./types');
+const catchError   = require('./catchError');
+const db           = require('../../../lib/modules/database');
+const { Document } = require('../models');
+const types        = require('./types');
 
 module.exports = async (req, res, next) => {
 

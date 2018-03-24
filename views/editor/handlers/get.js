@@ -10,16 +10,31 @@ const {
 
 module.exports = async (req, res, next) => {
 
-  // Retrieve docs
+  // Check type
 
   const type = types[req.params.type];
+  if (!type) return res.error.badRequest(`Invalid CV type.`);
 
-  if (!type) return next();
+  // Create rendering context for Handlebars
+
+  const context = {
+    admin:     true,
+    coll:      req.params.type,
+    csrf:      req.csrfToken(),
+    header:    false,
+    id:        `editor`,
+    pageTitle: `Editor`,
+    type,
+    Type:      capitalize(req.params.type),
+    types,
+  };
+
+  // Retrieve docs
 
   const query = `
     SELECT * FROM c
     WHERE (
-      c.type="${type}"
+      c.type="${context.type}"
       AND (
         (NOT IS_DEFINED(c.ttl))
         OR c.ttl < 1
@@ -29,35 +44,26 @@ module.exports = async (req, res, next) => {
 
   const iterator = db.query(db.coll, query);
   const toArray  = promisify(iterator.toArray).bind(iterator);
-  const docs     = await toArray().catch(catchError(req, res, next));
+  context.docs   = await toArray().catch(catchError(req, res, next));
 
-  // Set current doc
+  // Set current doc if present
 
   const { cvid } = req.params;
 
-  const doc = docs.find(d => d.cvid === Number(cvid));
-  if (!doc) return next();
+  if (cvid) {
+    context.doc = context.docs.find(d => d.cvid === Number(cvid));
+    if (!context.doc) return next();
+  }
 
   // Sort docs
 
-  docs.sort((a, b) => compare(a.title, b.title)
+  context.docs.sort((a, b) => compare(a.title, b.title)
   || compare(a.name, b.name)
   || compare(a.organization, b.organization)
   || compare(a.location, b.location));
 
   // Render page
 
-  res.render(`editor`, {
-    admin:     true,
-    csrf:      req.csrfToken(),
-    doc,
-    docs,
-    header:    false,
-    id:        `editor`,
-    pageTitle: `Editor`,
-    type:      req.params.type,
-    Type:      capitalize(req.params.type),
-    types,
-  });
+  res.render(`editor`, context);
 
 };
