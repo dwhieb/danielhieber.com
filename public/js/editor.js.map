@@ -7,16 +7,17 @@
     "dropdown",
     "document",
     "getElementById",
-    "onchange",
+    "updateType",
     "window",
     "location",
     "ev",
     "target",
-    "value"
+    "value",
+    "onchange"
   ],
-  "mappings": ";;AAAA,IAAMA,WAAWC,SAASC,cAAT,YAAjB;AACAF,SAASG,QAAT,GAAoB,cAAM;AAAEC,SAAOC,QAAP,eAA4BC,GAAGC,MAAH,CAAUC,KAAtC;AAAgD,CAA5E",
+  "mappings": ";;AAAA;;AAEA,IAAMA,WAAWC,SAASC,cAAT,YAAjB;;AAEA,IAAMC,aAAa,SAAbA,UAAa,KAAM;AACvBC,SAAOC,QAAP,eAA4BC,GAAGC,MAAH,CAAUC,KAAtC;AACD,CAFD;;AAIAR,SAASS,QAAT,GAAoBN,UAApB",
   "file": "editor.js",
   "sourcesContent": [
-    "const dropdown = document.getElementById(`dropdown`);\r\ndropdown.onchange = ev => { window.location = `/admin/${ev.target.value}`; };\r\n"
+    "/* eslint-env browser */\r\n\r\nconst dropdown = document.getElementById(`dropdown`);\r\n\r\nconst updateType = ev => {\r\n  window.location = `/admin/${ev.target.value}`;\r\n};\r\n\r\ndropdown.onchange = updateType;\r\n"
   ]
 }

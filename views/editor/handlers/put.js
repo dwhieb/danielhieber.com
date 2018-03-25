@@ -3,12 +3,15 @@
  * @name put.js
  */
 
-const catchError   = require('./catchError');
-const db           = require('../../../lib/modules/database');
-const { Document } = require('../models');
-const types        = require('./types');
+const catchError    = require('./catchError');
+const db            = require('../../../lib/modules/database');
+const deleteHandler = require('./delete');
+const { Document }  = require('../models');
+const types         = require('./types');
 
 module.exports = async (req, res, next) => {
+
+  if (req.body.deleteItem) return deleteHandler(req, res, next);
 
   const type = types[req.params.type];
   const cvid = Number(req.params.cvid);

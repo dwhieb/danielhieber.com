@@ -53,45 +53,52 @@
   <form id=form method=post action=/admin/{{coll}}/{{doc.cvid}}>
 
     {{!-- CSRF token --}}
-    <input type=hidden name=_csrf value='{{csrf}}'>
+    <input id=csrf type=hidden name=_csrf value='{{csrf}}'>
 
     {{#if doc}}
+      {{#with doc}}
 
       {{!-- Document ID --}}
-      <input type=hidden name=id value='{{doc.id}}'>
+      <input id=id type=hidden name=id value='{{id}}'>
+
+      {{!-- {{#if achievements}}
+
+        <fieldset class=achievements>
+
+          <ul>
+            {{#each achievements}}
+              <li>
+
+                <input
+                  inputmode=latin-prose
+                  placeholder='Brief description of this achievement'
+                  type=text
+                  value='{{this}}'>
+
+                <button type=button name=deleteAchievement>
+                  {{../icons.delete}}
+                </button>
+
+              </li>
+            {{/each}}
+          </ul>
+
+        </fieldset>
+
+      {{/if}} --}}
+      {{!-- End achievements --}}
 
       {{!-- Save button --}}
-      <button type=submit>Save</button>
+      <button id=saveButton type=submit name=saveItem value=true>Save</button>
 
+      {{!-- Delete button --}}
+      <button id=deleteButton type=submit name=deleteItem value=true>Delete</button>
+
+      {{/with}}
     {{/if}}
+    {{!-- End doc info --}}
 
   </form>
-
-    {{!-- {{#if achievements}}
-      <fieldset class=achievements>
-
-        <legend>Achievements</legend>
-
-        <ul>
-          {{#each achievements}}
-            <li>
-
-              <input
-                inputmode=latin-prose
-                placeholder='Brief description of this achievement'
-                type=text
-                value='{{this}}'>
-
-              <button type=button name=deleteAchievement>
-                {{../icons.delete}}
-              </button>
-
-            </li>
-          {{/each}}
-        </ul>
-
-      </fieldset>
-    {{/if}} --}}
 
 </main>
 

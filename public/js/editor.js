@@ -1,6 +1,11 @@
 "use strict";
 
+/* eslint-env browser */
+
 var dropdown = document.getElementById("dropdown");
-dropdown.onchange = function (ev) {
+
+var updateType = function updateType(ev) {
   window.location = "/admin/" + ev.target.value;
-}; //# sourceMappingURL=/js/editor.js.map
+};
+
+dropdown.onchange = updateType; //# sourceMappingURL=/js/editor.js.map
