@@ -7,7 +7,7 @@ const catchError    = require('./catchError');
 const db            = require('../../../lib/modules/database');
 const { Document }  = require('../models');
 const { promisify } = require('util');
-const types         = require('./types');
+const types         = require('../types');
 
 module.exports = async (req, res, next) => {
 
@@ -53,9 +53,9 @@ module.exports = async (req, res, next) => {
 
     try {
 
-      const iterator  = db.query(db.coll, query, { maxItemCount: 1 });
-      const toArray   = promisify(iterator.toArray).bind(iterator);
-      ([existingDoc]) = await toArray();
+      const iterator = db.query(db.coll, query, { maxItemCount: 1 });
+      const toArray  = promisify(iterator.toArray).bind(iterator);
+      [existingDoc]  = await toArray();
 
     } catch (e) {
 

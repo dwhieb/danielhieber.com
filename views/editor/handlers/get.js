@@ -1,7 +1,7 @@
 const catchError    = require('./catchError');
 const db            = require('../../../lib/modules/database');
 const { promisify } = require('util');
-const types         = require('./types');
+const types         = require('../types');
 
 const {
   capitalize,

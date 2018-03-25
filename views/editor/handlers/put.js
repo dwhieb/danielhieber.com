@@ -7,27 +7,39 @@ const catchError    = require('./catchError');
 const db            = require('../../../lib/modules/database');
 const deleteHandler = require('./delete');
 const { Document }  = require('../models');
-const types         = require('./types');
+const types         = require('../types');
 
 module.exports = async (req, res, next) => {
 
+  // Reroute to delete handler if delete button was clicked
   if (req.body.deleteItem) return deleteHandler(req, res, next);
 
   const type = types[req.params.type];
   const cvid = Number(req.params.cvid);
 
-  // Check type
+  // Check type in URL
   if (!type) return res.error.badRequest(`Invalid CV type.`);
 
+  // Remove unnecessary fields from form data
   // eslint-disable-next-line no-unused-vars
-  const { _csrf, ...props } = req.body;
+  const { _csrf, saveItem, ...props } = req.body;
 
   // Validate data
-  const model = new Document({
-    cvid,
-    type,
-    ...props,
-  });
+  let model;
+
+  try {
+
+    model = new Document({
+      cvid,
+      type,
+      ...props,
+    });
+
+  } catch (e) {
+
+    return res.error.badData(e.message);
+
+  }
 
   // Retrieve item from database
   let doc;
@@ -43,10 +55,8 @@ module.exports = async (req, res, next) => {
 
   }
 
-  // Check type
+  // Validate received doc against database doc
   if (doc.type !== type) res.error.badRequest(`Document type does not match.`);
-
-  // Check CVID
   if (doc.cvid !== cvid) res.error.badRequest(`CVID does not match.`);
 
   // TODO:
