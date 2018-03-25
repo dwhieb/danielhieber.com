@@ -42,9 +42,17 @@ module.exports = async (req, res, next) => {
     )
   `;
 
-  const iterator = db.query(db.coll, query);
-  const toArray  = promisify(iterator.toArray).bind(iterator);
-  context.docs   = await toArray().catch(catchError(req, res, next));
+  try {
+
+    const iterator = db.query(db.coll, query);
+    const toArray  = promisify(iterator.toArray).bind(iterator);
+    context.docs   = await toArray();
+
+  } catch (e) {
+
+    return catchError(req, res, next)(e);
+
+  }
 
   // Set current doc if present
 

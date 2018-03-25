@@ -30,8 +30,18 @@ module.exports = async (req, res, next) => {
   });
 
   // Retrieve item from database
-  const docURL = db.getDocURL(model.id);
-  const doc    = await db.get(docURL).catch(catchError(req, res, next));
+  let doc;
+
+  try {
+
+    const docURL = db.getDocURL(model.id);
+    doc = await db.get(docURL);
+
+  } catch (e) {
+
+    return catchError(req, res, next)(e);
+
+  }
 
   // Check type
   if (doc.type !== type) res.error.badRequest(`Document type does not match.`);

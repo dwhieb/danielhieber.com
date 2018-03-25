@@ -16,8 +16,18 @@ module.exports = async (req, res, next) => {
   if (!type) return res.error.badRequest(`Invalid CV type.`);
 
   // Retrieve the counter document
-  const counterURL = db.getDocURL(`counter`);
-  const counterDoc = await db.get(counterURL).catch(catchError(req, res, next));
+  let counterDoc;
+
+  try {
+
+    const counterURL = db.getDocURL(`counter`);
+    counterDoc = await db.get(counterURL);
+
+  } catch (e) {
+
+    return catchError(req, res, next)(e);
+
+  }
 
   // Recursively increments counter and checks that new CVID doesn't already exist
   const increment = async () => {
@@ -39,9 +49,19 @@ module.exports = async (req, res, next) => {
     `;
 
     // Check whether doc with new CVID already exists
-    const iterator      = db.query(db.coll, query, { maxItemCount: 1 });
-    const toArray       = promisify(iterator.toArray).bind(iterator);
-    const [existingDoc] = await toArray().catch(catchError(req, res, next));
+    let existingDoc;
+
+    try {
+
+      const iterator  = db.query(db.coll, query, { maxItemCount: 1 });
+      const toArray   = promisify(iterator.toArray).bind(iterator);
+      ([existingDoc]) = await toArray();
+
+    } catch (e) {
+
+      return catchError(req, res, next)(e);
+
+    }
 
     // If doc exists, increment and check again
     if (existingDoc) increment();
@@ -52,7 +72,13 @@ module.exports = async (req, res, next) => {
   increment();
 
   // Upsert counter doc with CVID incremented
-  const counterResponse = await db.upsert(counterDoc).catch(catchError(req, res, next));
+  let counterResponse;
+
+  try {
+    counterResponse = await db.upsert(counterDoc);
+  } catch (e) {
+    return catchError(req, res, next)(e);
+  }
 
   // Create a new document
   const doc = new Document({
@@ -61,9 +87,15 @@ module.exports = async (req, res, next) => {
   });
 
   // Add new document to database
-  const docResponse = await db.add(doc).catch(catchError(req, res, next));
+  let docResponse;
+
+  try {
+    docResponse = await db.add(doc);
+  } catch (e) {
+    return catchError(req, res, next)(e);
+  }
 
   // Reload the page
-  if (docResponse) res.redirect(`/admin/${req.params.type}/${docResponse.cvid}`);
+  res.redirect(`/admin/${req.params.type}/${docResponse.cvid}`);
 
 };
