@@ -1,30 +1,19 @@
 @import '../less/variables.less';
 @import (reference) '../less/classes.less';
 
-.page-title { .page-title; }
+button {
+  .button;
+  align-self: center;
+  margin:     0.5em;
+}
 
-#editor {
+.buttons {
+  flex-direction:  row;
+  justify-content: center;
+}
 
-  align-content: flex-start;
-  display:       flex;
-  flex-flow:     row wrap;
-  padding:       var(--padding-box);
-
-  button {
-    .button;
-    align-self: center;
-    margin:     0.5em;
-  }
-
-  .page-title {
-    text-align: center;
-    width:      100%;
-  }
-
-  select {
-    border: var(--border-width) solid black;
-  }
-
+#deleteButton {
+  background-color: var(--red);
 }
 
 #dropdown {
@@ -32,12 +21,45 @@
   margin-left: auto;
 }
 
+#editor {
+  align-content: flex-start;
+  display:       flex;
+  flex-flow:     row wrap;
+  font-size:     smaller;
+  padding:       var(--padding-box);
+}
+
+fieldset {
+
+  li {
+    flex-direction: row;
+  }
+
+}
+
+form {
+  flex:    1;
+  padding: 0.5em;
+}
+
+input {
+  border:        var(--border-width) solid #CCC;
+  border-radius: var(--border-radius);
+  box-shadow:    inset 0em 0.025em 0.075em #DDD;
+  flex:          1;
+  margin:        0.25em;
+  padding:       var(--padding-text);
+}
+
+legend {
+  font-weight: var(--font-weight-bold);
+}
+
 #list {
 
   max-width: 30%;
 
   li {
-    font-size: smaller;
     padding:   var(--padding-text);
   }
 
@@ -49,4 +71,22 @@
     background-color: rgba(0, 0, 0, 0.05);
   }
 
+}
+
+.page-title {
+  .page-title;
+  text-align: center;
+  width:      100%;
+}
+
+select {
+  border: var(--border-width) solid black;
+}
+
+.trash {
+  align-items:     center;
+  display:         flex;
+  height:          1.5em;
+  justify-content: center;
+  width:           1.5em;
 }

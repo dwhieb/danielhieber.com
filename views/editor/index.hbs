@@ -61,9 +61,11 @@
       {{!-- Document ID --}}
       <input id=id type=hidden name=id value='{{id}}'>
 
-      {{!-- {{#if achievements}}
+      {{#if achievements}}
 
         <fieldset class=achievements>
+
+          <legend>Achievements</legend>
 
           <ul>
             {{#each achievements}}
@@ -71,12 +73,13 @@
 
                 <input
                   inputmode=latin-prose
+                  name=achievements
                   placeholder='Brief description of this achievement'
                   type=text
                   value='{{this}}'>
 
-                <button type=button name=deleteAchievement>
-                  {{../icons.delete}}
+                <button type=button name=deleteAchievement class=trash>
+                  {{{../../icons.delete}}}
                 </button>
 
               </li>
@@ -85,14 +88,18 @@
 
         </fieldset>
 
-      {{/if}} --}}
+      {{/if}}
       {{!-- End achievements --}}
 
-      {{!-- Save button --}}
-      <button id=saveButton type=submit name=saveItem value=true>Save</button>
+      <div class=buttons>
 
-      {{!-- Delete button --}}
-      <button id=deleteButton type=submit name=deleteItem value=true>Delete</button>
+        {{!-- Save button --}}
+        <button id=saveButton type=submit name=saveItem value=true>Save</button>
+
+        {{!-- Delete button --}}
+        <button id=deleteButton type=submit name=deleteItem value=true>Delete</button>
+
+      </div>
 
       {{/with}}
     {{/if}}

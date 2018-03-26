@@ -10,7 +10,12 @@ const types = Object.values(typesMap);
 
 module.exports = class Document {
 
-  constructor({ cvid, id, type } = {}) {
+  constructor({
+    achievements = [],
+    cvid,
+    id,
+    type,
+  } = {}) {
 
     // Validation
 
@@ -26,6 +31,10 @@ module.exports = class Document {
       throw new TypeError(`Invalid type attribute.`);
     }
 
+    if (typeof achievements !== `undefined` && !Array.isArray(achievements)) {
+      throw new TypeError(`achievements must be an array.`);
+    }
+
     // Assign properties
 
     Object.defineProperties(this, {
@@ -33,6 +42,7 @@ module.exports = class Document {
       type: Object.assign({ value: type }, descriptor),
     });
 
+    if (achievements) this.achievements = achievements;
     if (id) this.id = id;
 
   }
