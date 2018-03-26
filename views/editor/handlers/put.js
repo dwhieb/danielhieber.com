@@ -3,9 +3,14 @@
  * @name put.js
  */
 
+/* eslint-disable
+  max-statements,
+*/
+
 const catchError    = require('./catchError');
 const db            = require('../../../lib/modules/database');
 const deleteHandler = require('./delete');
+const getHandler    = require('./get');
 const { Document }  = require('../models');
 const types         = require('../types');
 
@@ -55,16 +60,25 @@ module.exports = async (req, res, next) => {
 
   }
 
-  // Validate received doc against database doc
+  // Validate that document is correct
   if (doc.type !== type) res.error.badRequest(`Document type does not match.`);
   if (doc.cvid !== cvid) res.error.badRequest(`CVID does not match.`);
 
-  // TODO:
-  // perform a partial update
-  // upsert to the server
-  // (later you can just validate the data and then do an upsert rather than partial update)
-  // rerender page (with a success message)
+  // Update the doc with the latest data
+  Object.assign(doc, model);
 
-  res.status(200).json(doc);
+  // Upsert the doc to the server
+  try {
+
+    await db.upsert(doc);
+
+  } catch (e) {
+
+    return catchError(req, res, next)(e);
+
+  }
+
+  // Render the page using the standard GET handler
+  getHandler(req, res, next);
 
 };
