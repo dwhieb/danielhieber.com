@@ -6,7 +6,7 @@
     "restart": ""
   },
 
-  "exec": "npm run build-js && node --inspect app.js",
+  "exec": "npm run build-css && node --inspect app.js",
   "ext": "hbs js json less",
 
   "ignore": [

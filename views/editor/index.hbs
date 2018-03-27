@@ -62,25 +62,42 @@
       <input id=id type=hidden name=id value='{{id}}'>
 
 
-      {{!-- Achievements --}}
-      {{#*inline "achievement"}}
-        <li>
+      {{!-- Abbreviation --}}
+      {{#isType "membership, service"}}
+        <label for=abbreviation>
+
+          <b>Abbreviation</b>
 
           <input
-            inputmode=latin-prose
-            name=achievements
-            placeholder='Brief description of this achievement'
+            inputmode=verbatim
+            name=abbreviation
+            placeholder=ABBR
             type=text
-            value='{{this}}'>
+            value='{{abbreviation}}'>
 
-          <button type=button name=deleteAchievement class=trash>
-            {{{../icons.delete}}}
-          </button>
+        </label>
+      {{/isType}}
 
-        </li>
-      {{/inline}}
 
-      {{#if achievements}}
+      {{!-- Achievements --}}
+      {{#isType "education, work"}}
+
+        {{#*inline "achievement"}}
+          <li>
+
+            <input
+              inputmode=latin-prose
+              name=achievements
+              placeholder='Brief description of this achievement'
+              type=text
+              value='{{this}}'>
+
+            <button type=button name=deleteAchievement class=trash>
+              {{{../../icons.delete}}}
+            </button>
+
+          </li>
+        {{/inline}}
 
         <fieldset class=achievements>
 
@@ -100,7 +117,7 @@
 
         </fieldset>
 
-      {{/if}}
+      {{/isType}}
       {{!-- End achievements --}}
 
 

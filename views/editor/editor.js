@@ -56,8 +56,8 @@ const updateType = ev => {
 };
 
 // Attach handlers
-deleteButton.onclick = confirmDeletion;
 dropdown.onchange = updateType;
 
 if (achievementsList) achievementsList.addEventListener(`click`, deleteAchievement);
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
+if (deleteButton) deleteButton.onclick = confirmDeletion;
