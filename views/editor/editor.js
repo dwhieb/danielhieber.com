@@ -10,12 +10,21 @@
 const achievementTemplate  = document.getElementById(`achievement-template`);
 const achievementsList     = document.querySelector(`.achievements ul`);
 const addAchievementButton = document.getElementById(`addAchievementButton`);
+const deleteButton         = document.getElementById(`deleteButton`);
 const dropdown             = document.getElementById(`dropdown`);
 
 // Handlers
 const addAchievement = () => {
   const li = achievementTemplate.content.querySelector(`li`).cloneNode(true);
   achievementsList.appendChild(li);
+};
+
+const confirmDeletion = ev => {
+
+  const confirmed = confirm(`Are you sure you want to delete this CV item? It will still be accessible for 30 days in the database if you decide to delete it.`);
+
+  if (!confirmed) ev.preventDefault();
+
 };
 
 const deleteAchievement = ev => {
@@ -47,6 +56,7 @@ const updateType = ev => {
 };
 
 // Attach handlers
+deleteButton.onclick = confirmDeletion;
 dropdown.onchange = updateType;
 
 if (achievementsList) achievementsList.addEventListener(`click`, deleteAchievement);

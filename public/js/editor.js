@@ -12,12 +12,20 @@
 var achievementTemplate = document.getElementById("achievement-template");
 var achievementsList = document.querySelector(".achievements ul");
 var addAchievementButton = document.getElementById("addAchievementButton");
+var deleteButton = document.getElementById("deleteButton");
 var dropdown = document.getElementById("dropdown");
 
 // Handlers
 var addAchievement = function addAchievement() {
   var li = achievementTemplate.content.querySelector("li").cloneNode(true);
   achievementsList.appendChild(li);
+};
+
+var confirmDeletion = function confirmDeletion(ev) {
+
+  var confirmed = confirm("Are you sure you want to delete this CV item? It will still be accessible for 30 days in the database if you decide to delete it.");
+
+  if (!confirmed) ev.preventDefault();
 };
 
 var deleteAchievement = function deleteAchievement(ev) {
@@ -48,6 +56,7 @@ var updateType = function updateType(ev) {
 };
 
 // Attach handlers
+deleteButton.onclick = confirmDeletion;
 dropdown.onchange = updateType;
 
 if (achievementsList) achievementsList.addEventListener("click", deleteAchievement);
