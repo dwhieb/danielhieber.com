@@ -11,9 +11,11 @@
 // Elements
 var achievementTemplate = document.getElementById("achievement-template");
 var achievementsList = document.querySelector(".achievements ul");
-var addAchievementButton = document.getElementById("addAchievementButton");
-var deleteButton = document.getElementById("deleteButton");
+var addAchievementButton = document.getElementById("addAchievement");
+var dateField = document.getElementById("date");
+var deleteButton = document.getElementById("delete");
 var dropdown = document.getElementById("dropdown");
+var forthcomingBox = document.getElementById("forthcoming");
 
 // Handlers
 var addAchievement = function addAchievement() {
@@ -51,6 +53,16 @@ var deleteAchievement = function deleteAchievement(ev) {
   if (confirmed) li.remove();
 };
 
+var toggleDateField = function toggleDateField() {
+  if (forthcomingBox.checked) {
+    dateField.required = false;
+    dateField.disabled = true;
+  } else {
+    dateField.required = true;
+    dateField.disabled = false;
+  }
+};
+
 var updateType = function updateType(ev) {
   window.location = "/admin/" + ev.target.value;
 };
@@ -60,4 +72,5 @@ dropdown.onchange = updateType;
 
 if (achievementsList) achievementsList.addEventListener("click", deleteAchievement);
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
-if (deleteButton) deleteButton.onclick = confirmDeletion; //# sourceMappingURL=/js/editor.js.map
+if (deleteButton) deleteButton.onclick = confirmDeletion;
+if (forthcomingBox) forthcomingBox.onchange = toggleDateField; //# sourceMappingURL=/js/editor.js.map

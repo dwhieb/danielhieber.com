@@ -140,6 +140,9 @@ module.exports = async (req, res, next) => {
 
     }
 
+    // Convert date
+    if (doc.date) doc.date = new Date(doc.date).toISOString().slice(0, 10);
+
   }
 
   // Sort docs

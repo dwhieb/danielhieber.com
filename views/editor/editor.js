@@ -9,9 +9,11 @@
 // Elements
 const achievementTemplate  = document.getElementById(`achievement-template`);
 const achievementsList     = document.querySelector(`.achievements ul`);
-const addAchievementButton = document.getElementById(`addAchievementButton`);
-const deleteButton         = document.getElementById(`deleteButton`);
+const addAchievementButton = document.getElementById(`addAchievement`);
+const dateField            = document.getElementById(`date`);
+const deleteButton         = document.getElementById(`delete`);
 const dropdown             = document.getElementById(`dropdown`);
+const forthcomingBox       = document.getElementById(`forthcoming`);
 
 // Handlers
 const addAchievement = () => {
@@ -51,6 +53,16 @@ const deleteAchievement = ev => {
 
 };
 
+const toggleDateField = () => {
+  if (forthcomingBox.checked) {
+    dateField.required = false;
+    dateField.disabled = true;
+  } else {
+    dateField.required = true;
+    dateField.disabled = false;
+  }
+};
+
 const updateType = ev => {
   window.location = `/admin/${ev.target.value}`;
 };
@@ -61,3 +73,4 @@ dropdown.onchange = updateType;
 if (achievementsList) achievementsList.addEventListener(`click`, deleteAchievement);
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
+if (forthcomingBox) forthcomingBox.onchange = toggleDateField;

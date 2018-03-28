@@ -114,6 +114,23 @@
       {{/isType}}
 
 
+      {{!-- Date --}}
+      {{#isType "media, publication"}}
+        <fieldset>
+
+          <legend>Date</legend>
+
+          <input id=date type=date name=date value='{{date}}' {{#if forthcoming}}disabled{{else}}required{{/if}}>
+
+          <label for=forthcoming>
+            <b>Forthcoming</b>
+            <input id=forthcoming type=checkbox name=forthcoming {{#if forthcoming}}checked{{/if}}>
+          </label>
+
+        </fieldset>
+      {{/isType}}
+
+
       {{!-- Abbreviation --}}
       {{#isType "membership, service"}}
         <label for=abbreviation>
@@ -178,7 +195,7 @@
             {{/each}}
           </ul>
 
-          <button id=addAchievementButton type=button name=addAchievement>Add Achievement</button>
+          <button id=addAchievement type=button name=addAchievement>Add Achievement</button>
 
           <template id=achievement-template>
             {{> achievement ""}}
@@ -197,7 +214,7 @@
         <button id=saveButton type=submit name=saveItem value=true>Save</button>
 
         {{!-- Delete button --}}
-        <button id=deleteButton type=submit name=deleteItem value=true>Delete</button>
+        <button id=delete type=submit name=deleteItem value=true>Delete</button>
 
       </div>
       {{!-- End buttons --}}
