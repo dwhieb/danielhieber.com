@@ -62,6 +62,23 @@
       <input id=id type=hidden name=id value='{{id}}'>
 
 
+      {{!-- Author --}}
+      {{#isType "media"}}
+        <label for=author>
+
+          <b>Author</b>
+
+          <input
+            inputmode=latin-name
+            name=author
+            placeholder=Author
+            required
+            type=text
+            value='{{author}}'>
+
+        </label>
+      {{/isType}}
+
       {{!-- Abbreviation --}}
       {{#isType "membership, service"}}
         <label for=abbreviation>

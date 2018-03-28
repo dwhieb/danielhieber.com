@@ -13,6 +13,7 @@ module.exports = class Document {
   constructor({
     abbreviation,
     achievements,
+    author,
     cvid,
     id,
     type,
@@ -21,26 +22,31 @@ module.exports = class Document {
     // Validation
 
     // Abbreviation
-    if (typeof abbreviation !== `undefined` && !/^[A-Za-z]*$/.test(abbreviation)) {
+    if ((type === `membership` || type === `service`) && !/^[A-Za-z]*$/.test(abbreviation)) {
       throw new TypeError(`abbreviation must be a properly-formatted abbreviation.`);
     }
 
     // Achievements
-    if (typeof achievements !== `undefined` && !Array.isArray(achievements)) {
+    if ((type === `education` || type === `work`) && !Array.isArray(achievements)) {
       throw new TypeError(`achievements must be an array.`);
     }
 
-    // CVID (required)
+    // Author
+    if (type === `media` && typeof author !== `string`) {
+      throw new TypeError(`author must be a String.`);
+    }
+
+    // CVID (required for all docs)
     if (!Number.isInteger(cvid)) {
       throw new TypeError(`cvid must be an Integer.`);
     }
 
-    // ID (required)
+    // ID (may not be present on a doc if it hasn't been added to the database)
     if (typeof id !== `undefined` && typeof id !== `string`) {
       throw new TypeError(`id must be a String.`);
     }
 
-    // Type (required)
+    // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
     }
@@ -54,6 +60,7 @@ module.exports = class Document {
 
     if (typeof abbreviation === `string`) this.abbreviation = abbreviation;
     if (achievements) this.achievements = achievements;
+    if (author) this.author = author;
     if (id) this.id = id;
 
   }
