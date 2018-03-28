@@ -63,8 +63,9 @@
       <input id=id type=hidden name=id value='{{id}}'>
 
 
-      {{!-- Autonym --}}
       {{#isType "language"}}
+
+        {{!-- Autonym --}}
         <label for=autonym>
 
           <b>Autonym</b>
@@ -78,6 +79,20 @@
             value='{{autonym}}'>
 
         </label>
+
+        {{!-- Competency --}}
+        <label for=competency>
+
+          <b>Competency</b>
+
+          <select name=competency>
+            {{#each comp}}
+              <option value='{{@key}}' {{#if this}}selected{{/if}}>{{@key}}</option>
+            {{/each}}
+          </select>
+
+        </label>
+
       {{/isType}}
 
 

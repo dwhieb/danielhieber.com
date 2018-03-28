@@ -4,6 +4,13 @@
 
 const typesMap = require('../types');
 
+const competencies = [
+  `beginner`,
+  `intermediate`,
+  `advanced`,
+  `structural knowledge`,
+];
+
 const descriptor = {
   configurable: false,
   enumerable:   true,
@@ -20,6 +27,7 @@ module.exports = class Document {
     author,
     autonym,
     categories,
+    competency,
     cvid,
     id,
     type,
@@ -52,6 +60,11 @@ module.exports = class Document {
       throw new TypeError(`categories must be a String or Array of Strings.`);
     }
 
+    // Competency
+    if (type === `language` && !competencies.includes(competency)) {
+      throw new TypeError(`Invalid competency.`);
+    }
+
     // CVID (required for all docs)
     if (!Number.isInteger(cvid)) {
       throw new TypeError(`cvid must be an Integer.`);
@@ -79,6 +92,7 @@ module.exports = class Document {
     if (author) this.author = author;
     if (autonym) this.autonym = autonym;
     if (categories) this.categories = Array.isArray(categories) ? categories : [categories];
+    if (competency) this.competency = competency;
     if (id) this.id = id;
 
   }

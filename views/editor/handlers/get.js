@@ -102,7 +102,7 @@ module.exports = async (req, res, next) => {
 
   }
 
-  // Set current doc if present
+  // Set current doc and format it for rendering, if present
 
   const { cvid } = req.params;
 
@@ -111,16 +111,32 @@ module.exports = async (req, res, next) => {
     context.doc = context.docs.find(d => d.cvid === Number(cvid));
     if (!context.doc) return next();
 
-    // Create categories hash for rendering if applicable
-    if (context.doc.categories) {
+    const { doc } = context;
 
-      context.doc.cats = {};
+    // Create categories hash for rendering if applicable
+    if (doc.categories) {
+
+      doc.cats = {};
 
       context.categories
       .map(cat => cat.key)
-      .forEach(cat => { context.doc.cats[cat] = false; });
+      .forEach(cat => { doc.cats[cat] = false; });
 
-      context.doc.categories.forEach(cat => { context.doc.cats[cat] = true; });
+      doc.categories.forEach(cat => { doc.cats[cat] = true; });
+
+    }
+
+    // Create competency hash for rendering if applicable
+    if (doc.competency) {
+
+      doc.comp = {
+        advanced:               false,
+        beginner:               false,
+        intermediate:           false,
+        'structural knowledge': false,
+      };
+
+      doc.comp[doc.competency] = true;
 
     }
 
