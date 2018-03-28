@@ -1,3 +1,10 @@
+// Handler for the GET method for the CV Editor
+
+/* eslint-disable
+  max-statements,
+  no-shadow,
+*/
+
 const catchError    = require('./catchError');
 const db            = require('../../../lib/modules/database');
 const { promisify } = require('util');
@@ -7,6 +14,18 @@ const {
   capitalize,
   compare,
 } = require('../../../lib/utilities');
+
+const typesWithCategories = [
+  `award`,
+  `fieldwork`,
+  `language`,
+  `media`,
+  `membership`,
+  `proficiency`,
+  `publication`,
+  `service`,
+  `work`,
+];
 
 module.exports = async (req, res, next) => {
 
@@ -28,6 +47,35 @@ module.exports = async (req, res, next) => {
     Type:      capitalize(req.params.type),
     types,
   };
+
+  // Retrieve categories
+
+  if (typesWithCategories.includes(type)) {
+
+    const categoriesQuery = `
+      SELECT c.key, c.title FROM c
+      WHERE (
+        c.type = "category"
+        AND (
+          (NOT IS_DEFINED(c.ttl))
+          OR c.ttl < 1
+        )
+      )
+    `;
+
+    try {
+
+      const iterator     = db.query(db.coll, categoriesQuery);
+      const toArray      = promisify(iterator.toArray).bind(iterator);
+      context.categories = await toArray();
+
+    } catch (e) {
+
+      return catchError(req, res, next)(e);
+
+    }
+
+  }
 
   // Retrieve docs
 

@@ -14,6 +14,7 @@ module.exports = class Document {
     abbreviation,
     achievements,
     author,
+    autonym,
     cvid,
     id,
     type,
@@ -28,12 +29,17 @@ module.exports = class Document {
 
     // Achievements
     if ((type === `education` || type === `work`) && !Array.isArray(achievements)) {
-      throw new TypeError(`achievements must be an array.`);
+      throw new TypeError(`achievements must be an Array.`);
     }
 
     // Author
     if (type === `media` && typeof author !== `string`) {
       throw new TypeError(`author must be a String.`);
+    }
+
+    // Autonym
+    if (type === `language` && typeof autonym !== `string`) {
+      throw new TypeError(`autonym must be a String.`);
     }
 
     // CVID (required for all docs)
@@ -61,6 +67,7 @@ module.exports = class Document {
     if (typeof abbreviation === `string`) this.abbreviation = abbreviation;
     if (achievements) this.achievements = achievements;
     if (author) this.author = author;
+    if (autonym) this.autonym = autonym;
     if (id) this.id = id;
 
   }

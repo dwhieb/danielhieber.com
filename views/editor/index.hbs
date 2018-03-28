@@ -58,8 +58,27 @@
     {{#if doc}}
       {{#with doc}}
 
+
       {{!-- Document ID --}}
       <input id=id type=hidden name=id value='{{id}}'>
+
+
+      {{!-- Autonym --}}
+      {{#isType "language"}}
+        <label for=autonym>
+
+          <b>Autonym</b>
+
+          <input
+            inputmode=full-width-latin
+            name=autonym
+            placeholder=autonym
+            required
+            type=text
+            value='{{autonym}}'>
+
+        </label>
+      {{/isType}}
 
 
       {{!-- Author --}}
@@ -79,6 +98,7 @@
         </label>
       {{/isType}}
 
+
       {{!-- Abbreviation --}}
       {{#isType "membership, service"}}
         <label for=abbreviation>
@@ -93,6 +113,23 @@
             value='{{abbreviation}}'>
 
         </label>
+      {{/isType}}
+
+
+      {{!-- Categories --}}
+      {{#isType "award, fieldwork, language, media, membership, proficiency, publication, service, work"}}
+        <fieldset>
+
+          <legend>Categories</legend>
+
+          {{#each ../categories}}
+            <label>
+              <input type=checkbox name=categories value='{{key}}'>
+              <i>{{title}}</i>
+            </label>
+          {{/each}}
+
+        </fieldset>
       {{/isType}}
 
 
