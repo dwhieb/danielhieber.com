@@ -107,8 +107,23 @@ module.exports = async (req, res, next) => {
   const { cvid } = req.params;
 
   if (cvid) {
+
     context.doc = context.docs.find(d => d.cvid === Number(cvid));
     if (!context.doc) return next();
+
+    // Create categories hash for rendering if applicable
+    if (context.doc.categories) {
+
+      context.doc.cats = {};
+
+      context.categories
+      .map(cat => cat.key)
+      .forEach(cat => { context.doc.cats[cat] = false; });
+
+      context.doc.categories.forEach(cat => { context.doc.cats[cat] = true; });
+
+    }
+
   }
 
   // Sort docs

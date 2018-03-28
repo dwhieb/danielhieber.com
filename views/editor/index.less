@@ -21,6 +21,15 @@ button {
   justify-content: center;
 }
 
+.categories {
+
+  label {
+    align-items:    center;
+    flex-direction: row;
+  }
+
+}
+
 #deleteButton {
   background-color: var(--red);
 }
@@ -31,11 +40,12 @@ button {
 }
 
 #editor {
-  align-content: flex-start;
-  display:       flex;
-  flex-flow:     row wrap;
-  font-size:     smaller;
-  padding:       var(--padding-box);
+  align-content:   flex-start;
+  display:         flex;
+  flex-flow:       row wrap;
+  font-size:       smaller;
+  justify-content: space-between;
+  padding:         var(--padding-box);
 }
 
 fieldset {
@@ -47,22 +57,26 @@ fieldset {
 }
 
 form {
-  flex:    1;
-  padding: 0.5em;
+  flex:      1;
+  max-width: 70%;
+  padding:   0.5em;
 }
 
-input {
+i {
+  font-style: italic;
+}
+
+input[type=checkbox] {
+  margin: 0.25em;
+}
+
+input[type=text] {
   border:        var(--border-width) solid #CCC;
   border-radius: var(--border-radius);
   box-shadow:    inset 0em 0.025em 0.075em #DDD;
   flex:          1;
   margin:        0.25em;
   padding:       var(--padding-text);
-}
-
-label {
-  align-items:    center;
-  flex-direction: row;
 }
 
 legend {

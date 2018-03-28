@@ -1,3 +1,7 @@
+/* eslint-disable
+  max-statements,
+*/
+
 const typesMap = require('../types');
 
 const descriptor = {
@@ -15,6 +19,7 @@ module.exports = class Document {
     achievements,
     author,
     autonym,
+    categories,
     cvid,
     id,
     type,
@@ -40,6 +45,11 @@ module.exports = class Document {
     // Autonym
     if (type === `language` && typeof autonym !== `string`) {
       throw new TypeError(`autonym must be a String.`);
+    }
+
+    // Categories
+    if (typeof categories !== `undefined` && !Array.isArray(categories) && typeof categories !== `string`) {
+      throw new TypeError(`categories must be a String or Array of Strings.`);
     }
 
     // CVID (required for all docs)
@@ -68,6 +78,7 @@ module.exports = class Document {
     if (achievements) this.achievements = achievements;
     if (author) this.author = author;
     if (autonym) this.autonym = autonym;
+    if (categories) this.categories = Array.isArray(categories) ? categories : [categories];
     if (id) this.id = id;
 
   }

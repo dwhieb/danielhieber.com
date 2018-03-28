@@ -118,14 +118,14 @@
 
       {{!-- Categories --}}
       {{#isType "award, fieldwork, language, media, membership, proficiency, publication, service, work"}}
-        <fieldset>
+        <fieldset class=categories>
 
           <legend>Categories</legend>
 
-          {{#each ../categories}}
+          {{#each cats}}
             <label>
-              <input type=checkbox name=categories value='{{key}}'>
-              <i>{{title}}</i>
+              <input type=checkbox name=categories value='{{@key}}' {{#if this}}checked{{/if}}>
+              <i>{{@key}}</i>
             </label>
           {{/each}}
 
