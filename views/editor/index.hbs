@@ -12,7 +12,7 @@
     <option value=placeholder disabled selected>CV Type</option>
 
     {{#each types}}
-      <option value={{@key}}>{{@key}}</option>
+      <option value='{{@key}}'>{{@key}}</option>
     {{/each}}
 
   </select>
@@ -224,6 +224,31 @@
 
       {{/isType}}
       {{!-- End achievements --}}
+
+
+      {{!-- References (Name, Email, Phone) --}}
+      {{#isType "reference"}}
+
+        {{!-- Name --}}
+
+        {{!-- Email --}}
+        <label for=email>
+
+          <b>Email</b>
+
+          <input
+            inputmode=email
+            name=email
+            placeholder=Email
+            required
+            type=email
+            value='{{email}}'>
+
+        </label>
+
+        {{!-- Phone --}}
+
+      {{/isType}}
 
 
       {{!-- Buttons --}}

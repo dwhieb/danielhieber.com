@@ -35,12 +35,38 @@ module.exports = class Document {
     cvid,
     date,
     description,
+    email,
     forthcoming,
     id,
     type,
   } = {}) {
 
     // Validation
+
+    // Language Fields (autonym, competency)
+    if (type === `language`) {
+
+      // Autonym
+      if (typeof autonym !== `string`) {
+        throw new TypeError(`autonym must be a String.`);
+      }
+
+      // Competency
+      if (!competencies.includes(competency)) {
+        throw new TypeError(`Invalid competency.`);
+      }
+
+    }
+
+    // Reference Fields (email, name, phone)
+    if (type === `reference`) {
+
+      // Email
+      if (typeof email !== `string`) {
+        throw new TypeError(`email must be a String.`);
+      }
+
+    }
 
     // Abbreviation
     if ((type === `membership` || type === `service`) && !/^[A-Za-z]*$/.test(abbreviation)) {
@@ -57,19 +83,9 @@ module.exports = class Document {
       throw new TypeError(`author must be a String.`);
     }
 
-    // Autonym
-    if (type === `language` && typeof autonym !== `string`) {
-      throw new TypeError(`autonym must be a String.`);
-    }
-
     // Categories
     if (typeof categories !== `undefined` && !Array.isArray(categories) && typeof categories !== `string`) {
       throw new TypeError(`categories must be a String or Array of Strings.`);
-    }
-
-    // Competency
-    if (type === `language` && !competencies.includes(competency)) {
-      throw new TypeError(`Invalid competency.`);
     }
 
     // CVID (required for all docs)
@@ -118,6 +134,7 @@ module.exports = class Document {
     if (autonym) this.autonym = autonym;
     if (categories) this.categories = Array.isArray(categories) ? categories : [categories];
     if (competency) this.competency = competency;
+    if (email) this.email = email;
     if (id) this.id = id;
 
     if (typeof description === `string`) {
