@@ -63,6 +63,21 @@
       <input id=id type=hidden name=id value='{{id}}'>
 
 
+      {{!-- Hidden --}}
+      <label for=hidden>
+
+        <b>Hidden</b>
+
+        <input
+          name=hidden
+          type=checkbox
+          {{#if hidden}}checked{{/if}}>
+
+        <p>Do not display this item on your CV</p>
+
+      </label>
+
+
       {{#isType "language"}}
 
         {{!-- Autonym --}}

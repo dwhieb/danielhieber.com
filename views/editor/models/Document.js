@@ -38,6 +38,7 @@ module.exports = class Document {
     email,
     endYear,
     forthcoming,
+    hidden,
     id,
     ongoing,
     type,
@@ -148,6 +149,7 @@ module.exports = class Document {
       type: Object.assign({ value: type }, descriptor),
     });
 
+    this.hidden = Boolean(hidden);
     if (typeof abbreviation === `string`) this.abbreviation = abbreviation;
     if (achievements) this.achievements = achievements;
     if (author) this.author = author;
