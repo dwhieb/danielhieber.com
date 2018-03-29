@@ -114,7 +114,7 @@
       {{/isType}}
 
 
-      {{!-- Date --}}
+      {{!-- Date & Forthcoming --}}
       {{#isType "media, publication"}}
         <fieldset>
 
@@ -122,10 +122,13 @@
 
           <input id=date type=date name=date value='{{date}}' {{#if forthcoming}}disabled{{else}}required{{/if}}>
 
-          <label for=forthcoming>
-            <b>Forthcoming</b>
-            <input id=forthcoming type=checkbox name=forthcoming {{#if forthcoming}}checked{{/if}}>
-          </label>
+          {{#isType "publication"}}
+            <label for=forthcoming>
+              <b>Forthcoming</b>
+              <input id=forthcoming type=checkbox name=forthcoming {{#if forthcoming}}checked{{/if}}>
+            </label>
+          {{/isType}}
+
 
         </fieldset>
       {{/isType}}

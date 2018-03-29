@@ -4,6 +4,7 @@
 
 const typesMap = require('../types');
 
+// Constants
 const competencies = [
   `beginner`,
   `intermediate`,
@@ -19,6 +20,9 @@ const descriptor = {
 
 const types = Object.values(typesMap);
 
+// Utilities
+const isDate = dateString => Boolean(Date.parse(dateString));
+
 module.exports = class Document {
 
   constructor({
@@ -29,6 +33,8 @@ module.exports = class Document {
     categories,
     competency,
     cvid,
+    date,
+    forthcoming,
     id,
     type,
   } = {}) {
@@ -70,6 +76,19 @@ module.exports = class Document {
       throw new TypeError(`cvid must be an Integer.`);
     }
 
+    // Date & Forthcoming
+    if (type === `media` || type === `publication`) {
+
+      if (!(date || forthcoming)) {
+        throw new Error(`Either the date or forthcoming field is required.`);
+      }
+
+      if (date && !isDate(date)) {
+        throw new TypeError(`date must be a properly-formatted date String.`);
+      }
+
+    }
+
     // ID (may not be present on a doc if it hasn't been added to the database)
     if (typeof id !== `undefined` && typeof id !== `string`) {
       throw new TypeError(`id must be a String.`);
@@ -94,6 +113,13 @@ module.exports = class Document {
     if (categories) this.categories = Array.isArray(categories) ? categories : [categories];
     if (competency) this.competency = competency;
     if (id) this.id = id;
+
+    if (type === `media` || type === `publication`) {
+      // NB: Leave date undefined if it doesn't exist,
+      // so it doesn't overwrite date on doc
+      if (date) this.date = new Date(date);
+      this.forthcoming    = Boolean(forthcoming);
+    }
 
   }
 
