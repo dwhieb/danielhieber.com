@@ -268,11 +268,11 @@
           </li>
         {{/inline}}
 
-        <fieldset class=achievements>
+        <fieldset>
 
           <legend>Achievements</legend>
 
-          <ul>
+          <ul id=achievements>
             {{#each achievements}}
               {{> achievement this}}
             {{/each}}
@@ -288,6 +288,56 @@
 
       {{/isType}}
       {{!-- End achievements --}}
+
+
+      {{!-- Links --}}
+      <fieldset>
+
+        {{#*inline "link"}}
+          <li>
+
+            <select>
+              <option value=abstract {{#eq @key 'abstract'}}selected{{/eq}}>abstract</option>
+              <option value=doi {{#eq @key 'doi'}}selected{{/eq}}>doi</option>
+              <option value=handout {{#eq @key 'handout'}}selected{{/eq}}>handout</option>
+              <option value=info {{#eq @key 'info'}}selected{{/eq}}>info</option>
+              <option value=org {{#eq @key 'org'}}selected{{/eq}}>org</option>
+              <option value=pdf {{#eq @key 'pdf'}}selected{{/eq}}>pdf</option>
+              <option value=poster {{#eq @key 'poster'}}selected{{/eq}}>poster</option>
+              <option value=pub {{#eq @key 'pub'}}selected{{/eq}}>pub</option>
+              <option value=slides {{#eq @key 'slides'}}selected{{/eq}}>slides</option>
+              <option value=video {{#eq @key 'video'}}selected{{/eq}}>video</option>
+            </select>
+
+            <input
+              inputmode=url
+              name='{{@key}}'
+              placeholder=URL
+              type=url
+              value='{{this}}'>
+
+            <button type=button name=deleteLink class=trash>
+              {{{../icons.delete}}}
+            </button>
+
+          </li>
+        {{/inline}}
+
+        <legend>Links</legend>
+
+        <ul id=links>
+          {{#each links}}
+            {{> link}}
+          {{/each}}
+        </ul>
+
+        <button id=addLink type=button name=addLink>Add Link</button>
+
+        <template id=link-template>
+          {{> link ""}}
+        </template>
+
+      </fieldset>
 
 
       {{!-- References (Name, Email, Phone) --}}

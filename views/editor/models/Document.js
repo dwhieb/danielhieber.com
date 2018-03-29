@@ -40,6 +40,7 @@ module.exports = class Document {
     forthcoming,
     hidden,
     id,
+    links,
     key,
     ongoing,
     type,
@@ -143,6 +144,11 @@ module.exports = class Document {
       throw new TypeError(`key must be a String`);
     }
 
+    // Links
+    if (typeof links !== `object`) {
+      throw new TypeError(`links must be an Object.`);
+    }
+
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
@@ -166,6 +172,14 @@ module.exports = class Document {
     if (id) this.id = id;
     if (key) this.key = key;
 
+    // Links
+    this.links = {};
+
+    Object.entries(links).forEach(([linkType, url]) => {
+      if (url) this.links[linkType] = url;
+    });
+
+    // Description
     if (typeof description === `string`) {
       this.description = description;
       this.markdown    = description; // TODO: Remove this line when new site launches

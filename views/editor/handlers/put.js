@@ -26,8 +26,44 @@ module.exports = async (req, res, next) => {
   if (!type) return res.error.badRequest(`Invalid CV type.`);
 
   // Remove unnecessary fields from form data
-  // eslint-disable-next-line no-unused-vars
-  const { _csrf, saveItem, ...props } = req.body;
+  // and separate out links hash
+  /* eslint-disable no-unused-vars */
+  const {
+
+    // form fields
+    _csrf,
+    saveItem,
+
+    // links hash
+    abstract,
+    doi,
+    handout,
+    info,
+    org,
+    pdf,
+    poster,
+    pub,
+    slides,
+    video,
+
+    // remaining properties
+    ...props
+
+  } = req.body;
+  /* eslint-enable no-unused-vars */
+
+  const links = {
+    abstract,
+    doi,
+    handout,
+    info,
+    org,
+    pdf,
+    poster,
+    pub,
+    slides,
+    video,
+  };
 
   // Validate data
   let model;
@@ -36,6 +72,7 @@ module.exports = async (req, res, next) => {
 
     model = new Document({
       cvid,
+      links,
       type,
       ...props,
     });

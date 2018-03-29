@@ -1,11 +1,6 @@
 @import '../less/variables.less';
 @import (reference) '../less/classes.less';
 
-#addAchievementButton {
-  margin-left:  auto;
-  margin-right: auto;
-}
-
 b {
   font-weight: var(--font-weight-bold);
 }
@@ -100,6 +95,7 @@ input[type=checkbox] {
 input[type=date],
 input[type=email],
 input[type=text],
+input[type=url],
 textarea
 {
   border:        var(--border-width) solid #CCC;
@@ -112,6 +108,12 @@ textarea
 
 legend {
   font-weight: var(--font-weight-bold);
+}
+
+#links {
+  li {
+    align-items: center;
+  }
 }
 
 #list {
@@ -143,9 +145,10 @@ select {
 }
 
 .trash {
-  align-items:     center;
-  display:         flex;
-  height:          1.5em;
-  justify-content: center;
-  width:           1.5em;
+  align-items:      center;
+  background-color: var(--red);
+  display:          flex;
+  height:           1.5em;
+  justify-content:  center;
+  width:            1.5em;
 }
