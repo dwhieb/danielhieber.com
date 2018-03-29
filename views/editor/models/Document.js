@@ -46,6 +46,7 @@ module.exports = class Document {
     name,
     ongoing,
     organization,
+    phone,
     type,
   } = {}) {
 
@@ -77,6 +78,11 @@ module.exports = class Document {
       // Name
       if (typeof name !== `string`) {
         throw new TypeError(`name must be a String.`);
+      }
+
+      // Phone Number
+      if (typeof phone !== `string`) {
+        throw new TypeError(`phone must be a String.`);
       }
 
     }
@@ -192,6 +198,7 @@ module.exports = class Document {
     if (location) this.location = location;
     if (name) this.name = name;
     if (organization) this.organization = organization;
+    if (phone) this.phone = phone;
 
     // Links
     this.links = {};
