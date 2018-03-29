@@ -40,9 +40,10 @@ module.exports = class Document {
     forthcoming,
     hidden,
     id,
+    key,
     links,
     location,
-    key,
+    name,
     ongoing,
     type,
   } = {}) {
@@ -70,6 +71,11 @@ module.exports = class Document {
       // Email
       if (typeof email !== `string`) {
         throw new TypeError(`email must be a String.`);
+      }
+
+      // Name
+      if (typeof name !== `string`) {
+        throw new TypeError(`name must be a String.`);
       }
 
     }
@@ -178,6 +184,7 @@ module.exports = class Document {
     if (id) this.id = id;
     if (key) this.key = key;
     if (location) this.location = location;
+    if (name) this.name = name;
 
     // Links
     this.links = {};

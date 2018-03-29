@@ -308,6 +308,44 @@
       {{!-- End achievements --}}
 
 
+      {{!-- References (Name, Email, Phone) --}}
+      {{#isType "reference"}}
+
+        {{!-- Name --}}
+        <label for=name>
+
+          <b>Name</b>
+
+          <input
+            inputmode=latin-name
+            name=name
+            placeholder=Name
+            required
+            type=text
+            value='{{name}}'>
+
+        </label>
+
+        {{!-- Email --}}
+        <label for=email>
+
+          <b>Email</b>
+
+          <input
+            inputmode=email
+            name=email
+            placeholder=Email
+            required
+            type=email
+            value='{{email}}'>
+
+        </label>
+
+        {{!-- Phone --}}
+
+      {{/isType}}
+
+
       {{!-- Links --}}
       <fieldset>
 
@@ -356,31 +394,6 @@
         </template>
 
       </fieldset>
-
-
-      {{!-- References (Name, Email, Phone) --}}
-      {{#isType "reference"}}
-
-        {{!-- Name --}}
-
-        {{!-- Email --}}
-        <label for=email>
-
-          <b>Email</b>
-
-          <input
-            inputmode=email
-            name=email
-            placeholder=Email
-            required
-            type=email
-            value='{{email}}'>
-
-        </label>
-
-        {{!-- Phone --}}
-
-      {{/isType}}
 
 
       {{!-- Buttons --}}
