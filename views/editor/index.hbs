@@ -78,6 +78,24 @@
       </label>
 
 
+      {{!-- Organization --}}
+      {{#isType "course, education, membership, reference, service, work"}}
+        <label for=organization>
+
+          <b>Organization</b>
+
+          <input
+            inputmode=latin
+            name=organization
+            placeholder=Organization
+            required
+            type=text
+            value='{{organization}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Key --}}
       {{#isType "category, publication"}}
         <label for=key>
