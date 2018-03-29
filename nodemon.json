@@ -1,12 +1,15 @@
 {
+
   "env": {
     "NODE_ENV": "localhost"
   },
+
   "events": {
     "restart": ""
   },
 
   "exec": "node --inspect app.js",
+
   "ext": "hbs js json less",
 
   "ignore": [
@@ -15,4 +18,5 @@
     "/dist/**",
     "/public/**/**"
   ]
+
 }

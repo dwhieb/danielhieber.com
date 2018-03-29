@@ -168,6 +168,22 @@
       {{/isType}}
 
 
+      {{!-- Description --}}
+      {{#isType "award, category, course, fieldwork, publication"}}
+        <label for=description>
+
+          <b>Description</b>
+
+          <textarea
+            inputmode=latin-prose
+            name=description
+            placeholder='A description of this item, in Markdown'
+            row=8>{{description}}</textarea>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Achievements --}}
       {{#isType "education, work"}}
 

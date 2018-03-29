@@ -143,6 +143,10 @@ module.exports = async (req, res, next) => {
     // Convert date
     if (doc.date) doc.date = new Date(doc.date).toISOString().slice(0, 10);
 
+    // Copy markdown to description
+    // TODO: Remove this when new site is launced (issue #384)
+    if (doc.markdown && !doc.description) doc.description = doc.markdown;
+
   }
 
   // Sort docs

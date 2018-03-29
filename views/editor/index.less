@@ -34,6 +34,10 @@ button {
   background-color: var(--red);
 }
 
+[name=description] {
+  height: 10em;
+}
+
 #dropdown {
   align-self:  flex-end;
   margin-left: auto;
@@ -56,16 +60,22 @@ fieldset {
 
 }
 
-label[for=forthcoming] {
+[for=forthcoming] {
   align-items:    center;
   flex-direction: row;
   padding:        var(--padding-text);
 }
 
 form {
+
   flex:      1;
   max-width: 70%;
   padding:   0.5em;
+
+  > label, fieldset {
+    margin-bottom: 0.5em;
+  }
+
 }
 
 i {
@@ -77,7 +87,8 @@ input[type=checkbox] {
 }
 
 input[type=date],
-input[type=text]
+input[type=text],
+textarea
 {
   border:        var(--border-width) solid #CCC;
   border-radius: var(--border-radius);

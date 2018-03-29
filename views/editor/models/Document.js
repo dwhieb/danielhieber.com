@@ -34,6 +34,7 @@ module.exports = class Document {
     competency,
     cvid,
     date,
+    description,
     forthcoming,
     id,
     type,
@@ -89,6 +90,11 @@ module.exports = class Document {
 
     }
 
+    // Description
+    if (typeof description !== `undefined` && typeof description !== `string`) {
+      throw new TypeError(`description must be a String.`);
+    }
+
     // ID (may not be present on a doc if it hasn't been added to the database)
     if (typeof id !== `undefined` && typeof id !== `string`) {
       throw new TypeError(`id must be a String.`);
@@ -113,6 +119,11 @@ module.exports = class Document {
     if (categories) this.categories = Array.isArray(categories) ? categories : [categories];
     if (competency) this.competency = competency;
     if (id) this.id = id;
+
+    if (typeof description === `string`) {
+      this.description = description;
+      this.markdown    = description; // TODO: Remove this line when new site launches
+    }
 
     if (type === `media` || type === `publication`) {
       // NB: Leave date undefined if it doesn't exist,
