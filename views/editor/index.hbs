@@ -78,6 +78,24 @@
       </label>
 
 
+      {{!-- Key --}}
+      {{#isType "category, publication"}}
+        <label for=key>
+
+          <b>Key</b>
+
+          <input
+            inputmode=verbatim
+            name=key
+            pattern='^[-A-Za-z]$'
+            placeholder='A human-readable key for this item'
+            type=text
+            value='{{key}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{#isType "language"}}
 
         {{!-- Autonym --}}
@@ -109,6 +127,7 @@
         </label>
 
       {{/isType}}
+      {{!-- End language fields (autonym, competency) --}}
 
 
       {{!-- Author --}}
@@ -169,9 +188,10 @@
 
         </fieldset>
       {{/isType}}
+      {{!-- End Date & Forthcoming fields --}}
 
 
-      {{!-- End Year --}}
+      {{!-- End Year & Ongoing --}}
       {{#isType "education, fieldwork, service, work"}}
         <fieldset>
 
@@ -192,6 +212,7 @@
 
         </fieldset>
       {{/isType}}
+      {{!-- End End Year & Ongoing fields --}}
 
 
       {{!-- Categories --}}

@@ -40,6 +40,7 @@ module.exports = class Document {
     forthcoming,
     hidden,
     id,
+    key,
     ongoing,
     type,
   } = {}) {
@@ -137,6 +138,11 @@ module.exports = class Document {
       throw new TypeError(`id must be a String.`);
     }
 
+    // Key
+    if ((type === `category` || type === `publication`) && typeof key !== `string`) {
+      throw new TypeError(`key must be a String`);
+    }
+
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
@@ -158,6 +164,7 @@ module.exports = class Document {
     if (competency) this.competency = competency;
     if (email) this.email = email;
     if (id) this.id = id;
+    if (key) this.key = key;
 
     if (typeof description === `string`) {
       this.description = description;
