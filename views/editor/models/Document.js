@@ -41,6 +41,7 @@ module.exports = class Document {
     hidden,
     id,
     links,
+    location,
     key,
     ongoing,
     type,
@@ -149,6 +150,11 @@ module.exports = class Document {
       throw new TypeError(`links must be an Object.`);
     }
 
+    // Location
+    if ((type === `education` || type === `fieldwork`) && typeof location !== `string`) {
+      throw new TypeError(`location must be a String.`);
+    }
+
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
@@ -171,6 +177,7 @@ module.exports = class Document {
     if (email) this.email = email;
     if (id) this.id = id;
     if (key) this.key = key;
+    if (location) this.location = location;
 
     // Links
     this.links = {};

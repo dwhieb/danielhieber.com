@@ -215,6 +215,24 @@
       {{!-- End End Year & Ongoing fields --}}
 
 
+      {{!-- Location --}}
+      {{#isType "education, fieldwork"}}
+        <label for=location>
+
+          <b>Location</b>
+
+          <input
+            inputmode=latin
+            name=location
+            placeholder=Location
+            required
+            type=text
+            value='{{location}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Categories --}}
       {{#isType "award, fieldwork, language, media, membership, proficiency, publication, service, work"}}
         <fieldset class=categories>
