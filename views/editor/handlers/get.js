@@ -147,6 +147,9 @@ module.exports = async (req, res, next) => {
     // TODO: Remove this when new site is launced (issue #384)
     if (doc.markdown && !doc.description) doc.description = doc.markdown;
 
+    // Set ongoing attribute if endYear is `present`
+    if (doc.endYear === `present` && !(`ongoing` in doc)) doc.ongoing = true;
+
   }
 
   // Sort docs

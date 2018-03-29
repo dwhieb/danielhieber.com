@@ -36,8 +36,10 @@ module.exports = class Document {
     date,
     description,
     email,
+    endYear,
     forthcoming,
     id,
+    ongoing,
     type,
   } = {}) {
 
@@ -111,6 +113,24 @@ module.exports = class Document {
       throw new TypeError(`description must be a String.`);
     }
 
+    // End Year & Ongoing
+    if (
+      type === `education`
+      || type === `fieldwork`
+      || type === `service`
+      || type === `work`
+    ) {
+
+      if (!(endYear || ongoing)) {
+        throw new Error(`Either the endYear or ongoing field is required.`);
+      }
+
+      if (endYear && !isDate(endYear)) {
+        throw new TypeError(`endYear must be a properly-formatted date String.`);
+      }
+
+    }
+
     // ID (may not be present on a doc if it hasn't been added to the database)
     if (typeof id !== `undefined` && typeof id !== `string`) {
       throw new TypeError(`id must be a String.`);
@@ -142,11 +162,25 @@ module.exports = class Document {
       this.markdown    = description; // TODO: Remove this line when new site launches
     }
 
+    // Date & Forthcoming
     if (type === `media` || type === `publication`) {
       // NB: Leave date undefined if it doesn't exist,
       // so it doesn't overwrite date on doc
       if (date) this.date = new Date(date);
       this.forthcoming    = Boolean(forthcoming);
+    }
+
+    // End Year & Ongoing
+    if (
+      type === `education`
+      || type === `fieldwork`
+      || type === `service`
+      || type === `work`
+    ) {
+      // NB: Leave endYear undefined if it doesn't exist
+      // so it doesn't ovewrite date on doc
+      if (endYear) this.endYear = Number(endYear);
+      this.ongoing              = Boolean(ongoing);
     }
 
   }

@@ -15,7 +15,9 @@ var addAchievementButton = document.getElementById("addAchievement");
 var dateField = document.getElementById("date");
 var deleteButton = document.getElementById("delete");
 var dropdown = document.getElementById("dropdown");
+var endYearField = document.getElementById("endYear");
 var forthcomingBox = document.getElementById("forthcoming");
+var ongoingBox = document.getElementById("ongoing");
 
 // Handlers
 var addAchievement = function addAchievement() {
@@ -54,13 +56,13 @@ var deleteAchievement = function deleteAchievement(ev) {
 };
 
 var toggleDateField = function toggleDateField() {
-  if (forthcomingBox.checked) {
-    dateField.required = false;
-    dateField.disabled = true;
-  } else {
-    dateField.required = true;
-    dateField.disabled = false;
-  }
+  dateField.required = !forthcomingBox.checked;
+  dateField.disabled = forthcomingBox.checked;
+};
+
+var toggleEndYearField = function toggleEndYearField() {
+  endYearField.required = !ongoingBox.checked;
+  endYearField.disabled = ongoingBox.checked;
 };
 
 var updateType = function updateType(ev) {
@@ -70,7 +72,8 @@ var updateType = function updateType(ev) {
 // Attach handlers
 dropdown.onchange = updateType;
 
-if (achievementsList) achievementsList.addEventListener("click", deleteAchievement);
+if (achievementsList) achievementsList.onclick = deleteAchievement;
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
-if (forthcomingBox) forthcomingBox.onchange = toggleDateField; //# sourceMappingURL=/js/editor.js.map
+if (forthcomingBox) forthcomingBox.onchange = toggleDateField;
+if (ongoingBox) ongoingBox.onchange = toggleEndYearField; //# sourceMappingURL=/js/editor.js.map

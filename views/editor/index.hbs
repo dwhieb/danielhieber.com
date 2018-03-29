@@ -114,26 +114,6 @@
       {{/isType}}
 
 
-      {{!-- Date & Forthcoming --}}
-      {{#isType "media, publication"}}
-        <fieldset>
-
-          <legend>Date</legend>
-
-          <input id=date type=date name=date value='{{date}}' {{#if forthcoming}}disabled{{else}}required{{/if}}>
-
-          {{#isType "publication"}}
-            <label for=forthcoming>
-              <b>Forthcoming</b>
-              <input id=forthcoming type=checkbox name=forthcoming {{#if forthcoming}}checked{{/if}}>
-            </label>
-          {{/isType}}
-
-
-        </fieldset>
-      {{/isType}}
-
-
       {{!-- Abbreviation --}}
       {{#isType "membership, service"}}
         <label for=abbreviation>
@@ -148,6 +128,54 @@
             value='{{abbreviation}}'>
 
         </label>
+      {{/isType}}
+
+
+      {{!-- Date & Forthcoming --}}
+      {{#isType "media, publication"}}
+        <fieldset>
+
+          <legend>Date</legend>
+
+          <input
+            id=date
+            name=date
+            type=date
+            value='{{date}}'
+            {{#if forthcoming}}disabled{{else}}required{{/if}}>
+
+          {{#isType "publication"}}
+            <label for=forthcoming>
+              <b>Forthcoming</b>
+              <input id=forthcoming type=checkbox name=forthcoming {{#if forthcoming}}checked{{/if}}>
+            </label>
+          {{/isType}}
+
+
+        </fieldset>
+      {{/isType}}
+
+
+      {{!-- End Year --}}
+      {{#isType "education, fieldwork, service, work"}}
+        <fieldset>
+
+          <legend>End Year</legend>
+
+          <input
+            id=endYear
+            name=endYear
+            placeholder=YYYY
+            type=text
+            value='{{endYear}}'
+            {{#if ongoing}}disabled{{else}}required{{/if}}>
+
+          <label for=ongoing>
+            <b>Ongoing</b>
+            <input id=ongoing type=checkbox name=ongoing {{#if ongoing}}checked{{/if}}>
+          </label>
+
+        </fieldset>
       {{/isType}}
 
 

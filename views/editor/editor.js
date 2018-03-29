@@ -13,7 +13,9 @@ const addAchievementButton = document.getElementById(`addAchievement`);
 const dateField            = document.getElementById(`date`);
 const deleteButton         = document.getElementById(`delete`);
 const dropdown             = document.getElementById(`dropdown`);
+const endYearField         = document.getElementById(`endYear`);
 const forthcomingBox       = document.getElementById(`forthcoming`);
+const ongoingBox           = document.getElementById(`ongoing`);
 
 // Handlers
 const addAchievement = () => {
@@ -54,13 +56,13 @@ const deleteAchievement = ev => {
 };
 
 const toggleDateField = () => {
-  if (forthcomingBox.checked) {
-    dateField.required = false;
-    dateField.disabled = true;
-  } else {
-    dateField.required = true;
-    dateField.disabled = false;
-  }
+  dateField.required = !forthcomingBox.checked;
+  dateField.disabled = forthcomingBox.checked;
+};
+
+const toggleEndYearField = () => {
+  endYearField.required = !ongoingBox.checked;
+  endYearField.disabled = ongoingBox.checked;
 };
 
 const updateType = ev => {
@@ -70,7 +72,8 @@ const updateType = ev => {
 // Attach handlers
 dropdown.onchange = updateType;
 
-if (achievementsList) achievementsList.addEventListener(`click`, deleteAchievement);
+if (achievementsList) achievementsList.onclick = deleteAchievement;
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
 if (forthcomingBox) forthcomingBox.onchange = toggleDateField;
+if (ongoingBox) ongoingBox.onchange = toggleEndYearField;
