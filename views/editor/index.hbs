@@ -79,7 +79,7 @@
 
 
       {{!-- Organization --}}
-      {{#isType "course, education, membership, reference, service, work"}}
+      {{#isType 'course, education, membership, reference, service, work'}}
         <label for=organization>
 
           <b>Organization</b>
@@ -97,7 +97,7 @@
 
 
       {{!-- Key --}}
-      {{#isType "category, publication"}}
+      {{#isType 'category, publication'}}
         <label for=key>
 
           <b>Key</b>
@@ -114,7 +114,7 @@
       {{/isType}}
 
 
-      {{#isType "language"}}
+      {{#isType 'language'}}
 
         {{!-- Autonym --}}
         <label for=autonym>
@@ -149,7 +149,7 @@
 
 
       {{!-- Author --}}
-      {{#isType "media"}}
+      {{#isType 'media'}}
         <label for=author>
 
           <b>Author</b>
@@ -167,7 +167,7 @@
 
 
       {{!-- Abbreviation --}}
-      {{#isType "membership, service"}}
+      {{#isType 'membership, service'}}
         <label for=abbreviation>
 
           <b>Abbreviation</b>
@@ -184,7 +184,7 @@
 
 
       {{!-- Date & Forthcoming --}}
-      {{#isType "media, publication"}}
+      {{#isType 'media, publication'}}
         <fieldset>
 
           <legend>Date</legend>
@@ -196,7 +196,7 @@
             value='{{date}}'
             {{#if forthcoming}}disabled{{else}}required{{/if}}>
 
-          {{#isType "publication"}}
+          {{#isType 'publication'}}
             <label for=forthcoming>
               <b>Forthcoming</b>
               <input id=forthcoming type=checkbox name=forthcoming {{#if forthcoming}}checked{{/if}}>
@@ -210,7 +210,7 @@
 
 
       {{!-- End Year & Ongoing --}}
-      {{#isType "education, fieldwork, service, work"}}
+      {{#isType 'education, fieldwork, service, work'}}
         <fieldset>
 
           <legend>End Year</legend>
@@ -234,7 +234,7 @@
 
 
       {{!-- Location --}}
-      {{#isType "education, fieldwork"}}
+      {{#isType 'education, fieldwork'}}
         <label for=location>
 
           <b>Location</b>
@@ -251,8 +251,23 @@
       {{/isType}}
 
 
+      {{!-- Proficiency Type --}}
+      {{#isType 'proficiency'}}
+        <label for=proficiencyType>
+
+          <b>Proficiency Type</b>
+
+          <select name=proficiencyType>
+            <option value=skill {{#eq proficiencyType 'skill'}}selected{{/eq}}>skill</option>
+            <option value=software {{#eq proficiencyType 'software'}}selected{{/eq}}>software</option>
+          </select>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Categories --}}
-      {{#isType "award, fieldwork, language, media, membership, proficiency, publication, service, work"}}
+      {{#isType 'award, fieldwork, language, media, membership, proficiency, publication, service, work'}}
         <fieldset class=categories>
 
           <legend>Categories</legend>
@@ -269,7 +284,7 @@
 
 
       {{!-- Description --}}
-      {{#isType "award, category, course, fieldwork, publication"}}
+      {{#isType 'award, category, course, fieldwork, publication'}}
         <label for=description>
 
           <b>Description</b>
@@ -285,9 +300,9 @@
 
 
       {{!-- Achievements --}}
-      {{#isType "education, work"}}
+      {{#isType 'education, work'}}
 
-        {{#*inline "achievement"}}
+        {{#*inline 'achievement'}}
           <li>
 
             <input
@@ -317,7 +332,7 @@
           <button id=addAchievement type=button name=addAchievement>Add Achievement</button>
 
           <template id=achievement-template>
-            {{> achievement ""}}
+            {{> achievement ''}}
           </template>
 
         </fieldset>
@@ -327,7 +342,7 @@
 
 
       {{!-- References (Name, Email, Phone) --}}
-      {{#isType "reference"}}
+      {{#isType 'reference'}}
 
         {{!-- Name --}}
         <label for=name>
@@ -379,7 +394,7 @@
       {{!-- Links --}}
       <fieldset>
 
-        {{#*inline "link"}}
+        {{#*inline 'link'}}
           <li>
 
             <select>
@@ -420,7 +435,7 @@
         <button id=addLink type=button name=addLink>Add Link</button>
 
         <template id=link-template>
-          {{> link ""}}
+          {{> link ''}}
         </template>
 
       </fieldset>
