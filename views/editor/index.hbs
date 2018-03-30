@@ -78,6 +78,28 @@
       </label>
 
 
+      {{!-- Publication Type --}}
+      {{#isType "publication"}}
+        <label for=publicationType>
+
+          <b>Publication Type</b>
+
+          <select name=publicationType>
+            <option value=book {{#eq publicationType 'book'}}selected{{/eq}}>book</option>
+            <option value=edited {{#eq publicationType 'edited'}}selected{{/eq}}>edited</option>
+            <option value=non-linguistic {{#eq publicationType 'non-linguistic'}}selected{{/eq}}>non-linguistic</option>
+            <option value=online {{#eq publicationType 'online'}}selected{{/eq}}>online</option>
+            <option value=peer-reviewed {{#eq publicationType 'peer-reviewed'}}selected{{/eq}}>peer-reviewed</option>
+            <option value=presentation {{#eq publicationType 'presentation'}}selected{{/eq}}>presentation</option>
+            <option value=project {{#eq publicationType 'project'}}selected{{/eq}}>project</option>
+            <option value=review {{#eq publicationType 'review'}}selected{{/eq}}>review</option>
+            <option value=unpublished {{#eq publicationType 'unpublished'}}selected{{/eq}}>unpublished</option>
+          </select>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Organization --}}
       {{#isType 'course, education, membership, reference, service, work'}}
         <label for=organization>
@@ -122,7 +144,7 @@
           <input
             inputmode=verbatim
             name=key
-            pattern='^[-A-Za-z]$'
+            pattern='^[-A-Za-z0-9]+$'
             placeholder='A human-readable key for this item'
             required
             type=text

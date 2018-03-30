@@ -18,6 +18,18 @@ const descriptor = {
   writable:     false,
 };
 
+const publicationTypes = [
+  `book`,
+  `edited`,
+  `non-linguistic`,
+  `online`,
+  `peer-reviewed`,
+  `presentation`,
+  `project`,
+  `review`,
+  `unpublished`,
+];
+
 const types = Object.values(typesMap);
 
 // Utilities
@@ -50,6 +62,7 @@ module.exports = class Document {
     proficiencyType,
     program,
     publication,
+    publicationType,
     type,
   } = {}) {
 
@@ -167,7 +180,7 @@ module.exports = class Document {
     }
 
     // Key
-    const keyRegExp = /^[-A-Za-z]$/;
+    const keyRegExp = /^[-A-Za-z0-9]+$/;
 
     if ((type === `category` || type === `publication`) && !keyRegExp.test(key)) {
       throw new TypeError(`key must be properly-formatted String.`);
@@ -196,6 +209,11 @@ module.exports = class Document {
     // Program
     if (type === `education` && typeof program !== `string`) {
       throw new TypeError(`program must be a String.`);
+    }
+
+    // Publication Type
+    if (type === `publication` && !publicationTypes.includes(publicationType)) {
+      throw new TypeError(`Invalid publicationType.`);
     }
 
     // Type (required for all docs)
@@ -227,6 +245,7 @@ module.exports = class Document {
     if (proficiencyType) this.proficiencyType = proficiencyType;
     if (typeof program === `string`) this.program = program;
     if (publication) this.publication = publication;
+    if (publicationType) this.publicationType = publicationType;
 
     // Links
     this.links = {};
