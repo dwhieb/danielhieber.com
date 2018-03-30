@@ -96,6 +96,23 @@
       {{/isType}}
 
 
+      {{!-- Program --}}
+      {{#isType "education"}}
+        <label for=program>
+
+          <b>Program</b>
+
+          <input
+            inputmode=latin
+            name=program
+            placeholder=Program
+            type=text
+            value='{{program}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Key --}}
       {{#isType 'category, publication'}}
         <label for=key>

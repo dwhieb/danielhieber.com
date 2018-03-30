@@ -48,6 +48,7 @@ module.exports = class Document {
     organization,
     phone,
     proficiencyType,
+    program,
     type,
   } = {}) {
 
@@ -179,6 +180,11 @@ module.exports = class Document {
       throw new TypeError(`proficiencyType must be set to 'skill' or 'software'.`);
     }
 
+    // Program
+    if (type === `education` && typeof program !== `string`) {
+      throw new TypeError(`program must be a String.`);
+    }
+
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
@@ -204,8 +210,9 @@ module.exports = class Document {
     if (location) this.location = location;
     if (name) this.name = name;
     if (organization) this.organization = organization;
-    if (phone) this.phone = phone;
+    if (typeof phone === `string`) this.phone = phone;
     if (proficiencyType) this.proficiencyType = proficiencyType;
+    if (typeof program === `string`) this.program = program;
 
     // Links
     this.links = {};
