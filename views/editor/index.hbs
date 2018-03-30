@@ -118,6 +118,26 @@
       {{/isType}}
 
 
+      {{!-- Year --}}
+      {{#isType 'award'}}
+        <label for=year>
+
+          <b>Year</b>
+
+          <input
+            inputmode=numeric
+            max=2100
+            min=1986
+            name=year
+            placeholder=YYYY
+            required
+            type=number
+            value='{{year}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Organization --}}
       {{#isType 'course, education, membership, reference, service, work'}}
         <label for=organization>

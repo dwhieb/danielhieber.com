@@ -67,6 +67,7 @@ module.exports = class Document {
     startYear,
     title,
     type,
+    year,
   } = {}) {
 
     // Validation
@@ -251,6 +252,11 @@ module.exports = class Document {
       throw new TypeError(`Invalid type attribute.`);
     }
 
+    // Year
+    if (type === `award` && !Number.isInteger(Number(year))) {
+      throw new TypeError(`year must be an Integer.`);
+    }
+
     // Assign properties
 
     Object.defineProperties(this, {
@@ -277,8 +283,9 @@ module.exports = class Document {
     if (publication) this.publication = publication;
     if (publicationType) this.publicationType = publicationType;
     if (role) this.role = role;
-    if (startYear) this.startYear = Number(startYear);
+    if (typeof startYear !== `undefined`) this.startYear = Number(startYear);
     if (title) this.title = title;
+    if (typeof year !== `undefined`) this.year = Number(year);
 
     // Links
     this.links = {};
