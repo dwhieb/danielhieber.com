@@ -65,6 +65,7 @@ module.exports = class Document {
     publicationType,
     role,
     startYear,
+    title,
     type,
   } = {}) {
 
@@ -240,6 +241,11 @@ module.exports = class Document {
       throw new TypeError(`startYear must be an Integer.`);
     }
 
+    // Title
+    if (typeof title !== `undefined` && !(typeof title === `string` && title.length)) {
+      throw new TypeError(`title must be a non-empty String.`);
+    }
+
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
@@ -272,6 +278,7 @@ module.exports = class Document {
     if (publicationType) this.publicationType = publicationType;
     if (role) this.role = role;
     if (startYear) this.startYear = Number(startYear);
+    if (title) this.title = title;
 
     // Links
     this.links = {};

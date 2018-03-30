@@ -100,6 +100,24 @@
       {{/isType}}
 
 
+      {{!-- Title --}}
+      {{#isType 'award, category, course, language, media, proficiency, publication'}}
+        <label for=title>
+
+          <b>Title</b>
+
+          <input
+            inputmode=latin
+            name=title
+            placeholder=Title
+            required
+            type=text
+            value='{{title}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Organization --}}
       {{#isType 'course, education, membership, reference, service, work'}}
         <label for=organization>
