@@ -49,6 +49,7 @@ module.exports = class Document {
     phone,
     proficiencyType,
     program,
+    publication,
     type,
   } = {}) {
 
@@ -58,8 +59,8 @@ module.exports = class Document {
     if (type === `language`) {
 
       // Autonym
-      if (typeof autonym !== `string`) {
-        throw new TypeError(`autonym must be a String.`);
+      if (typeof autonym !== `string` || !autonym.length) {
+        throw new TypeError(`autonym must be a non-empty String.`);
       }
 
       // Competency
@@ -69,17 +70,32 @@ module.exports = class Document {
 
     }
 
+    // Media Fields (author, publication)
+    if (type === `media`) {
+
+      // Author
+      if (typeof author !== `string` || !author.length) {
+        throw new TypeError(`author must be a non-empty String.`);
+      }
+
+      // Publication
+      if (typeof publication !== `string` || !publication.length) {
+        throw new TypeError(`publication must be a non-empty String.`);
+      }
+
+    }
+
     // Reference Fields (email, name, phone)
     if (type === `reference`) {
 
       // Email
-      if (typeof email !== `string`) {
-        throw new TypeError(`email must be a String.`);
+      if (typeof email !== `string` || !email.length) {
+        throw new TypeError(`email must be a non-empty String.`);
       }
 
       // Name
-      if (typeof name !== `string`) {
-        throw new TypeError(`name must be a String.`);
+      if (typeof name !== `string` || !name.length) {
+        throw new TypeError(`name must be a non-empty String.`);
       }
 
       // Phone Number
@@ -97,11 +113,6 @@ module.exports = class Document {
     // Achievements
     if ((type === `education` || type === `work`) && !Array.isArray(achievements)) {
       throw new TypeError(`achievements must be an Array.`);
-    }
-
-    // Author
-    if (type === `media` && typeof author !== `string`) {
-      throw new TypeError(`author must be a String.`);
     }
 
     // Categories
@@ -151,13 +162,15 @@ module.exports = class Document {
     }
 
     // ID (may not be present on a doc if it hasn't been added to the database)
-    if (typeof id !== `undefined` && typeof id !== `string`) {
-      throw new TypeError(`id must be a String.`);
+    if (typeof id !== `undefined` && (typeof id !== `string` || !id.length)) {
+      throw new TypeError(`id must be a non-empty String.`);
     }
 
     // Key
-    if ((type === `category` || type === `publication`) && typeof key !== `string`) {
-      throw new TypeError(`key must be a String`);
+    const keyRegExp = /^[-A-Za-z]$/;
+
+    if ((type === `category` || type === `publication`) && !keyRegExp.test(key)) {
+      throw new TypeError(`key must be properly-formatted String.`);
     }
 
     // Links
@@ -166,13 +179,13 @@ module.exports = class Document {
     }
 
     // Location
-    if ((type === `education` || type === `fieldwork`) && typeof location !== `string`) {
-      throw new TypeError(`location must be a String.`);
+    if ((type === `education` || type === `fieldwork`) && (typeof location !== `string` || !location.length)) {
+      throw new TypeError(`location must be a non-empty String.`);
     }
 
     // Organization
-    if (typeof organization !== `undefined` && typeof organization !== `string`) {
-      throw new TypeError(`organization must be a String.`);
+    if (typeof organization !== `undefined` && (typeof organization !== `string` || !organization.length)) {
+      throw new TypeError(`organization must be a non-empty String.`);
     }
 
     // Proficiency Type
@@ -213,6 +226,7 @@ module.exports = class Document {
     if (typeof phone === `string`) this.phone = phone;
     if (proficiencyType) this.proficiencyType = proficiencyType;
     if (typeof program === `string`) this.program = program;
+    if (publication) this.publication = publication;
 
     // Links
     this.links = {};
