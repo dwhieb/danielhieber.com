@@ -153,6 +153,26 @@
       {{/isType}}
 
 
+      {{!-- Start Year --}}
+      {{#isType 'education, fieldwork, service, work'}}
+        <label for=startYear>
+
+          <b>Start Year</b>
+
+          <input
+            inputmode=numeric
+            max=2100
+            min=1986
+            name=startYear
+            placeholder=YYYY
+            required
+            type=number
+            value='{{startYear}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Key --}}
       {{#isType 'category, publication'}}
         <label for=key>
