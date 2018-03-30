@@ -118,8 +118,26 @@
       {{/isType}}
 
 
+      {{!-- Role --}}
+      {{#isType 'course, reference, service'}}
+        <label for=role>
+
+          <b>Role</b>
+
+          <input
+            inputmode=latin
+            name=role
+            placeholder=Role
+            required
+            type=text
+            value='{{role}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{!-- Program --}}
-      {{#isType "education"}}
+      {{#isType 'education'}}
         <label for=program>
 
           <b>Program</b>

@@ -63,6 +63,7 @@ module.exports = class Document {
     program,
     publication,
     publicationType,
+    role,
     type,
   } = {}) {
 
@@ -216,6 +217,17 @@ module.exports = class Document {
       throw new TypeError(`Invalid publicationType.`);
     }
 
+    // Role
+    if (
+      (type === `course`
+      || type === `reference`
+      || type === `service`)
+      && (typeof role !== `string`
+      || !role.length)
+    ) {
+      throw new TypeError(`role must be a non-empty String.`);
+    }
+
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
@@ -246,6 +258,7 @@ module.exports = class Document {
     if (typeof program === `string`) this.program = program;
     if (publication) this.publication = publication;
     if (publicationType) this.publicationType = publicationType;
+    if (role) this.role = role;
 
     // Links
     this.links = {};
