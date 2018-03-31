@@ -578,24 +578,26 @@
 
 
       {{!-- File Upload --}}
-      <fieldset>
+      <fieldset id=uploadFile>
 
         <legend>Add a File</legend>
 
-        {{> fileType}}
+        <div>
 
-        <input
-          accept=.pdf
-          multiple=false
-          name=file
-          type=file>
+          {{> fileType}}
 
-        <button
-          formaction=/admin/{{coll}}/{{doc.cvid}}/files
-          name=uploadFileButton
-          type=submit>Upload this File</button>
+          <input
+            accept=.pdf
+            multiple=false
+            name=file
+            type=file>
 
-        {{!-- file upload, file type dropdown, upload button --}}
+          <button
+            formaction=/admin/{{coll}}/{{doc.cvid}}/files
+            name=uploadFileButton
+            type=submit>Upload this File</button>
+
+        </div>
 
       </fieldset>
 
