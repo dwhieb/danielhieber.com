@@ -5,6 +5,21 @@
 
 {{/head}}
 
+{{#*inline 'fileType'}}
+  <select>
+    <option value=abstract {{#eq @key 'abstract'}}selected{{/eq}}>abstract</option>
+    <option value=doi {{#eq @key 'doi'}}selected{{/eq}}>doi</option>
+    <option value=handout {{#eq @key 'handout'}}selected{{/eq}}>handout</option>
+    <option value=info {{#eq @key 'info'}}selected{{/eq}}>info</option>
+    <option value=org {{#eq @key 'org'}}selected{{/eq}}>org</option>
+    <option value=pdf {{#eq @key 'pdf'}}selected{{/eq}}>pdf</option>
+    <option value=poster {{#eq @key 'poster'}}selected{{/eq}}>poster</option>
+    <option value=pub {{#eq @key 'pub'}}selected{{/eq}}>pub</option>
+    <option value=slides {{#eq @key 'slides'}}selected{{/eq}}>slides</option>
+    <option value=video {{#eq @key 'video'}}selected{{/eq}}>video</option>
+  </select>
+{{/inline}}
+
 <main id={{id}}>
 
   <select id=dropdown>
@@ -529,18 +544,7 @@
         {{#*inline 'link'}}
           <li>
 
-            <select>
-              <option value=abstract {{#eq @key 'abstract'}}selected{{/eq}}>abstract</option>
-              <option value=doi {{#eq @key 'doi'}}selected{{/eq}}>doi</option>
-              <option value=handout {{#eq @key 'handout'}}selected{{/eq}}>handout</option>
-              <option value=info {{#eq @key 'info'}}selected{{/eq}}>info</option>
-              <option value=org {{#eq @key 'org'}}selected{{/eq}}>org</option>
-              <option value=pdf {{#eq @key 'pdf'}}selected{{/eq}}>pdf</option>
-              <option value=poster {{#eq @key 'poster'}}selected{{/eq}}>poster</option>
-              <option value=pub {{#eq @key 'pub'}}selected{{/eq}}>pub</option>
-              <option value=slides {{#eq @key 'slides'}}selected{{/eq}}>slides</option>
-              <option value=video {{#eq @key 'video'}}selected{{/eq}}>video</option>
-            </select>
+            {{> fileType}}
 
             <input
               inputmode=url
@@ -569,6 +573,29 @@
         <template id=link-template>
           {{> link ''}}
         </template>
+
+      </fieldset>
+
+
+      {{!-- File Upload --}}
+      <fieldset>
+
+        <legend>Add a File</legend>
+
+        {{> fileType}}
+
+        <input
+          accept=.pdf
+          multiple=false
+          name=file
+          type=file>
+
+        <button
+          formaction=/admin/{{coll}}/{{doc.cvid}}/files
+          name=uploadFileButton
+          type=submit>Upload this File</button>
+
+        {{!-- file upload, file type dropdown, upload button --}}
 
       </fieldset>
 

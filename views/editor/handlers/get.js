@@ -3,6 +3,7 @@
 /* eslint-disable
   max-statements,
   no-shadow,
+  no-underscore-dangle,
 */
 
 const catchError    = require('./catchError');
@@ -65,7 +66,7 @@ module.exports = async (req, res, next) => {
 
     try {
 
-      const iterator     = db.query(db.coll, categoriesQuery);
+      const iterator     = db.query(categoriesQuery);
       const toArray      = promisify(iterator.toArray).bind(iterator);
       context.categories = await toArray();
 
@@ -92,7 +93,7 @@ module.exports = async (req, res, next) => {
 
   try {
 
-    const iterator = db.query(db.coll, query);
+    const iterator = db.query(query);
     const toArray  = promisify(iterator.toArray).bind(iterator);
     context.docs   = await toArray();
 
@@ -102,7 +103,7 @@ module.exports = async (req, res, next) => {
 
   }
 
-  // Set current doc and format it for rendering, if present
+  // Set current doc, format it for rendering, and retrieve attachments
 
   const { cvid } = req.params;
 
@@ -149,6 +150,23 @@ module.exports = async (req, res, next) => {
 
     // Set ongoing attribute if endYear is `present`
     if (doc.endYear === `present` && !(`ongoing` in doc)) doc.ongoing = true;
+
+    // Retrieve attachments
+    if (doc.type === `publication`) {
+
+      try {
+
+        const iterator = db.getAttachments(doc._self);
+        const toArray  = promisify(iterator.toArray).bind(iterator);
+        const attachments = await toArray();
+
+      } catch (e) {
+
+        return catchError(req, res, next)(e);
+
+      }
+
+    }
 
   }
 
