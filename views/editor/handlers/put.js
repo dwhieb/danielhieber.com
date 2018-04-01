@@ -8,7 +8,7 @@
 */
 
 const catchError        = require('./catchError');
-const db                = require('../../../lib/modules/database');
+const { database: db }  = require('../../../lib/modules');
 const deleteHandler     = require('./delete');
 const getHandler        = require('./get');
 const { Document }      = require('../models');
