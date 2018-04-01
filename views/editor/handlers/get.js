@@ -158,7 +158,7 @@ module.exports = async (req, res, next) => {
 
         const iterator = db.getAttachments(doc._self);
         const toArray  = promisify(iterator.toArray).bind(iterator);
-        const attachments = await toArray();
+        context.files  = await toArray();
 
       } catch (e) {
 

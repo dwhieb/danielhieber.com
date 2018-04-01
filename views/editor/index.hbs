@@ -577,6 +577,22 @@
       </fieldset>
 
 
+      {{!-- Files --}}
+      <fieldset id=files>
+
+        <legend>Files</legend>
+
+        <ul class=bulleted>
+          {{#each ../files}}
+            <li>
+              <p><a href='{{media}}'>{{key}} ({{fileType}})</a></p>
+            </li>
+          {{/each}}
+        </ul>
+
+      </fieldset>
+
+
       {{!-- File Upload --}}
       <fieldset id=uploadFile>
 
