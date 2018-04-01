@@ -585,7 +585,13 @@
         <ul class=bulleted>
           {{#each ../files}}
             <li>
+
               <p><a href='{{media}}'>{{key}} ({{fileType}})</a></p>
+
+              <button type=submit name=deleteFile class=trash value='{{_self}}'>
+                {{{../../icons.delete}}}
+              </button>
+
             </li>
           {{/each}}
         </ul>

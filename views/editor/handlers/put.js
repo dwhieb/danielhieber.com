@@ -10,6 +10,7 @@
 const catchError        = require('./catchError');
 const { database: db }  = require('../../../lib/modules');
 const deleteHandler     = require('./delete');
+const deleteFileHandler = require('./deleteFile');
 const getHandler        = require('./get');
 const { Document }      = require('../models');
 const types             = require('../types');
@@ -20,8 +21,12 @@ module.exports = async (req, res, next) => {
   // Reroute to delete handler if delete button was clicked
   if (req.body.deleteItem) return deleteHandler(req, res, next);
 
+  // Reroute to handler for deleting fils if deleteFile button was clicked
+  if (req.body.deleteFile) return deleteFileHandler(req, res, next);
+
   // Reroute to postFile handler if upload button was clicked
   if (req.body.uploadFile) return uploadFileHandler(req, res, next);
+
 
   const type = types[req.params.type];
   const cvid = Number(req.params.cvid);
