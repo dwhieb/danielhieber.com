@@ -15,10 +15,12 @@ const dateField            = document.getElementById(`date`);
 const deleteButton         = document.getElementById(`delete`);
 const dropdown             = document.getElementById(`dropdown`);
 const endYearField         = document.getElementById(`endYear`);
+const fileUpload           = document.getElementById(`fileUpload`);
 const forthcomingBox       = document.getElementById(`forthcoming`);
 const linksList            = document.getElementById(`links`);
 const linkTemplate         = document.getElementById(`link-template`);
 const ongoingBox           = document.getElementById(`ongoing`);
+const uploadFileButton     = document.getElementById(`uploadFileButton`);
 
 // Utilities
 const getListItem = node => {
@@ -87,6 +89,13 @@ const updateType = ({ target: { value } }) => {
   window.location = `/admin/${value}`;
 };
 
+const validateFile = ({ preventDefault }) => {
+  if (!fileUpload.files.length) {
+    fileUpload.setCustomValidity(`Please select a file to upload.`);
+    preventDefault();
+  }
+};
+
 // Attach handlers
 dropdown.onchange = updateType;
 
@@ -96,6 +105,7 @@ if (addLinkButton) addLinkButton.onclick = addLink;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
 if (forthcomingBox) forthcomingBox.onchange = toggleDateField;
 if (ongoingBox) ongoingBox.onchange = toggleEndYearField;
+if (uploadFileButton) uploadFileButton.onclick = validateFile;
 
 if (linksList) {
   linksList.onclick  = deleteLink;

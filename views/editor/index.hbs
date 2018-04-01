@@ -6,7 +6,7 @@
 {{/head}}
 
 {{#*inline 'fileType'}}
-  <select>
+  <select {{#if name}}name='{{name}}'{{/if}}>
     <option value=abstract {{#eq @key 'abstract'}}selected{{/eq}}>abstract</option>
     <option value=doi {{#eq @key 'doi'}}selected{{/eq}}>doi</option>
     <option value=handout {{#eq @key 'handout'}}selected{{/eq}}>handout</option>
@@ -65,7 +65,7 @@
 
   </nav>
 
-  <form id=form method=post action=/admin/{{coll}}/{{doc.cvid}}>
+  <form id=form method=post action='/admin/{{coll}}/{{doc.cvid}}'>
 
     {{!-- CSRF token --}}
     <input id=csrf type=hidden name=_csrf value='{{csrf}}'>
@@ -584,18 +584,21 @@
 
         <div>
 
-          {{> fileType}}
+          {{> fileType name='fileType'}}
 
           <input
             accept=.pdf
+            id=fileUpload
             multiple=false
             name=file
             type=file>
 
           <button
-            formaction=/admin/{{coll}}/{{doc.cvid}}/files
-            name=uploadFileButton
-            type=submit>Upload this File</button>
+            formenctype=multipart/form-data
+            id=uploadFileButton
+            name=uploadFile
+            type=submit
+            value=true>Upload this File</button>
 
         </div>
 

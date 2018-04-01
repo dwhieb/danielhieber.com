@@ -17,10 +17,12 @@ var dateField = document.getElementById("date");
 var deleteButton = document.getElementById("delete");
 var dropdown = document.getElementById("dropdown");
 var endYearField = document.getElementById("endYear");
+var fileUpload = document.getElementById("fileUpload");
 var forthcomingBox = document.getElementById("forthcoming");
 var linksList = document.getElementById("links");
 var linkTemplate = document.getElementById("link-template");
 var ongoingBox = document.getElementById("ongoing");
+var uploadFileButton = document.getElementById("uploadFileButton");
 
 // Utilities
 var getListItem = function getListItem(node) {
@@ -98,6 +100,15 @@ var updateType = function updateType(_ref5) {
   window.location = "/admin/" + value;
 };
 
+var validateFile = function validateFile(_ref6) {
+  var preventDefault = _ref6.preventDefault;
+
+  if (!fileUpload.files.length) {
+    fileUpload.setCustomValidity("Please select a file to upload.");
+    preventDefault();
+  }
+};
+
 // Attach handlers
 dropdown.onchange = updateType;
 
@@ -107,6 +118,7 @@ if (addLinkButton) addLinkButton.onclick = addLink;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
 if (forthcomingBox) forthcomingBox.onchange = toggleDateField;
 if (ongoingBox) ongoingBox.onchange = toggleEndYearField;
+if (uploadFileButton) uploadFileButton.onclick = validateFile;
 
 if (linksList) {
   linksList.onclick = deleteLink;
