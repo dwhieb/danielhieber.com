@@ -40,7 +40,7 @@ module.exports = async (req, res, next) => {
       SELECT * FROM c
       WHERE (
         c.type = "${type}"
-        AND c.cvid = "${counterDoc.counter}"
+        AND c.cvid = ${counterDoc.counter}
         AND (
           (NOT IS_DEFINED(c.ttl))
           OR c.ttl < 1
@@ -53,7 +53,7 @@ module.exports = async (req, res, next) => {
 
     try {
 
-      const iterator = db.query(db.coll, query, { maxItemCount: 1 });
+      const iterator = db.query(query, { maxItemCount: 1 });
       const toArray  = promisify(iterator.toArray).bind(iterator);
       [existingDoc]  = await toArray();
 
