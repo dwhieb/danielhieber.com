@@ -10,8 +10,8 @@ module.exports = async (req, res, next) => {
 
   const {
     deleteFile: attachmentLink,
-    fileType,
     key,
+    [key]: fileType,
   } = req.body;
 
   const container = `publications`;
@@ -26,6 +26,7 @@ module.exports = async (req, res, next) => {
 
   } catch (e) {
 
+    if (e.statusCode === 404) return res.error.notFound(e.message);
     return catchError(req, res, next)(e);
 
   }
