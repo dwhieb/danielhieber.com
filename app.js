@@ -23,6 +23,7 @@ const {
   errors,
   helmet,
   logger,
+  multipart,
   routeStatic,
   vary,
 } = middleware;
@@ -39,6 +40,7 @@ app.set(`view engine`, hbs.extname); // use Handlebars for templating
 // middleware
 app.use(helmet);         // security settings
 app.use(bodyParser);     // parse form data
+app.use(multipart);      // parse multipart form data
 app.use(cookieParser()); // parse cookies
 app.use(csurf);          // enable CSRF tokens
 app.use(vary);           // set the Vary header

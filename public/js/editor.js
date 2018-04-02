@@ -17,10 +17,13 @@ var dateField = document.getElementById("date");
 var deleteButton = document.getElementById("delete");
 var dropdown = document.getElementById("dropdown");
 var endYearField = document.getElementById("endYear");
+var filesList = document.getElementById("files");
+var fileUpload = document.getElementById("fileUpload");
 var forthcomingBox = document.getElementById("forthcoming");
 var linksList = document.getElementById("links");
 var linkTemplate = document.getElementById("link-template");
 var ongoingBox = document.getElementById("ongoing");
+var uploadFileButton = document.getElementById("uploadFileButton");
 
 // Utilities
 var getListItem = function getListItem(node) {
@@ -30,7 +33,6 @@ var getListItem = function getListItem(node) {
 
 var isDeleteButton = function isDeleteButton(node) {
   if (node.classList && node.classList.contains("trash")) return true;
-  if (node === achievementsList) return false;
   if (node.parentNode) return isDeleteButton(node.parentNode);
   return false;
 };
@@ -56,12 +58,19 @@ var confirmDeletion = function confirmDeletion(_ref) {
   if (!confirmed) preventDefault();
 };
 
+// NB: Cannot use destructuring with preventDefault for some reason
+var confirmFileDeletion = function confirmFileDeletion(ev) {
+  if (!isDeleteButton(ev.target)) return;
+  var confirmed = confirm("Are you sure you want to delete this file? This cannot be undone.");
+  if (!confirmed) ev.preventDefault();
+};
+
 var deleteAchievement = function deleteAchievement(_ref2) {
   var target = _ref2.target;
 
   if (!isDeleteButton(target)) return;
   var li = getListItem(target);
-  var confirmed = confirm("Are you sure you want to delete this achievement? It cannot be undone.");
+  var confirmed = confirm("Are you sure you want to delete this achievement? This cannot be undone.");
   if (confirmed) li.remove();
 };
 
@@ -70,7 +79,7 @@ var deleteLink = function deleteLink(_ref3) {
 
   if (!isDeleteButton(target)) return;
   var li = getListItem(target);
-  var confirmed = confirm("Are you sure you want to delete this link? It cannot be undone.");
+  var confirmed = confirm("Are you sure you want to delete this link? This cannot be undone.");
   if (confirmed) li.remove();
 };
 
@@ -98,6 +107,15 @@ var updateType = function updateType(_ref5) {
   window.location = "/admin/" + value;
 };
 
+var validateFile = function validateFile(_ref6) {
+  var preventDefault = _ref6.preventDefault;
+
+  if (!fileUpload.files.length) {
+    fileUpload.setCustomValidity("Please select a file to upload.");
+    preventDefault();
+  }
+};
+
 // Attach handlers
 dropdown.onchange = updateType;
 
@@ -105,8 +123,10 @@ if (achievementsList) achievementsList.onclick = deleteAchievement;
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
 if (addLinkButton) addLinkButton.onclick = addLink;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
+if (filesList) filesList.onclick = confirmFileDeletion;
 if (forthcomingBox) forthcomingBox.onchange = toggleDateField;
 if (ongoingBox) ongoingBox.onchange = toggleEndYearField;
+if (uploadFileButton) uploadFileButton.onclick = validateFile;
 
 if (linksList) {
   linksList.onclick = deleteLink;

@@ -15,10 +15,13 @@ const dateField            = document.getElementById(`date`);
 const deleteButton         = document.getElementById(`delete`);
 const dropdown             = document.getElementById(`dropdown`);
 const endYearField         = document.getElementById(`endYear`);
+const filesList            = document.getElementById(`files`);
+const fileUpload           = document.getElementById(`fileUpload`);
 const forthcomingBox       = document.getElementById(`forthcoming`);
 const linksList            = document.getElementById(`links`);
 const linkTemplate         = document.getElementById(`link-template`);
 const ongoingBox           = document.getElementById(`ongoing`);
+const uploadFileButton     = document.getElementById(`uploadFileButton`);
 
 // Utilities
 const getListItem = node => {
@@ -28,7 +31,6 @@ const getListItem = node => {
 
 const isDeleteButton = node => {
   if (node.classList && node.classList.contains(`trash`)) return true;
-  if (node === achievementsList) return false;
   if (node.parentNode) return isDeleteButton(node.parentNode);
   return false;
 };
@@ -53,17 +55,24 @@ const confirmDeletion = ({ preventDefault }) => {
 
 };
 
+// NB: Cannot use destructuring with preventDefault for some reason
+const confirmFileDeletion = ev => {
+  if (!isDeleteButton(ev.target)) return;
+  const confirmed = confirm(`Are you sure you want to delete this file? This cannot be undone.`);
+  if (!confirmed) ev.preventDefault();
+};
+
 const deleteAchievement = ({ target }) => {
   if (!isDeleteButton(target)) return;
   const li = getListItem(target);
-  const confirmed = confirm(`Are you sure you want to delete this achievement? It cannot be undone.`);
+  const confirmed = confirm(`Are you sure you want to delete this achievement? This cannot be undone.`);
   if (confirmed) li.remove();
 };
 
 const deleteLink = ({ target }) => {
   if (!isDeleteButton(target)) return;
   const li = getListItem(target);
-  const confirmed = confirm(`Are you sure you want to delete this link? It cannot be undone.`);
+  const confirmed = confirm(`Are you sure you want to delete this link? This cannot be undone.`);
   if (confirmed) li.remove();
 };
 
@@ -87,6 +96,13 @@ const updateType = ({ target: { value } }) => {
   window.location = `/admin/${value}`;
 };
 
+const validateFile = ({ preventDefault }) => {
+  if (!fileUpload.files.length) {
+    fileUpload.setCustomValidity(`Please select a file to upload.`);
+    preventDefault();
+  }
+};
+
 // Attach handlers
 dropdown.onchange = updateType;
 
@@ -94,8 +110,10 @@ if (achievementsList) achievementsList.onclick = deleteAchievement;
 if (addAchievementButton) addAchievementButton.onclick = addAchievement;
 if (addLinkButton) addLinkButton.onclick = addLink;
 if (deleteButton) deleteButton.onclick = confirmDeletion;
+if (filesList) filesList.onclick = confirmFileDeletion;
 if (forthcomingBox) forthcomingBox.onchange = toggleDateField;
 if (ongoingBox) ongoingBox.onchange = toggleEndYearField;
+if (uploadFileButton) uploadFileButton.onclick = validateFile;
 
 if (linksList) {
   linksList.onclick  = deleteLink;

@@ -5,6 +5,26 @@ b {
   font-weight: var(--font-weight-bold);
 }
 
+.bulleted {
+
+  list-style:  disc inside;
+  margin-left: 0.5em;
+
+  li {
+    display:       list-item;
+    margin-bottom: 0.25em;
+  }
+
+  p {
+    display: inline-block;
+  }
+
+  button {
+    display: inline-flex;
+  }
+
+}
+
 button {
   .button;
   align-self: center;
@@ -153,4 +173,18 @@ select {
   height:           1.5em;
   justify-content:  center;
   width:            1.5em;
+}
+
+#uploadFile {
+
+  border:        var(--border-width) solid black;
+  border-radius: var(--border-radius);
+  padding:       var(--padding-box);
+
+  div {
+    align-items:     center;
+    flex-direction:  row;
+    justify-content: space-between;
+  }
+
 }

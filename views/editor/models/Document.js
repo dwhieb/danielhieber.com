@@ -70,112 +70,12 @@ module.exports = class Document {
     year,
   } = {}) {
 
-    // Validation
 
-    // Language Fields (autonym, competency)
-    if (type === `language`) {
-
-      // Autonym
-      if (typeof autonym !== `string` || !autonym.length) {
-        throw new TypeError(`autonym must be a non-empty String.`);
-      }
-
-      // Competency
-      if (!competencies.includes(competency)) {
-        throw new TypeError(`Invalid competency.`);
-      }
-
-    }
-
-    // Media Fields (author, publication)
-    if (type === `media`) {
-
-      // Author
-      if (typeof author !== `string` || !author.length) {
-        throw new TypeError(`author must be a non-empty String.`);
-      }
-
-      // Publication
-      if (typeof publication !== `string` || !publication.length) {
-        throw new TypeError(`publication must be a non-empty String.`);
-      }
-
-    }
-
-    // Reference Fields (email, name, phone)
-    if (type === `reference`) {
-
-      // Email
-      if (typeof email !== `string` || !email.length) {
-        throw new TypeError(`email must be a non-empty String.`);
-      }
-
-      // Name
-      if (typeof name !== `string` || !name.length) {
-        throw new TypeError(`name must be a non-empty String.`);
-      }
-
-      // Phone Number
-      if (typeof phone !== `string`) {
-        throw new TypeError(`phone must be a String.`);
-      }
-
-    }
-
-    // Abbreviation
-    if ((type === `membership` || type === `service`) && !/^[A-Za-z]*$/.test(abbreviation)) {
-      throw new TypeError(`abbreviation must be a properly-formatted abbreviation.`);
-    }
-
-    // Achievements
-    if ((type === `education` || type === `work`) && !Array.isArray(achievements)) {
-      throw new TypeError(`achievements must be an Array.`);
-    }
-
-    // Categories
-    if (typeof categories !== `undefined` && !Array.isArray(categories) && typeof categories !== `string`) {
-      throw new TypeError(`categories must be a String or Array of Strings.`);
-    }
+    // Validation for new documents
 
     // CVID (required for all docs)
     if (!Number.isInteger(cvid)) {
       throw new TypeError(`cvid must be an Integer.`);
-    }
-
-    // Date & Forthcoming
-    if (type === `media` || type === `publication`) {
-
-      if (!(date || forthcoming)) {
-        throw new Error(`Either the date or forthcoming field is required.`);
-      }
-
-      if (date && !isDate(date)) {
-        throw new TypeError(`date must be a properly-formatted date String.`);
-      }
-
-    }
-
-    // Description
-    if (typeof description !== `undefined` && typeof description !== `string`) {
-      throw new TypeError(`description must be a String.`);
-    }
-
-    // End Year & Ongoing
-    if (
-      type === `education`
-      || type === `fieldwork`
-      || type === `service`
-      || type === `work`
-    ) {
-
-      if (!(endYear || ongoing)) {
-        throw new Error(`Either the endYear or ongoing field is required.`);
-      }
-
-      if (endYear && !isDate(endYear)) {
-        throw new TypeError(`endYear must be a properly-formatted date String.`);
-      }
-
     }
 
     // ID (may not be present on a doc if it hasn't been added to the database)
@@ -183,78 +83,186 @@ module.exports = class Document {
       throw new TypeError(`id must be a non-empty String.`);
     }
 
-    // Key
-    const keyRegExp = /^[-A-Za-z0-9]+$/;
-
-    if ((type === `category` || type === `publication`) && !keyRegExp.test(key)) {
-      throw new TypeError(`key must be properly-formatted String.`);
-    }
-
-    // Links
-    if (typeof links !== `object`) {
-      throw new TypeError(`links must be an Object.`);
-    }
-
-    // Location
-    if ((type === `education` || type === `fieldwork`) && (typeof location !== `string` || !location.length)) {
-      throw new TypeError(`location must be a non-empty String.`);
-    }
-
-    // Organization
-    if (typeof organization !== `undefined` && (typeof organization !== `string` || !organization.length)) {
-      throw new TypeError(`organization must be a non-empty String.`);
-    }
-
-    // Proficiency Type
-    if (type === `proficiency` && !(proficiencyType === `skill` || proficiencyType === `software`)) {
-      throw new TypeError(`proficiencyType must be set to 'skill' or 'software'.`);
-    }
-
-    // Program
-    if (type === `education` && typeof program !== `string`) {
-      throw new TypeError(`program must be a String.`);
-    }
-
-    // Publication Type
-    if (type === `publication` && !publicationTypes.includes(publicationType)) {
-      throw new TypeError(`Invalid publicationType.`);
-    }
-
-    // Role
-    if (
-      (type === `course`
-      || type === `reference`
-      || type === `service`)
-      && (typeof role !== `string`
-      || !role.length)
-    ) {
-      throw new TypeError(`role must be a non-empty String.`);
-    }
-
-    // Start Year
-    if (
-      (type === `education`
-      || type === `fieldwork`
-      || type === `service`
-      || type === `work`)
-      && !Number.isInteger(Number(startYear))
-    ) {
-      throw new TypeError(`startYear must be an Integer.`);
-    }
-
-    // Title
-    if (typeof title !== `undefined` && !(typeof title === `string` && title.length)) {
-      throw new TypeError(`title must be a non-empty String.`);
-    }
-
     // Type (required for all docs)
     if (!types.includes(type)) {
       throw new TypeError(`Invalid type attribute.`);
     }
 
-    // Year
-    if (type === `award` && !Number.isInteger(Number(year))) {
-      throw new TypeError(`year must be an Integer.`);
+
+    // Validation for updated documents
+
+    if (id) {
+
+      // Language Fields (autonym, competency)
+      if (type === `language`) {
+
+        // Autonym
+        if (typeof autonym !== `string` || !autonym.length) {
+          throw new TypeError(`autonym must be a non-empty String.`);
+        }
+
+        // Competency
+        if (!competencies.includes(competency)) {
+          throw new TypeError(`Invalid competency.`);
+        }
+
+      }
+
+      // Media Fields (author, publication)
+      if (type === `media`) {
+
+        // Author
+        if (typeof author !== `string` || !author.length) {
+          throw new TypeError(`author must be a non-empty String.`);
+        }
+
+        // Publication
+        if (typeof publication !== `string` || !publication.length) {
+          throw new TypeError(`publication must be a non-empty String.`);
+        }
+
+      }
+
+      // Reference Fields (email, name, phone)
+      if (type === `reference`) {
+
+        // Email
+        if (typeof email !== `string` || !email.length) {
+          throw new TypeError(`email must be a non-empty String.`);
+        }
+
+        // Name
+        if (typeof name !== `string` || !name.length) {
+          throw new TypeError(`name must be a non-empty String.`);
+        }
+
+        // Phone Number
+        if (typeof phone !== `string`) {
+          throw new TypeError(`phone must be a String.`);
+        }
+
+      }
+
+      // Abbreviation
+      if ((type === `membership` || type === `service`) && !/^[A-Za-z]*$/.test(abbreviation)) {
+        throw new TypeError(`abbreviation must be a properly-formatted abbreviation.`);
+      }
+
+      // Achievements
+      if ((type === `education` || type === `work`) && !Array.isArray(achievements)) {
+        throw new TypeError(`achievements must be an Array.`);
+      }
+
+      // Categories
+      if (typeof categories !== `undefined` && !Array.isArray(categories) && typeof categories !== `string`) {
+        throw new TypeError(`categories must be a String or Array of Strings.`);
+      }
+
+      // Date & Forthcoming
+      if (type === `media` || type === `publication`) {
+
+        if (!(date || forthcoming)) {
+          throw new Error(`Either the date or forthcoming field is required.`);
+        }
+
+        if (date && !isDate(date)) {
+          throw new TypeError(`date must be a properly-formatted date String.`);
+        }
+
+      }
+
+      // Description
+      if (typeof description !== `undefined` && typeof description !== `string`) {
+        throw new TypeError(`description must be a String.`);
+      }
+
+      // End Year & Ongoing
+      if (
+        type === `education`
+        || type === `fieldwork`
+        || type === `service`
+        || type === `work`
+      ) {
+
+        if (!(endYear || ongoing)) {
+          throw new Error(`Either the endYear or ongoing field is required.`);
+        }
+
+        if (endYear && !isDate(endYear)) {
+          throw new TypeError(`endYear must be a properly-formatted date String.`);
+        }
+
+      }
+
+      // Key
+      const keyRegExp = /^[-A-Za-z0-9]+$/;
+
+      if ((type === `category` || type === `publication`) && !keyRegExp.test(key)) {
+        throw new TypeError(`key must be properly-formatted String.`);
+      }
+
+      // Links
+      if (typeof links !== `object`) {
+        throw new TypeError(`links must be an Object.`);
+      }
+
+      // Location
+      if ((type === `education` || type === `fieldwork`) && (typeof location !== `string` || !location.length)) {
+        throw new TypeError(`location must be a non-empty String.`);
+      }
+
+      // Organization
+      if (typeof organization !== `undefined` && (typeof organization !== `string` || !organization.length)) {
+        throw new TypeError(`organization must be a non-empty String.`);
+      }
+
+      // Proficiency Type
+      if (type === `proficiency` && !(proficiencyType === `skill` || proficiencyType === `software`)) {
+        throw new TypeError(`proficiencyType must be set to 'skill' or 'software'.`);
+      }
+
+      // Program
+      if (type === `education` && typeof program !== `string`) {
+        throw new TypeError(`program must be a String.`);
+      }
+
+      // Publication Type
+      if (type === `publication` && !publicationTypes.includes(publicationType)) {
+        throw new TypeError(`Invalid publicationType.`);
+      }
+
+      // Role
+      if (
+        (type === `course`
+        || type === `reference`
+        || type === `service`)
+        && (typeof role !== `string`
+        || !role.length)
+      ) {
+        throw new TypeError(`role must be a non-empty String.`);
+      }
+
+      // Start Year
+      if (
+        (type === `education`
+        || type === `fieldwork`
+        || type === `service`
+        || type === `work`)
+        && !Number.isInteger(Number(startYear))
+      ) {
+        throw new TypeError(`startYear must be an Integer.`);
+      }
+
+      // Title
+      if (typeof title !== `undefined` && !(typeof title === `string` && title.length)) {
+        throw new TypeError(`title must be a non-empty String.`);
+      }
+
+      // Year
+      if (type === `award` && !Number.isInteger(Number(year))) {
+        throw new TypeError(`year must be an Integer.`);
+      }
+
     }
 
     // Assign properties
@@ -288,11 +296,15 @@ module.exports = class Document {
     if (typeof year !== `undefined`) this.year = Number(year);
 
     // Links
-    this.links = {};
+    if (links) {
 
-    Object.entries(links).forEach(([linkType, url]) => {
-      if (url) this.links[linkType] = url;
-    });
+      this.links = {};
+
+      Object.entries(links).forEach(([linkType, url]) => {
+        if (url) this.links[linkType] = url;
+      });
+
+    }
 
     // Description
     if (typeof description === `string`) {
