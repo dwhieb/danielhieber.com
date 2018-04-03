@@ -3,8 +3,10 @@
  * @name app.js
  */
 
-const config = require('./lib/config'); // load config file before other modules
-require('./lib/modules/appInsights');   // start Azure Application Insights
+const config           = require('./lib/config');              // load config file before other modules
+const startAppInsights = require('./lib/modules/appInsights'); // start Azure Application Insights
+
+if (config.production) startAppInsights();
 
 // modules
 const cookieParser = require('cookie-parser');
