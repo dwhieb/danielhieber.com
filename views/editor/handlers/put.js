@@ -100,6 +100,7 @@ module.exports = async (req, res, next) => {
       SELECT c.key, c.title FROM c
       WHERE (
         (c.type = "category" OR c.type = "publication")
+        AND NOT c.id = "${model.id}"
         AND c.key = "${model.key}"
         AND (
           (NOT IS_DEFINED(c.ttl))

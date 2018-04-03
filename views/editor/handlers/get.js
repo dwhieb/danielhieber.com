@@ -41,6 +41,7 @@ module.exports = async (req, res, next) => {
     admin:     true,
     coll:      req.params.type,
     csrf:      req.csrfToken(),
+    editor:    true,
     header:    false,
     id:        `editor`,
     pageTitle: `Editor`,

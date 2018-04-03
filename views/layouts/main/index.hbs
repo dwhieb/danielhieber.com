@@ -194,7 +194,9 @@
       {{{appInsights}}}
 
       // Register offline worker
-      {{{worker}}}
+      {{#unless editor}}
+        {{{worker}}}
+      {{/unless}}
 
       // List of gallery images
       {{{images}}}
