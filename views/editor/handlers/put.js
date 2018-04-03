@@ -11,8 +11,9 @@ const catchError        = require('./catchError');
 const { database: db }  = require('../../../lib/modules');
 const deleteHandler     = require('./delete');
 const deleteFileHandler = require('./deleteFile');
-const getHandler        = require('./get');
 const { Document }      = require('../models');
+const getHandler        = require('./get');
+const { promisify }     = require('util');
 const types             = require('../types');
 const uploadFileHandler = require('./postFile');
 
@@ -89,6 +90,37 @@ module.exports = async (req, res, next) => {
   } catch (e) {
 
     return res.error.badData(e.message);
+
+  }
+
+  // Check that `key` field is unique doesn't already exist (for publications and categories only)
+  if (model.type === `category` || model.type === `publication`) {
+
+    const query = `
+      SELECT c.key, c.title FROM c
+      WHERE (
+        (c.type = "category" OR c.type = "publication")
+        AND c.key = "${model.key}"
+        AND (
+          (NOT IS_DEFINED(c.ttl))
+          OR c.ttl < 1
+        )
+      )
+    `;
+
+    try {
+
+      const iterator     = db.query(query);
+      const toArray      = promisify(iterator.toArray).bind(iterator);
+      const existingDocs = await toArray();
+
+      if (existingDocs.length) return res.error.conflict(`The key ${model.key} already exists.`);
+
+    } catch (e) {
+
+      return catchError(req, res, next)(e);
+
+    }
 
   }
 
