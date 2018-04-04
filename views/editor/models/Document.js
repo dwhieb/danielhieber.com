@@ -149,7 +149,11 @@ module.exports = class Document {
       }
 
       // Achievements
-      if ((type === `education` || type === `work`) && !Array.isArray(achievements)) {
+      if (
+        (type === `education` || type === `work`)
+        && typeof achievements !== `undefined`
+        && !(Array.isArray(achievements) || typeof achievements === `string`)
+      ) {
         throw new TypeError(`achievements must be an Array.`);
       }
 
@@ -274,7 +278,6 @@ module.exports = class Document {
 
     this.hidden = Boolean(hidden);
     if (typeof abbreviation === `string`) this.abbreviation = abbreviation;
-    if (achievements) this.achievements = achievements;
     if (author) this.author = author;
     if (autonym) this.autonym = autonym;
     if (categories) this.categories = Array.isArray(categories) ? categories : [categories];
@@ -295,15 +298,10 @@ module.exports = class Document {
     if (title) this.title = title;
     if (typeof year !== `undefined`) this.year = Number(year);
 
-    // Links
-    if (links) {
-
-      this.links = {};
-
-      Object.entries(links).forEach(([linkType, url]) => {
-        if (url) this.links[linkType] = url;
-      });
-
+    // Achievements
+    if (type === `education` || type === `work`) {
+      if (achievements) this.achievements = Array.isArray(achievements) ? achievements : [achievements];
+      else this.achievements = [];
     }
 
     // Description
@@ -331,6 +329,17 @@ module.exports = class Document {
       // so it doesn't ovewrite date on doc
       if (endYear) this.endYear = Number(endYear);
       this.ongoing              = Boolean(ongoing);
+    }
+
+    // Links
+    if (links) {
+
+      this.links = {};
+
+      Object.entries(links).forEach(([linkType, url]) => {
+        if (url) this.links[linkType] = url;
+      });
+
     }
 
   }

@@ -50,7 +50,7 @@ module.exports = async (req, res, next) => {
   const body = {
     contentType: `application/pdf`,
     fileType,
-    id:          uuid(),
+    id: uuid(),
     key,
     media:       blobLink,
   };
