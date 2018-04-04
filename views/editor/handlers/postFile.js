@@ -3,6 +3,10 @@
  * @name postFile.js
  */
 
+/* eslint-disable
+  max-statements,
+*/
+
 const catchError       = require('./catchError');
 const { storageURL }   = require('../../../lib/config');
 const { database: db } = require('../../../lib/modules');
@@ -58,6 +62,19 @@ module.exports = async (req, res, next) => {
   try {
 
     await db.createAttachment(docLink, body);
+
+  } catch (e) {
+
+    return catchError(req, res, next)(e);
+
+  }
+
+  // Update links hash in document
+  try {
+
+    const doc = await db.get(docLink);
+    doc.links[fileType] = blobLink;
+    await db.upsert(doc);
 
   } catch (e) {
 
