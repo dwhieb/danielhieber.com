@@ -98,7 +98,7 @@ const getDocs = () => {
 const getFile = async (filename, doc) => {
 
   try {
-    await storage.getBlobToFile(container, filename, `scripts/temp/${filename}`);
+    await storage.getBlobToFile(container, filename, `temp/${filename}`);
   } catch (e) {
     // eslint-disable-next-line no-param-reassign
     if (e.statusCode === 404) return delete doc.files[filename];
@@ -113,7 +113,7 @@ const getTestDoc = () => db.get(`dbs/aGd0AA==/colls/aGd0AIBiWAA=/docs/aGd0AIBiWA
 
 const uploadFile = async (key, fileType, originalFile) => {
   const blobName        = `${key}/${fileType}.pdf`;
-  const localFile       = `scripts/temp/${originalFile}`;
+  const localFile       = `temp/${originalFile}`;
   const metadata        = { fileType, key };
   const contentSettings = { contentType: `application/pdf` };
   const opts            = { contentSettings, metadata };
