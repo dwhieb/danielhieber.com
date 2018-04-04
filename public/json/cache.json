@@ -1,7 +1,9 @@
 [
   "/",
+  "/cv",
   "/home",
   "/personal",
+  "/css/cv.css",
   "/css/error.css",
   "/css/home.css",
   "/css/links.css",

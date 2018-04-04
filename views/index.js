@@ -4,12 +4,14 @@
  */
 
 const admin    = require('./admin');
+const cv       = require('./cv');
 const editor   = require('./editor');
 const home     = require('./home');
 const personal = require('./personal');
 
 module.exports = {
   admin,
+  cv,
   editor,
   home,
   personal,

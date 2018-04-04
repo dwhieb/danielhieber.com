@@ -33,4 +33,5 @@ void async function() {
   const promises    = Object.entries(files).map(processFile);
   await Promise.all(promises);
   await processWorker();
+  console.log(` -- JavaScript files transpiled`);
 }();
