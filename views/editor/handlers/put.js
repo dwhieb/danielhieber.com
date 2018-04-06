@@ -7,15 +7,15 @@
   max-statements,
 */
 
-const catchError        = require('./catchError');
-const { database: db }  = require('../../../lib/modules');
-const deleteHandler     = require('./delete');
-const deleteFileHandler = require('./deleteFile');
-const { Document }      = require('../models');
-const getHandler        = require('./get');
-const { promisify }     = require('util');
-const types             = require('../types');
-const uploadFileHandler = require('./postFile');
+const catchError         = require('./catchError');
+const { db }             = require('../../../lib/services');
+const deleteHandler      = require('./delete');
+const deleteFileHandler  = require('./deleteFile');
+const { Document }       = require('../models');
+const getHandler         = require('./get');
+const { promisify }      = require('util');
+const { CVTypes: types } = require('../../../lib/constants');
+const uploadFileHandler  = require('./postFile');
 
 module.exports = async (req, res, next) => {
 

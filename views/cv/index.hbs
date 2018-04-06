@@ -9,8 +9,21 @@
 
 {{/head}}
 
-<main id={{id}}>
+<main id=cv>
 
-  <h1>Curriculum Vitae</h1>
+  {{> cv/header/index}}
+
+  {{> cv/education CVItems.education}}
+  {{> cv/work CVItems.work}}
+  {{> cv/teaching CVItems.courses}}
+  {{> cv/awards CVItems.awards}}
+  {{> cv/publications CVItems.publications}}
+  {{> cv/service CVItems.service}}
+  {{> cv/memberships CVItems.memberships}}
+  {{> cv/fieldwork CVItems.fieldwork}}
+  {{> cv/languages CVItems.languages}}
+  {{> cv/proficiencies CVItems.proficiencies}}
+  {{> cv/media CVItems.media}}
+  {{> cv/references CVItems.references}}
 
 </main>

@@ -7,11 +7,10 @@
   max-statements,
 */
 
-const catchError       = require('./catchError');
-const { storageURL }   = require('../../../lib/config');
-const { database: db } = require('../../../lib/modules');
-const { storage }      = require('../../../lib/modules');
-const uuid             = require('uuid/v4');
+const catchError      = require('./catchError');
+const { storageURL }  = require('../../../lib/config');
+const { db, storage } = require('../../../lib/services');
+const uuid            = require('uuid/v4');
 
 module.exports = async (req, res, next) => {
 

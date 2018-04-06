@@ -3,19 +3,18 @@
  * @name app.js
  */
 
-const config           = require('./lib/config');              // load config file before other modules
-const startAppInsights = require('./lib/modules/appInsights'); // start Azure Application Insights
+const config           = require('./lib/config');               // load config file before other modules
+const startAppInsights = require('./lib/services/appInsights'); // start Azure Application Insights
 
 if (config.production) startAppInsights();
 
 // modules
 const cookieParser = require('cookie-parser');
 const express      = require('express');
-const hbs          = require('./lib/modules/handlebars');
 const middleware   = require('./lib/middleware');
-const inject       = require('./lib/modules/inject');
 const route        = require('./lib/router');
-const startServer  = require('./lib/modules/server');
+
+const { getContext, hbs, startServer } = require('./lib/modules');
 
 const {
   bodyParser,
@@ -57,7 +56,13 @@ route(app);
 app.use(error404);
 app.use(error500);
 
-(async () => {
-  await inject(app); // inject critical CSS, JS, and SVG icons
-  startServer(app);  // start the server
-})();
+void async function start() {
+
+  // inject context for Handlebars templates
+  const context = await getContext();
+  Object.assign(app.locals, context);
+
+  // start the server
+  startServer(app);
+
+}();

@@ -12,14 +12,10 @@
 process.env.NODE_ENV = `localhost`;
 
 // Modules
-const { promisify } = require('util');
-const { unlink }    = require('fs');
-const uuid          = require('uuid/v4');
-
-const {
-  database: db,
-  storage,
-} = require('../lib/modules');
+const { promisify }   = require('util');
+const { unlink }      = require('fs');
+const uuid            = require('uuid/v4');
+const { db, storage } = require('../lib/services');
 
 // Promisify
 const rm = promisify(unlink);

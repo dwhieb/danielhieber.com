@@ -2,7 +2,7 @@
   max-statements,
 */
 
-const typesMap = require('../types');
+const { CVTypes: typesMap } = require('../../../lib/constants');
 
 // Constants
 const competencies = [
