@@ -11,3 +11,7 @@ The academic homepage of Daniel W. Hieber, graduate student in linguistics at th
   - Edge (mobile)
   - Firefox (desktop)
   - Firefox (mobile)
+
+# Printing
+* Use Prince PDF
+* Turn off JavaScript (uncheck `Enable Document Scripts`)

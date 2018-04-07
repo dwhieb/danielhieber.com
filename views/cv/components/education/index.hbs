@@ -1,6 +1,6 @@
 <section id=education class=cv-section>
 
-  {{> cv/section-header 'Education'}}
+  {{> cv/section-header/index 'Education'}}
 
   <ol>
     {{#each CVItems.education}}
@@ -20,7 +20,7 @@
 
         <div>
 
-          <h4><a href='{{links.org}}'>{{organization}}</a> ({{location}})</h4>
+          <p><a href='{{links.org}}'>{{organization}}</a> ({{location}})</p>
 
           {{#if program}}<p><strong>Program:</strong> {{program}}</p>{{/if}}
 
