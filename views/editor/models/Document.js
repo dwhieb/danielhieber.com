@@ -2,7 +2,7 @@
   max-statements,
 */
 
-const { CVTypes: typesMap } = require('../../../lib/constants');
+const { CVTypes } = require('../../../lib/constants');
 
 // Constants
 const competencies = [
@@ -30,7 +30,7 @@ const publicationTypes = [
   `unpublished`,
 ];
 
-const types = Object.values(typesMap);
+const types = Object.entries(CVTypes).map(([, { type }]) => type);
 
 // Utilities
 const isDate = dateString => Boolean(Date.parse(dateString));

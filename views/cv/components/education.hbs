@@ -2,4 +2,38 @@
 
   {{> cv/section-header 'Education'}}
 
+  <ol>
+    {{#each CVItems.education}}
+      <li id='{{cvid}}' class=cv-item>
+
+        <div class=date>
+
+          <time datetime=startYear>{{startYear}}</time>
+
+          {{#if ongoing}}
+            —present
+          {{else if endYear}}
+            —{{endYear}}
+          {{/if}}
+
+        </div>
+
+        <div>
+
+          <h4><a href='{{links.org}}'>{{organization}}</a> ({{location}})</h4>
+
+          {{#if program}}<p><strong>Program:</strong> {{program}}</p>{{/if}}
+
+          <ul class=bulleted>
+            {{#each achievements}}
+              <li>{{md this}}</li>
+            {{/each}}
+          </ul>
+
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
 </section>

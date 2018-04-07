@@ -3,16 +3,16 @@
  * @name post.js
  */
 
-const catchError         = require('./catchError');
-const { db }             = require('../../../lib/services');
-const { Document }       = require('../models');
-const { promisify }      = require('util');
-const { CVTypes: types } = require('../../../lib/constants');
+const catchError    = require('./catchError');
+const { db }        = require('../../../lib/services');
+const { Document }  = require('../models');
+const { promisify } = require('util');
+const { CVTypes }   = require('../../../lib/constants');
 
 module.exports = async (req, res, next) => {
 
   // Check type
-  const type = types[req.params.type];
+  const { type } = CVTypes[req.params.type];
   if (!type) return res.error.badRequest(`Invalid CV type.`);
 
   // Retrieve the counter document

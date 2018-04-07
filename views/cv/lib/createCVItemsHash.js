@@ -6,9 +6,9 @@ module.exports = docs => {
   const items = {};
 
   Object.keys(CVTypes)
-  .forEach(type => {
-    if (type === `categories` || type === `test`) return;
-    items[type] = docs.filter(doc => doc.type === CVTypes[type]);
+  .forEach(collType => {
+    if (collType === `categories` || collType === `test`) return;
+    items[collType] = docs.filter(doc => doc.type === CVTypes[collType].type);
   });
 
   // Sort CV items as appropriate
