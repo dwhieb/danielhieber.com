@@ -2,4 +2,22 @@
 
   {{> cv/section-header/index 'Teaching'}}
 
+  <ol>
+    {{#each CVItems.courses}}
+      <li>
+
+        {{#if links.info}}
+          <p><a href="{{links.info}}" target=_blank>{{title}} ({{role}}, {{organization}})</a></p>
+        {{else}}
+          <p><strong>{{title}} ({{role}}, {{organization}})</strong></p>
+        {{/if}}
+
+        <div>
+          {{md description}}
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
 </section>
