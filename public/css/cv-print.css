@@ -1,0 +1,19 @@
+.cv-header{text-align:center}.cv-header a{font-weight:var(--font-weight)}h1{margin-bottom:-.25rem}.mailing-address{margin:1em 0}@media screen{h1{margin-top:.5em}}@media print{.cv-header{page-break-inside:avoid}}.section-header{border-bottom:.05em solid #000;border-top:.05em solid #000;margin-bottom:.5rem;padding:.25rem 0}@media screen{.section-header{align-items:center;flex-direction:row;justify-content:space-between}}@media print{.section-header{page-break-after:avoid;page-break-inside:avoid}.section-header a{display:none}}.achievements li p{display:inline}.bulleted{list-style:circle outside;margin-left:1.5rem}.bulleted li{display:list-item;margin-bottom:.25em}.bulleted li:first-child{margin-top:.25em}.bulleted p{display:inline-block}.bulleted button{display:inline-flex}.cv-item{margin-bottom:.5rem}.date{display:block;white-space:nowrap}@media print{@page{@bottom-center {
+      content: counter(page);
+      font-family: 'Fira Sans';
+      font-size: 10pt;
+      font-weight: 300;
+    }
+    @top-left {
+      content: 'Curriculum Vitae';
+    }
+    @top-right {
+      content: 'Daniel W. Hieber';
+    }
+    @top-left {
+      content: '';
+    }
+    @top-right {
+      content: '';
+    }
+    margin: 1in;size:letter portrait}a:hover,a:link,a:visited{background:0 0;border-bottom:none;color:#3180E1;font-weight:500}body{font-family:'Fira Sans';font-size:10pt;font-weight:300}.cv-item{display:inline;page-break-inside:avoid}.date{float:left;width:1.25in}.date+.cv-item-content{float:left;width:5.25in}#footer{display:none}h1{font-size:18pt}h2{font-size:12pt}h3{font-size:12pt}[lang*=fonipa]{font-family:'Gentium Plus'}[lang$=emic]::before{content:'/';padding-right:.125em}[lang$=emic]::after{content:'/';padding-left:.125em}#nav{display:none}}/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIiRzdGRpbiIsIkM6L1VzZXJzL2R3aGllYi9Db2RpbmcvZGFuaWVsaGllYmVyLmNvbS92aWV3cy9jdi9jb21wb25lbnRzL2hlYWRlci9pbmRleC5sZXNzIiwiQzovVXNlcnMvZHdoaWViL0NvZGluZy9kYW5pZWxoaWViZXIuY29tL3ZpZXdzL2N2L2NvbXBvbmVudHMvc2VjdGlvbi1oZWFkZXIvaW5kZXgubGVzcyIsIkM6L1VzZXJzL2R3aGllYi9Db2RpbmcvZGFuaWVsaGllYmVyLmNvbS92aWV3cy9jdi9sZXNzL2N2Lmxlc3MiLCJDOi9Vc2Vycy9kd2hpZWIvQ29kaW5nL2RhbmllbGhpZWJlci5jb20vdmlld3MvbGVzcy9jbGFzc2VzLmxlc3MiLCJDOi9Vc2Vycy9kd2hpZWIvQ29kaW5nL2RhbmllbGhpZWJlci5jb20vdmlld3MvY3YvbGVzcy9jdi1wcmludC5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBLFdBQ0UsV0FBWSxPQ0FaLGFER0EsWUFBYSxtQkNBWCxHREdGLGNBQWUsUUNHZixpQkRBQSxPQUFRLElBQUksRUNJWixjRERBLEdDSUUsV0FBWSxNREFoQixhQUNFLFdDS0Usa0JBQW1CLE9ERHZCLGdCQUNFLGNBQWUsTUFBTyxNQUFNLEtFeEI1QixXQUFZLE1BQU8sTUFBTSxLQUl6QixjQUFBLE1BQ0EsUUFBQSxPQUFBLEVBRUEsY0Z1QkEsZ0JFbkJFLFlBQWEsT0FDZixlQUFBLElBQ0UsZ0JBQUEsZUZ1QkosYUFDRSxnQkVqQkUsaUJBQWtCLE1BQ3BCLGtCQUFBLE1BR0Usa0JGa0JBLFFBQVMsTUFHYixtQkFDRSxRQUFTLE9HdENMLFVIeUNKLFdBQVksT0FBTyxRR3BDbkIsWUFBYSxPQ0ZiLGFKMENBLFFBQVMsVUl4Q1QsY0FBQSxNQUVFLHlCSjBDRixXQUFZLE1JdENWLFlKeUNGLFFBQVMsYUlyQ1AsaUJKd0NGLFFBQVMsWUlwQ1AsU0p1Q0YsY0FBZSxNRzlDZixNSGlEQSxRQUFTLE1HOUNULFlBQWEsT0FFYixhSGdEQTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0NBb0JFLEtBQU0sT0FBTyxTS25DYixRQUFBLE9BUUMsVUFDQSxXQUFBLElBQ0EsY0FBQSxLQUVDLE1BQUEsUUFDQSxZQUFBLElBRUEsS0wrQkYsWUFBYSxZSzFCZixVQUFBLEtBQ0UsWUFqRWEsSUFtRWIsU0w0QkEsUUFBUyxPS3pCWCxrQkFBQSxNQUVFLE1MMkJBLE1BQU8sS0t4QlQsTUFBQSxPQUVFLHVCTDBCQSxNQUFPLEtLdkJILE1BQUEsT0FFSixRTHlCQSxRQUFTLEtLckJULEdMd0JBLFVBQVcsS0twQlgsR0x1QkEsVUFBVyxLS25CWCxHTHNCQSxVQUFXLEtLbEJYLGVMcUJBLFlBQWEsZUt0SEEscUJMeUhiLFFBQVMsSUtqQkMsY0FBQSxPQUVWLG9CTG1CQSxRQUFTLElLaEJDLGFBQUEsT0FFVixLTGtCQSxRQUFTIn0= */

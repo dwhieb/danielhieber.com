@@ -1,7 +1,8 @@
-cv:     views/cv/index.less
-editor: views/editor/index.less
-error:  views/error/index.less
-home:   views/home/index.less
-links:  views/partials/links/index.less
-main:   views/layouts/main/less/index.less
-toc:    views/layouts/toc/toc.less
+cv-print:  views/cv/less/cv-print.less
+cv-screen: views/cv/less/cv-screen.less
+editor:    views/editor/index.less
+error:     views/error/index.less
+home:      views/home/index.less
+links:     views/partials/links/index.less
+main:      views/layouts/main/less/index.less
+toc:       views/layouts/toc/toc.less

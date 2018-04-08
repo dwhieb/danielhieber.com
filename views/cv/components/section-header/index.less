@@ -1,12 +1,32 @@
 .section-header {
 
-  --border: 0.05em solid black;
+  @border: 0.05em solid black;
 
-  align-items:     center;
-  border-bottom:   var(--border);
-  border-top:      var(--border);
-  flex-direction:  row;
-  justify-content: space-between;
-  padding:         0.25rem 0rem;
+  border-bottom: @border;
+  border-top:    @border;
+  margin-bottom: 0.5rem;
+  padding:       0.25rem 0rem;
 
+}
+
+@media screen {
+  .section-header {
+    align-items:     center;
+    flex-direction:  row;
+    justify-content: space-between;
+  }
+}
+
+// stylelint-disable unit-blacklist
+@media print {
+  .section-header {
+
+    page-break-after:  avoid;
+    page-break-inside: avoid;
+
+    a {
+      display: none;
+    }
+
+  }
 }

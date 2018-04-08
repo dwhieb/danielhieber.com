@@ -15,3 +15,7 @@ The academic homepage of Daniel W. Hieber, graduate student in linguistics at th
 # Printing
 * Use Prince PDF
 * Turn off JavaScript (uncheck `Enable Document Scripts`)
+* Prince does not currently support the following (as of v11.3), meaning that you need to include fallback CSS in your print media styles:
+  - flexbox
+  - CSS variables
+  - remove Prince logo from PDF (using Adobe Acrobat Pro)

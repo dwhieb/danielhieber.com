@@ -6,6 +6,30 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 @import 'variables.less';
 
+.bulleted {
+
+  list-style:  circle outside;
+  margin-left: 1.5rem;
+
+  li {
+    display:       list-item;
+    margin-bottom: 0.25em;
+  }
+
+  li:first-child {
+    margin-top: 0.25em;
+  }
+
+  p {
+    display: inline-block;
+  }
+
+  button {
+    display: inline-flex;
+  }
+
+}
+
 .button {
 
   background-color:  #0078E7;

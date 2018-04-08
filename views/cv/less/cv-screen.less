@@ -1,0 +1,33 @@
+@import 'cv.less';
+
+:root {
+  --font-size-banner: calc(2.5rem + 0.25vw);
+  --measure:          60em;
+}
+
+#cv {
+  align-self: center;
+  max-width:  var(--measure);
+  padding:    0rem 2.5rem;
+}
+
+.cv-item {
+  flex-direction: row;
+}
+
+.date {
+  min-width: 10em;
+  width:     10em;
+}
+
+h1 {
+  font-size: var(--font-size-banner);
+}
+
+h2 {
+  font-size: var(--font-size-large);
+}
+
+h3 {
+  font-size: var(--font-size-header);
+}

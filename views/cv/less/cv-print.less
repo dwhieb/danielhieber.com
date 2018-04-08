@@ -1,0 +1,134 @@
+/* stylelint-disable
+ unit-blacklist,
+*/
+
+@import 'cv.less';
+
+// Print styling
+@media print {
+
+  // LESS variables
+  // (CSS variables are not supported in Prince v11.3)
+
+  @blue: #3180E1;
+
+  @font:         'Fira Sans';
+  @font-unicode: 'Gentium Plus';
+
+  @font-size:        10pt;
+  @font-size-banner: 18pt;
+  @font-size-large:  12pt;
+
+  @font-weight:      300;
+  @font-weight-bold: 500;
+
+  @link-color-visited: @blue;
+
+  @padding-ipa: 0.125em;
+
+  @page {
+
+    @bottom-center {
+      content:     counter(page);
+      font-family: @font;
+      font-size:   @font-size;
+      font-weight: @font-weight;
+    }
+
+    @top-left {
+      content: 'Curriculum Vitae';
+    }
+
+    @top-right {
+      content: 'Daniel W. Hieber';
+    }
+
+    :first {
+
+      @top-left {
+        content: '';
+      }
+
+      @top-right {
+        content: '';
+      }
+
+    }
+
+    margin: 1in;
+    size:   letter portrait;
+
+  }
+
+  // Elements & Classes
+
+  a {
+
+    &:link,
+    &:hover,
+    &:visited
+    {
+      background:    transparent;
+      border-bottom: none;
+      color:         @blue;
+      font-weight:   @font-weight-bold;
+    }
+
+  }
+
+  body {
+    font-family: @font;
+    font-size:   @font-size;
+    font-weight: @font-weight;
+  }
+
+  .cv-item {
+    display:           inline;
+    page-break-inside: avoid;
+  }
+
+  .date {
+    float: left;
+    width: 1.25in;
+  }
+
+  .date + .cv-item-content {
+    float: left;
+    width: 5.25in;
+  }
+
+  #footer {
+    display: none;
+  }
+
+  h1 {
+    font-size: @font-size-banner;
+  }
+
+  h2 {
+    font-size: @font-size-large;
+  }
+
+  h3 {
+    font-size: @font-size-large;
+  }
+
+  [lang*=fonipa] {
+    font-family: @font-unicode;
+  }
+
+  [lang$=emic]::before {
+    content: '/';
+    padding-right: @padding-ipa;
+  }
+
+  [lang$=emic]::after {
+    content: '/';
+    padding-left: @padding-ipa;
+  }
+
+  #nav {
+    display: none;
+  }
+
+}
