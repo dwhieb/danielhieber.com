@@ -1,10 +1,12 @@
+// Print styling
+//
+// These styles apply only to print media.
+// They are loaded after the general (cv.less) styles
+
 /* stylelint-disable
  unit-blacklist,
 */
 
-@import 'cv.less';
-
-// Print styling
 @media print {
 
   // LESS variables
@@ -84,6 +86,7 @@
 
   .cv-item {
     display:           inline;
+    margin-bottom:     6pt;
     page-break-inside: avoid;
   }
 
