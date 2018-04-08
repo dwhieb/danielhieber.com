@@ -4,15 +4,17 @@
 
   <ol>
     {{#each CVItems.courses}}
-      <li>
+      <li id='{{cvid}}' class=cv-item>
 
-        {{#if links.info}}
-          <p><a href="{{links.info}}" target=_blank>{{title}} ({{role}}, {{organization}})</a></p>
-        {{else}}
-          <p><strong>{{title}} ({{role}}, {{organization}})</strong></p>
-        {{/if}}
+        <p class=cv-item-title>
+          {{#if links.info}}
+            <a href="{{links.info}}" target=_blank>{{title}} ({{role}}, {{organization}})</a>
+          {{else}}
+            <strong>{{title}} ({{role}}, {{organization}})</strong>
+          {{/if}}
+        </p>
 
-        <div>
+        <div class=description>
           {{md description}}
         </div>
 
