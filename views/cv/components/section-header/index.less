@@ -6,6 +6,10 @@
   border-top:    @border;
   padding:       0.25rem 0rem;
 
+  a {
+    .link;
+  }
+
 }
 
 @media screen {
@@ -21,7 +25,8 @@
 @media print {
   .section-header {
 
-    margin-bottom:     6pt;
+    clear:             both;
+    margin:            6pt 0pt; // The top margin is needed for Prince v11.3
     page-break-after:  avoid;
     page-break-inside: avoid;
 

@@ -1,0 +1,33 @@
+<section id=work class=cv-section>
+
+  {{> cv/section-header/index 'Professional Experience'}}
+
+  <ol>
+    {{#each CVItems.work}}
+      <li id='{{cvid}}' class=cv-item>
+
+        {{> cv/date/index}}
+
+        <div class=cv-item-content>
+
+          <p>
+            {{#if links.org}}
+              <a href='{{links.org}}'>{{role}}, {{organization}}</a>
+            {{else}}
+              <strong>{{role}}, {{organization}}</strong>
+            {{/if}}
+          </p>
+
+          <ul class='achievements bulleted'>
+            {{#each achievements}}
+              <li>{{md this}}</li>
+            {{/each}}
+          </ul>
+
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

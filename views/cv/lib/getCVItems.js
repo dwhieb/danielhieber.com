@@ -7,10 +7,13 @@ module.exports = () => {
     SELECT * FROM doc
     WHERE
       IS_DEFINED(doc.cvid)
-      AND (NOT doc.hidden = true)
       AND (
-        (NOT IS_DEFINED(doc.ttl))
-        OR doc.ttl < 1
+        doc.hidden = false
+        OR NOT IS_DEFINED(doc.hidden)
+      )
+      AND (
+        doc.ttl < 1
+        OR NOT IS_DEFINED(doc.ttl)
       )
   `;
 
