@@ -2,4 +2,28 @@
 
   {{> cv/section-header/index 'Awards & Honors'}}
 
+  <ol>
+    {{#each CVItems.awards}}
+      <li id='{{cvid}}' class=cv-item>
+
+        {{> cv/date/index}}
+
+        <div class=description>
+
+          <p>
+            {{#if links.info}}
+              <a href='{{links.info}}'>{{title}}</a>
+            {{else}}
+              <strong>{{title}}</strong>
+            {{/if}}
+          </p>
+
+          {{md description}}
+
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
 </section>
