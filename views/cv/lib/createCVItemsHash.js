@@ -1,15 +1,20 @@
-const { compare }    = require('../../../lib/utilities');
-const { CVTypes }    = require('../../../lib/constants');
+const { compare }           = require('../../../lib/utilities');
+const { CVTypes, pubTypes } = require('../../../lib/constants');
 
 module.exports = docs => {
 
-  const items = {};
+  // Create CV items hash
+  const items = Object.keys(CVTypes)
+  .reduce((hash, collType) => {
 
-  Object.keys(CVTypes)
-  .forEach(collType => {
-    if (collType === `categories` || collType === `test`) return;
-    items[collType] = docs.filter(doc => doc.type === CVTypes[collType].type);
-  });
+    if (collType === `categories` || collType === `test`) return hash;
+
+    // eslint-disable-next-line no-param-reassign
+    hash[collType] = docs.filter(doc => doc.type === CVTypes[collType].type && !doc.hidden);
+
+    return hash;
+
+  }, {});
 
   // Sort CV items as appropriate
   items.awards.sort((a, b) => compare(b.year, a.year));                      // year descending
@@ -28,6 +33,17 @@ module.exports = docs => {
     || compare(b.endYear, a.endYear));
   items.work.sort((a, b) => compare(b.startYear, a.startYear)                // startYear, endYear descending
     || compare(b.endYear, a.endYear));
+
+  // Create a publications hash
+  items.publications = Object.keys(pubTypes)
+  .reduce((hash, pubType) => {
+
+    // eslint-disable-next-line no-param-reassign
+    hash[pubType] = items.publications.filter(doc => doc.publicationType === pubType);
+
+    return hash;
+
+  }, {});
 
   return items;
 
