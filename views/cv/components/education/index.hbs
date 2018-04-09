@@ -12,12 +12,13 @@
 
         <div class=cv-item-content>
 
-          <p><a href='{{links.org}}'>{{organization}}</a> ({{location}})</p>
+          <p class=cv-item-title><a href='{{links.org}}'>{{organization}}</a> ({{location}})</p>
 
           {{#if program}}<p>Program: {{program}}</p>{{/if}}
 
           <ul class='achievements bulleted'>
             {{#each achievements}}
+              {{!-- The content of the following <li> is wrapped in <p> tags by the Markdown helper --}}
               <li>{{md this}}</li>
             {{/each}}
           </ul>

@@ -2,4 +2,57 @@
 
   {{> cv/section-header/index 'Publications & Presentations'}}
 
+  {{#each CVItems.publications}}
+    <section id=publications-{{@key}}>
+
+      <h4>{{title}}</h4>
+
+      <ol>
+        {{#each this}}
+          <li id='{{cvid}}' class=cv-item>
+
+            {{> cv/date/index }}
+
+            <div class=cv-item-content>
+
+              <p class=cv-item-title>
+                {{#if links.pdf}}<a href='{{links.pdf}}'>{{md title 'inline'}}</a>
+                {{else if links.poster}}<a href='{{links.poster}}'>{{md title 'inline'}}</a>
+                {{else if links.handout}}<a href='{{links.handout}}'>{{md title 'inline'}}</a>
+                {{else if links.slides}}<a href='{{links.slides}}'>{{md title 'inline'}}</a>
+                {{else if links.pub}}<a href='{{links.pub}}'>{{md title 'inline'}}</a>
+                {{else if links.info}}<a href='{{links.info}}'>{{md title 'inline'}}</a>
+                {{else}}<strong>{{md title 'inline'}}</strong>
+                {{/if}}
+              </p>
+
+              <div class=description>
+                {{md description}}
+              </div>
+
+              <p class=doi>
+                {{#if links.doi}}
+                  DOI: <a href='{{links.doi}}'>{{links.doi}}</a>
+                {{/if}}
+              </p>
+
+              <p class=links>
+                {{#if links.abstract}}<a href='{{links.abstract}}'>(abstract)</a>{{/if}}
+                {{#if links.pdf}}     <a href='{{links.pdf}}'     >(paper)</a>{{/if}}
+                {{#if links.poster}}  <a href='{{links.poster}}'  >(poster)</a>{{/if}}
+                {{#if links.handout}} <a href='{{links.handout}}' >(handout)</a>{{/if}}
+                {{#if links.slides}}  <a href='{{links.slides}}'  >(slides)</a>{{/if}}
+                {{#if links.pub}}     <a href='{{links.pub}}'     >(view online)</a>{{/if}}
+                {{#if links.info}}    <a href='{{links.info}}'    >(more info)</a>{{/if}}
+              </p>
+
+            </div>
+
+          </li>
+        {{/each}}
+      </ol>
+
+    </section>
+  {{/each}}
+
 </section>
