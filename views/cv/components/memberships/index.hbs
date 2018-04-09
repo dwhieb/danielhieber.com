@@ -2,4 +2,12 @@
 
   {{> cv/section-header/index 'Memberships'}}
 
+  <ol>
+    {{#each CVItems.memberships}}
+      <li id='{{cvid}}' class='cv-item cv-item-content'>
+        <p><a href='{{links.org}}'>{{organization}}{{#if abbreviation}} ({{abbreviation}}){{/if}}</a></p>
+      </li>
+    {{/each}}
+  </ol>
+
 </section>

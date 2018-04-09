@@ -2,4 +2,16 @@
 
   {{> cv/section-header/index 'Service'}}
 
+  <ol>
+    {{#each CVItems.service}}
+      <li id='{{cvid}}' class=cv-item>
+
+        {{> cv/date/index }}
+
+        <p class=cv-item-content><a href='{{links.org}}'>{{role}}, {{organization}}{{#if abbreviation}} ({{abbreviation}}){{/if}}</a></p>
+
+      </li>
+    {{/each}}
+  </ol>
+
 </section>
