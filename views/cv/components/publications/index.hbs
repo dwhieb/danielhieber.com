@@ -30,11 +30,11 @@
                 {{md description}}
               </div>
 
-              <p class=doi>
-                {{#if links.doi}}
+              {{#if links.doi}}
+                <p class=doi>
                   DOI: <a href='{{links.doi}}'>{{links.doi}}</a>
-                {{/if}}
-              </p>
+                </p>
+              {{/if}}
 
               <p class=links>
                 {{#if links.abstract}}<a href='{{links.abstract}}'>(abstract)</a>{{/if}}

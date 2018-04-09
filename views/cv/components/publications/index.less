@@ -1,0 +1,60 @@
+@import (reference) '../../less/print.less';
+
+#publications {
+
+  .cv-item-title,
+  .description,
+  .doi,
+  .links,
+  p
+  {
+    display: inline;
+  }
+
+  .cv-item-content {
+    display: block;
+  }
+
+  h4 {
+    margin-top:    0.5em;
+    margin-bottom: 0.25em;
+  }
+
+}
+
+@media print {
+  #publications {
+
+    .description,
+    .doi
+    {
+      a {
+        font-weight: @font-weight;
+      }
+    }
+
+    h4 {
+      font-size: @font-size-large;
+    }
+
+  }
+}
+
+@media screen {
+  #publications {
+
+    .description,
+    .doi
+    {
+      a {
+        font-weight: var(--font-weight);
+      }
+    }
+
+    h4 {
+      font-size: var(--font-size-header);
+    }
+
+  }
+
+}
