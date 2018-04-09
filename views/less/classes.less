@@ -71,8 +71,7 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 // IPA transcriptions
 .ipa {
-  font-family: var(--font-unicode);
-  // font-size: 1.125em;
+  .unicode;
 }
 
 // Inline links
@@ -95,6 +94,10 @@ Styles applied with classes. Use with LESS's (reference) option.
 
   &:visited {
     color: var(--link-color-visited);
+  }
+
+  .unicode {
+    font-weight: bold;
   }
 
 }
@@ -214,6 +217,13 @@ Styles applied with classes. Use with LESS's (reference) option.
     .visually-hidden;
   }
 
+}
+
+// Unicode characters
+.unicode {
+  font-family: var(--font-unicode);
+  font-size:   110%;
+  line-height: 100%;
 }
 
 // Accessibly hide content visually
