@@ -2,4 +2,28 @@
 
   {{> cv/section-header/index 'Skills & Proficiencies'}}
 
+  <section id=skills>
+
+    <h4>Technical Skills</h4>
+
+    <ol>
+      {{#each CVItems.proficiencies.skills}}
+        <li><p><a href='{{links.info}}'>{{title}}</a></p></li>
+      {{/each}}
+    </ol>
+
+  </section>
+
+  <section id=software>
+
+    <h4>Software Proficiencies</h4>
+
+    <ol>
+      {{#each CVItems.proficiencies.software}}
+        <li><p><a href='{{links.info}}'>{{title}}</a></p></li>
+      {{/each}}
+    </ol>
+
+  </section>
+
 </section>

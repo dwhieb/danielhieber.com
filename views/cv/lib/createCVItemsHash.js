@@ -52,6 +52,19 @@ module.exports = docs => {
     return hash;
   }, {});
 
+  // Create a proficiency types hash
+  const proficiencies = {
+    skills:   [],
+    software: [],
+  };
+
+  items.proficiencies = items.proficiencies
+  .reduce((hash, proficiency) => {
+    if (proficiency.proficiencyType === `skill`) hash.skills.push(proficiency);
+    else hash.software.push(proficiency);
+    return hash;
+  }, proficiencies);
+
   return items;
 
 };

@@ -1,0 +1,51 @@
+@media screen {
+
+  @media (max-width: 699px) {
+    #skills,
+    #software
+    {
+      align-self: center;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 700px) {
+    #proficiencies {
+
+      flex-flow:       row wrap;
+      justify-content: space-around;
+
+      .section-header {
+        width: 100%;
+      }
+
+    }
+  }
+
+}
+
+/* stylelint-disable unit-blacklist */
+@media print {
+
+  #proficiencies {
+    clear:   both;
+    display: block;
+  }
+
+  #skills,
+  #software
+  {
+    width: 50;
+  }
+
+  #skills {
+    float:       left;
+    margin-left: 0.5in;
+  }
+
+  #software {
+    float:        right;
+    margin-right: 0.5in;
+  }
+
+}

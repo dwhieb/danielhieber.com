@@ -28,6 +28,18 @@
 
 @media print {
 
+  @page :first {
+
+    @top-left {
+      content: '';
+    }
+
+    @top-right {
+      content: '';
+    }
+
+  }
+
   @page {
 
     @bottom-center {
@@ -38,23 +50,17 @@
     }
 
     @top-left {
-      content: 'Curriculum Vitae';
+      content:     'Curriculum Vitae';
+      font-family: @font;
+      font-size:   @font-size;
+      font-weight: @font-weight;
     }
 
     @top-right {
-      content: 'Daniel W. Hieber';
-    }
-
-    :first {
-
-      @top-left {
-        content: '';
-      }
-
-      @top-right {
-        content: '';
-      }
-
+      content:    'Daniel W. Hieber';
+      font-family: @font;
+      font-size:   @font-size;
+      font-weight: @font-weight;
     }
 
     margin: 1in;
@@ -130,6 +136,10 @@
   }
 
   h3 {
+    font-size: @font-size-large;
+  }
+
+  h4 {
     font-size: @font-size-large;
   }
 
