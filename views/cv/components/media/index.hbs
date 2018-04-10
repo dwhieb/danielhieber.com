@@ -1,0 +1,17 @@
+<section id=media class=cv-section>
+
+  {{> cv/section-header/index 'Media About Me'}}
+
+  <ol>
+    {{#each CVItems.media}}
+      <li id='{{cvid}}' class=cv-item>
+
+        {{> cv/date/index }}
+
+        <p class=cv-item-content><a class=cv-item-title href='{{links.pub}}'>{{title}}</a>, by {{author}}. <cite>{{publication}}</cite></p>
+
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

@@ -1,0 +1,29 @@
+{{#head 'cv'}}
+
+  <!-- Styling for CV page -->
+  <link rel=preload href={{baseURL}}/css/cv.css as=style onload="this.rel='stylesheet';">
+
+  <noscript>
+    <link rel=stylesheet href={{baseURL}}/css/cv.css>
+  </noscript>
+
+{{/head}}
+
+<main id=cv>
+
+  {{> cv/header/index}}
+
+  {{> cv/education/index}}
+  {{> cv/work/index}}
+  {{> cv/teaching/index}}
+  {{> cv/awards/index}}
+  {{> cv/publications/index}}
+  {{> cv/service/index}}
+  {{> cv/memberships/index}}
+  {{> cv/fieldwork/index}}
+  {{> cv/languages/index}}
+  {{> cv/proficiencies/index}}
+  {{> cv/media/index}}
+  {{> cv/references/index}}
+
+</main>

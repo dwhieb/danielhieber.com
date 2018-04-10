@@ -7,15 +7,15 @@
   max-statements,
 */
 
-const catchError        = require('./catchError');
-const { database: db }  = require('../../../lib/modules');
-const deleteHandler     = require('./delete');
-const deleteFileHandler = require('./deleteFile');
-const { Document }      = require('../models');
-const getHandler        = require('./get');
-const { promisify }     = require('util');
-const types             = require('../types');
-const uploadFileHandler = require('./postFile');
+const catchError         = require('./catchError');
+const { db }             = require('../../../lib/services');
+const deleteHandler      = require('./delete');
+const deleteFileHandler  = require('./deleteFile');
+const { Document }       = require('../models');
+const getHandler         = require('./get');
+const { promisify }      = require('util');
+const { CVTypes }        = require('../../../lib/constants');
+const uploadFileHandler  = require('./postFile');
 
 module.exports = async (req, res, next) => {
 
@@ -29,8 +29,8 @@ module.exports = async (req, res, next) => {
   if (req.body.uploadFile) return uploadFileHandler(req, res, next);
 
 
-  const type = types[req.params.type];
-  const cvid = Number(req.params.cvid);
+  const { type } = CVTypes[req.params.type];
+  const cvid     = Number(req.params.cvid);
 
   // Check type in URL
   if (!type) return res.error.badRequest(`Invalid CV type.`);

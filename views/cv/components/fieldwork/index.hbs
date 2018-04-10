@@ -1,0 +1,14 @@
+<section id=fieldwork class=cv-section>
+
+  {{> cv/section-header/index 'Fieldwork & Descriptive Work'}}
+
+  <ol>
+    {{#each CVItems.fieldwork}}
+      <li id='{{cvid}}' class=cv-item>
+        {{> cv/date/index }}
+        <p class='cv-item-content description'><strong>{{location}}.</strong> {{md description 'inline'}}</strong></p>
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

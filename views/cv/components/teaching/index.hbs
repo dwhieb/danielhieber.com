@@ -1,0 +1,26 @@
+<section id=teaching class=cv-section>
+
+  {{> cv/section-header/index 'Teaching'}}
+
+  <ol>
+    {{#each CVItems.courses}}
+      <li id='{{cvid}}' class=cv-item>
+
+        {{!-- NB: Do not apply .cv-item-content here - it moves title unnecessarily on small screens --}}
+        <p class=cv-item-title>
+          {{#if links.info}}
+            <a href="{{links.info}}" target=_blank>{{title}} ({{role}}, {{organization}})</a>
+          {{else}}
+            <strong>{{title}} ({{role}}, {{organization}})</strong>
+          {{/if}}
+        </p>
+
+        <div class=description>
+          {{md description}}
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

@@ -1,5 +1,5 @@
 const catchError = require('./catchError');
-const { database: db } = require('../../../lib/modules');
+const { db }     = require('../../../lib/services');
 
 module.exports = async (req, res, next) => {
 

@@ -1,7 +1,10 @@
 [
   "/",
+  "/cv",
   "/home",
   "/personal",
+  "/css/cv-print.css",
+  "/css/cv-screen.css",
   "/css/error.css",
   "/css/home.css",
   "/css/links.css",

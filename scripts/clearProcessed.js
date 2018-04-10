@@ -9,8 +9,8 @@
 
 process.env.NODE_ENV = `localhost`;
 
-const { database: db } = require('../lib/modules');
-const { promisify }    = require('util');
+const { db }        = require('../lib/services');
+const { promisify } = require('util');
 
 const clearFlag = async doc => {
   console.log(` -- Clearing flag for ${doc.id}`);

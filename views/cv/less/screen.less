@@ -1,0 +1,78 @@
+// Screen styling
+//
+// These styles apply only to screen media. They are applied after general CV styles (cv.less).
+
+@media screen {
+
+  :root {
+    --font-size-banner: calc(2.5rem + 0.25vw);
+    --measure:          60em;
+  }
+
+  .achievements,
+  .description {
+    a {
+      font-weight: var(--font-weight);
+    }
+  }
+
+  #cv {
+    align-self: center;
+    max-width:  var(--measure);
+    padding:    0rem 2.5rem;
+  }
+
+  .cv-item {
+    flex-direction: row;
+    margin-bottom:  0.75rem;
+  }
+
+  #teaching .cv-item {
+    flex-direction: column;
+  }
+
+  .date {
+    min-width: 10em;
+    width:     10em;
+  }
+
+  h1 {
+    font-size: var(--font-size-banner);
+  }
+
+  h2 {
+    font-size: var(--font-size-large);
+  }
+
+  h3 {
+    font-size: var(--font-size-header);
+  }
+
+  h4 {
+    font-size: var(--font-size-header);
+  }
+
+  @media (max-width: 699px) {
+
+    .cv-item {
+      flex-direction: column;
+    }
+
+    .cv-item:not(:last-child)::after {
+      align-self:       center;
+      background-color: #DDD;
+      content:          '';
+      // for some reason, using rem results in variable heights here
+      // stylelint-disable-next-line unit-blacklist
+      height:           1px;
+      margin:           0.5rem 0rem;
+      width:            90%;
+    }
+
+    .cv-item-content {
+      margin-left: 1em;
+    }
+
+  }
+
+}

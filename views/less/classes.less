@@ -6,6 +6,27 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 @import 'variables.less';
 
+.bulleted {
+
+  list-style:  circle outside;
+  margin-left: 1.5rem;
+
+  li {
+    display:    list-item;
+    margin-top: 0.25em;
+  }
+
+  p {
+    display:        inline-block;
+    vertical-align: top;
+  }
+
+  button {
+    display: inline-flex;
+  }
+
+}
+
 .button {
 
   background-color:  #0078E7;
@@ -50,8 +71,7 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 // IPA transcriptions
 .ipa {
-  font-family: var(--font-unicode);
-  // font-size: 1.125em;
+  .unicode;
 }
 
 // Inline links
@@ -74,6 +94,10 @@ Styles applied with classes. Use with LESS's (reference) option.
 
   &:visited {
     color: var(--link-color-visited);
+  }
+
+  .unicode {
+    font-weight: bold;
   }
 
 }
@@ -193,6 +217,12 @@ Styles applied with classes. Use with LESS's (reference) option.
     .visually-hidden;
   }
 
+}
+
+// Unicode characters
+.unicode {
+  font-family: var(--font-unicode);
+  font-size:   1.1em;
 }
 
 // Accessibly hide content visually

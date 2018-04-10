@@ -1,0 +1,38 @@
+.section-header {
+
+  @border: 0.05em solid black;
+
+  border-bottom: @border;
+  border-top:    @border;
+  padding:       0.25rem 0rem;
+
+  a {
+    .link;
+  }
+
+}
+
+@media screen {
+  .section-header {
+    align-items:     center;
+    flex-direction:  row;
+    justify-content: space-between;
+    margin-bottom:   0.75rem;
+  }
+}
+
+// stylelint-disable unit-blacklist
+@media print {
+  .section-header {
+
+    clear:             both;
+    margin:            6pt 0pt; // The top margin is needed for Prince v11.3
+    page-break-after:  avoid;
+    page-break-inside: avoid;
+
+    a {
+      display: none;
+    }
+
+  }
+}
