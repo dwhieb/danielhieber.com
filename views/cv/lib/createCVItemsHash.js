@@ -65,6 +65,19 @@ module.exports = docs => {
     return hash;
   }, proficiencies);
 
+  // Add "dateString" attribute to media for rendering
+  items.media.forEach(item => {
+
+    const date = new Date(item.date);
+
+    item.dateString = date.toLocaleDateString('en-US', {
+      day:   'numeric',
+      month: 'long',
+      year:  'numeric',
+    });
+
+  });
+
   return items;
 
 };
