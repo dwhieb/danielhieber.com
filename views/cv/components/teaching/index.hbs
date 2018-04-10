@@ -6,7 +6,8 @@
     {{#each CVItems.courses}}
       <li id='{{cvid}}' class=cv-item>
 
-        <p class='cv-item-content cv-item-title'>
+        {{!-- NB: Do not apply .cv-item-content here - it moves title unnecessarily on small screens --}}
+        <p class=cv-item-title>
           {{#if links.info}}
             <a href="{{links.info}}" target=_blank>{{title}} ({{role}}, {{organization}})</a>
           {{else}}

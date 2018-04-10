@@ -1,0 +1,30 @@
+#references {
+  ol {
+    text-align: center;
+  }
+}
+
+@media print {
+  #references {
+    p {
+      a {
+        font-weight: @font-weight;
+      }
+    }
+  }
+}
+
+@media screen {
+  #references {
+
+    .cv-item {
+      flex-direction: column;
+    }
+
+    a {
+      color:       var(--blue);
+      font-weight: var(--font-weight-bold);
+    }
+
+  }
+}
