@@ -8,7 +8,9 @@
   background-color: black;
   color:            white;
   font-size:        var(--font-size-large);
-  top:              0;
+  // stylelint-disable-next-line unit-blacklist
+  top:              -1px; // fixes black space above nav on scroll
+  z-index:          1;
 
   ul {
     flex-flow:       row wrap;
