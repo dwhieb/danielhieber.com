@@ -2,8 +2,8 @@
   no-param-reassign,
 */
 
-const { compare }           = require('../../../lib/utilities');
-const { CVTypes, pubTypes } = require('../../../lib/constants');
+const { compare, getDateString } = require('../../../lib/utilities');
+const { CVTypes, pubTypes }      = require('../../../lib/constants');
 
 module.exports = docs => {
 
@@ -67,15 +67,7 @@ module.exports = docs => {
 
   // Add "dateString" attribute to media for rendering
   items.media.forEach(item => {
-
-    const date = new Date(item.date);
-
-    item.dateString = date.toLocaleDateString('en-US', {
-      day:   'numeric',
-      month: 'long',
-      year:  'numeric',
-    });
-
+    item.dateString = getDateString(item.date);
   });
 
   return items;
