@@ -1,6 +1,6 @@
-<section id=publications class=cv-section>
+<section id={{CVTypes.publications.id}} class=cv-section>
 
-  {{> cv/section-header/index 'Publications & Presentations'}}
+  {{> cv/section-header/index CVTypes.publications.header}}
 
   {{#each CVItems.publications}}
     <section id=publications-{{@key}}>

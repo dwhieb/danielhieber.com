@@ -5,6 +5,7 @@
 const createCVItemsHash = require('./createCVItemsHash');
 const getCVItems        = require('./getCVItems');
 const { getDateString } = require('../../../lib/utilities');
+const { CVTypes }       = require('../../../lib/constants');
 
 module.exports = async (req, res) => {
 
@@ -21,6 +22,7 @@ module.exports = async (req, res) => {
   const context = {
     cv:        true,
     CVItems,
+    CVTypes,
     header:    false,
     lastUpdated,
     pageTitle: `CV`,
