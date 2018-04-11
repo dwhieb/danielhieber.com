@@ -85,21 +85,25 @@
   .cv-item {
     clear:             both;
     display:           block;
+    margin-bottom:     6pt; // This doesn't actually do anything in Prince v11.3
     page-break-inside: avoid;
     position:          relative;
   }
 
-  // NB: This is required to get margin-bottom to work in Prince
+  // NB: This adds a bottom margin in Prince v11.3, but the height of the margin
+  // is too big. This only works when .cv-item isn't display: block;
+  // so currently this isn't actually doing anything
   .cv-item::after {
     bottom:      0;
     content:     '';
-    height:      12pt;
-    margin:      12pt;
+    height:      0;
+    margin:      0;
     position:    absolute;
     width:       100%;
   }
 
   .cv-item-title {
+    // This overrides direct styling on <a> elements (see above)
     font-weight: bold !important;
   }
 
