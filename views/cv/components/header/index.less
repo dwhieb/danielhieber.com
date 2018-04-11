@@ -1,11 +1,5 @@
 .cv-header {
-
   text-align: center;
-
-  a {
-    font-weight: var(--font-weight);
-  }
-
 }
 
 .mailing-address {
@@ -13,13 +7,52 @@
 }
 
 @media screen {
-  h1 {
-    margin-top: 0.5em;
+
+  .cv-header {
+    a {
+      font-weight: var(--font-weight);
+    }
   }
+
+  #headshot {
+    border-radius: var(--border-radius);
+    box-shadow:    0rem 0rem 0.225rem black;
+    height:        20vw;
+    margin:        1rem;
+    width:         20vw;
+    z-index:       1;
+  }
+
+  @media (max-width: 699px) {
+    #headshot {
+      align-self: center;
+    }
+  }
+
+  @media (min-width: 700px) {
+
+    #cv {
+      position: relative;
+    }
+
+    #headshot {
+      position: absolute;
+      right:    0;
+      top:      0;
+    }
+
+  }
+
 }
 
 @media print {
+
   .cv-header {
     page-break-inside: avoid;
   }
+
+  #headshot {
+    display: none;
+  }
+
 }
