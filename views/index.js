@@ -3,11 +3,11 @@
  * @name views/index.js
  */
 
-const admin    = require('./admin');
-const cv       = require('./cv');
-const editor   = require('./editor');
-const home     = require('./home');
-const personal = require('./personal');
+const admin    = require('./admin/handlers');
+const cv       = require('./cv/handlers');
+const editor   = require('./editor/handlers');
+const home     = require('./home/handlers');
+const personal = require('./personal/handlers');
 
 module.exports = {
   admin,
