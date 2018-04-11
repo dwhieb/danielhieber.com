@@ -4,18 +4,10 @@
   }
 }
 
-@media print {
-  #references {
-    p {
-      a {
-        font-weight: @font-weight;
-      }
-    }
-  }
-}
-
 @media screen {
   #references {
+
+    page-break-before: always;
 
     .cv-item {
       flex-direction: column;

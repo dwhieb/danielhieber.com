@@ -46,6 +46,10 @@
                 {{#if links.info}}    <a href='{{links.info}}'    >(more info)</a>{{/if}}
               </p>
 
+              {{#eq publicationType 'online'}}
+                <p class=full-link>Accessible at: <a href={{links.pub}}>{{links.pub}}</a></p>
+              {{/eq}}
+
             </div>
 
           </li>

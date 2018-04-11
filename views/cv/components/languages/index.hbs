@@ -5,7 +5,7 @@
   <ol>
     {{#each CVItems.languages}}
       <li id='{{cvid}}' class=cv-item>
-        <p class=language><a href='{{links.info}}'>{{title}} (<span class=unicode lang='{{iso}}'>{{autonym}}</span>)</a></p>
+        <p class='cv-item-title language'><a href='{{links.info}}'>{{title}} (<span class=unicode lang='{{iso}}'>{{autonym}}</span>)</a></p>
         <p class=competency>{{competency}}</p>
       </li>
     {{/each}}
