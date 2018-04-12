@@ -1,6 +1,6 @@
 const { baseURL } = require('../../../lib/config');
 const path        = require('path');
-const prince      = require('prince');
+// const prince      = require('prince');
 
 module.exports = async () => {
 
