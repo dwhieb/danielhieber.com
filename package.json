@@ -36,7 +36,7 @@
     "upload": "node build/upload.js"
   },
   "engines": {
-    "node": ">=8.x"
+    "node": "8.11.1"
   },
   "dependencies": {
     "applicationinsights": "^1.0.2",
