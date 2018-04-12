@@ -9,7 +9,7 @@ module.exports = async () => {
   try {
 
     const { stdout, stderr } = await prince()
-    .binary(princePath)
+    // .binary(princePath)
     .option(`baseurl`, `${baseURL}/cv`)
     // .option(`no-warn-css`, true, true)
     // .option(`media`, `print`)
