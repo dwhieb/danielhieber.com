@@ -2,10 +2,10 @@
   no-return-assign,
 */
 
-const createCVItemsHash = require('./createCVItemsHash');
-const getCVItems        = require('./getCVItems');
-const { getDateString } = require('../../../lib/utilities');
 const { CVTypes }       = require('../../../lib/constants');
+const { getDateString } = require('../../../lib/utilities');
+
+const { createCVItemsHash, getCVItems } = require('../lib');
 
 module.exports = async (req, res) => {
 

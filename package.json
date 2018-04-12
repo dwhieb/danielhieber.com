@@ -52,6 +52,7 @@
     "formidable": "^1.2.1",
     "helmet": "^3.12.0",
     "markdown-it": "^8.4.1",
+    "prince": "^1.4.8",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
