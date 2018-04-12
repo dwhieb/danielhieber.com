@@ -1,3 +1,7 @@
-const get = require('./get');
+const get    = require('./get');
+const getPDF = require('./getPDF');
 
-module.exports = { get };
+module.exports = {
+  get,
+  getPDF,
+};
