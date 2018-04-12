@@ -2,21 +2,21 @@ const { baseURL } = require('../../../lib/config');
 const path        = require('path');
 const prince      = require('prince');
 
-const princePath = path.join(process.cwd(), `node_modules/prince/prince.exe`);
-
 module.exports = async () => {
 
   try {
 
+    const princePath = `node_modules/prince/prince/program files/Prince/engine/bin/prince.exe`;
+
     const { stdout, stderr } = await prince()
-    // .binary(princePath)
+    .binary(path.join(process.cwd(), princePath))
     .option(`baseurl`, `${baseURL}/cv`)
-    // .option(`no-warn-css`, true, true)
-    // .option(`media`, `print`)
-    // .option(`page-size`, `letter`, true)
-    // .option(`page-margin`, `1in`, true)
-    // .option(`pdf-title`, `Daniel W. Hieber - Curriculum Vitae`)
-    // .option(`pdf-author`, `Daniel W. Hieber`)
+    .option(`no-warn-css`, true, true)
+    .option(`media`, `print`)
+    .option(`page-size`, `letter`, true)
+    .option(`page-margin`, `1in`, true)
+    .option(`pdf-title`, `Daniel W. Hieber - Curriculum Vitae`)
+    .option(`pdf-author`, `Daniel W. Hieber`)
     .inputs(`${baseURL}/cv`)
     .output(path.join(__dirname, `../cv.pdf`))
     .execute();
@@ -27,7 +27,7 @@ module.exports = async () => {
 
   } catch (e) {
 
-    console.error(e.error);
+    console.error(e);
     throw e;
 
   }
