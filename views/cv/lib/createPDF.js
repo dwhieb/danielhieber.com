@@ -2,14 +2,14 @@ const { baseURL } = require('../../../lib/config');
 const path        = require('path');
 const prince      = require('prince');
 
+const princePath = path.join(process.cwd(), `node_modules/prince/prince.exe`);
+
 module.exports = async () => {
 
   try {
 
-    const princePath = `node_modules/prince/prince/program files/Prince/engine/bin/prince.exe`;
-
     const { stdout, stderr } = await prince()
-    .binary(path.join(process.cwd(), princePath))
+    .binary(princePath)
     .option(`baseurl`, `${baseURL}/cv`)
     .option(`no-warn-css`, true, true)
     .option(`media`, `print`)
