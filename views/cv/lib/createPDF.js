@@ -6,7 +6,10 @@ module.exports = async () => {
 
   try {
 
+    const princePath = `node_modules/prince/prince/program files/Prince/engine/bin/prince.exe`;
+
     const { stdout, stderr } = await prince()
+    .binary(path.join(process.cwd(), princePath))
     .option(`baseurl`, `${baseURL}/cv`)
     .option(`no-warn-css`, true, true)
     .option(`media`, `print`)
