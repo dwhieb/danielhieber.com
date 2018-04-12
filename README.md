@@ -2,6 +2,9 @@
 
 The academic homepage of Daniel W. Hieber, graduate student in linguistics at the University of California, Santa Barbara.
 
+# Node Version
+Do not specify the Node.js version in `package.json`. Instead, specify it directly in the Azure Web App Settings. Be sure to list the complete version number explicitly, rather than an expression to match. This will ensure that the command line in the virtual machine is running the proper Node.js version.
+
 # Supported Browsers
   - Chrome (desktop)
   - Chrome (mobile)
