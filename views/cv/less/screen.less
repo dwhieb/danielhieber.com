@@ -16,10 +16,34 @@
     }
   }
 
+  #contents {
+    left:     0;
+    position: absolute;
+    top:      3.5rem;
+  }
+
   #cv {
+
     align-self: center;
     max-width:  var(--measure);
     padding:    0rem 2.5rem;
+
+    h1 {
+      font-size: var(--font-size-banner);
+    }
+
+    h2 {
+      font-size: var(--font-size-large);
+    }
+
+    h3 {
+      font-size: var(--font-size-header);
+    }
+
+    h4 {
+      font-size: var(--font-size-header);
+    }
+
   }
 
   .cv-item {
@@ -38,22 +62,6 @@
 
   .full-link {
     display: none;
-  }
-
-  h1 {
-    font-size: var(--font-size-banner);
-  }
-
-  h2 {
-    font-size: var(--font-size-large);
-  }
-
-  h3 {
-    font-size: var(--font-size-header);
-  }
-
-  h4 {
-    font-size: var(--font-size-header);
   }
 
   .print {
@@ -81,6 +89,12 @@
       margin-left: 1em;
     }
 
+  }
+
+  @media (max-width: 999px) {
+    #contents {
+      display: none;
+    }
   }
 
 }

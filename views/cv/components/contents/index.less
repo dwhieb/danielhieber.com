@@ -5,18 +5,13 @@
 }
 
 @media screen {
-
   #contents {
 
-    margin: 1rem;
+    font-size: var(--font-size-small);
+    padding:   var(--padding-box);
 
     h2 {
-      background-color: var(--purple);
-      border-radius:    var(--border-radius);
-      color:            white;
-      font-size:        var(--font-size);
-      font-weight:      var(--font-weight-bold);
-      padding:          var(--padding-text);
+      .header-purple;
     }
 
     ol {
@@ -49,29 +44,4 @@
     }
 
   }
-
-  @media (max-width: 999px) {
-    #contents {
-      align-self: center;
-    }
-  }
-
-  @media (min-width: 1000px) {
-
-    body {
-      position: relative;
-    }
-
-    .cv-header {
-      height: 27.5em;
-    }
-
-    #contents {
-      position: absolute;
-      left:     0;
-      top:      3.5em;
-    }
-
-  }
-
 }
