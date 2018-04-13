@@ -27,11 +27,11 @@ const convert = async ([name, filepath]) => {
     strictMath: true,
   };
 
-  if (env === `localhost` || env === `development`) {
-    opts.sourceMap = {
-      sourceMapFileInline: true,
-    };
-  }
+  // if (env === `localhost` || env === `development`) {
+  //   opts.sourceMap = {
+  //     sourceMapFileInline: true,
+  //   };
+  // }
 
   const lessData = await read(filepath, `utf8`);
   const { css }  = await less.render(lessData, opts);
