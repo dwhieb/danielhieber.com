@@ -13,14 +13,13 @@ const cookieParser = require('cookie-parser');
 const express      = require('express');
 const middleware   = require('./lib/middleware');
 const route        = require('./lib/router');
+const { error }    = require('./views');
 
 const { getContext, hbs, startServer } = require('./lib/modules');
 
 const {
   bodyParser,
   csurf,
-  error404,
-  error500,
   errors,
   helmet,
   logger,
@@ -53,8 +52,8 @@ app.use(logger);         // request logging
 route(app);
 
 // generic error handling
-app.use(error404);
-app.use(error500);
+app.use(error.error404);
+app.use(error.error500);
 
 void async function start() {
 

@@ -2,7 +2,7 @@
   no-console
 */
 
-const config = require('../config');
+const config = require('../../../lib/config');
 
 module.exports = (req, res, next) => { // eslint-disable-line no-unused-vars
 

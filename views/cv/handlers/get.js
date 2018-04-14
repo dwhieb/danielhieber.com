@@ -20,10 +20,11 @@ module.exports = async (req, res) => {
 
   // Context for the Handlebars template
   const context = {
-    cv:        true,
+    cv: true,
     CVItems,
     CVTypes,
-    header:    false,
+    header: false,
+    id: `cv`,
     lastUpdated,
     pageTitle: `CV`,
   };

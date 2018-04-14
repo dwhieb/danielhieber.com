@@ -1,5 +1,5 @@
 const Boom   = require('boom');
-const config = require('../config');
+const config = require('../../../lib/config');
 const { defaultClient: insights } = require('applicationinsights');
 
 module.exports = (err, req, res, next) => { // eslint-disable-line no-unused-vars
@@ -38,6 +38,7 @@ module.exports = (err, req, res, next) => { // eslint-disable-line no-unused-var
 
   res.render(`error`, {
     error:      payload.error || `Unknown Error`,
+    id:         `error`,
     message:    `${payload.message} Please consider <a href=https://github.com/dwhieb/danielhieber.com/issues>opening an issue on GitHub</a>. Use Error ID <code>${req.id}</code> when reporting the error.`,
     pageTitle:  `Error`,
     statusCode: payload.statusCode || 500,
