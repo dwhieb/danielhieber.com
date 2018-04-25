@@ -6,10 +6,10 @@
   no-underscore-dangle,
 */
 
-const catchError    = require('./catchError');
-const { db }        = require('../../../lib/services');
-const { promisify } = require('util');
-const types         = require('../../../lib/constants');
+const { catchError } = require('../lib');
+const { db }         = require('../../../lib/services');
+const { promisify }  = require('util');
+const types          = require('../../../lib/constants');
 
 const {
   capitalize,

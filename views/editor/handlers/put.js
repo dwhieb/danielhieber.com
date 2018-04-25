@@ -7,7 +7,7 @@
   max-statements,
 */
 
-const catchError         = require('./catchError');
+const { catchError }     = require('../lib');
 const { db }             = require('../../../lib/services');
 const deleteHandler      = require('./delete');
 const deleteFileHandler  = require('./deleteFile');

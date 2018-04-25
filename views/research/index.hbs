@@ -1,5 +1,28 @@
+{{#head 'research'}}
+
+  <!-- Styling for Research page -->
+  <link rel=preload href={{cdn}}/css/research.css as=style onload="this.rel='stylesheet';">
+
+  <noscript>
+    <link rel=stylesheet href={{cdn}}/css/research.css>
+  </noscript>
+
+{{/head}}
+
 <main id=research>
 
-  <h1>Research</h1>
+  <h2>Research</h2>
+
+  {{#each categories}}
+    <section id={{key}}>
+
+      <h3>{{title}}</h3>
+
+      <div>
+        {{md description}}
+      </div>
+
+    </section>
+  {{/each}}
 
 </main>
