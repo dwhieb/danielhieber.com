@@ -9,7 +9,7 @@
 const { catchError } = require('../lib');
 const { db }         = require('../../../lib/services');
 const { promisify }  = require('util');
-const types          = require('../../../lib/constants');
+const { CVTypes }    = require('../../../lib/constants');
 
 const {
   capitalize,
@@ -32,7 +32,7 @@ module.exports = async (req, res, next) => {
 
   // Check type
 
-  const type = types[req.params.type];
+  const { type } = CVTypes[req.params.type];
   if (!type) return res.error.badRequest(`Invalid CV type.`);
 
   // Create rendering context for Handlebars
@@ -41,13 +41,13 @@ module.exports = async (req, res, next) => {
     admin:     true,
     coll:      req.params.type,
     csrf:      req.csrfToken(),
+    CVTypes,
     editor:    true,
     header:    false,
     id:        `editor`,
     pageTitle: `Editor`,
     type,
     Type:      capitalize(req.params.type),
-    types,
   };
 
   // Retrieve categories
