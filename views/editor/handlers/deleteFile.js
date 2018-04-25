@@ -3,7 +3,7 @@
  * @name deleteFile.js
  */
 
-const catchError      = require('./catchError');
+const { catchError }  = require('../lib');
 const { db, storage } = require('../../../lib/services');
 
 module.exports = async (req, res, next) => {

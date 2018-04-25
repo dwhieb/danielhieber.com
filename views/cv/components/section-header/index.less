@@ -1,22 +1,11 @@
+@import (reference) '../../../less/classes.less';
+
 .section-header {
-
-  @border: 0.05em solid black;
-
-  border-bottom: @border;
-  border-top:    @border;
-  padding:       0.25rem 0rem;
-
-  a {
-    .link;
-  }
-
+  .section-header;
 }
 
 @media screen {
   .section-header {
-    align-items:     center;
-    flex-direction:  row;
-    justify-content: space-between;
     margin-bottom:   0.75rem;
   }
 }
@@ -25,6 +14,10 @@
 @media print {
   .section-header {
 
+    @border: 0.05em solid black;
+
+    border-bottom:     @border;
+    border-top:        @border;
     clear:             both;
     margin:            6pt 0pt; // The top margin is needed for Prince v11.3
     page-break-after:  avoid;

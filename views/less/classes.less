@@ -69,6 +69,22 @@ Styles applied with classes. Use with LESS's (reference) option.
 
 }
 
+.description {
+
+  a {
+    font-weight: var(--font-weight);
+  }
+
+  ol, ul {
+    .bulleted;
+  }
+
+  p {
+    display: inline;
+  }
+
+}
+
 .header-purple {
   background-color: var(--purple);
   border-radius:    var(--border-radius);
@@ -188,6 +204,24 @@ Styles applied with classes. Use with LESS's (reference) option.
       visibility: visible;
     }
 
+  }
+
+}
+
+// Section header
+.section-header {
+
+  --border: 0.05em solid black;
+
+  align-items:     center;
+  border-bottom:   var(--border);
+  border-top:      var(--border);
+  flex-direction:  row;
+  justify-content: space-between;
+  padding:         0.25rem 0rem;
+
+  a {
+    .link;
   }
 
 }

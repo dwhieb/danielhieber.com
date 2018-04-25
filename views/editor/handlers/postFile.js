@@ -7,7 +7,7 @@
   max-statements,
 */
 
-const catchError      = require('./catchError');
+const { catchError }  = require('../lib');
 const { storageURL }  = require('../../../lib/config');
 const { db, storage } = require('../../../lib/services');
 const uuid            = require('uuid/v4');

@@ -3,11 +3,11 @@
  * @name post.js
  */
 
-const catchError    = require('./catchError');
-const { db }        = require('../../../lib/services');
-const { Document }  = require('../models');
-const { promisify } = require('util');
-const { CVTypes }   = require('../../../lib/constants');
+const { catchError } = require('../lib');
+const { db }         = require('../../../lib/services');
+const { Document }   = require('../models');
+const { promisify }  = require('util');
+const { CVTypes }    = require('../../../lib/constants');
 
 module.exports = async (req, res, next) => {
 
