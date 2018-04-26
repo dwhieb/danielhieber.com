@@ -1,0 +1,32 @@
+<section id={{CVTypes.education.id}} class=cv-section>
+
+  {{> cv/section-header/index CVTypes.education.header}}
+
+  <ol>
+    {{#each CVItems.education}}
+      <li id='{{cvid}}' class=cv-item>
+
+        <div class=date>
+          <time datetime=startYear>{{startYear}}</time>{{#if ongoing}}—present{{else if endYear}}—<time datetime=endYear>{{endYear}}</time>{{/if}}
+        </div>
+
+        <div class=cv-item-content>
+
+          <p class=cv-item-title><a href='{{links.org}}'>{{organization}}</a> ({{location}})</p>
+
+          {{#if program}}<p>Program: {{program}}</p>{{/if}}
+
+          <ul class='achievements bulleted'>
+            {{#each achievements}}
+              {{!-- The content of the following <li> is wrapped in <p> tags by the Markdown helper --}}
+              <li>{{md this}}</li>
+            {{/each}}
+          </ul>
+
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

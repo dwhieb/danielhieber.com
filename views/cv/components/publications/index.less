@@ -1,0 +1,52 @@
+@import (reference) '../../less/print.less';
+
+#publications {
+
+  .cv-item-title,
+  .doi,
+  .links,
+  p
+  {
+    display: inline;
+  }
+
+  .cv-item-content {
+    display: block;
+  }
+
+}
+
+@media print {
+
+  #publications-online {
+
+    .links {
+      display: none;
+    }
+
+  }
+
+  #publications-unpublished {
+    display: none;
+  }
+
+}
+
+@media screen {
+  #publications {
+
+    .links {
+      a {
+        font-weight: var(--font-weight);
+      }
+    }
+
+    .doi {
+      a {
+        font-weight: var(--font-weight);
+      }
+    }
+
+  }
+
+}

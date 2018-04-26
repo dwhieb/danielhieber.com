@@ -1,0 +1,29 @@
+<section id={{CVTypes.proficiencies.id}} class=cv-section>
+
+  {{> cv/section-header/index CVTypes.proficiencies.header}}
+
+  <section id=skills>
+
+    <h4>Technical Skills</h4>
+
+    <ol>
+      {{#each CVItems.proficiencies.skills}}
+        <li><p class=cv-item-title><a href='{{links.info}}'>{{title}}</a></p></li>
+      {{/each}}
+    </ol>
+
+  </section>
+
+  <section id=software>
+
+    <h4>Software Proficiencies</h4>
+
+    <ol>
+      {{#each CVItems.proficiencies.software}}
+        <li><p class=cv-item-title><a href='{{links.info}}'>{{title}}</a></p></li>
+      {{/each}}
+    </ol>
+
+  </section>
+
+</section>

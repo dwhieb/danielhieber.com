@@ -1,0 +1,4 @@
+dist
+public/js
+public/*.js
+public/semantic

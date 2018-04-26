@@ -1,13 +1,42 @@
 {
 
+  "env": {
+
+    "development": {
+      "comments":   true,
+      "compact":    false,
+      "minified":   false,
+      "sourceMaps": true
+    },
+
+    "localhost": {
+      "comments":   true,
+      "compact":    false,
+      "minified":   false,
+      "sourceMaps": true
+    },
+
+    "production": {
+      "comments":   false,
+      "compact":    true,
+      "minified":   true,
+      "sourceMaps": false
+    }
+
+  },
+
+  "ignore": [],
+
+  "plugins": [],
+
   "presets": [
-    "latest"
+    ["env", {
+      "exclude": [
+        "transform-regenerator"
+      ]
+    }]
   ],
 
-  "plugins": [
-    ["babel-plugin-transform-builtin-extend", {
-      "globals": ["Array"]
-    }]
-  ]
+  "sourceType": "module"
 
 }

@@ -1,30 +1,34 @@
-{{#section 'style'}}
-<style>
+{{#head 'personal'}}
 
-  #admin {
-    align-items: center;
-    font-size: 1.5rem;
-  }
+  <!-- Styling for Admin page -->
+  <link rel=preload href={{cdn}}/css/toc.css as=style onload="this.rel='stylesheet';">
 
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-  }
+  <noscript>
+    <link rel=stylesheet href={{cdn}}/css/toc.css>
+  </noscript>
 
-  ul {
-    align-items: flex-start;
-  }
+{{/head}}
 
-</style>
-{{/section}}
+<main id={{id}} class=toc>
 
-<main id=admin>
+  <h1 class=page-title>Admin</h1>
 
-  <h1>Admin</h1>
-
-  <ul>
-    {{!-- <li><a href=https://blog.danielhieber.com/ghost class=link>Blog</a></li> --}}
-    <li><a href=/admin/cv class=link>CV</a></li>
-  </ul>
+  <nav>
+    <ul>
+      <li><a href=/admin/categories>Categories</a></li>
+      <li><a href=/admin/awards>Awards</a></li>
+      <li><a href=/admin/courses>Courses</a></li>
+      <li><a href=/admin/education>Education</a></li>
+      <li><a href=/admin/fieldwork>Fieldwork</a></li>
+      <li><a href=/admin/languages>Languages</a></li>
+      <li><a href=/admin/media>Media</a></li>
+      <li><a href=/admin/memberships>Memberships</a></li>
+      <li><a href=/admin/proficiencies>Proficiencies</a></li>
+      <li><a href=/admin/publications>Publications</a></li>
+      <li><a href=/admin/references>References</a></li>
+      <li><a href=/admin/service>Service</a></li>
+      <li><a href=/admin/work>Work</a></li>
+    </ul>
+  </nav>
 
 </main>

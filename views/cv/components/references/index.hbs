@@ -1,0 +1,23 @@
+<section id={{CVTypes.references.id}} class=cv-section>
+
+  {{> cv/section-header/index CVTypes.references.header}}
+
+  <ol>
+    {{#each CVItems.references}}
+      <li id='{{cvid}}' class=cv-item>
+
+        <h4><a href='{{links.info}}'>{{name}}</a></h4>
+
+        <p>{{role}}</p>
+
+        <p>{{organization}}</p>
+
+        {{#if phone}}<p>{{phone}}</p>{{/if}}
+
+        <p><a href=mailto:{{email}}>{{email}}</a></p>
+
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

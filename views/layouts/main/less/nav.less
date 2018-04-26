@@ -1,0 +1,41 @@
+/* nav.less */
+
+/* Styling for the main navigation bar at the top of each page */
+
+#nav {
+
+  // Global styling
+  align-self:       stretch;
+  background-color: black;
+  color:            white;
+  font-size:        var(--font-size-large);
+  // stylelint-disable-next-line unit-blacklist
+  top:              -1px; // fixes black space above nav on scroll
+  z-index:          2;
+
+  ul {
+    flex-flow:       row wrap;
+    justify-content: space-around;
+  }
+
+  li {
+    padding: 0.5em 0.75em;
+  }
+
+  [aria-describedby=current] {
+    border-bottom: var(--line-width) solid white;
+  }
+
+  a {
+    align-items: center;
+    display:     flex;
+  }
+
+}
+
+// Desktop styling
+@media screen and (min-width: 700px) {
+  #nav {
+    position: sticky;
+  }
+}

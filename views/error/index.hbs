@@ -1,0 +1,15 @@
+{{#head 'error'}}
+
+  <!-- Styling for Error page -->
+  <link rel=preload href={{cdn}}/css/error.css as=style onload="this.rel='stylesheet';">
+
+  <noscript>
+    <link rel=stylesheet href={{cdn}}/css/error.css>
+  </noscript>
+
+{{/head}}
+
+<main id=error>
+  <h1 class=page-title>{{statusCode}}: {{error}}</h1>
+  <p>{{{message}}}</p>
+</main>

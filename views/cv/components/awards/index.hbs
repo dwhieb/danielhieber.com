@@ -1,0 +1,30 @@
+<section id={{CVTypes.awards.id}} class=cv-section>
+
+  {{> cv/section-header/index CVTypes.awards.header}}
+
+  <ol>
+    {{#each CVItems.awards}}
+      <li id='{{cvid}}' class=cv-item>
+
+        {{> cv/date/index}}
+
+        <div class=cv-item-content>
+
+          <p class=cv-item-title>
+            {{#if links.info}}
+              <a href='{{links.info}}'>{{title}}</a>
+            {{else}}
+              <strong>{{title}}</strong>
+            {{/if}}
+          </p>
+
+          {{!-- This content is automatically wrapped in tags by the Markdown helper --}}
+          {{md description}}
+
+        </div>
+
+      </li>
+    {{/each}}
+  </ol>
+
+</section>

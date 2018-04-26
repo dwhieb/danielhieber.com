@@ -1,0 +1,158 @@
+@import '../less/variables.less';
+@import (reference) '../less/classes.less';
+
+button {
+  .button;
+  align-self: center;
+  margin:     0.5em;
+}
+
+.buttons {
+  flex-direction:  row;
+  justify-content: center;
+}
+
+.categories {
+
+  label {
+    align-items:    center;
+    flex-direction: row;
+  }
+
+}
+
+#deleteButton {
+  background-color: var(--red);
+}
+
+[name=description] {
+  height: 10em;
+}
+
+#dropdown {
+  align-self:  flex-end;
+  margin-left: auto;
+}
+
+#editor {
+  align-content:   flex-start;
+  display:         flex;
+  flex-flow:       row wrap;
+  font-size:       smaller;
+  justify-content: space-between;
+  padding:         var(--padding-box);
+}
+
+fieldset {
+
+  li {
+    flex-direction: row;
+  }
+
+}
+
+[for=forthcoming] {
+  align-items:    center;
+  flex-direction: row;
+  padding:        var(--padding-text);
+}
+
+form {
+
+  flex:      1;
+  max-width: 70%;
+  padding:   0.5em;
+
+  > label, fieldset {
+    margin-bottom: 0.5em;
+  }
+
+}
+
+[for=hidden] {
+
+  flex-flow: row wrap;
+
+  p {
+    font-style:  italic;
+    margin-left: 0.5em;
+  }
+
+}
+
+input[type=checkbox] {
+  margin: 0.25em;
+}
+
+input[type=date],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=text],
+input[type=url],
+textarea
+{
+  border:        var(--border-width) solid #CCC;
+  border-radius: var(--border-radius);
+  box-shadow:    inset 0em 0.025em 0.075em #DDD;
+  flex:          1;
+  margin:        0.25em;
+  padding:       var(--padding-text);
+}
+
+legend {
+  font-weight: var(--font-weight-bold);
+}
+
+#links {
+  li {
+    align-items: center;
+  }
+}
+
+#list {
+
+  max-width: 30%;
+
+  li {
+    padding:   var(--padding-text);
+  }
+
+  li:not(:last-child) {
+    border-bottom: var(--border-width) solid #CCC;
+  }
+
+  li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+}
+
+.page-title {
+  .page-title;
+  text-align: center;
+  width:      100%;
+}
+
+.trash {
+  align-items:      center;
+  background-color: var(--red);
+  display:          flex;
+  height:           1.5em;
+  justify-content:  center;
+  width:            1.5em;
+}
+
+#uploadFile {
+
+  border:        var(--border-width) solid black;
+  border-radius: var(--border-radius);
+  padding:       var(--padding-box);
+
+  div {
+    align-items:     center;
+    flex-direction:  row;
+    justify-content: space-between;
+  }
+
+}

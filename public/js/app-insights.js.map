@@ -1,0 +1,45 @@
+{
+  "version": 3,
+  "sources": [
+    "app-insights.js"
+  ],
+  "names": [
+    "navigator",
+    "onLine",
+    "appInsights",
+    "window",
+    "a",
+    "b",
+    "c",
+    "arguments",
+    "queue",
+    "push",
+    "apply",
+    "config",
+    "d",
+    "document",
+    "e",
+    "setTimeout",
+    "createElement",
+    "src",
+    "url",
+    "getElementsByTagName",
+    "parentNode",
+    "appendChild",
+    "cookie",
+    "f",
+    "length",
+    "pop",
+    "disableExceptionTracking",
+    "g",
+    "h",
+    "i",
+    "instrumentationKey",
+    "trackPageView"
+  ],
+  "mappings": ";;AAAA;;AAEA,IAAIA,UAAUC,MAAd,EAAsB;;AAEpB,MAAIC,cAAcC,OAAOD,WAAP,IAAsB,UAASE,CAAT,EAAY;AAClD,aAASC,CAAT,CAAWD,CAAX,EAAc;AACZE,QAAEF,CAAF,IAAO,YAAW;AAChB,YAAIC,IAAIE,SAAR;AACAD,UAAEE,KAAF,CAAQC,IAAR,CAAa,YAAW;AACtBH,YAAEF,CAAF,EAAKM,KAAL,CAAWJ,CAAX,EAAcD,CAAd;AACD,SAFD;AAGD,OALD;AAMD;AACD,QAAIC,IAAI;AACJK,cAAQP;AADJ,KAAR;AAAA,QAGEQ,IAAIC,QAHN;AAAA,QAIEC,IAAIX,MAJN;AAKAY,eAAW,YAAW;AACpB,UAAIV,IAAIO,EAAEI,aAAF,CAAgB,QAAhB,CAAR;AACAX,QAAEY,GAAF,GAAQb,EAAEc,GAAF,IAAS,kDAAjB,EAAqEN,EAAEO,oBAAF,CAAuB,QAAvB,EAAiC,CAAjC,EAAoCC,UAApC,CAA+CC,WAA/C,CAA2DhB,CAA3D,CAArE;AACD,KAHD;AAIA,QAAI;AACFC,QAAEgB,MAAF,GAAWV,EAAEU,MAAb;AACD,KAFD,CAEE,OAAOlB,CAAP,EAAU,CAAE;AACdE,MAAEE,KAAF,GAAU,EAAV;AACA,SAAK,IAAIe,IAAI,CAAC,OAAD,EAAU,WAAV,EAAuB,QAAvB,EAAiC,UAAjC,EAA6C,OAA7C,EAAsD,YAAtD,CAAb,EAAkFA,EAAEC,MAApF;AAA6FnB,QAAE,UAAUkB,EAAEE,GAAF,EAAZ;AAA7F,KACA,IAAIpB,EAAE,6BAAF,GAAkCA,EAAE,+BAAF,CAAlC,EAAsEA,EAAE,iBAAF,CAAtE,EAA4FA,EAAE,gBAAF,CAA5F,EAAiHA,EAAE,gBAAF,CAAjH,EAAsIA,EAAE,eAAF,CAAtI,EAA0JA,EAAE,OAAF,CAA1J,EAAsK,CAACD,EAAEsB,wBAA7K,EAAuM;AACrMH,UAAI,SAAJ,EAAelB,EAAE,MAAMkB,CAAR,CAAf;AACA,UAAII,IAAIb,EAAES,CAAF,CAAR;AACAT,QAAES,CAAF,IAAO,UAASnB,CAAT,EAAYC,CAAZ,EAAeO,CAAf,EAAkBE,CAAlB,EAAqBc,CAArB,EAAwB;AAC7B,YAAIC,IAAIF,KAAKA,EAAEvB,CAAF,EAAKC,CAAL,EAAQO,CAAR,EAAWE,CAAX,EAAcc,CAAd,CAAb;AACA,eAAO,CAAC,CAAD,KAAOC,CAAP,IAAYvB,EAAE,MAAMiB,CAAR,EAAWnB,CAAX,EAAcC,CAAd,EAAiBO,CAAjB,EAAoBE,CAApB,EAAuBc,CAAvB,CAAZ,EAAuCC,CAA9C;AACD,OAHD;AAID;AACD,WAAOvB,CAAP;AACD,GAhCuC,CAgCtC;AACAwB,wBAAoB;AADpB,GAhCsC,CAAxC;;AAoCA3B,SAAOD,WAAP,GAAqBA,WAArB,EAAkCA,YAAYM,KAAZ,IAAqB,MAAMN,YAAYM,KAAZ,CAAkBgB,MAA7C,IAAuDtB,YAAY6B,aAAZ,EAAzF;AAED",
+  "file": "app-insights.js",
+  "sourcesContent": [
+    "/* eslint-disable */\r\n\r\nif (navigator.onLine) {\r\n\r\n  var appInsights = window.appInsights || function(a) {\r\n    function b(a) {\r\n      c[a] = function() {\r\n        var b = arguments;\r\n        c.queue.push(function() {\r\n          c[a].apply(c, b)\r\n        })\r\n      }\r\n    }\r\n    var c = {\r\n        config: a\r\n      },\r\n      d = document,\r\n      e = window;\r\n    setTimeout(function() {\r\n      var b = d.createElement(\"script\");\r\n      b.src = a.url || \"https://az416426.vo.msecnd.net/scripts/a/ai.0.js\", d.getElementsByTagName(\"script\")[0].parentNode.appendChild(b)\r\n    });\r\n    try {\r\n      c.cookie = d.cookie\r\n    } catch (a) {}\r\n    c.queue = [];\r\n    for (var f = [\"Event\", \"Exception\", \"Metric\", \"PageView\", \"Trace\", \"Dependency\"]; f.length;) b(\"track\" + f.pop());\r\n    if (b(\"setAuthenticatedUserContext\"), b(\"clearAuthenticatedUserContext\"), b(\"startTrackEvent\"), b(\"stopTrackEvent\"), b(\"startTrackPage\"), b(\"stopTrackPage\"), b(\"flush\"), !a.disableExceptionTracking) {\r\n      f = \"onerror\", b(\"_\" + f);\r\n      var g = e[f];\r\n      e[f] = function(a, b, d, e, h) {\r\n        var i = g && g(a, b, d, e, h);\r\n        return !0 !== i && c[\"_\" + f](a, b, d, e, h), i\r\n      }\r\n    }\r\n    return c\r\n  }({\r\n    instrumentationKey: \"62a955a6-e0a8-4317-9dd5-cb1b6c4150c8\"\r\n  });\r\n\r\n  window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();\r\n  \r\n}\r\n"
+  ]
+}

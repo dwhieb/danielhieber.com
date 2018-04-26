@@ -1,61 +1,52 @@
-const co = require('co');
-const fs = require('fs');
-const less = require('less');
-const path = require('path');
+/**
+ * Compiles all the LESS files in the project (listed in `less.json`)
+ * @name less.js
+ */
 
-// converts a string of LESS data to CSS
-const convertLess = lessData => new Promise((resolve, reject) => {
-  less.render(lessData).then(output => resolve(output.css)).catch(reject);
-});
+const { env }               = require('../lib/config');
+const Cleaner               = require('less-plugin-clean-css');
+const { load: convertYAML } = require('js-yaml');
+const less                  = require('less');
+const path                  = require('path');
+const { promisify }         = require('util');
 
-// read the LESS data from the file
-const readFile = filename => new Promise((resolve, reject) => {
-  const filepath = path.join(__dirname, `../less/${filename}`);
-  fs.readFile(filepath, 'utf8', (err, res) => {
-    if (err) reject(err);
-    resolve(res);
-  });
-});
+const {
+  readFile,
+  writeFile,
+}  = require('fs');
 
-// saves a string of CSS data to /public/css/{filename}.css
-const saveCss = (cssFilename, cssData) => new Promise((resolve, reject) => {
-  const filepath = path.join(__dirname, `../public/css/${cssFilename}`);
-  fs.writeFile(filepath, cssData, 'utf8', err => {
-    if (err) reject(err);
-    resolve();
-  });
-});
+const cleaner = new Cleaner();
+const read    = promisify(readFile);
+const write   = promisify(writeFile);
 
-// completely converts a single file and saves the new .css file to /public/css
-const convertFile = filename => new Promise((resolve, reject) => {
+const convert = async ([name, filepath]) => {
 
-  const generator = co.wrap(function* convert(filename) {
-    const lessData = yield readFile(filename);
-    const cssFilename = filename.replace('.less', '.css');
-    const cssData = yield convertLess(lessData);
-    yield saveCss(cssFilename, cssData);
-  });
+  const opts = {
+    filename:   path.join(process.cwd(), filepath),
+    plugins:    [cleaner],
+    strictMath: true,
+  };
 
-  generator(filename)
-  .then(resolve)
-  .catch(reject);
+  // if (env === `localhost` || env === `development`) {
+  //   opts.sourceMap = {
+  //     sourceMapFileInline: true,
+  //   };
+  // }
 
-});
+  const lessData = await read(filepath, `utf8`);
+  const { css }  = await less.render(lessData, opts);
+  await write(`public/css/${name}.css`, css, `utf8`);
 
-// read the list of files in the LESS directory
-fs.readdir('./less', 'utf8', (err, filenames) => {
+};
 
-  if (err) {
-    console.error(err, err.stack);
-    throw new Error('Unable to read LESS directory.');
+void async function() {
+  try {
+    const yaml     = await read(`build/less.yaml`, `utf8`);
+    const files    = convertYAML(yaml);
+    const promises = Object.entries(files).map(convert);
+    await Promise.all(promises);
+    console.log(` -- LESS files converted`);
+  } catch (e) {
+    console.error(e);
   }
-
-  // convert each of the files
-  Promise.all(filenames.map(convertFile))
-  .then(() => console.log('All LESS files converted successfully.'))
-  .catch(err => {
-    console.error(err, err.stack);
-    throw new Error('There was an error converting the LESS files.');
-  });
-
-});
+}();

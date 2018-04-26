@@ -1,25 +1,23 @@
 {
   "name": "danielhieber.com",
   "version": "1.0.0",
-  "description": "The academic homepage of Daniel W. Hieber, graduate student in linguistics at the University of California, Santa Barbara.",
+  "description": "The personal academic homepage of Daniel W. Hieber, Ph.D. Candidate in Linguistics at the University of California, Santa Barbara",
   "author": {
     "name": "Daniel W. Hieber",
-    "email": "dhieber@umail.ucsb.edu",
-    "url": "http://danielhieber.com"
+    "email": "dhieber@ucsb.edu",
+    "url": "https://danielhieber.com"
   },
   "homepage": "https://github.com/dwhieb/danielhieber.com#readme",
   "keywords": [
     "linguistics",
-    "typology",
     "Chitimacha",
     "Kisii",
+    "Gusii",
     "Ekegusii",
     "Mixtec",
     "Swahili",
-    "UCSB",
-    "University of California Santa Barbara",
-    "language documentation",
-    "language revitalization"
+    "Digital Linguistics",
+    "DLx"
   ],
   "license": "MIT",
   "bugs": {
@@ -31,38 +29,35 @@
   },
   "main": "app.js",
   "scripts": {
-    "build": "npm run build-less & npm run build-js",
-    "build-less": "node build/less.js",
-    "build-js": "babel src -d public/js",
-    "test": "jasmine JASMINE_CONFIG_PATH=test/jasmine.json"
-  },
-  "engines": {
-    "node": ">=6.0"
+    "build": "npm run build-js & npm run build-css & npm run build-svg & npm run upload",
+    "build-css": "node build/less.js",
+    "build-js": "node build/scripts.js",
+    "build-svg": "node build/svg.js",
+    "upload": "node build/upload.js"
   },
   "dependencies": {
-    "azure-storage": "^1.4.0",
-    "cors": "^2.8.1",
-    "documentdb": "^1.10.0",
-    "documentdb-session": "^1.0.0",
-    "express": "^4.14.0",
+    "applicationinsights": "^1.0.2",
+    "azure-storage": "^2.8.2",
+    "body-parser": "^1.18.2",
+    "boom": "^7.2.0",
+    "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
+    "documentdb": "^1.14.2",
+    "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.14.2",
-    "global": "^4.3.2",
-    "helmet": "^2.3.0",
-    "markdown-it": "^8.2.2",
-    "passport": "^0.3.2",
-    "passport-windowslive": "^1.0.2",
-    "socket.io": "^1.6.0",
-    "valid-url": "^1.0.9"
+    "feather-icons": "^4.5.0",
+    "formidable": "^1.2.1",
+    "helmet": "^3.12.0",
+    "markdown-it": "^8.4.1",
+    "prince": "^1.4.8",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-plugin-transform-builtin-extend": "^1.1.0",
-    "babel-preset-latest": "^6.16.0",
-    "jasmine": "^2.5.2",
-    "less": "^2.7.1",
-    "socket.io-client": "^1.6.0",
-    "supertest": "^2.0.1",
-    "supertest-as-promised": "^3.2.0"
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "js-yaml": "^3.10.0",
+    "less": "^2.7.3",
+    "less-plugin-clean-css": "^1.5.1",
+    "svg-sprite": "^1.4.0"
   }
 }

@@ -1,0 +1,7 @@
+extends: 'C:\Users\dwhieb\Coding\dev\.stylelintrc.yaml'
+rules:
+  function-url-no-scheme-relative: true
+ignoreFiles:
+  - '*.css'
+  - 'public/css/*.css'
+  - 'public/semantic'

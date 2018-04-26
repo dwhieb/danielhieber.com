@@ -35,3 +35,6 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Node Debugger looks for a version file and throws an error if it doesn't find it
+public/json/version
