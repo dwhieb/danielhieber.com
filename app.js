@@ -20,6 +20,7 @@ const { getContext, hbs, startServer } = require('./lib/modules');
 const {
   bodyParser,
   csurf,
+  earlyLogger,
   errors,
   helmet,
   logger,
@@ -38,6 +39,7 @@ app.set(`port`, config.port);        // set port
 app.set(`view engine`, hbs.extname); // use Handlebars for templating
 
 // middleware
+app.use(earlyLogger);    // early logging for debugging
 app.use(helmet);         // security settings
 app.use(bodyParser);     // parse form data
 app.use(multipart);      // parse multipart form data
