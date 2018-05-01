@@ -53,7 +53,7 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.2",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "js-yaml": "^3.10.0",
     "less": "^2.7.3",
