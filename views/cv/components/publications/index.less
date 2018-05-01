@@ -1,11 +1,8 @@
-@import (reference) '../../less/print.less';
-
 #publications {
 
   .cv-item-title,
+  .description,
   .doi,
-  .links,
-  p
   {
     display: inline;
   }
@@ -18,12 +15,8 @@
 
 @media print {
 
-  #publications-online {
-
-    .links {
-      display: none;
-    }
-
+  .links {
+    display: none;
   }
 
   #publications-unpublished {
@@ -35,13 +28,17 @@
 @media screen {
   #publications {
 
-    .links {
+    .doi {
       a {
         font-weight: var(--font-weight);
       }
     }
 
-    .doi {
+    .full-link {
+      display: none;
+    }
+
+    .links {
       a {
         font-weight: var(--font-weight);
       }

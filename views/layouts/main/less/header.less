@@ -2,6 +2,8 @@
 
 /* Styling for the site's main banner / header (doesn't include the nav) */
 
+@import (reference) '../../../less/components/index.less';
+
 #header {
 
   align-items: stretch;
@@ -13,18 +15,14 @@
     text-align: center;
   }
 
-  h1 {
-    font-size: var(--font-size-banner);
-  }
-
   [lang*=fonipa] {
     margin-bottom: -0.125em;
   }
 
-  p {
-    font-size: var(--font-size-large);
-  }
+}
 
+.header-banner {
+  .header-banner;
 }
 
 #gallery {
@@ -38,4 +36,8 @@
   transform:  translateY(-35%);
   transition: opacity 0.5s;
   z-index:    -1;
+}
+
+.subtitle {
+  .subtitle;
 }

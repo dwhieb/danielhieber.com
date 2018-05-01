@@ -2,9 +2,16 @@
 // and are loaded before any other styles
 
 @import (reference) '../../less/classes.less';
+@import (reference) '../../less/components/index.less';
 
 .bulleted {
   .bulleted;
+}
+
+.cv-item-title {
+  a {
+    .link;
+  }
 }
 
 .date {
@@ -16,7 +23,7 @@
   .description;
 }
 
-h4 {
+.header-subsection {
   margin-top:    0.5em;
   margin-bottom: 0.25em;
 }

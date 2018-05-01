@@ -1,11 +1,11 @@
 <section id={{CVTypes.publications.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.publications.header}}
+  {{> cv/header-section/index CVTypes.publications.header}}
 
   {{#each CVItems.publications}}
     <section id=publications-{{@key}}>
 
-      <h4>{{title}}</h4>
+      <h3 class=header-subsection>{{title}}</h3>
 
       <ol>
         {{#each this}}

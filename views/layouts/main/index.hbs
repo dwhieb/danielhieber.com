@@ -59,11 +59,11 @@
     {{!-- Site Header --}}
     {{#if header}}
       <header id=header role=banner>
-        <h1><a href=/ class=rollover>
+        <h1 class=header-banner><a href=/ class=rollover>
           <span lang=en-Latn>Daniel W. Hieber</span>
           <span lang=en-fonipa-x-emic>{{ipaName}}</span>
         </a></h1>
-        <p><a href=/ class=non-link>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</a></p>
+        <p class=subtitle><a href=/ class=non-link>Ph.D. Candidate in Linguistics at the University of California, Santa Barbara</a></p>
         <a href=/ class=non-link><img id=gallery alt='' src={{cdn}}/img/gallery/letter_blocks.jpg opacity='0.2' aria-hidden=true></a>
       </header>
     {{/if}}{{!-- end site header (and its conditional) --}}
@@ -162,8 +162,8 @@
       {{!-- GitHub --}}
       <p class=github>
         <a aria-label='GitHub repository for this site' href='https://github.com/dwhieb/danielhieber.com' class=non-link>
-          <svg class=svg-octicon aria-hidden=true aria-labelledby=title height='64pt'>
-            <title>GitHub repository for this site</title>
+          <svg class=svg-octicon aria-hidden=true aria-labelledby=title-github height='64pt'>
+            <title id=title-github>GitHub repository for this site</title>
             <use href=#octicon></use>
           </svg>
         </a>
@@ -173,8 +173,8 @@
       {{!-- License --}}
       <p class=cc>
         <a aria-label='Creative Commons BY-NC 4.0' href='http://creativecommons.org/licenses/by-nc/4.0/' rel=license class=non-link>
-          <svg class=svg-cc aria-hidden=true aria-labelledby=title height=42 width=120>
-            <title>Creative Commons BY-NC 4.0</title>
+          <svg class=svg-cc aria-hidden=true aria-labelledby=title-cc height=42 width=120>
+            <title id=title-cc>Creative Commons BY-NC 4.0</title>
             <use href=#cc-by-nc></use>
           </svg>
         </a>

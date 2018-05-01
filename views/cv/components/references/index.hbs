@@ -1,12 +1,12 @@
 <section id={{CVTypes.references.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.references.header}}
+  {{> cv/header-section/index CVTypes.references.header}}
 
   <ol>
     {{#each CVItems.references}}
       <li id='{{cvid}}' class=cv-item>
 
-        <h4><a href='{{links.info}}'>{{name}}</a></h4>
+        <h3 class=header-subsection><a href='{{links.info}}'>{{name}}</a></h3>
 
         <p>{{role}}</p>
 
