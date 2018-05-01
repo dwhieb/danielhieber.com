@@ -1,0 +1,42 @@
+.button {
+
+  background-color:  var(--blue);
+  background-image:  none;
+  border:            none transparent;
+  border-radius:     var(--border-radius);
+  box-sizing:        border-box;
+  color:             white;
+  cursor:            pointer;
+  padding:           var(--padding-text);
+  text-align:        center;
+  user-select:       none;
+  vertical-align:    middle;
+  -webkit-user-drag: none;
+  white-space:       nowrap;
+
+  &:focus {
+    outline: 0.1rem dashed var(--blue);
+  }
+
+  &[disabled] {
+    cursor:  not-allowed;
+    filter:  alpha(opacity=40);
+    opacity: 0.4;
+  }
+
+  &:hover {
+    background-image:
+      linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
+  }
+
+  &:active {
+    background-color: white;
+    color:            var(--blue);
+    outline:          none;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+
+}

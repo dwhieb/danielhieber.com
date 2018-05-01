@@ -1,0 +1,27 @@
+// Inline links
+.link {
+
+  background:    transparent;
+  border-bottom: var(--underline-transparent);
+  color:         var(--link-color);
+  font-weight:   var(--font-weight-bold);
+
+  &:link {
+    border-bottom: var(--underline-transparent);
+    color:         var(--link-color);
+  }
+
+  &:hover {
+    border-bottom: var(--underline);
+    color:         var(--link-color);
+  }
+
+  &:visited {
+    color: var(--link-color-visited);
+  }
+
+  .unicode {
+    font-weight: bold;
+  }
+
+}

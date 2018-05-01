@@ -1,0 +1,35 @@
+// Skip link
+.skip-link {
+
+  padding:              var(--padding-text);
+  position:             absolute;
+  text-decoration-skip: ink;
+  z-index:              1;
+
+  &:link {
+    background-color: white;
+    color:            var(--link-color);
+    text-decoration:  none;
+  }
+
+  &:hover {
+    background-color: white;
+    color:            var(--link-color);
+    text-decoration:  underline;
+  }
+
+  &:visited {
+    background-color: white;
+    color:            var(--link-color);
+    text-decoration:  underline;
+  }
+
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:not(:focus) {
+    .visually-hidden;
+  }
+
+}
