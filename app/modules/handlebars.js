@@ -47,6 +47,7 @@ const config = {
     md,
     section,
   },
+  layoutsDir: `layouts`,
   partialsDir: [
     `components`,
     {
