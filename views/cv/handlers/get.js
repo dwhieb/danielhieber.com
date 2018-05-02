@@ -2,8 +2,8 @@
   no-return-assign,
 */
 
-const { CVTypes }       = require('../../../lib/constants');
-const { getDateString } = require('../../../lib/utilities');
+const { CVTypes }       = require('../../../constants');
+const { getDateString } = require('../../../utilities');
 
 const { createCVItemsHash, getCVItems } = require('../lib');
 

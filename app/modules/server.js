@@ -2,7 +2,7 @@
   no-console
 */
 
-const config   = require('../config');
+const config   = require('../../config');
 const http     = require('http');
 const insights = require('applicationinsights');
 const meta     = require('../../package.json');

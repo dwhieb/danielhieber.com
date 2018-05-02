@@ -3,19 +3,19 @@
  * @name app.js
  */
 
-const config           = require('./lib/config');               // load config file before other modules
-const startAppInsights = require('./lib/services/appInsights'); // start Azure Application Insights
+const config          = require('../config');   // load config file before other modules
+const { appInsights } = require('../services'); // start Azure Application Insights
 
-if (config.production) startAppInsights();
+if (config.production) appInsights();
 
 // modules
 const cookieParser = require('cookie-parser');
 const express      = require('express');
-const middleware   = require('./lib/middleware');
-const route        = require('./lib/router');
-const { error }    = require('./views');
+const middleware   = require('./middleware');
+const route        = require('./router');
+const { error }    = require('../views');
 
-const { getContext, hbs, startServer } = require('./lib/modules');
+const { getContext, hbs, startServer } = require('./modules');
 
 const {
   bodyParser,

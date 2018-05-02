@@ -21,7 +21,7 @@ const {
   development,
   localhost,
   production,
-} = require('../config');
+} = require('../../config');
 
 module.exports = async () => {
 

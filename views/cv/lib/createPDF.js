@@ -1,4 +1,4 @@
-const { baseURL } = require('../../../lib/config');
+const { baseURL } = require('../../../config');
 const path        = require('path');
 const prince      = require('prince');
 

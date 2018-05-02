@@ -1,4 +1,4 @@
-const { db } = require('../../../lib/services');
+const { db } = require('../../../services');
 
 module.exports = (req, res, next) => err => {
   if (err instanceof Error) return next(err);

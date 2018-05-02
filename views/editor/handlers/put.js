@@ -8,13 +8,13 @@
 */
 
 const { catchError }     = require('../lib');
-const { db }             = require('../../../lib/services');
+const { db }             = require('../../../services');
 const deleteHandler      = require('./delete');
 const deleteFileHandler  = require('./deleteFile');
 const { Document }       = require('../models');
 const getHandler         = require('./get');
 const { promisify }      = require('util');
-const { CVTypes }        = require('../../../lib/constants');
+const { CVTypes }        = require('../../../constants');
 const uploadFileHandler  = require('./postFile');
 
 module.exports = async (req, res, next) => {

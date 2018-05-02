@@ -5,7 +5,7 @@
 */
 
 const { stringify } = require('querystring');
-const { localhost, microsoftID } = require('../config');
+const { localhost, microsoftID } = require('../../config');
 
 module.exports = (req, res, next) => {
   if (localhost) return next();

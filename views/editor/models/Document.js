@@ -2,7 +2,7 @@
   max-statements,
 */
 
-const { CVTypes, pubTypes } = require('../../../lib/constants');
+const { CVTypes, pubTypes } = require('../../../constants');
 
 // Constants
 const competencies = [

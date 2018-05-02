@@ -1,4 +1,4 @@
-const { db }        = require('../../../lib/services');
+const { db }        = require('../../../services');
 const { promisify } = require('util');
 
 module.exports = () => {

@@ -3,7 +3,7 @@
  * @name less.js
  */
 
-const { env }               = require('../lib/config');
+const { env }               = require('../config');
 const Cleaner               = require('less-plugin-clean-css');
 const { load: convertYAML } = require('js-yaml');
 const less                  = require('less');

@@ -1,4 +1,4 @@
-require('../../../credentials/danielhieber.js');
+require('../../credentials/danielhieber.js');
 
 const {
   COOKIE_SECRET,

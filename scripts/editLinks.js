@@ -11,7 +11,7 @@
 
 process.env.NODE_ENV = `localhost`;
 
-const { db }        = require('../lib/services');
+const { db }        = require('../services');
 const { promisify } = require('util');
 
 // Fields to check

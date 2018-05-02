@@ -1,5 +1,5 @@
 const Boom   = require('boom');
-const config = require('../../../lib/config');
+const config = require('../../../config');
 const { defaultClient: insights } = require('applicationinsights');
 
 module.exports = (err, req, res, next) => { // eslint-disable-line no-unused-vars

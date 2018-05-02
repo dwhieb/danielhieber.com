@@ -4,7 +4,7 @@
  */
 
 const { catchError }  = require('../lib');
-const { db, storage } = require('../../../lib/services');
+const { db, storage } = require('../../../services');
 
 module.exports = async (req, res, next) => {
 

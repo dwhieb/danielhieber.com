@@ -2,8 +2,8 @@
   no-param-reassign,
 */
 
-const { compare, getDateString } = require('../../../lib/utilities');
-const { CVTypes, pubTypes }      = require('../../../lib/constants');
+const { compare, getDateString } = require('../../../utilities');
+const { CVTypes, pubTypes }      = require('../../../constants');
 
 module.exports = docs => {
 

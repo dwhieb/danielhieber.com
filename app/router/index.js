@@ -1,4 +1,4 @@
-const { asyncErrors } = require('../utilities');
+const { asyncErrors } = require('../../utilities');
 const { auth }        = require('../middleware');
 
 const redirects = require('./redirects');

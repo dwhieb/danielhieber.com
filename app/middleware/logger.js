@@ -7,7 +7,7 @@
   no-console
 */
 
-const { logInfo, production } = require('../config');
+const { logInfo, production } = require('../../config');
 const insights = require('applicationinsights').defaultClient;
 const uuid     = require('uuid/v4');
 

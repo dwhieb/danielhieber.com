@@ -8,8 +8,8 @@
 */
 
 const { catchError }  = require('../lib');
-const { storageURL }  = require('../../../lib/config');
-const { db, storage } = require('../../../lib/services');
+const { storageURL }  = require('../../../config');
+const { db, storage } = require('../../../services');
 const uuid            = require('uuid/v4');
 
 module.exports = async (req, res, next) => {
