@@ -1,6 +1,5 @@
 /**
- * Route handler to add a new file to a document`
- * @name postFile.js
+ * Handler to add a new file to a document on the CV Editor page
  */
 
 /* eslint-disable
@@ -8,8 +7,8 @@
 */
 
 const { catchError }  = require('../lib');
-const { storageURL }  = require('../../../lib/config');
-const { db, storage } = require('../../../lib/services');
+const { storageURL }  = require('../../../config');
+const { db, storage } = require('../../../services');
 const uuid            = require('uuid/v4');
 
 module.exports = async (req, res, next) => {

@@ -1,11 +1,10 @@
 /**
  * This script uploads the latest version of the CSS and JavaScript files.
  * It does NOT reupload images or fonts. These must be uploaded manually to Azure Storage.
- * @name upload.js
  */
 
 require('../../credentials/azure-storage-danielhieber');
-const config        = require('../lib/config');
+const config        = require('../config');
 const fs            = require('fs');
 const { promisify } = require('util');
 const Storage       = require('azure-storage');

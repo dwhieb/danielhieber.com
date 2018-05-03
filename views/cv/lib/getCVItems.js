@@ -1,4 +1,8 @@
-const { db }        = require('../../../lib/services');
+/**
+ * Retrieves all CV items from the database
+ */
+
+const { db }        = require('../../../services');
 const { promisify } = require('util');
 
 module.exports = () => {

@@ -1,3 +1,7 @@
+/**
+ * Creates the SVG symbols file (public/img/sprites.svg) for embedding in the HTML
+ */
+
 const fs            = require('fs');
 const path          = require('path');
 const { promisify } = require('util');

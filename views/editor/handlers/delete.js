@@ -1,5 +1,9 @@
+/**
+ * DELETE handler for the CV Editor page
+ */
+
 const { catchError } = require('../lib');
-const { db }         = require('../../../lib/services');
+const { db }         = require('../../../services');
 
 module.exports = async (req, res, next) => {
 

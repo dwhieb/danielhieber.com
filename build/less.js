@@ -1,9 +1,8 @@
 /**
- * Compiles all the LESS files in the project (listed in `less.json`)
- * @name less.js
+ * Compiles all the LESS files in the project (listed in `less.yaml`)
  */
 
-const { env }               = require('../lib/config');
+const { env }               = require('../config');
 const Cleaner               = require('less-plugin-clean-css');
 const { load: convertYAML } = require('js-yaml');
 const less                  = require('less');

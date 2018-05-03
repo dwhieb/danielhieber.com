@@ -1,4 +1,6 @@
-// Client-side JavaScript for the admin Editor page
+/**
+ * Client-side JavaScript for the CV Editor page
+ */
 
 /* eslint-env browser */
 

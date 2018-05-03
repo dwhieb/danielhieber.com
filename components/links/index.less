@@ -1,0 +1,85 @@
+/* Styling for the 'Me on the Web' (Links) partial */
+
+@import (reference) 'less/components/index.less';
+
+#links {
+
+  font-size: var(--font-size-small);
+  padding:   var(--padding-box);
+
+  .header-colored {
+    .header-colored;
+  }
+
+  span {
+    border-bottom: var(--underline-transparent);
+    margin:        var(--padding-text);
+    padding:       0.25em 0em;
+  }
+
+  .svg-orcid + span,
+  .svg-twitter + span,
+  {
+    color: var(--blue);
+  }
+
+  li {
+
+    padding: 0.25em 0.5em;
+
+    &:first-child {
+      padding-top: 0.5em;
+    }
+
+    &:last-child {
+      padding-bottom: 0.5em;
+    }
+
+    &:hover {
+      span {
+        border-bottom: var(--underline);
+      }
+    }
+
+  }
+
+  a {
+
+    white-space: nowrap;
+
+    * {
+      vertical-align: middle;
+    }
+
+  }
+
+  svg {
+    height: 1em;
+    width:  1em;
+  }
+
+  .svg-facebook,
+  .svg-linkedin,
+  .svg-mail,
+  .svg-octicon,
+  .svg-orcid,
+  .svg-skype
+  {
+    height: 1.25em;
+    width:  1.25em;
+    margin: -0.125em;
+  }
+
+  .svg-goodreads {
+    height: 1.5em;
+    width:  1.5em;
+    margin: -0.25em;
+  }
+
+  .svg-twitter {
+    height: 2em;
+    width:  2em;
+    margin: -0.5em;
+  }
+
+}

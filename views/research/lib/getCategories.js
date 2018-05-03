@@ -1,4 +1,8 @@
-const { db }        = require('../../../lib/services');
+/**
+ * Retrieves all the Category documents from the database
+ */
+
+const { db }        = require('../../../services');
 const { promisify } = require('util');
 
 module.exports = () => {

@@ -8,7 +8,7 @@
     "restart": ""
   },
 
-  "exec": "node --inspect app.js",
+  "exec": "npm run build-css && node --inspect index.js",
 
   "ext": "hbs js json less",
 

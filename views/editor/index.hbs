@@ -1,3 +1,5 @@
+{{!-- HTML for the CV Editor page --}}
+
 {{#head 'editor'}}
 
   <!-- Styling for Editor page -->
@@ -32,7 +34,7 @@
 
   </select>
 
-  <h1 class=page-title>{{Type}}</h1>
+  <h1 class=header-page>{{Type}}</h1>
 
   <nav id=list>
 
@@ -635,7 +637,7 @@
         <button id=saveButton type=submit name=saveItem value=true>Save</button>
 
         {{!-- Delete button --}}
-        <button id=delete type=submit name=deleteItem value=true>Delete</button>
+        <button id=deleteButton type=submit name=deleteItem value=true>Delete</button>
 
       </div>
       {{!-- End buttons --}}

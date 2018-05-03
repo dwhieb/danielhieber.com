@@ -1,5 +1,8 @@
-@import '../less/variables.less';
-@import (reference) '../less/classes.less';
+/**
+ * Styling for the CV Editor page
+ */
+
+@import (reference) 'less/components/index.less';
 
 button {
   .button;
@@ -22,7 +25,7 @@ button {
 }
 
 #deleteButton {
-  background-color: var(--red);
+  .button-red;
 }
 
 [name=description] {
@@ -128,10 +131,9 @@ legend {
 
 }
 
-.page-title {
-  .page-title;
-  text-align: center;
-  width:      100%;
+.header-page {
+  .header-page;
+  width: 100%;
 }
 
 .trash {

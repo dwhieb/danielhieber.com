@@ -1,11 +1,13 @@
+{{!-- HTML for the CV Publications section --}}
+
 <section id={{CVTypes.publications.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.publications.header}}
+  {{> cv/header-section/index CVTypes.publications.header}}
 
   {{#each CVItems.publications}}
     <section id=publications-{{@key}}>
 
-      <h4>{{title}}</h4>
+      <h3 class=header-subsection>{{title}}</h3>
 
       <ol>
         {{#each this}}
@@ -16,13 +18,13 @@
             <div class=cv-item-content>
 
               <p class=cv-item-title>
-                {{#if links.pdf}}<a href='{{links.pdf}}'>{{md title 'inline'}}</a>
-                {{else if links.poster}}<a href='{{links.poster}}'>{{md title 'inline'}}</a>
-                {{else if links.handout}}<a href='{{links.handout}}'>{{md title 'inline'}}</a>
-                {{else if links.slides}}<a href='{{links.slides}}'>{{md title 'inline'}}</a>
-                {{else if links.pub}}<a href='{{links.pub}}'>{{md title 'inline'}}</a>
-                {{else if links.info}}<a href='{{links.info}}'>{{md title 'inline'}}</a>
-                {{else}}<strong>{{md title 'inline'}}</strong>
+                {{#if links.pdf}}<a href='{{links.pdf}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
+                {{else if links.poster}}<a href='{{links.poster}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
+                {{else if links.handout}}<a href='{{links.handout}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
+                {{else if links.slides}}<a href='{{links.slides}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
+                {{else if links.pub}}<a href='{{links.pub}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
+                {{else if links.info}}<a href='{{links.info}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
+                {{else}}<strong aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</strong>
                 {{/if}}
               </p>
 

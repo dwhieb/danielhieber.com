@@ -27,7 +27,7 @@
     "type": "git",
     "url": "git+https://github.com/dwhieb/danielhieber.com.git"
   },
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "build": "npm run build-js & npm run build-css & npm run build-svg & npm run upload",
     "build-css": "node build/less.js",

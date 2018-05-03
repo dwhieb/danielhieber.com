@@ -1,4 +1,6 @@
-app-insights:    views/layouts/main/js/app-insights.js
+# A list of all the client-side JS files that need to be transpiled by the build/scripts.js build script
+
+app-insights:    layouts/main/js/app-insights.js
 editor:          views/editor/editor.js
-gallery:         views/layouts/main/js/gallery.js
-register-worker: views/layouts/main/js/register-worker.js
+gallery:         layouts/main/js/gallery.js
+register-worker: layouts/main/js/register-worker.js

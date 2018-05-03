@@ -1,9 +1,13 @@
+/**
+ * Takes the Array of CV items and returns a formatted hash for use with the CV Handlebars template
+ */
+
 /* eslint-disable
   no-param-reassign,
 */
 
-const { compare, getDateString } = require('../../../lib/utilities');
-const { CVTypes, pubTypes }      = require('../../../lib/constants');
+const { compare, getDateString } = require('../../../utilities');
+const { CVTypes, pubTypes }      = require('../../../constants');
 
 module.exports = docs => {
 

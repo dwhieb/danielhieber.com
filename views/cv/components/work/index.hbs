@@ -1,6 +1,8 @@
+{{!-- HTML for the CV Work section --}}
+
 <section id={{CVTypes.work.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.work.header}}
+  {{> cv/header-section/index CVTypes.work.header}}
 
   <ol>
     {{#each CVItems.work}}
@@ -10,13 +12,13 @@
 
         <div class=cv-item-content>
 
-          <p class=cv-item-title>
+          <h3 class=cv-item-title>
             {{#if links.org}}
               <a href='{{links.org}}'>{{role}}, {{organization}}</a>
             {{else}}
               <strong>{{role}}, {{organization}}</strong>
             {{/if}}
-          </p>
+          </h3>
 
           <ul class='achievements bulleted'>
             {{#each achievements}}

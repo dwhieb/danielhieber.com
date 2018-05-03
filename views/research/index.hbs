@@ -1,3 +1,5 @@
+{{!-- HTML for the Research page --}}
+
 {{#head 'research'}}
 
   <!-- Styling for Research page -->
@@ -11,12 +13,12 @@
 
 <main id=research>
 
-  <h2>Research</h2>
+  <h2 class=header-page>Research</h2>
 
   {{#each categories}}
     <section id={{key}}>
 
-      <h3>{{title}}</h3>
+      <h3 class=header-section>{{title}}</h3>
 
       <div class=description>
         {{md description}}
