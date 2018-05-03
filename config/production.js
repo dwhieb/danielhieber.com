@@ -1,3 +1,7 @@
+/**
+ * Config for production server
+ */
+
 const {
   DOMAIN = `danielhieber.com`,
   LOG_EARLY = `false`,

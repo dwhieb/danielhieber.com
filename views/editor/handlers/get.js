@@ -1,4 +1,6 @@
-// Handler for the GET method for the CV Editor
+/**
+ * GET handler for the CV Editor
+ */
 
 /* eslint-disable
   max-statements,

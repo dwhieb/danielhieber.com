@@ -1,3 +1,7 @@
+/**
+ * Model for Documents in CosmosDB
+ */
+
 /* eslint-disable
   max-statements,
 */

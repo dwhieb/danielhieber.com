@@ -1,3 +1,7 @@
+/**
+ * Retrieves all CV items from the database
+ */
+
 const { db }        = require('../../../services');
 const { promisify } = require('util');
 

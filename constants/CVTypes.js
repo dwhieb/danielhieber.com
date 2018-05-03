@@ -1,9 +1,7 @@
-// The order of keys here determines the order that items are listed in the
-// CV page Contents section
-
-/* eslint-disable
-  sort-keys,
-*/
+/**
+ * A list of the types of CV items in their plural form, with a human-readable heaader, id, and singular form.
+ * NB: The order of the keys here determines the orde that items are listed in the CV page Contents section
+ */
 
 module.exports = {
   categories: {
@@ -67,7 +65,7 @@ module.exports = {
     type:   `media`,
   },
   references: {
-    header: `References`,
+    header: `Professional References`,
     id:     `references`,
     type:   `reference`,
   },

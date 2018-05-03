@@ -1,3 +1,7 @@
+/**
+ * GET handler for the /cv page
+ */
+
 /* eslint-disable
   no-return-assign,
 */

@@ -1,3 +1,7 @@
+/**
+ * Creates the print version of the CV page
+ */
+
 const { baseURL } = require('../../../config');
 const path        = require('path');
 const prince      = require('prince');

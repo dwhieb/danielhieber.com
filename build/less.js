@@ -1,6 +1,5 @@
 /**
- * Compiles all the LESS files in the project (listed in `less.json`)
- * @name less.js
+ * Compiles all the LESS files in the project (listed in `less.yaml`)
  */
 
 const { env }               = require('../config');

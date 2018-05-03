@@ -1,3 +1,7 @@
+/**
+ * Config for the dev server
+ */
+
 const {
   DOMAIN = `dev.danielhieber.com`,
   LOG_EARLY = `false`,

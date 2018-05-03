@@ -1,3 +1,7 @@
+/**
+ * Middlware for parsing form data. Should come after body-parser in the middleware waterfall.
+ */
+
 const { IncomingForm } = require('formidable');
 
 module.exports = (req, res, next) => {

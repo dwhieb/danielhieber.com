@@ -1,4 +1,6 @@
-// Authenticate a route by forcing login with Microsoft
+/**
+ * Authentication middleware. Authenticates a route by forcing login with Microsoft. Redirects to /admin when complete.
+ */
 
 /* eslint-disable
   camelcase,

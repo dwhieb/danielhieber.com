@@ -1,3 +1,7 @@
+/**
+ * Handlebars configuration
+ */
+
 /* eslint-disable
   func-style,
   no-invalid-this

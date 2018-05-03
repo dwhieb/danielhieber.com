@@ -1,3 +1,8 @@
+/**
+ * Configuration and initialization for Application Insights.
+ * Also serves as a centralized error-handler for the app (using `.handleError()`)
+ */
+
 const Boom     = require('boom');
 const config   = require('../config');
 const insights = require('applicationinsights');

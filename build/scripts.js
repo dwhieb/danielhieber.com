@@ -1,3 +1,7 @@
+/**
+ * This build script transpiles all the client-side JS, with source maps, using the list of files in scripts.yaml
+ */
+
 const { transformFile }       = require('babel-core');
 const { load: convertYAML }   = require('js-yaml');
 const { readFile, writeFile } = require('fs');

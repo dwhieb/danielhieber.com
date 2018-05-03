@@ -1,3 +1,8 @@
+/**
+ * Azure's client-side Application Insights
+ * NB: This may need to be updated periodically as new versions of AppInsights are released
+ */
+
 /* eslint-disable */
 
 if (navigator.onLine) {
@@ -39,5 +44,5 @@ if (navigator.onLine) {
   });
 
   window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();
-  
+
 }

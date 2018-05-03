@@ -1,6 +1,5 @@
 /**
- * The route handler for the Editor page
- * @name editor/index.js
+ * Handlers for the CV Editor page
  */
 
 const get      = require('./get');

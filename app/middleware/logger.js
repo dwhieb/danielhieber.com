@@ -1,11 +1,6 @@
 /**
- * Middleware that logs basic information about each request
- * @name logger.js
+ * Middleware that logs basic information about each request (except for static files). This should come last in the middleware waterfall.
  */
-
-/* eslint-disable
-  no-console
-*/
 
 const { logInfo, production } = require('../../config');
 const insights = require('applicationinsights').defaultClient;

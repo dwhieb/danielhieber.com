@@ -1,3 +1,7 @@
+/**
+ * This script controls the rotating header images in the main layout's #gallery
+ */
+
 /* global images */
 
 void function startGallery() {

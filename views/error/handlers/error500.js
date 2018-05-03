@@ -1,3 +1,7 @@
+/**
+ * Route handler for 500 errors
+ */
+
 const { appInsights } = require('../../../services');
 
 module.exports = (err, req, res, next) => { // eslint-disable-line no-unused-vars

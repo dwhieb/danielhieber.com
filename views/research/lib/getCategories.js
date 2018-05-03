@@ -1,3 +1,7 @@
+/**
+ * Retrieves all the Category documents from the database
+ */
+
 const { db }        = require('../../../services');
 const { promisify } = require('util');
 

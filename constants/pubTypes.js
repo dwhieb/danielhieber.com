@@ -1,9 +1,7 @@
-// The order of keys here determines the order
-// in which they are rendered in the Handlebars template
-
-/* eslint-disable
-  sort-keys,
-*/
+/**
+ * A list of publication types and their human-readable titles.
+ * NB: The order of the keys here determines the order in which they are rendered on the CV page
+ */
 
 module.exports = {
   edited:           `Edited Volumes`,

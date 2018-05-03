@@ -1,3 +1,7 @@
+/**
+ * Helmet middleware, which sets various security options and headers
+ */
+
 const { env } = require('../../config');
 const helmet  = require('helmet');
 

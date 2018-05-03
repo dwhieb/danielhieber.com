@@ -1,6 +1,7 @@
-/* eslint-disable
-  no-console
-*/
+/**
+ * Logging middleware which shows information about the request *before* hitting other middleware.
+ * Otherwise, request information for static assets will not be logged. This should come first in the middleware waterfall.
+ */
 
 const { logEarly } = require('../../config');
 

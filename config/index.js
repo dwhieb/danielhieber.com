@@ -1,6 +1,6 @@
-/* eslint-disable
-  global-require
-*/
+/**
+ * Set environment-specific config
+ */
 
 const env = process.env.NODE_ENV || `production`;
 

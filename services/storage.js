@@ -1,3 +1,7 @@
+/**
+ * Configuration, initialization, and abstraction over Azure Blob Storage
+ */
+
 const { promisify } = require('util');
 const Storage       = require('azure-storage');
 

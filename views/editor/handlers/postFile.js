@@ -1,6 +1,5 @@
 /**
- * Route handler to add a new file to a document`
- * @name postFile.js
+ * Handler to add a new file to a document on the CV Editor page
  */
 
 /* eslint-disable

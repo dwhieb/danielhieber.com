@@ -1,3 +1,7 @@
+/**
+ * Takes the Array of CV items and returns a formatted hash for use with the CV Handlebars template
+ */
+
 /* eslint-disable
   no-param-reassign,
 */

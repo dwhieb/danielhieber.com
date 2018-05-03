@@ -1,3 +1,7 @@
+/**
+ * Config for localhost
+ */
+
 require('../../credentials/danielhieber.js');
 
 const {

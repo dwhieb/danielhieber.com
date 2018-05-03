@@ -1,3 +1,8 @@
+/**
+ * Converts a Date Object to a human-readable date String
+ * @param  {Date|String} date A Date Object or date String
+ * @return {String}      Returns the human-readable date String
+ */
 module.exports = date => {
 
   const d = date instanceof Date ? date : new Date(date);

@@ -1,3 +1,7 @@
+/**
+ * Route handler for 404 errors
+ */
+
 /* eslint-disable
   no-console
 */

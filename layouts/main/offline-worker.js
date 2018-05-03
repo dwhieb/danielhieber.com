@@ -1,8 +1,9 @@
 /**
  * A web worker that caches network responses for specified files.
  * Attempts to return cached responses first, then update the cache with the network response.
- * @name offline-worker.js
  */
+
+/* eslint-env browser */
 
 const cacheName = `danielhieber`;
 const cacheURL  = `json/cache.json`;

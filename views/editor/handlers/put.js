@@ -1,6 +1,5 @@
 /**
- * Upsert an item to the database
- * @name put.js
+ * PUT handler for the CV Editor page
  */
 
 /* eslint-disable

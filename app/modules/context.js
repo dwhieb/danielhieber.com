@@ -1,11 +1,6 @@
 /**
  * Injects various variables, CSS, and JS into app.locals, for use in templates and other areas of the app.
- * @name inject.js
  */
-
-/* eslint-disable
-  no-param-reassign
-*/
 
 const { icons: feather } = require('feather-icons');
 const fs                 = require('fs');

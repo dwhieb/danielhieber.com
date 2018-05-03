@@ -1,3 +1,7 @@
+/**
+ * Configuration, initialization, and abstraction over the CosmosDB database
+ */
+
 const { dbURL, dbKey }   = require('../config');
 const { DocumentClient } = require('documentdb');
 const { promisify }      = require('util');

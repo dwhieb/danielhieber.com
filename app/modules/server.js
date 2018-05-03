@@ -1,5 +1,10 @@
+/**
+ * Server configuration and initialization
+ * @type {[type]}
+ */
+
 /* eslint-disable
-  no-console
+  no-console,
 */
 
 const { appInsights } = require('../../services');

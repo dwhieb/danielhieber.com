@@ -1,6 +1,5 @@
 /**
- * Add a new item to the database
- * @name post.js
+ * POST handler for the CV Editor page
  */
 
 const { catchError } = require('../lib');

@@ -1,3 +1,7 @@
+/**
+ * DELETE handler for the CV Editor page
+ */
+
 const { catchError } = require('../lib');
 const { db }         = require('../../../services');
 

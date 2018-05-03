@@ -1,3 +1,7 @@
+/**
+ * Main router
+ */
+
 const { asyncErrors } = require('../../utilities');
 const { auth }        = require('../middleware');
 
