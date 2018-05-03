@@ -2,29 +2,16 @@
   no-console
 */
 
-const config   = require('../../config');
-const http     = require('http');
-const insights = require('applicationinsights');
-const meta     = require('../../package.json');
+const { appInsights } = require('../../services');
+const config          = require('../../config');
+const http            = require('http');
+const meta            = require('../../package.json');
 
 module.exports = function startServer(app) {
 
   const server = http.createServer(app);
 
-  server.on(`error`, exception => {
-
-    console.error(exception, exception.stack);
-
-    insights.defaultClient.trackException({
-      exception,
-      properties: {
-        data:          exception.data,
-        exceptionType: `ServerException`,
-        headers:       exception.output.headers,
-      },
-    });
-
-  });
+  server.on(`error`, err => appInsights.handleError(err));
 
   server.listen(config.port, () => {
     console.log(`Server started. Press Ctrl+C to terminate.
@@ -33,6 +20,11 @@ module.exports = function startServer(app) {
     Time:    ${new Date}
     Node:    ${process.version}
     Env:     ${config.env}`);
+  });
+
+  process.on(`SIGTERM`, () => {
+    console.log(`Shutting down process.`);
+    server.stop();
   });
 
   return server;
