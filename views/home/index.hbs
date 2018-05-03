@@ -1,10 +1,11 @@
 {{#head 'home'}}
 
-  <!-- Styling for Home page -->
-  <link rel=preload href={{cdn}}/css/home.css as=style onload="this.rel='stylesheet';">
+  <!-- Preload critical assets -->
+  <link href={{cdn}}/img/grad_slam.jpg rel=preload as=image type=image/jpeg>
+  <link href={{cdn}}/css/home.css rel=preload as=style onload="this.rel='stylesheet';">
 
   <noscript>
-    <link rel=stylesheet href={{cdn}}/css/home.css>
+    <link href={{cdn}}/css/home.css rel=stylesheet>
   </noscript>
 
 {{/head}}
