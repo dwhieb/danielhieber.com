@@ -1,6 +1,6 @@
 /* global images */
 
-(() => {
+void function startGallery() {
 
   const gallery    = document.getElementById(`gallery`);
   const interval   = 10000;
@@ -34,4 +34,4 @@
   // Change the image every interval
   setInterval(advance, interval);
 
-})();
+}();

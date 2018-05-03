@@ -6,7 +6,7 @@
 const config          = require('../config');   // load config file before other modules
 const { appInsights } = require('../services'); // start Azure Application Insights
 
-if (config.production) appInsights();
+if (config.production) appInsights.start();
 
 // modules
 const cookieParser = require('cookie-parser');
