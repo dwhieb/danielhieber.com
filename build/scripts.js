@@ -11,7 +11,7 @@ const write     = promisify(writeFile);
 const processFile = async ([name, path]) => {
   const { code, map }    = await transform(path);
   const outpath          = `public/js/${name}.js`;
-  const mapOutpath       = outpath + `.map`;
+  const mapOutpath       = `${outpath}.map`;
   const sourceMappingURL = `//# sourceMappingURL=/js/${name}.js.map`;
   const js               = `${code} ${sourceMappingURL}`;
   const sourceMap        = JSON.stringify(map, null, 2);
@@ -20,7 +20,7 @@ const processFile = async ([name, path]) => {
 };
 
 const processWorker = async () => {
-  const workerPath = `views/layouts/main/offline-worker.js`;
+  const workerPath = `layouts/main/offline-worker.js`;
   const outPath    = `public/offline-worker.js`;
   const { code }   = await transform(workerPath);
   await write(outPath, code, `utf8`);
