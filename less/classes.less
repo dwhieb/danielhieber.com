@@ -88,7 +88,8 @@ Styles applied with classes. Use with LESS's (reference) option.
 
   &:hover {
 
-    [lang=en-Latn] {
+    // The lang tag should omit the default script (Latn), so this just uses "en"
+    [lang=en] {
       visibility: hidden;
     }
 
