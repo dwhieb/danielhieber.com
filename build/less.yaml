@@ -1,6 +1,6 @@
 # Layouts
-main:     layouts/main/less/index.less
-toc:      layouts/toc/toc.less
+main:     layouts/main/index.less
+toc:      layouts/toc/index.less
 
 # Views
 cv:       views/cv/index.less

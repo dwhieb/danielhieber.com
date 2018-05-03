@@ -2,7 +2,8 @@
 
 /* A set of global classes that are applied to all stylesheets. */
 
-@import (reference) '../../../less/classes.less';
+@import (reference) 'less/classes.less';
+@import (reference) 'less/components/index.less';
 
 @cdn: 'https://cdn.danielhieber.com';
 
@@ -35,21 +36,8 @@ i {
   font-style: italic;
 }
 
-p a {
-
+p a:not(.non-link) {
   .link;
-
-  &.non-link { /* stylelint-disable-line selector-no-qualifying-type */
-
-    color:       inherit;
-    font-weight: var(--font-weight);
-
-    &:hover {
-      border-bottom: var(--underline-transparent);
-    }
-
-  }
-
 }
 
 select {
@@ -63,33 +51,29 @@ strong {
 // Screen styling
 @media screen {
 
-  p a {
+  p a:not([href*='danielhieber.com']):not(.non-link) {
 
-    &:not([href*='danielhieber.com']):not(.non-link) {
+    --icon-width: 0.75em;
+    margin-right: var(--icon-width);
 
-      --icon-width: 0.75em;
-      margin-right: var(--icon-width);
+    &::after {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url('@{cdn}/img/icons/external-link.svg');
+      background-repeat:   no-repeat;
+      background-position: center;
+      background-size:     contain;
+      content:             '(external link)';
+      margin-left:         0.125em;
+      overflow:            hidden;
+      position:            absolute;
+      text-indent:         var(--icon-width);
+      white-space:         nowrap;
+      width:               var(--icon-width);
+    }
 
-      &::after {
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-          url('@{cdn}/img/icons/external-link.svg');
-        background-repeat:   no-repeat;
-        background-position: center;
-        background-size:     contain;
-        content:             '(external link)';
-        margin-left:         0.125em;
-        overflow:            hidden;
-        position:            absolute;
-        text-indent:         var(--icon-width);
-        white-space:         nowrap;
-        width:               var(--icon-width);
-      }
-
-      &:hover::after {
-        background-image: url('@{cdn}/img/icons/external-link.svg');
-      }
-
+    &:hover::after {
+      background-image: url('@{cdn}/img/icons/external-link.svg');
     }
 
   }

@@ -2,8 +2,11 @@
 //
 // These styles apply only to screen media. They are applied after general CV styles (cv.less).
 
+@import (reference) 'less/components/index.less';
+
 @media screen {
 
+  // Redefine variables for CV page
   :root {
     --font-size-banner: calc(2.5rem + 0.25vw);
     --measure:          60em;
@@ -11,7 +14,7 @@
 
   .achievements {
     a {
-      font-weight: var(--font-weight);
+      .link-light;
     }
   }
 
@@ -28,15 +31,11 @@
     padding:    var(--padding-main);
 
     .header-banner {
-      font-size: var(--font-size-banner);
+      .header-banner;
     }
 
     .header-section {
-      font-size: var(--font-size-large);
-    }
-
-    .header-subsection {
-      font-size: var(--font-size-header);
+      .header-section;
     }
 
   }
@@ -59,6 +58,7 @@
     display: none;
   }
 
+  // Styling for the Print / Download link
   .print {
     align-self: center;
   }
