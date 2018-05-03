@@ -4,6 +4,8 @@
 
 .button {
 
+  --outline-width:   0.1rem;
+
   background-color:  var(--blue);
   background-image:  none;
   border:            none transparent;
@@ -19,7 +21,7 @@
   white-space:       nowrap;
 
   &:focus {
-    outline: 0.1rem dashed var(--blue);
+    outline: var(--outline-width) dashed var(--blue);
   }
 
   &[disabled] {
@@ -35,12 +37,30 @@
 
   &:active {
     background-color: white;
+    border:           var(--border-width) solid var(--blue);
     color:            var(--blue);
     outline:          none;
   }
 
   svg {
     pointer-events: none;
+  }
+
+}
+
+.button-red {
+
+  .button;
+
+  background-color: var(--red);
+
+  &:focus {
+    outline: var(--outline-width) dashed var(--red);
+  }
+
+  &:active {
+    border: var(--border-width) solid var(--red);
+    color:  var(--red);
   }
 
 }
