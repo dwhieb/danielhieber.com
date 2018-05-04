@@ -33,6 +33,7 @@
     "build-css": "node build/less.js",
     "build-js": "node build/scripts.js",
     "build-svg": "node build/svg.js",
+    "start": "node index.js",
     "upload": "node build/upload.js"
   },
   "dependencies": {
