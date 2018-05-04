@@ -1,6 +1,5 @@
 /**
- * The route handler for the Home page
- * @name home/index.js
+ * GET handler for the Home page
  */
 
 module.exports = (req, res) => res.render(`home`, {

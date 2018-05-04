@@ -1,7 +1,6 @@
-// Print styling
-//
-// These styles apply only to print media.
-// They are loaded after the general (cv.less) styles
+/**
+ * Print styling for the CV page
+ */
 
 /* stylelint-disable
  unit-blacklist,
@@ -92,15 +91,10 @@
     position:          relative;
   }
 
-  .cv-item-title {
-    // This overrides direct styling on <a> elements (see above)
-    font-weight: bold !important;
-  }
-
   .date {
-    clear:      left;
-    float:      left;
-    width:      1.25in;
+    clear: left;
+    float: left;
+    width: 1.25in;
   }
 
   .date + * {
@@ -112,19 +106,15 @@
     display: none;
   }
 
-  h1 {
+  .header-banner {
     font-size: @font-size-banner;
   }
 
-  h2 {
+  .header-section {
     font-size: @font-size-large;
   }
 
-  h3 {
-    font-size: @font-size-large;
-  }
-
-  h4 {
+  .header-subsection {
     font-size: @font-size-large;
   }
 
@@ -146,6 +136,7 @@
     display: none;
   }
 
+  // This class refers to the Print / Download link
   .print {
     display: none;
   }

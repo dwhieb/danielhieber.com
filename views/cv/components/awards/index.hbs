@@ -1,6 +1,8 @@
+{{!-- HTML for the CV Awards section --}}
+
 <section id={{CVTypes.awards.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.awards.header}}
+  {{> cv/header-section/index CVTypes.awards.header}}
 
   <ol>
     {{#each CVItems.awards}}
@@ -12,7 +14,7 @@
 
           <p class=cv-item-title>
             {{#if links.info}}
-              <a href='{{links.info}}'>{{title}}</a>
+              <a aria-label='Award Title: {{title}}' href='{{links.info}}'>{{title}}</a>
             {{else}}
               <strong>{{title}}</strong>
             {{/if}}

@@ -1,6 +1,5 @@
 /**
- * The route handler for the Personal page
- * @name personal/index.js
+ * GET handler for the Personal page
  */
 
 module.exports = (req, res) => res.render(`personal`, {

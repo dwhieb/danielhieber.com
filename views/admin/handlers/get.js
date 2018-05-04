@@ -1,6 +1,5 @@
 /**
- * The router handler for the Admin page
- * @name admin/index.js
+ * The GET handler for the Admin page
  */
 
 module.exports = (req, res) => res.render(`admin`, {

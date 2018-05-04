@@ -1,19 +1,17 @@
+{{!-- HTML for the Personal page --}}
+
 {{#head 'personal'}}
 
   <!-- Styling for Personal page -->
-  <link rel=preload href={{cdn}}/css/toc.css as=style onload="this.rel='stylesheet';">
-
-  <noscript>
-    <link rel=stylesheet href={{cdn}}/css/toc.css>
-  </noscript>
+  <link rel=stylesheet href={{cdn}}/css/toc.css>
 
 {{/head}}
 
 <main id={{id}} class=toc>
 
-  <h1 class=page-title>Personal</h1>
+  <h2 class=header-page>Personal</h2>
 
-  <nav>
+  <nav aria-label='Personal Pages'>
     <ul>
       <li><a href=/recipes>Recipes</a></li>
     </ul>

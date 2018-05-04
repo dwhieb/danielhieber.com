@@ -1,10 +1,13 @@
-<nav id=contents>
+{{!-- HTML for the CV Contents section --}}
 
-  <h2>Contents</h2>
+<nav id=contents aria-label='CV Contents'>
+
+  <h2 class=header-colored>Contents</h2>
 
   <ol>
     {{#each CVTypes}}
       <li><a href=#{{id}}>{{header}}</a></li>
     {{/each}}
+  </ol>
 
 </nav>

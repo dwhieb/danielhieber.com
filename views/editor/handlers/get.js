@@ -1,4 +1,6 @@
-// Handler for the GET method for the CV Editor
+/**
+ * GET handler for the CV Editor
+ */
 
 /* eslint-disable
   max-statements,
@@ -7,14 +9,14 @@
 */
 
 const { catchError } = require('../lib');
-const { db }         = require('../../../lib/services');
+const { db }         = require('../../../services');
 const { promisify }  = require('util');
-const { CVTypes }    = require('../../../lib/constants');
+const { CVTypes }    = require('../../../constants');
 
 const {
   capitalize,
   compare,
-} = require('../../../lib/utilities');
+} = require('../../../utilities');
 
 const typesWithCategories = [
   `award`,

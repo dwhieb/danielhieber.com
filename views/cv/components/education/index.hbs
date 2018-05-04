@@ -1,6 +1,8 @@
+{{!-- HTML for the CV Education section --}}
+
 <section id={{CVTypes.education.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.education.header}}
+  {{> cv/header-section/index CVTypes.education.header}}
 
   <ol>
     {{#each CVItems.education}}
@@ -12,7 +14,7 @@
 
         <div class=cv-item-content>
 
-          <p class=cv-item-title><a href='{{links.org}}'>{{organization}}</a> ({{location}})</p>
+          <p class=cv-item-title><a aria-label='Organization: {{organization}}' href='{{links.org}}'>{{organization}}</a> ({{location}})</p>
 
           {{#if program}}<p>Program: {{program}}</p>{{/if}}
 

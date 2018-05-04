@@ -1,11 +1,13 @@
+{{!-- HTML for the CV page --}}
+
 {{#head 'cv'}}
 
-  <!-- Styling for CV page -->
-  <link rel=preload href={{cdn}}/css/cv.css as=style onload="this.rel='stylesheet';">
+  <!-- Preload critical assets -->
+  <link href={{cdn}}/img/headshot.jpg rel=preload as=image type=image/jpeg>
+  <link href={{cdn}}/css/cv.css rel=preload as=style type=text/css>
 
-  <noscript>
-    <link rel=stylesheet href={{cdn}}/css/cv.css>
-  </noscript>
+  <!-- Styling for CV page -->
+  <link rel=stylesheet href={{cdn}}/css/cv.css>
 
 {{/head}}
 

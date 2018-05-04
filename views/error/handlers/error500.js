@@ -1,35 +1,14 @@
-const Boom   = require('boom');
-const config = require('../../../lib/config');
-const { defaultClient: insights } = require('applicationinsights');
+/**
+ * Route handler for 500 errors
+ */
+
+const { appInsights } = require('../../../services');
 
 module.exports = (err, req, res, next) => { // eslint-disable-line no-unused-vars
 
-  let e = err;
-
-  // convert uncaught errors to Boom errors
-  if (!Boom.isBoom(e)) e = new Boom(err);
+  const e = appInsights.handleError(err);
 
   const { headers, payload } = e.output;
-
-  // log errors to console
-  if (
-    config.logErrors === `client` // if set to log both client & server errors
-    || (config.logErrors === `server` && e.isServer) // if set to log server errors only
-  ) {
-    console.error(e);
-  }
-
-  // send server errors to Application Insights
-  if (e.isServer && config.production) {
-    insights.trackException({
-      exception:  e,
-      properties: {
-        data: e.data,
-        exceptionType: `RouteException`,
-        headers,
-      },
-    });
-  }
 
   // render error page
   res.status(payload.statusCode);

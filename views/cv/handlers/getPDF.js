@@ -1,3 +1,7 @@
+/**
+ * GET handler for the /cv/pdf page
+ */
+
 const { createPDF } = require('../lib');
 const path          = require('path');
 const { promisify } = require('util');

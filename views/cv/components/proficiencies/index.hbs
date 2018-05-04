@@ -1,10 +1,12 @@
+{{!-- HTML for the CV Proficiences section --}}
+
 <section id={{CVTypes.proficiencies.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.proficiencies.header}}
+  {{> cv/header-section/index CVTypes.proficiencies.header}}
 
   <section id=skills>
 
-    <h4>Technical Skills</h4>
+    <h3 class=header-subsection>Technical Skills</h3>
 
     <ol>
       {{#each CVItems.proficiencies.skills}}
@@ -16,7 +18,7 @@
 
   <section id=software>
 
-    <h4>Software Proficiencies</h4>
+    <h3 class=header-subsection>Software Proficiencies</h3>
 
     <ol>
       {{#each CVItems.proficiencies.software}}

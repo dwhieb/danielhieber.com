@@ -1,6 +1,8 @@
+{{!-- HTML for the CV Media section --}}
+
 <section id={{CVTypes.media.id}} class=cv-section>
 
-  {{> cv/section-header/index CVTypes.media.header}}
+  {{> cv/header-section/index CVTypes.media.header}}
 
   <ol>
     {{#each CVItems.media}}
@@ -8,7 +10,7 @@
 
         {{> cv/date/index }}
 
-        <p class=cv-item-content><a class=cv-item-title href='{{links.pub}}'>{{title}}</a>, by {{author}}. <cite>{{publication}}</cite></p>
+        <p class=cv-item-content><a aria-label='Article Title: {{title}}' class=cv-item-title href='{{links.pub}}'>{{title}}</a>, by {{author}}. <cite>{{publication}}</cite></p>
 
       </li>
     {{/each}}

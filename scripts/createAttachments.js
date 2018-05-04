@@ -15,7 +15,7 @@ process.env.NODE_ENV = `localhost`;
 const { promisify }   = require('util');
 const { unlink }      = require('fs');
 const uuid            = require('uuid/v4');
-const { db, storage } = require('../lib/services');
+const { db, storage } = require('../services');
 
 // Promisify
 const rm = promisify(unlink);

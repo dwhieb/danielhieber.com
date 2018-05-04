@@ -1,13 +1,12 @@
 /**
- * Add a new item to the database
- * @name post.js
+ * POST handler for the CV Editor page
  */
 
 const { catchError } = require('../lib');
-const { db }         = require('../../../lib/services');
+const { db }         = require('../../../services');
 const { Document }   = require('../models');
 const { promisify }  = require('util');
-const { CVTypes }    = require('../../../lib/constants');
+const { CVTypes }    = require('../../../constants');
 
 module.exports = async (req, res, next) => {
 

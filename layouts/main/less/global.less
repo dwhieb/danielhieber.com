@@ -1,0 +1,79 @@
+/* Global styles that are applied aross the site */
+
+@import (reference) 'less/classes.less';
+@import (reference) 'less/components/index.less';
+
+@cdn: 'https://cdn.danielhieber.com';
+
+/* IPA transcriptions */
+[lang*=fonipa] { .ipa; }
+
+/* Phonemic transcriptions */
+[lang$=emic] { .phonemic; }
+
+/* Phonetic transcriptions */
+[lang$=etic] { .phonetic; }
+
+b {
+  font-weight: var(--font-weight-bold);
+}
+
+cite {
+  font-style: italic;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+em {
+  font-style: italic;
+}
+
+i {
+  font-style: italic;
+}
+
+p a:not(.non-link) {
+  .link;
+}
+
+select {
+  border: var(--border-width) solid black;
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+// Screen styling
+@media screen {
+
+  p a:not([href*='danielhieber.com']):not(.non-link) {
+
+    --icon-width: 0.75em;
+    margin-right: var(--icon-width);
+
+    &::after {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url('@{cdn}/img/icons/external-link.svg');
+      background-repeat:   no-repeat;
+      background-position: center;
+      background-size:     contain;
+      content:             '(external link)';
+      margin-left:         0.125em;
+      overflow:            hidden;
+      position:            absolute;
+      text-indent:         var(--icon-width);
+      white-space:         nowrap;
+      width:               var(--icon-width);
+    }
+
+    &:hover::after {
+      background-image: url('@{cdn}/img/icons/external-link.svg');
+    }
+
+  }
+
+}

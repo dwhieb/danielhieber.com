@@ -1,3 +1,9 @@
+/**
+ * Styling for the CV Contents section
+ */
+
+@import (reference) 'less/components/index.less';
+
 @media print {
   #contents {
     display: none;
@@ -10,8 +16,8 @@
     font-size: var(--font-size-small);
     padding:   var(--padding-box);
 
-    h2 {
-      .header-purple;
+    .header-colored {
+      .header-colored;
     }
 
     ol {

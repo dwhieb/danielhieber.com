@@ -1,11 +1,13 @@
+{{!-- HTML for the Home page --}}
+
 {{#head 'home'}}
 
-  <!-- Styling for Home page -->
-  <link rel=preload href={{cdn}}/css/home.css as=style onload="this.rel='stylesheet';">
+  <!-- Preload critical assets -->
+  <link href={{cdn}}/img/grad_slam.jpg rel=preload as=image type=image/jpeg>
+  <link href={{cdn}}/css/home.css rel=preload as=style type=text/css>
 
-  <noscript>
-    <link rel=stylesheet href={{cdn}}/css/home.css>
-  </noscript>
+  <!-- Styling for Home page -->
+  <link href={{cdn}}/css/home.css rel=stylesheet>
 
 {{/head}}
 
@@ -13,13 +15,13 @@
 
   <section id=intro>
 
-    <img id=grad-slam src={{cdn}}/img/grad_slam.jpg alt='Me giving my Grad Slam talk'>
+    <img id=grad-slam src={{cdn}}/img/grad_slam.jpg alt='Me giving my Grad Slam talk' style='width: 100%;'>
 
-    <p>I am a Ph.D. Candidate in Linguistics at the <a href=http://www.linguistics.ucsb.edu/>University of California, Santa Barbara</a>. I focus on the <strong>documentation</strong>, <strong>description</strong>, and <strong>revitalization</strong> of languages in the <strong>U.S. Southeast</strong> and <strong>East Africa</strong>, with an eye towards <strong>linguistic typology</strong> and <strong>functional theory</strong>. I work primarily with <a href=https://en.wikipedia.org/wiki/Chitimacha_language>Chitimacha</a> (Sitimaxa), an isolate once spoken in Louisiana and now being revived by the Chitimacha Tribe on the basis of archival materials, and <a href=https://en.wikipedia.org/wiki/Gusii_language>Gusii</a> (Ékegusií), an underdocumented and endangered Bantu language of southwestern Kenya, where I do fieldwork.</p>
+    <p>I am a Ph.D. Candidate in the <a href=http://www.linguistics.ucsb.edu/>Department of Linguistics</a> at the University of California, Santa Barbara. I focus on the <strong>documentation</strong>, <strong>description</strong>, and <strong>revitalization</strong> of languages in the <strong>U.S. Southeast</strong> and <strong>East Africa</strong>, with an eye towards <strong>linguistic typology</strong> and <strong>functional theory</strong>. I work primarily with <a href=https://en.wikipedia.org/wiki/Chitimacha_language>Chitimacha</a> (Sitimaxa), an isolate once spoken in Louisiana and now being revived by the Chitimacha Tribe on the basis of archival materials, and <a href=https://en.wikipedia.org/wiki/Gusii_language>Gusii</a> (Ékegusií), an underdocumented and endangered Bantu language of southwestern Kenya, where I do fieldwork.</p>
 
     <p>Prior to graduate school, I was a linguist with the software company <a href=https://www.rosettastone.com/>Rosetta Stone</a>, where I worked in their <a href=https://www.rosettastone.com/endangered>Endangered Language Program</a> to create language-learning software with the Chitimacha, Navajo, Iñupiaq, Inuttitut, and Mohawk communities. I received my B.A. in linguistics from The College of William &amp; Mary in 2008, and my M.A. in linguistics from the University of California, Santa Barbara in 2015.</p>
 
-    <img id=singing src={{cdn}}/img/singing.jpg alt='A Gusii elder singing'>
+    <img id=singing src={{cdn}}/img/singing.jpg alt='A Gusii elder singing' style='width: 100%;'>
 
   </section>
 

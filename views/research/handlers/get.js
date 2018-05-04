@@ -1,3 +1,7 @@
+/**
+ * GET handler for the Research page
+ */
+
 const { getCategories } = require('../lib');
 
 module.exports = async (req, res) => {

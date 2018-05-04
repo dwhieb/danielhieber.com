@@ -1,8 +1,12 @@
+/**
+ * Route handler for 404 errors
+ */
+
 /* eslint-disable
   no-console
 */
 
-const config = require('../../../lib/config');
+const config = require('../../../config');
 
 module.exports = (req, res, next) => { // eslint-disable-line no-unused-vars
 

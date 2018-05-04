@@ -1,10 +1,9 @@
 /**
- * Route handler to delete a file from a document
- * @name deleteFile.js
+ * Route handler to delete a file from a document on the CV Editor page
  */
 
 const { catchError }  = require('../lib');
-const { db, storage } = require('../../../lib/services');
+const { db, storage } = require('../../../services');
 
 module.exports = async (req, res, next) => {
 
