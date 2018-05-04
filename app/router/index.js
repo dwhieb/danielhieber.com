@@ -10,8 +10,9 @@ const redirects = require('./redirects');
 const {
   admin,
   bibliographies,
+  bibliographiesEditor,
   cv,
-  editor,
+  cvEditor,
   home,
   research,
   personal,
@@ -23,15 +24,17 @@ module.exports = app => {
 
   app.get(`/admin`, auth, admin.get);
 
+  app.get(`/admin/bibliographies`, auth, bibliographiesEditor.get);
+
   app.route(`/admin/:type`)
   .all(auth)
-  .get(asyncErrors(editor.get))
-  .post(asyncErrors(editor.post));
+  .get(asyncErrors(cvEditor.get))
+  .post(asyncErrors(cvEditor.post));
 
   app.route(`/admin/:type/:cvid`)
   .all(auth)
-  .get(asyncErrors(editor.get))
-  .post(asyncErrors(editor.put)); // NB: also routes other POST requests (delete item, upload file)
+  .get(asyncErrors(cvEditor.get))
+  .post(asyncErrors(cvEditor.put)); // NB: also routes other POST requests (delete item, upload file)
 
   app.get(`/bibliographies`, asyncErrors(bibliographies.get));
 

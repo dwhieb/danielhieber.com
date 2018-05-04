@@ -182,6 +182,6 @@ module.exports = async (req, res, next) => {
 
   // Render page
 
-  res.render(`editor`, context);
+  res.render(`admin-cv`, context);
 
 };
