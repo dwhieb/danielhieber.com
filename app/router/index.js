@@ -9,6 +9,7 @@ const redirects = require('./redirects');
 
 const {
   admin,
+  bibliographies,
   cv,
   editor,
   home,
@@ -31,6 +32,8 @@ module.exports = app => {
   .all(auth)
   .get(asyncErrors(editor.get))
   .post(asyncErrors(editor.put)); // NB: also routes other POST requests (delete item, upload file)
+
+  app.get(`/bibliographies`, asyncErrors(bibliographies.get));
 
   app.get(`/blog`, redirects.blog);
 
