@@ -43,7 +43,7 @@
     "boom": "^7.2.0",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
-    "documentdb": "^1.14.2",
+    "documentdb": "^1.14.4",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "feather-icons": "^4.5.0",
