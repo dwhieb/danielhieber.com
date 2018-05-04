@@ -27,13 +27,12 @@
     "type": "git",
     "url": "git+https://github.com/dwhieb/danielhieber.com.git"
   },
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "npm run build-js & npm run build-css & npm run build-svg & npm run upload",
     "build-css": "node build/less.js",
     "build-js": "node build/scripts.js",
     "build-svg": "node build/svg.js",
-    "start": "node index.js",
     "upload": "node build/upload.js"
   },
   "dependencies": {
