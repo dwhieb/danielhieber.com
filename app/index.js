@@ -4,6 +4,7 @@
  */
 
 const config          = require('../config');   // load config file before other modules
+console.log(config);
 const { appInsights } = require('../services'); // start Azure Application Insights
 
 if (config.production) appInsights.start();
