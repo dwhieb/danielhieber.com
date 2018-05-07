@@ -1,16 +1,17 @@
 # All the LESS files that need to be compiled by the build/less.js script
 
 # Layouts
-main:     layouts/main/index.less
-toc:      layouts/toc/index.less
+main: layouts/main/index.less
 
 # Views
-cv:       views/cv/index.less
-editor:   views/editor/index.less
-error:    views/error/index.less
-home:     views/home/index.less
-research: views/research/index.less
+admin-bibliographies: views/admin-bibliographies/index.less
+admin-cv:             views/admin-cv/index.less
+cv:                   views/cv/index.less
+error:                views/error/index.less
+home:                 views/home/index.less
+research:             views/research/index.less
 
 # Components
 links:    components/links/index.less
 overview: components/overview/index.less
+toc:      components/toc/index.less

@@ -8,7 +8,7 @@
   no-underscore-dangle,
 */
 
-const { catchError } = require('../lib');
+const { catchError } = require('../../../utilities');
 const { db }         = require('../../../services');
 const { promisify }  = require('util');
 const { CVTypes }    = require('../../../constants');
@@ -40,14 +40,14 @@ module.exports = async (req, res, next) => {
   // Create rendering context for Handlebars
 
   const context = {
-    admin:     true,
-    coll:      req.params.type,
-    csrf:      req.csrfToken(),
+    admin:      true,
+    'admin-cv': true,
+    coll:       req.params.type,
+    csrf:       req.csrfToken(),
     CVTypes,
-    editor:    true,
-    header:    false,
-    id:        `editor`,
-    pageTitle: `Editor`,
+    header:     false,
+    id:         `admin-cv`,
+    pageTitle:  `CV Editor`,
     type,
     Type:      capitalize(req.params.type),
   };

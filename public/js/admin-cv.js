@@ -133,4 +133,4 @@ if (uploadFileButton) uploadFileButton.onclick = validateFile;
 if (linksList) {
   linksList.onclick = deleteLink;
   linksList.onchange = updateLinkType;
-} //# sourceMappingURL=/js/editor.js.map
+} //# sourceMappingURL=/js/admin-cv.js.map

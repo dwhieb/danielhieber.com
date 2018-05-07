@@ -1,9 +1,9 @@
 {{!-- HTML for the CV Editor page --}}
 
-{{#head 'editor'}}
+{{#head 'admin-cv'}}
 
-  <!-- Styling for Editor page -->
-  <link rel=stylesheet href={{cdn}}/css/editor.css>
+  <!-- Styling for CV Editor page -->
+  <link rel=stylesheet href={{cdn}}/css/admin-cv.css>
 
 {{/head}}
 
@@ -22,7 +22,7 @@
   </select>
 {{/inline}}
 
-<main id={{id}}>
+<main id={{admin-cv}}>
 
   <select id=dropdown>
 
@@ -653,6 +653,6 @@
 {{#section 'script'}}
 
   <!-- Script for Editor page -->
-  <script src=/js/editor.js type=module defer></script>
+  <script src=/js/admin-cv.js type=module defer></script>
 
 {{/section}}

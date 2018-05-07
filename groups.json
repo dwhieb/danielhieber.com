@@ -1,0 +1,81 @@
+[{
+  "name": "Chitimacha",
+  "description": "Resources about the Chitimacha language",
+  "disciplines": ["Linguistics"],
+  "tags": ["Chitimacha", "language", "linguistics", "Louisiana", "Native American languages", "Southeast U.S."],
+  "photo": {
+    "standard": "https://photos.mendeley.com/group_awaiting.png",
+    "square": "https://photos.mendeley.com/disciplines/small/linguistics.png"
+  },
+  "webpage": "https://danielhieber.com/languages/chitimacha",
+  "id": "63ed10d0-87d0-30d4-8590-eb5b241df109",
+  "created": "2017-02-06T20:11:04.000Z",
+  "owning_profile_id": "16e9ee38-6fae-3fb0-bc64-3c2c28cb77dc",
+  "link": "http://www.mendeley.com/community/63ed10d0-87d0-30d4-8590-eb5b241df109",
+  "role": "owner",
+  "access_level": "invite_only",
+  "member_count": 1,
+  "member_limit": 50,
+  "url_slug": "chitimacha-1"
+}, {
+  "name": "Digital Linguistics",
+  "description": "Publications about Digital Linguistics, the science of the digital management of linguistic data",
+  "disciplines": ["Linguistics"],
+  "tags": [],
+  "photo": {
+    "photo_uuid": "9b88281f-c77f-4ad2-b260-35ee6b8e3a0f",
+    "original": "https://s3.amazonaws.com/mendeley-photos/3e/41/3e412e72da1935dd1eac106b22ddbbc34da7399e.png",
+    "standard": "https://s3.amazonaws.com/mendeley-photos/3e/41/3e412e72da1935dd1eac106b22ddbbc34da7399e-standard.jpg",
+    "square": "https://s3.amazonaws.com/mendeley-photos/3e/41/3e412e72da1935dd1eac106b22ddbbc34da7399e-square.jpg"
+  },
+  "webpage": "https://digitallinguistics.io",
+  "id": "34b39c86-4a68-3384-b22f-130017136242",
+  "created": "2017-01-17T21:33:15.000Z",
+  "owning_profile_id": "16e9ee38-6fae-3fb0-bc64-3c2c28cb77dc",
+  "link": "http://www.mendeley.com/community/34b39c86-4a68-3384-b22f-130017136242",
+  "role": "owner",
+  "access_level": "invite_only",
+  "member_count": 2,
+  "member_limit": 50,
+  "url_slug": "digital-linguistics"
+}, {
+  "name": "Lexical Flexibility",
+  "description": "Publications relating to lexical flexibility / flexible word classes",
+  "disciplines": ["Linguistics"],
+  "tags": [],
+  "photo": {
+    "standard": "https://photos.mendeley.com/group_awaiting.png",
+    "square": "https://photos.mendeley.com/disciplines/small/linguistics.png"
+  },
+  "webpage": "https://danielhieber.com/bibliographies/flexibility",
+  "id": "217f7ec1-69ca-30e6-a2c0-73ff8eac6ef5",
+  "created": "2017-12-30T21:43:00.000Z",
+  "owning_profile_id": "16e9ee38-6fae-3fb0-bc64-3c2c28cb77dc",
+  "link": "http://www.mendeley.com/community/217f7ec1-69ca-30e6-a2c0-73ff8eac6ef5",
+  "role": "owner",
+  "access_level": "invite_only",
+  "member_count": 1,
+  "member_limit": 50,
+  "url_slug": "lexical-flexibility"
+}, {
+  "name": "Mendeley Advisor Group",
+  "description": "This is an invite-only communication channel for Mendeley Advisors. Meet your fellow advisors from around the world, share papers, presentations, tips, and let us know how we're doing. Contact @Daniel Christe with questions.",
+  "disciplines": ["Computer Science", "Social Sciences", "Design"],
+  "tags": [],
+  "photo": {
+    "photo_uuid": "a9ade711-636e-4443-bfd0-35ee6b8e88da",
+    "original": "https://s3.amazonaws.com/mendeley-photos/bc/e8/bce8c532283273fb0f511321adcc2cafd07f5876.png",
+    "standard": "https://s3.amazonaws.com/mendeley-photos/bc/e8/bce8c532283273fb0f511321adcc2cafd07f5876-standard.jpg",
+    "square": "https://s3.amazonaws.com/mendeley-photos/bc/e8/bce8c532283273fb0f511321adcc2cafd07f5876-square.jpg"
+  },
+  "webpage": "https://www.mendeley.com/advisor-community/",
+  "id": "3463d2a0-f87e-3fea-a446-6c8287ce5a2f",
+  "created": "2010-11-15T20:03:35.000Z",
+  "owning_profile_id": "81727124-ca03-3684-ad66-90a4603bde26",
+  "link": "http://www.mendeley.com/community/3463d2a0-f87e-3fea-a446-6c8287ce5a2f",
+  "role": "normal",
+  "access_level": "private",
+  "member_count": 4395,
+  "member_limit": 10000,
+  "url_slug": "mendeley-advisor-group"
+}]

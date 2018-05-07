@@ -1,3 +1,13 @@
-const get = require('./get');
+/**
+ * Handlers for the Bibliographies Editor
+ */
 
-module.exports = { get };
+const get  = require('./get');
+const post = require('./post');
+const put  = require('./put');
+
+module.exports = {
+  get,
+  post,
+  put,
+};

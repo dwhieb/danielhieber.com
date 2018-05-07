@@ -1,7 +1,3 @@
-/**
- * DELETE handler for the CV Editor page
- */
-
 const { catchError } = require('../../../utilities');
 const { db }         = require('../../../services');
 
@@ -15,6 +11,6 @@ module.exports = async (req, res, next) => {
   }
 
   // Redirect to list of docs for that type
-  res.redirect(`/admin/${req.params.type}`);
+  res.redirect(`/admin/bibliographies`);
 
 };

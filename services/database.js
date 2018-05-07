@@ -2,17 +2,41 @@
  * Configuration, initialization, and abstraction over the CosmosDB database
  */
 
+/* eslint-disable
+  func-style,
+  no-use-before-define,
+ */
+
 const { dbURL, dbKey }   = require('../config');
 const { DocumentClient } = require('documentdb');
 const { promisify }      = require('util');
 
+
+// Initialize database client
 const db = new DocumentClient(dbURL, { masterKey: dbKey });
 
-// The URL of the collection
-const coll = `dbs/danielhieber/colls/danielhieber`;
+
+// Constants
+const coll     = `dbs/danielhieber/colls/danielhieber`; // collection URL
+const oneMonth = 2628000;                               // one month in seconds
+
+
+// Promisify database methods
+const createAttachment = promisify(db.createAttachment).bind(db);
+const deleteAttachment = promisify(db.deleteAttachment).bind(db);
+const getAttachments   = db.readAttachments.bind(db);
+const readDocument     = promisify(db.readDocument).bind(db);
+
+
+// METHODS
+
+// Add a new document to the database
+function add(...args) {
+  return promisify(db.createDocument).bind(db)(coll, ...args);
+}
 
 // Takes a DocumentDB error and extracts its useful properties
-const convertError = err => {
+function convertError(err) {
 
   const headers    = {};
   const message    = err.error_description || err.message;
@@ -26,37 +50,47 @@ const convertError = err => {
     statusCode,
   };
 
-};
+}
 
-// Add a new document to the database
-const add = (...args) => promisify(db.createDocument).bind(db)(coll, ...args);
+// Delete a document (by setting TTL)
+async function del(id) {
 
-// Create a new attachment for a document
-const createAttachment = promisify(db.createAttachment).bind(db);
+  // Retrieve doc by ID
+  const docURL = getDocURL(id);
+  const doc    = await readDocument(docURL);
 
-// Delete an attachment from a document
-const deleteAttachment = promisify(db.deleteAttachment).bind(db);
+  // Set TTL on doc
+  doc.ttl = oneMonth;
 
-// Get attachments for a document
-const getAttachments = db.readAttachments.bind(db);
+  // Upsert doc
+  await upsertDocument(doc);
+
+}
 
 // Get the URL for a document from its ID
-const getDocURL = id => `${coll}/docs/${id}`;
+function getDocURL(id) {
+  return `${coll}/docs/${id}`;
+}
 
 // Query documents
-const queryDocuments = (...args) => db.queryDocuments.bind(db)(coll, ...args);
-
-// Fetch a document from the database
-const readDocument = promisify(db.readDocument).bind(db);
+function queryDocuments(...args) {
+  return db.queryDocuments.bind(db)(coll, ...args);
+}
 
 // Fetch all the documents from the database
-const readDocuments = (...args) => db.readDocuments.bind(db)(coll, ...args);
+function readDocuments(...args) {
+  return db.readDocuments.bind(db)(coll, ...args);
+}
 
 // Upsert an attachment to a document
-const upsertAttachment = (...args) => promisify(db.upsertAttachment).bind(db)(...args);
+function upsertAttachment(...args) {
+  return promisify(db.upsertAttachment).bind(db)(...args);
+}
 
 // Upsert a document
-const upsertDocument = (...args) => promisify(db.upsertDocument).bind(db)(coll, ...args);
+function upsertDocument(...args) {
+  return promisify(db.upsertDocument).bind(db)(coll, ...args);
+}
 
 module.exports = new Proxy(db, {
   get(target, prop) {
@@ -65,6 +99,7 @@ module.exports = new Proxy(db, {
       case `coll`: return coll;
       case `convertError`: return convertError;
       case `createAttachment`: return createAttachment;
+      case `delete`: return del;
       case `deleteAttachment`: return deleteAttachment;
       case `get`: return readDocument;
       case `getDocs`: return readDocuments;

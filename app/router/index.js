@@ -2,10 +2,17 @@
  * Main router
  */
 
-const { asyncErrors } = require('../../utilities');
-const { auth }        = require('../middleware');
+/* eslint-disable
+  max-statements,
+*/
 
-const redirects = require('./redirects');
+const { asyncErrors } = require('../../utilities');
+const redirects       = require('./redirects');
+
+const {
+  auth,
+  noCache,
+} = require('../middleware');
 
 const {
   admin,
@@ -24,17 +31,25 @@ module.exports = app => {
 
   app.get(`/admin`, auth, admin.get);
 
-  app.get(`/admin/bibliographies`, auth, bibliographiesEditor.get);
+  app.route(`/admin/bibliographies`)
+  .all(auth, noCache)
+  .get(asyncErrors(bibliographiesEditor.get))
+  .post(asyncErrors(bibliographiesEditor.post));
+
+  app.route(`/admin/bibliographies/:bibliography`)
+  .all(auth, noCache)
+  .get(asyncErrors(bibliographiesEditor.get))
+  .post(asyncErrors(bibliographiesEditor.put)); // NB: Also routes DELETE requests
 
   app.route(`/admin/:type`)
-  .all(auth)
+  .all(auth, noCache)
   .get(asyncErrors(cvEditor.get))
   .post(asyncErrors(cvEditor.post));
 
   app.route(`/admin/:type/:cvid`)
-  .all(auth)
+  .all(auth, noCache)
   .get(asyncErrors(cvEditor.get))
-  .post(asyncErrors(cvEditor.put)); // NB: also routes other POST requests (delete item, upload file)
+  .post(asyncErrors(cvEditor.put)); // NB: Also routes other POST requests (delete item, upload file)
 
   app.get(`/bibliographies`, asyncErrors(bibliographies.get));
 

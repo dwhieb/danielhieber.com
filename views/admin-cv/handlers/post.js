@@ -2,7 +2,7 @@
  * POST handler for the CV Editor page
  */
 
-const { catchError } = require('../lib');
+const { catchError } = require('../../../utilities');
 const { db }         = require('../../../services');
 const { Document }   = require('../models');
 const { promisify }  = require('util');
