@@ -88,6 +88,7 @@
             inputmode=latin-prose
             name=description
             placeholder='A description of this item, in Markdown'
+            required
             row=20>{{description}}</textarea>
 
         </label>
@@ -98,7 +99,7 @@
           <button type=submit>Save Bibliography</button>
 
           {{!-- Delete Button --}}
-          <button type=submit name=deleteBibliography value=true>Delete Bibliography</button>
+          <button id=deleteButton type=submit name=deleteBibliography value=true>Delete Bibliography</button>
 
         </div>
 

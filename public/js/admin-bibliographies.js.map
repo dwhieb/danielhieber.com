@@ -1,8 +1,22 @@
 {
   "version": 3,
-  "sources": [],
-  "names": [],
-  "mappings": "",
+  "sources": [
+    "admin-bibliographies.js"
+  ],
+  "names": [
+    "deleteButton",
+    "document",
+    "getElementById",
+    "confirmDeletion",
+    "confirmed",
+    "confirm",
+    "ev",
+    "preventDefault",
+    "addEventListener"
+  ],
+  "mappings": ";;AAAA;;;;AAIA;;AAEA;;;;AAIA,IAAMA,eAAeC,SAASC,cAAT,gBAArB;;AAEA,IAAMC,kBAAkB,SAAlBA,eAAkB,KAAM;AAC5B,MAAMC,YAAYC,iHAAlB;AACA,MAAI,CAACD,SAAL,EAAgBE,GAAGC,cAAH;AACjB,CAHD;;AAKAP,aAAaQ,gBAAb,UAAuCL,eAAvC",
   "file": "admin-bibliographies.js",
-  "sourcesContent": []
+  "sourcesContent": [
+    "/**\r\n * Client-side JavaScript for the Bibliographies Editor\r\n */\r\n\r\n/* eslint-env browser */\r\n\r\n/* eslint-disable\r\n  no-alert,\r\n*/\r\n\r\nconst deleteButton = document.getElementById(`deleteButton`);\r\n\r\nconst confirmDeletion = ev => {\r\n  const confirmed = confirm(`Are you sure you want to delete this bibliography? It will still be available in CosmosDB for 30 days.`);\r\n  if (!confirmed) ev.preventDefault();\r\n};\r\n\r\ndeleteButton.addEventListener(`click`, confirmDeletion);\r\n"
+  ]
 }
