@@ -1,7 +1,3 @@
-const Bibliography      = require('./Bibliography');
-const getBibliographies = require('./getBibliographies');
+const Bibliography = require('./Bibliography');
 
-module.exports = {
-  Bibliography,
-  getBibliographies,
-};
+module.exports = { Bibliography };

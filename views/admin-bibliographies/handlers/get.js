@@ -3,13 +3,13 @@
  * Handles GET requests to both collection and item
  */
 
-const { compare }           = require('../../../utilities');
-const { getBibliographies } = require('../lib');
+const { compare } = require('../../../utilities');
+const { db }      = require('../../../services');
 
 module.exports = async (req, res) => {
 
   // Retrieve bibliographies from database
-  const bibliographies = await getBibliographies();
+  const bibliographies = await db.getBibliographies();
 
   // Sort bibliographies by title
   bibliographies.sort((a, b) => compare(a.title, b.title));

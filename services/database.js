@@ -67,6 +67,24 @@ async function del(id) {
 
 }
 
+function getBibliographies() {
+
+  const query = `
+    SELECT * FROM doc
+    WHERE
+      doc.type = "bibliography"
+      AND (
+        doc.ttl < 1
+        OR NOT IS_DEFINED(doc.ttl)
+      )
+  `;
+
+  const iterator = queryDocuments(query);
+  const toArray  = promisify(iterator.toArray).bind(iterator);
+  return toArray();
+
+}
+
 // Get the URL for a document from its ID
 function getDocURL(id) {
   return `${coll}/docs/${id}`;
@@ -102,6 +120,7 @@ module.exports = new Proxy(db, {
       case `delete`: return del;
       case `deleteAttachment`: return deleteAttachment;
       case `get`: return readDocument;
+      case `getBibliographies`: return getBibliographies;
       case `getDocs`: return readDocuments;
       case `getAttachments`: return getAttachments;
       case `getDocURL`: return getDocURL;

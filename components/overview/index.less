@@ -1,0 +1,65 @@
+/**
+ * Styling for the overview component
+ */
+
+/* stylelint-disable
+  max-nesting-depth,
+*/
+
+@import (reference) 'less/variables.less';
+@import (reference) 'less/components/index.less';
+
+.overview {
+
+  align-self: center;
+  max-width: var(--measure);
+  padding: var(--padding-main);
+
+  .description {
+    .description;
+    padding: 0.5em 0em;
+  }
+
+  .header-page {
+    .header-page;
+  }
+
+  .header-section {
+
+    .header-section;
+
+    margin:   0.05em 0em;
+    position: relative;
+
+    &:hover {
+
+      --border: 0.1em solid var(--blue);
+
+      border-bottom: var(--border);
+      border-top:    var(--border);
+      margin:        0;
+
+      &::before {
+        background-image:  url('@{cdn}/img/icons/chevron-right-blue.svg');
+        background-repeat: no-repeat;
+        background-size:   contain;
+        content:           '';
+        height:            1.5em;
+        left:              -1.5em;
+        position:          absolute;
+        width:             1.5em;
+      }
+
+      a {
+        border-bottom: none;
+      }
+
+    }
+
+  }
+
+  p {
+    padding: var(--padding-text);
+  }
+
+}
