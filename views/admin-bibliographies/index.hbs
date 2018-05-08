@@ -10,17 +10,23 @@
 <main id={{id}}>
 
 
+  {{!-- Page Header --}}
+  <h1 class=header-page>Bibliographies Editor</h1>
+
+
   {{!-- List of Bibliographies with Add button --}}
   <nav class=list>
 
-    <button
-      form=form
-      formaction='/admin/bibliographies'
-      name=addBibliography
-      type=submit
-      value=true>
-      Add Bibliography
-    </button>
+    <div class=buttons>
+      <button
+        form=form
+        formaction='/admin/bibliographies'
+        name=addBibliography
+        type=submit
+        value=true>
+        Add Bibliography
+      </button>
+    </div>
 
     <ol>
       {{#each bibliographies}}
@@ -102,3 +108,10 @@
   </form>
 
 </main>
+
+{{#section 'script'}}
+
+  <!-- Script for Bibliographies Editor -->
+  <script src=/js/admin-bibliographies.js type=module defer></script>
+
+{{/section}}

@@ -4,11 +4,13 @@
 main: layouts/main/index.less
 
 # Views
+admin:                views/admin/index.less
 admin-bibliographies: views/admin-bibliographies/index.less
 admin-cv:             views/admin-cv/index.less
 cv:                   views/cv/index.less
 error:                views/error/index.less
 home:                 views/home/index.less
+personal:             views/personal/index.less
 research:             views/research/index.less
 
 # Components
