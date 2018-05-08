@@ -14,4 +14,3 @@ research:             views/research/index.less
 # Components
 links:    components/links/index.less
 overview: components/overview/index.less
-toc:      components/toc/index.less

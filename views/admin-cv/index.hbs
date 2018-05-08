@@ -22,7 +22,7 @@
   </select>
 {{/inline}}
 
-<main id={{admin-cv}}>
+<main id={{id}}>
 
   <select id=dropdown>
 
@@ -36,16 +36,20 @@
 
   <h1 class=header-page>{{Type}}</h1>
 
-  <nav id=list>
+  <nav class=list>
 
-    <button
-      form=form
-      formaction='/admin/{{coll}}'
-      name=addItem
-      type=submit
-      value=true>
-      Add Item
-    </button>
+    <div class=buttons>
+
+      <button
+        form=form
+        formaction='/admin/{{coll}}'
+        name=addItem
+        type=submit
+        value=true>
+        Add Item
+      </button>
+
+    </div>
 
     <ol>
       {{#each docs}}
@@ -67,7 +71,7 @@
 
   </nav>
 
-  <form id=form method=post action='/admin/{{coll}}/{{doc.cvid}}'>
+  <form id=form class=form method=post action='/admin/{{coll}}/{{doc.cvid}}'>
 
     {{!-- CSRF token --}}
     <input id=csrf type=hidden name=_csrf value='{{csrf}}'>
@@ -460,7 +464,7 @@
               type=text
               value='{{this}}'>
 
-            <button type=button name=deleteAchievement class=trash>
+            <button type=button name=deleteAchievement>
               {{{../../icons.delete}}}
             </button>
 
@@ -554,7 +558,7 @@
               type=url
               value='{{this}}'>
 
-            <button type=button name=deleteLink class=trash>
+            <button type=button name=deleteLink>
               {{{../icons.delete}}}
             </button>
 
@@ -591,7 +595,7 @@
 
               <input type=hidden name='{{key}}' value='{{fileType}}'>
 
-              <button type=submit name=deleteFile class=trash value='{{_self}}'>
+              <button type=submit name=deleteFile value='{{_self}}'>
                 {{{../../icons.delete}}}
               </button>
 

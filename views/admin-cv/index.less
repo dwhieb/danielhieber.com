@@ -2,17 +2,26 @@
  * Styling for the CV Editor page
  */
 
+@import (reference) 'less/classes.less';
 @import (reference) 'less/components/index.less';
 
-button {
-  .button;
-  align-self: center;
-  margin:     0.5em;
-}
+#admin-cv {
 
-.buttons {
-  flex-direction:  row;
-  justify-content: center;
+  .editor;
+  position: relative;
+
+  // Had to nest these button rules to increase specificity
+  button[name=deleteItem] {
+    .button-red;
+  }
+
+  button[name=deleteAchievement],
+  button[name=deleteFile],
+  button[name=deleteLink],
+  {
+    .button-square-red;
+  }
+
 }
 
 .categories {
@@ -24,52 +33,21 @@ button {
 
 }
 
-#deleteButton {
-  .button-red;
-}
-
 [name=description] {
   height: 10em;
 }
 
 #dropdown {
-  align-self:  flex-end;
-  margin-left: auto;
-}
-
-#admin-cv {
-  align-content:   flex-start;
-  display:         flex;
-  flex-flow:       row wrap;
-  font-size:       smaller;
-  justify-content: space-between;
-  padding:         var(--padding-box);
-}
-
-fieldset {
-
-  li {
-    flex-direction: row;
-  }
-
+  margin:   0.5em;
+  position: fixed;
+  right:    0;
+  top:      3.25em;
 }
 
 [for=forthcoming] {
   align-items:    center;
   flex-direction: row;
   padding:        var(--padding-text);
-}
-
-form {
-
-  flex:      1;
-  max-width: 70%;
-  padding:   0.5em;
-
-  > label, fieldset {
-    margin-bottom: 0.5em;
-  }
-
 }
 
 [for=hidden] {
@@ -81,68 +59,6 @@ form {
     margin-left: 0.5em;
   }
 
-}
-
-input[type=checkbox] {
-  margin: 0.25em;
-}
-
-input[type=date],
-input[type=email],
-input[type=number],
-input[type=tel],
-input[type=text],
-input[type=url],
-textarea
-{
-  border:        var(--border-width) solid #CCC;
-  border-radius: var(--border-radius);
-  box-shadow:    inset 0em 0.025em 0.075em #DDD;
-  flex:          1;
-  margin:        0.25em;
-  padding:       var(--padding-text);
-}
-
-legend {
-  font-weight: var(--font-weight-bold);
-}
-
-#links {
-  li {
-    align-items: center;
-  }
-}
-
-#list {
-
-  max-width: 30%;
-
-  li {
-    padding:   var(--padding-text);
-  }
-
-  li:not(:last-child) {
-    border-bottom: var(--border-width) solid #CCC;
-  }
-
-  li:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-}
-
-.header-page {
-  .header-page;
-  width: 100%;
-}
-
-.trash {
-  align-items:      center;
-  background-color: var(--red);
-  display:          flex;
-  height:           1.5em;
-  justify-content:  center;
-  width:            1.5em;
 }
 
 #uploadFile {
