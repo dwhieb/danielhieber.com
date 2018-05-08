@@ -1,26 +1,3 @@
 {{!-- HTML for the Research page --}}
 
-{{#head 'research'}}
-
-  <!-- Styling for Research page -->
-  <link rel=stylesheet href={{cdn}}/css/research.css>
-
-{{/head}}
-
-<main id={{id}}>
-
-  <h2 class=header-page>Research</h2>
-
-  {{#each categories}}
-    <section id={{key}}>
-
-      <h3 class=header-section>{{title}}</h3>
-
-      <div class=description>
-        {{md description}}
-      </div>
-
-    </section>
-  {{/each}}
-
-</main>
+{{> overview/index }}

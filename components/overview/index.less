@@ -33,25 +33,22 @@
 
     &:hover {
 
-      --border: 0.1em solid var(--blue);
-
-      border-bottom: var(--border);
-      border-top:    var(--border);
-      margin:        0;
-
-      &::before {
-        background-image:  url('@{cdn}/img/icons/chevron-right-blue.svg');
-        background-repeat: no-repeat;
-        background-size:   contain;
-        content:           '';
-        height:            1.5em;
-        left:              -1.5em;
-        position:          absolute;
-        width:             1.5em;
-      }
-
       a {
+
         border-bottom: none;
+        display:       flex;
+
+        &::before {
+          background-image:  url('@{cdn}/img/icons/chevron-right-blue.svg');
+          background-repeat: no-repeat;
+          background-size:   contain;
+          content:           '';
+          height:            1.5em;
+          left:              -1.5em;
+          position:          absolute;
+          width:             1.5em;
+        }
+
       }
 
     }
