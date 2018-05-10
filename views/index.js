@@ -3,6 +3,7 @@
  */
 
 const admin                = require('./admin/handlers');
+const bibliography         = require('./bibliography/handlers');
 const bibliographies       = require('./bibliographies/handlers');
 const bibliographiesEditor = require('./admin-bibliographies/handlers');
 const cv                   = require('./cv/handlers');
@@ -16,6 +17,7 @@ module.exports = {
   admin,
   bibliographies,
   bibliographiesEditor,
+  bibliography,
   cv,
   cvEditor,
   error,

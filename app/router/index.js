@@ -16,6 +16,7 @@ const {
 
 const {
   admin,
+  bibliography,
   bibliographies,
   bibliographiesEditor,
   cv,
@@ -52,6 +53,8 @@ module.exports = app => {
   .post(asyncErrors(cvEditor.put)); // NB: Also routes other POST requests (delete item, upload file)
 
   app.get(`/bibliographies`, asyncErrors(bibliographies.get));
+
+  app.get(`/bibliographies/:bibliography`, asyncErrors(bibliography.get));
 
   app.get(`/blog`, redirects.blog);
 

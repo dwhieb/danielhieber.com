@@ -10,7 +10,7 @@ const { db } = require('../../../services');
 
 module.exports = async (req, res) => {
 
-  const items = await db.getBibliographies();
+  const items = await db.getByType(`bibliography`);
 
   items.forEach(bib => {
     bib.link = `/bibliographies/${bib.key}`;

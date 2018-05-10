@@ -56,27 +56,10 @@ module.exports = async (req, res, next) => {
 
   if (typesWithCategories.includes(type)) {
 
-    const categoriesQuery = `
-      SELECT c.key, c.title FROM c
-      WHERE (
-        c.type = "category"
-        AND (
-          (NOT IS_DEFINED(c.ttl))
-          OR c.ttl < 1
-        )
-      )
-    `;
-
     try {
-
-      const iterator     = db.query(categoriesQuery);
-      const toArray      = promisify(iterator.toArray).bind(iterator);
-      context.categories = await toArray();
-
+      context.categories = db.getByType(`category`);
     } catch (e) {
-
       return catchError(req, res, next)(e);
-
     }
 
   }

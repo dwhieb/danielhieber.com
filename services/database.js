@@ -28,12 +28,7 @@ const getAttachments   = db.readAttachments.bind(db);
 const readDocument     = promisify(db.readDocument).bind(db);
 
 
-// METHODS
-
-// Add a new document to the database
-function add(...args) {
-  return promisify(db.createDocument).bind(db)(coll, ...args);
-}
+// UTILITIES
 
 // Takes a DocumentDB error and extracts its useful properties
 function convertError(err) {
@@ -52,6 +47,21 @@ function convertError(err) {
 
 }
 
+// Queries documents based on an SQL query
+function runQuery(query) {
+  const iterator = queryDocuments(query);
+  const toArray  = promisify(iterator.toArray).bind(iterator);
+  return toArray();
+}
+
+
+// METHODS
+
+// Add a new document to the database
+function add(...args) {
+  return promisify(db.createDocument).bind(db)(coll, ...args);
+}
+
 // Delete a document (by setting TTL)
 async function del(id) {
 
@@ -67,21 +77,38 @@ async function del(id) {
 
 }
 
-function getBibliographies() {
+// Retrieve a document by its "key" attribute
+function getByKey(key) {
+
+  const query = `
+    SELECT * FROM doc
+    WHERE doc.key = "${key}"
+  `;
+
+  const iterator = queryDocuments(query);
+  const current  = promisify(iterator.current).bind(iterator);
+  return current();
+
+}
+
+// Retrieve all documents of a certain type
+function getByType(type) {
 
   const query = `
     SELECT * FROM doc
     WHERE
-      doc.type = "bibliography"
+      doc.type = "${type}"
+      AND (
+        doc.hidden = false
+        OR NOT IS_DEFINED(doc.hidden)
+      )
       AND (
         doc.ttl < 1
         OR NOT IS_DEFINED(doc.ttl)
       )
   `;
 
-  const iterator = queryDocuments(query);
-  const toArray  = promisify(iterator.toArray).bind(iterator);
-  return toArray();
+  return runQuery(query);
 
 }
 
@@ -120,7 +147,8 @@ module.exports = new Proxy(db, {
       case `delete`: return del;
       case `deleteAttachment`: return deleteAttachment;
       case `get`: return readDocument;
-      case `getBibliographies`: return getBibliographies;
+      case `getByKey`: return getByKey;
+      case `getByType`: return getByType;
       case `getDocs`: return readDocuments;
       case `getAttachments`: return getAttachments;
       case `getDocURL`: return getDocURL;

@@ -9,7 +9,7 @@ const { db }      = require('../../../services');
 module.exports = async (req, res) => {
 
   // Retrieve bibliographies from database
-  const bibliographies = await db.getBibliographies();
+  const bibliographies = await db.getByType(`bibliography`);
 
   // Sort bibliographies by title
   bibliographies.sort((a, b) => compare(a.title, b.title));
