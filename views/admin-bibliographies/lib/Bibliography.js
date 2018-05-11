@@ -7,13 +7,15 @@ class Bibliography {
     description = ``,
     id,
     key = `{ key }`,
+    mendeleyID = ``,
     title = `{ New Bibliography }`,
   }) {
 
     if (id) this.id = id;
 
     this.description = description;
-    this.key         = key;
+    this.key         = key.toLowerCase();
+    this.mendeleyID  = mendeleyID;
     this.title       = title;
     this.type        = `bibliography`;
 

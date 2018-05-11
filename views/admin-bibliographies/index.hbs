@@ -54,7 +54,6 @@
           <b>Title</b>
 
           <input
-            inputmode=latin
             name=title
             placeholder=Title
             required
@@ -69,7 +68,6 @@
           <b>Key</b>
 
           <input
-            inputmode=verbatim
             name=key
             pattern='^[-A-Za-z0-9]+$'
             placeholder='A human-readable key for this item'
@@ -79,13 +77,26 @@
 
         </label>
 
+        {{!-- Mendeley ID --}}
+        <label for=mendeleyID>
+
+          <b>Mendeley ID</b>
+
+          <input
+            name=mendeleyID
+            placeholder='The Group ID from Mendeley'
+            required
+            type=text
+            value='{{mendeleyID}}'>
+
+        </label>
+
         {{!-- Description --}}
         <label for=description>
 
           <b>Description</b>
 
           <textarea
-            inputmode=latin-prose
             name=description
             placeholder='A description of this item, in Markdown'
             required

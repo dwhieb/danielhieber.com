@@ -2,7 +2,7 @@ const { db, mendeley } = require('../../../services');
 
 module.exports = async (req, res) => {
 
-  const bibliography = await db.getByKey(req.params.bibliography);
+  const bibliography = await db.getByKey(req.params.bibliography.toLowerCase());
   const references   = await mendeley.getReferences(bibliography.mendeleyID);
 
   res.render(`bibliography`, {
