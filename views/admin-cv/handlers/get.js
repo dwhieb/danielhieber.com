@@ -57,7 +57,7 @@ module.exports = async (req, res, next) => {
   if (typesWithCategories.includes(type)) {
 
     try {
-      context.categories = db.getByType(`category`);
+      context.categories = await db.getByType(`category`);
     } catch (e) {
       return catchError(req, res, next)(e);
     }
@@ -66,27 +66,10 @@ module.exports = async (req, res, next) => {
 
   // Retrieve docs
 
-  const query = `
-    SELECT * FROM c
-    WHERE (
-      c.type="${context.type}"
-      AND (
-        (NOT IS_DEFINED(c.ttl))
-        OR c.ttl < 1
-      )
-    )
-  `;
-
   try {
-
-    const iterator = db.query(query);
-    const toArray  = promisify(iterator.toArray).bind(iterator);
-    context.docs   = await toArray();
-
+    context.docs = await db.getByType(context.type);
   } catch (e) {
-
     return catchError(req, res, next)(e);
-
   }
 
   // Set current doc, format it for rendering, and retrieve attachments
