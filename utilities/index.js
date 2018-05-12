@@ -3,6 +3,7 @@ const capitalize    = require('./capitalize');
 const catchError    = require('./catchError');
 const compare       = require('./compare');
 const getDateString = require('./getDateString');
+const markdown      = require('./markdown');
 
 module.exports = {
   asyncErrors,
@@ -10,4 +11,5 @@ module.exports = {
   catchError,
   compare,
   getDateString,
+  markdown,
 };
