@@ -1,15 +1,29 @@
+{{#head 'bibliography'}}
+
+  <!-- Styling for Bibliography page -->
+  <link href={{cdn}}/css/bibliography.css rel=preload as=style type=text/css>
+  <link href={{cdn}}/css/bibliography.css rel=stylesheet>
+
+{{/head}}
+
 <main id={{id}}>
 
   <h2>{{pageTitle}}</h2>
 
-  <div class=description>
-    {{md bibliography.description 'inline'}}
+  <div>
+    {{md bibliography.description}}
   </div>
 
-  <ol class=reference-list>
-    {{#each references}}
+  <section>
+
+    <h3>References</h3>
+
+    <ol class=reference-list>
+      {{#each references}}
       {{> reference}}
-    {{/each}}
-  </ol>
+      {{/each}}
+    </ol>
+
+  </section>
 
 </main>

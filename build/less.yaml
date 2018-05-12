@@ -7,6 +7,7 @@ main: layouts/main/index.less
 admin:                views/admin/index.less
 admin-bibliographies: views/admin-bibliographies/index.less
 admin-cv:             views/admin-cv/index.less
+bibliography:         views/bibliography/index.less
 cv:                   views/cv/index.less
 error:                views/error/index.less
 home:                 views/home/index.less
