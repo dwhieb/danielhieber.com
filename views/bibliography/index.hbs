@@ -3,7 +3,13 @@
   <h2>{{pageTitle}}</h2>
 
   <div class=description>
-    {{description}}
+    {{md bibliography.description 'inline'}}
   </div>
+
+  <ol class=reference-list>
+    {{#each references}}
+      {{> reference}}
+    {{/each}}
+  </ol>
 
 </main>
