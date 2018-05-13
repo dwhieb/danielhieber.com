@@ -43,7 +43,7 @@ function section(name, opts) {
 }
 
 // Register the ling-ref partial
-const path = join(process.cwd(), `node_modules/ling-ref/dist/reference.hbs`);
+const path = join(process.cwd(), `node_modules/ling-ref/src/reference.hbs`);
 const referenceTemplate = readFileSync(path, `utf8`);
 handlebars.registerPartial(`reference`, referenceTemplate);
 

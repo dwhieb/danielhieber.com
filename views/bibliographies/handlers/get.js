@@ -6,7 +6,8 @@
   no-param-reassign,
 */
 
-const { db } = require('../../../services');
+const { db }      = require('../../../services');
+const { compare } = require('../../../utilities');
 
 module.exports = async (req, res) => {
 
@@ -15,6 +16,8 @@ module.exports = async (req, res) => {
   items.forEach(bib => {
     bib.link = `/bibliographies/${bib.key}`;
   });
+
+  items.sort((a, b) => compare(a.title, b.title));
 
   res.render(`bibliographies`, {
     bibliographies: true,

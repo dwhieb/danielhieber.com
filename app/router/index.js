@@ -54,6 +54,12 @@ module.exports = app => {
 
   app.get(`/bibliographies`, asyncErrors(bibliographies.get));
 
+  app.get(`/bibliographies/dlx`, redirects.dlxBibliography);
+
+  app.get(`/bibliographies/digital-linguistics`, redirects.dlxBibliography);
+
+  app.get(`/bibliographies/flexibility`, redirects.flexibilityBibliography);
+
   app.get(`/bibliographies/:bibliography`, asyncErrors(bibliography.get));
 
   app.get(`/blog`, redirects.blog);

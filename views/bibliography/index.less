@@ -3,6 +3,7 @@
 #bibliography {
 
   --arrow-width: 1.5rem;
+  --border:      var(--border-width) solid black;
 
   align-self: center;
   max-width:  var(--measure-wide);
@@ -12,24 +13,32 @@
   .notes,
   {
 
-    margin-left: var(--arrow-width);
+    margin-left:  calc(var(--arrow-width) + 1em);
+    margin-right: 1em;
 
-    &:last-child {
-      margin-bottom: 1em;
+    &:nth-child(2) {
+      border-top: var(--border);
+      margin-top: 1em;
     }
 
-    h1 {
+    &:last-child {
+      border-bottom:  var(--border);
+      margin-bottom:  0.5em;
+      padding-bottom: 0.5em;
+    }
+
+    h4 {
       .header-subsection;
+    }
+
+    > div {
+      .description;
     }
 
   }
 
   a {
     .link-light;
-  }
-
-  .description {
-    .description;
   }
 
   h2 {
