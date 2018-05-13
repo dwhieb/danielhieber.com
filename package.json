@@ -43,14 +43,17 @@
     "boom": "^7.2.0",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
-    "documentdb": "^1.14.2",
+    "documentdb": "^1.14.4",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "feather-icons": "^4.5.0",
     "formidable": "^1.2.1",
+    "handlebars-helpers": "^0.10.0",
     "helmet": "^3.12.0",
+    "ling-ref": "^0.4.0",
     "markdown-it": "^8.4.1",
     "prince": "^1.4.8",
+    "superagent": "^3.8.3",
     "uuid": "^3.2.1"
   },
   "devDependencies": {

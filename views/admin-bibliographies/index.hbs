@@ -1,0 +1,129 @@
+{{!-- HTML for Bibliographies Editor page --}}
+
+{{#head 'admin-bibliographies'}}
+
+  <!-- Styling for Bibliographies Editor page -->
+  <link href={{cdn}}/css/admin-bibliographies.css rel=stylesheet>
+
+{{/head}}
+
+<main id={{id}}>
+
+
+  {{!-- Page Header --}}
+  <h1 class=header-page>Bibliographies Editor</h1>
+
+
+  {{!-- List of Bibliographies with Add button --}}
+  <nav class=list>
+
+    <div class=buttons>
+      <button
+        form=form
+        formaction='/admin/bibliographies'
+        name=addBibliography
+        type=submit
+        value=true>
+        Add Bibliography
+      </button>
+    </div>
+
+    <ol>
+      {{#each bibliographies}}
+        <li><a href='/admin/bibliographies/{{id}}'>{{title}}</a></li>
+      {{/each}}
+    </ol>
+
+  </nav>
+
+
+  {{!-- Bibligraphy Editor Form --}}
+  <form id=form class=form method=post action='/admin/bibliographies/{{id}}'>
+
+    {{!-- CSRF token --}}
+    <input id=csrf type=hidden name=_csrf value='{{csrf}}'>
+
+    {{#if bibliography}}
+      {{#with bibliography}}
+
+        <input type=hidden name=id value='{{id}}'>
+
+        {{!-- Title --}}
+        <label for=title>
+
+          <b>Title</b>
+
+          <input
+            name=title
+            placeholder=Title
+            required
+            type=text
+            value='{{title}}'>
+
+        </label>
+
+        {{!-- Key --}}
+        <label for=key>
+
+          <b>Key</b>
+
+          <input
+            name=key
+            pattern='^[-A-Za-z0-9]+$'
+            placeholder='A human-readable key for this item'
+            required
+            type=text
+            value='{{key}}'>
+
+        </label>
+
+        {{!-- Mendeley ID --}}
+        <label for=mendeleyID>
+
+          <b>Mendeley ID</b>
+
+          <input
+            name=mendeleyID
+            placeholder='The Group ID from Mendeley'
+            required
+            type=text
+            value='{{mendeleyID}}'>
+
+        </label>
+
+        {{!-- Description --}}
+        <label for=description>
+
+          <b>Description</b>
+
+          <textarea
+            name=description
+            placeholder='A description of this item, in Markdown'
+            required
+            row=20>{{description}}</textarea>
+
+        </label>
+
+        <div class=buttons>
+
+          {{!-- Save Button --}}
+          <button type=submit>Save Bibliography</button>
+
+          {{!-- Delete Button --}}
+          <button id=deleteButton type=submit name=deleteBibliography value=true>Delete Bibliography</button>
+
+        </div>
+
+      {{/with}}
+    {{/if}}
+
+  </form>
+
+</main>
+
+{{#section 'script'}}
+
+  <!-- Script for Bibliographies Editor -->
+  <script src=/js/admin-bibliographies.js type=module defer></script>
+
+{{/section}}

@@ -3,14 +3,15 @@
   "/cv",
   "/home",
   "/personal",
+  "/css/bibliography.css",
   "/css/cv.css",
   "/css/error.css",
   "/css/home.css",
   "/css/links.css",
   "/css/main.css",
+  "/css/overview.css",
   "/css/personal.css",
   "/css/research.css",
-  "/css/toc.css",
   "https://cdn.danielhieber.com/fonts/FiraMono-Regular.woff",
   "https://cdn.danielhieber.com/fonts/FiraMono-Regular.woff2",
   "https://cdn.danielhieber.com/fonts/FiraSans-Light.woff",
@@ -48,5 +49,6 @@
   "https://cdn.danielhieber.com/img/grad_slam.jpg",
   "https://cdn.danielhieber.com/img/headshot.jpg",
   "https://cdn.danielhieber.com/img/icons/external-link.svg",
+  "https://cdn.danielhieber.com/img/icons/chevron-right-blue.svg",
   "https://cdn.danielhieber.com/img/singing.jpg"
 ]

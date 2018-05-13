@@ -9,13 +9,15 @@
 
 const ExpressHandlebars = require('express-handlebars');
 const handlebars        = require('handlebars');
-const markdown          = require('./markdown');
+const helpers           = require('handlebars-helpers');
+const { join }          = require('path');
+const { markdown }      = require('../../utilities');
+const { readFileSync }  = require('fs');
 
-// helpers (don't use arrow functions here, to preserve context)
-function eq(a, b, opts) {
-  if (a === b) return opts.fn(this);
-}
+// Extract necessary helpers from handlebars-helpers library
+const { eq, is } = helpers.comparison();
 
+// Custom helpers (don't use arrow functions here, to preserve context)
 function head(name, opts) {
   if (!this.head) this.head = {};
   this.head[name] = opts.fn(this);
@@ -40,6 +42,12 @@ function section(name, opts) {
   return null;
 }
 
+// Register the ling-ref partial
+const path = join(process.cwd(), `node_modules/ling-ref/src/reference.hbs`);
+const referenceTemplate = readFileSync(path, `utf8`);
+handlebars.registerPartial(`reference`, referenceTemplate);
+
+// Handlebars config
 const config = {
   defaultLayout: `main/index.hbs`,
   extname:       `hbs`,
@@ -47,6 +55,7 @@ const config = {
   helpers:       {
     eq,
     head,
+    is,
     isType,
     md,
     section,
@@ -61,6 +70,8 @@ const config = {
   ],
 };
 
+// Create the Express Handlebars instance
 const hbs = ExpressHandlebars.create(config);
 
+// Export Express Handlebars
 module.exports = hbs;

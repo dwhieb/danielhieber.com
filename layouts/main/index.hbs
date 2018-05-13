@@ -113,6 +113,13 @@
           </a>
         </li>
 
+        <li>
+          <a href=/bibliographies {{#if bibliographies}} aria-describedby=current {{/if}} class=rollover>
+            <span lang=en>Bibliographies</span>
+            <span lang=en-fonipa-x-emic>bɪbliɑgɹəfiz</span>
+          </a>
+        </li>
+
         {{#if admin}}
           <li>
             <a href=/admin class=rollover aria-describedby=current>
@@ -121,13 +128,6 @@
             </a>
           </li>
         {{/if}}
-
-        {{!-- <li>
-          <a {{#if bibliographies}} href=#bibliographies aria-describedby=current {{else}} href=/bibliographies {{/if}} class=rollover>
-            <span lang=en>Bibliographies</span>
-            <span lang=en-fonipa-x-emic>bɪbliɑgɹəfiz</span>
-          </a>
-        </li> --}}
 
         {{!-- <li>
           <a {{#if languages}} href=#languages aria-describedby=current {{else}} href=/languages {{/if}} class=rollover>
@@ -195,7 +195,7 @@
       {{{appInsights}}}
 
       // Register offline worker
-      {{#unless editor}}
+      {{#unless admin-cv}}
         {{{worker}}}
       {{/unless}}
 

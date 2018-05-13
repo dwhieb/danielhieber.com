@@ -2,7 +2,9 @@
  * Fonts used in the print version of the CV page
  */
 
-@cdn: 'https://cdn.danielhieber.com/fonts';
+@import (reference) 'less/variables.less';
+
+@baseURL: '@{cdn}/fonts';
 
 // Charis SIL
 
@@ -10,8 +12,8 @@
   font-family: 'Charis SIL';
   src:
     local('Charis SIL Regular'),
-    url('@{cdn}/CharisSIL-R.woff2') format('woff2'),
-    url('@{cdn}/CharisSIL-R.woff') format('woff');
+    url('@{baseURL}/CharisSIL-R.woff2') format('woff2'),
+    url('@{baseURL}/CharisSIL-R.woff') format('woff');
   font-display: block;
   font-stretch: normal;
   font-style:   normal;
@@ -23,8 +25,8 @@
   font-family: 'Charis SIL';
   src:
     local('Charis SIL Italic'),
-    url('@{cdn}/CharisSIL-I.woff2') format('woff2'),
-    url('@{cdn}/CharisSIL-I.woff') format('woff');
+    url('@{baseURL}/CharisSIL-I.woff2') format('woff2'),
+    url('@{baseURL}/CharisSIL-I.woff') format('woff');
   font-display: block;
   font-stretch: normal;
   font-style:   italic;
@@ -36,8 +38,8 @@
   font-family: 'Charis SIL';
   src:
     // local('Charis SIL Bold'),
-    url('@{cdn}/CharisSIL-B.woff2') format('woff2'),
-    url('@{cdn}/CharisSIL-B.woff') format('woff');
+    url('@{baseURL}/CharisSIL-B.woff2') format('woff2'),
+    url('@{baseURL}/CharisSIL-B.woff') format('woff');
   font-display: block;
   font-stretch: normal;
   font-style:   normal;
@@ -49,8 +51,8 @@
   font-family: 'Charis SIL';
   src:
     local('Charis SIL Bold Italic'),
-    url('@{cdn}/CharisSIL-BI.woff2') format('woff2'),
-    url('@{cdn}/CharisSIL-BI.woff') format('woff');
+    url('@{baseURL}/CharisSIL-BI.woff2') format('woff2'),
+    url('@{baseURL}/CharisSIL-BI.woff') format('woff');
   font-display: block;
   font-stretch: normal;
   font-style:   italic;
