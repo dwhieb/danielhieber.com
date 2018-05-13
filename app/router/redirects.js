@@ -2,10 +2,16 @@
  * Router for redirects
  */
 
-const blog = (req, res) => res.redirect(`https://blog.danielhieber.com`);
-const dlx  = (req, res) => res.redirect(`https://digitallinguistics.io`);
-
-module.exports = {
-  blog,
-  dlx,
+const routes = {
+  blog:                    `https://blog.danielhieber.com`,
+  dlx:                     `https://digitallinguistics.io`,
+  dlxBibliography:         `https://digitallinguistics.io/about`,
+  flexibilityBibliography: `/bibliographies/lexical-flexibility`,
 };
+
+module.exports = {};
+
+Object.entries(routes)
+.forEach(([route, url]) => {
+  module.exports[route] = (req, res) => res.redirect(url);
+});

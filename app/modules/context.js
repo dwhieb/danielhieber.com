@@ -34,7 +34,8 @@ module.exports = async () => {
 
   // Feather icons
   const icons = {
-    delete: feather[`trash-2`].toSvg(),
+    'chevron-right': feather[`chevron-right`].toSvg(),
+    delete:          feather[`trash-2`].toSvg(),
   };
 
   const ipaName = `ˈdæn.jəl ˈhi.bɚ`;

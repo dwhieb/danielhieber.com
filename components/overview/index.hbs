@@ -1,0 +1,26 @@
+{{!-- HTML for Overview pages --}}
+
+{{#head 'overview'}}
+
+  <!-- Styling for Overview component -->
+  <link rel=stylesheet href={{cdn}}/css/overview.css>
+
+{{/head}}
+
+<main id={{id}} class=overview>
+
+  <h2 class=header-page>{{pageTitle}}</h2>
+
+  {{#each items}}
+    <section id={{key}}>
+
+      <h3 class=header-section>{{#if link}}<a href='{{link}}'>{{title}}</a>{{else}}{{title}}{{/if}}</h3>
+
+      <div class=description>
+        {{md description}}
+      </div>
+
+    </section>
+  {{/each}}
+
+</main>
