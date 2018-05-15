@@ -15,7 +15,7 @@ const { markdown }      = require('../../utilities');
 const { readFileSync }  = require('fs');
 
 // Extract necessary helpers from handlebars-helpers library
-const { eq, is } = helpers.comparison();
+const { is } = helpers.comparison();
 
 // Custom helpers (don't use arrow functions here, to preserve context)
 function head(name, opts) {
@@ -36,6 +36,11 @@ function md(text, inline) {
   return new handlebars.SafeString(markdown[method](text));
 }
 
+function replace(expression, replacement, opts) {
+  const regexp = new RegExp(expression, `gu`);
+  return opts.fn(this).replace(regexp, replacement);
+}
+
 function section(name, opts) {
   if (!this.sections) this.sections = {};
   this.sections[name] = opts.fn(this);
@@ -53,11 +58,11 @@ const config = {
   extname:       `hbs`,
   handlebars,
   helpers:       {
-    eq,
     head,
     is,
     isType,
     md,
+    replace,
     section,
   },
   layoutsDir: `layouts`,
