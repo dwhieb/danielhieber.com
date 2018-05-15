@@ -9,16 +9,16 @@
 
 {{#*inline 'fileType'}}
   <select {{#if name}}name='{{name}}'{{/if}}>
-    <option value=abstract {{#eq @key 'abstract'}}selected{{/eq}}>abstract</option>
-    <option value=doi {{#eq @key 'doi'}}selected{{/eq}}>doi</option>
-    <option value=handout {{#eq @key 'handout'}}selected{{/eq}}>handout</option>
-    <option value=info {{#eq @key 'info'}}selected{{/eq}}>info</option>
-    <option value=org {{#eq @key 'org'}}selected{{/eq}}>org</option>
-    <option value=pdf {{#eq @key 'pdf'}}selected{{/eq}}>pdf</option>
-    <option value=poster {{#eq @key 'poster'}}selected{{/eq}}>poster</option>
-    <option value=pub {{#eq @key 'pub'}}selected{{/eq}}>pub</option>
-    <option value=slides {{#eq @key 'slides'}}selected{{/eq}}>slides</option>
-    <option value=video {{#eq @key 'video'}}selected{{/eq}}>video</option>
+    <option value=abstract {{#is @key 'abstract'}}selected{{/is}}>abstract</option>
+    <option value=doi {{#is @key 'doi'}}selected{{/is}}>doi</option>
+    <option value=handout {{#is @key 'handout'}}selected{{/is}}>handout</option>
+    <option value=info {{#is @key 'info'}}selected{{/is}}>info</option>
+    <option value=org {{#is @key 'org'}}selected{{/is}}>org</option>
+    <option value=pdf {{#is @key 'pdf'}}selected{{/is}}>pdf</option>
+    <option value=poster {{#is @key 'poster'}}selected{{/is}}>poster</option>
+    <option value=pub {{#is @key 'pub'}}selected{{/is}}>pub</option>
+    <option value=slides {{#is @key 'slides'}}selected{{/is}}>slides</option>
+    <option value=video {{#is @key 'video'}}selected{{/is}}>video</option>
   </select>
 {{/inline}}
 
@@ -106,14 +106,14 @@
           <b>Publication Type</b>
 
           <select name=publicationType>
-            <option value=edited {{#eq publicationType 'edited'}}selected{{/eq}}>edited</option>
-            <option value=non-linguistic {{#eq publicationType 'non-linguistic'}}selected{{/eq}}>non-linguistic</option>
-            <option value=online {{#eq publicationType 'online'}}selected{{/eq}}>online</option>
-            <option value=peer-reviewed {{#eq publicationType 'peer-reviewed'}}selected{{/eq}}>peer-reviewed</option>
-            <option value=presentation {{#eq publicationType 'presentation'}}selected{{/eq}}>presentation</option>
-            <option value=project {{#eq publicationType 'project'}}selected{{/eq}}>project</option>
-            <option value=review {{#eq publicationType 'review'}}selected{{/eq}}>review</option>
-            <option value=unpublished {{#eq publicationType 'unpublished'}}selected{{/eq}}>unpublished</option>
+            <option value=edited {{#is publicationType 'edited'}}selected{{/is}}>edited</option>
+            <option value=non-linguistic {{#is publicationType 'non-linguistic'}}selected{{/is}}>non-linguistic</option>
+            <option value=online {{#is publicationType 'online'}}selected{{/is}}>online</option>
+            <option value=peer-reviewed {{#is publicationType 'peer-reviewed'}}selected{{/is}}>peer-reviewed</option>
+            <option value=presentation {{#is publicationType 'presentation'}}selected{{/is}}>presentation</option>
+            <option value=project {{#is publicationType 'project'}}selected{{/is}}>project</option>
+            <option value=review {{#is publicationType 'review'}}selected{{/is}}>review</option>
+            <option value=unpublished {{#is publicationType 'unpublished'}}selected{{/is}}>unpublished</option>
           </select>
 
         </label>
@@ -410,8 +410,8 @@
           <b>Proficiency Type</b>
 
           <select name=proficiencyType>
-            <option value=skill {{#eq proficiencyType 'skill'}}selected{{/eq}}>skill</option>
-            <option value=software {{#eq proficiencyType 'software'}}selected{{/eq}}>software</option>
+            <option value=skill {{#is proficiencyType 'skill'}}selected{{/is}}>skill</option>
+            <option value=software {{#is proficiencyType 'software'}}selected{{/is}}>software</option>
           </select>
 
         </label>
