@@ -11,6 +11,7 @@ const ExpressHandlebars = require('express-handlebars');
 const handlebars        = require('handlebars');
 const helpers           = require('handlebars-helpers');
 const { join }          = require('path');
+const lingRef           = require('ling-ref');
 const { markdown }      = require('../../utilities');
 const { readFileSync }  = require('fs');
 
@@ -36,11 +37,6 @@ function md(text, inline) {
   return new handlebars.SafeString(markdown[method](text));
 }
 
-function replace(expression, replacement, opts) {
-  const regexp = new RegExp(expression, `gu`);
-  return opts.fn(this).replace(regexp, replacement);
-}
-
 function section(name, opts) {
   if (!this.sections) this.sections = {};
   this.sections[name] = opts.fn(this);
@@ -52,6 +48,9 @@ const path = join(process.cwd(), `node_modules/ling-ref/src/reference.hbs`);
 const referenceTemplate = readFileSync(path, `utf8`);
 handlebars.registerPartial(`reference`, referenceTemplate);
 
+// Register the ling-ref helpers
+lingRef(handlebars);
+
 // Handlebars config
 const config = {
   defaultLayout: `main/index.hbs`,
@@ -62,7 +61,6 @@ const config = {
     is,
     isType,
     md,
-    replace,
     section,
   },
   layoutsDir: `layouts`,
