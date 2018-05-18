@@ -4,6 +4,7 @@
 
 /* eslint-disable
   camelcase,
+  no-param-reassign,
 */
 
 const { db, mendeley }  = require('../../../services');
@@ -18,7 +19,15 @@ module.exports = async (req, res, next) => {
   if (!bibliography) return next();
 
   // Get Mendeley references for that bibliography
-  const references = await mendeley.getReferences(bibliography.mendeleyID);
+  let references = await mendeley.getReferences(bibliography.mendeleyID);
+
+  // Filter for references that have been read
+  references = references.filter(ref => ref.read);
+
+  // Display references using details / summary
+  references.forEach(ref => {
+    ref.details = true;
+  });
 
   // Get most recent modified date
   const latestModified = references
