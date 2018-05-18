@@ -42,24 +42,6 @@ async function authenticate() {
 }
 
 /**
- * Replaces <br> elements with a newline
- * @param  {String} text The text to clean
- * @return {String}
- */
-function cleanMarkdown(text) {
-
-  const breakRegExp        = new RegExp(`<br[ /]*>`, `gu`);
-  const closeBracketRegExp = new RegExp(`&gt;`, `gu`);
-  const openBracketRegExp  = new RegExp(`&lt;`, `gu`);
-
-  return text
-  .replace(breakRegExp, `\n`)
-  .replace(closeBracketRegExp, `>`)
-  .replace(openBracketRegExp, `<`);
-
-}
-
-/**
  * Get all the references for a specific bibliography
  * @param  {String} bibliographyID The Group ID of the bibliography
  * @return {Array}                 Returns an Array of the references
@@ -80,11 +62,6 @@ async function getReferences(bibliographyID) {
   .query(params);
 
   return res.body
-  .map(ref => {
-    if (ref.abstract) ref.abstract = cleanMarkdown(ref.abstract);
-    if (ref.notes) ref.notes = cleanMarkdown(ref.notes);
-    return ref;
-  })
   .sort((a, b) => compare(a.citation_key, b.citation_key));
 
 }
