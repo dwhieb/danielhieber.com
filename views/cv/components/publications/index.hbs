@@ -18,14 +18,22 @@
             <div class=cv-item-content>
 
               <p class=cv-item-title>
-                {{#if links.pdf}}<a href='{{links.pdf}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
-                {{else if links.poster}}<a href='{{links.poster}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
-                {{else if links.handout}}<a href='{{links.handout}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
-                {{else if links.slides}}<a href='{{links.slides}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
-                {{else if links.pub}}<a href='{{links.pub}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
-                {{else if links.info}}<a href='{{links.info}}' aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</a>
-                {{else}}<strong aria-label='Publication Title: {{title}}'>{{md title 'inline'}}</strong>
-                {{/if}}
+                {{#with links}}
+                  {{#or 'pdf' 'poster' 'handout' 'slides' 'pub' 'info'}}
+                    <a
+                      aria-label='Publication Title: {{title}}'
+                      data-track='{{../key}}'
+                      href='{{#if pdf}}{{pdf}}
+                        {{else if poster}}{{poster}}
+                        {{else if handout}}{{handout}}
+                        {{else if slides}}{{slides}}
+                        {{else if pub}}{{pub}}
+                        {{else if info}}{{info}}
+                      {{/if}}'>{{md ../title 'inline'}}</a>
+                  {{else}}
+                    <strong aria-label='Publication Title: {{title}}'>{{md ../title 'inline'}}</strong>
+                  {{/or}}
+                {{/with}}
               </p>
 
               <div class=description>
@@ -39,17 +47,21 @@
               {{/if}}
 
               <p class=links>
-                {{#if links.abstract}}<a href='{{links.abstract}}'>(abstract)</a>{{/if}}
-                {{#if links.pdf}}     <a href='{{links.pdf}}'     >(paper)</a>{{/if}}
-                {{#if links.poster}}  <a href='{{links.poster}}'  >(poster)</a>{{/if}}
-                {{#if links.handout}} <a href='{{links.handout}}' >(handout)</a>{{/if}}
-                {{#if links.slides}}  <a href='{{links.slides}}'  >(slides)</a>{{/if}}
-                {{#if links.pub}}     <a href='{{links.pub}}'     >(view online)</a>{{/if}}
-                {{#if links.info}}    <a href='{{links.info}}'    >(more info)</a>{{/if}}
+                {{#with links}}
+                  {{#if abstract}}<a data-track='{{../key}}' href='{{abstract}}'>(abstract)</a>{{/if}}
+                  {{#if pdf}}     <a data-track='{{../key}}' href='{{pdf}}'     >(paper)</a>{{/if}}
+                  {{#if poster}}  <a data-track='{{../key}}' href='{{poster}}'  >(poster)</a>{{/if}}
+                  {{#if handout}} <a data-track='{{../key}}' href='{{handout}}' >(handout)</a>{{/if}}
+                  {{#if slides}}  <a data-track='{{../key}}' href='{{slides}}'  >(slides)</a>{{/if}}
+                  {{#if pub}}     <a data-track='{{../key}}' href='{{pub}}'     >(view online)</a>{{/if}}
+                  {{#if info}}    <a data-track='{{../key}}' href='{{info}}'    >(more info)</a>{{/if}}
+                {{/with}}
               </p>
 
               {{#is publicationType 'online'}}
-                <p class=full-link>Accessible at: <a href={{links.pub}}>{{links.pub}}</a></p>
+                <p class=full-link>
+                  Accessible at: <a href={{links.pub}} data-track={{key}}>{{links.pub}}</a>
+                </p>
               {{/is}}
 
             </div>

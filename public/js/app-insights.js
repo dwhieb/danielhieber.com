@@ -9,6 +9,7 @@
 
 if (navigator.onLine) {
 
+  // Setup Application Insights
   var appInsights = window.appInsights || function (a) {
     function b(a) {
       c[a] = function () {
@@ -46,5 +47,13 @@ if (navigator.onLine) {
     instrumentationKey: "62a955a6-e0a8-4317-9dd5-cb1b6c4150c8"
   });
 
+  // Start Application Insights
   window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();
+
+  // Track download counts / views of publications (any link with a data-track=true attribute)
+  document.body.addEventListener("click", function (_ref) {
+    var target = _ref.target;
+
+    if (target.dataset.track) appInsights.trackEvent(target.dataset.track);
+  });
 } //# sourceMappingURL=/js/app-insights.js.map

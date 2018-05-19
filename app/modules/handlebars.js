@@ -16,7 +16,7 @@ const { markdown }      = require('../../utilities');
 const { readFileSync }  = require('fs');
 
 // Extract necessary helpers from handlebars-helpers library
-const { is } = helpers.comparison();
+const { is, or } = helpers.comparison();
 
 // Custom helpers (don't use arrow functions here, to preserve context)
 function head(name, opts) {
@@ -61,6 +61,7 @@ const config = {
     is,
     isType,
     md,
+    or,
     section,
   },
   layoutsDir: `layouts`,
