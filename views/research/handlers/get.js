@@ -2,11 +2,11 @@
  * GET handler for the Research page
  */
 
-const { getCategories } = require('../lib');
+const { db } = require('../../../services');
 
 module.exports = async (req, res) => {
 
-  const items = await getCategories();
+  const items = await db.getByType(`category`);
 
   items.forEach(cat => {
     // TODO: Remove this when issue #384 is closed
