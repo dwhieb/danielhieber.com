@@ -28,6 +28,9 @@
     "url": "git+https://github.com/dwhieb/danielhieber.com.git"
   },
   "main": "index.js",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "build": "npm run build-js & npm run build-css & npm run build-svg & npm run upload",
     "build-css": "node build/less.js",
@@ -37,30 +40,30 @@
     "upload": "node build/upload.js"
   },
   "dependencies": {
-    "applicationinsights": "^1.0.2",
-    "azure-storage": "^2.8.2",
+    "applicationinsights": "^1.0.4",
+    "azure-storage": "^2.10.1",
     "body-parser": "^1.18.3",
     "boom": "^7.2.0",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
-    "documentdb": "^1.14.4",
+    "documentdb": "^1.14.5",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "feather-icons": "^4.7.3",
     "formidable": "^1.2.1",
     "handlebars-helpers": "^0.10.0",
-    "helmet": "^3.12.1",
+    "helmet": "^3.13.0",
     "ling-ref": "^0.6.0",
-    "markdown-it": "^8.4.1",
-    "prince": "^1.4.9",
+    "markdown-it": "^8.4.2",
+    "prince": "^1.5.0",
     "superagent": "^3.8.3",
-    "uuid": "^3.2.1"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "js-yaml": "^3.10.0",
-    "less": "^3.0.4",
+    "js-yaml": "^3.12.0",
+    "less": "^3.8.1",
     "less-plugin-clean-css": "^1.5.1",
     "svg-sprite": "^1.4.0"
   }
