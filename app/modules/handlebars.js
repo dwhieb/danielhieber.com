@@ -17,6 +17,7 @@ const { readFileSync }  = require('fs');
 
 // Extract necessary helpers from handlebars-helpers library
 const { is, or } = helpers.comparison();
+const { length } = helpers.array();
 
 // Custom helpers (don't use arrow functions here, to preserve context)
 function head(name, opts) {
@@ -60,11 +61,12 @@ const config = {
     head,
     is,
     isType,
+    length,
     md,
     or,
     section,
   },
-  layoutsDir: `layouts`,
+  layoutsDir:  `layouts`,
   partialsDir: [
     `components`,
     {

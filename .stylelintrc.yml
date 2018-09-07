@@ -1,4 +1,4 @@
-extends: 'C:\Users\dwhieb\Coding\dev\.stylelintrc.yaml'
+extends: 'C:\Users\dwhieb\Coding\dev\.stylelintrc.yml'
 rules:
   function-url-no-scheme-relative: true
 ignoreFiles:

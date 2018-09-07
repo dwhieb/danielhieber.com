@@ -4,7 +4,6 @@
 
 /* eslint-disable
   camelcase,
-  no-param-reassign,
 */
 
 const { db, mendeley }  = require('../../../services');
@@ -26,7 +25,7 @@ module.exports = async (req, res, next) => {
 
   // Display references using details / summary
   references.forEach(ref => {
-    ref.details = true;
+    ref.details = true; // eslint-disable-line no-param-reassign
   });
 
   // Get most recent modified date
