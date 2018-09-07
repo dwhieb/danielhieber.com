@@ -55,7 +55,6 @@
     "helmet": "^3.13.0",
     "ling-ref": "^0.6.0",
     "markdown-it": "^8.4.2",
-    "prince": "^1.5.0",
     "superagent": "^3.8.3",
     "uuid": "^3.3.2"
   },
@@ -66,5 +65,8 @@
     "less": "^3.8.1",
     "less-plugin-clean-css": "^1.5.1",
     "svg-sprite": "^1.4.0"
+  },
+  "peerDependencies": {
+    "prince": "^1.5.0"
   }
 }
