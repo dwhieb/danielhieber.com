@@ -7,6 +7,7 @@
 - [ ] Deploy to `dev` slot from issue branch
 - [ ] Test on `dev` slot, deploying changes as needed
 - [ ] Squash & merge issue branch into `master`
+    - `LABEL: description (#000)`
 - [x] `master` branch deploys to `staging` slot
 - [ ] Upload Prince XML to `staging` (if needed)
 - [ ] Retrigger deployment to `staging` (if needed)
