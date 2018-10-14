@@ -7,11 +7,12 @@
 - [ ] Update `dev` branch from `master`
 - [ ] Update `dev` branch from issue branch
 - [x] `dev` branch deploys to `dev` slot
+- [ ] Upload Prince XML to `dev` slot (if needed)
 - [ ] Test on `dev` slot, pushing changes from issue branch to `dev` as needed
 - [ ] Squash & merge issue branch into `master`
     - `LABEL: description (#000)`
 - [x] `master` branch deploys to `staging` slot
-- [ ] Upload Prince XML to `staging` (if needed)
+- [ ] Upload Prince XML to `staging` slot (if needed)
 - [ ] Retrigger deployment to `staging` (if needed)
 - [ ] Test changes on `staging`, hotfixing if needed
 - [ ] Upload assets: `npm run upload`
