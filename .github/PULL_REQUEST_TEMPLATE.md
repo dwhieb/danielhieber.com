@@ -1,17 +1,22 @@
 - [ ] Update Node and its environment variable
 - [ ] Update npm packages
 - [ ] Develop on issue branch
-- [ ] Test locally
-- [ ] Build
-- [ ] Test locally
-- [ ] Update environment variables on `dev` slot
-- [ ] Deploy to `dev` slot from issue branch
-- [ ] Test on `dev` slot, deploying changes as needed
+- [ ] Build: `npm run build`
+- [ ] Test changes locally
+- [ ] Update environment variables on `dev` and `staging` slots
+- [ ] Update `dev` branch from `master`
+- [ ] Update `dev` branch from issue branch
+- [x] `dev` branch deploys to `dev` slot
+- [ ] Upload Prince XML to `dev` slot (if needed)
+- [ ] Test on `dev` slot, pushing changes from issue branch to `dev` as needed
 - [ ] Squash & merge issue branch into `master`
+    - `LABEL: description (#000)`
+    - `closes #000`
 - [x] `master` branch deploys to `staging` slot
-- [ ] Upload Prince XML to `staging` (if needed)
+- [ ] Upload Prince XML to `staging` slot (if needed)
 - [ ] Retrigger deployment to `staging` (if needed)
-- [ ] Test changes on `staging`
+- [ ] Test changes on `staging`, hotfixing if needed
+- [ ] Upload assets: `npm run upload`
 - [ ] Swap `production` and `staging` slots
 - [ ] Check environment variables on `production`
 - [ ] Test changes on `production`
