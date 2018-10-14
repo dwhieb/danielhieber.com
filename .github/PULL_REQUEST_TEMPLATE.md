@@ -3,8 +3,10 @@
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
 - [ ] Test changes locally
-- [ ] Update environment variables on `dev` slot
-- [ ] Deploy to `dev` slot from issue branch
+- [ ] Update environment variables on `dev` and `staging` slots
+- [ ] Update `dev` branch from `master`
+- [ ] Update `dev` branch from issue branch
+- [x] `dev` branch deploys to `dev` slot
 - [ ] Test on `dev` slot, deploying changes as needed
 - [ ] Squash & merge issue branch into `master`
     - `LABEL: description (#000)`
