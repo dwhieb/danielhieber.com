@@ -32,7 +32,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "build": "npm run build-js & npm run build-css & npm run build-svg & npm run upload",
+    "build": "npm run build-js & npm run build-css & npm run build-svg",
     "build-css": "node build/less.js",
     "build-js": "node build/scripts.js",
     "build-svg": "node build/svg.js",

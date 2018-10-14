@@ -14,8 +14,7 @@
 
   "ignore": [
     "/build",
-    "/dist",
-    "/dist/**",
+    "/public",
     "/public/**/**"
   ]
 
