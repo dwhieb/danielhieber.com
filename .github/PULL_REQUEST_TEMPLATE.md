@@ -7,7 +7,7 @@
 - [ ] Update `dev` branch from `master`
 - [ ] Update `dev` branch from issue branch
 - [x] `dev` branch deploys to `dev` slot
-- [ ] Test on `dev` slot, deploying changes as needed
+- [ ] Test on `dev` slot, pushing changes from issue branch to `dev` as needed
 - [ ] Squash & merge issue branch into `master`
     - `LABEL: description (#000)`
 - [x] `master` branch deploys to `staging` slot
