@@ -17,5 +17,4 @@
 - [ ] Test changes on `staging`, hotfixing if needed
 - [ ] Upload assets: `npm run upload`
 - [ ] Swap `production` and `staging` slots
-- [ ] Check environment variables on `production`
 - [ ] Test changes on `production`
