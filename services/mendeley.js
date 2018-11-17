@@ -17,10 +17,10 @@ const { mendeleyID, mendeleySecret } = require('../config');
 
 // VARIABLES
 
-const baseURL = `https://api.mendeley.com`;
-const oneHour = 60 * 60 * 1000; // one hour in milliseconds
-let access_token;
+const baseURL  = `https://api.mendeley.com`;
+const oneHour  = 60 * 60 * 1000; // one hour in milliseconds
 let expiration = new Date;
+let access_token;
 
 // METHODS
 
