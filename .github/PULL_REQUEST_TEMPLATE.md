@@ -7,7 +7,6 @@
 - [ ] Build: `npm run build`
 - [ ] Test changes locally
 - [ ] Update environment variables on `dev` and `staging` slots
-- [ ] Update `dev` branch from `master`
 - [ ] Update `dev` branch from issue branch
 - [x] `dev` branch automatically deploys to `dev` slot
 - [ ] Upload Prince XML to `dev` slot and redeploy (if needed)
