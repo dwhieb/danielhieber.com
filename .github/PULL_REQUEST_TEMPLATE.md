@@ -1,7 +1,7 @@
 - [ ] Update `dev` from `master`
 - [ ] Create an issue branch from `dev`
 - [ ] Create PR from issue branch into `master`
-- [ ] Update Node and Azure environment variable (if necessary)
+- [ ] Update Node and Node engine in `package.json`
 - [ ] Update npm packages
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
