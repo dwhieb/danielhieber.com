@@ -1,5 +1,6 @@
 - [ ] Update `dev` from `master`
 - [ ] Create an issue branch from `dev`
+- [ ] Create PR from issue branch into `dev`
 - [ ] Update Node
 - [ ] Update npm packages
 - [ ] Develop on issue branch
