@@ -17,6 +17,7 @@
 - [ ] `master` branch deploys to `staging` slot
 - [ ] Upload Prince XML to `staging` slot and redeploy (if needed)
 - [ ] Test changes on `staging`, hotfixing from issue branch if needed
+- [ ] Set NODE_ENV to `production`: `$env:NODE_ENV="production"`
 - [ ] Upload assets: `npm run upload` (from `master` branch)
 - [ ] Swap `production` and `staging` slots
 - [ ] Test changes on `production`
