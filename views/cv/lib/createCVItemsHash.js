@@ -30,7 +30,8 @@ module.exports = docs => {
   items.media.sort((a, b) => compare(b.date, a.date));                       // date descending
   items.memberships.sort((a, b) => compare(a.organization, b.organization)); // organization ascending
   items.proficiencies.sort((a, b) => compare(a.title, b.title));             // title ascending
-  items.publications.sort((a, b) => compare(b.date, a.date)                  // date descending, title ascending
+  items.publications.sort((a, b) => compare(b.forthcoming, a.forthcoming)    // forthcoming
+    || compare(b.date, a.date)                                               // date descending, title ascending
     || compare(a.title, b.title));
   items.references.sort((a, b) => compare(a.priority, b.priority));          // priority ascending
   items.service.sort((a, b) => compare(b.startYear, a.startYear)             // startYear, endYear descending

@@ -1,7 +1,9 @@
 {{!-- HTML for the date component of the CV page --}}
 
 <div class=date>
-  {{#if year}}
+  {{#if forthcoming}}
+    <time>forthcoming</time>
+  {{else if year}}
     <time datetime='{{year}}'>{{year}}</time>
   {{else if date}}
     <time datetime='{{date}}'>{{dateString}}</time>
