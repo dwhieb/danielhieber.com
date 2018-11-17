@@ -1,4 +1,6 @@
-- [ ] Update Node and its environment variable
+- [ ] Update `dev` from `master`
+- [ ] Create an issue branch from `dev`
+- [ ] Update Node
 - [ ] Update npm packages
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
@@ -6,7 +8,7 @@
 - [ ] Update environment variables on `dev` and `staging` slots
 - [ ] Update `dev` branch from `master`
 - [ ] Update `dev` branch from issue branch
-- [x] `dev` branch deploys to `dev` slot
+- [x] `dev` branch automatically deploys to `dev` slot
 - [ ] Upload Prince XML to `dev` slot and redeploy (if needed)
 - [ ] Test on `dev` slot, pushing changes from issue branch to `dev` as needed
 - [ ] Squash & merge issue branch into `master`
