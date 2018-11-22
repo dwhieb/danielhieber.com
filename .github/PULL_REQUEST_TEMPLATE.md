@@ -10,15 +10,6 @@
   - [ ] Chrome
   - [ ] Edge
   - [ ] Firefox
-- [ ] Test changes on Browserstack
-  - [ ] Chrome (desktop)
-  - [ ] Chrome (mobile)
-  - [ ] Safari (deskop)
-  - [ ] Safari (mobile)
-  - [ ] Edge (desktop)
-  - [ ] Edge (mobile)
-  - [ ] Firefox (desktop)
-  - [ ] Firefox (mobile)
 - [ ] Update environment variables on `dev` and `staging` slots
 - [ ] Update `dev` branch from issue branch
 - [ ] `dev` branch automatically deploys to `dev` slot
@@ -29,7 +20,15 @@
     - `closes #000`
 - [ ] `master` branch deploys to `staging` slot
 - [ ] Upload Prince XML to `staging` slot and redeploy (if needed)
-- [ ] Test changes on `staging`, hotfixing from issue branch if needed
+- [ ] Test changes on `staging` using Browserstack, hotfixing from issue branch if needed
+  - [ ] Chrome (desktop)
+  - [ ] Chrome (mobile)
+  - [ ] Safari (deskop)
+  - [ ] Safari (mobile)
+  - [ ] Edge (desktop)
+  - [ ] Edge (mobile)
+  - [ ] Firefox (desktop)
+  - [ ] Firefox (mobile)
 - [ ] Set NODE_ENV to `production`: `$env:NODE_ENV="production"`
 - [ ] Upload assets: `npm run upload` (from `master` branch)
 - [ ] Swap `production` and `staging` slots
