@@ -1,14 +1,11 @@
-extends: 'C:\Users\dwhieb\Coding\dev\.eslintrc.yml'
+extends: 'C:\Users\dwhie\Coding\utilities\stylesheets\.eslintrc.yml'
 
 parserOptions:
-  ecmaFeatures:
-    experimentalObjectRestSpread: true
-  ecmaVersion: 8
   sourceType: script
 
 env:
   browser: false
-  node: true
+  node:    true
 
 rules:
   require-jsdoc: off
