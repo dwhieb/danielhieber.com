@@ -7,6 +7,18 @@
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
 - [ ] Test changes locally
+  - [ ] Chrome
+  - [ ] Edge
+  - [ ] Firefox
+- [ ] Test changes on Browserstack
+  - [ ] Chrome (desktop)
+  - [ ] Chrome (mobile)
+  - [ ] Safari (deskop)
+  - [ ] Safari (mobile)
+  - [ ] Edge (desktop)
+  - [ ] Edge (mobile)
+  - [ ] Firefox (desktop)
+  - [ ] Firefox (mobile)
 - [ ] Update environment variables on `dev` and `staging` slots
 - [ ] Update `dev` branch from issue branch
 - [ ] `dev` branch automatically deploys to `dev` slot
