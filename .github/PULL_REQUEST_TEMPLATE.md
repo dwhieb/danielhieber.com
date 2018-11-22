@@ -1,11 +1,15 @@
 - [ ] Update `dev` from `master`
 - [ ] Create an issue branch from `dev`
 - [ ] Create PR from issue branch into `master`
-- [ ] Update Node and Node engine in `package.json`
+- [ ] Switch to latest version of Node supported by Azure Web Apps: `nvm use X.X.X`
+- [ ] Update Node engine in `package.json`
 - [ ] Update npm packages
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
 - [ ] Test changes locally
+  - [ ] Chrome
+  - [ ] Edge
+  - [ ] Firefox
 - [ ] Update environment variables on `dev` and `staging` slots
 - [ ] Update `dev` branch from issue branch
 - [ ] `dev` branch automatically deploys to `dev` slot
@@ -16,7 +20,15 @@
     - `closes #000`
 - [ ] `master` branch deploys to `staging` slot
 - [ ] Upload Prince XML to `staging` slot and redeploy (if needed)
-- [ ] Test changes on `staging`, hotfixing from issue branch if needed
+- [ ] Test changes on `staging` using Browserstack, hotfixing from issue branch if needed
+  - [ ] Chrome (desktop)
+  - [ ] Chrome (mobile)
+  - [ ] Safari (deskop)
+  - [ ] Safari (mobile)
+  - [ ] Edge (desktop)
+  - [ ] Edge (mobile)
+  - [ ] Firefox (desktop)
+  - [ ] Firefox (mobile)
 - [ ] Set NODE_ENV to `production`: `$env:NODE_ENV="production"`
 - [ ] Upload assets: `npm run upload` (from `master` branch)
 - [ ] Swap `production` and `staging` slots
