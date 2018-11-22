@@ -15,12 +15,12 @@
 - [ ] `dev` branch automatically deploys to `dev` slot
 - [ ] Upload Prince XML to `dev` slot and redeploy (if needed)
 - [ ] Test on `dev` slot, pushing changes from issue branch to `dev` as needed
-- [ ] Squash & merge issue branch into `master`
+- [ ] Squash & merge issue branch into `master`, then delete issue branch
     - `LABEL: description (#000)`
     - `closes #000`
 - [ ] `master` branch deploys to `staging` slot
 - [ ] Upload Prince XML to `staging` slot and redeploy (if needed)
-- [ ] Test changes on `staging` using Browserstack, hotfixing from issue branch if needed
+- [ ] Test changes on `staging` using Browserstack, hotfixing as needed
   - [ ] Chrome (desktop)
   - [ ] Chrome (mobile)
   - [ ] Safari (deskop)
