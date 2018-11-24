@@ -250,6 +250,23 @@
       {{/isType}}
 
 
+      {{!-- Priority --}}
+      {{#isType 'category, reference'}}
+        <label for=priority>
+
+          <b>Priority</b>
+
+          <input
+            min=1
+            name=priority
+            required
+            type=number
+            value='{{priority}}'>
+
+        </label>
+      {{/isType}}
+
+
       {{#isType 'language'}}
 
         {{!-- Autonym --}}
