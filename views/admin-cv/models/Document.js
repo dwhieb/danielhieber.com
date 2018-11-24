@@ -53,6 +53,7 @@ module.exports = class Document {
     ongoing,
     organization,
     phone,
+    priority,
     proficiencyType,
     program,
     publication,
@@ -138,7 +139,7 @@ module.exports = class Document {
       }
 
       // Abbreviation
-      if ((type === `membership` || type === `service`) && !/^[A-Za-z]*$/.test(abbreviation)) {
+      if ((type === `membership` || type === `service`) && !/^[A-Za-z]*$/u.test(abbreviation)) {
         throw new TypeError(`abbreviation must be a properly-formatted abbreviation.`);
       }
 
@@ -193,7 +194,7 @@ module.exports = class Document {
       }
 
       // Key
-      const keyRegExp = /^[-A-Za-z0-9]+$/;
+      const keyRegExp = /^[-A-Za-z0-9]+$/u;
 
       if ((type === `category` || type === `publication`) && !keyRegExp.test(key)) {
         throw new TypeError(`key must be properly-formatted String.`);
@@ -283,6 +284,7 @@ module.exports = class Document {
     if (name) this.name = name;
     if (organization) this.organization = organization;
     if (typeof phone === `string`) this.phone = phone;
+    if (typeof priority !== `undefined`) this.priority = Number(priority);
     if (proficiencyType) this.proficiencyType = proficiencyType;
     if (typeof program === `string`) this.program = program;
     if (publication) this.publication = publication;
