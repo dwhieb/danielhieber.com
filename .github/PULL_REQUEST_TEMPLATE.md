@@ -16,6 +16,7 @@
 - [ ] Squash & merge issue branch into `master`, then delete issue branch
     - `LABEL: description (#000)`
     - `closes #000`
+    - *Do not merge `dev` branch into `master` or any other branch*
 - [ ] `master` branch deploys to `staging` slot
 - [ ] Upload Prince XML to `staging` slot and redeploy (if needed)
 - [ ] Test changes on `staging` using Browserstack, hotfixing as needed
