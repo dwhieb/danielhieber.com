@@ -5,11 +5,12 @@
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
 - [ ] Test changes locally
-  - [ ] Chrome
-  - [ ] Edge
-  - [ ] Firefox
+- [ ] Chrome
+- [ ] Edge
+- [ ] Firefox
 - [ ] Update environment variables on `dev` and `staging` slots
-- [ ] Deploy issue branch to `dev` slot
+- [ ] Merge issue branch into `dev` branch
+- [ ] `dev` branch automatically deploys to `dev` slot
 - [ ] Upload Prince XML to `dev` slot and redeploy (if needed)
 - [ ] Test on `dev` slot, redeploying changes from issue branch as needed
 - [ ] Squash & merge issue branch into `master`, then delete issue branch
