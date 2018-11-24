@@ -49,7 +49,7 @@ module.exports = async (req, res, next) => {
     id:         `admin-cv`,
     pageTitle:  `CV Editor`,
     type,
-    Type:      capitalize(req.params.type),
+    Type:       capitalize(req.params.type),
   };
 
   // Retrieve categories
