@@ -1,6 +1,4 @@
-- [ ] Update `dev` from `master`
-- [ ] Create an issue branch from `dev`
-- [ ] Create PR from issue branch into `master`
+- [ ] Create issue branch from `master`
 - [ ] Switch to latest version of Node supported by Azure Web Apps: `nvm use X.X.X`
 - [ ] Update Node engine in `package.json`
 - [ ] Update npm packages
@@ -11,10 +9,9 @@
   - [ ] Edge
   - [ ] Firefox
 - [ ] Update environment variables on `dev` and `staging` slots
-- [ ] Update `dev` branch from issue branch
-- [ ] `dev` branch automatically deploys to `dev` slot
+- [ ] Deploy issue branch to `dev` slot
 - [ ] Upload Prince XML to `dev` slot and redeploy (if needed)
-- [ ] Test on `dev` slot, pushing changes from issue branch to `dev` as needed
+- [ ] Test on `dev` slot, redeploying changes from issue branch as needed
 - [ ] Squash & merge issue branch into `master`, then delete issue branch
     - `LABEL: description (#000)`
     - `closes #000`
