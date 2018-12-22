@@ -4,6 +4,7 @@
 
 const routes = {
   blog:                    `https://blog.danielhieber.com`,
+  courses:                 `/teaching`,
   dlx:                     `https://digitallinguistics.io`,
   dlxBibliography:         `https://digitallinguistics.io/about`,
   flexibilityBibliography: `/bibliographies/lexical-flexibility`,

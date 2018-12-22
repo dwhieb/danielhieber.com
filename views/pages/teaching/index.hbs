@@ -1,5 +1,37 @@
 {{!-- HTML for the Teaching page --}}
 
+{{#head 'teaching'}}
+  <link rel=stylesheet href={{cdn}}/css/teaching.css>
+{{/head}}
+
 <main id={{id}}>
+
   <h2>Teaching</h2>
+
+  <section class=syllabi>
+
+    <h2>Syllabi</h2>
+
+  </section>
+
+  <section class=courses>
+
+    <h2>Courses Taught</h2>
+
+    <ul>
+      {{#each courses}}
+        <li>
+
+          <h3>{{{title}}}{{#if role}} ({{role}}){{/if}}</h3>
+
+          <div>
+            {{md description}}
+          </div>
+
+        </li>
+      {{/each}}
+    </ul>
+
+  </section>
+
 </main>

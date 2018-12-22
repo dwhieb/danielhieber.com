@@ -1,0 +1,18 @@
+// Phonetic transcriptions
+.phonetic {
+
+  .unicode;
+
+  hyphens: none;
+
+  &::before {
+    content: '[';
+    padding-right: var(--padding-ipa);
+  }
+
+  &::after {
+    content: ']';
+    padding-left: var(--padding-ipa);
+  }
+
+}
