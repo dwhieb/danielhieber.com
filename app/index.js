@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 const express      = require('express');
 const middleware   = require('./middleware');
 const route        = require('./router');
-const { error }    = require('../views');
+const { error }    = require('../views/pages');
 
 const { getContext, hbs, startServer } = require('./modules');
 
@@ -36,6 +36,7 @@ app.enable(`trust proxy`);           // trust the Azure proxy server
 app.engine(hbs.extname, hbs.engine); // declare Handlebars engine
 app.set(`port`, config.port);        // set port
 app.set(`view engine`, hbs.extname); // use Handlebars for templating
+app.set(`views`, `views/pages`);     // set the views directory
 
 // middleware
 app.use(earlyLogger);    // early logging for debugging

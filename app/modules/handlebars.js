@@ -27,7 +27,7 @@ function head(name, opts) {
 }
 
 function isType(typesString = ``, opts) {
-  const types = typesString.split(/[, ]+/);
+  const types = typesString.split(/[, ]+/u);
   if (types.includes(this.type)) return opts.fn(this);
 }
 
@@ -66,11 +66,11 @@ const config = {
     or,
     section,
   },
-  layoutsDir:  `layouts`,
+  layoutsDir:  `views/layouts`,
   partialsDir: [
-    `components`,
+    `views/components`,
     {
-      dir:       `views/cv/components`,
+      dir:       `views/pages/cv/components`,
       namespace: `cv`,
     },
   ],

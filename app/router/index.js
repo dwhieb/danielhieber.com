@@ -24,7 +24,7 @@ const {
   home,
   research,
   personal,
-} = require('../../views');
+} = require('../../views/pages');
 
 module.exports = app => {
 
