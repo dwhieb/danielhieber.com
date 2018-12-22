@@ -1,17 +1,18 @@
 /**
- * This file contains all the route handlers for the views
+ * This file contains all the route handlers for the page views
  */
 
-const admin                = require('./admin/handlers');
-const bibliography         = require('./bibliography/handlers');
-const bibliographies       = require('./bibliographies/handlers');
-const bibliographiesEditor = require('./admin-bibliographies/handlers');
-const cv                   = require('./cv/handlers');
-const cvEditor             = require('./admin-cv/handlers');
-const error                = require('./error/handlers');
-const home                 = require('./home/handlers');
-const personal             = require('./personal/handlers');
-const research             = require('./research/handlers');
+const admin                = require(`./admin`);
+const bibliography         = require(`./bibliography`);
+const bibliographies       = require(`./bibliographies`);
+const bibliographiesEditor = require(`./admin-bibliographies`);
+const cv                   = require(`./cv`);
+const cvEditor             = require(`./admin-cv`);
+const error                = require(`./error`);
+const home                 = require(`./home`);
+const personal             = require(`./personal`);
+const research             = require(`./research`);
+const teaching             = require(`./teaching`);
 
 module.exports = {
   admin,
@@ -24,4 +25,5 @@ module.exports = {
   home,
   personal,
   research,
+  teaching,
 };
