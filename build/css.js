@@ -22,7 +22,7 @@ const {
 
 const cleaner     = new Cleaner();
 const CSSDir      = path.join(__dirname, `../public/css`);
-const mainCSSFile = path.join(__dirname, `../views/layouts/main/main.less`);
+const layoutsDir  = path.join(__dirname, `../views/layouts`);
 const pagesDir    = path.join(__dirname, `../views/pages`);
 const partialsDir = path.join(__dirname, `../views/partials`);
 const removeDir   = promisify(rimraf);
@@ -40,8 +40,9 @@ async function buildCSS() {
     await removeDir(CSSDir);
     await mkdir(CSSDir);
 
-    // Convert CSS for the main layout
-    await convertFile(mainCSSFile);
+    // Convert CSS for layouts
+    const layoutFiles = await recurse(layoutsDir, [ignore]);
+    await Promise.all(layoutFiles.map(convertFile));
 
     // Convert CSS for partials
     const partialsFiles = await recurse(partialsDir, [ignore]);
