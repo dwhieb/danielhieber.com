@@ -1,13 +1,17 @@
-/* index.less */
+/**
+ * Styles for the main layout
+ */
 
 /* All styles applied to the main layout. These styles are applied to every page on the site */
 
-@import 'fonts.less';
+// Globals
+@import 'less/fonts.less';
 @import 'node_modules/flexbox-reset/flexbox-reset.less';
 @import 'less/variables.less';
 @import 'less/colors.less';
-@import 'global.less';
-@import 'main.less';
-@import 'header.less';
-@import 'nav.less';
-@import 'footer.less';
+@import 'less/global.less';
+
+// Main Layout
+@import 'less/header.less';
+@import 'less/nav.less';
+@import 'less/footer.less';

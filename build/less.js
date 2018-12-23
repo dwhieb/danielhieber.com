@@ -1,51 +1,75 @@
 /**
- * Compiles all the LESS files in the project (listed in `less.yaml`)
+ * Compiles all the LESS files for the project
  */
 
-const { env }               = require('../config');
-const Cleaner               = require('less-plugin-clean-css');
-const { load: convertYAML } = require('js-yaml');
-const less                  = require('less');
-const path                  = require('path');
-const { promisify }         = require('util');
+// IMPORTS
+
+const Cleaner       = require(`less-plugin-clean-css`);
+const createSpinner = require(`ora`);
+const less          = require(`less`);
+const path          = require(`path`);
+const { promisify } = require(`util`);
+const recurse       = require(`recursive-readdir`);
+const rimraf        = require(`rimraf`);
 
 const {
+  mkdir,
   readFile,
   writeFile,
-}  = require('fs');
+} = require(`fs`).promises;
 
-const cleaner = new Cleaner();
-const read    = promisify(readFile);
-const write   = promisify(writeFile);
+// SETUP
 
-const convert = async ([name, filepath]) => {
+const cleaner     = new Cleaner();
+const CSSDir      = path.join(__dirname, `../public/css`);
+const mainCSSFile = path.join(__dirname, `../views/layouts/main/main.less`);
+const pagesDir    = path.join(__dirname, `../views/pages`);
+const removeDir   = promisify(rimraf);
+
+// METHODS
+
+async function buildCSS() {
+
+  const spinner = createSpinner(`Converting LESS files`);
+  spinner.start();
+
+  try {
+    await removeDir(CSSDir);
+    await mkdir(CSSDir);
+    await convertFile(mainCSSFile);
+    const files = await recurse(pagesDir, [ignore]);
+    await Promise.all(files.map(convertFile));
+  } catch (e) {
+    return spinner.fail(e.message);
+  }
+
+  spinner.succeed(`LESS files converted`);
+
+}
+
+async function convertFile(filepath) {
 
   const opts = {
-    filename:   path.join(process.cwd(), filepath),
+    filename:   filepath,
     plugins:    [cleaner],
     strictMath: true,
   };
 
-  // if (env === `localhost` || env === `development`) {
-  //   opts.sourceMap = {
-  //     sourceMapFileInline: true,
-  //   };
-  // }
-
-  const lessData = await read(filepath, `utf8`);
+  const lessData = await readFile(filepath, `utf8`);
   const { css }  = await less.render(lessData, opts);
-  await write(`public/css/${name}.css`, css, `utf8`);
+  const filename = path.basename(filepath, `.less`);
+  const outpath  = path.join(CSSDir, `${filename}.css`);
+  await writeFile(outpath, css, `utf8`);
 
-};
+}
 
-void async function() {
-  try {
-    const yaml     = await read(`build/less.yaml`, `utf8`);
-    const files    = convertYAML(yaml);
-    const promises = Object.entries(files).map(convert);
-    await Promise.all(promises);
-    console.log(` -- LESS files converted`);
-  } catch (e) {
-    console.error(e);
-  }
-}();
+function ignore(filepath, stats) {
+  const basename = path.basename(filepath);
+  if (basename === `components` || basename === `less`) return true;
+  if (stats.isFile() && path.extname(filepath) !== `.less`) return true;
+}
+
+// INITIALIZATION
+
+if (require.main === module) buildCSS();
+else module.exports = buildCSS;

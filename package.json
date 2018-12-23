@@ -32,7 +32,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "build": "npm run build-js & npm run build-css & npm run build-svg",
+    "build": "node build/index.js",
     "build-css": "node build/less.js",
     "build-js": "node build/scripts.js",
     "build-svg": "node build/svg.js",
@@ -67,6 +67,9 @@
     "js-yaml": "^3.12.0",
     "less": "^3.8.1",
     "less-plugin-clean-css": "^1.5.1",
+    "ora": "^3.0.0",
+    "recursive-readdir": "^2.2.2",
+    "rimraf": "^2.6.2",
     "svg-sprite": "^1.5.0"
   }
 }

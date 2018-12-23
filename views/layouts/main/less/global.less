@@ -1,8 +1,16 @@
-/* Global styles that are applied aross the site */
+/* Global styles and classes that are applied aross the site */
 
-@import (reference) 'less/variables.less';
-@import (reference) 'less/classes.less';
-@import (reference) 'less/components/index.less';
+@import (reference) 'variables.less';
+@import '../../../components/ipa.less';
+@import '../../../components/link.less';
+@import '../../../components/phonemic.less';
+@import '../../../components/phonetic.less';
+@import '../../../components/rollover.less';
+@import '../../../components/skip-link.less';
+
+:root {
+  scroll-behavior: smooth;
+}
 
 /* IPA transcriptions */
 [lang*=fonipa] { .ipa; }
@@ -17,6 +25,14 @@ b {
   font-weight: var(--font-weight-bold);
 }
 
+body {
+  font-family: var(--font);
+  font-size:   var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: 1.5;
+  overflow-x:  hidden;
+}
+
 cite {
   font-style: italic;
 }
@@ -29,8 +45,16 @@ em {
   font-style: italic;
 }
 
+html {
+  font-size: 100%;
+}
+
 i {
   font-style: italic;
+}
+
+main {
+  flex-grow: 1;
 }
 
 p a:not(.non-link) {
@@ -59,9 +83,9 @@ sup {
   top: -0.4em;
 }
 
-// Screen styling
 @media screen {
 
+  // Add icon to external links
   p a:not([href*='danielhieber.com']):not(.non-link) {
 
     --icon-width: 0.75em;
