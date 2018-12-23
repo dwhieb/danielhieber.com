@@ -22,9 +22,10 @@ const {
   cv,
   cvEditor,
   home,
-  research,
   personal,
-} = require('../../views');
+  research,
+  teaching,
+} = require('../../views/pages');
 
 module.exports = app => {
 
@@ -85,6 +86,8 @@ module.exports = app => {
   app.get(`/research`, asyncErrors(research.get));
 
   app.get(`/resume`, asyncErrors(cv.get));
+
+  app.get(`/teaching`, asyncErrors(teaching.get));
 
   app.get(`/vitae`, asyncErrors(cv.get));
 

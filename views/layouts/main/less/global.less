@@ -1,0 +1,116 @@
+/* Global styles and classes that are applied aross the site */
+
+@import (reference) 'variables.less';
+@import '../../../components/ipa.less';
+@import '../../../components/link.less';
+@import '../../../components/phonemic.less';
+@import '../../../components/phonetic.less';
+@import '../../../components/rollover.less';
+@import '../../../components/skip-link.less';
+
+:root {
+  scroll-behavior: smooth;
+}
+
+/* IPA transcriptions */
+[lang*=fonipa] { .ipa; }
+
+/* Phonemic transcriptions */
+[lang$=emic] { .phonemic; }
+
+/* Phonetic transcriptions */
+[lang$=etic] { .phonetic; }
+
+b {
+  font-weight: var(--font-weight-bold);
+}
+
+body {
+  font-family: var(--font);
+  font-size:   var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: 1.5;
+  overflow-x:  hidden;
+}
+
+cite {
+  font-style: italic;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+em {
+  font-style: italic;
+}
+
+html {
+  font-size: 100%;
+}
+
+i {
+  font-style: italic;
+}
+
+main {
+  flex-grow: 1;
+}
+
+p a:not(.non-link) {
+  .link;
+}
+
+select {
+  border: var(--border-width) solid black;
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+sup, sub {
+  font-size:      80%;
+  position:       relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.4em;
+}
+
+sup {
+  top: -0.4em;
+}
+
+@media screen {
+
+  // Add icon to external links
+  p a:not([href*='danielhieber.com']):not(.non-link) {
+
+    --icon-width: 0.75em;
+    margin-right: var(--icon-width);
+
+    &::after {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url('@{cdn}/img/icons/external-link.svg');
+      background-repeat:   no-repeat;
+      background-position: center;
+      background-size:     contain;
+      content:             '(external link)';
+      margin-left:         0.125em;
+      overflow:            hidden;
+      position:            absolute;
+      text-indent:         var(--icon-width);
+      white-space:         nowrap;
+      width:               var(--icon-width);
+    }
+
+    &:hover::after {
+      background-image: url('@{cdn}/img/icons/external-link.svg');
+    }
+
+  }
+
+}

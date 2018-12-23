@@ -1,0 +1,74 @@
+@components: 'views/components';
+
+@import '@{components}/description.less';
+@import '@{components}/header-page.less';
+@import '@{components}/header-section.less';
+@import '@{components}/header-subsection.less';
+@import '@{components}/link.less';
+
+#bibliography {
+
+  --arrow-width: 2.5rem;
+  --border:      var(--border-width) solid black;
+
+  align-self: center;
+  max-width:  var(--measure-wide);
+  padding:    var(--padding-main);
+
+  .abstract,
+  .notes,
+  {
+
+    margin-left:  calc(var(--arrow-width) + 1em);
+    margin-right: 1em;
+
+    &:nth-child(2) {
+      border-top: var(--border);
+      margin-top: 1em;
+    }
+
+    &:last-child {
+      border-bottom:  var(--border);
+      margin-bottom:  0.5em;
+      padding-bottom: 0.5em;
+    }
+
+    h4 {
+      .header-subsection;
+    }
+
+    > div {
+      .description;
+    }
+
+  }
+
+  a {
+    .link-light;
+  }
+
+  h2 {
+    .header-page;
+  }
+
+  h3 {
+    .header-section;
+    margin: 1rem 0rem;
+  }
+
+  .informational {
+    align-self: center;
+    padding:    var(--padding-text);
+  }
+
+  .ref {
+    margin-bottom: 0.5em;
+  }
+
+  summary {
+    display:     block;
+    margin-left: var(--arrow-width);
+    text-indent: calc(var(--arrow-width) * -1);
+  }
+
+}

@@ -1,0 +1,39 @@
+{{!-- HTML for the header section of the CV page --}}
+
+<header class=cv-header role=banner>
+
+  <img
+    alt='Danny Hieber sitting down smiling at camera'
+    height=500
+    id=headshot
+    src={{cdn}}/img/headshot.jpg
+    width=500>
+
+  <h1>Daniel W. Hieber</h1>
+
+  <p class=subtitle><span lang=en-fonipa-x-emic>{{ipaName}}</span></p>
+
+  <p class=subtitle>Ph.D. Candidate in Linguistics</p>
+
+  <p class=subtitle>University of California, Santa Barbara</p>
+
+  <address>
+
+    <p><a aria-label='Mailing address: dhieber@ucsb.edu' href=mailto:dhieber@ucsb.edu>dhieber@ucsb.edu</a></p>
+
+    <p><a href=https://danielhieber.com>www.danielhieber.com</a></p>
+
+    <div class=mailing-address>
+      <p>Department of Linguistics</p>
+      <p>University of California, Santa Barbara</p>
+      <p>South Hall 3432</p>
+      <p>Santa Barbara, CA 93106-3100</p>
+    </div>
+
+  </address>
+
+  <p class=last-updated><i>Last updated:</i> {{lastUpdated}}</p>
+
+  {{> cv/print/index }}
+
+</header>

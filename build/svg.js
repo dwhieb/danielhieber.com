@@ -23,7 +23,7 @@ const opts = {
   },
   svg: {
     dimensionAttributes: true,
-    rootAttributes: {
+    rootAttributes:      {
       style: `display: none;`,
     },
     xmlDeclaration: false,

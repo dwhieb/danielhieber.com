@@ -32,21 +32,21 @@
     "node": "10.x"
   },
   "scripts": {
-    "build": "npm run build-js & npm run build-css & npm run build-svg",
-    "build-css": "node build/less.js",
+    "build": "node build/index.js",
+    "build-css": "node build/css.js",
     "build-js": "node build/scripts.js",
     "build-svg": "node build/svg.js",
     "start": "node index.js",
     "upload": "node build/upload.js"
   },
   "dependencies": {
-    "applicationinsights": "^1.0.7",
+    "applicationinsights": "^1.0.8",
     "azure-storage": "^2.10.2",
     "body-parser": "^1.18.3",
-    "boom": "^7.2.2",
+    "boom": "^7.3.0",
     "cookie-parser": "^1.4.3",
     "csurf": "^1.9.0",
-    "documentdb": "^1.14.5",
+    "documentdb": "^1.15.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "feather-icons": "^4.9.0",
@@ -56,17 +56,20 @@
     "ling-ref": "^0.6.0",
     "markdown-it": "^8.4.2",
     "prince": "^1.5.1",
-    "superagent": "^3.8.3",
+    "superagent": "^4.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "eslint": "^5.9.0",
+    "eslint": "^5.10.0",
     "flexbox-reset": "^2.4.0",
     "js-yaml": "^3.12.0",
-    "less": "^3.8.1",
+    "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
+    "ora": "^3.0.0",
+    "recursive-readdir": "^2.2.2",
+    "rimraf": "^2.6.2",
     "svg-sprite": "^1.5.0"
   }
 }

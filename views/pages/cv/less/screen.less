@@ -1,0 +1,87 @@
+/**
+ * Screen-only styling for the CV page
+ */
+
+@import 'views/components/header-section.less';
+@import 'views/components/link.less';
+
+@import 'views/pages/cv/components/contents/contents.less';
+
+@media screen {
+
+  .achievements {
+    a {
+      .link-light;
+    }
+  }
+
+  #contents {
+    left:     0;
+    position: absolute;
+    top:      3.5rem;
+  }
+
+  #cv {
+    max-width: var(--measure-wide);
+    padding:   var(--padding-main);
+  }
+
+  .cv-item {
+    flex-direction: row;
+    margin-bottom:  0.75rem;
+  }
+
+  #teaching .cv-item {
+    flex-direction: column;
+  }
+
+  .date {
+    min-width: 10em;
+    width:     10em;
+  }
+
+  .full-link {
+    display: none;
+  }
+
+  // Styling for the Print / Download link
+  .print {
+    align-self: center;
+  }
+
+  @media (max-width: 699px) {
+
+    .cv-item {
+      flex-direction: column;
+    }
+
+    .cv-item:not(:last-child)::after {
+      align-self:       center;
+      background-color: #DDD;
+      content:          '';
+      // for some reason, using rem results in variable heights here
+      // stylelint-disable-next-line unit-blacklist
+      height:           1px;
+      margin:           0.5rem 0rem;
+      width:            90%;
+    }
+
+    .cv-item-content {
+      margin-left: 1em;
+    }
+
+  }
+
+  @media (min-width: 700px) {
+    #cv {
+      align-self: center;
+    }
+  }
+
+  @media (max-width: 999px) {
+    #contents {
+      display: none;
+    }
+  }
+
+}

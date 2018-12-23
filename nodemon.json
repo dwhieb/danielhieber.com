@@ -5,7 +5,7 @@
   },
 
   "events": {
-    "restart": ""
+    "restart": "npm run build-css"
   },
 
   "exec": "node --inspect index.js",

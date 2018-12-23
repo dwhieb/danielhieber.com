@@ -1,0 +1,79 @@
+/**
+ * Styling for the header section of the CV page
+ */
+
+:root {
+  --font-size-banner: calc(2.5rem + 0.25vw);
+}
+
+.cv-header {
+
+  margin-bottom: 0.5em;
+  text-align:    center;
+
+  h1 {
+    font-size: var(--font-size-banner);
+  }
+
+}
+
+.mailing-address {
+  margin: 1em 0em;
+}
+
+@media screen {
+
+  .cv-header {
+    a {
+      font-weight: var(--font-weight);
+    }
+  }
+
+  #headshot {
+    border-radius: var(--border-radius);
+    box-shadow:    0rem 0rem 0.225rem black;
+    height:        10rem;
+    margin:        1rem;
+    width:         10rem;
+    z-index:       1;
+  }
+
+  @media (max-width: 1199px) {
+    #headshot {
+      align-self: center;
+    }
+  }
+
+  @media (min-width: 1200px) {
+
+    .cv-header {
+
+      position: relative;
+
+      h1 {
+        margin-top: 0.5em;
+      }
+
+    }
+
+    #headshot {
+      position: absolute;
+      right:    0;
+      top:      0;
+    }
+
+  }
+
+}
+
+@media print {
+
+  .cv-header {
+    page-break-inside: avoid;
+  }
+
+  #headshot {
+    display: none;
+  }
+
+}

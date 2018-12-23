@@ -1,0 +1,31 @@
+{{!-- HTML for the Teaching page --}}
+
+{{#head 'teaching'}}
+  <link rel=stylesheet href={{cdn}}/css/teaching.css>
+{{/head}}
+
+<main id={{id}}>
+
+  <h2 class=header-page>Teaching</h2>
+
+  <section class=courses>
+
+    <h2 class=header-section>Courses Taught</h2>
+
+    <ul>
+      {{#each courses}}
+        <li>
+
+          <h3 class=header-subsection>{{{title}}}{{#if role}} ({{role}}){{/if}}</h3>
+
+          <div class=description>
+            {{md description}}
+          </div>
+
+        </li>
+      {{/each}}
+    </ul>
+
+  </section>
+
+</main>

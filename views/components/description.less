@@ -1,0 +1,45 @@
+@import 'bulleted.less';
+@import 'link.less';
+
+.description {
+
+  --quote-width: -0.25em;
+
+  a {
+    .link-light;
+  }
+
+  blockquote {
+    background-color: var(--light-gray);
+    border-radius:    var(--border-radius);
+    font-size:        0.9em;
+    margin:           1em;
+    padding:          var(--padding-wide);
+    quotes:           '“' '”' '‘' '’';
+
+    &::before {
+      content:      open-quote;
+      margin-right: var(--quote-width);
+    }
+
+    &::after {
+      content:     close-quote;
+      margin-left: var(--quote-width);
+    }
+
+  }
+
+  dfn {
+    font-style: italic;
+  }
+
+  ol, ul {
+    .bulleted;
+  }
+
+  p {
+    display:        inline;
+    padding-bottom: 0.5em;
+  }
+
+}

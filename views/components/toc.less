@@ -1,0 +1,23 @@
+/* Styling for pages that consist only of a header and a list of links */
+
+@import 'header-page.less';
+@import 'link.less';
+
+.toc {
+
+  align-items: center;
+  padding:     var(--padding-box);
+
+  ul {
+    list-style: disc outside none;
+  }
+
+  li {
+    display: list-item;
+  }
+
+  a {
+    .link;
+  }
+
+}

@@ -1,7 +1,7 @@
 - [ ] Create issue branch from `master`
 - [ ] Switch to latest version of Node supported by Azure Web Apps: `nvm use X.X.X`
 - [ ] Update Node engine in `package.json`
-- [ ] Update npm packages
+- [ ] Update npm packages: `npm outdated`
 - [ ] Develop on issue branch
 - [ ] Build: `npm run build`
 - [ ] Test changes locally

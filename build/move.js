@@ -1,5 +1,5 @@
 /**
- * This build script moves offline-worker.js from the /js folder to the root of the /public folder, and deletes the original. THaving the file here makes it easier to work with file paths in the service worker.
+ * This build script moves offline-worker.js from the /js folder to the root of the /public folder, and deletes the original. Having the file here makes it easier to work with file paths in the service worker.
  */
 
 const { copyFile, stat, unlink } = require('fs');

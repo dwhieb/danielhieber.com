@@ -1,0 +1,39 @@
+/* Styling for the site's main banner (doesn't include the nav) */
+
+#header {
+
+  align-items: stretch;
+  overflow:    hidden;
+  padding:     2em 1em;
+  position:    relative;
+
+  * {
+    text-align: center;
+  }
+
+  [lang*=fonipa] {
+    margin-bottom: -0.125em;
+  }
+
+  h1 {
+    font-size: var(--font-size-banner);
+  }
+
+}
+
+#gallery {
+  left:       0;
+  min-height: 100%;
+  min-width:  100%;
+  opacity:    0.2;
+  position:   absolute;
+  top:        0;
+  transform:  translateY(-25%);
+  transition: opacity 0.5s;
+  width:      100%;
+  z-index:    -1;
+}
+
+.subtitle {
+  font-size: var(--font-size-large);
+}

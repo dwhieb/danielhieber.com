@@ -1,0 +1,26 @@
+@import 'button.less';
+@import 'buttons.less';
+
+.list {
+
+  button {
+    .button;
+  }
+
+  .buttons {
+    .buttons;
+  }
+
+  li {
+    padding: var(--padding-text);
+  }
+
+  li:not(:last-child) {
+    border-bottom: var(--border-width) solid #CCC;
+  }
+
+  li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+}

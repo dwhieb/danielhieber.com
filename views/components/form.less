@@ -1,0 +1,50 @@
+@import 'button.less';
+
+.form {
+
+  padding: 0.5em;
+
+  > label, fieldset {
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    .button;
+    margin: 0.5em;
+  }
+
+  fieldset {
+
+    li {
+      align-items:     center;
+      flex-direction:  row;
+      justify-content: space-between;
+    }
+
+  }
+
+  input[type=checkbox] {
+    margin: 0.25em;
+  }
+
+  input[type=date],
+  input[type=email],
+  input[type=number],
+  input[type=tel],
+  input[type=text],
+  input[type=url],
+  textarea
+  {
+    border:        var(--border-width) solid #CCC;
+    border-radius: var(--border-radius);
+    box-shadow:    inset 0em 0.025em 0.075em #DDD;
+    flex:          1;
+    margin:        0.25em;
+    padding:       var(--padding-text);
+  }
+
+  legend {
+    font-weight: var(--font-weight-bold);
+  }
+
+}
