@@ -2,12 +2,19 @@
  * Styling for the CV page (print and screen)
  */
 
-@import (reference) 'less/classes.less';
-@import (reference) 'less/components/index.less';
+@import 'views/components/bulleted.less';
+@import 'views/components/description.less';
+@import 'views/components/header-section.less';
+@import 'views/components/header-subsection.less';
+@import 'views/components/link.less';
+@import 'views/components/unicode.less';
 
-.bulleted {
-  .bulleted;
-}
+@import 'views/pages/cv/components/header/header.less';
+@import 'views/pages/cv/components/header-section/header-section.less';
+@import 'views/pages/cv/components/languages/languages.less';
+@import 'views/pages/cv/components/proficiencies/proficiencies.less';
+@import 'views/pages/cv/components/publications/publications.less';
+@import 'views/pages/cv/components/references/references.less';
 
 .cv-item-title {
   a {
@@ -18,16 +25,4 @@
 .date {
   display:     block;
   white-space: nowrap;
-}
-
-.description {
-  .description;
-}
-
-.header-subsection {
-  .header-subsection;
-}
-
-.unicode {
-  .unicode;
 }

@@ -78,9 +78,27 @@
 
   }
 
+  p a:not(.non-link) {
+    font-weight: bold;
+  }
+
+  .achievements a:not(.non-link) {
+    font-weight: normal;
+  }
+
   body {
     font-family: @font;
     font-size:   @font-size;
+  }
+
+  .achievements a {
+    font-weight: normal;
+  }
+
+  .cv-header {
+    h1 {
+      font-size: @font-size-banner;
+    }
   }
 
   .cv-item {
@@ -89,6 +107,12 @@
     margin-bottom:     6pt;
     page-break-inside: avoid;
     position:          relative;
+  }
+
+  .cv-item-title {
+    a {
+      font-weight: bold;
+    }
   }
 
   .date {
@@ -102,12 +126,20 @@
     width:       5.25in;
   }
 
+  .doi {
+    a:not(.non-link) {
+      font-weight: normal;
+    }
+  }
+
   #footer {
     display: none;
   }
 
-  .header-banner {
-    font-size: @font-size-banner;
+  .full-link {
+    a:not(.non-link) {
+      font-weight: normal;
+    }
   }
 
   .header-section {
@@ -115,7 +147,13 @@
   }
 
   .header-subsection {
+
     font-size: @font-size-large;
+
+    a:not(.non-link) {
+      font-weight: bold;
+    }
+
   }
 
   [lang$=emic]::before {

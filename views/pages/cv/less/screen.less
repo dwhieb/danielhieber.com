@@ -2,14 +2,12 @@
  * Screen-only styling for the CV page
  */
 
-@import (reference) 'less/components/index.less';
+@import 'views/components/header-section.less';
+@import 'views/components/link.less';
+
+@import 'views/pages/cv/components/contents/contents.less';
 
 @media screen {
-
-  // Redefine variables for CV page
-  :root {
-    --font-size-banner: calc(2.5rem + 0.25vw);
-  }
 
   .achievements {
     a {
@@ -26,15 +24,6 @@
   #cv {
     max-width: var(--measure-wide);
     padding:   var(--padding-main);
-
-    .header-banner {
-      .header-banner;
-    }
-
-    .header-section {
-      .header-section;
-    }
-
   }
 
   .cv-item {
