@@ -24,26 +24,38 @@ const cleaner     = new Cleaner();
 const CSSDir      = path.join(__dirname, `../public/css`);
 const mainCSSFile = path.join(__dirname, `../views/layouts/main/main.less`);
 const pagesDir    = path.join(__dirname, `../views/pages`);
+const partialsDir = path.join(__dirname, `../views/partials`);
 const removeDir   = promisify(rimraf);
 
 // METHODS
 
 async function buildCSS() {
 
-  const spinner = createSpinner(`Converting LESS files`);
+  const spinner = createSpinner(`Compiling CSS files`);
   spinner.start();
 
   try {
+
+    // Clean the /css directory
     await removeDir(CSSDir);
     await mkdir(CSSDir);
+
+    // Convert CSS for the main layout
     await convertFile(mainCSSFile);
-    const files = await recurse(pagesDir, [ignore]);
-    await Promise.all(files.map(convertFile));
+
+    // Convert CSS for partials
+    const partialsFiles = await recurse(partialsDir, [ignore]);
+    await Promise.all(partialsFiles.map(convertFile));
+
+    // Convert CSS for individual pages
+    const pageFiles = await recurse(pagesDir, [ignore]);
+    await Promise.all(pageFiles.map(convertFile));
+
   } catch (e) {
     return spinner.fail(e.message);
   }
 
-  spinner.succeed(`LESS files converted`);
+  spinner.succeed(`CSS files compiled`);
 
 }
 

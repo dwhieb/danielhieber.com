@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "node build/index.js",
-    "build-css": "node build/less.js",
+    "build-css": "node build/css.js",
     "build-js": "node build/scripts.js",
     "build-svg": "node build/svg.js",
     "start": "node index.js",

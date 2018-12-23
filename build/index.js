@@ -1,3 +1,3 @@
-const buildLESS = require(`./less`);
+const buildCSS = require(`./css`);
 
-buildLESS();
+buildCSS();
