@@ -66,9 +66,8 @@ const config = {
     or,
     section,
   },
-  layoutsDir:  `views/layouts`,
   partialsDir: [
-    `views/components`,
+    `views/partials`,
     {
       dir:       `views/pages/cv/components`,
       namespace: `cv`,
