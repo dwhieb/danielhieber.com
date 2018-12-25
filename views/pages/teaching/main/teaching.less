@@ -4,11 +4,21 @@
 @import 'views/components/header-subsection.less';
 
 #teaching {
+
   align-self: center;
   max-width:  var(--measure);
   padding:    var(--padding-main);
-}
 
-.courses > ul > li {
-  padding: var(--padding-text);
+  section:not(:first-of-type) {
+    padding-top: 1em;
+  }
+
+  section > ul > li {
+    padding: var(--padding-text);
+  }
+
+  .syllabi > p {
+    padding: 1em 0.5em 0em;
+  }
+
 }

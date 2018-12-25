@@ -68,6 +68,7 @@ const config = {
   },
   partialsDir: [
     `views/partials`,
+    `views/pages`,
     {
       dir:       `views/pages/cv/components`,
       namespace: `cv`,
