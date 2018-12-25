@@ -2,11 +2,11 @@
  * POST handler for the CV Editor page
  */
 
-const { catchError } = require('../../../../utilities');
-const { db }         = require('../../../../services');
+const { catchError } = require('../../../../../utilities');
+const { db }         = require('../../../../../services');
 const { Document }   = require('../models');
 const { promisify }  = require('util');
-const { CVTypes }    = require('../../../../constants');
+const { CVTypes }    = require('../../../../../constants');
 
 module.exports = async (req, res, next) => {
 

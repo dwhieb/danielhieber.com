@@ -1,3 +1,9 @@
-const handlers = require(`./handlers`);
+const bibliographies = require(`./bibliographies`);
+const cv             = require(`./cv`);
+const main           = require(`./main`);
 
-module.exports = handlers;
+module.exports = {
+  bibliographies,
+  cv,
+  main,
+};

@@ -2,8 +2,8 @@
  * GET handler for the Teaching page
  */
 
-const { compare } = require(`../../../../utilities`);
-const { db }      = require(`../../../../services`);
+const { compare } = require(`../../../../../utilities`);
+const { db }      = require(`../../../../../services`);
 
 module.exports = async (req, res) => {
 
@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
 
   courses.sort((a, b) => compare(a.title, b.title));
 
-  res.render(`teaching`, {
+  res.render(`teaching/main`, {
     courses,
     id:        `teaching`,
     pageTitle: `Teaching`,

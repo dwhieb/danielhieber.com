@@ -1,3 +1,7 @@
-const handlers = require(`./handlers`);
+const langLife = require(`./lang-life`);
+const main     = require(`./main`);
 
-module.exports = handlers;
+module.exports = {
+  langLife,
+  main,
+};

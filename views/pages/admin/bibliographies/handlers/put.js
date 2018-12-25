@@ -1,6 +1,6 @@
 const { Bibliography } = require('../lib');
-const { catchError }   = require('../../../../utilities');
-const { db }           = require('../../../../services');
+const { catchError }   = require('../../../../../utilities');
+const { db }           = require('../../../../../services');
 const deleteHandler    = require('./delete');
 
 module.exports = async (req, res, next) => {

@@ -6,14 +6,14 @@
   max-statements,
 */
 
-const { catchError }     = require('../../../../utilities');
-const { db }             = require('../../../../services');
+const { catchError }     = require('../../../../../utilities');
+const { db }             = require('../../../../../services');
 const deleteHandler      = require('./delete');
 const deleteFileHandler  = require('./deleteFile');
 const { Document }       = require('../models');
 const getHandler         = require('./get');
 const { promisify }      = require('util');
-const { CVTypes }        = require('../../../../constants');
+const { CVTypes }        = require('../../../../../constants');
 const uploadFileHandler  = require('./postFile');
 
 module.exports = async (req, res, next) => {

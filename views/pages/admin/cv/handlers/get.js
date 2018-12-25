@@ -8,15 +8,15 @@
   no-underscore-dangle,
 */
 
-const { db }        = require('../../../../services');
+const { db }        = require('../../../../../services');
 const { promisify } = require('util');
-const { CVTypes }   = require('../../../../constants');
+const { CVTypes }   = require('../../../../../constants');
 
 const {
   capitalize,
   catchError,
   compare,
-} = require('../../../../utilities');
+} = require('../../../../../utilities');
 
 const typesWithCategories = [
   `award`,

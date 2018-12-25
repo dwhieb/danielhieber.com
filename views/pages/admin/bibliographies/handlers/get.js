@@ -3,8 +3,8 @@
  * Handles GET requests to both collection and item
  */
 
-const { compare } = require('../../../../utilities');
-const { db }      = require('../../../../services');
+const { compare } = require('../../../../../utilities');
+const { db }      = require('../../../../../services');
 
 module.exports = async (req, res) => {
 
